@@ -2,4 +2,4 @@ Router.configure({
     layoutTemplate: 'layout'
 });
 
-Router.route('/', { name: 'workoutsList' });
+Router.route('/', { name: 'home' });

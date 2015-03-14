@@ -1,5 +1,15 @@
 <template name="layout">
     <div id="main-container">
-        {{> yield}}
+        <header id="header-container">
+            <nav>
+                <a href="/">Home</a>
+            </nav>
+        </header>
+        <section id="page-container">
+            {{> yield}}
+        </section>
+        <footer id="footer-container">
+            footer
+        </footer>
     </div>
 </template>
