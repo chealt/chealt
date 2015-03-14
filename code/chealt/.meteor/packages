@@ -8,3 +8,4 @@ meteor-platform
 twbs:bootstrap
 fourseven:scss
 accounts-ui-unstyled
+iron:router
