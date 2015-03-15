@@ -15,3 +15,5 @@ Router.route('/workouts/:_id', {
         return Workouts.findOne(this.params._id);
     }
 });
+
+Router.onBeforeAction('dataNotFound', { only: 'workoutItem' });
