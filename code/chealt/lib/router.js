@@ -1,5 +1,9 @@
 Router.configure({
-    layoutTemplate: 'layout'
+    layoutTemplate: 'layout',
+    loadingTemplate: 'loading',
+    waitOn: function () {
+        return Meteor.subscribe('workouts');
+    }
 });
 
 Router.route('/', { name: 'home' });
