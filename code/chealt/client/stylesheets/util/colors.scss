@@ -7,10 +7,10 @@
 
 @mixin secondary-bg {
     background-color: $secondary-color;
-    color: #fff;
+    color: $gray-1-color;
 }
 
 @mixin gray-1-bg {
     background-color: $gray-1-color;
-    color: #fff;
+    color: $gray-1-font-color;
 }

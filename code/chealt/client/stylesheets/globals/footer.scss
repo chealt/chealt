@@ -3,4 +3,7 @@
 #footer-container {
     @include gray-1-bg;
     padding: 12px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
 }

@@ -1,0 +1,18 @@
+@import "../util/colors.scss";
+
+html, body {
+    height: 100%;
+}
+
+body {
+    @include secondary-bg;
+}
+
+#main-container {
+    position: relative;
+    min-height: 100%;
+}
+
+#page-container {
+    padding: 24px;
+}
