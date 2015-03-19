@@ -1,0 +1,16 @@
+@import "../util/variables.scss";
+
+@mixin primary-bg {
+    background-color: $primary-color;
+    color: #fff;
+}
+
+@mixin secondary-bg {
+    background-color: $secondary-color;
+    color: #fff;
+}
+
+@mixin gray-1-bg {
+    background-color: $gray-1-color;
+    color: #fff;
+}

@@ -1,0 +1,6 @@
+@import "../util/colors.scss";
+
+#footer-container {
+    @include gray-1-bg;
+    padding: 12px;
+}

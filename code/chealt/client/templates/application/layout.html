@@ -1,15 +1,18 @@
 <template name="layout">
     <div id="main-container">
         <header id="header-container">
-            <nav>
-                <a href="/">Home</a>
+            <nav id="main-header-nav">
+                <ul class="nav-list">
+                    <li class="nav-item"><a class="nav-link" href="{{pathFor 'home'}}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{pathFor 'workoutsList'}}">Workouts</a></li>
+                </ul>
             </nav>
         </header>
         <section id="page-container">
             {{> yield}}
         </section>
         <footer id="footer-container">
-            footer
+            &copy;footer
         </footer>
     </div>
 </template>

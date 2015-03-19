@@ -1,0 +1,28 @@
+@import "../util/colors.scss";
+@import "../util/typography.scss";
+
+#main-header-nav {
+    .nav-list {
+        @include primary-bg;
+        overflow: hidden;
+        list-style-type: none;
+    }
+
+    .nav-item {
+        float: left;
+    }
+
+    .nav-item:hover,
+    .nav-item:active,
+    .nav-item.active {
+        @include secondary-bg;
+    }
+
+    .nav-link {
+        @include font-m2;
+        display: block;
+        padding: 8px 20px;
+        color: #fff;
+        text-decoration: none;
+    }
+}
