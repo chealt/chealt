@@ -1,7 +1,10 @@
 @import "../util/colors.scss";
 @import "../util/typography.scss";
+@import "../util/shadows.scss";
 
 #main-header-nav {
+    @include small-bottom-shadow;
+
     .nav-list {
         @include primary-bg;
         overflow: hidden;
@@ -15,7 +18,7 @@
     .nav-item:hover,
     .nav-item:active,
     .nav-item.active {
-        @include secondary-bg;
+        @include primary-active-bg;
     }
 
     .nav-link {

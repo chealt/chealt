@@ -5,6 +5,11 @@
     color: #fff;
 }
 
+@mixin primary-active-bg {
+    background-color: $primary-active-color;
+    color: $gray-1-color;
+}
+
 @mixin secondary-bg {
     background-color: $secondary-color;
     color: $gray-1-color;
