@@ -4,15 +4,20 @@
 
 #main-header-nav {
     @include small-bottom-shadow;
+    @include primary-bg;
+    overflow: hidden;
 
     .nav-list {
-        @include primary-bg;
         overflow: hidden;
         list-style-type: none;
+        float: left;
     }
 
     .nav-item {
+        @include font-m2;
+        padding: 8px 20px;
         float: left;
+        cursor: pointer;
     }
 
     .nav-item:hover,
@@ -22,10 +27,13 @@
     }
 
     .nav-link {
-        @include font-m2;
         display: block;
-        padding: 8px 20px;
         text-decoration: none;
         color: inherit;
+        font: inherit;
+    }
+
+    #login-container {
+        float: right;
     }
 }
