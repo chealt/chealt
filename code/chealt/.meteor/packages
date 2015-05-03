@@ -6,7 +6,9 @@
 
 meteor-platform
 fourseven:scss
-accounts-ui-unstyled
 iron:router
 aldeed:collection2
 sacha:spin
+accounts-base
+accounts-google
+accounts-facebook
