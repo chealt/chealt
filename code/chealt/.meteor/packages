@@ -12,3 +12,10 @@ sacha:spin
 accounts-base
 accounts-google
 accounts-facebook
+twbs:bootstrap
+service-configuration
+msavin:mongol
+tanis:bootstrap-social
+fortawesome:fontawesome
+http
+percolate:google-api

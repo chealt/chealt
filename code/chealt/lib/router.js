@@ -8,6 +8,7 @@ Router.configure({
 });
 
 Router.route('/', { name: 'home' });
+Router.route('/login', { name: 'loginPage' });
 Router.route('/workouts', { name: 'workoutsList' });
 Router.route('/workouts/:_id', {
     name: 'workoutItem',

@@ -6,9 +6,13 @@
                     <li class="nav-item"><a class="nav-link" href="{{pathFor 'home'}}">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{pathFor 'workoutsList'}}">Workouts</a></li>
                 </ul>
-                {{#unless currentUser}}
-                <div id="login-container" class="nav-item">Login</div>
-                {{/unless}}
+                <div id="profile-container" class="nav-item">
+                    {{#if currentUser}}
+                    <a id="logout" class="nav-link">Sign out</a>
+                    {{else}}
+                    <a class="nav-link" href="{{pathFor 'loginPage'}}">Sign in</a>
+                    {{/if}}
+                </div>
             </nav>
         </header>
         <section id="page-container">
