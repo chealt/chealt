@@ -19,3 +19,4 @@ tanis:bootstrap-social
 fortawesome:fontawesome
 http
 percolate:google-api
+tap:i18n
