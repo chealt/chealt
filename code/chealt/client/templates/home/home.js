@@ -1,6 +1,13 @@
+/* globals WorkoutTypes, Session */
 Template.layout.events({
     'click #logout': function () {
         Meteor.logout();
+    }
+});
+
+Template.home.helpers({
+    'suggestions': function () {
+        return Session.get('suggestions');
     }
 });
 
@@ -10,41 +17,40 @@ Template.home.events({
     }
 });
 
-var suggestionTimer;
-var searchableCollections = [
+var suggestionTimer,
+    searchableCollections = [
         { collection: WorkoutTypes }
     ],
-    words;
+    suggestions = {
+        inputWords: [],
+        matchingItems: []
+    };
 
 function setSuggestionTimer(inputValue) {
     clearTimeout(suggestionTimer);
-    //suggestionTimer = setTimeout(suggestCollectionItem.bind(null, inputValue, searchableCollections[0]), 300);
     suggestionTimer = setTimeout(suggest.bind(null, inputValue), 300);
 }
 
 function suggest(inputValue) {
-    setWords(inputValue);
-    console.log(words);
+    suggestions.inputWords = inputValue.split(' ') || [];
+    suggestFromCollections();
+    Session.set('suggestions', suggestions.matchingItems);
 }
 
-function setWords(inputValue) {
-    words = [];
-    inputValue.split(' ').forEach(function (inputWord) {
-        words.push({
-            value: inputWord,
-            suggestion: null
+function suggestFromCollections() {
+    suggestions.matchingItems = [];
+
+    searchableCollections.forEach(function (collection) {
+        suggestions.inputWords.forEach(function (word) {
+            var matcherResults = suggestCollectionItem(word, collection);
+            
+            if (matcherResults) {
+                suggestions.matchingItems.push(matcherResults);
+            }
         });
     });
 }
 
 function suggestCollectionItem(needle, collectionObject) {
-    var matchingItems = [];
-
-    collectionObject.collection.find().forEach(function (collectionItem) {
-        if (needle.indexOf(collectionItem.name) !== -1) {
-            matchingItems.push(collectionItem);
-        }
-    });
-
-    console.log(matchingItems);
+    return collectionObject.collection.findOne({ name: needle });
 }

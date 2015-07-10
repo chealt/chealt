@@ -1,3 +1,8 @@
 <template name="home">
     <input id="todaysWorkout" class="mainInput" type="text" name="workout" placeholder="{{_ 'workout.todaysWorkout.placeholder'}}" />
+    <ul id="todaysWorkoutSuggestions" class="suggestionsContainer">
+        {{#each suggestions}}
+        <li>{{name}}</li>
+        {{/each}}
+    </ul>
 </template>
