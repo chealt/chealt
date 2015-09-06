@@ -56,3 +56,9 @@
 * Show events schedule.
 * Show comments.
 * Show blog entries.
+
+## Profile page
+* Show schedule.
+* Show profile information.
+* Show user feed.
+* Show dashboard with statistics.
