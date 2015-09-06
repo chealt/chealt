@@ -36,3 +36,14 @@
 * Set favourite sport.
 * Set favourite place.
 * Set favourite professionals.
+* Set language.
+
+## Event page
+* Show video.
+* Show description.
+* Show language(s).
+* Show photos.
+* Show on map.
+* Show schedule (reoccuring events).
+* Show comments.
+* Show reviews.
