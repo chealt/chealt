@@ -47,3 +47,12 @@
 * Show schedule (reoccuring events).
 * Show comments.
 * Show reviews.
+
+## Group page
+* Show description.
+* Show video.
+* Show pictures.
+* Show users, professionals.
+* Show events schedule.
+* Show comments.
+* Show blog entries.
