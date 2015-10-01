@@ -1,0 +1,1 @@
+React.render(<Login />, document.getElementById('wrapper'));
