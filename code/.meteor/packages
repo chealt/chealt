@@ -21,3 +21,11 @@ check
 react
 kadira:flow-router
 kadira:react-layout
+react-template-helper
+poetic:react-material-ui
+meteorhacks:npm
+
+
+npm-container
+cosmos:browserify
+fourseven:scss
