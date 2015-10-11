@@ -4,7 +4,11 @@ DrawerOpener = React.createClass({
     },
     render() {
         return (
-            <div className="drawer" htmlFor={this.props.id}>Drawer opener</div>
+            <button
+                onClick={this.props.toggleDrawer}
+                className="drawer" htmlFor={this.props.id}>
+                Drawer opener
+            </button>
         );
     }
 });

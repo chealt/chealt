@@ -1,0 +1,12 @@
+.side-drawer {
+    position: absolute;
+    top: 0;
+    left: -200px;
+    width: 200px;
+    transition: left 1s ease;
+    background-color: #fff;
+
+    &.open {
+        left: 0;
+    }
+}
