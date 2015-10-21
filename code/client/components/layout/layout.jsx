@@ -15,14 +15,16 @@ Layout = React.createClass({
             ];
 
         return (
-            <div id="wrapper">
+            <div id='wrapper'>
                 <Drawer
-                    id="app-side-drawer"
+                    id='app-side-drawer'
                     items={drawerItems}
                     isDrawerOpen={this.state.isDrawerOpen}
                     toggleDrawer={this.toggleDrawer} />
                 <Header toggleDrawer={this.toggleDrawer} />
-                {this.props.content}
+                <div className='content-container'>
+                    {this.props.content}
+                </div>
                 {this.props.footer}
             </div>
         );

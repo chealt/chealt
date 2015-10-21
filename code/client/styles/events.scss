@@ -1,0 +1,23 @@
+.event {
+    .content-header {
+        > div {
+            padding: 12px;
+        }
+
+        .start {
+            text-align: right;
+        }
+
+        .end {
+            text-align: left;
+        }
+
+        .clock {
+            margin: 0 8px;
+        }
+    }
+
+    .guests-container {
+        padding: 12px;
+    }
+}

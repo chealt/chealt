@@ -4,21 +4,28 @@ Event = React.createClass({
     },
     render() {
         return (
-            <div className="card">
-                <h2 className="title separated">{this.props.event.name}</h2>
-                <div className="content-header">
-                    <div className="host">{this.props.event.host}</div>
-                    <div className="time-container">
-                        <div className="start">
+            <div className='card event'>
+                <h2 className='title separated'>{this.props.event.name}</h2>
+                <div className='content-header row equal'>
+                    <div className='host'>
+                        <Icon type='user' position='before' />
+                        <span className='text'>host: {this.props.event.host}</span>
+                    </div>
+                    <div className='time-container row equal'>
+                        <div className='start'>
                             <FormatTime date={this.props.event.start} />
                         </div>
-                        <div className="end">
+                        <Icon type='clock3' additionalClasses='clock' />
+                        <div className='end'>
                             <FormatTime date={this.props.event.end} />
                         </div>
                     </div>
-                    <div className="location">{this.props.event.location}</div>
+                    <div className='location'>
+                        <Icon type='earth2' position='before' />
+                        {this.props.event.location}
+                    </div>
                 </div>
-                <div className="guests-container">
+                <div className='guests-container'>
                     <ul>
                         {this.props.event.guests.map(function (guest) {
                             return <li key={guest.name}>{guest.name}</li>;

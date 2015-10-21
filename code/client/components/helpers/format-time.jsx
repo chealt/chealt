@@ -5,7 +5,7 @@ FormatTime = React.createClass({
             formattedTime = paddedHours.substr(-2) + ':' + paddedMinutes.substr(-2);
 
         return (
-            <span>{formattedTime}</span>
+            <span className='time formatted'>{formattedTime}</span>
         );
     }
 });

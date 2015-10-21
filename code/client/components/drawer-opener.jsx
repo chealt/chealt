@@ -6,8 +6,8 @@ DrawerOpener = React.createClass({
         return (
             <button
                 onClick={this.props.toggleDrawer}
-                className="drawer" htmlFor={this.props.id}>
-                Drawer opener
+                className='drawer-opener' htmlFor={this.props.id}>
+                <Icon type='menu' />
             </button>
         );
     }
