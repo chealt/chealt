@@ -1,11 +1,16 @@
 Login = React.createClass({
-    mixins: [ReactMeteorData],
-    getMeteorData() {
-        return {
-            currentUser: Meteor.user()
-        };
+    login() {
+        Meteor.loginWithGoogle({
+            requestPermissions: ['email', 'profile', 'https://www.googleapis.com/auth/fitness.activity.read']
+        });
     },
     render() {
-        return <span>Hello {this.data.currentUser.username}!</span>;
+        return (
+            <button
+                className='google-login button-main upper'
+                onClick={this.login} >
+                google
+            </button>
+        );
     }
 });

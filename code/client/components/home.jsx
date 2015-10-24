@@ -3,7 +3,7 @@ Home = React.createClass({
     getMeteorData() {
         return {
             events: Events.find({}).fetch()
-        }
+        };
     },
     renderEvents() {
         return this.data.events.map((event) => {
