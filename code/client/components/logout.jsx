@@ -4,11 +4,10 @@ Logout = React.createClass({
     },
     render() {
         return (
-            <button
-                className='logout button-main upper'
-                onClick={this.logout} >
-                logout
-            </button>
+            <MainButton
+                action={this.logout}
+                text='logout'
+                additionalClasses='logout upper' />
         );
     }
 });

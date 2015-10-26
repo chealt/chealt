@@ -8,7 +8,10 @@ Meteor.publish('userData', function () {
             { _id: this.userId },
             {
                 fields: {
-                    'services': 1
+                    'services.google.name': 1,
+                    'services.google.email': 1,
+                    'services.google.picture': 1,
+                    'profile': 1
                 }
             }
         );

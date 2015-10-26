@@ -10,9 +10,16 @@ Layout = React.createClass({
         });
     },
     render() {
-        var drawerItems = [
-                { key: 0, name: 'Home' }
-            ];
+        let contentContainerClasses = 'content-container';
+        const drawerItems = [
+            { key: 0, name: 'Chealt' },
+            { key: 1, name: 'Events' },
+            { key: 2, name: 'Profile' }
+        ];
+
+        if (this.state.isDrawerOpen) {
+            contentContainerClasses += ' background';
+        }
 
         return (
             <div id='wrapper'>
@@ -21,8 +28,8 @@ Layout = React.createClass({
                     items={drawerItems}
                     isDrawerOpen={this.state.isDrawerOpen}
                     toggleDrawer={this.toggleDrawer} />
-                <Header toggleDrawer={this.toggleDrawer} />
-                <div className='content-container'>
+                <div className={contentContainerClasses}>
+                    <Header toggleDrawer={this.toggleDrawer} />
                     {this.props.content}
                 </div>
                 {this.props.footer}

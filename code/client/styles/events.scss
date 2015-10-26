@@ -19,5 +19,22 @@
 
     .guests-container {
         padding: 12px;
+
+        .guests {
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 12px;
+            font-size: 0;
+        }
+
+        .guest {
+            display: inline-block;
+            margin-right: 12px;
+            font-size: 0;
+        }
+
+        .RSVP {
+            margin-left: 0;
+        }
     }
 }

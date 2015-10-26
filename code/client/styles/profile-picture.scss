@@ -1,8 +1,24 @@
+@import 'import/variables';
+
 .profile-picture {
+    position: relative;
+    display: inline-block;
     width: 32px;
     height: 32px;
-    display: inline-block;
-    background-size: 32px 32px;
+    line-height: 32px;
+    text-align: center;
+    overflow: hidden;
+    background-color: $color-dark-neutral-background;
     border-radius: 50%;
-    vertical-align: middle;
+
+    .picture,
+    .initial {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 32px;
+        height: 32px;
+        background-size: 32px 32px;
+        font-size: 14px;
+    }
 }

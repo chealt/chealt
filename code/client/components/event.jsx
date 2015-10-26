@@ -2,6 +2,46 @@ Event = React.createClass({
     propTypes: {
         event: React.PropTypes.object.isRequired
     },
+    isAttending() {
+        return this.props.event.guests.some((guest) => {
+            return guest.user._id === Meteor.userId();
+        });
+    },
+    attend() {
+        Meteor.call('attendEvent', this.props.event._id);
+    },
+    unattend() {
+        Meteor.call('unattendEvent', this.props.event._id);
+    },
+    attendButton() {
+        const isAttending = this.isAttending();
+        const buttonAction = isAttending ? this.unattend : this.attend;
+        const buttonText = isAttending ? 'unattend' : 'attend';
+        const buttonClasses = isAttending ? 'unattend RSVP upper' : 'attend RSVP upper';
+
+        return (
+            <MainButton
+                action={buttonAction}
+                text={buttonText}
+                additionalClasses={buttonClasses} />
+        );
+    },
+    guests() {
+        if (this.props.event.guests.length) {
+            return (
+                <ul className='guests'>
+                    {this.props.event.guests.map((guest) => {
+                        return (
+                            <li className='guest' key={guest.user._id}>
+                                <ProfilePicture
+                                    user={guest.user} />
+                            </li>
+                        );
+                    })}
+                </ul>
+            );
+        }
+    },
     render() {
         return (
             <div className='card event'>
@@ -26,11 +66,8 @@ Event = React.createClass({
                     </div>
                 </div>
                 <div className='guests-container'>
-                    <ul>
-                        {this.props.event.guests.map(function (guest) {
-                            return <li key={guest.name}>{guest.name}</li>;
-                        })}
-                    </ul>
+                    {this.guests()}
+                    {this.attendButton()}
                 </div>
             </div>
         );

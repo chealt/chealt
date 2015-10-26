@@ -1,5 +1,7 @@
+@import 'import/variables';
+
 body {
-    background-color: #e5e5e5;
+    background-color: $color-neutral-background;
 }
 
 h2 {
@@ -11,5 +13,11 @@ h3 {
 }
 
 .content-container {
+    &.background {
+        opacity: .5;
+    }
+}
+
+.cards-container {
     padding: 12px;
 }

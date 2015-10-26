@@ -4,16 +4,16 @@ Drawer = React.createClass({
         items: React.PropTypes.array.isRequired
     },
     render() {
-        var classNames = 'side-drawer' + (this.props.isDrawerOpen ? ' open' : '');
+        const classNames = 'side-drawer' + (this.props.isDrawerOpen ? ' open' : '');
 
         return (
             <div id={this.props.id} className={classNames}>
                 <DrawerOpener
-                    id="app-side-drawer"
+                    id='app-side-drawer'
                     toggleDrawer={this.props.toggleDrawer} />
-                <ul>
+                <ul className='items'>
                     {this.props.items.map(function (item) {
-                        return <li key={item.key}>{item.name}</li>;
+                        return <li className='item' key={item.key}>{item.name}</li>;
                     })}
                 </ul>
             </div>

@@ -1,13 +1,31 @@
+@import 'import/variables';
+
 .side-drawer {
     position: absolute;
+    z-index: 10;
     top: 0;
-    left: -200px;
-    width: 200px;
+    bottom: 0;
+    left: -240px;
+    width: 240px;
     transition: left 1s ease;
     background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.14902) 0 8px 8px 0;
 
     &.open {
         left: 0;
+    }
+
+    .item {
+        padding: 12px;
+        font-size: 16px;
+
+        &:hover {
+            background-color: $color-list-item-highlight;
+        }
+    }
+
+    .drawer-opener {
+        padding: 12px;
     }
 }
 
