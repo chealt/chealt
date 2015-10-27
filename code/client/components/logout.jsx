@@ -7,7 +7,7 @@ Logout = React.createClass({
             <MainButton
                 action={this.logout}
                 text='logout'
-                additionalClasses='logout upper' />
+                additionalClasses='logout upper invert' />
         );
     }
 });

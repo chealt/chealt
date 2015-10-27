@@ -24,4 +24,9 @@
     &.upper {
         text-transform: uppercase;
     }
+
+    &.invert {
+        background-color: $color-main-background-invert;
+        color: $color-main-text-invert;
+    }
 }
