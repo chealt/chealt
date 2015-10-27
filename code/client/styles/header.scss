@@ -1,4 +1,7 @@
+@import 'import/variables';
+
 #app-bar-container {
     margin-bottom: 32px;
     padding: 12px;
+    background-color: $color-main-background;
 }

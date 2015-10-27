@@ -4,7 +4,7 @@ Drawer = React.createClass({
         items: React.PropTypes.array.isRequired
     },
     render() {
-        const classNames = 'side-drawer' + (this.props.isDrawerOpen ? ' open' : '');
+        const classNames = 'side-drawer shadow' + (this.props.isDrawerOpen ? ' open' : '');
 
         return (
             <div id={this.props.id} className={classNames}>
