@@ -1,8 +1,15 @@
 Layout = React.createClass({
     getInitialState() {
         return {
-            isDrawerOpen: false
+            isDrawerOpen: false,
+            filter: ''
         };
+    },
+    filter(event) {
+        this.setState({
+            filter: event.target.value,
+            filtered: !!event.target.value
+        });
     },
     toggleDrawer() {
         this.setState({
@@ -29,8 +36,12 @@ Layout = React.createClass({
                     isDrawerOpen={this.state.isDrawerOpen}
                     toggleDrawer={this.toggleDrawer} />
                 <div className={contentContainerClasses}>
-                    <Header toggleDrawer={this.toggleDrawer} />
-                    {this.props.content}
+                    <Header
+                        toggleDrawer={this.toggleDrawer}
+                        filter={this.filter}
+                        filtered={this.state.filtered} />
+                    <Home 
+                        filter={this.state.filter} />
                 </div>
                 {this.props.footer}
             </div>

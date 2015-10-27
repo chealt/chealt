@@ -2,6 +2,12 @@ Event = React.createClass({
     propTypes: {
         event: React.PropTypes.object.isRequired
     },
+    mixins: [ReactMeteorData],
+    getMeteorData() {
+        return {
+            currentUser: Meteor.user()
+        };
+    },
     isAttending() {
         return this.props.event.guests.some((guest) => {
             return guest.user._id === Meteor.userId();
@@ -14,17 +20,19 @@ Event = React.createClass({
         Meteor.call('unattendEvent', this.props.event._id);
     },
     attendButton() {
-        const isAttending = this.isAttending();
-        const buttonAction = isAttending ? this.unattend : this.attend;
-        const buttonText = isAttending ? 'unattend' : 'attend';
-        const buttonClasses = isAttending ? 'unattend RSVP upper' : 'attend RSVP upper';
+        if (this.data.currentUser) {
+            const isAttending = this.isAttending();
+            const buttonAction = isAttending ? this.unattend : this.attend;
+            const buttonText = isAttending ? 'cannot go' : 'going';
+            const buttonClasses = isAttending ? 'unattend RSVP upper' : 'attend RSVP upper';
 
-        return (
-            <MainButton
-                action={buttonAction}
-                text={buttonText}
-                additionalClasses={buttonClasses} />
-        );
+            return (
+                <MainButton
+                    action={buttonAction}
+                    text={buttonText}
+                    additionalClasses={buttonClasses} />
+            );
+        }
     },
     guests() {
         if (this.props.event.guests.length) {

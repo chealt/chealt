@@ -2,7 +2,7 @@ Home = React.createClass({
     mixins: [ReactMeteorData],
     getMeteorData() {
         return {
-            events: Events.find({}).fetch()
+            events: Events.find(transformFilterInput(this.props.filter)).fetch()
         };
     },
     renderEvents() {
@@ -20,3 +20,21 @@ Home = React.createClass({
         );
     }
 });
+
+function transformFilterInput(input) {
+    let transformedFilter = {};
+
+    if (input) {
+        const beginWithRegExp = (new RegExp(input, 'i'));
+
+        transformedFilter = {
+            $or: [
+                { name: beginWithRegExp },
+                { host: beginWithRegExp },
+                { location: beginWithRegExp }
+            ]
+        };
+    }
+
+    return transformedFilter;
+}

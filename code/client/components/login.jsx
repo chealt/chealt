@@ -7,7 +7,7 @@ Login = React.createClass({
     render() {
         return (
             <button
-                className='google-login button-main upper'
+                className='google-login button-main upper invert'
                 onClick={this.login} >
                 google
             </button>
