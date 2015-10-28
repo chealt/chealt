@@ -1,4 +1,20 @@
+@import 'import/variables';
+
 .event {
+    .title {
+        display: flex;
+
+        .name {
+            flex: 3;
+        }
+
+        .date {
+            flex: 1;
+            text-align: right;
+            color: $color-subtitle;
+        }
+    }
+
     .content-header {
         > div {
             padding: 12px;

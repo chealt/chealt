@@ -3,7 +3,7 @@ Meteor.methods({
         Events.update({ _id: eventId}, {
             $push: {
                 guests: {
-                    'user': Meteor.user(),
+                    'user': Meteor.user().profile,
                     'RSVP': 'attend'
                 }
             }
@@ -13,10 +13,15 @@ Meteor.methods({
         Events.update({ _id: eventId}, {
             $pull: {
                 guests: {
-                    'user': Meteor.user(),
+                    'user': Meteor.user().profile,
                     'RSVP': 'attend'
                 }
             }
+        });
+    },
+    updateUserWeight(weight) {
+        Meteor.users.update({ _id: Meteor.userId()}, {
+            $set: { 'profile.weight': weight }
         });
     }
 });

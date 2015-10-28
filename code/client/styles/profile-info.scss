@@ -1,0 +1,15 @@
+@import 'import/variables';
+
+.profile-info {
+    .name {
+        font-size: 18px;
+    }
+
+    .email {
+        color: $color-subtitle;
+    }
+
+    .weight {
+        margin-top: 12px;
+    }
+}

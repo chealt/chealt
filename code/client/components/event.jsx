@@ -10,7 +10,7 @@ Event = React.createClass({
     },
     isAttending() {
         return this.props.event.guests.some((guest) => {
-            return guest.user._id === Meteor.userId();
+            return guest.user.email === this.data.currentUser.profile.email;
         });
     },
     attend() {
@@ -40,7 +40,7 @@ Event = React.createClass({
                 <ul className='guests'>
                     {this.props.event.guests.map((guest) => {
                         return (
-                            <li className='guest' key={guest.user._id}>
+                            <li className='guest' key={guest.user.email}>
                                 <ProfilePicture
                                     user={guest.user} />
                             </li>
@@ -50,10 +50,31 @@ Event = React.createClass({
             );
         }
     },
+    getDate() {
+        const startDate = this.props.event.start.toISOString().substring(0, 10);
+        const endDate = this.props.event.end.toISOString().substring(0, 10);
+
+        if (startDate == endDate) {
+            return (
+                <FormatDate date={startDate} />
+            );
+        } else {
+            return (
+                <span className='date'>
+                    <FormatDate date={startDate} />
+                    <span className='divider'> - </span>
+                    <FormatDate date={endDate} />
+                </span>
+            );
+        }
+    },
     render() {
         return (
             <div className='card event'>
-                <h2 className='title separated'>{this.props.event.name}</h2>
+                <h2 className='title separated'>
+                    <span className='name'>{this.props.event.name}</span>
+                    {this.getDate()}
+                </h2>
                 <div className='content-header row equal'>
                     <div className='host'>
                         <Icon type='user' position='before' />

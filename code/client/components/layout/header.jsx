@@ -7,7 +7,7 @@ Header = React.createClass({
         const searchIconClass = this.props.filtered ? 'filtered' : '';
 
         return (
-            <div id="app-bar-container" className='shadow'>
+            <div id='app-bar-container' className='shadow'>
                 <div className='container'>
                     <DrawerOpener
                         id='app-side-drawer'
