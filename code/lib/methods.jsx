@@ -23,5 +23,10 @@ Meteor.methods({
         Meteor.users.update({ _id: Meteor.userId()}, {
             $set: { 'profile.weight': weight }
         });
+    },
+    updateUserActivities(activityTypes) {
+        Meteor.users.update({ _id: Meteor.userId()}, {
+            $set: { 'profile.activityTypes.google': activityTypes }
+        });
     }
 });
