@@ -40,23 +40,32 @@ Layout = React.createClass({
         }
 
         return (
-            <div id='wrapper'>
-                <Drawer
-                    id='app-side-drawer'
-                    items={drawerItems}
-                    isDrawerOpen={this.state.isDrawerOpen}
-                    toggleDrawer={this.toggleDrawer} />
-                <div className={contentContainerClasses}>
-                    <Header
-                        toggleDrawer={this.toggleDrawer}
-                        filter={this.filter}
-                        filtered={this.state.filtered} />
-                    <Home 
-                        filter={this.state.filter} />
-                </div>
-                {this.props.footer}
-                {this.anythingCloser()}
-            </div>
+            <html>
+                <head>
+                    <meta name='viewport' content='width=device-width, initial-scale=1, user-scalable=no' />
+                    <meta name='mobile-web-app-capable' content='yes' />
+                    <meta name='theme-color' content='#337ab7' />
+                </head>
+                <body>
+                    <div id='wrapper'>
+                        <Drawer
+                            id='app-side-drawer'
+                            items={drawerItems}
+                            isDrawerOpen={this.state.isDrawerOpen}
+                            toggleDrawer={this.toggleDrawer} />
+                        <div className={contentContainerClasses}>
+                            <Header
+                                toggleDrawer={this.toggleDrawer}
+                                filter={this.filter}
+                                filtered={this.state.filtered} />
+                            <Home 
+                                filter={this.state.filter} />
+                        </div>
+                        {this.props.footer}
+                        {this.anythingCloser()}
+                    </div>
+                </body>
+            </html>
         );
     }
 });

@@ -39,7 +39,11 @@ Meteor.methods({
         }, []);
 
         Meteor.users.update({ _id: Meteor.userId()}, {
-            $addToSet: { 'profile.activityTypes': _activities }
+            $addToSet: {
+                'profile.activityTypes': {
+                    $each: _activities
+                }
+            }
         });
     }
 });
