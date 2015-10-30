@@ -8,7 +8,7 @@ Header = React.createClass({
 
         return (
             <div id='app-bar-container' className='shadow'>
-                <div className='container'>
+                <div id='toggle-container'>
                     <DrawerOpener
                         id='app-side-drawer'
                         toggleDrawer={this.props.toggleDrawer} />
@@ -22,7 +22,7 @@ Header = React.createClass({
                         onChange={this.props.filter}
                         no-focus />
                 </div>
-                <div className='container'>
+                <div id='profile-container'>
                     <HeaderProfile />
                 </div>
             </div>

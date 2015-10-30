@@ -5,7 +5,7 @@
         display: flex;
 
         .name {
-            flex: 3;
+            flex: 1;
         }
 
         .date {
@@ -52,6 +52,16 @@
         .RSVP {
             margin-left: 0;
             vertical-align: middle;
+        }
+    }
+}
+
+@media (min-width: 600px) {
+    .event {
+        .title {
+            .name {
+                flex: 3;
+            }
         }
     }
 }
