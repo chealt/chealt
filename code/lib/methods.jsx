@@ -25,8 +25,21 @@ Meteor.methods({
         });
     },
     updateUserActivities(activityTypes) {
+        const _activities = activityTypes.reduce((result, activity) => {
+            const _activity = Activities.findOne({ googleFitType: activity });
+
+            if (_activity) {
+                result.push({
+                    _id: _activity._id,
+                    name: _activity.name
+                });
+            }
+
+            return result;
+        }, []);
+
         Meteor.users.update({ _id: Meteor.userId()}, {
-            $set: { 'profile.activityTypes.google': activityTypes }
+            $set: { 'profile.activityTypes': _activities }
         });
     }
 });

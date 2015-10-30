@@ -6,6 +6,7 @@
     outline: none;
     overflow: hidden;
     position: absolute;
+    z-index: 9;
     right: 0;
     top: 52px;
     -webkit-border-radius: 2px;
@@ -14,11 +15,11 @@
 
 .bubble-arrow {
     position: absolute;
+    z-index: 10;
     top: 44px;
     right: 8px;
     width: 0;
     height: 0;
-    z-index: 1;
     border-color: transparent;
     border-style: dashed dashed solid;
     border-width: 0 8.5px 8.5px;

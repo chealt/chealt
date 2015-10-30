@@ -1,6 +1,8 @@
 @import 'import/variables';
 
 .profile-info {
+    min-width: 260px;
+
     .name {
         font-size: 18px;
     }
@@ -11,5 +13,19 @@
 
     .weight {
         margin-top: 12px;
+    }
+
+    .activities {
+        margin-top: 12px;
+    }
+
+    .activity {
+        display: inline-block;
+        font-size: 20px;
+        vertical-align: middle;
+
+        :before {
+            margin-right: 12px;
+        }
     }
 }

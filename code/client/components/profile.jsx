@@ -12,6 +12,16 @@ Profile = React.createClass({
             isBubbleShown: !this.state.isBubbleShown
         });
     },
+    closeBubble() {
+        this.setState({
+            isBubbleShown: false
+        });
+    },
+    anythingCloser() {
+        if (this.state.isBubbleShown) {
+            return <AnythingCloser onClick={this.closeBubble} />;
+        }
+    },
     getBubbleContent() {
         return (
             <div className='profile-bubble-content'>
@@ -34,6 +44,7 @@ Profile = React.createClass({
                     position='below'
                     isShown={this.state.isBubbleShown}
                     content={this.getBubbleContent()} />
+                {this.anythingCloser()}
             </div>
         );
     }

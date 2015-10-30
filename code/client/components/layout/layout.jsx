@@ -2,7 +2,8 @@ Layout = React.createClass({
     getInitialState() {
         return {
             isDrawerOpen: false,
-            filter: ''
+            filter: '',
+            filtered: false
         };
     },
     filter(event) {
@@ -15,6 +16,16 @@ Layout = React.createClass({
         this.setState({
             isDrawerOpen: !this.state.isDrawerOpen
         });
+    },
+    closeDrawer() {
+        this.setState({
+            isDrawerOpen: false
+        });
+    },
+    anythingCloser() {
+        if (this.state.isDrawerOpen) {
+            return <AnythingCloser onClick={this.closeDrawer} />;
+        }
     },
     render() {
         let contentContainerClasses = 'content-container';
@@ -44,6 +55,7 @@ Layout = React.createClass({
                         filter={this.state.filter} />
                 </div>
                 {this.props.footer}
+                {this.anythingCloser()}
             </div>
         );
     }
