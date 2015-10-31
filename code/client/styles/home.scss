@@ -20,6 +20,8 @@ h3 {
     }
 }
 
-.cards-container {
-    padding: 12px;
+@media (min-width: 600px) {
+    .cards-container {
+        padding: 12px;
+    }
 }

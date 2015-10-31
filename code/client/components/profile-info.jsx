@@ -16,11 +16,9 @@ ProfileInfo = React.createClass({
             return (
                 <ul className='activities'>
                     {this.props.user.profile.activityTypes.map((activity) => {
-                        const iconClass = 'sports-icon-' + activity.name;
-
                         return (
                             <li className='activity' key={activity._id}>
-                                <span className={iconClass}></span>
+                                <SportsIcon activity={activity.name} />
                             </li>
                         );
                     })}

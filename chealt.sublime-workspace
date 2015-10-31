@@ -1,0 +1,1609 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"profil",
+				"ProfileList"
+			],
+			[
+				"acti",
+				"activity"
+			],
+			[
+				"padd",
+				"padding-left: "
+			],
+			[
+				"min-",
+				"min-width: "
+			],
+			[
+				"evethin",
+				"everythingCloserClass"
+			],
+			[
+				"every",
+				"everythingCloserClass"
+			],
+			[
+				"is",
+				"isCloserShown"
+			],
+			[
+				"close",
+				"closeDrawer"
+			],
+			[
+				"margin",
+				"margin-right: "
+			],
+			[
+				"activ",
+				"activity"
+			],
+			[
+				"activit",
+				"activityType"
+			],
+			[
+				"active",
+				"activityTypes"
+			],
+			[
+				"activi",
+				"activityTypes"
+			],
+			[
+				"da",
+				"dataSetFieldsParameter"
+			],
+			[
+				"datase",
+				"dataSetFieldsParameter"
+			],
+			[
+				"updateuser",
+				"updateUserActivities"
+			],
+			[
+				"data",
+				"dataStreamIds"
+			],
+			[
+				"dataS",
+				"dataSourcesUrl"
+			],
+			[
+				"po",
+				"point"
+			],
+			[
+				"last",
+				"lastMeasureTimeMs"
+			],
+			[
+				"dataSe",
+				"dataSet"
+			],
+			[
+				"dat",
+				"dataStreamIds"
+			],
+			[
+				"datas",
+				"dataSourcesUrl"
+			],
+			[
+				"profile",
+				"profile"
+			],
+			[
+				"goo",
+				"googleProfilePicture"
+			],
+			[
+				"goog",
+				"googleName"
+			],
+			[
+				"email",
+				"emails"
+			],
+			[
+				"user",
+				"userProfile"
+			],
+			[
+				"google",
+				"googleEmail"
+			],
+			[
+				"fon",
+				"font-family: "
+			],
+			[
+				"ri",
+				"right"
+			],
+			[
+				"start",
+				"startDate"
+			],
+			[
+				"sear",
+				"searchIconClass"
+			],
+			[
+				"Re",
+				"RegExp"
+			],
+			[
+				"trans",
+				"transformedFilter"
+			],
+			[
+				"color-main",
+				"color-main-background"
+			],
+			[
+				"isAt",
+				"isAttending"
+			],
+			[
+				"guestbutton",
+				"guestButtonAction"
+			],
+			[
+				"att",
+				"attend"
+			],
+			[
+				"attend",
+				"attendButton"
+			],
+			[
+				"fun",
+				"function	React.PropTypes.func"
+			],
+			[
+				"contecon",
+				"contentContainerClasses"
+			],
+			[
+				"pro",
+				"profilePicturePath"
+			],
+			[
+				"borde",
+				"border-radius: "
+			],
+			[
+				"outli",
+				"outline-width: "
+			],
+			[
+				"box-",
+				"box-sizing: "
+			],
+			[
+				"background",
+				"background-color: "
+			],
+			[
+				"inlin",
+				"inline-block"
+			],
+			[
+				"icon",
+				"iconClass"
+			],
+			[
+				"duraio",
+				"durationSeconds"
+			],
+			[
+				"duration",
+				"durationMinutes"
+			],
+			[
+				"dur",
+				"duration"
+			],
+			[
+				"dura",
+				"durationSeconds"
+			],
+			[
+				"vim",
+				"vimeoVideoId"
+			],
+			[
+				"vid",
+				"videoId"
+			],
+			[
+				"video",
+				"videoId"
+			],
+			[
+				"bas",
+				"baseUrl"
+			],
+			[
+				"req",
+				"requestHeader"
+			],
+			[
+				"clien",
+				"client_secret"
+			],
+			[
+				"vide",
+				"videoLink"
+			],
+			[
+				"youtub",
+				"youtubeVideoDetails"
+			],
+			[
+				"className",
+				"classNames"
+			],
+			[
+				"drawe",
+				"drawerOpen"
+			],
+			[
+				"Reac",
+				"ReactIntl"
+			],
+			[
+				"render",
+				"renderEvents"
+			],
+			[
+				"appro",
+				"approved"
+			],
+			[
+				"decre",
+				"decrementUnseenFingerprintCount"
+			],
+			[
+				"uns",
+				"unseenFingerprintCount"
+			],
+			[
+				"fingerp",
+				"fingerprint"
+			],
+			[
+				"test",
+				"testId"
+			],
+			[
+				"un",
+				"unseenFingerPrintCount"
+			],
+			[
+				"baseline",
+				"baselineId"
+			],
+			[
+				"cooki",
+				"cookieName"
+			],
+			[
+				"sugge",
+				"suggestCookieNames"
+			],
+			[
+				"coo",
+				"cookieName"
+			],
+			[
+				"tes",
+				"testDetails"
+			],
+			[
+				"im",
+				"imgB"
+			],
+			[
+				"img",
+				"imgA"
+			],
+			[
+				"getpi",
+				"getPixelCache"
+			],
+			[
+				"comp",
+				"comparePixels"
+			],
+			[
+				"visua",
+				"visualMatchingFunctionTime"
+			],
+			[
+				"visu",
+				"visualMatching"
+			],
+			[
+				"funcio",
+				"functionStartTime"
+			],
+			[
+				"differe",
+				"differences"
+			],
+			[
+				"diff",
+				"diffJSON"
+			],
+			[
+				"getTes",
+				"getTestCaseIdByTextId"
+			],
+			[
+				"atta",
+				"attachCreateDiffEvent"
+			],
+			[
+				"appen",
+				"appendHeader"
+			],
+			[
+				"handle",
+				"handleTestCasesLoad"
+			],
+			[
+				"init",
+				"initRouter"
+			],
+			[
+				"promisif",
+				"promisifier"
+			],
+			[
+				"cur",
+				"cursor"
+			],
+			[
+				"nav",
+				"nav-link"
+			],
+			[
+				"inl",
+				"inline-block"
+			],
+			[
+				"backgr",
+				"background-color"
+			],
+			[
+				"fo",
+				"for	for (…) {…}"
+			],
+			[
+				"set",
+				"setByID"
+			],
+			[
+				"add",
+				"addItem"
+			],
+			[
+				"obj",
+				"object"
+			],
+			[
+				"ite",
+				"items"
+			],
+			[
+				"obje",
+				"objectName"
+			],
+			[
+				"item",
+				"item"
+			],
+			[
+				"observe",
+				"observeItem"
+			],
+			[
+				"di",
+				"display"
+			],
+			[
+				"font",
+				"font"
+			],
+			[
+				"insta",
+				"instance_container"
+			],
+			[
+				"clas",
+				"classes"
+			],
+			[
+				"lan",
+				"languagesJSON"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "code/client/components/event.jsx",
+			"settings":
+			{
+				"buffer_size": 3665,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "code/client/components/comments.jsx",
+			"settings":
+			{
+				"buffer_size": 861,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "code/server/publications.jsx",
+			"settings":
+			{
+				"buffer_size": 466,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "sy",
+		"selected_items":
+		[
+			[
+				"sy",
+				"Set Syntax: JSX"
+			],
+			[
+				"sys",
+				"Set Syntax: SCSS"
+			],
+			[
+				"s",
+				"Set Syntax: JSX"
+			],
+			[
+				"syjs",
+				"Set Syntax: JSX"
+			],
+			[
+				"sysc",
+				"Set Syntax: SCSS"
+			],
+			[
+				"syjsx",
+				"Set Syntax: JSX"
+			],
+			[
+				"syscs",
+				"Set Syntax: SCSS"
+			],
+			[
+				"jsx",
+				"Set Syntax: JSX"
+			],
+			[
+				"syj",
+				"Set Syntax: JSX"
+			],
+			[
+				"syscss",
+				"Set Syntax: SCSS"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"synscss",
+				"Set Syntax: SCSS"
+			],
+			[
+				"sysass",
+				"Set Syntax: SCSS"
+			],
+			[
+				"remopa",
+				"Package Control: Remove Package"
+			],
+			[
+				"inpa",
+				"Package Control: Install Package"
+			],
+			[
+				"syjson",
+				"Set Syntax: JSON"
+			],
+			[
+				"inp",
+				"Package Control: Install Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"pre",
+				"Pretty JSON: Format (Pretty Print) JSON"
+			],
+			[
+				"syclo",
+				"Set Syntax: Clojure"
+			],
+			[
+				"syhand",
+				"Set Syntax: Handlebars"
+			],
+			[
+				"inspa",
+				"Package Control: Install Package"
+			],
+			[
+				"",
+				"JSCS Formatter: Format this file"
+			],
+			[
+				"jscs",
+				"JSCS Formatter: Format this file"
+			],
+			[
+				"sysas",
+				"Set Syntax: Sass"
+			],
+			[
+				"sycss",
+				"Set Syntax: CSS"
+			],
+			[
+				"indent",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"inde",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"prett",
+				"Pretty JSON: Format (Pretty Print) JSON"
+			],
+			[
+				"sublinesett",
+				"Preferences: SublimeLinter Settings – User"
+			],
+			[
+				"inpack",
+				"Package Control: Install Package"
+			],
+			[
+				"removp",
+				"Package Control: Remove Package"
+			],
+			[
+				"inpac",
+				"Package Control: Install Package"
+			],
+			[
+				"remov",
+				"Package Control: Remove Package"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"removpa",
+				"Package Control: Remove Package"
+			],
+			[
+				"remoa",
+				"Package Control: Remove Package"
+			],
+			[
+				"linter",
+				"Preferences: SublimeLinter Settings – Default"
+			],
+			[
+				"subli",
+				"Preferences: SublimeLinter Settings – Default"
+			],
+			[
+				"inspack",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 416.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,sys; exec(\"if sys.version_info < (3,) or os.name != 'nt': raise OSError('This code is for Windows ST3 only!')\"); pr='Preferences.sublime-settings'; ip='ignored_packages'; n='Package Control'; s=sublime.load_settings(pr); ig=s.get(ip); ig.append(n); s.set(ip,ig); sublime.save_settings('Preferences.sublime-settings'); pf=n+'.sublime-package'; urllib.request.install_opener(urllib.request.build_opener(urllib.request.ProxyHandler())); by=urllib.request.urlopen('https://packagecontrol.io/'+pf.replace(' ','%20')).read(); open(os.path.join(sublime.installed_packages_path(),pf),'wb').write(by); ig.remove(n); s.set(ip,ig); sublime.save_settings(pr); print('Package Control: 3.0.0 upgrade successful!')",
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/Users/Attila/Code/chealt/code",
+		"/C/Users/Attila/Code/chealt/code/client",
+		"/C/Users/Attila/Code/chealt/code/client/components",
+		"/C/Users/Attila/Code/chealt/code/lib",
+		"/C/Users/Attila/Code/chealt/code/server"
+	],
+	"file_history":
+	[
+		"/C/Users/Attila/Code/chealt/code/lib/collections.jsx",
+		"/C/Users/Attila/Code/chealt/code/server/publications.jsx",
+		"/C/Users/Attila/Code/chealt/code/client/subscriptions.js",
+		"/C/Users/Attila/Code/chealt/code/client/components/layout/layout.jsx",
+		"/C/Users/Attila/Code/chealt/code/client/components/profile-list.jsx",
+		"/C/Users/Attila/Code/chealt/code/client/styles/events.scss",
+		"/C/Users/Attila/Code/chealt/code/client/components/event.jsx",
+		"/C/Users/Attila/Code/chealt/code/lib/methods.jsx",
+		"/C/Users/Attila/Code/chealt/code/client/styles/card.scss",
+		"/C/Users/Attila/Code/chealt/code/client/components/sports-icon.jsx",
+		"/C/Users/Attila/Code/chealt/code/client/styles/icons.scss",
+		"/C/Users/Attila/Code/chealt/code/client/components/profile-info.jsx",
+		"/C/Users/Attila/Code/chealt/code/client/styles/home.scss",
+		"/C/Users/Attila/Code/chealt/code/server/activities.jsx",
+		"/C/Users/Attila/Code/chealt/code/client/components/layout/header.jsx",
+		"/C/Users/Attila/Code/chealt/code/client/styles/header.scss",
+		"/C/Users/Attila/Code/chealt/code/client/components/login.jsx",
+		"/C/Users/Attila/Code/chealt/code/lib/routes.jsx",
+		"/C/Users/Attila/Code/chealt/code/client/components/profile.jsx",
+		"/C/Users/Attila/Code/chealt/code/client/styles/bubble.scss",
+		"/C/Users/Attila/Code/chealt/code/client/styles/elements.scss",
+		"/C/Users/Attila/Code/chealt/code/client/components/layout/anything-closer.jsx",
+		"/C/Users/Attila/Code/chealt/code/client/components/home.jsx",
+		"/C/Users/Attila/Code/chealt/code/server/profile.jsx",
+		"/C/Users/Attila/Code/chealt/code/client/styles/profile-info.scss",
+		"/C/Users/Attila/Code/chealt/documents/assets/icons/sport-icons/flaticon.css",
+		"/C/Users/Attila/Code/chealt/code/.meteor/local/build/programs/server/app/server/publications.jsx",
+		"/C/Users/Attila/Code/chealt/code/lib/collections.js",
+		"/C/Users/Attila/Code/chealt/code/server/google-fit.jsx",
+		"/C/Users/Attila/AppData/Local/.meteor/packages/percolate_google-api/1.0.2/web.browser/packages/percolate_google-api.js",
+		"/C/Users/Attila/Code/chealt/code/server/services.jsx",
+		"/C/Users/Attila/Code/chealt/code/client/styles/profile-picture.scss",
+		"/C/Users/Attila/Code/chealt/code/client/styles/header-profile.scss",
+		"/C/Users/Attila/Code/chealt/code/client/styles/profile.scss",
+		"/C/Users/Attila/Code/chealt/code/client/components/profile-picture.jsx",
+		"/C/Users/Attila/Code/chealt/code/client/components/logout.jsx",
+		"/C/Users/Attila/Code/chealt/code/client/components/bubble.jsx",
+		"/C/Users/Attila/Code/chealt/code/client/components/drawer-opener.jsx",
+		"/C/Users/Attila/Code/chealt/code/client/styles/common.scss",
+		"/C/Users/Attila/Code/chealt/code/client/components/header-profile.jsx",
+		"/C/Users/Attila/Code/chealt/code/client/styles/import/_variables.scss",
+		"/C/Users/Attila/Code/chealt/code/client/components/helpers/format-date.jsx",
+		"/C/Users/Attila/Code/chealt/code/client/components/main-button.jsx",
+		"/C/Users/Attila/Code/chealt/code/.meteor/local/build/programs/web.browser/app/client/components/main-button.jsx",
+		"/C/Users/Attila/Code/chealt/code/client/components/icon.jsx",
+		"/C/Users/Attila/Code/chealt/code/client/styles/drawer.scss",
+		"/C/Users/Attila/Code/chealt/code/client/components/drawer.jsx",
+		"/C/Users/Attila/Code/chealt/code/client/styles/normalize.scss",
+		"/C/Users/Attila/Code/chealt/code/client/styles/_variables.scss",
+		"/C/Users/Attila/Code/chealt/code/client/styles/variables.scss",
+		"/C/Users/Attila/Code/chealt/code/client/components/helpers/format-time.jsx",
+		"/C/Users/Attila/Code/blink/Source/devtools/front_end/cm/codemirror.js",
+		"/C/Users/Attila/Code/video-poll/server/vimeoAPI.js",
+		"/C/Users/Attila/Code/video-poll/server/config.js",
+		"/C/Users/Attila/Code/video-poll/server/youtubeAPI.js",
+		"/C/Users/Attila/AppData/Local/.meteor/packages/renaldo_youtube-api/0.0.1/npm/node_modules/youtube-api/index.js",
+		"/C/Users/Attila/AppData/Local/.meteor/packages/renaldo_youtube-api/0.0.1/npm/node_modules/youtube-api/api/v3.0.0/videos.js",
+		"/C/Users/Attila/AppData/Local/.meteor/packages/renaldo_youtube-api/0.0.1/npm/node_modules/youtube-api/api/v3.0.0/index.js",
+		"/C/Users/Attila/AppData/Local/.meteor/packages/renaldo_youtube-api/0.0.1/os/packages/renaldo_youtube-api.js",
+		"/C/Users/Attila/AppData/Local/.meteor/packages/renaldo_youtube-api/0.0.1/os.json",
+		"/C/Users/Attila/Code/video-poll/lib/methods.js",
+		"/C/Users/Attila/Code/video-poll/server/helpers/vimeoAPIHelper.js",
+		"/C/Users/Attila/Code/video-poll/server/helpers/youtubeAPIHelper.js",
+		"/C/Users/Attila/AppData/Local/.meteor/packages/renaldo_vimeo-video-search/0.0.2/os/packages/renaldo_vimeo-video-search.js",
+		"/C/Users/Attila/AppData/Local/.meteor/packages/renaldo_vimeo-video-search/0.0.2/package.js",
+		"/C/Users/Attila/AppData/Local/.meteor/packages/renaldo_vimeo-video-search/0.0.2/web.browser/packages/renaldo_vimeo-video-search.js",
+		"/C/Users/Attila/Code/chealt/code/i18n/en.i18n.json",
+		"/C/Users/Attila/Code/chealt/code/client/components/layout.jsx",
+		"/C/Users/Attila/Code/chealt/code/client/components/header.jsx",
+		"/C/Users/Attila/Code/chealt/code/.meteor/local/build/programs/web.browser/packages/omega_react-intl.js",
+		"/C/Users/Attila/Code/chealt/code/.meteor/local/build/programs/server/packages/omega_react-intl.js.map",
+		"/C/Users/Attila/Code/chealt/code/.meteor/local/build/programs/server/packages/omega_react-intl.js",
+		"/C/Users/Attila/Code/chealt/code/.meteor/local/build/programs/server/packages/locale-data/en.js",
+		"/C/Users/Attila/Code/chealt/code/client/components/footer.jsx",
+		"/C/Users/Attila/Code/chealt/code/client/home.jsx",
+		"/C/Users/Attila/Code/chealt/code/client/main.jsx",
+		"/C/Users/Attila/AppData/Roaming/Sublime Text 3/Packages/User/SublimeLinter.sublime-settings",
+		"/C/Users/Attila/Code/viveka/lib/database.js",
+		"/C/Users/Attila/Code/viveka/admin/test-list/templates/tests.hbs",
+		"/C/Users/Attila/Code/viveka/admin/test-list/test-list.js",
+		"/C/Users/Attila/Code/viveka/gulpfile.js",
+		"/C/Users/Attila/Code/viveka/tmp/public/template/test-details.js",
+		"/C/Users/Attila/Code/viveka/tmp/public/template/admin.js",
+		"/C/Users/Attila/Code/viveka/tmp/public/template/common.js",
+		"/C/Users/Attila/Code/viveka/admin/test-details/test-details.js",
+		"/C/Users/Attila/Code/viveka/admin/test-details/templates/testDetails.hbs",
+		"/C/Users/Attila/Code/viveka/lib/index.js",
+		"/C/Users/Attila/Code/viveka/tmp/server/index.js",
+		"/C/Users/Attila/Code/viveka/admin/test-details/templates/cookieInput.hbs",
+		"/C/Users/Attila/Code/viveka/admin/test-details/templates/materialInput.hbs",
+		"/C/Users/Attila/Code/viveka/lib/difference-generator.js",
+		"/C/Users/Attila/Code/viveka/admin/diff-page/diff-page.js",
+		"/C/Users/Attila/Code/viveka/dev-section/diff-page/diff-page.js",
+		"/C/Users/Attila/Code/viveka/tmp/public/dev-section/script/diff-page.js",
+		"/C/Users/Attila/Code/viveka/tmp/55fc5f44311de0400d0e6148.json",
+		"/C/Users/Attila/Code/clojure/first-app/app.clj",
+		"/C/Users/Attila/AppData/Roaming/Sublime Text 3/Packages/JSCS-Formatter/JSCS-Formatter.sublime-settings",
+		"/C/Users/Attila/AppData/Roaming/Sublime Text 3/Packages/User/JSCS-Formatter.sublime-settings",
+		"/C/Users/Attila/Code/chealt/code/chealt/client/templates/workouts/workouts_list.html",
+		"/C/Users/Attila/Code/chealt/code/chealt/client/templates/workouts/workouts_list.js",
+		"/C/Users/Attila/Code/viveka/difference-generator/algorithms/image-based.js",
+		"/C/Users/Attila/Code/viveka/diff-page/public/js/app.js",
+		"/C/Users/Attila/Code/viveka/diff-page/templates/nav.hbs",
+		"/C/Users/Attila/Code/viveka/diff-page/styles/app.scss",
+		"/C/Users/Attila/Code/viveka/diff-page/public/index.html",
+		"/C/Users/Attila/Desktop/uxp.hu-Jun-2015/uxp.hu-Jun-2015",
+		"/C/Users/Attila/Desktop/accesslog_uxp.hu_7_1_2015/uxp.hu",
+		"/C/Users/Attila/Desktop/TimelineRawData-20150623T203805.json",
+		"/C/Users/Attila/Desktop/TimelineRawData-20150623T203558.json",
+		"/C/Users/Attila/Code/chealt/code/chealt/client/templates/application/login.html",
+		"/C/Users/Attila/Code/chealt/code/chealt/client/templates/application/login.js",
+		"/C/Users/Attila/Code/chealt/code/chealt/client/templates/application/layout.html",
+		"/C/Users/Attila/Code/chealt/code/chealt/server/accounts.js",
+		"/C/Users/Attila/Code/chealt/code/chealt/server/publications.js",
+		"/C/Users/Attila/Code/chealt/code/chealt/client/subscriptions.js",
+		"/C/Users/Attila/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/C/Users/Attila/AppData/Roaming/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/C/Users/Attila/Code/chealt/code/chealt/client/stylesheets/globals/nav.scss",
+		"/C/Users/Attila/Code/chealt/code/chealt/client/templates/home/home.js",
+		"/C/Users/Attila/Code/chealt/code/chealt/server/authentication.js",
+		"/C/Users/Attila/Code/chealt/code/chealt/lib/router.js",
+		"/C/Users/Attila/Code/chealt/code/chealt/.meteor/local/build/programs/server/packages/service-configuration.js",
+		"/C/Users/Attila/Code/chealt/code/chealt/.meteor/local/build/programs/web.browser/packages/service-configuration.js",
+		"/C/Users/Attila/Code/chealt/code/chealt/.jscsrc",
+		"/C/Users/Attila/Code/appjs/index.html",
+		"/C/Users/Attila/Code/appjs/app.js",
+		"/C/Users/Attila/Code/chealt/code/chealt/client/stylesheets/util/variables.scss",
+		"/C/Users/Attila/Code/chealt/code/chealt/client/stylesheets/globals/footer.scss"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 96.0,
+		"where_history":
+		[
+			"*.*",
+			"*.jsx",
+			"*.*",
+			"*.scss",
+			"<current file>",
+			"*.jsx",
+			"*.scss",
+			"*.jsx",
+			"<current file>",
+			"*.scss",
+			"*.js",
+			"*.*",
+			"*.scss"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"Activities",
+			"key=",
+			"\"",
+			"head",
+			"wrapper",
+			"sportsicon",
+			"pool",
+			"bic",
+			"}",
+			"\"",
+			"flaticon",
+			"}",
+			"flaticon",
+			"Flaticon",
+			"\"",
+			"rowing",
+			"H",
+			"B",
+			"activities",
+			"Events",
+			"}",
+			" ,",
+			"  ,",
+			"   ,",
+			"    ,",
+			"    ",
+			"')",
+			"cursor",
+			"user.",
+			".profile-picture",
+			".func",
+			"this.isAttending()",
+			"\"",
+			".",
+			"}",
+			"\"",
+			"span",
+			"\"",
+			"wrapper",
+			"fold",
+			"getYoutubeVideoEmbeddedUrl",
+			"getYoutubeVideoDetails",
+			"youtubeVideoId",
+			"getYoutubeVideoIdFromLink",
+			"result",
+			"a",
+			"VimeoApi",
+			"drawerOpen",
+			"div",
+			"class",
+			"locale",
+			"local",
+			"locale-d",
+			"_id: 1, ",
+			"FingerPrint",
+			"fingerprint",
+			"FingerPrint",
+			"fingerprint",
+			"FingerPrint",
+			"fingerprint",
+			"FingerPrint",
+			"getUnseenFingerPrints",
+			"generateDifference",
+			"emitOnSocket",
+			"name",
+			"keydown",
+			"change",
+			"attachCookieSuggestEvent",
+			"browser-width",
+			"isMatchingSize",
+			"imgB",
+			"getPixel",
+			"processImages",
+			"isMatchingSize",
+			"log",
+			"diff",
+			"getDifferenceByIds",
+			"Generate di",
+			"createDifference",
+			"getDifferenceByIds",
+			"generateDifference",
+			"differences create",
+			"generateDifference",
+			"=",
+			"fingerprint validation failed",
+			"differ.diff",
+			"getFingerPrints",
+			"getFingerPrintsForTest",
+			"getFingerPrint",
+			"differ",
+			"Differ",
+			"differ",
+			"Differ",
+			"differ",
+			"Differ",
+			"differ",
+			"Differ",
+			"differ",
+			"Differ",
+			"differ",
+			"Differ",
+			"differ",
+			"diff",
+			"\"",
+			"domTree",
+			"setPosition",
+			"getTestCaseNameById",
+			"testCaseId",
+			"TestCase",
+			"testCase",
+			"create-diff-by-fingerprints",
+			"box-shadow",
+			" href=\"#\" ",
+			" href=\"\"",
+			"diff-switcher",
+			" href=\"#\"",
+			"diff-switcher",
+			"Promise",
+			"testCases",
+			"promisifyAll",
+			"btn-social",
+			"btn-google",
+			"indent",
+			"login-container",
+			"div",
+			"main-header",
+			"#footer-cont"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"h",
+			"b",
+			"'"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "code/client/components/event.jsx",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3665,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3535,
+								3535
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JSX/JSX.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": -0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "code/client/components/comments.jsx",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 861,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								861,
+								861
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JSX/JSX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "code/server/publications.jsx",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 466,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								126,
+								116
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 36.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 130.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "chealt.sublime-project",
+	"replace":
+	{
+		"height": 50.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"colle",
+				"lib\\collections.jsx"
+			],
+			[
+				"public",
+				"server\\publications.jsx"
+			],
+			[
+				"collec",
+				"lib\\collections.jsx"
+			],
+			[
+				"subsc",
+				"client\\subscriptions.js"
+			],
+			[
+				"layou",
+				"client\\components\\layout\\layout.jsx"
+			],
+			[
+				"eve",
+				"client\\components\\event.jsx"
+			],
+			[
+				"method",
+				"lib\\methods.jsx"
+			],
+			[
+				"even",
+				"client\\components\\event.jsx"
+			],
+			[
+				"card",
+				"client\\styles\\card.scss"
+			],
+			[
+				"evesc",
+				"client\\styles\\events.scss"
+			],
+			[
+				"icon",
+				"client\\styles\\icons.scss"
+			],
+			[
+				"profi",
+				"client\\components\\profile-info.jsx"
+			],
+			[
+				"event",
+				"client\\components\\event.jsx"
+			],
+			[
+				"a",
+				"server\\activities.jsx"
+			],
+			[
+				"home",
+				"client\\styles\\home.scss"
+			],
+			[
+				"heade",
+				"client\\components\\layout\\header.jsx"
+			],
+			[
+				"login",
+				"client\\components\\login.jsx"
+			],
+			[
+				"hom",
+				"client\\styles\\home.scss"
+			],
+			[
+				"activi",
+				"server\\activities.jsx"
+			],
+			[
+				"profilin",
+				"client\\components\\profile-info.jsx"
+			],
+			[
+				"lay",
+				"client\\components\\layout\\layout.jsx"
+			],
+			[
+				"rout",
+				"lib\\routes.jsx"
+			],
+			[
+				"me",
+				"lib\\methods.jsx"
+			],
+			[
+				"bubb",
+				"client\\styles\\bubble.scss"
+			],
+			[
+				"ele",
+				"client\\styles\\elements.scss"
+			],
+			[
+				"profil",
+				"client\\components\\profile.jsx"
+			],
+			[
+				"profilinfo",
+				"client\\components\\profile-info.jsx"
+			],
+			[
+				"elem",
+				"client\\styles\\elements.scss"
+			],
+			[
+				"scss",
+				"client\\styles\\home.scss"
+			],
+			[
+				"profilejsx",
+				"server\\profile.jsx"
+			],
+			[
+				"profilinf",
+				"client\\styles\\profile-info.scss"
+			],
+			[
+				"iconscs",
+				"client\\styles\\icons.scss"
+			],
+			[
+				"proin",
+				"client\\components\\profile-info.jsx"
+			],
+			[
+				"activ",
+				"server\\activities.jsx"
+			],
+			[
+				"acti",
+				"server\\activities.jsx"
+			],
+			[
+				"profilein",
+				"client\\components\\profile-info.jsx"
+			],
+			[
+				"profile",
+				"client\\styles\\profile-info.scss"
+			],
+			[
+				"publi",
+				"server\\publications.jsx"
+			],
+			[
+				"serv",
+				"server\\services.jsx"
+			],
+			[
+				"profino",
+				"client\\components\\profile-info.jsx"
+			],
+			[
+				"headepro",
+				"client\\styles\\header-profile.scss"
+			],
+			[
+				"profilescs",
+				"client\\styles\\profile.scss"
+			],
+			[
+				"profilpi",
+				"client\\components\\profile-picture.jsx"
+			],
+			[
+				"methods",
+				"lib\\methods.jsx"
+			],
+			[
+				"profilpic",
+				"client\\components\\profile-picture.jsx"
+			],
+			[
+				"profilscs",
+				"client\\styles\\profile.scss"
+			],
+			[
+				"eleme",
+				"client\\styles\\elements.scss"
+			],
+			[
+				"logout",
+				"client\\components\\logout.jsx"
+			],
+			[
+				"heapro",
+				"client\\styles\\header-profile.scss"
+			],
+			[
+				"draweope",
+				"client\\components\\drawer-opener.jsx"
+			],
+			[
+				"variabl",
+				"client\\styles\\import\\_variables.scss"
+			],
+			[
+				"evescs",
+				"client\\styles\\events.scss"
+			],
+			[
+				"form",
+				"client\\components\\helpers\\format-time.jsx"
+			],
+			[
+				"headpro",
+				"client\\components\\header-profile.jsx"
+			],
+			[
+				"log",
+				"client\\components\\login.jsx"
+			],
+			[
+				"varia",
+				"client\\styles\\import\\_variables.scss"
+			],
+			[
+				"heasc",
+				"client\\styles\\header.scss"
+			],
+			[
+				"mainbu",
+				"client\\components\\main-button.jsx"
+			],
+			[
+				"drawscs",
+				"client\\styles\\drawer.scss"
+			],
+			[
+				"heprof",
+				"client\\styles\\header-profile.scss"
+			],
+			[
+				"drawe",
+				"client\\styles\\drawer.scss"
+			],
+			[
+				"variab",
+				"client\\styles\\import\\_variables.scss"
+			],
+			[
+				"pub",
+				"server\\publications.jsx"
+			],
+			[
+				"dra",
+				"client\\components\\drawer.jsx"
+			],
+			[
+				"homsc",
+				"client\\styles\\home.scss"
+			],
+			[
+				"draw",
+				"client\\components\\drawer.jsx"
+			],
+			[
+				".jsx",
+				"client\\components\\home.jsx"
+			],
+			[
+				"_",
+				"client\\styles\\import\\_variables.scss"
+			],
+			[
+				"nor",
+				"client\\styles\\normalize.scss"
+			],
+			[
+				"profipi",
+				"client\\styles\\profile-picture.scss"
+			],
+			[
+				"subs",
+				"client\\subscriptions.js"
+			],
+			[
+				"pro",
+				"client\\components\\profile.jsx"
+			],
+			[
+				"logou",
+				"client\\components\\logout.jsx"
+			],
+			[
+				"video",
+				"client\\templates\\videos.js"
+			],
+			[
+				"icons",
+				"client\\styles\\icons.scss"
+			],
+			[
+				"norm",
+				"client\\styles\\normalize.scss"
+			],
+			[
+				"forma",
+				"client\\components\\helpers\\format-time.jsx"
+			],
+			[
+				"no",
+				"client\\styles\\normalize.scss"
+			],
+			[
+				"evscs",
+				"client\\styles\\events.scss"
+			],
+			[
+				"codemirror",
+				"front_end\\cm\\codemirror.js"
+			],
+			[
+				"vimeo",
+				"server\\vimeoAPI.js"
+			],
+			[
+				"you",
+				"server\\youtubeAPI.js"
+			],
+			[
+				"vime",
+				"server\\vimeoAPI.js"
+			],
+			[
+				"vimapi",
+				"server\\vimeoAPI.js"
+			],
+			[
+				"nomrsc",
+				"client\\styles\\normalize.scss"
+			],
+			[
+				"homscs",
+				"client\\styles\\home.scss"
+			],
+			[
+				"drawop",
+				"client\\components\\drawer-opener.jsx"
+			],
+			[
+				"omega",
+				".meteor\\local\\build\\programs\\server\\packages\\omega_react-intl.js"
+			],
+			[
+				"gulp",
+				"gulpfile.js"
+			],
+			[
+				"tesli",
+				"admin\\test-list\\test-list.js"
+			],
+			[
+				"tes",
+				"admin\\test-details\\test-details.js"
+			],
+			[
+				"tesdehb",
+				"admin\\test-details\\templates\\testDetails.hbs"
+			],
+			[
+				"tests",
+				"admin\\test-list\\templates\\tests.hbs"
+			],
+			[
+				"datab",
+				"lib\\database.js"
+			],
+			[
+				"testlistj",
+				"admin\\test-list\\test-list.js"
+			],
+			[
+				"testlihb",
+				"admin\\test-list\\templates\\tests.hbs"
+			],
+			[
+				"data",
+				"lib\\database.js"
+			],
+			[
+				"tmpsindex",
+				"tmp\\server\\index.js"
+			],
+			[
+				"inde",
+				"lib\\index.js"
+			],
+			[
+				"cooin",
+				"admin\\test-details\\templates\\cookieInput.hbs"
+			],
+			[
+				"tesd",
+				"admin\\test-details\\test-details.js"
+			],
+			[
+				"diff",
+				"admin\\diff-page\\diff-page.js"
+			],
+			[
+				"differ",
+				"lib\\difference-generator.js"
+			],
+			[
+				"worklisjs",
+				"code\\chealt\\client\\templates\\workouts\\workouts_list.js"
+			],
+			[
+				"work",
+				"code\\chealt\\client\\templates\\workouts\\workouts_list.html"
+			],
+			[
+				"appjs",
+				"diff-page\\public\\js\\app.js"
+			],
+			[
+				"servi",
+				".meteor\\local\\build\\programs\\server\\packages\\service-configuration.js"
+			],
+			[
+				"",
+				".jscsrc"
+			],
+			[
+				"js",
+				"lib\\router.js"
+			],
+			[
+				"pack",
+				".meteor\\local\\build\\programs\\client\\packages\\standard-app-packages.js"
+			],
+			[
+				"jsono",
+				"public\\js\\modules\\jsonObject.js"
+			],
+			[
+				"langua",
+				"public\\js\\modules\\languages.js"
+			],
+			[
+				"aja",
+				"public\\js\\modules\\ajax.js"
+			],
+			[
+				"main",
+				"public\\js\\main.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": false,
+	"side_bar_width": 306.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

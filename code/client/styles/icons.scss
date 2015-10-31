@@ -26,13 +26,11 @@
     font-family: 'icomoon';
 }
 
-[class^='sports-icon-'],
-[class*=' sports-icon-'] {
+.sports-icon {
     font-family: 'sports-icon';
 }
 
-[class^='sports-icon-'],
-[class*=' sports-icon-'],
+.sports-icon,
 [class^='icon-'],
 [class*=' icon-'] {
     speak: none;
@@ -3983,94 +3981,94 @@
     content: '\ecd5';
 }
 
-.sports-icon-archery:before {
+.sports-icon.archery:before {
     content: '\e000';
 }
 
-.sports-icon-badminton:before {
+.sports-icon.badminton:before {
     content: '\e001';
 }
 
-.sports-icon-basketball:before {
+.sports-icon.basketball:before {
     content: '\e002';
 }
 
-.sports-icon-biking:before {
+.sports-icon.biking:before {
     content: '\e003';
 }
 
-.sports-icon-fencing:before {
+.sports-icon.fencing:before {
     content: '\e004';
 }
 
-.sports-icon-bowling:before {
+.sports-icon.bowling:before {
     content: '\e005';
 }
 
-.sports-icon-yoga:before {
+.sports-icon.yoga:before {
     content: '\e006';
 }
 
-.sports-icon-darts:before {
+.sports-icon.darts:before {
     content: '\e007';
 }
 
-.sports-icon-rollerblading:before {
+.sports-icon.rollerblading:before {
     content: '\e008';
 }
 
-.sports-icon-martial_arts:before {
+.sports-icon.martial_arts:before {
     content: '\e009';
 }
 
-.sports-icon-scuba_diving:before {
+.sports-icon.scuba_diving:before {
     content: '\e00a';
 }
 
-.sports-icon-soccer:before {
+.sports-icon.soccer:before {
     content: '\e00b';
 }
 
-.sports-icon-table_tennis:before {
+.sports-icon.table_tennis:before {
     content: '\e00c';
 }
 
-.sports-icon-ice_skating:before {
+.sports-icon.ice_skating:before {
     content: '\e00d';
 }
 
-.sports-icon-pool:before {
+.sports-icon.pool:before {
     content: '\e00e';
 }
 
-.sports-icon-golf:before {
+.sports-icon.golf:before {
     content: '\e00f';
 }
 
-.sports-icon-tennis:before {
+.sports-icon.tennis:before {
     content: '\e010';
 }
 
-.sports-icon-american_football:before {
+.sports-icon.american_football:before {
     content: '\e011';
 }
 
-.sports-icon-baseball:before {
+.sports-icon.baseball:before {
     content: '\e012';
 }
 
-.sports-icon-racing:before {
+.sports-icon.racing:before {
     content: '\e013';
 }
 
-.sports-icon-running:before {
+.sports-icon.running:before {
     content: '\e015';
 }
 
-.sports-icon-swimming:before {
+.sports-icon.swimming:before {
     content: '\e016';
 }
 
-.sports-icon-weightlifting:before {
+.sports-icon.weightlifting:before {
     content: '\e017';
 }

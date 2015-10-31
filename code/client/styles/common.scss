@@ -5,3 +5,17 @@
 .hidden {
     display: none;
 }
+
+.separated {
+    border-style: solid;
+    border-color: #e5e5e5;
+    border-width: 0;
+
+    &.bottom {
+        border-bottom-width: 1px;
+    }
+
+    &.top {
+        border-top-width: 1px;
+    }
+}

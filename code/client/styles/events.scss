@@ -3,6 +3,11 @@
 .event {
     .title {
         display: flex;
+        padding: 16px 12px;
+
+        .sports-icon {
+            margin-right: 8px;
+        }
 
         .name {
             flex: 1;
@@ -41,12 +46,12 @@
             vertical-align: middle;
             margin-right: 12px;
             font-size: 0;
-        }
 
-        .guest {
-            display: inline-block;
-            margin-right: 12px;
-            font-size: 0;
+            .item {
+                display: inline-block;
+                margin-right: 12px;
+                font-size: 0;
+            }
         }
 
         .RSVP {

@@ -4,7 +4,7 @@ MainButton = React.createClass({
         text: React.PropTypes.string.isRequired
     },
     render() {
-        let classNames = 'button-main';
+        let classNames = 'button main';
 
         if (this.props.additionalClasses) {
             classNames += ' ' + this.props.additionalClasses;

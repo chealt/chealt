@@ -1,3 +1,7 @@
+Meteor.publish('comments', () => {
+    return Comments.find();
+});
+
 Meteor.publish('activities', () => {
     return Activities.find();
 });

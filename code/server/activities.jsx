@@ -1,5 +1,3 @@
-Activities.remove({});
-
 const activities = [
     { name: 'archery' },
     { name: 'aerobics', googleFitType: 9 },
@@ -109,5 +107,9 @@ const activities = [
 ];
 
 activities.forEach((activity) => {
-    Activities.insert(activity);
+    Activities.update(
+        { name: activity.name },
+        activity,
+        { upsert: true }
+    );
 });

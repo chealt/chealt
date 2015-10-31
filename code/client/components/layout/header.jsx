@@ -17,7 +17,7 @@ Header = React.createClass({
                     <Icon type='search' additionalClasses={searchIconClass} />
                     <input 
                         id='header-filter'
-                        placeholder='filter'
+                        placeholder='search'
                         aria-label='filter'
                         onChange={this.props.filter}
                         no-focus />

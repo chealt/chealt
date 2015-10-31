@@ -8,10 +8,8 @@
     }
 }
 
-.button-main {
+.button {
     display: inline-block;
-    background-color: $color-main-background;
-    color: $color-main-text;
     min-width: 80px;
     box-sizing: border-box;
     text-align: center;
@@ -20,13 +18,24 @@
     cursor: pointer;
     margin: 0;
     padding: 8px 12px;
-
+    
     &.upper {
         text-transform: uppercase;
     }
 
-    &.invert {
-        background-color: $color-main-background-invert;
+    &.main {
+        background-color: $color-main-background;
+        color: $color-main-text;
+
+
+        &.invert {
+            background-color: $color-main-background-invert;
+            color: $color-main-text-invert;
+        }
+    }
+
+    &.neutral {
+        background-color: transparent;
         color: $color-main-text-invert;
     }
 }
@@ -39,4 +48,18 @@
     right: 0;
     z-index: 1;
     background-color: transparent;
+}
+
+input,
+textarea {
+    &.neutral {
+        background-color: transparent;
+        border: 0;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        outline: none;
+        resize: none;
+    }
 }

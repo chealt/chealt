@@ -1,10 +1,14 @@
 Meteor.methods({
     attendEvent(eventId) {
+        const userProfile = Meteor.user().profile;
+
         Events.update({ _id: eventId}, {
             $push: {
                 guests: {
-                    'user': Meteor.user().profile,
-                    'RSVP': 'attend'
+                    email: userProfile.email,
+                    name: userProfile.name,
+                    picture: userProfile.picture,
+                    RSVP: 'attend'
                 }
             }
         });
@@ -13,8 +17,7 @@ Meteor.methods({
         Events.update({ _id: eventId}, {
             $pull: {
                 guests: {
-                    'user': Meteor.user().profile,
-                    'RSVP': 'attend'
+                    email: Meteor.user().profile.email
                 }
             }
         });
@@ -45,5 +48,18 @@ Meteor.methods({
                 }
             }
         });
+    },
+    postComment(comment) {
+        const userProfile = Meteor.user().profile;
+        const _comment = _.extend({
+            createdOn: new Date(),
+            user: {
+                email: userProfile.email,
+                name: userProfile.name,
+                picture: userProfile.picture
+            }
+        }, comment);
+
+        Comments.insert(_comment);
     }
 });

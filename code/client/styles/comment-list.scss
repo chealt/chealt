@@ -1,0 +1,38 @@
+@import 'import/variables';
+
+.comments-container {
+    > li {
+        overflow: hidden;
+        padding: 8px 12px;
+
+        &:not(.new-comment-container) {
+            background-color: $color-light-neutral-background;
+        }
+    }
+
+    .profile-picture {
+        float: left;
+    }
+
+    .message-container {
+        margin-left: 52px;
+        display: flex;
+
+        .comment-container {
+            flex-grow: 1;
+            padding: 8px 8px 8px 0;
+            
+            .comment {
+                font-size: 14px;
+            }
+        }
+
+        .post {
+            max-height: 32px;
+        }
+    }
+
+    .new-comment-container {
+        padding-top: 12px;
+    }
+}

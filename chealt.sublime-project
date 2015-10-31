@@ -1,0 +1,9 @@
+{
+	"folders":
+	[
+		{
+			"path": "code",
+            "folder_exclude_patterns": [".meteor"]
+		}
+	]
+}

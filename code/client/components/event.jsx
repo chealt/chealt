@@ -10,7 +10,7 @@ Event = React.createClass({
     },
     isAttending() {
         return this.props.event.guests.some((guest) => {
-            return guest.user.email === this.data.currentUser.profile.email;
+            return guest.email === this.data.currentUser.profile.email;
         });
     },
     attend() {
@@ -18,6 +18,11 @@ Event = React.createClass({
     },
     unattend() {
         Meteor.call('unattendEvent', this.props.event._id);
+    },
+    sportsIcon() {
+        if (this.props.event.activity) {
+            return <SportsIcon activity={this.props.event.activity} />
+        }
     },
     attendButton() {
         if (this.data.currentUser) {
@@ -37,16 +42,9 @@ Event = React.createClass({
     guests() {
         if (this.props.event.guests.length) {
             return (
-                <ul className='guests'>
-                    {this.props.event.guests.map((guest) => {
-                        return (
-                            <li className='guest' key={guest.user.email}>
-                                <ProfilePicture
-                                    user={guest.user} />
-                            </li>
-                        );
-                    })}
-                </ul>
+                <ProfileList
+                    profileList={this.props.event.guests}
+                    containerClass='guests' />
             );
         }
     },
@@ -71,7 +69,8 @@ Event = React.createClass({
     render() {
         return (
             <div className='card event'>
-                <h2 className='title separated'>
+                <h2 className='title separated bottom'>
+                    {this.sportsIcon()}
                     <span className='name'>{this.props.event.name}</span>
                     {this.getDate()}
                 </h2>
@@ -98,6 +97,9 @@ Event = React.createClass({
                     {this.guests()}
                     {this.attendButton()}
                 </div>
+                <CommentsList
+                    itemType='event'
+                    itemId={this.props.event._id} />
             </div>
         );
     }
