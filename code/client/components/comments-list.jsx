@@ -5,7 +5,7 @@ CommentsList = React.createClass({
     },
     getInitialState() {
         return {
-            limit: 5,
+            limit: 2,
             newComment: ''
         };
     },
@@ -44,7 +44,13 @@ CommentsList = React.createClass({
         });
     },
     deleteComment(commentId) {
-        Meteor.call('deleteComment', commentId);
+        Meteor.call('deleteComment', commentId, (error, result) => {
+            if (result && this.state.limit > this.data.commentsCount) {
+                this.setState({
+                    limit: (this.data.commentsCount - 1)
+                });
+            }
+        });
     },
     newComment() {
         if (this.data.currentUser) {
@@ -78,7 +84,7 @@ CommentsList = React.createClass({
     },
     loadMore() {
         this.setState({
-            limit: this.state.limit + 5
+            limit: this.state.limit + 2
         });
     },
     loadMoreRender() {

@@ -4,6 +4,38 @@
 		"selected_items":
 		[
 			[
+				"loadMo",
+				"loadMoreRender"
+			],
+			[
+				"trans",
+				"transform: "
+			],
+			[
+				"face",
+				"facebookData"
+			],
+			[
+				"loginwi",
+				"loginWithFacebook"
+			],
+			[
+				"dele",
+				"deleteButton"
+			],
+			[
+				"user",
+				"userId"
+			],
+			[
+				"comme",
+				"commentId"
+			],
+			[
+				"delet",
+				"deleteComment"
+			],
+			[
 				"paddin",
 				"padding-top: "
 			],
@@ -136,10 +168,6 @@
 				"emails"
 			],
 			[
-				"user",
-				"userProfile"
-			],
-			[
 				"google",
 				"googleEmail"
 			],
@@ -162,10 +190,6 @@
 			[
 				"Re",
 				"RegExp"
-			],
-			[
-				"trans",
-				"transformedFilter"
 			],
 			[
 				"color-main",
@@ -456,19 +480,20 @@
 	"buffers":
 	[
 		{
-			"file": "code/client/styles/comment-list.scss",
+			"file": "code/client/components/comments-list.jsx",
 			"settings":
 			{
-				"buffer_size": 674,
+				"buffer_size": 3774,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "code/client/components/comments-list.jsx",
+			"file": "code/client/components/load-more.jsx",
 			"settings":
 			{
-				"buffer_size": 2789,
-				"line_ending": "Windows"
+				"buffer_size": 307,
+				"line_ending": "Windows",
+				"name": "LoadMore = React.createClass({"
 			}
 		}
 	],
@@ -488,16 +513,16 @@
 				"Set Syntax: SCSS"
 			],
 			[
+				"syjs",
+				"Set Syntax: JSX"
+			],
+			[
 				"sy",
 				"Set Syntax: JSX"
 			],
 			[
 				"syscs",
 				"Set Syntax: SCSS"
-			],
-			[
-				"syjs",
-				"Set Syntax: JSX"
 			],
 			[
 				"sysc",
@@ -672,53 +697,58 @@
 	[
 		"/C/Users/Attila/Code/chealt/code",
 		"/C/Users/Attila/Code/chealt/code/client",
-		"/C/Users/Attila/Code/chealt/code/client/components",
-		"/C/Users/Attila/Code/chealt/code/client/styles"
+		"/C/Users/Attila/Code/chealt/code/server"
 	],
 	"file_history":
 	[
 		"/C/Users/Attila/Code/chealt/code/client/styles/elements.scss",
-		"/C/Users/Attila/Code/chealt/code/client/components/main-button.jsx",
-		"/C/Users/Attila/Code/chealt/code/client/styles/events.scss",
 		"/C/Users/Attila/Code/chealt/code/client/styles/import/_variables.scss",
-		"/C/Users/Attila/Code/chealt/code/client/styles/common.scss",
-		"/C/Users/Attila/Code/chealt/code/client/components/event.jsx",
-		"/C/Users/Attila/Code/chealt/code/client/styles/card.scss",
 		"/C/Users/Attila/Code/chealt/code/lib/methods.jsx",
-		"/C/Users/Attila/Code/chealt/code/client/components/growing-textarea.jsx",
-		"/C/Users/Attila/Code/chealt/code/client/styles/growing-textarea.scss",
+		"/C/Users/Attila/Code/chealt/code/client/components/event.jsx",
+		"/C/Users/Attila/Code/chealt/code/client/components/profile-list.jsx",
+		"/C/Users/Attila/Code/chealt/code/client/styles/login.scss",
+		"/C/Users/Attila/Code/chealt/code/client/components/login.jsx",
+		"/C/Users/Attila/Code/chealt/code/server/profile.jsx",
+		"/C/Users/Attila/Code/chealt/code/server/publications.jsx",
+		"/C/Users/Attila/Code/chealt/code/server/services.jsx",
+		"/C/Users/Attila/Code/video-poll/server/accounts-config.js",
 		"/C/Users/Attila/Code/chealt/code/client/components/profile.jsx",
+		"/C/Users/Attila/Code/chealt/code/client/styles/profile.scss",
+		"/C/Users/Attila/Code/chealt/code/client/styles/bubble.scss",
+		"/C/Users/Attila/Code/chealt/code/client/styles/comment-list.scss",
+		"/C/Users/Attila/Code/chealt/code/client/components/comments-list.jsx",
+		"/C/Users/Attila/Code/chealt/code/client/styles/events.scss",
+		"/C/Users/Attila/Code/chealt/code/client/components/growing-textarea.jsx",
+		"/C/Users/Attila/Code/video-poll/client/templates/head.html",
+		"/C/Users/Attila/Code/tablehockey/tablehockey/client/templates/main.html",
+		"/C/Users/Attila/Code/chealt/code/client/components/main-button.jsx",
+		"/C/Users/Attila/Code/chealt/code/client/styles/common.scss",
+		"/C/Users/Attila/Code/chealt/code/client/styles/card.scss",
+		"/C/Users/Attila/Code/chealt/code/client/styles/growing-textarea.scss",
 		"/C/Users/Attila/Code/chealt/code/client/components/header-profile.jsx",
 		"/C/Users/Attila/Code/chealt/code/client/components/profile-picture.jsx",
 		"/C/Users/Attila/Code/chealt/code/client/components/layout/header.jsx",
-		"/C/Users/Attila/Code/chealt/code/server/publications.jsx",
 		"/C/Users/Attila/Code/chealt/chealt.sublime-project",
 		"/C/Users/Attila/Code/chealt/code/lib/collections.jsx",
 		"/C/Users/Attila/Code/chealt/code/client/subscriptions.js",
 		"/C/Users/Attila/Code/chealt/code/client/components/layout/layout.jsx",
-		"/C/Users/Attila/Code/chealt/code/client/components/profile-list.jsx",
 		"/C/Users/Attila/Code/chealt/code/client/components/sports-icon.jsx",
 		"/C/Users/Attila/Code/chealt/code/client/styles/icons.scss",
 		"/C/Users/Attila/Code/chealt/code/client/components/profile-info.jsx",
 		"/C/Users/Attila/Code/chealt/code/client/styles/home.scss",
 		"/C/Users/Attila/Code/chealt/code/server/activities.jsx",
 		"/C/Users/Attila/Code/chealt/code/client/styles/header.scss",
-		"/C/Users/Attila/Code/chealt/code/client/components/login.jsx",
 		"/C/Users/Attila/Code/chealt/code/lib/routes.jsx",
-		"/C/Users/Attila/Code/chealt/code/client/styles/bubble.scss",
 		"/C/Users/Attila/Code/chealt/code/client/components/layout/anything-closer.jsx",
 		"/C/Users/Attila/Code/chealt/code/client/components/home.jsx",
-		"/C/Users/Attila/Code/chealt/code/server/profile.jsx",
 		"/C/Users/Attila/Code/chealt/code/client/styles/profile-info.scss",
 		"/C/Users/Attila/Code/chealt/documents/assets/icons/sport-icons/flaticon.css",
 		"/C/Users/Attila/Code/chealt/code/.meteor/local/build/programs/server/app/server/publications.jsx",
 		"/C/Users/Attila/Code/chealt/code/lib/collections.js",
 		"/C/Users/Attila/Code/chealt/code/server/google-fit.jsx",
 		"/C/Users/Attila/AppData/Local/.meteor/packages/percolate_google-api/1.0.2/web.browser/packages/percolate_google-api.js",
-		"/C/Users/Attila/Code/chealt/code/server/services.jsx",
 		"/C/Users/Attila/Code/chealt/code/client/styles/profile-picture.scss",
 		"/C/Users/Attila/Code/chealt/code/client/styles/header-profile.scss",
-		"/C/Users/Attila/Code/chealt/code/client/styles/profile.scss",
 		"/C/Users/Attila/Code/chealt/code/client/components/logout.jsx",
 		"/C/Users/Attila/Code/chealt/code/client/components/bubble.jsx",
 		"/C/Users/Attila/Code/chealt/code/client/components/drawer-opener.jsx",
@@ -798,13 +828,7 @@
 		"/C/Users/Attila/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
 		"/C/Users/Attila/AppData/Roaming/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
 		"/C/Users/Attila/Code/chealt/code/chealt/client/stylesheets/globals/nav.scss",
-		"/C/Users/Attila/Code/chealt/code/chealt/client/templates/home/home.js",
-		"/C/Users/Attila/Code/chealt/code/chealt/server/authentication.js",
-		"/C/Users/Attila/Code/chealt/code/chealt/lib/router.js",
-		"/C/Users/Attila/Code/chealt/code/chealt/.meteor/local/build/programs/server/packages/service-configuration.js",
-		"/C/Users/Attila/Code/chealt/code/chealt/.meteor/local/build/programs/web.browser/packages/service-configuration.js",
-		"/C/Users/Attila/Code/chealt/code/chealt/.jscsrc",
-		"/C/Users/Attila/Code/appjs/index.html"
+		"/C/Users/Attila/Code/chealt/code/chealt/client/templates/home/home.js"
 	],
 	"find":
 	{
@@ -839,6 +863,11 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"translateX",
+			"color",
+			"google",
+			"closeBubble",
+			"deleteComment",
 			"separat",
 			"this.state",
 			"target",
@@ -961,12 +990,7 @@
 			"diff-switcher",
 			"Promise",
 			"testCases",
-			"promisifyAll",
-			"btn-social",
-			"btn-google",
-			"indent",
-			"login-container",
-			"div"
+			"promisifyAll"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -987,63 +1011,66 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "code/client/styles/comment-list.scss",
+					"file": "code/client/components/comments-list.jsx",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 674,
+						"buffer_size": 3774,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								233,
-								233
+								881,
+								881
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Syntax Highlighting for Sass/Syntaxes/SCSS.tmLanguage"
+							"syntax": "Packages/JSX/JSX.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": -0.0,
+						"translation.y": 570.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "code/client/components/load-more.jsx",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 307,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								267,
+								267
+							]
+						],
+						"settings":
+						{
+							"auto_name": "LoadMore = React.createClass({",
+							"syntax": "Packages/JSX/JSX.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "code/client/components/comments-list.jsx",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2789,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1741,
-								1741
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JSX/JSX.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 627.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
 					"type": "text"
 				}
 			]
@@ -1102,6 +1129,70 @@
 		"selected_items":
 		[
 			[
+				"vari",
+				"client\\styles\\import\\_variables.scss"
+			],
+			[
+				"elem",
+				"client\\styles\\elements.scss"
+			],
+			[
+				"comme",
+				"client\\components\\comments-list.jsx"
+			],
+			[
+				"proli",
+				"client\\components\\profile-list.jsx"
+			],
+			[
+				"method",
+				"lib\\methods.jsx"
+			],
+			[
+				"event",
+				"client\\components\\event.jsx"
+			],
+			[
+				"pro",
+				"server\\profile.jsx"
+			],
+			[
+				"se",
+				"server\\services.jsx"
+			],
+			[
+				"login",
+				"client\\styles\\login.scss"
+			],
+			[
+				"bubb",
+				"client\\styles\\bubble.scss"
+			],
+			[
+				"profilesc",
+				"client\\styles\\profile.scss"
+			],
+			[
+				"profilsc",
+				"client\\styles\\profile.scss"
+			],
+			[
+				"profile",
+				"client\\components\\profile.jsx"
+			],
+			[
+				"even",
+				"client\\styles\\events.scss"
+			],
+			[
+				"metho",
+				"lib\\methods.jsx"
+			],
+			[
+				"growtex",
+				"client\\components\\growing-textarea.jsx"
+			],
+			[
 				"ele",
 				"client\\styles\\elements.scss"
 			],
@@ -1114,32 +1205,12 @@
 				"client\\styles\\events.scss"
 			],
 			[
-				"vari",
-				"client\\styles\\import\\_variables.scss"
-			],
-			[
-				"event",
-				"client\\components\\event.jsx"
-			],
-			[
 				"comms",
 				"client\\styles\\common.scss"
 			],
 			[
-				"elem",
-				"client\\styles\\elements.scss"
-			],
-			[
-				"metho",
-				"lib\\methods.jsx"
-			],
-			[
 				"grow",
 				"client\\components\\growing-textarea.jsx"
-			],
-			[
-				"even",
-				"client\\components\\event.jsx"
 			],
 			[
 				"gor",
@@ -1186,10 +1257,6 @@
 				"client\\components\\event.jsx"
 			],
 			[
-				"method",
-				"lib\\methods.jsx"
-			],
-			[
 				"card",
 				"client\\styles\\card.scss"
 			],
@@ -1214,10 +1281,6 @@
 				"client\\styles\\home.scss"
 			],
 			[
-				"login",
-				"client\\components\\login.jsx"
-			],
-			[
 				"hom",
 				"client\\styles\\home.scss"
 			],
@@ -1240,10 +1303,6 @@
 			[
 				"me",
 				"lib\\methods.jsx"
-			],
-			[
-				"bubb",
-				"client\\styles\\bubble.scss"
 			],
 			[
 				"profilinfo",
@@ -1280,10 +1339,6 @@
 			[
 				"profilein",
 				"client\\components\\profile-info.jsx"
-			],
-			[
-				"profile",
-				"client\\styles\\profile-info.scss"
 			],
 			[
 				"publi",
@@ -1420,10 +1475,6 @@
 			[
 				"subs",
 				"client\\subscriptions.js"
-			],
-			[
-				"pro",
-				"client\\components\\profile.jsx"
 			],
 			[
 				"logou",
@@ -1588,10 +1639,6 @@
 			[
 				"aja",
 				"public\\js\\modules\\ajax.js"
-			],
-			[
-				"main",
-				"public\\js\\main.js"
 			]
 		],
 		"width": 0.0
