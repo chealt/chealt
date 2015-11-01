@@ -32,3 +32,5 @@ msavin:mongol
 service-configuration
 accounts-google
 percolate:google-api
+accounts-facebook
+http

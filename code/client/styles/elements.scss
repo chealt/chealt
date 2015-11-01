@@ -63,3 +63,20 @@ textarea {
         resize: none;
     }
 }
+
+.load-more-container {
+    position: relative;
+
+    .load-more-trigger {
+        position: absolute;
+        width: 100%;
+        text-align: center;
+    }
+
+    .load-more {
+        cursor: pointer;
+        color: $color-main-brand;
+        font-weight: bold;
+        font-size: 18px;
+    }
+}

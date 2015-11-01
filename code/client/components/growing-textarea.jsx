@@ -40,7 +40,8 @@ GrowingTextarea = React.createClass({
                     name={this.props.name}
                     placeholder={this.props.placeholder}
                     onKeyUp={this.calculateHeight}
-                    onChange={this.onChange}></textarea>
+                    onChange={this.onChange}
+                    value={this.props.value}></textarea>
             </div>
         );
     }

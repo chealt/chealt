@@ -3,8 +3,13 @@ Accounts.onCreateUser((options, user) => {
     const googleEmail = googleData && googleData.email;
     const googleName = googleData && googleData.name;
     const googleProfilePicture = googleData && googleData.picture;
-    let profile = {};
+
+    const facebookData = user.services && user.services.facebook;
+    const facebookEmail = facebookData && facebookData.email;
+    const facebookName = facebookData && facebookData.name;
+    const facebookProfilePicture = facebookData && facebookData.id && 'http://graph.facebook.com/' + facebookData.id + '/picture/?type=large';
     
+    let profile = {};
 
     if (googleEmail) {
         _.extend(profile, {
@@ -21,6 +26,24 @@ Accounts.onCreateUser((options, user) => {
     if (googleProfilePicture) {
         _.extend(profile, {
             picture: googleProfilePicture
+        });
+    }
+
+    if (facebookEmail) {
+        _.extend(profile, {
+            email: facebookEmail
+        });
+    }
+
+    if (facebookName) {
+        _.extend(profile, {
+            name: facebookName
+        });
+    }
+
+    if (facebookProfilePicture) {
+        _.extend(profile, {
+            picture: facebookProfilePicture
         });
     }
 

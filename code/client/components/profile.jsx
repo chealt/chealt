@@ -33,7 +33,7 @@ Profile = React.createClass({
     },
     render() {
         return (
-            <div className='profile-container'>
+            <div className='profile-container bubble-container'>
                 <ProfilePicture
                     user={this.props.user.profile}
                     onClick={this.toggleBubble} />

@@ -8,7 +8,7 @@ ProfileList = React.createClass({
             <ul className={this.props.containerClass}>
                 {this.props.profileList.map((profile) => {
                     return (
-                        <li className='item' key={profile.email}>
+                        <li className='item' key={profile._id}>
                             <ProfilePicture
                                 user={profile} />
                         </li>

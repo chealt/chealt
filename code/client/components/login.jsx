@@ -1,5 +1,5 @@
 Login = React.createClass({
-    login() {
+    loginWithGoogle() {
         Meteor.loginWithGoogle({
             requestPermissions: [
                 'email',
@@ -9,14 +9,67 @@ Login = React.createClass({
             ]
         }, updateUserInfoFromGoogleFit);
     },
-    render() {
+    loginWithFacebook() {
+        Meteor.loginWithFacebook({
+            requestPermissions: [
+                'email',
+                'user_events',
+                'public_profile'
+            ]
+        });
+    },
+    getInitialState() {
+        return {
+            isBubbleShown: false
+        };
+    },
+    toggleBubble() {
+        this.setState({
+            isBubbleShown: !this.state.isBubbleShown
+        });
+    },
+    closeBubble() {
+        this.setState({
+            isBubbleShown: false
+        });
+    },
+    anythingCloser() {
+        if (this.state.isBubbleShown) {
+            return <AnythingCloser onClick={this.closeBubble} />;
+        }
+    },
+    getBubbleContent() {
         return (
-            <div className='login-container'>
+            <div className='login-bubble-content'>
                 <button
-                    className='google-login button-main upper invert'
-                    onClick={this.login} >
+                    className='google-login button main upper'
+                    onClick={this.loginWithGoogle} >
                     google
                 </button>
+                <button
+                    className='facebook-login button main upper'
+                    onClick={this.loginWithFacebook} >
+                    facebook
+                </button>
+            </div>
+        );
+    },
+    render() {
+        return (
+            <div className='login-container bubble-container'>
+                <button
+                    className='google-login button main upper invert'
+                    onClick={this.toggleBubble} >
+                    login
+                </button>
+                <BubbleArrow
+                    position='below'
+                    isShown={this.state.isBubbleShown} />
+                <Bubble
+                    position='below'
+                    isShown={this.state.isBubbleShown}
+                    content={this.getBubbleContent()} />
+                {this.anythingCloser()}
             </div>
         );
     }

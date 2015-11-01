@@ -10,7 +10,7 @@ Event = React.createClass({
     },
     isAttending() {
         return this.props.event.guests.some((guest) => {
-            return guest.email === this.data.currentUser.profile.email;
+            return guest._id === this.data.currentUser._id;
         });
     },
     attend() {

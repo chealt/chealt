@@ -5,6 +5,7 @@ Meteor.methods({
         Events.update({ _id: eventId}, {
             $push: {
                 guests: {
+                    _id: Meteor.userId(),
                     email: userProfile.email,
                     name: userProfile.name,
                     picture: userProfile.picture,
@@ -17,7 +18,7 @@ Meteor.methods({
         Events.update({ _id: eventId}, {
             $pull: {
                 guests: {
-                    email: Meteor.user().profile.email
+                    _id: Meteor.userId()
                 }
             }
         });
@@ -54,6 +55,7 @@ Meteor.methods({
         const _comment = _.extend({
             createdOn: new Date(),
             user: {
+                _id: Meteor.userId(),
                 email: userProfile.email,
                 name: userProfile.name,
                 picture: userProfile.picture
@@ -61,5 +63,10 @@ Meteor.methods({
         }, comment);
 
         Comments.insert(_comment);
+    },
+    deleteComment(commentId) {
+        if (Comments.findOne({ 'user._id': Meteor.userId() })) {
+            Comments.remove({ _id: commentId });
+        }
     }
 });

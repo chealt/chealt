@@ -8,3 +8,14 @@ ServiceConfiguration.configurations.upsert(
         }
     }
 );
+
+ServiceConfiguration.configurations.upsert(
+    { service: 'facebook' },
+    {
+        $set: {
+            appId: '1637948946454432',
+            secret: 'fa3dd32c7bc233565f7371720f3f6351',
+            loginStyle: 'popup'
+        }
+    }
+);

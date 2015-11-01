@@ -5,7 +5,7 @@ CommentsList = React.createClass({
     },
     getInitialState() {
         return {
-            limit: 10,
+            limit: 5,
             newComment: ''
         };
     },
@@ -21,7 +21,11 @@ CommentsList = React.createClass({
                         createdOn: -1
                     },
                     limit: this.state.limit
-                }).fetch()
+                }).fetch(),
+            commentsCount: Comments.find({
+                    itemType: this.props.itemType,
+                    itemId: this.props.itemId
+                }).count()
         };
     },
     postComment() {
@@ -30,11 +34,17 @@ CommentsList = React.createClass({
             itemId: this.props.itemId,
             message: this.state.newComment
         });
+        this.setState({
+            newComment: ''
+        });
     },
     setNewComment(input) {
         this.setState({
             newComment: input
         });
+    },
+    deleteComment(commentId) {
+        Meteor.call('deleteComment', commentId);
     },
     newComment() {
         if (this.data.currentUser) {
@@ -47,7 +57,8 @@ CommentsList = React.createClass({
                             additionalClasses='comment neutral'
                             name='new-comment'
                             placeholder='your comment...'
-                            onChange={this.setNewComment} />
+                            onChange={this.setNewComment}
+                            value={this.state.newComment} />
                         <button
                             className='post button neutral upper'
                             onClick={this.postComment}>post</button>
@@ -56,26 +67,46 @@ CommentsList = React.createClass({
             );
         }
     },
+    deleteButton(comment) {
+        if (comment.user._id === Meteor.userId()) {
+            return (
+                <button
+                    className='delete button neutral upper'
+                    onClick={this.deleteComment.bind(this, comment._id)}>delete</button>
+            );
+        }
+    },
+    loadMore() {
+        this.setState({
+            limit: this.state.limit + 5
+        });
+    },
+    loadMoreRender() {
+        if (this.data.commentsCount > this.state.limit) {
+            return (<LoadMore onClick={this.loadMore} />);
+        }
+    },
     render() {
         return (
-            <ul className='comments-container separated top'>
-                {this.data.comments.map((comment) => {
-                    return (
-                        <li key={comment._id}>
-                            <ProfilePicture user={comment.user} />
-                            <div className='message-container'>
-                                <div className='comment-container'>
-                                    {comment.message}
+            <div className='load-more-container separated top'>
+                {this.loadMoreRender()}
+                <ul className='comments-container'>
+                    {this.data.comments.reverse().map((comment) => {
+                        return (
+                            <li key={comment._id}>
+                                <ProfilePicture user={comment.user} />
+                                <div className='message-container'>
+                                    <div className='comment-container'>
+                                        {comment.message}
+                                    </div>
+                                    {this.deleteButton(comment)}
                                 </div>
-                                <button
-                                    className='delete button neutral upper'
-                                    onClick={this.deleteComment}>delete</button>
-                            </div>
-                        </li>
-                    );
-                })}
-                {this.newComment()}
-            </ul>
+                            </li>
+                        );
+                    })}
+                    {this.newComment()}
+                </ul>
+            </div>
         );
     }
 });

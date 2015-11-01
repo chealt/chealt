@@ -1,3 +1,9 @@
+.bubble-container {
+    position: relative;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
 .bubble {
     background: #fff;
     border: 1px solid #ccc;
