@@ -38,6 +38,12 @@
         background-color: transparent;
         color: $color-main-text-invert;
     }
+
+    &.active {
+        .icon {
+            color: $color-main-brand;
+        }
+    }
 }
 
 .anything-closer {

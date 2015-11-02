@@ -3,7 +3,7 @@ Icon = React.createClass({
         type: React.PropTypes.string.isRequired
     },
     render() {
-        var iconClass = 'icon-' + this.props.type;
+        var iconClass = 'icon icon-' + this.props.type;
 
         if (this.props.additionalClasses) {
             iconClass += ' ' + this.props.additionalClasses;

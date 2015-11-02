@@ -33,9 +33,12 @@ CommentsList = React.createClass({
             itemType: this.props.itemType,
             itemId: this.props.itemId,
             message: this.state.newComment
-        });
-        this.setState({
-            newComment: ''
+        }, (error, result) => {
+            if (result) {
+                this.setState({
+                    newComment: ''
+                });
+            }
         });
     },
     setNewComment(input) {
@@ -47,7 +50,7 @@ CommentsList = React.createClass({
         Meteor.call('deleteComment', commentId, (error, result) => {
             if (result && this.state.limit > this.data.commentsCount) {
                 this.setState({
-                    limit: (this.data.commentsCount - 1)
+                    limit: this.data.commentsCount
                 });
             }
         });

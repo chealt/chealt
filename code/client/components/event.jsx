@@ -2,6 +2,11 @@ Event = React.createClass({
     propTypes: {
         event: React.PropTypes.object.isRequired
     },
+    getInitialState() {
+        return {
+            isCommentsShown: false
+        };
+    },
     mixins: [ReactMeteorData],
     getMeteorData() {
         return {
@@ -66,6 +71,34 @@ Event = React.createClass({
             );
         }
     },
+    toggleComments() {
+        this.setState({
+            isCommentsShown: !this.state.isCommentsShown
+        });
+    },
+    commentsList() {
+        if (this.state.isCommentsShown) {
+            return (
+                <CommentsList
+                    itemType='event'
+                    itemId={this.props.event._id} />
+            );
+        }
+    },
+    toggleCommentsRender() {
+        let additionalClasses;
+
+        if (this.state.isCommentsShown) {
+            additionalClasses = 'active';
+        }
+
+        return (
+            <IconButton
+                type='bubbles4'
+                action={this.toggleComments}
+                additionalClasses={additionalClasses} />
+        );
+    },
     render() {
         return (
             <div className='card event'>
@@ -97,9 +130,10 @@ Event = React.createClass({
                     {this.guests()}
                     {this.attendButton()}
                 </div>
-                <CommentsList
-                    itemType='event'
-                    itemId={this.props.event._id} />
+                {this.commentsList()}
+                <div className='controls-container'>
+                    {this.toggleCommentsRender()}
+                </div>
             </div>
         );
     }

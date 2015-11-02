@@ -62,11 +62,11 @@ Meteor.methods({
             }
         }, comment);
 
-        Comments.insert(_comment);
+        return Comments.insert(_comment);
     },
     deleteComment(commentId) {
         if (Comments.findOne({ 'user._id': Meteor.userId() })) {
-            Comments.remove({ _id: commentId });
+            return Comments.remove({ _id: commentId });
         }
     }
 });
