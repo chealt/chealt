@@ -112,7 +112,7 @@ function updateUserActivities() {
 
 function updateUserWeight() {
     const weightDataSourceUrl = dataSourcesUrl + '?dataTypeName=com.google.weight&fields=dataSource%2FdataStreamId';
-    const dataSetFieldsParameter = 'point%2Fvalue%2FfpVal';
+    const dataSetFieldsParameter = 'point(modifiedTimeMillis%2Cvalue%2FfpVal)';
 
     GoogleApi.get(weightDataSourceUrl)
         .then(getDataStreamIds)

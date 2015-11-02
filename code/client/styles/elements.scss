@@ -39,6 +39,10 @@
         color: $color-main-text-invert;
     }
 
+    .icon {
+        font-size: 18px;
+    }
+
     &.active {
         .icon {
             color: $color-main-brand;
