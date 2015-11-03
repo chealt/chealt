@@ -483,7 +483,7 @@
 			"file": "code/client/components/comments-list.jsx",
 			"settings":
 			{
-				"buffer_size": 3774,
+				"buffer_size": 4001,
 				"line_ending": "Windows"
 			}
 		},
@@ -505,19 +505,19 @@
 	"command_palette":
 	{
 		"height": 392.0,
-		"last_filter": "sys",
+		"last_filter": "sy",
 		"selected_items":
 		[
+			[
+				"sy",
+				"Set Syntax: JSX"
+			],
 			[
 				"sys",
 				"Set Syntax: SCSS"
 			],
 			[
 				"syjs",
-				"Set Syntax: JSX"
-			],
-			[
-				"sy",
 				"Set Syntax: JSX"
 			],
 			[
@@ -1020,15 +1020,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3774,
+						"buffer_size": 4001,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								881,
-								881
+								1506,
+								1506
 							]
 						],
 						"settings":
@@ -1037,8 +1037,8 @@
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
-						"translation.x": -0.0,
-						"translation.y": 570.0,
+						"translation.x": 0.0,
+						"translation.y": 342.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,

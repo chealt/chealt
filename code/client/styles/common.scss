@@ -18,4 +18,8 @@
     &.top {
         border-top-width: 1px;
     }
+
+    &.vertical {
+        border-width: 1px 0;
+    }
 }

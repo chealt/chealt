@@ -99,18 +99,29 @@ Event = React.createClass({
                 additionalClasses={additionalClasses} />
         );
     },
+    attendance() {
+        let attendance = this.props.event.guests.length + '';
+
+        if (this.props.event.limit) {
+            attendance += '/' + this.props.event.limit;
+        }
+
+        return (
+            <span className='attendance'>{attendance}</span>
+        );
+    },
     render() {
         return (
             <div className='card event'>
-                <h2 className='title separated bottom'>
+                <h2 className='title'>
                     {this.sportsIcon()}
                     <span className='name'>{this.props.event.name}</span>
                     {this.getDate()}
                 </h2>
-                <div className='content-header row equal'>
+                <div className='content-header row equal separated vertical'>
                     <div className='host'>
                         <Icon type='user' position='before' />
-                        <span className='text'>host: {this.props.event.host}</span>
+                        <span className='text'>host: {this.props.event.host.name}</span>
                     </div>
                     <div className='time-container row equal'>
                         <div className='start'>
@@ -131,8 +142,13 @@ Event = React.createClass({
                     {this.attendButton()}
                 </div>
                 {this.commentsList()}
-                <div className='controls-container'>
-                    {this.toggleCommentsRender()}
+                <div className='footer row equal'>
+                    <div className='figures-container'>
+                        {this.attendance()}
+                    </div>
+                    <div className='controls-container'>
+                        {this.toggleCommentsRender()}
+                    </div>
                 </div>
             </div>
         );

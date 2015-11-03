@@ -23,6 +23,8 @@
     }
 
     .content-header {
+        background-color: $color-light-neutral-background;
+
         > div {
             padding: 12px;
         }
@@ -60,6 +62,12 @@
             margin-left: 0;
             vertical-align: middle;
         }
+    }
+
+    .figures-container {
+        text-align: left;
+        padding: 8px 12px;
+        font-size: 18px;
     }
 
     .controls-container {
