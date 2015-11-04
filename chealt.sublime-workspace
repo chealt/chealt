@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"att",
+				"attendance"
+			],
+			[
+				"atten",
+				"attendance"
+			],
+			[
 				"loadMo",
 				"loadMoreRender"
 			],
@@ -202,10 +210,6 @@
 			[
 				"guestbutton",
 				"guestButtonAction"
-			],
-			[
-				"att",
-				"attend"
 			],
 			[
 				"attend",
@@ -480,20 +484,27 @@
 	"buffers":
 	[
 		{
-			"file": "code/client/components/comments-list.jsx",
+			"file": "code/client/styles/common.scss",
 			"settings":
 			{
-				"buffer_size": 4001,
+				"buffer_size": 339,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "code/client/components/load-more.jsx",
+			"file": "code/client/components/event.jsx",
 			"settings":
 			{
-				"buffer_size": 307,
-				"line_ending": "Windows",
-				"name": "LoadMore = React.createClass({"
+				"buffer_size": 5013,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "code/client/styles/events.scss",
+			"settings":
+			{
+				"buffer_size": 1458,
+				"line_ending": "Windows"
 			}
 		}
 	],
@@ -505,16 +516,16 @@
 	"command_palette":
 	{
 		"height": 392.0,
-		"last_filter": "sy",
+		"last_filter": "sys",
 		"selected_items":
 		[
 			[
-				"sy",
-				"Set Syntax: JSX"
-			],
-			[
 				"sys",
 				"Set Syntax: SCSS"
+			],
+			[
+				"sy",
+				"Set Syntax: JSX"
 			],
 			[
 				"syjs",
@@ -701,10 +712,16 @@
 	],
 	"file_history":
 	[
-		"/C/Users/Attila/Code/chealt/code/client/styles/elements.scss",
 		"/C/Users/Attila/Code/chealt/code/client/styles/import/_variables.scss",
-		"/C/Users/Attila/Code/chealt/code/lib/methods.jsx",
+		"/C/Users/Attila/Code/chealt/code/client/styles/events.scss",
 		"/C/Users/Attila/Code/chealt/code/client/components/event.jsx",
+		"/C/Users/Attila/Code/chealt/code/client/styles/elements.scss",
+		"/C/Users/Attila/Code/chealt/code/client/styles/common.scss",
+		"/C/Users/Attila/Code/chealt/code/client/components/layout/layout.jsx",
+		"/C/Users/Attila/Code/chealt/code/client/components/layout/header.jsx",
+		"/C/Users/Attila/Code/chealt/code/client/components/load-more.jsx",
+		"/C/Users/Attila/Code/chealt/code/client/components/comments-list.jsx",
+		"/C/Users/Attila/Code/chealt/code/lib/methods.jsx",
 		"/C/Users/Attila/Code/chealt/code/client/components/profile-list.jsx",
 		"/C/Users/Attila/Code/chealt/code/client/styles/login.scss",
 		"/C/Users/Attila/Code/chealt/code/client/components/login.jsx",
@@ -716,22 +733,17 @@
 		"/C/Users/Attila/Code/chealt/code/client/styles/profile.scss",
 		"/C/Users/Attila/Code/chealt/code/client/styles/bubble.scss",
 		"/C/Users/Attila/Code/chealt/code/client/styles/comment-list.scss",
-		"/C/Users/Attila/Code/chealt/code/client/components/comments-list.jsx",
-		"/C/Users/Attila/Code/chealt/code/client/styles/events.scss",
 		"/C/Users/Attila/Code/chealt/code/client/components/growing-textarea.jsx",
 		"/C/Users/Attila/Code/video-poll/client/templates/head.html",
 		"/C/Users/Attila/Code/tablehockey/tablehockey/client/templates/main.html",
 		"/C/Users/Attila/Code/chealt/code/client/components/main-button.jsx",
-		"/C/Users/Attila/Code/chealt/code/client/styles/common.scss",
 		"/C/Users/Attila/Code/chealt/code/client/styles/card.scss",
 		"/C/Users/Attila/Code/chealt/code/client/styles/growing-textarea.scss",
 		"/C/Users/Attila/Code/chealt/code/client/components/header-profile.jsx",
 		"/C/Users/Attila/Code/chealt/code/client/components/profile-picture.jsx",
-		"/C/Users/Attila/Code/chealt/code/client/components/layout/header.jsx",
 		"/C/Users/Attila/Code/chealt/chealt.sublime-project",
 		"/C/Users/Attila/Code/chealt/code/lib/collections.jsx",
 		"/C/Users/Attila/Code/chealt/code/client/subscriptions.js",
-		"/C/Users/Attila/Code/chealt/code/client/components/layout/layout.jsx",
 		"/C/Users/Attila/Code/chealt/code/client/components/sports-icon.jsx",
 		"/C/Users/Attila/Code/chealt/code/client/styles/icons.scss",
 		"/C/Users/Attila/Code/chealt/code/client/components/profile-info.jsx",
@@ -827,8 +839,7 @@
 		"/C/Users/Attila/Code/chealt/code/chealt/client/subscriptions.js",
 		"/C/Users/Attila/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
 		"/C/Users/Attila/AppData/Roaming/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
-		"/C/Users/Attila/Code/chealt/code/chealt/client/stylesheets/globals/nav.scss",
-		"/C/Users/Attila/Code/chealt/code/chealt/client/templates/home/home.js"
+		"/C/Users/Attila/Code/chealt/code/chealt/client/stylesheets/globals/nav.scss"
 	],
 	"find":
 	{
@@ -1011,24 +1022,54 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "code/client/components/comments-list.jsx",
+					"file": "code/client/styles/common.scss",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4001,
+						"buffer_size": 339,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1506,
-								1506
+								331,
+								331
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Seti_UI/Langs/SCSS.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "code/client/components/event.jsx",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5013,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3062,
+								3062
 							]
 						],
 						"settings":
@@ -1038,33 +1079,34 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 342.0,
+						"translation.y": 399.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 1,
-					"file": "code/client/components/load-more.jsx",
+					"buffer": 2,
+					"file": "code/client/styles/events.scss",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 307,
+						"buffer_size": 1458,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								267,
-								267
+								1254,
+								1254
 							]
 						],
 						"settings":
 						{
-							"auto_name": "LoadMore = React.createClass({",
-							"syntax": "Packages/JSX/JSX.tmLanguage"
+							"syntax": "Packages/Syntax Highlighting for Sass/Syntaxes/SCSS.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1129,12 +1171,36 @@
 		"selected_items":
 		[
 			[
-				"vari",
+				"event",
+				"client\\styles\\events.scss"
+			],
+			[
+				"eve",
+				"client\\components\\event.jsx"
+			],
+			[
+				"comm",
+				"client\\styles\\common.scss"
+			],
+			[
+				"_va",
 				"client\\styles\\import\\_variables.scss"
 			],
 			[
 				"elem",
 				"client\\styles\\elements.scss"
+			],
+			[
+				"lay",
+				"client\\components\\layout\\layout.jsx"
+			],
+			[
+				"hea",
+				"client\\components\\layout\\header.jsx"
+			],
+			[
+				"vari",
+				"client\\styles\\import\\_variables.scss"
 			],
 			[
 				"comme",
@@ -1147,10 +1213,6 @@
 			[
 				"method",
 				"lib\\methods.jsx"
-			],
-			[
-				"event",
-				"client\\components\\event.jsx"
 			],
 			[
 				"pro",
@@ -1253,10 +1315,6 @@
 				"client\\components\\layout\\layout.jsx"
 			],
 			[
-				"eve",
-				"client\\components\\event.jsx"
-			],
-			[
 				"card",
 				"client\\styles\\card.scss"
 			],
@@ -1291,10 +1349,6 @@
 			[
 				"profilin",
 				"client\\components\\profile-info.jsx"
-			],
-			[
-				"lay",
-				"client\\components\\layout\\layout.jsx"
 			],
 			[
 				"rout",
@@ -1627,18 +1681,6 @@
 			[
 				"pack",
 				".meteor\\local\\build\\programs\\client\\packages\\standard-app-packages.js"
-			],
-			[
-				"jsono",
-				"public\\js\\modules\\jsonObject.js"
-			],
-			[
-				"langua",
-				"public\\js\\modules\\languages.js"
-			],
-			[
-				"aja",
-				"public\\js\\modules\\ajax.js"
 			]
 		],
 		"width": 0.0

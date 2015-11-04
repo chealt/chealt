@@ -68,5 +68,16 @@ Meteor.methods({
         if (Comments.findOne({ 'user._id': Meteor.userId() })) {
             return Comments.remove({ _id: commentId });
         }
+    },
+    updateGeoCode({ eventId, address }) {
+        const geocode = Meteor.call('getGeoCode', address);
+
+        if (geocode) {
+            return Events.update({
+                _id: eventId
+            }, {
+                $set: { geocode: geocode }
+            });
+        }
     }
 });

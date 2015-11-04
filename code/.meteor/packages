@@ -34,3 +34,5 @@ accounts-google
 percolate:google-api
 accounts-facebook
 http
+dburles:google-maps
+aldeed:geocoder

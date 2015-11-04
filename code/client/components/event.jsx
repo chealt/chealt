@@ -4,14 +4,25 @@ Event = React.createClass({
     },
     getInitialState() {
         return {
-            isCommentsShown: false
+            isCommentsShown: false,
+            isMapShown: false,
+            isMapLoaded: false
         };
     },
     mixins: [ReactMeteorData],
     getMeteorData() {
         return {
-            currentUser: Meteor.user()
+            currentUser: Meteor.user(),
+            isGoogleMapsLoaded: GoogleMaps.loaded()
         };
+    },
+    componentDidMount() {
+        if (!this.props.event.geocode) {
+            Meteor.call('updateGeoCode', {
+                eventId: this.props.event._id,
+                address: this.props.event.location
+            });
+        }
     },
     isAttending() {
         return this.props.event.guests.some((guest) => {
@@ -110,6 +121,65 @@ Event = React.createClass({
             <span className='attendance'>{attendance}</span>
         );
     },
+    loadEventMap() {
+        const latitude = this.props.event.geocode.latitude;
+        const longitude = this.props.event.geocode.longitude;
+        const mapId = 'map-' + this.props.event._id;
+
+        GoogleMaps.create({
+            name: mapId,
+            element: this._map.getDOMNode(),
+            options: {
+                center: new google.maps.LatLng(latitude, longitude),
+                zoom: 16
+            }
+        });
+
+        GoogleMaps.ready(mapId, (map) => {
+            const marker = new google.maps.Marker({
+                position: map.options.center,
+                map: map.instance
+            });
+        });
+
+        this.setState({
+            isMapLoaded: true
+        });
+    },
+    toggleMapRender() {
+        let additionalClasses;
+
+        if (this.state.isMapShown) {
+            additionalClasses = 'active';
+        }
+
+        return (
+            <IconButton
+                type='map'
+                action={this.toggleMap}
+                additionalClasses={additionalClasses} />
+        );
+    },
+    toggleMap() {
+        this.setState({
+            isMapShown: !this.state.isMapShown
+        }, () => {
+            if (!this.state.isMapLoaded) {
+                this.loadEventMap();
+            }
+        });
+    },
+    eventMap() {
+        let classes = 'map';
+
+        if (this.state.isMapShown) {
+            classes += ' loaded';
+        }
+
+        return (
+            <div className={classes} ref={(ref) => this._map = ref}></div>
+        );
+    },
     render() {
         return (
             <div className='card event'>
@@ -142,11 +212,13 @@ Event = React.createClass({
                     {this.attendButton()}
                 </div>
                 {this.commentsList()}
+                {this.eventMap()}
                 <div className='footer row equal'>
                     <div className='figures-container'>
                         {this.attendance()}
                     </div>
                     <div className='controls-container'>
+                        {this.toggleMapRender()}
                         {this.toggleCommentsRender()}
                     </div>
                 </div>

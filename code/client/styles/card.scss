@@ -1,4 +1,6 @@
 .card {
+    position: relative;
+    z-index: 1;
     background-color: #fff;
     border-style: solid;
     border-color: #d8d8d8;

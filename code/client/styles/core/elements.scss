@@ -1,4 +1,4 @@
-@import 'import/variables';
+@import '../import/variables';
 
 .row {
     display: flex;
@@ -10,9 +10,6 @@
 
 .button {
     display: inline-block;
-    min-width: 80px;
-    box-sizing: border-box;
-    text-align: center;
     outline-width: 0;
     border-radius: 3px;
     cursor: pointer;
@@ -41,6 +38,7 @@
 
     .icon {
         font-size: 18px;
+        padding: 8px;
     }
 
     &.active {
@@ -88,5 +86,13 @@ textarea {
         color: $color-main-brand;
         font-weight: bold;
         font-size: 18px;
+    }
+}
+
+.map {
+    height: 0;
+
+    &.loaded {
+        height: 400px;
     }
 }
