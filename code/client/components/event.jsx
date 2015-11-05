@@ -5,15 +5,13 @@ Event = React.createClass({
     getInitialState() {
         return {
             isCommentsShown: false,
-            isMapShown: false,
-            isMapLoaded: false
+            showMap: false
         };
     },
     mixins: [ReactMeteorData],
     getMeteorData() {
         return {
-            currentUser: Meteor.user(),
-            isGoogleMapsLoaded: GoogleMaps.loaded()
+            currentUser: Meteor.user()
         };
     },
     componentDidMount() {
@@ -121,35 +119,10 @@ Event = React.createClass({
             <span className='attendance'>{attendance}</span>
         );
     },
-    loadEventMap() {
-        const latitude = this.props.event.geocode.latitude;
-        const longitude = this.props.event.geocode.longitude;
-        const mapId = 'map-' + this.props.event._id;
-
-        GoogleMaps.create({
-            name: mapId,
-            element: this._map.getDOMNode(),
-            options: {
-                center: new google.maps.LatLng(latitude, longitude),
-                zoom: 16
-            }
-        });
-
-        GoogleMaps.ready(mapId, (map) => {
-            const marker = new google.maps.Marker({
-                position: map.options.center,
-                map: map.instance
-            });
-        });
-
-        this.setState({
-            isMapLoaded: true
-        });
-    },
     toggleMapRender() {
         let additionalClasses;
 
-        if (this.state.isMapShown) {
+        if (this.state.showMap) {
             additionalClasses = 'active';
         }
 
@@ -162,23 +135,8 @@ Event = React.createClass({
     },
     toggleMap() {
         this.setState({
-            isMapShown: !this.state.isMapShown
-        }, () => {
-            if (!this.state.isMapLoaded) {
-                this.loadEventMap();
-            }
+            showMap: !this.state.showMap
         });
-    },
-    eventMap() {
-        let classes = 'map';
-
-        if (this.state.isMapShown) {
-            classes += ' loaded';
-        }
-
-        return (
-            <div className={classes} ref={(ref) => this._map = ref}></div>
-        );
     },
     render() {
         return (
@@ -188,12 +146,12 @@ Event = React.createClass({
                     <span className='name'>{this.props.event.name}</span>
                     {this.getDate()}
                 </h2>
-                <div className='content-header row equal separated vertical'>
+                <div className='content-header row--m equal separated vertical'>
                     <div className='host'>
                         <Icon type='user' position='before' />
                         <span className='text'>host: {this.props.event.host.name}</span>
                     </div>
-                    <div className='time-container row equal'>
+                    <div className='time-container row--m equal'>
                         <div className='start'>
                             <FormatTime date={this.props.event.start} />
                         </div>
@@ -212,7 +170,10 @@ Event = React.createClass({
                     {this.attendButton()}
                 </div>
                 {this.commentsList()}
-                {this.eventMap()}
+                <Map
+                    geocode={this.props.event.geocode}
+                    showMap={this.state.showMap}
+                    mapId={this.props.event._id} />
                 <div className='footer row equal'>
                     <div className='figures-container'>
                         {this.attendance()}

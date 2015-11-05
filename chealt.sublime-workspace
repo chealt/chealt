@@ -4,6 +4,34 @@
 		"selected_items":
 		[
 			[
+				"comme",
+				"commentsContainerRender"
+			],
+			[
+				"margin",
+				"margin-top: "
+			],
+			[
+				"map",
+				"mapId"
+			],
+			[
+				"event",
+				"eventMap"
+			],
+			[
+				"togg",
+				"toggleMapRender"
+			],
+			[
+				"load",
+				"loadEventMap"
+			],
+			[
+				"geoco",
+				"geocode"
+			],
+			[
 				"att",
 				"attendance"
 			],
@@ -36,10 +64,6 @@
 				"userId"
 			],
 			[
-				"comme",
-				"commentId"
-			],
-			[
 				"delet",
 				"deleteComment"
 			],
@@ -62,10 +86,6 @@
 			[
 				"over",
 				"overflow-y: "
-			],
-			[
-				"margin",
-				"margin-left: "
 			],
 			[
 				"outli",
@@ -484,26 +504,10 @@
 	"buffers":
 	[
 		{
-			"file": "code/client/styles/common.scss",
+			"file": "code/client/components/comments-list.jsx",
 			"settings":
 			{
-				"buffer_size": 339,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "code/client/components/event.jsx",
-			"settings":
-			{
-				"buffer_size": 5013,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "code/client/styles/events.scss",
-			"settings":
-			{
-				"buffer_size": 1458,
+				"buffer_size": 4091,
 				"line_ending": "Windows"
 			}
 		}
@@ -526,6 +530,10 @@
 			[
 				"sy",
 				"Set Syntax: JSX"
+			],
+			[
+				"inpa",
+				"Package Control: Install Package"
 			],
 			[
 				"syjs",
@@ -578,10 +586,6 @@
 			[
 				"remopa",
 				"Package Control: Remove Package"
-			],
-			[
-				"inpa",
-				"Package Control: Install Package"
 			],
 			[
 				"syjson",
@@ -712,16 +716,28 @@
 	],
 	"file_history":
 	[
-		"/C/Users/Attila/Code/chealt/code/client/styles/import/_variables.scss",
-		"/C/Users/Attila/Code/chealt/code/client/styles/events.scss",
+		"/C/Users/Attila/Code/chealt/code/client/styles/card.scss",
+		"/C/Users/Attila/Code/chealt/code/client/styles/core/elements.scss",
 		"/C/Users/Attila/Code/chealt/code/client/components/event.jsx",
-		"/C/Users/Attila/Code/chealt/code/client/styles/elements.scss",
-		"/C/Users/Attila/Code/chealt/code/client/styles/common.scss",
+		"/C/Users/Attila/Code/chealt/code/client/styles/events.scss",
+		"/C/Users/Attila/Code/chealt/code/client/styles/home.scss",
+		"/C/Users/Attila/Code/chealt/code/client/styles/core/normalize.scss",
+		"/C/Users/Attila/Code/chealt/code/client/components/home.jsx",
+		"/C/Users/Attila/Code/chealt/code/lib/methods.jsx",
+		"/C/Users/Attila/Code/chealt/code/server/geocoding.jsx",
 		"/C/Users/Attila/Code/chealt/code/client/components/layout/layout.jsx",
+		"/C/Users/Attila/Code/chealt/code/client/google-maps.js",
+		"/C/Users/Attila/Code/chealt/code/client/components/google-maps.jsx",
+		"/C/Users/Attila/Code/chealt/code/client/styles/footer.scss",
+		"/C/Users/Attila/Code/chealt/code/client/components/layout/footer.jsx",
+		"/C/Users/Attila/Code/chealt/code/client/styles/import/_variables.scss",
+		"/C/Users/Attila/AppData/Roaming/Sublime Text 3/Packages/Color Highlighter/ColorHighlighter.sublime-settings",
+		"/C/Users/Attila/AppData/Roaming/Sublime Text 3/Packages/User/ColorHighlighter.sublime-settings",
+		"/C/Users/Attila/Code/chealt/code/client/styles/common.scss",
+		"/C/Users/Attila/Code/chealt/code/client/styles/elements.scss",
 		"/C/Users/Attila/Code/chealt/code/client/components/layout/header.jsx",
 		"/C/Users/Attila/Code/chealt/code/client/components/load-more.jsx",
 		"/C/Users/Attila/Code/chealt/code/client/components/comments-list.jsx",
-		"/C/Users/Attila/Code/chealt/code/lib/methods.jsx",
 		"/C/Users/Attila/Code/chealt/code/client/components/profile-list.jsx",
 		"/C/Users/Attila/Code/chealt/code/client/styles/login.scss",
 		"/C/Users/Attila/Code/chealt/code/client/components/login.jsx",
@@ -737,7 +753,6 @@
 		"/C/Users/Attila/Code/video-poll/client/templates/head.html",
 		"/C/Users/Attila/Code/tablehockey/tablehockey/client/templates/main.html",
 		"/C/Users/Attila/Code/chealt/code/client/components/main-button.jsx",
-		"/C/Users/Attila/Code/chealt/code/client/styles/card.scss",
 		"/C/Users/Attila/Code/chealt/code/client/styles/growing-textarea.scss",
 		"/C/Users/Attila/Code/chealt/code/client/components/header-profile.jsx",
 		"/C/Users/Attila/Code/chealt/code/client/components/profile-picture.jsx",
@@ -747,12 +762,10 @@
 		"/C/Users/Attila/Code/chealt/code/client/components/sports-icon.jsx",
 		"/C/Users/Attila/Code/chealt/code/client/styles/icons.scss",
 		"/C/Users/Attila/Code/chealt/code/client/components/profile-info.jsx",
-		"/C/Users/Attila/Code/chealt/code/client/styles/home.scss",
 		"/C/Users/Attila/Code/chealt/code/server/activities.jsx",
 		"/C/Users/Attila/Code/chealt/code/client/styles/header.scss",
 		"/C/Users/Attila/Code/chealt/code/lib/routes.jsx",
 		"/C/Users/Attila/Code/chealt/code/client/components/layout/anything-closer.jsx",
-		"/C/Users/Attila/Code/chealt/code/client/components/home.jsx",
 		"/C/Users/Attila/Code/chealt/code/client/styles/profile-info.scss",
 		"/C/Users/Attila/Code/chealt/documents/assets/icons/sport-icons/flaticon.css",
 		"/C/Users/Attila/Code/chealt/code/.meteor/local/build/programs/server/app/server/publications.jsx",
@@ -830,16 +843,7 @@
 		"/C/Users/Attila/Desktop/uxp.hu-Jun-2015/uxp.hu-Jun-2015",
 		"/C/Users/Attila/Desktop/accesslog_uxp.hu_7_1_2015/uxp.hu",
 		"/C/Users/Attila/Desktop/TimelineRawData-20150623T203805.json",
-		"/C/Users/Attila/Desktop/TimelineRawData-20150623T203558.json",
-		"/C/Users/Attila/Code/chealt/code/chealt/client/templates/application/login.html",
-		"/C/Users/Attila/Code/chealt/code/chealt/client/templates/application/login.js",
-		"/C/Users/Attila/Code/chealt/code/chealt/client/templates/application/layout.html",
-		"/C/Users/Attila/Code/chealt/code/chealt/server/accounts.js",
-		"/C/Users/Attila/Code/chealt/code/chealt/server/publications.js",
-		"/C/Users/Attila/Code/chealt/code/chealt/client/subscriptions.js",
-		"/C/Users/Attila/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
-		"/C/Users/Attila/AppData/Roaming/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
-		"/C/Users/Attila/Code/chealt/code/chealt/client/stylesheets/globals/nav.scss"
+		"/C/Users/Attila/Desktop/TimelineRawData-20150623T203558.json"
 	],
 	"find":
 	{
@@ -874,6 +878,9 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"this.map",
+			"isMapsLoaded",
+			"\"",
 			"translateX",
 			"color",
 			"google",
@@ -998,10 +1005,7 @@
 			" href=\"\"",
 			"diff-switcher",
 			" href=\"#\"",
-			"diff-switcher",
-			"Promise",
-			"testCases",
-			"promisifyAll"
+			"diff-switcher"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1022,97 +1026,37 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "code/client/styles/common.scss",
+					"file": "code/client/components/comments-list.jsx",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 339,
+						"buffer_size": 4091,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								331,
-								331
+								3147,
+								3147
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Seti_UI/Langs/SCSS.tmLanguage",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "code/client/components/event.jsx",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5013,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3062,
-								3062
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JSX/JSX.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 399.0,
+						"translation.y": 1368.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "code/client/styles/events.scss",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1458,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1254,
-								1254
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Syntax Highlighting for Sass/Syntaxes/SCSS.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
 					"type": "text"
 				}
 			]
@@ -1171,12 +1115,68 @@
 		"selected_items":
 		[
 			[
-				"event",
-				"client\\styles\\events.scss"
+				"comme",
+				"client\\components\\comments-list.jsx"
 			],
 			[
 				"eve",
+				"client\\styles\\events.scss"
+			],
+			[
+				"card",
+				"client\\styles\\card.scss"
+			],
+			[
+				"hom",
+				"client\\styles\\home.scss"
+			],
+			[
+				"norm",
+				"client\\styles\\core\\normalize.scss"
+			],
+			[
+				"home",
+				"client\\components\\home.jsx"
+			],
+			[
+				"eventscs",
+				"client\\styles\\events.scss"
+			],
+			[
+				"elem",
+				"client\\styles\\core\\elements.scss"
+			],
+			[
+				"event",
 				"client\\components\\event.jsx"
+			],
+			[
+				"methods",
+				"lib\\methods.jsx"
+			],
+			[
+				"lay",
+				"client\\components\\layout\\layout.jsx"
+			],
+			[
+				"ho",
+				"client\\styles\\home.scss"
+			],
+			[
+				"foot",
+				"client\\styles\\footer.scss"
+			],
+			[
+				"foo",
+				"client\\styles\\footer.scss"
+			],
+			[
+				"varia",
+				"client\\styles\\import\\_variables.scss"
+			],
+			[
+				"footer",
+				"client\\components\\layout\\footer.jsx"
 			],
 			[
 				"comm",
@@ -1187,24 +1187,12 @@
 				"client\\styles\\import\\_variables.scss"
 			],
 			[
-				"elem",
-				"client\\styles\\elements.scss"
-			],
-			[
-				"lay",
-				"client\\components\\layout\\layout.jsx"
-			],
-			[
 				"hea",
 				"client\\components\\layout\\header.jsx"
 			],
 			[
 				"vari",
 				"client\\styles\\import\\_variables.scss"
-			],
-			[
-				"comme",
-				"client\\components\\comments-list.jsx"
 			],
 			[
 				"proli",
@@ -1315,10 +1303,6 @@
 				"client\\components\\layout\\layout.jsx"
 			],
 			[
-				"card",
-				"client\\styles\\card.scss"
-			],
-			[
 				"evesc",
 				"client\\styles\\events.scss"
 			],
@@ -1333,14 +1317,6 @@
 			[
 				"a",
 				"server\\activities.jsx"
-			],
-			[
-				"home",
-				"client\\styles\\home.scss"
-			],
-			[
-				"hom",
-				"client\\styles\\home.scss"
 			],
 			[
 				"activi",
@@ -1419,10 +1395,6 @@
 				"client\\components\\profile-picture.jsx"
 			],
 			[
-				"methods",
-				"lib\\methods.jsx"
-			],
-			[
 				"profilpic",
 				"client\\components\\profile-picture.jsx"
 			],
@@ -1465,10 +1437,6 @@
 			[
 				"log",
 				"client\\components\\login.jsx"
-			],
-			[
-				"varia",
-				"client\\styles\\import\\_variables.scss"
 			],
 			[
 				"heasc",
@@ -1541,10 +1509,6 @@
 			[
 				"icons",
 				"client\\styles\\icons.scss"
-			],
-			[
-				"norm",
-				"client\\styles\\normalize.scss"
 			],
 			[
 				"forma",
@@ -1661,26 +1625,6 @@
 			[
 				"work",
 				"code\\chealt\\client\\templates\\workouts\\workouts_list.html"
-			],
-			[
-				"appjs",
-				"diff-page\\public\\js\\app.js"
-			],
-			[
-				"servi",
-				".meteor\\local\\build\\programs\\server\\packages\\service-configuration.js"
-			],
-			[
-				"",
-				".jscsrc"
-			],
-			[
-				"js",
-				"lib\\router.js"
-			],
-			[
-				"pack",
-				".meteor\\local\\build\\programs\\client\\packages\\standard-app-packages.js"
 			]
 		],
 		"width": 0.0

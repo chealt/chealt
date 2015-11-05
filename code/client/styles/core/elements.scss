@@ -96,3 +96,13 @@ textarea {
         height: 400px;
     }
 }
+
+@media (min-width: 600px) {
+    .row--m {
+        display: flex;
+
+        &.equal > div {
+            flex: 1;
+        }
+    }
+}
