@@ -22,11 +22,6 @@ Event = React.createClass({
             });
         }
     },
-    isAttending() {
-        return this.props.event.guests.some((guest) => {
-            return guest._id === this.data.currentUser._id;
-        });
-    },
     attend() {
         Meteor.call('attendEvent', this.props.event._id);
     },
@@ -36,30 +31,6 @@ Event = React.createClass({
     sportsIcon() {
         if (this.props.event.activity) {
             return <SportsIcon activity={this.props.event.activity} />
-        }
-    },
-    attendButton() {
-        if (this.data.currentUser) {
-            const isAttending = this.isAttending();
-            const buttonAction = isAttending ? this.unattend : this.attend;
-            const buttonText = isAttending ? 'cannot go' : 'going';
-            const buttonClasses = isAttending ? 'unattend RSVP upper' : 'attend RSVP upper';
-
-            return (
-                <MainButton
-                    action={buttonAction}
-                    text={buttonText}
-                    additionalClasses={buttonClasses} />
-            );
-        }
-    },
-    guests() {
-        if (this.props.event.guests.length) {
-            return (
-                <ProfileList
-                    profileList={this.props.event.guests}
-                    containerClass='guests' />
-            );
         }
     },
     getDate() {
@@ -165,10 +136,10 @@ Event = React.createClass({
                         {this.props.event.location}
                     </div>
                 </div>
-                <div className='guests-container'>
-                    {this.guests()}
-                    {this.attendButton()}
-                </div>
+                <Guests 
+                    guests={this.props.event.guests}
+                    attendMethod={this.attend}
+                    unattendMethod={this.unattend} />
                 {this.commentsList()}
                 <Map
                     geocode={this.props.event.geocode}
