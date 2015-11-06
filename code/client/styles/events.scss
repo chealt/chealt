@@ -31,6 +31,12 @@
             padding: 12px;
         }
 
+        .time-container {
+            > div {
+                display: inline-block;
+            }
+        }
+
         .start {
             text-align: right;
         }
