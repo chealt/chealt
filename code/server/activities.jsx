@@ -66,8 +66,8 @@ const activities = [
     { name: 'indoor_skating', googleFitType: 105 },
     { name: 'rollerblading', googleFitType: 64 },
     { name: 'skiing', googleFitType: 65 },
-    { name: 'back-country_skiing', googleFitType: 66 },
-    { name: 'cross-country_skiing', googleFitType: 67 },
+    { name: 'back_country_skiing', googleFitType: 66 },
+    { name: 'cross_country_skiing', googleFitType: 67 },
     { name: 'downhill_skiing', googleFitType: 68 },
     { name: 'kite_skiing', googleFitType: 69 },
     { name: 'pool' },
@@ -79,15 +79,15 @@ const activities = [
     { name: 'snowshoeing', googleFitType: 75 },
     { name: 'squash', googleFitType: 76 },
     { name: 'stair_climbing', googleFitType: 77 },
-    { name: 'stair-climbing_machine', googleFitType: 78 },
-    { name: 'stand-up_paddleboarding', googleFitType: 79 },
+    { name: 'stair_climbing_machine', googleFitType: 78 },
+    { name: 'stand_up_paddleboarding', googleFitType: 79 },
     { name: 'strength_training', googleFitType: 80 },
     { name: 'surfing', googleFitType: 81 },
     { name: 'swimming', googleFitType: 82 },
     { name: 'swimming_outside', googleFitType: 84 },
     { name: 'swimming_pool', googleFitType: 83 },
     { name: 'table_tennis', googleFitType: 85 },
-    { name: 'team sports', googleFitType: 86 },
+    { name: 'team_sports', googleFitType: 86 },
     { name: 'tennis', googleFitType: 87 },
     { name: 'treadmill', googleFitType: 88 },
     { name: 'volleyball', googleFitType: 89 },
@@ -103,7 +103,8 @@ const activities = [
     { name: 'wheelchair', googleFitType: 98 },
     { name: 'windsurfing', googleFitType: 99 },
     { name: 'yoga', googleFitType: 100 },
-    { name: 'zumba', googleFitType: 101 }
+    { name: 'zumba', googleFitType: 101 },
+    { name: 'push_up' }
 ];
 
 activities.forEach((activity) => {
