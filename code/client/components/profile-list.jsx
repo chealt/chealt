@@ -10,7 +10,8 @@ ProfileList = React.createClass({
                     return (
                         <li className='item' key={profile._id}>
                             <ProfilePicture
-                                user={profile} />
+                                user={profile}
+                                isTooltiped={true} />
                         </li>
                     );
                 })}

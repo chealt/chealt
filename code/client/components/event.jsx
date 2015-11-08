@@ -51,6 +51,21 @@ Event = React.createClass({
             );
         }
     },
+    getTime() {
+        if (this.props.event.start.getTime() !== this.props.event.end.getTime()) {
+            return (
+                <div className='time-container row--m equal'>
+                    <div className='start'>
+                        <FormatTime date={this.props.event.start} />
+                    </div>
+                    <Icon type='clock3' additionalClasses='clock' />
+                    <div className='end'>
+                        <FormatTime date={this.props.event.end} />
+                    </div>
+                </div>
+            );
+        }
+    },
     toggleComments() {
         this.setState({
             isCommentsShown: !this.state.isCommentsShown
@@ -122,15 +137,7 @@ Event = React.createClass({
                         <Icon type='user' position='before' />
                         <span className='text'>host: {this.props.event.host.name}</span>
                     </div>
-                    <div className='time-container row--m equal'>
-                        <div className='start'>
-                            <FormatTime date={this.props.event.start} />
-                        </div>
-                        <Icon type='clock3' additionalClasses='clock' />
-                        <div className='end'>
-                            <FormatTime date={this.props.event.end} />
-                        </div>
-                    </div>
+                    {this.getTime()}
                     <div className='location'>
                         <Icon type='earth2' position='before' />
                         {this.props.event.location}

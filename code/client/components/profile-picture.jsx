@@ -2,7 +2,7 @@ ProfilePicture = React.createClass({
     propTypes: {
         user: React.PropTypes.object.isRequired
     },
-    render() {
+    profilePicture() {
         if (this.props.user.picture) {
             style = { backgroundImage: 'url(' + this.props.user.picture + ')' };
         } else {
@@ -19,5 +19,19 @@ ProfilePicture = React.createClass({
                 <span className='picture' style={style}></span>
             </span>
         );
+    },
+    element() {
+        if (this.props.isTooltiped) {
+            return (
+                <Tooltip
+                    content={this.profilePicture()}
+                    tooltipContent={this.props.user.name} />
+            );
+        } else {
+            return this.profilePicture();
+        }
+    },
+    render() {
+        return (this.element());
     }
 });

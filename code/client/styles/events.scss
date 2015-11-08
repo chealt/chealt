@@ -5,12 +5,12 @@
 
     .title {
         display: flex;
+        align-items: baseline;
         padding: 16px 12px;
 
         .sports-icon {
             margin-right: 8px;
             font-size: 16px;
-            line-height: 20px;
         }
 
         .name {
@@ -19,6 +19,7 @@
 
         .date {
             flex: 1;
+            font-size: 16px;
             text-align: right;
             color: $color-subtitle;
         }
@@ -88,6 +89,10 @@
         .title {
             .name {
                 flex: 3;
+            }
+
+            .date {
+                font-size: 20px;
             }
         }
     }

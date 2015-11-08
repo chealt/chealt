@@ -4,16 +4,24 @@
 		"selected_items":
 		[
 			[
+				"compo",
+				"componentDidUpdate	Life Cycle Method"
+			],
+			[
+				"map",
+				"mapRender"
+			],
+			[
+				"propt",
+				"PropTypes"
+			],
+			[
 				"comme",
 				"commentsContainerRender"
 			],
 			[
 				"margin",
 				"margin-top: "
-			],
-			[
-				"map",
-				"mapId"
 			],
 			[
 				"event",
@@ -504,10 +512,26 @@
 	"buffers":
 	[
 		{
-			"file": "code/client/components/comments-list.jsx",
+			"file": "code/client/styles/core/elements.scss",
 			"settings":
 			{
-				"buffer_size": 4091,
+				"buffer_size": 1675,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "code/client/styles/events.scss",
+			"settings":
+			{
+				"buffer_size": 1562,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "code/client/components/event.jsx",
+			"settings":
+			{
+				"buffer_size": 5942,
 				"line_ending": "Windows"
 			}
 		}
@@ -716,10 +740,12 @@
 	],
 	"file_history":
 	[
-		"/C/Users/Attila/Code/chealt/code/client/styles/card.scss",
-		"/C/Users/Attila/Code/chealt/code/client/styles/core/elements.scss",
 		"/C/Users/Attila/Code/chealt/code/client/components/event.jsx",
 		"/C/Users/Attila/Code/chealt/code/client/styles/events.scss",
+		"/C/Users/Attila/Code/chealt/code/client/components/map.jsx",
+		"/C/Users/Attila/Code/chealt/code/client/components/comments-list.jsx",
+		"/C/Users/Attila/Code/chealt/code/client/styles/card.scss",
+		"/C/Users/Attila/Code/chealt/code/client/styles/core/elements.scss",
 		"/C/Users/Attila/Code/chealt/code/client/styles/home.scss",
 		"/C/Users/Attila/Code/chealt/code/client/styles/core/normalize.scss",
 		"/C/Users/Attila/Code/chealt/code/client/components/home.jsx",
@@ -737,7 +763,6 @@
 		"/C/Users/Attila/Code/chealt/code/client/styles/elements.scss",
 		"/C/Users/Attila/Code/chealt/code/client/components/layout/header.jsx",
 		"/C/Users/Attila/Code/chealt/code/client/components/load-more.jsx",
-		"/C/Users/Attila/Code/chealt/code/client/components/comments-list.jsx",
 		"/C/Users/Attila/Code/chealt/code/client/components/profile-list.jsx",
 		"/C/Users/Attila/Code/chealt/code/client/styles/login.scss",
 		"/C/Users/Attila/Code/chealt/code/client/components/login.jsx",
@@ -842,8 +867,7 @@
 		"/C/Users/Attila/Code/viveka/diff-page/public/index.html",
 		"/C/Users/Attila/Desktop/uxp.hu-Jun-2015/uxp.hu-Jun-2015",
 		"/C/Users/Attila/Desktop/accesslog_uxp.hu_7_1_2015/uxp.hu",
-		"/C/Users/Attila/Desktop/TimelineRawData-20150623T203805.json",
-		"/C/Users/Attila/Desktop/TimelineRawData-20150623T203558.json"
+		"/C/Users/Attila/Desktop/TimelineRawData-20150623T203805.json"
 	],
 	"find":
 	{
@@ -1026,37 +1050,99 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "code/client/components/comments-list.jsx",
+					"file": "code/client/styles/core/elements.scss",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4091,
+						"buffer_size": 1675,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3147,
-								3147
+								1553,
+								1553
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"color_scheme": "Packages/User/Color Highlighter/themes/Seti_monokai.tmTheme",
+							"syntax": "Packages/Syntax Highlighting for Sass/Syntaxes/SCSS.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1368.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "code/client/styles/events.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1562,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								588,
+								588
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Seti_monokai.tmTheme",
+							"syntax": "Packages/Syntax Highlighting for Sass/Syntaxes/SCSS.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "code/client/components/event.jsx",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5942,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4581,
+								4581
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JSX/JSX.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2508.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
 					"type": "text"
 				}
 			]
@@ -1115,12 +1201,24 @@
 		"selected_items":
 		[
 			[
-				"comme",
-				"client\\components\\comments-list.jsx"
+				"even",
+				"client\\components\\event.jsx"
 			],
 			[
 				"eve",
 				"client\\styles\\events.scss"
+			],
+			[
+				"ele",
+				"client\\styles\\core\\elements.scss"
+			],
+			[
+				"evet",
+				"client\\components\\event.jsx"
+			],
+			[
+				"comme",
+				"client\\components\\comments-list.jsx"
 			],
 			[
 				"card",
@@ -1231,20 +1329,12 @@
 				"client\\components\\profile.jsx"
 			],
 			[
-				"even",
-				"client\\styles\\events.scss"
-			],
-			[
 				"metho",
 				"lib\\methods.jsx"
 			],
 			[
 				"growtex",
 				"client\\components\\growing-textarea.jsx"
-			],
-			[
-				"ele",
-				"client\\styles\\elements.scss"
 			],
 			[
 				"button",
@@ -1621,10 +1711,6 @@
 			[
 				"worklisjs",
 				"code\\chealt\\client\\templates\\workouts\\workouts_list.js"
-			],
-			[
-				"work",
-				"code\\chealt\\client\\templates\\workouts\\workouts_list.html"
 			]
 		],
 		"width": 0.0
