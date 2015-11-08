@@ -1,12 +1,12 @@
 @import 'import/variables';
 
 .event {
-    margin-bottom: 20px;
+    margin-bottom: $gutter-size;
 
     .title {
         display: flex;
         align-items: baseline;
-        padding: 16px 12px;
+        padding: $gutter-size;
 
         .sports-icon {
             margin-right: 8px;
@@ -29,7 +29,7 @@
         background-color: $color-light-neutral-background;
 
         > div {
-            padding: 12px;
+            padding: $gutter-size;
         }
 
         .time-container {
@@ -52,17 +52,17 @@
     }
 
     .guests-container {
-        padding: 12px;
+        padding: $gutter-size;
 
         .guests {
             display: inline-block;
             vertical-align: middle;
-            margin-right: 12px;
+            margin-right: $gutter-size;
             font-size: 0;
 
             .item {
                 display: inline-block;
-                margin-right: 12px;
+                margin-right: $gutter-size;
                 font-size: 0;
             }
         }
@@ -75,7 +75,7 @@
 
     .figures-container {
         text-align: left;
-        padding: 8px 12px;
+        padding: 8px $gutter-size;
         font-size: 18px;
     }
 

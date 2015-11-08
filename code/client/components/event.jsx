@@ -5,7 +5,8 @@ Event = React.createClass({
     getInitialState() {
         return {
             isCommentsShown: false,
-            showMap: false
+            showMap: false,
+            showActivityList: false
         };
     },
     mixins: [ReactMeteorData],
@@ -80,7 +81,7 @@ Event = React.createClass({
             );
         }
     },
-    toggleCommentsRender() {
+    commentsToggler() {
         let additionalClasses;
 
         if (this.state.isCommentsShown) {
@@ -105,7 +106,7 @@ Event = React.createClass({
             <span className='attendance'>{attendance}</span>
         );
     },
-    toggleMapRender() {
+    mapToggler() {
         let additionalClasses;
 
         if (this.state.showMap) {
@@ -122,6 +123,34 @@ Event = React.createClass({
     toggleMap() {
         this.setState({
             showMap: !this.state.showMap
+        });
+    },
+    activityList() {
+        if (this.state.showActivityList) {
+            return (
+                <ActivityList items={this.props.event.activityList} />
+            );
+        }
+    },
+    activityListToggler() {
+        if (this.props.event.activityList) {
+            let additionalClasses;
+
+            if (this.state.showActivityList) {
+                additionalClasses = 'active';
+            }
+
+            return (
+                <IconButton
+                    type='list22'
+                    action={this.toggleActivityList}
+                    additionalClasses={additionalClasses} />
+            );
+        }
+    },
+    toggleActivityList() {
+        this.setState({
+            showActivityList: !this.state.showActivityList
         });
     },
     render() {
@@ -147,6 +176,7 @@ Event = React.createClass({
                     guests={this.props.event.guests}
                     attendMethod={this.attend}
                     unattendMethod={this.unattend} />
+                {this.activityList()}
                 {this.commentsList()}
                 <Map
                     geocode={this.props.event.geocode}
@@ -157,8 +187,9 @@ Event = React.createClass({
                         {this.attendance()}
                     </div>
                     <div className='controls-container'>
-                        {this.toggleMapRender()}
-                        {this.toggleCommentsRender()}
+                        {this.activityListToggler()}
+                        {this.mapToggler()}
+                        {this.commentsToggler()}
                     </div>
                 </div>
             </div>

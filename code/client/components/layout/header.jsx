@@ -13,7 +13,7 @@ Header = React.createClass({
                         id='app-side-drawer'
                         toggleDrawer={this.props.toggleDrawer} />
                 </div>
-                <div id='filter-container' className='container'>
+                <div id='filter-container' className='container rounded'>
                     <Icon type='search' additionalClasses={searchIconClass} />
                     <input 
                         id='header-filter'

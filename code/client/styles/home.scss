@@ -22,6 +22,6 @@ h3 {
 
 @media (min-width: 600px) {
     .cards-container {
-        padding: 12px;
+        padding: $gutter-size;
     }
 }
