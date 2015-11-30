@@ -42,3 +42,7 @@ Meteor.publish('userData', function () {
         this.ready();
     }
 });
+
+Meteor.publish('images', function () {
+    return Images.find();
+});

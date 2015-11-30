@@ -79,5 +79,11 @@ Meteor.methods({
                 $set: { geocode: geocode }
             });
         }
+    },
+    eventImageUpload(imageFileId, eventId) {
+        Events.update(
+            { _id: eventId },
+            { $addToSet: { images: imageFileId } }
+        );
     }
 });

@@ -1,6 +1,9 @@
 Comments = new Mongo.Collection('comments');
 Activities = new Mongo.Collection('activities');
 Events = new Mongo.Collection('events');
+Images = new FS.Collection('images', {
+    stores: [new FS.Store.GridFS('images', { path: '/public/images/uploads' })]
+});
 
 Events.allow({
     insert: function (userId) {
@@ -41,5 +44,20 @@ Comments.allow({
     },
     remove: function (userId, document) {
         return userId === document.user._id;
+    }
+});
+
+Images.allow({
+    insert() {
+        return true;
+    },
+    update() {
+        return true;
+    },
+    remove() {
+        return true;
+    },
+    download() {
+        return true;
     }
 });

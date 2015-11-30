@@ -23,6 +23,9 @@ Event = React.createClass({
             });
         }
     },
+    isOwnEvent() {
+        return this.props.event.host._id === this.data.currentUser._id;
+    },
     attend() {
         Meteor.call('attendEvent', this.props.event._id);
     },
@@ -164,6 +167,25 @@ Event = React.createClass({
             showActivityList: !this.state.showActivityList
         });
     },
+    images() {
+        if (this.props.event.images) {
+            return (
+                <ImageList
+                    imageIds={this.props.event.images} />
+            );
+        }
+    },
+    imageUploader() {
+        if (this.isOwnEvent()) {
+            return (
+                <ImageUploader
+                    successCallback={this.imageUploadSuccess} />
+            );
+        }
+    },
+    imageUploadSuccess(fileId) {
+        Meteor.call('eventImageUpload', fileId, this.props.event._id);
+    },
     description() {
         if (this.props.event.description) {
             return (
@@ -190,6 +212,8 @@ Event = React.createClass({
                         {this.props.event.location}
                     </div>
                 </div>
+                {this.images()}
+                {this.imageUploader()}
                 {this.description()}
                 <Guests 
                     guests={this.props.event.guests}
