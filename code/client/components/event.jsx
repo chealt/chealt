@@ -164,6 +164,13 @@ Event = React.createClass({
             showActivityList: !this.state.showActivityList
         });
     },
+    description() {
+        if (this.props.event.description) {
+            return (
+                <div className='description'>{this.props.event.description}</div>
+            );
+        }
+    },
     render() {
         return (
             <div className='card event'>
@@ -183,6 +190,7 @@ Event = React.createClass({
                         {this.props.event.location}
                     </div>
                 </div>
+                {this.description()}
                 <Guests 
                     guests={this.props.event.guests}
                     attendMethod={this.attend}
