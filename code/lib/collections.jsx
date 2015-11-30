@@ -3,14 +3,20 @@ Activities = new Mongo.Collection('activities');
 Events = new Mongo.Collection('events');
 
 Events.allow({
-    insert() {
-        return true;
+    insert: function (userId) {
+        return userId;
     },
-    update() {
-        return true;
+    update: function (userId, document) {
+        const isHost = userId === document.host._id;
+        const sharedWithItem = document.sharedWith.find((user) => {
+            return user._id === userId;
+        });
+        const canInvite = sharedWithItem && sharedWithItem.canInvite;
+
+        return isHost || canInvite;
     },
-    remove() {
-        return true;
+    remove: function (userId, document) {
+        return userId === document.host._id;
     }
 });
 
@@ -19,10 +25,10 @@ Activities.allow({
         return true;
     },
     update() {
-        return true;
+        return false;
     },
     remove() {
-        return true;
+        return false;
     }
 });
 
@@ -33,7 +39,7 @@ Comments.allow({
     update() {
         return true;
     },
-    remove() {
-        return true;
+    remove: function (userId, document) {
+        return userId === document.user._id;
     }
 });

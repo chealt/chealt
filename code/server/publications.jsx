@@ -13,7 +13,7 @@ Meteor.publish('events', function () {
         events = Events.find({
             $or: [
                 { public: true },
-                { sharedWith: this.userId },
+                { 'sharedWith._id': this.userId },
                 { 'host._id': this.userId }
             ]
         });
