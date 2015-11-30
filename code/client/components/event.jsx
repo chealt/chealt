@@ -96,14 +96,25 @@ Event = React.createClass({
         );
     },
     attendance() {
+        let attendanceClass = 'attendance';
         let attendance = this.props.event.guests.length + '';
 
-        if (this.props.event.limit) {
-            attendance += '/' + this.props.event.limit;
+        if (this.props.event.maxAttendance) {
+            attendance += '/' + this.props.event.maxAttendance;
+
+            if (this.props.event.guests.length > this.props.event.maxAttendance) {
+                attendanceClass += ' above';
+            }
+        }
+
+        if (this.props.event.minAttendance) {
+            if (this.props.event.guests.length < this.props.event.minAttendance) {
+                attendanceClass += ' below';
+            }
         }
 
         return (
-            <span className='attendance'>{attendance}</span>
+            <span className={attendanceClass}>{attendance}</span>
         );
     },
     mapToggler() {

@@ -77,6 +77,15 @@
         text-align: left;
         padding: 8px $gutter-size;
         font-size: 18px;
+
+        .attendance {
+            color: $color-main-brand;
+
+            &.above,
+            &.below {
+                color: $color-error;
+            }
+        }
     }
 
     .controls-container {

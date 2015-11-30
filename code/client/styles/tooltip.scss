@@ -14,16 +14,12 @@
     white-space: nowrap;
 
     &.left {
-        right: 150%;
-
         &:before {
             right: -8px;
         }
     }
 
     &.right {
-        left: 150%;
-
         &:before {
             left: -8px;
         }

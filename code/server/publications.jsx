@@ -6,8 +6,24 @@ Meteor.publish('activities', () => {
     return Activities.find();
 });
 
-Meteor.publish('events', () => {
-    return Events.find();
+Meteor.publish('events', function () {
+    let events;
+
+    if (this.userId) {
+        events = Events.find({
+            $or: [
+                { public: true },
+                { sharedWith: this.userId },
+                { 'host._id': this.userId }
+            ]
+        });
+    } else {
+        events = Events.find({
+            public: true
+        });
+    }
+
+    return events;
 });
 
 Meteor.publish('userData', function () {

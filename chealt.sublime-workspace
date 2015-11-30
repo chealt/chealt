@@ -4,6 +4,34 @@
 		"selected_items":
 		[
 			[
+				"over",
+				"overflow: "
+			],
+			[
+				"ma",
+				"margin-right: "
+			],
+			[
+				"activi",
+				"activityList"
+			],
+			[
+				"tooltpic",
+				"tooltipClass"
+			],
+			[
+				"pro",
+				"profilePicture"
+			],
+			[
+				"align",
+				"align-items: "
+			],
+			[
+				"font",
+				"font-size: "
+			],
+			[
 				"compo",
 				"componentDidUpdate	Life Cycle Method"
 			],
@@ -92,10 +120,6 @@
 				"itemId"
 			],
 			[
-				"over",
-				"overflow-y: "
-			],
-			[
 				"outli",
 				"outline: "
 			],
@@ -141,10 +165,6 @@
 			],
 			[
 				"active",
-				"activityTypes"
-			],
-			[
-				"activi",
 				"activityTypes"
 			],
 			[
@@ -250,10 +270,6 @@
 			[
 				"contecon",
 				"contentContainerClasses"
-			],
-			[
-				"pro",
-				"profilePicturePath"
 			],
 			[
 				"box-",
@@ -492,46 +508,38 @@
 				"display"
 			],
 			[
-				"font",
-				"font"
-			],
-			[
 				"insta",
 				"instance_container"
 			],
 			[
 				"clas",
 				"classes"
-			],
-			[
-				"lan",
-				"languagesJSON"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "code/client/styles/core/elements.scss",
+			"file": "code/lib/routes.jsx",
 			"settings":
 			{
-				"buffer_size": 1675,
+				"buffer_size": 152,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "code/client/styles/events.scss",
+			"file": "code/client/components/layout/layout.jsx",
 			"settings":
 			{
-				"buffer_size": 1562,
+				"buffer_size": 2306,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "code/client/components/event.jsx",
+			"file": "code/client/components/home.jsx",
 			"settings":
 			{
-				"buffer_size": 5942,
+				"buffer_size": 926,
 				"line_ending": "Windows"
 			}
 		}
@@ -740,15 +748,28 @@
 	],
 	"file_history":
 	[
-		"/C/Users/Attila/Code/chealt/code/client/components/event.jsx",
+		"/C/Users/Attila/Code/chealt/code/client/components/layout/header.jsx",
+		"/C/Users/Attila/Code/chealt/code/client/components/home.jsx",
+		"/C/Users/Attila/Code/chealt/code/client/components/activity-list.jsx",
+		"/C/Users/Attila/Code/chealt/code/server/activities.jsx",
+		"/C/Users/Attila/Code/chealt/code/client/styles/activity-list.scss",
+		"/C/Users/Attila/Code/chealt/code/client/styles/header.scss",
+		"/C/Users/Attila/Code/chealt/code/client/styles/import/_variables.scss",
+		"/C/Users/Attila/Code/chealt/code/client/styles/core/common.scss",
+		"/C/Users/Attila/Code/chealt/code/client/components/profile-list.jsx",
+		"/C/Users/Attila/Code/chealt/code/client/components/profile-info.jsx",
+		"/C/Users/Attila/Code/chealt/code/client/components/guests.jsx",
 		"/C/Users/Attila/Code/chealt/code/client/styles/events.scss",
+		"/C/Users/Attila/Code/chealt/code/client/styles/card.scss",
+		"/C/Users/Attila/Code/chealt/code/client/styles/home.scss",
+		"/C/Users/Attila/Code/chealt/code/client/components/event.jsx",
+		"/C/Users/Attila/Code/chealt/code/client/styles/core/elements.scss",
+		"/C/Users/Attila/Code/chealt/code/client/styles/core/normalize.scss",
+		"/C/Users/Attila/Code/chealt/code/client/styles/tooltip.scss",
+		"/C/Users/Attila/Code/chealt/code/client/components/tooltip.jsx",
+		"/C/Users/Attila/Code/chealt/code/client/components/profile-picture.jsx",
 		"/C/Users/Attila/Code/chealt/code/client/components/map.jsx",
 		"/C/Users/Attila/Code/chealt/code/client/components/comments-list.jsx",
-		"/C/Users/Attila/Code/chealt/code/client/styles/card.scss",
-		"/C/Users/Attila/Code/chealt/code/client/styles/core/elements.scss",
-		"/C/Users/Attila/Code/chealt/code/client/styles/home.scss",
-		"/C/Users/Attila/Code/chealt/code/client/styles/core/normalize.scss",
-		"/C/Users/Attila/Code/chealt/code/client/components/home.jsx",
 		"/C/Users/Attila/Code/chealt/code/lib/methods.jsx",
 		"/C/Users/Attila/Code/chealt/code/server/geocoding.jsx",
 		"/C/Users/Attila/Code/chealt/code/client/components/layout/layout.jsx",
@@ -756,14 +777,11 @@
 		"/C/Users/Attila/Code/chealt/code/client/components/google-maps.jsx",
 		"/C/Users/Attila/Code/chealt/code/client/styles/footer.scss",
 		"/C/Users/Attila/Code/chealt/code/client/components/layout/footer.jsx",
-		"/C/Users/Attila/Code/chealt/code/client/styles/import/_variables.scss",
 		"/C/Users/Attila/AppData/Roaming/Sublime Text 3/Packages/Color Highlighter/ColorHighlighter.sublime-settings",
 		"/C/Users/Attila/AppData/Roaming/Sublime Text 3/Packages/User/ColorHighlighter.sublime-settings",
 		"/C/Users/Attila/Code/chealt/code/client/styles/common.scss",
 		"/C/Users/Attila/Code/chealt/code/client/styles/elements.scss",
-		"/C/Users/Attila/Code/chealt/code/client/components/layout/header.jsx",
 		"/C/Users/Attila/Code/chealt/code/client/components/load-more.jsx",
-		"/C/Users/Attila/Code/chealt/code/client/components/profile-list.jsx",
 		"/C/Users/Attila/Code/chealt/code/client/styles/login.scss",
 		"/C/Users/Attila/Code/chealt/code/client/components/login.jsx",
 		"/C/Users/Attila/Code/chealt/code/server/profile.jsx",
@@ -780,15 +798,11 @@
 		"/C/Users/Attila/Code/chealt/code/client/components/main-button.jsx",
 		"/C/Users/Attila/Code/chealt/code/client/styles/growing-textarea.scss",
 		"/C/Users/Attila/Code/chealt/code/client/components/header-profile.jsx",
-		"/C/Users/Attila/Code/chealt/code/client/components/profile-picture.jsx",
 		"/C/Users/Attila/Code/chealt/chealt.sublime-project",
 		"/C/Users/Attila/Code/chealt/code/lib/collections.jsx",
 		"/C/Users/Attila/Code/chealt/code/client/subscriptions.js",
 		"/C/Users/Attila/Code/chealt/code/client/components/sports-icon.jsx",
 		"/C/Users/Attila/Code/chealt/code/client/styles/icons.scss",
-		"/C/Users/Attila/Code/chealt/code/client/components/profile-info.jsx",
-		"/C/Users/Attila/Code/chealt/code/server/activities.jsx",
-		"/C/Users/Attila/Code/chealt/code/client/styles/header.scss",
 		"/C/Users/Attila/Code/chealt/code/lib/routes.jsx",
 		"/C/Users/Attila/Code/chealt/code/client/components/layout/anything-closer.jsx",
 		"/C/Users/Attila/Code/chealt/code/client/styles/profile-info.scss",
@@ -861,13 +875,7 @@
 		"/C/Users/Attila/Code/chealt/code/chealt/client/templates/workouts/workouts_list.html",
 		"/C/Users/Attila/Code/chealt/code/chealt/client/templates/workouts/workouts_list.js",
 		"/C/Users/Attila/Code/viveka/difference-generator/algorithms/image-based.js",
-		"/C/Users/Attila/Code/viveka/diff-page/public/js/app.js",
-		"/C/Users/Attila/Code/viveka/diff-page/templates/nav.hbs",
-		"/C/Users/Attila/Code/viveka/diff-page/styles/app.scss",
-		"/C/Users/Attila/Code/viveka/diff-page/public/index.html",
-		"/C/Users/Attila/Desktop/uxp.hu-Jun-2015/uxp.hu-Jun-2015",
-		"/C/Users/Attila/Desktop/accesslog_uxp.hu_7_1_2015/uxp.hu",
-		"/C/Users/Attila/Desktop/TimelineRawData-20150623T203805.json"
+		"/C/Users/Attila/Code/viveka/diff-page/public/js/app.js"
 	],
 	"find":
 	{
@@ -878,6 +886,7 @@
 		"height": 96.0,
 		"where_history":
 		[
+			"<project>,*.jsx",
 			"<project>,*.scss",
 			"<project>,*.jsx",
 			"<project>,*.*",
@@ -902,6 +911,10 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"subtitle",
+			"12px",
+			"activities",
+			"container",
 			"this.map",
 			"isMapsLoaded",
 			"\"",
@@ -1025,11 +1038,7 @@
 			"testCase",
 			"create-diff-by-fingerprints",
 			"box-shadow",
-			" href=\"#\" ",
-			" href=\"\"",
-			"diff-switcher",
-			" href=\"#\"",
-			"diff-switcher"
+			" href=\"#\" "
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1050,32 +1059,29 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 2,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "code/client/styles/core/elements.scss",
+					"file": "code/lib/routes.jsx",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1675,
+						"buffer_size": 152,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1553,
-								1553
+								41,
+								41
 							]
 						],
 						"settings":
 						{
-							"color_scheme": "Packages/User/Color Highlighter/themes/Seti_monokai.tmTheme",
-							"syntax": "Packages/Syntax Highlighting for Sass/Syntaxes/SCSS.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/JSX/JSX.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1086,50 +1092,49 @@
 				},
 				{
 					"buffer": 1,
-					"file": "code/client/styles/events.scss",
+					"file": "code/client/components/layout/layout.jsx",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1562,
+						"buffer_size": 2306,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								588,
-								588
+								2023,
+								2023
 							]
 						],
 						"settings":
 						{
-							"color_scheme": "Packages/User/Color Highlighter/themes/Seti_monokai.tmTheme",
-							"syntax": "Packages/Syntax Highlighting for Sass/Syntaxes/SCSS.tmLanguage",
+							"syntax": "Packages/JSX/JSX.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.x": -0.0,
+						"translation.y": 599.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "code/client/components/event.jsx",
+					"file": "code/client/components/home.jsx",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5942,
+						"buffer_size": 926,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4581,
-								4581
+								408,
+								408
 							]
 						],
 						"settings":
@@ -1139,10 +1144,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2508.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 0,
 					"type": "text"
 				}
 			]
@@ -1201,12 +1206,92 @@
 		"selected_items":
 		[
 			[
-				"even",
-				"client\\components\\event.jsx"
+				"home",
+				"client\\components\\home.jsx"
+			],
+			[
+				"rout",
+				"lib\\routes.jsx"
+			],
+			[
+				"layo",
+				"client\\components\\layout\\layout.jsx"
+			],
+			[
+				"head",
+				"client\\components\\layout\\header.jsx"
+			],
+			[
+				"activit",
+				"server\\activities.jsx"
+			],
+			[
+				"hea",
+				"client\\styles\\header.scss"
+			],
+			[
+				"heade",
+				"client\\components\\layout\\header.jsx"
+			],
+			[
+				"commo",
+				"client\\styles\\core\\common.scss"
+			],
+			[
+				"comm",
+				"client\\styles\\core\\common.scss"
+			],
+			[
+				"vari",
+				"client\\styles\\import\\_variables.scss"
+			],
+			[
+				"prolist",
+				"client\\components\\profile-list.jsx"
+			],
+			[
+				"profili",
+				"client\\components\\profile-info.jsx"
+			],
+			[
+				"guest",
+				"client\\components\\guests.jsx"
+			],
+			[
+				"event",
+				"client\\styles\\events.scss"
 			],
 			[
 				"eve",
 				"client\\styles\\events.scss"
+			],
+			[
+				"card",
+				"client\\styles\\card.scss"
+			],
+			[
+				"var",
+				"client\\styles\\import\\_variables.scss"
+			],
+			[
+				"norm",
+				"client\\styles\\core\\normalize.scss"
+			],
+			[
+				"elem",
+				"client\\styles\\core\\elements.scss"
+			],
+			[
+				"profilli",
+				"client\\components\\profile-list.jsx"
+			],
+			[
+				"profilpi",
+				"client\\components\\profile-picture.jsx"
+			],
+			[
+				"even",
+				"client\\components\\event.jsx"
 			],
 			[
 				"ele",
@@ -1221,32 +1306,12 @@
 				"client\\components\\comments-list.jsx"
 			],
 			[
-				"card",
-				"client\\styles\\card.scss"
-			],
-			[
 				"hom",
 				"client\\styles\\home.scss"
 			],
 			[
-				"norm",
-				"client\\styles\\core\\normalize.scss"
-			],
-			[
-				"home",
-				"client\\components\\home.jsx"
-			],
-			[
 				"eventscs",
 				"client\\styles\\events.scss"
-			],
-			[
-				"elem",
-				"client\\styles\\core\\elements.scss"
-			],
-			[
-				"event",
-				"client\\components\\event.jsx"
 			],
 			[
 				"methods",
@@ -1277,19 +1342,7 @@
 				"client\\components\\layout\\footer.jsx"
 			],
 			[
-				"comm",
-				"client\\styles\\common.scss"
-			],
-			[
 				"_va",
-				"client\\styles\\import\\_variables.scss"
-			],
-			[
-				"hea",
-				"client\\components\\layout\\header.jsx"
-			],
-			[
-				"vari",
 				"client\\styles\\import\\_variables.scss"
 			],
 			[
@@ -1369,10 +1422,6 @@
 				"client\\components\\header-profile.jsx"
 			],
 			[
-				"heade",
-				"client\\components\\layout\\header.jsx"
-			],
-			[
 				"colle",
 				"lib\\collections.jsx"
 			],
@@ -1415,10 +1464,6 @@
 			[
 				"profilin",
 				"client\\components\\profile-info.jsx"
-			],
-			[
-				"rout",
-				"lib\\routes.jsx"
 			],
 			[
 				"me",
@@ -1479,10 +1524,6 @@
 			[
 				"profilescs",
 				"client\\styles\\profile.scss"
-			],
-			[
-				"profilpi",
-				"client\\components\\profile-picture.jsx"
 			],
 			[
 				"profilpic",
@@ -1675,42 +1716,6 @@
 			[
 				"testlistj",
 				"admin\\test-list\\test-list.js"
-			],
-			[
-				"testlihb",
-				"admin\\test-list\\templates\\tests.hbs"
-			],
-			[
-				"data",
-				"lib\\database.js"
-			],
-			[
-				"tmpsindex",
-				"tmp\\server\\index.js"
-			],
-			[
-				"inde",
-				"lib\\index.js"
-			],
-			[
-				"cooin",
-				"admin\\test-details\\templates\\cookieInput.hbs"
-			],
-			[
-				"tesd",
-				"admin\\test-details\\test-details.js"
-			],
-			[
-				"diff",
-				"admin\\diff-page\\diff-page.js"
-			],
-			[
-				"differ",
-				"lib\\difference-generator.js"
-			],
-			[
-				"worklisjs",
-				"code\\chealt\\client\\templates\\workouts\\workouts_list.js"
 			]
 		],
 		"width": 0.0
