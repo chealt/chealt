@@ -36,3 +36,5 @@ accounts-facebook
 http
 dburles:google-maps
 aldeed:geocoder
+cfs:standard-packages
+cfs:gridfs
