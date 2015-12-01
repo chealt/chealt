@@ -1,0 +1,16 @@
+.image-list {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+
+    .item {
+        flex-grow: 1;
+        max-width: 300px;
+        padding: 5px;
+        overflow: hidden;
+    }
+
+    .image {
+        width: 100%;
+    }
+}

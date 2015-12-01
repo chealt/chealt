@@ -81,9 +81,16 @@ Meteor.methods({
         }
     },
     eventImageUpload(imageFileId, eventId) {
-        Events.update(
-            { _id: eventId },
-            { $addToSet: { images: imageFileId } }
-        );
+        if (Events.findOne({ _id: eventId }).images) {
+            Events.update(
+                { _id: eventId },
+                { $push: { images: imageFileId } }
+            );
+        } else {
+            Events.update(
+                { _id: eventId },
+                { $set: { images: [imageFileId] } }
+            );
+        }
     }
 });

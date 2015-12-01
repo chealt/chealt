@@ -6,8 +6,11 @@ ImageList = React.createClass({
     getMeteorData() {
         return {
             images: Images.find({
-                _id: { $in: this.props.imageIds }
-            }).fetch()
+                    _id: { $in: this.props.imageIds }
+                }, { limit: 3 }).fetch(),
+            imageCount: Images.find({
+                    _id: { $in: this.props.imageIds }
+                }).count()
         };
     },
     render() {
@@ -15,7 +18,12 @@ ImageList = React.createClass({
             <ul className='image-list'>
                 {this.data.images.map((image) => {
                     return (
-                        <li><img key={image._id} src={image.url} alt={image.alt} /></li>
+                        <li className='item' key={image._id}>
+                            <img
+                                className='image'
+                                src={image.url()}
+                                alt={image.alt} />
+                        </li>
                     );
                 })}
             </ul>

@@ -1,8 +1,22 @@
+const resizeImage = function (fileObj, readStream, writeStream) {
+    gm(readStream, fileObj.name())
+        .resize('300', '300')
+        .stream()
+        .pipe(writeStream);
+};
+
 Comments = new Mongo.Collection('comments');
 Activities = new Mongo.Collection('activities');
 Events = new Mongo.Collection('events');
 Images = new FS.Collection('images', {
-    stores: [new FS.Store.GridFS('images', { path: '/public/images/uploads' })]
+    stores: [
+        new FS.Store.GridFS('images', { transformWrite: resizeImage })
+    ],
+    filter: {
+        allow: {
+            contentTypes: ['image/*']
+        }
+    }
 });
 
 Events.allow({
