@@ -24,7 +24,7 @@ Event = React.createClass({
         }
     },
     isOwnEvent() {
-        return this.props.event.host._id === this.data.currentUser._id;
+        return this.data.currentUser && this.props.event.host._id === this.data.currentUser._id;
     },
     attend() {
         Meteor.call('attendEvent', this.props.event._id);
