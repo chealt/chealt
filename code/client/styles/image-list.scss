@@ -1,12 +1,15 @@
 .image-list {
-    display: flex;
-    flex-direction: row;
     position: relative;
+    display: flex;
+    flex-flow: row wrap;
+    padding: 5px;
 
     .item {
-        flex-grow: 1;
-        max-width: 300px;
-        padding: 5px;
+        flex: 1 0 auto;
+        min-width: 200px;
+        background: no-repeat 50% 50% / cover #222;
+        min-height: 200px;
+        outline: 5px solid #fff;
         overflow: hidden;
     }
 

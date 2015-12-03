@@ -18,12 +18,7 @@ ImageList = React.createClass({
             <ul className='image-list'>
                 {this.data.images.map((image) => {
                     return (
-                        <li className='item' key={image._id}>
-                            <img
-                                className='image'
-                                src={image.url()}
-                                alt={image.alt} />
-                        </li>
+                        <li className='item' key={image._id} style={{ backgroundImage: 'url("' + image.url() + '")' }}></li>
                     );
                 })}
             </ul>
