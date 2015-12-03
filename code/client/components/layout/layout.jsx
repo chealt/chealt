@@ -3,7 +3,8 @@ Layout = React.createClass({
         return {
             isDrawerOpen: false,
             filter: '',
-            filtered: false
+            filtered: false,
+            isAdminMode: false
         };
     },
     filter(event) {
@@ -26,6 +27,11 @@ Layout = React.createClass({
         if (this.state.isDrawerOpen) {
             return <AnythingCloser onClick={this.closeDrawer} />;
         }
+    },
+    toggleAdminMode() {
+        this.setState({
+            isAdminMode: !this.state.isAdminMode
+        });
     },
     render() {
         let contentContainerClasses = 'content-container';
@@ -58,9 +64,11 @@ Layout = React.createClass({
                             <Header
                                 toggleDrawer={this.toggleDrawer}
                                 filter={this.filter}
-                                filtered={this.state.filtered} />
+                                filtered={this.state.filtered}
+                                toggleAdminMode={this.toggleAdminMode} />
                             <Home 
-                                filter={this.state.filter} />
+                                filter={this.state.filter}
+                                isAdminMode={this.state.isAdminMode} />
                         </div>
                         {this.props.footer}
                         {this.anythingCloser()}

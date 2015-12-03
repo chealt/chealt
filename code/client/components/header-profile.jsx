@@ -7,7 +7,15 @@ HeaderProfile = React.createClass({
     },
     getModule() {
         if (this.data.currentUser) {
-            return <Profile user={this.data.currentUser} />;
+            return (
+                <div>
+                    <IconButton
+                        type='cog'
+                        action={this.props.toggleAdminMode}
+                        additionalClasses='centered' />
+                    <Profile user={this.data.currentUser} />
+                </div>
+            );
         } else {
             return <Login />;
         }

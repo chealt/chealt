@@ -23,7 +23,8 @@ Header = React.createClass({
                         no-focus />
                 </div>
                 <div id='profile-container'>
-                    <HeaderProfile />
+                    <HeaderProfile
+                        toggleAdminMode={this.props.toggleAdminMode} />
                 </div>
             </div>
         );

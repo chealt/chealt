@@ -166,7 +166,7 @@ Event = React.createClass({
         });
     },
     removeImage(fileId) {
-        if (this.data.isOwnEvent) {
+        if (this.props.isAdminMode && this.data.isOwnEvent) {
             Meteor.call('eventRemoveImage', fileId, this.props.event._id);
         }
     },
@@ -175,13 +175,13 @@ Event = React.createClass({
             return (
                 <ImageList
                     imageIds={this.props.event.images}
-                    isAdmin={this.data.isOwnEvent}
+                    isAdmin={this.props.isAdminMode && this.data.isOwnEvent}
                     removeImage={this.removeImage} />
             );
         }
     },
     imageUploader() {
-        if (this.data.isOwnEvent) {
+        if (this.props.isAdminMode && this.data.isOwnEvent) {
             return (
                 <ImageUploader
                     successCallback={this.imageUploadSuccess} />

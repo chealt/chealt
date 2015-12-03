@@ -8,7 +8,10 @@ Home = React.createClass({
     renderEvents() {
         return this.data.events.map((event) => {
             return (
-                <Event key={event._id} event={event} />
+                <Event
+                    key={event._id}
+                    event={event}
+                    isAdminMode={this.props.isAdminMode} />
             );
         });
     },

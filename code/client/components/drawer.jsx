@@ -4,10 +4,14 @@ Drawer = React.createClass({
         items: React.PropTypes.array.isRequired
     },
     render() {
-        const classNames = 'side-drawer shadow' + (this.props.isDrawerOpen ? ' open' : '');
+        let className = 'side-drawer shadow';
+
+        if (this.props.isDrawerOpen) {
+            className += ' open';
+        }
 
         return (
-            <div id={this.props.id} className={classNames}>
+            <div id={this.props.id} className={className}>
                 <DrawerOpener
                     id='app-side-drawer'
                     toggleDrawer={this.props.toggleDrawer} />

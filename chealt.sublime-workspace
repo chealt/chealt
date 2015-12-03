@@ -4,8 +4,44 @@
 		"selected_items":
 		[
 			[
-				"image",
+				"toggle",
+				"toggleAdminMode"
+			],
+			[
+				"toggl",
+				"toggleAdminMode"
+			],
+			[
+				"ima",
 				"imageFileId"
+			],
+			[
+				"update",
+				"update"
+			],
+			[
+				"remve",
+				"removeImage"
+			],
+			[
+				"remove",
+				"removeImage"
+			],
+			[
+				"image",
+				"imageId"
+			],
+			[
+				"margin",
+				"margin-left: "
+			],
+			[
+				"classN",
+				"className"
+			],
+			[
+				"func",
+				"function"
 			],
 			[
 				"im",
@@ -14,10 +50,6 @@
 			[
 				"file",
 				"fileObj"
-			],
-			[
-				"func",
-				"function	React.PropTypes.func"
 			],
 			[
 				"item",
@@ -90,10 +122,6 @@
 			[
 				"comme",
 				"commentsContainerRender"
-			],
-			[
-				"margin",
-				"margin-top: "
 			],
 			[
 				"event",
@@ -486,60 +514,32 @@
 			[
 				"handle",
 				"handleTestCasesLoad"
-			],
-			[
-				"init",
-				"initRouter"
-			],
-			[
-				"promisif",
-				"promisifier"
-			],
-			[
-				"cur",
-				"cursor"
-			],
-			[
-				"nav",
-				"nav-link"
-			],
-			[
-				"inl",
-				"inline-block"
-			],
-			[
-				"backgr",
-				"background-color"
-			],
-			[
-				"fo",
-				"for	for (…) {…}"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "code/client/components/event.jsx",
+			"file": "code/client/components/layout/layout.jsx",
 			"settings":
 			{
-				"buffer_size": 7342,
+				"buffer_size": 2594,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "code/client/components/image-list.jsx",
+			"file": "code/client/components/layout/header.jsx",
 			"settings":
 			{
-				"buffer_size": 624,
+				"buffer_size": 1171,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "code/lib/methods.jsx",
+			"file": "code/client/components/header-profile.jsx",
 			"settings":
 			{
-				"buffer_size": 2480,
+				"buffer_size": 731,
 				"line_ending": "Windows"
 			}
 		}
@@ -551,10 +551,14 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 265.0,
-		"last_filter": "syscs",
+		"height": 196.0,
+		"last_filter": "sscss",
 		"selected_items":
 		[
+			[
+				"sscss",
+				"Set Syntax: SCSS"
+			],
 			[
 				"syscs",
 				"Set Syntax: SCSS"
@@ -749,37 +753,44 @@
 	],
 	"file_history":
 	[
-		"/C/Users/Attila/Code/chealt/code/client/components/image-uploader.jsx",
+		"/C/Users/Attila/Code/chealt/code/client/styles/header-profile.scss",
+		"/C/Users/Attila/Code/chealt/code/client/components/drawer.jsx",
+		"/C/Users/Attila/Code/chealt/code/client/components/home.jsx",
+		"/C/Users/Attila/Code/chealt/code/client/components/event.jsx",
+		"/C/Users/Attila/Code/chealt/code/client/components/layout/layout.jsx",
+		"/C/Users/Attila/Code/chealt/code/client/styles/image-list.scss",
+		"/C/Users/Attila/Code/chealt/code/client/components/image-list.jsx",
 		"/C/Users/Attila/Code/chealt/code/lib/methods.jsx",
+		"/C/Users/Attila/Code/chealt/code/client/components/image-uploader.jsx",
+		"/C/Users/Attila/Code/chealt/code/client/styles/core/elements.scss",
+		"/C/Users/Attila/Code/chealt/code/client/components/icon-button.jsx",
+		"/C/Users/Attila/Code/chealt/code/client/styles/import/_variables.scss",
+		"/C/Users/Attila/Code/chealt/code/client/components/icon.jsx",
+		"/C/Users/Attila/Code/chealt/code/client/components/comments-list.jsx",
+		"/C/Users/Attila/Code/chealt/code/client/components/main-button.jsx",
+		"/C/Users/Attila/Code/chealt/code/client/components/load-more.jsx",
+		"/C/Users/Attila/Code/chealt/code/client/styles/core/common.scss",
 		"/C/Users/Attila/Code/chealt/code/lib/collections.jsx",
+		"/C/Users/Attila/AppData/Local/.meteor/packages/cfs_graphicsmagick/0.0.18/os/packages/cfs_graphicsmagick.js",
 		"/C/Users/Attila/Code/chealt/code/server/publications.jsx",
 		"/C/Users/Attila/Code/chealt/code/client/subscriptions.js",
 		"/C/Users/Attila/Code/chealt/code/client/components/map.jsx",
 		"/C/Users/Attila/Code/chealt/code/client/components/guests.jsx",
-		"/C/Users/Attila/Code/chealt/code/client/components/image-list.jsx",
-		"/C/Users/Attila/Code/chealt/code/client/components/event.jsx",
 		"/C/Users/Attila/Code/chealt/code/client/styles/events.scss",
-		"/C/Users/Attila/Code/chealt/code/client/components/layout/layout.jsx",
-		"/C/Users/Attila/Code/chealt/code/client/components/home.jsx",
-		"/C/Users/Attila/Code/chealt/code/client/components/icon-button.jsx",
 		"/C/Users/Attila/Code/chealt/code/client/styles/tooltip.scss",
-		"/C/Users/Attila/Code/chealt/code/client/styles/import/_variables.scss",
 		"/C/Users/Attila/Code/chealt/code/lib/routes.jsx",
 		"/C/Users/Attila/Code/chealt/code/client/components/layout/header.jsx",
 		"/C/Users/Attila/Code/chealt/code/client/components/activity-list.jsx",
 		"/C/Users/Attila/Code/chealt/code/server/activities.jsx",
 		"/C/Users/Attila/Code/chealt/code/client/styles/activity-list.scss",
 		"/C/Users/Attila/Code/chealt/code/client/styles/header.scss",
-		"/C/Users/Attila/Code/chealt/code/client/styles/core/common.scss",
 		"/C/Users/Attila/Code/chealt/code/client/components/profile-list.jsx",
 		"/C/Users/Attila/Code/chealt/code/client/components/profile-info.jsx",
 		"/C/Users/Attila/Code/chealt/code/client/styles/card.scss",
 		"/C/Users/Attila/Code/chealt/code/client/styles/home.scss",
-		"/C/Users/Attila/Code/chealt/code/client/styles/core/elements.scss",
 		"/C/Users/Attila/Code/chealt/code/client/styles/core/normalize.scss",
 		"/C/Users/Attila/Code/chealt/code/client/components/tooltip.jsx",
 		"/C/Users/Attila/Code/chealt/code/client/components/profile-picture.jsx",
-		"/C/Users/Attila/Code/chealt/code/client/components/comments-list.jsx",
 		"/C/Users/Attila/Code/chealt/code/server/geocoding.jsx",
 		"/C/Users/Attila/Code/chealt/code/client/google-maps.js",
 		"/C/Users/Attila/Code/chealt/code/client/components/google-maps.jsx",
@@ -789,7 +800,6 @@
 		"/C/Users/Attila/AppData/Roaming/Sublime Text 3/Packages/User/ColorHighlighter.sublime-settings",
 		"/C/Users/Attila/Code/chealt/code/client/styles/common.scss",
 		"/C/Users/Attila/Code/chealt/code/client/styles/elements.scss",
-		"/C/Users/Attila/Code/chealt/code/client/components/load-more.jsx",
 		"/C/Users/Attila/Code/chealt/code/client/styles/login.scss",
 		"/C/Users/Attila/Code/chealt/code/client/components/login.jsx",
 		"/C/Users/Attila/Code/chealt/code/server/profile.jsx",
@@ -802,7 +812,6 @@
 		"/C/Users/Attila/Code/chealt/code/client/components/growing-textarea.jsx",
 		"/C/Users/Attila/Code/video-poll/client/templates/head.html",
 		"/C/Users/Attila/Code/tablehockey/tablehockey/client/templates/main.html",
-		"/C/Users/Attila/Code/chealt/code/client/components/main-button.jsx",
 		"/C/Users/Attila/Code/chealt/code/client/styles/growing-textarea.scss",
 		"/C/Users/Attila/Code/chealt/code/client/components/header-profile.jsx",
 		"/C/Users/Attila/Code/chealt/chealt.sublime-project",
@@ -816,15 +825,12 @@
 		"/C/Users/Attila/Code/chealt/code/server/google-fit.jsx",
 		"/C/Users/Attila/AppData/Local/.meteor/packages/percolate_google-api/1.0.2/web.browser/packages/percolate_google-api.js",
 		"/C/Users/Attila/Code/chealt/code/client/styles/profile-picture.scss",
-		"/C/Users/Attila/Code/chealt/code/client/styles/header-profile.scss",
 		"/C/Users/Attila/Code/chealt/code/client/components/logout.jsx",
 		"/C/Users/Attila/Code/chealt/code/client/components/bubble.jsx",
 		"/C/Users/Attila/Code/chealt/code/client/components/drawer-opener.jsx",
 		"/C/Users/Attila/Code/chealt/code/client/components/helpers/format-date.jsx",
 		"/C/Users/Attila/Code/chealt/code/.meteor/local/build/programs/web.browser/app/client/components/main-button.jsx",
-		"/C/Users/Attila/Code/chealt/code/client/components/icon.jsx",
 		"/C/Users/Attila/Code/chealt/code/client/styles/drawer.scss",
-		"/C/Users/Attila/Code/chealt/code/client/components/drawer.jsx",
 		"/C/Users/Attila/Code/chealt/code/client/styles/normalize.scss",
 		"/C/Users/Attila/Code/chealt/code/client/styles/_variables.scss",
 		"/C/Users/Attila/Code/chealt/code/client/styles/variables.scss",
@@ -874,9 +880,7 @@
 		"/C/Users/Attila/Code/viveka/tmp/public/dev-section/script/diff-page.js",
 		"/C/Users/Attila/Code/viveka/tmp/55fc5f44311de0400d0e6148.json",
 		"/C/Users/Attila/Code/clojure/first-app/app.clj",
-		"/C/Users/Attila/AppData/Roaming/Sublime Text 3/Packages/JSCS-Formatter/JSCS-Formatter.sublime-settings",
-		"/C/Users/Attila/AppData/Roaming/Sublime Text 3/Packages/User/JSCS-Formatter.sublime-settings",
-		"/C/Users/Attila/Code/chealt/code/chealt/client/templates/workouts/workouts_list.html"
+		"/C/Users/Attila/AppData/Roaming/Sublime Text 3/Packages/JSCS-Formatter/JSCS-Formatter.sublime-settings"
 	],
 	"find":
 	{
@@ -912,6 +916,13 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			".child",
+			"$gutter-size",
+			"images",
+			"isOwnEvent",
+			"activityListToggler",
+			"mapToggler",
+			"limit",
 			"this.currentUser._id",
 			"this.currentUser",
 			"ref=",
@@ -1032,14 +1043,7 @@
 			"Differ",
 			"differ",
 			"Differ",
-			"differ",
-			"Differ",
-			"differ",
-			"Differ",
-			"differ",
-			"diff",
-			"\"",
-			"domTree"
+			"differ"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1060,29 +1064,59 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 2,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "code/client/components/event.jsx",
+					"file": "code/client/components/layout/layout.jsx",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 7342,
+						"buffer_size": 2594,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								264,
-								385
+								2172,
+								2187
 							]
 						],
 						"settings":
 						{
 							"color_scheme": "Packages/User/Color Highlighter/themes/Seti_monokai.tmTheme",
+							"syntax": "Packages/JSX/JSX.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 513.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "code/client/components/layout/header.jsx",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1171,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1105,
+								1061
+							]
+						],
+						"settings":
+						{
 							"syntax": "Packages/JSX/JSX.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
@@ -1095,20 +1129,20 @@
 					"type": "text"
 				},
 				{
-					"buffer": 1,
-					"file": "code/client/components/image-list.jsx",
+					"buffer": 2,
+					"file": "code/client/components/header-profile.jsx",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 624,
+						"buffer_size": 731,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								210,
-								210
+								155,
+								155
 							]
 						],
 						"settings":
@@ -1122,36 +1156,6 @@
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "code/lib/methods.jsx",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2480,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2435,
-								2435
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JSX/JSX.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
 					"type": "text"
 				}
 			]
@@ -1210,12 +1214,148 @@
 		"selected_items":
 		[
 			[
-				"imaglis",
-				"client\\components\\image-list.jsx"
+				"heaprof",
+				"client\\styles\\header-profile.scss"
+			],
+			[
+				"headepro",
+				"client\\components\\header-profile.jsx"
+			],
+			[
+				"heade",
+				"client\\components\\layout\\header.jsx"
+			],
+			[
+				"drawer",
+				"client\\components\\drawer.jsx"
+			],
+			[
+				"layou",
+				"client\\components\\layout\\layout.jsx"
+			],
+			[
+				"hom",
+				"client\\components\\home.jsx"
+			],
+			[
+				"drawe",
+				"client\\components\\drawer.jsx"
+			],
+			[
+				"imliscs",
+				"client\\styles\\image-list.scss"
 			],
 			[
 				"method",
 				"lib\\methods.jsx"
+			],
+			[
+				"imupload",
+				"client\\components\\image-uploader.jsx"
+			],
+			[
+				"metho",
+				"lib\\methods.jsx"
+			],
+			[
+				"elemen",
+				"client\\styles\\core\\elements.scss"
+			],
+			[
+				"iconbu",
+				"client\\components\\icon-button.jsx"
+			],
+			[
+				"elem",
+				"client\\styles\\core\\elements.scss"
+			],
+			[
+				"_va",
+				"client\\styles\\import\\_variables.scss"
+			],
+			[
+				"ima",
+				"client\\styles\\image-list.scss"
+			],
+			[
+				"imalis",
+				"client\\components\\image-list.jsx"
+			],
+			[
+				"event",
+				"client\\components\\event.jsx"
+			],
+			[
+				"icon",
+				"client\\components\\icon.jsx"
+			],
+			[
+				"iconb",
+				"client\\components\\icon-button.jsx"
+			],
+			[
+				"ele",
+				"client\\styles\\core\\elements.scss"
+			],
+			[
+				"iconbutton",
+				"client\\components\\icon-button.jsx"
+			],
+			[
+				"comme",
+				"client\\components\\comments-list.jsx"
+			],
+			[
+				"button",
+				"client\\components\\main-button.jsx"
+			],
+			[
+				"imauplo",
+				"client\\components\\image-uploader.jsx"
+			],
+			[
+				"eleme",
+				"client\\styles\\core\\elements.scss"
+			],
+			[
+				"loadmo",
+				"client\\components\\load-more.jsx"
+			],
+			[
+				"load",
+				"client\\components\\load-more.jsx"
+			],
+			[
+				"_",
+				"client\\styles\\import\\_variables.scss"
+			],
+			[
+				"ev",
+				"client\\components\\event.jsx"
+			],
+			[
+				"commo",
+				"client\\styles\\core\\common.scss"
+			],
+			[
+				"imali",
+				"client\\components\\image-list.jsx"
+			],
+			[
+				"collec",
+				"lib\\collections.jsx"
+			],
+			[
+				"imscs",
+				"client\\styles\\image-list.scss"
+			],
+			[
+				"coll",
+				"lib\\collections.jsx"
+			],
+			[
+				"imaglis",
+				"client\\components\\image-list.jsx"
 			],
 			[
 				"subsc",
@@ -1224,14 +1364,6 @@
 			[
 				"public",
 				"server\\publications.jsx"
-			],
-			[
-				"coll",
-				"lib\\collections.jsx"
-			],
-			[
-				"collec",
-				"lib\\collections.jsx"
 			],
 			[
 				"publi",
@@ -1260,18 +1392,6 @@
 			[
 				"colle",
 				"lib\\collections.jsx"
-			],
-			[
-				"event",
-				"client\\components\\event.jsx"
-			],
-			[
-				"layou",
-				"client\\components\\layout\\layout.jsx"
-			],
-			[
-				"hom",
-				"client\\components\\home.jsx"
 			],
 			[
 				"iconbut",
@@ -1314,14 +1434,6 @@
 				"client\\styles\\header.scss"
 			],
 			[
-				"heade",
-				"client\\components\\layout\\header.jsx"
-			],
-			[
-				"commo",
-				"client\\styles\\core\\common.scss"
-			],
-			[
 				"comm",
 				"client\\styles\\core\\common.scss"
 			],
@@ -1354,10 +1466,6 @@
 				"client\\styles\\core\\normalize.scss"
 			],
 			[
-				"elem",
-				"client\\styles\\core\\elements.scss"
-			],
-			[
 				"profilli",
 				"client\\components\\profile-list.jsx"
 			],
@@ -1366,16 +1474,8 @@
 				"client\\components\\profile-picture.jsx"
 			],
 			[
-				"ele",
-				"client\\styles\\core\\elements.scss"
-			],
-			[
 				"evet",
 				"client\\components\\event.jsx"
-			],
-			[
-				"comme",
-				"client\\components\\comments-list.jsx"
 			],
 			[
 				"methods",
@@ -1404,10 +1504,6 @@
 			[
 				"footer",
 				"client\\components\\layout\\footer.jsx"
-			],
-			[
-				"_va",
-				"client\\styles\\import\\_variables.scss"
 			],
 			[
 				"proli",
@@ -1442,16 +1538,8 @@
 				"client\\components\\profile.jsx"
 			],
 			[
-				"metho",
-				"lib\\methods.jsx"
-			],
-			[
 				"growtex",
 				"client\\components\\growing-textarea.jsx"
-			],
-			[
-				"button",
-				"client\\components\\main-button.jsx"
 			],
 			[
 				"evetscs",
@@ -1484,10 +1572,6 @@
 			[
 				"evesc",
 				"client\\styles\\events.scss"
-			],
-			[
-				"icon",
-				"client\\styles\\icons.scss"
 			],
 			[
 				"profi",
@@ -1554,10 +1638,6 @@
 				"client\\components\\profile-info.jsx"
 			],
 			[
-				"headepro",
-				"client\\styles\\header-profile.scss"
-			],
-			[
 				"profilescs",
 				"client\\styles\\profile.scss"
 			],
@@ -1568,10 +1648,6 @@
 			[
 				"profilscs",
 				"client\\styles\\profile.scss"
-			],
-			[
-				"eleme",
-				"client\\styles\\elements.scss"
 			],
 			[
 				"logout",
@@ -1622,10 +1698,6 @@
 				"client\\styles\\header-profile.scss"
 			],
 			[
-				"drawe",
-				"client\\styles\\drawer.scss"
-			],
-			[
 				"pub",
 				"server\\publications.jsx"
 			],
@@ -1646,80 +1718,12 @@
 				"client\\components\\home.jsx"
 			],
 			[
-				"_",
-				"client\\styles\\import\\_variables.scss"
-			],
-			[
 				"nor",
 				"client\\styles\\normalize.scss"
 			],
 			[
 				"profipi",
 				"client\\styles\\profile-picture.scss"
-			],
-			[
-				"subs",
-				"client\\subscriptions.js"
-			],
-			[
-				"logou",
-				"client\\components\\logout.jsx"
-			],
-			[
-				"video",
-				"client\\templates\\videos.js"
-			],
-			[
-				"icons",
-				"client\\styles\\icons.scss"
-			],
-			[
-				"forma",
-				"client\\components\\helpers\\format-time.jsx"
-			],
-			[
-				"no",
-				"client\\styles\\normalize.scss"
-			],
-			[
-				"evscs",
-				"client\\styles\\events.scss"
-			],
-			[
-				"codemirror",
-				"front_end\\cm\\codemirror.js"
-			],
-			[
-				"vimeo",
-				"server\\vimeoAPI.js"
-			],
-			[
-				"you",
-				"server\\youtubeAPI.js"
-			],
-			[
-				"vime",
-				"server\\vimeoAPI.js"
-			],
-			[
-				"vimapi",
-				"server\\vimeoAPI.js"
-			],
-			[
-				"nomrsc",
-				"client\\styles\\normalize.scss"
-			],
-			[
-				"homscs",
-				"client\\styles\\home.scss"
-			],
-			[
-				"drawop",
-				"client\\components\\drawer-opener.jsx"
-			],
-			[
-				"omega",
-				".meteor\\local\\build\\programs\\server\\packages\\omega_react-intl.js"
 			]
 		],
 		"width": 0.0
