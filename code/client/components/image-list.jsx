@@ -2,26 +2,60 @@ ImageList = React.createClass({
     propTypes: {
         imageIds: React.PropTypes.array.isRequired
     },
+    getInitialState() {
+        return {
+            limit: 3
+        };
+    },
     mixins: [ReactMeteorData],
     getMeteorData() {
         return {
             images: Images.find({
                     _id: { $in: this.props.imageIds }
-                }, { limit: 3 }).fetch(),
+                }, { limit: this.state.limit }).fetch(),
             imageCount: Images.find({
                     _id: { $in: this.props.imageIds }
                 }).count()
         };
     },
+    loadMore() {
+        this.setState({
+            limit: this.state.limit + 3
+        });
+    },
+    loadMoreRender() {
+        if (this.data.imageCount > this.state.limit) {
+            return (<LoadMore onClick={this.loadMore} position='bottom' />);
+        }
+    },
+    removeIcon(imageId) {
+        if (this.props.isAdmin) {
+            return (
+                <IconButton
+                    type='cross'
+                    action={this.props.removeImage.bind(null, imageId)}
+                    additionalClasses='remove background small' />
+            );
+        }
+    },
     render() {
         return (
-            <ul className='image-list'>
-                {this.data.images.map((image) => {
-                    return (
-                        <li className='item' key={image._id} style={{ backgroundImage: 'url("' + image.url() + '")' }}></li>
-                    );
-                })}
-            </ul>
+            <div className='load-more-container'>
+                {this.loadMoreRender()}
+                <ul className='image-list'>
+                    {this.data.images.map((image) => {
+                        const style = {
+                            backgroundImage: 'url("' + image.url() + '")'
+                        };
+
+                        return (
+                            <li key={image._id} className='item' style={style}>
+                                {this.removeIcon(image._id)}
+                            </li>
+                        );
+                    })}
+                </ul>
+            </div>
         );
     }
 });

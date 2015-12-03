@@ -12,7 +12,8 @@ Event = React.createClass({
     mixins: [ReactMeteorData],
     getMeteorData() {
         return {
-            currentUser: Meteor.user()
+            currentUser: Meteor.user(),
+            isOwnEvent: Meteor.userId() === this.props.event.host._id
         };
     },
     componentDidMount() {
@@ -22,9 +23,6 @@ Event = React.createClass({
                 address: this.props.event.location
             });
         }
-    },
-    isOwnEvent() {
-        return this.data.currentUser && this.props.event.host._id === this.data.currentUser._id;
     },
     attend() {
         Meteor.call('attendEvent', this.props.event._id);
@@ -167,16 +165,23 @@ Event = React.createClass({
             showActivityList: !this.state.showActivityList
         });
     },
+    removeImage(fileId) {
+        if (this.data.isOwnEvent) {
+            Meteor.call('eventRemoveImage', fileId, this.props.event._id);
+        }
+    },
     images() {
-        if (this.props.event.images) {
+        if (this.props.event.images && this.props.event.images.length) {
             return (
                 <ImageList
-                    imageIds={this.props.event.images} />
+                    imageIds={this.props.event.images}
+                    isAdmin={this.data.isOwnEvent}
+                    removeImage={this.removeImage} />
             );
         }
     },
     imageUploader() {
-        if (this.isOwnEvent()) {
+        if (this.data.isOwnEvent) {
             return (
                 <ImageUploader
                     successCallback={this.imageUploadSuccess} />
@@ -225,7 +230,7 @@ Event = React.createClass({
                     geocode={this.props.event.geocode}
                     showMap={this.state.showMap}
                     mapId={this.props.event._id} />
-                <div className='footer row equal'>
+                <div className='footer row equal separated top'>
                     <div className='figures-container'>
                         {this.attendance()}
                     </div>

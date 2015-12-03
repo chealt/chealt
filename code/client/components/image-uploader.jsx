@@ -26,9 +26,11 @@ ImageUploader = React.createClass({
                     style={{ display: 'none' }}
                     onChange={this.upload}
                     ref={(ref) => this._fileInput = ref} />
-                <MainButton
+                <IconButton
+                    type='images'
                     action={this.triggerUpload}
-                    text='' />
+                    additionalClasses='upload upper active centered'
+                    text='add' />
             </div>
         );
     }

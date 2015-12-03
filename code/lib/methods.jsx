@@ -92,5 +92,12 @@ Meteor.methods({
                 { $set: { images: [imageFileId] } }
             );
         }
+    },
+    eventRemoveImage(imageFileId, eventId) {
+        Events.update(
+            { _id: eventId },
+            { $pull: { images: imageFileId } }
+        );
+        Images.remove({ _id: imageFileId });
     }
 });

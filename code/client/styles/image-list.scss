@@ -1,16 +1,39 @@
+@import 'import/variables';
+
 .image-list {
-    position: relative;
     display: flex;
     flex-flow: row wrap;
-    padding: 5px;
+    padding: 6px;
 
     .item {
         flex: 1 0 auto;
         min-width: 200px;
-        background: no-repeat 50% 50% / cover #222;
-        min-height: 200px;
-        outline: 5px solid #fff;
+        background: no-repeat 50% 50% / cover;
+        min-height: 300px;
+        border: 1px solid $color-neutral-background;
+        margin: 6px;
         overflow: hidden;
+        position: relative;
+
+        &:nth-child(3n) {
+            width: 33.333%;
+        }
+
+        &:nth-child(5n) {
+            width: 50%;
+        }
+
+        &:nth-child(7n) {
+            width: 66.666%;
+        }
+
+        .remove {
+            position: absolute;
+            top: 0;
+            right: 0;
+            border-radius: 0;
+            background-color: $color-neutral-background;
+        }
     }
 
     .image {

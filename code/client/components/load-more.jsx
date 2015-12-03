@@ -3,8 +3,14 @@ LoadMore = React.createClass({
         onClick: React.PropTypes.func.isRequired
     },
     render() {
+        let triggerClassName = 'load-more-trigger'
+
+        if (this.props.position) {
+            triggerClassName += ' ' + this.props.position;
+        }
+
         return (
-            <div className='load-more-trigger'>
+            <div className={triggerClassName}>
                 <span className='load-more' onClick={this.props.onClick}>...</span>
             </div>
         );
