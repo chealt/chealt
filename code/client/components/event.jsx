@@ -5,8 +5,8 @@ Event = React.createClass({
     getInitialState() {
         return {
             isCommentsShown: false,
-            showMap: false,
-            showActivityList: false
+            isMapShown: false,
+            isActivityListShown: false
         };
     },
     mixins: [ReactMeteorData],
@@ -30,44 +30,6 @@ Event = React.createClass({
     unattend() {
         Meteor.call('unattendEvent', this.props.event._id);
     },
-    sportsIcon() {
-        if (this.props.event.activity) {
-            return <SportsIcon activity={this.props.event.activity} />
-        }
-    },
-    getDate() {
-        const startDate = this.props.event.start.toISOString().substring(0, 10);
-        const endDate = this.props.event.end.toISOString().substring(0, 10);
-
-        if (startDate == endDate) {
-            return (
-                <FormatDate date={startDate} />
-            );
-        } else {
-            return (
-                <span className='date'>
-                    <FormatDate date={startDate} />
-                    <span className='divider'> - </span>
-                    <FormatDate date={endDate} />
-                </span>
-            );
-        }
-    },
-    getTime() {
-        if (this.props.event.start.getTime() !== this.props.event.end.getTime()) {
-            return (
-                <div className='time-container row--m equal'>
-                    <div className='start'>
-                        <FormatTime date={this.props.event.start} />
-                    </div>
-                    <Icon type='clock3' additionalClasses='clock' />
-                    <div className='end'>
-                        <FormatTime date={this.props.event.end} />
-                    </div>
-                </div>
-            );
-        }
-    },
     toggleComments() {
         this.setState({
             isCommentsShown: !this.state.isCommentsShown
@@ -82,87 +44,21 @@ Event = React.createClass({
             );
         }
     },
-    commentsToggler() {
-        let additionalClasses;
-
-        if (this.state.isCommentsShown) {
-            additionalClasses = 'active';
-        }
-
-        return (
-            <IconButton
-                type='bubbles4'
-                action={this.toggleComments}
-                additionalClasses={additionalClasses} />
-        );
-    },
-    attendance() {
-        let attendanceClass = 'attendance';
-        let attendance = this.props.event.guests.length + '';
-
-        if (this.props.event.maxAttendance) {
-            attendance += '/' + this.props.event.maxAttendance;
-
-            if (this.props.event.guests.length > this.props.event.maxAttendance) {
-                attendanceClass += ' above';
-            }
-        }
-
-        if (this.props.event.minAttendance) {
-            if (this.props.event.guests.length < this.props.event.minAttendance) {
-                attendanceClass += ' below';
-            }
-        }
-
-        return (
-            <span className={attendanceClass}>{attendance}</span>
-        );
-    },
-    mapToggler() {
-        let additionalClasses;
-
-        if (this.state.showMap) {
-            additionalClasses = 'active';
-        }
-
-        return (
-            <IconButton
-                type='map'
-                action={this.toggleMap}
-                additionalClasses={additionalClasses} />
-        );
-    },
     toggleMap() {
         this.setState({
-            showMap: !this.state.showMap
+            isMapShown: !this.state.isMapShown
         });
     },
     activityList() {
-        if (this.state.showActivityList) {
+        if (this.state.isActivityListShown) {
             return (
                 <ActivityList items={this.props.event.activityList} />
             );
         }
     },
-    activityListToggler() {
-        if (this.props.event.activityList) {
-            let additionalClasses;
-
-            if (this.state.showActivityList) {
-                additionalClasses = 'active';
-            }
-
-            return (
-                <IconButton
-                    type='list22'
-                    action={this.toggleActivityList}
-                    additionalClasses={additionalClasses} />
-            );
-        }
-    },
     toggleActivityList() {
         this.setState({
-            showActivityList: !this.state.showActivityList
+            isActivityListShown: !this.state.isActivityListShown
         });
     },
     removeImage(fileId) {
@@ -201,22 +97,16 @@ Event = React.createClass({
     render() {
         return (
             <div className='card event'>
-                <h2 className='title'>
-                    {this.sportsIcon()}
-                    <span className='name'>{this.props.event.name}</span>
-                    {this.getDate()}
-                </h2>
-                <div className='content-header row--m equal separated vertical'>
-                    <div className='host'>
-                        <Icon type='user' position='before' />
-                        <span className='text'>host: {this.props.event.host.name}</span>
-                    </div>
-                    {this.getTime()}
-                    <div className='location'>
-                        <Icon type='earth2' position='before' />
-                        {this.props.event.location}
-                    </div>
-                </div>
+                <EventTitle
+                    name={this.props.event.name}
+                    activity={this.props.event.activity}
+                    start={this.props.event.start}
+                    end={this.props.event.end} />
+                <EventHeader
+                    hostName={this.props.event.host.name}
+                    location={this.props.event.location}
+                    start={this.props.event.start}
+                    end={this.props.event.end} />
                 {this.images()}
                 {this.imageUploader()}
                 {this.description()}
@@ -228,18 +118,19 @@ Event = React.createClass({
                 {this.commentsList()}
                 <Map
                     geocode={this.props.event.geocode}
-                    showMap={this.state.showMap}
+                    isMapShown={this.state.isMapShown}
                     mapId={this.props.event._id} />
-                <div className='footer row equal separated top'>
-                    <div className='figures-container'>
-                        {this.attendance()}
-                    </div>
-                    <div className='controls-container'>
-                        {this.activityListToggler()}
-                        {this.mapToggler()}
-                        {this.commentsToggler()}
-                    </div>
-                </div>
+                <EventFooter
+                    guests={this.props.event.guests}
+                    maxAttendance={this.props.event.maxAttendance}
+                    minAttendance={this.props.event.minAttendance}
+                    activityList={this.props.event.activityList}
+                    isActivityListShown={this.state.isActivityListShown}
+                    toggleActivityList={this.toggleActivityList}
+                    isMapShown={this.state.isMapShown}
+                    toggleMap={this.toggleMap}
+                    isCommentsShown={this.state.isCommentsShown}
+                    toggleComments={this.toggleComments} />
             </div>
         );
     }

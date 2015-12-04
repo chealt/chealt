@@ -1,7 +1,7 @@
 Map = React.createClass({
     propTypes: {
         geocode: React.PropTypes.object.isRequired,
-        showMap: React.PropTypes.bool.isRequired,
+        isMapShown: React.PropTypes.bool.isRequired,
         mapId: React.PropTypes.string.isRequired
     },
     mixins: [ReactMeteorData],
@@ -16,7 +16,7 @@ Map = React.createClass({
         };
     },
     componentWillUpdate(nextProps) {
-        if (nextProps.showMap && !this.state.isMapLoaded) {
+        if (nextProps.isMapShown && !this.state.isMapLoaded) {
             this.loadMap();
         }
     },
@@ -49,7 +49,7 @@ Map = React.createClass({
         let classes = 'map';
         
         if (this.data.isGoogleMapsLoaded) {
-            if (this.props.showMap) {
+            if (this.props.isMapShown) {
                 classes += ' loaded';
             }
         }
