@@ -30,11 +30,6 @@ Event = React.createClass({
     unattend() {
         Meteor.call('unattendEvent', this.props.event._id);
     },
-    toggleComments() {
-        this.setState({
-            isCommentsShown: !this.state.isCommentsShown
-        });
-    },
     commentsList() {
         if (this.state.isCommentsShown) {
             return (
@@ -44,22 +39,12 @@ Event = React.createClass({
             );
         }
     },
-    toggleMap() {
-        this.setState({
-            isMapShown: !this.state.isMapShown
-        });
-    },
     activityList() {
         if (this.state.isActivityListShown) {
             return (
                 <ActivityList items={this.props.event.activityList} />
             );
         }
-    },
-    toggleActivityList() {
-        this.setState({
-            isActivityListShown: !this.state.isActivityListShown
-        });
     },
     removeImage(fileId) {
         if (this.props.isAdminMode && this.data.isOwnEvent) {
@@ -126,11 +111,11 @@ Event = React.createClass({
                     minAttendance={this.props.event.minAttendance}
                     activityList={this.props.event.activityList}
                     isActivityListShown={this.state.isActivityListShown}
-                    toggleActivityList={this.toggleActivityList}
+                    toggleActivityList={StateToggler.bind(this, 'isActivityListShown')}
                     isMapShown={this.state.isMapShown}
-                    toggleMap={this.toggleMap}
+                    toggleMap={StateToggler.bind(this, 'isMapShown')}
                     isCommentsShown={this.state.isCommentsShown}
-                    toggleComments={this.toggleComments} />
+                    toggleComments={StateToggler.bind(this, 'isCommentsShown')} />
             </div>
         );
     }
