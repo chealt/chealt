@@ -1,6 +1,6 @@
 const resizeImage = function (fileObj, readStream, writeStream) {
     gm(readStream, fileObj.name())
-        .resize('300', '300')
+        .resize('600', '600')
         .stream()
         .pipe(writeStream);
 };

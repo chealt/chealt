@@ -36,6 +36,10 @@
         color: $color-main-text-invert;
     }
 
+    &.alert {
+        color: $color-alert;
+    }
+
     .icon {
         font-size: 18px;
     }

@@ -65,7 +65,8 @@ Layout = React.createClass({
                                 toggleDrawer={this.toggleDrawer}
                                 filter={this.filter}
                                 filtered={this.state.filtered}
-                                toggleAdminMode={this.toggleAdminMode} />
+                                toggleAdminMode={this.toggleAdminMode}
+                                isAdminMode={this.state.isAdminMode} />
                             <Home 
                                 filter={this.state.filter}
                                 isAdminMode={this.state.isAdminMode} />

@@ -24,7 +24,8 @@ Header = React.createClass({
                 </div>
                 <div id='profile-container'>
                     <HeaderProfile
-                        toggleAdminMode={this.props.toggleAdminMode} />
+                        toggleAdminMode={this.props.toggleAdminMode}
+                        isAdminMode={this.props.isAdminMode} />
                 </div>
             </div>
         );
