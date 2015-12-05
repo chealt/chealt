@@ -30,6 +30,9 @@ Event = React.createClass({
     unattend() {
         Meteor.call('unattendEvent', this.props.event._id);
     },
+    isEditable() {
+        return this.props.isAdminMode && this.data.isOwnEvent;
+    },
     commentsList() {
         if (this.state.isCommentsShown) {
             return (
@@ -47,7 +50,7 @@ Event = React.createClass({
         }
     },
     removeImage(fileId) {
-        if (this.props.isAdminMode && this.data.isOwnEvent) {
+        if (this.isEditable()) {
             Meteor.call('eventRemoveImage', fileId, this.props.event._id);
         }
     },
@@ -56,13 +59,13 @@ Event = React.createClass({
             return (
                 <ImageList
                     imageIds={this.props.event.images}
-                    isAdmin={this.props.isAdminMode && this.data.isOwnEvent}
+                    isEditable={this.isEditable()}
                     removeImage={this.removeImage} />
             );
         }
     },
     imageUploader() {
-        if (this.props.isAdminMode && this.data.isOwnEvent) {
+        if (this.isEditable()) {
             return (
                 <ImageUploader
                     successCallback={this.imageUploadSuccess} />
@@ -79,6 +82,15 @@ Event = React.createClass({
             );
         }
     },
+    editEventName(newEventName, callback) {
+        if (this.isEditable) {
+            Meteor.call('event.editName', this.props.event._id, newEventName, function (error, result) {
+                if (!error) {
+                    callback();
+                }
+            });
+        }
+    },
     render() {
         return (
             <div className='card event'>
@@ -86,7 +98,9 @@ Event = React.createClass({
                     name={this.props.event.name}
                     activity={this.props.event.activity}
                     start={this.props.event.start}
-                    end={this.props.event.end} />
+                    end={this.props.event.end}
+                    isEditable={this.isEditable()}
+                    editEventName={this.editEventName} />
                 <EventHeader
                     hostName={this.props.event.host.name}
                     location={this.props.event.location}

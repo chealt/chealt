@@ -4,7 +4,7 @@ ImageList = React.createClass({
     },
     getInitialState() {
         return {
-            limit: 3
+            limit: 4
         };
     },
     mixins: [ReactMeteorData],
@@ -29,7 +29,7 @@ ImageList = React.createClass({
         }
     },
     removeIcon(imageId) {
-        if (this.props.isAdmin) {
+        if (this.props.isEditable) {
             return (
                 <IconButton
                     type='cross'

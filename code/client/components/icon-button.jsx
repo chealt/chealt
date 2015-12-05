@@ -17,6 +17,10 @@ IconButton = React.createClass({
             classNames += ' ' + this.props.additionalClasses;
         }
 
+        if (this.props.isUnstyled) {
+            classNames += ' unstyled';
+        }
+
         return (
             <button
                 className={classNames}

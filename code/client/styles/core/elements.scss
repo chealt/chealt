@@ -60,6 +60,15 @@
         }
     }
 
+    &.unstyled {
+        border: 0;
+        padding: 0;
+    }
+
+    &.distant {
+        margin-left: $gutter-size;
+    }
+
     .text {
         margin-left: 8px;
     }

@@ -27,11 +27,23 @@ EventTitle = React.createClass({
             );
         }
     },
+    eventName() {
+        const eventName = <span>{this.props.name}</span>;
+
+        return (
+            <Editable
+                component={eventName}
+                value={this.props.name}
+                isEditable={this.props.isEditable}
+                editAction={this.props.editEventName}
+                additionalClasses='name' />
+        );
+    },
     render() {
         return (
             <h2 className='title'>
                 {this.sportsIcon()}
-                <span className='name'>{this.props.name}</span>
+                {this.eventName()}
                 {this.getDate()}
             </h2>
         );

@@ -99,5 +99,11 @@ Meteor.methods({
             { $pull: { images: imageFileId } }
         );
         Images.remove({ _id: imageFileId });
+    },
+    'event.editName': function (eventId, newEventName) {
+        Events.update(
+            { _id: eventId },
+            { $set: { name: newEventName } }
+        );
     }
 });
