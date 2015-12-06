@@ -2,20 +2,32 @@ EventTitle = React.createClass({
     propTypes: {
         name: React.PropTypes.string.isRequired,
         start: React.PropTypes.object.isRequired,
-        end: React.PropTypes.object.isRequired
+        end: React.PropTypes.object.isRequired,
+        activity: React.PropTypes.string,
+        isEditable: React.PropTypes.bool,
+        editEventName: React.PropTypes.func,
+        editStartDate: React.PropTypes.func
     },
     sportsIcon() {
         if (this.props.activity) {
             return <SportsIcon activity={this.props.activity} />
         }
     },
-    getDate() {
+    eventDate() {
         const startDate = this.props.start.toISOString().substring(0, 10);
         const endDate = this.props.end.toISOString().substring(0, 10);
 
         if (startDate == endDate) {
+            const date = <FormatDate date={startDate} />;
+
             return (
-                <FormatDate date={startDate} />
+                <Editable
+                    type='date'
+                    component={date}
+                    value={startDate}
+                    isEditable={this.props.isEditable}
+                    editAction={this.props.editStartDate}
+                    additionalClasses='event-date' />
             );
         } else {
             return (
@@ -44,7 +56,7 @@ EventTitle = React.createClass({
             <h2 className='title'>
                 {this.sportsIcon()}
                 {this.eventName()}
-                {this.getDate()}
+                {this.eventDate()}
             </h2>
         );
     }

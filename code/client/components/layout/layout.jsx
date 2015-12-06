@@ -3,19 +3,13 @@ Layout = React.createClass({
         return {
             isDrawerOpen: false,
             filter: '',
-            filtered: false,
-            isAdminMode: false
+            filtered: false
         };
     },
     filter(event) {
         this.setState({
             filter: event.target.value,
             filtered: !!event.target.value
-        });
-    },
-    toggleDrawer() {
-        this.setState({
-            isDrawerOpen: !this.state.isDrawerOpen
         });
     },
     closeDrawer() {
@@ -27,11 +21,6 @@ Layout = React.createClass({
         if (this.state.isDrawerOpen) {
             return <AnythingCloser onClick={this.closeDrawer} />;
         }
-    },
-    toggleAdminMode() {
-        this.setState({
-            isAdminMode: !this.state.isAdminMode
-        });
     },
     render() {
         let contentContainerClasses = 'content-container';
@@ -59,14 +48,12 @@ Layout = React.createClass({
                             id='app-side-drawer'
                             items={drawerItems}
                             isDrawerOpen={this.state.isDrawerOpen}
-                            toggleDrawer={this.toggleDrawer} />
+                            toggleDrawer={StateToggler.bind(this, 'isDrawerOpen')} />
                         <div className={contentContainerClasses}>
                             <Header
-                                toggleDrawer={this.toggleDrawer}
+                                toggleDrawer={StateToggler.bind(this, 'isDrawerOpen')}
                                 filter={this.filter}
-                                filtered={this.state.filtered}
-                                toggleAdminMode={this.toggleAdminMode}
-                                isAdminMode={this.state.isAdminMode} />
+                                filtered={this.state.filtered} />
                             <Home 
                                 filter={this.state.filter}
                                 isAdminMode={this.state.isAdminMode} />

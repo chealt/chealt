@@ -31,6 +31,16 @@ EventFooter = React.createClass({
             );
         }
     },
+    adminModeToggler() {
+        if (this.props.isOwnEvent) {
+            return (
+                <TogglerButton
+                    type='cog'
+                    toggleFunction={this.props.toggleAdminMode}
+                    active={this.props.isAdminMode} />
+            );
+        }
+    },
     render() {
         return (
             <div className='footer row equal separated top'>
@@ -47,6 +57,7 @@ EventFooter = React.createClass({
                         type='bubbles4'
                         toggleFunction={this.props.toggleComments}
                         active={this.props.isCommentsShown} />
+                    {this.adminModeToggler()}
                 </div>
             </div>
         );

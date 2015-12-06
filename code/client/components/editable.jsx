@@ -2,7 +2,8 @@ Editable = React.createClass({
     propTypes: {
         component: React.PropTypes.object.isRequired,
         isEditable: React.PropTypes.bool.isRequired,
-        editAction: React.PropTypes.func.isRequired
+        editAction: React.PropTypes.func.isRequired,
+        type: React.PropTypes.string
     },
     getInitialState() {
         return {
@@ -22,7 +23,16 @@ Editable = React.createClass({
                         this._input = ref;
 
                         if (ref) {
-                            ref.getDOMNode().focus();
+                            const domNode = ref.getDOMNode();
+
+                            if (this.state.isEditing && this.props.type === 'date') {
+                                $(domNode).datepicker({
+                                    format: 'yyyy-mm-dd',
+                                    autoclose: true
+                                });
+                            }
+
+                            domNode.focus();
                         }
                     }}
                     onBlur={this.saveInput} />

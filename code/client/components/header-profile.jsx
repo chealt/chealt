@@ -7,21 +7,7 @@ HeaderProfile = React.createClass({
     },
     getModule() {
         if (this.data.currentUser) {
-            let adminToggleClassName = 'centered';
-
-            if (this.props.isAdminMode) {
-                adminToggleClassName += ' alert';
-            }
-
-            return (
-                <div>
-                    <IconButton
-                        type='cog'
-                        action={this.props.toggleAdminMode}
-                        additionalClasses={adminToggleClassName} />
-                    <Profile user={this.data.currentUser} />
-                </div>
-            );
+            return <Profile user={this.data.currentUser} />;
         } else {
             return <Login />;
         }

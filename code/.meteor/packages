@@ -39,3 +39,4 @@ aldeed:geocoder
 cfs:standard-packages
 cfs:gridfs
 cfs:graphicsmagick
+rajit:bootstrap3-datepicker
