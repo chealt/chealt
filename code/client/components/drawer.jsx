@@ -5,6 +5,7 @@ Drawer = React.createClass({
     },
     render() {
         let className = 'side-drawer shadow';
+        const toggleDrawer = this.props.toggleDrawer;
 
         if (this.props.isDrawerOpen) {
             className += ' open';
@@ -19,7 +20,10 @@ Drawer = React.createClass({
                     {this.props.items.map(function (item) {
                         return (
                             <li key={item.key}>
-                                <a className='item' href={item.link}>{item.name}</a>
+                                <a
+                                    className='item'
+                                    href={item.link}
+                                    onClick={toggleDrawer}>{item.name}</a>
                             </li>
                         );
                     })}
