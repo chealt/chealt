@@ -83,26 +83,6 @@ Event = React.createClass({
             );
         }
     },
-    editEventName(newEventName, callback) {
-        if (this.isEditable) {
-            Meteor.call('event.editName', this.props.event._id, newEventName, function (error, result) {
-                if (!error) {
-                    callback();
-                }
-            });
-        }
-    },
-    editStartDate(newEventStartDate, callback) {
-        if (this.isEditable) {
-            console.log(newEventStartDate);
-            /*Meteor.call('event.editStartDate', this.props.event._id, newEventStartDate, function (error, result) {
-                if (!error) {
-                    callback();
-                }
-            });*/
-            callback();
-        }
-    },
     render() {
         return (
             <div className='card event'>
@@ -110,10 +90,7 @@ Event = React.createClass({
                     name={this.props.event.name}
                     activity={this.props.event.activity}
                     start={this.props.event.start}
-                    end={this.props.event.end}
-                    isEditable={this.isEditable()}
-                    editEventName={this.editEventName}
-                    editStartDate={this.editStartDate} />
+                    end={this.props.event.end} />
                 <EventHeader
                     hostName={this.props.event.host.name}
                     location={this.props.event.location}

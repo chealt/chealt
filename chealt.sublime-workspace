@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"back",
+				"background-color"
+			],
+			[
+				"Edita",
+				"Editable"
+			],
+			[
+				"activit",
+				"activityListToggler"
+			],
+			[
 				"call",
 				"callback"
 			],
@@ -268,10 +280,6 @@
 				"activity"
 			],
 			[
-				"activit",
-				"activityType"
-			],
-			[
 				"active",
 				"activityTypes"
 			],
@@ -506,19 +514,27 @@
 			[
 				"img",
 				"imgA"
-			],
-			[
-				"getpi",
-				"getPixelCache"
-			],
-			[
-				"comp",
-				"comparePixels"
 			]
 		]
 	},
 	"buffers":
 	[
+		{
+			"file": "code/client/components/event.jsx",
+			"settings":
+			{
+				"buffer_size": 5285,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "code/client/components/editable.jsx",
+			"settings":
+			{
+				"buffer_size": 2160,
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -724,25 +740,28 @@
 	[
 		"/C/Users/Attila/Code/chealt/code",
 		"/C/Users/Attila/Code/chealt/code/client",
-		"/C/Users/Attila/Code/chealt/code/client/styles/core",
 		"/C/Users/Attila/Code/chealt/code/lib",
 		"/C/Users/Attila/Code/chealt/code/server"
 	],
 	"file_history":
 	[
+		"/C/Users/Attila/Code/chealt/code/client/components/event-title.jsx",
+		"/C/Users/Attila/Code/chealt/code/client/styles/events.scss",
+		"/C/Users/Attila/Code/chealt/code/client/styles/3rd-party/datepicker.scss",
+		"/C/Users/Attila/Code/chealt/code/client/components/event-header.jsx",
+		"/C/Users/Attila/Code/chealt/code/client/styles/editable.scss",
+		"/C/Users/Attila/Code/chealt/code/client/components/event.jsx",
+		"/C/Users/Attila/Code/chealt/code/client/components/event-footer.jsx",
+		"/C/Users/Attila/Code/chealt/code/client/components/layout/layout.jsx",
+		"/C/Users/Attila/Code/chealt/code/client/components/header-profile.jsx",
+		"/C/Users/Attila/Code/chealt/code/client/components/layout/header.jsx",
 		"/C/Users/Attila/Code/chealt/code/client/components/image-list.jsx",
 		"/C/Users/Attila/Code/chealt/code/client/styles/image-list.scss",
-		"/C/Users/Attila/Code/chealt/code/client/components/event.jsx",
 		"/C/Users/Attila/Code/chealt/code/client/styles/core/elements.scss",
-		"/C/Users/Attila/Code/chealt/code/client/components/event-title.jsx",
 		"/C/Users/Attila/Code/chealt/code/client/components/editable.jsx",
 		"/C/Users/Attila/Code/chealt/code/client/styles/core/normalize.scss",
 		"/C/Users/Attila/Code/chealt/code/lib/methods.jsx",
 		"/C/Users/Attila/Code/chealt/code/client/components/icon-button.jsx",
-		"/C/Users/Attila/Code/chealt/code/client/components/event-footer.jsx",
-		"/C/Users/Attila/Code/chealt/code/client/components/layout/layout.jsx",
-		"/C/Users/Attila/Code/chealt/code/client/components/layout/header.jsx",
-		"/C/Users/Attila/Code/chealt/code/client/components/header-profile.jsx",
 		"/C/Users/Attila/Code/chealt/code/client/styles/header-profile.scss",
 		"/C/Users/Attila/Code/chealt/code/client/components/drawer.jsx",
 		"/C/Users/Attila/Code/chealt/code/client/components/home.jsx",
@@ -759,7 +778,6 @@
 		"/C/Users/Attila/Code/chealt/code/client/subscriptions.js",
 		"/C/Users/Attila/Code/chealt/code/client/components/map.jsx",
 		"/C/Users/Attila/Code/chealt/code/client/components/guests.jsx",
-		"/C/Users/Attila/Code/chealt/code/client/styles/events.scss",
 		"/C/Users/Attila/Code/chealt/code/client/styles/tooltip.scss",
 		"/C/Users/Attila/Code/chealt/code/lib/routes.jsx",
 		"/C/Users/Attila/Code/chealt/code/client/components/activity-list.jsx",
@@ -854,10 +872,7 @@
 		"/C/Users/Attila/Code/viveka/tmp/server/index.js",
 		"/C/Users/Attila/Code/viveka/admin/test-details/templates/cookieInput.hbs",
 		"/C/Users/Attila/Code/viveka/admin/test-details/templates/materialInput.hbs",
-		"/C/Users/Attila/Code/viveka/lib/difference-generator.js",
-		"/C/Users/Attila/Code/viveka/admin/diff-page/diff-page.js",
-		"/C/Users/Attila/Code/viveka/dev-section/diff-page/diff-page.js",
-		"/C/Users/Attila/Code/viveka/tmp/public/dev-section/script/diff-page.js"
+		"/C/Users/Attila/Code/viveka/lib/difference-generator.js"
 	],
 	"find":
 	{
@@ -868,6 +883,9 @@
 		"height": 96.0,
 		"where_history":
 		[
+			"<project>,*.*",
+			"<project>,*.scss",
+			"<project>,*.css",
 			"<project>,*.jsx",
 			"<project>,*.scss",
 			"<project>,*.jsx",
@@ -893,6 +911,10 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"datepicker",
+			".datepicker",
+			"getDate",
+			"isAdminMode",
 			"isAdmin",
 			"this.props.isAdminMode && this.data.isOwnEvent",
 			".child",
@@ -1016,10 +1038,6 @@
 			"getFingerPrint",
 			"differ",
 			"Differ",
-			"differ",
-			"Differ",
-			"differ",
-			"Differ",
 			"differ"
 		],
 		"highlight": true,
@@ -1041,8 +1059,71 @@
 	"groups":
 	[
 		{
+			"selected": 1,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "code/client/components/event.jsx",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5285,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2826,
+								2826
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Seti_monokai.tmTheme",
+							"syntax": "Packages/JSX/JSX.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1311.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "code/client/components/editable.jsx",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2160,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1166,
+								1166
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Seti_monokai.tmTheme",
+							"syntax": "Packages/JSX/JSX.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -1098,6 +1179,42 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"evenscss",
+				"client\\styles\\events.scss"
+			],
+			[
+				"evenscs",
+				"client\\styles\\events.scss"
+			],
+			[
+				"eventit",
+				"client\\components\\event-title.jsx"
+			],
+			[
+				"event",
+				"client\\components\\event.jsx"
+			],
+			[
+				"editabl",
+				"client\\components\\editable.jsx"
+			],
+			[
+				"eventfooter",
+				"client\\components\\event-footer.jsx"
+			],
+			[
+				"headepro",
+				"client\\components\\header-profile.jsx"
+			],
+			[
+				"header",
+				"client\\components\\layout\\header.jsx"
+			],
+			[
+				"layou",
+				"client\\components\\layout\\layout.jsx"
+			],
 			[
 				"imaglis",
 				"client\\components\\image-list.jsx"
@@ -1155,20 +1272,12 @@
 				"client\\styles\\header-profile.scss"
 			],
 			[
-				"headepro",
-				"client\\components\\header-profile.jsx"
-			],
-			[
 				"heade",
 				"client\\components\\layout\\header.jsx"
 			],
 			[
 				"drawer",
 				"client\\components\\drawer.jsx"
-			],
-			[
-				"layou",
-				"client\\components\\layout\\layout.jsx"
 			],
 			[
 				"hom",
@@ -1205,10 +1314,6 @@
 			[
 				"ima",
 				"client\\styles\\image-list.scss"
-			],
-			[
-				"event",
-				"client\\components\\event.jsx"
 			],
 			[
 				"icon",
@@ -1585,30 +1690,6 @@
 			[
 				"log",
 				"client\\components\\login.jsx"
-			],
-			[
-				"heasc",
-				"client\\styles\\header.scss"
-			],
-			[
-				"mainbu",
-				"client\\components\\main-button.jsx"
-			],
-			[
-				"drawscs",
-				"client\\styles\\drawer.scss"
-			],
-			[
-				"heprof",
-				"client\\styles\\header-profile.scss"
-			],
-			[
-				"pub",
-				"server\\publications.jsx"
-			],
-			[
-				"dra",
-				"client\\components\\drawer.jsx"
 			]
 		],
 		"width": 0.0
