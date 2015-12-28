@@ -60,7 +60,7 @@ http@1.1.1
 id-map@1.0.4
 jquery@1.11.4
 jsx@0.2.1
-kadira:flow-router@2.7.0
+kadira:flow-router@2.9.0
 kadira:react-layout@1.4.1
 lai:collection-extensions@0.1.4
 launch-screen@1.0.4

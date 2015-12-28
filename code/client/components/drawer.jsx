@@ -17,7 +17,11 @@ Drawer = React.createClass({
                     toggleDrawer={this.props.toggleDrawer} />
                 <ul className='items'>
                     {this.props.items.map(function (item) {
-                        return <li className='item' key={item.key}>{item.name}</li>;
+                        return (
+                            <li key={item.key}>
+                                <a className='item' href={item.link}>{item.name}</a>
+                            </li>
+                        );
                     })}
                 </ul>
             </div>

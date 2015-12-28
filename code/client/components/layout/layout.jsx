@@ -1,4 +1,8 @@
 Layout = React.createClass({
+    propTypes: {
+        title: React.PropTypes.string.isRequired,
+        content: React.PropTypes.func.isRequired
+    },
     getInitialState() {
         return {
             isDrawerOpen: false,
@@ -24,45 +28,28 @@ Layout = React.createClass({
     },
     render() {
         let contentContainerClasses = 'content-container';
-        const drawerItems = [
-            { key: 0, name: 'Chealt' },
-            { key: 1, name: 'Events' },
-            { key: 2, name: 'Profile' }
-        ];
-
+        
         if (this.state.isDrawerOpen) {
             contentContainerClasses += ' background';
         }
 
         return (
-            <html>
-                <head>
-                    <meta name='viewport' content='width=device-width, initial-scale=1, user-scalable=no' />
-                    <meta name='mobile-web-app-capable' content='yes' />
-                    <meta name='theme-color' content='#337ab7' />
-                    <title>Chealt</title>
-                </head>
-                <body>
-                    <div id='wrapper'>
-                        <Drawer
-                            id='app-side-drawer'
-                            items={drawerItems}
-                            isDrawerOpen={this.state.isDrawerOpen}
-                            toggleDrawer={StateToggler.bind(this, 'isDrawerOpen')} />
-                        <div className={contentContainerClasses}>
-                            <Header
-                                toggleDrawer={StateToggler.bind(this, 'isDrawerOpen')}
-                                filter={this.filter}
-                                filtered={this.state.filtered} />
-                            <Home 
-                                filter={this.state.filter}
-                                isAdminMode={this.state.isAdminMode} />
-                        </div>
-                        {this.props.footer}
-                        {this.anythingCloser()}
-                    </div>
-                </body>
-            </html>
+            <div id='wrapper'>
+                <Drawer
+                    id='app-side-drawer'
+                    items={this.props.menuItems}
+                    isDrawerOpen={this.state.isDrawerOpen}
+                    toggleDrawer={StateToggler.bind(this, 'isDrawerOpen')} />
+                <div className={contentContainerClasses}>
+                    <Header
+                        toggleDrawer={StateToggler.bind(this, 'isDrawerOpen')}
+                        filter={this.filter}
+                        filtered={this.state.filtered} />
+                    {this.props.content(this.state.filter)}
+                </div>
+                <Footer />
+                {this.anythingCloser()}
+            </div>
         );
     }
 });

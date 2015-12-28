@@ -10,8 +10,7 @@ Home = React.createClass({
             return (
                 <Event
                     key={event._id}
-                    event={event}
-                    isAdminMode={this.props.isAdminMode} />
+                    event={event} />
             );
         });
     },
