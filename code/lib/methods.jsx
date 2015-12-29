@@ -1,3 +1,20 @@
+const validateEmail = (email) => {
+    let validEmail;
+
+    if (email) {
+        validEmail = email;
+    }
+
+    return validEmail;
+};
+
+const isAlreadyFriend = (email) => {
+    return Meteor.users.findOne({
+        _id: Meteor.userId(),
+        'friends.email': email
+    });
+};
+
 Meteor.methods({
     attendEvent(eventId) {
         const userProfile = Meteor.user().profile;
@@ -105,5 +122,25 @@ Meteor.methods({
             { _id: eventId },
             { $set: { name: newEventName } }
         );
+    },
+    'users.inviteFriend': function (email) {
+        const validEmail = validateEmail(email);
+
+        if (!validEmail) {
+            throw new Meteor.Error('invalid-email', 'Invalid invitation email!');
+        }
+
+        if (isAlreadyFriend(email)) {
+            throw new Meteor.Error('already-friend', 'Already amongst friends!');
+        }
+
+        Meteor.users.update({ _id: Meteor.userId() }, {
+            $addToSet: {
+                'friends': {
+                    email: email,
+                    status: 0
+                }
+            }
+        });
     }
 });

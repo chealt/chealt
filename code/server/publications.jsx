@@ -35,7 +35,8 @@ Meteor.publish('userData', function () {
                     'profile': 1,
                     'services.google.accessToken': 1,
                     'services.facebook.accessToken': 1,
-                    'groups': 1
+                    'friends': 1,
+                    'friendGroups': 1
                 }
             }
         );

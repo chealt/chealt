@@ -10,9 +10,11 @@ ProfilePage = React.createClass({
     componentWillMount() {
         let newMuiTheme = ThemeManager.getMuiTheme(ChealtRawTheme);
         
-        newMuiTheme.tabs.textColor = Colors.darkBlack;
+        newMuiTheme.tabs.textColor = Colors.grey500;
         newMuiTheme.tabs.backgroundColor = Colors.fullWhite;
         newMuiTheme.tabs.selectedTextColor = Colors.fullBlack;
+        newMuiTheme.textField.focusColor = '#39ad66';
+        newMuiTheme.textField.hintColor = Colors.grey400;
 
         this.setState({
             muiTheme: newMuiTheme
@@ -26,14 +28,19 @@ ProfilePage = React.createClass({
     render() {
         return (
             <div className='padded'>
-                <Tabs>
-                    <Tab label='Friends'>
-                        <h2>Friends</h2>
-                    </Tab>
-                    <Tab label='Settings'>
-                        <h2>Settings</h2>
-                    </Tab>
-                </Tabs>
+                <div className='card'>
+                    <Tabs>
+                        <Tab label='Friends'>
+                            <div className='padded'>
+                                <InviteFriend />
+                                <FriendsList />
+                            </div>
+                        </Tab>
+                        <Tab label='Settings'>
+                            <h2>Settings</h2>
+                        </Tab>
+                    </Tabs>
+                </div>
             </div>
         );
     }

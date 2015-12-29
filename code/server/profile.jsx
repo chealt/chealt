@@ -53,3 +53,24 @@ Accounts.onCreateUser((options, user) => {
 
     return user;
 });
+
+/*Accounts.onLogin(() => {
+    const user = Meteor.user();
+    const facebookService = user && user.services && user.services.facebook;
+    const facebookAccessToken = facebookService && facebookService.accessToken;
+    
+    if (FBGraph, facebookAccessToken) {
+        updateFriendsList(FBGraph, facebookAccessToken);
+    }
+});
+
+const updateFriendsList = (graph, facebookAccessToken) => {
+    graph.setAccessToken(facebookAccessToken);
+
+    const processFriendsResponse = (error, response) => {
+        console.log(error);
+        console.log(response);
+    };
+
+    graph.get('me/friends', processFriendsResponse);
+};*/
