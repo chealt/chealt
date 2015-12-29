@@ -13,7 +13,6 @@ ProfilePage = React.createClass({
         newMuiTheme.tabs.textColor = Colors.grey500;
         newMuiTheme.tabs.backgroundColor = Colors.fullWhite;
         newMuiTheme.tabs.selectedTextColor = Colors.fullBlack;
-        newMuiTheme.textField.focusColor = '#39ad66';
         newMuiTheme.textField.hintColor = Colors.grey400;
 
         this.setState({

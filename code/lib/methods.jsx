@@ -136,9 +136,18 @@ Meteor.methods({
 
         Meteor.users.update({ _id: Meteor.userId() }, {
             $addToSet: {
-                'friends': {
+                friends: {
                     email: email,
                     status: 0
+                }
+            }
+        });
+    },
+    'users.removeFriend': function (email) {
+        Meteor.users.update({ _id: Meteor.userId() }, {
+            $pull: {
+                friends: {
+                    email: email
                 }
             }
         });

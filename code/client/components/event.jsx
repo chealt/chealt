@@ -13,7 +13,6 @@ Event = React.createClass({
     mixins: [ReactMeteorData],
     getMeteorData() {
         return {
-            currentUser: Meteor.user(),
             isOwnEvent: Meteor.userId() === this.props.event.host._id
         };
     },

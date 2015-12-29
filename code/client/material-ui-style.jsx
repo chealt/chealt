@@ -6,10 +6,10 @@ ChealtRawTheme = {
     zIndex: zIndex,
     fontFamily: 'Roboto, arial, sans-serif',
     palette: {
-        primary1Color: Colors.fullWhite,
+        primary1Color: Colors.green600,
         primary2Color: Colors.cyan700,
         primary3Color: Colors.lightBlack,
-        accent1Color: '#39ad66',
+        accent1Color: Colors.orangeA700,
         accent2Color: Colors.grey100,
         accent3Color: Colors.grey500,
         textColor: Colors.darkBlack,
