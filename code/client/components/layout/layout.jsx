@@ -10,6 +10,9 @@ Layout = React.createClass({
             filtered: false
         };
     },
+    componentWillMount() {
+        document.title = this.props.title;  
+    },
     filter(event) {
         this.setState({
             filter: event.target.value,

@@ -16,7 +16,7 @@ Home = React.createClass({
     },
     render() {
         return (
-            <div className='cards-container'>
+            <div className='cards-container padded'>
                 {this.renderEvents()}
             </div>
         );

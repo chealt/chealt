@@ -19,9 +19,3 @@ h3 {
         -webkit-filter: blur(4px);
     }
 }
-
-@media (min-width: 600px) {
-    .cards-container {
-        padding: $gutter-size;
-    }
-}

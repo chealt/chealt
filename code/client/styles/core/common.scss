@@ -1,3 +1,5 @@
+@import '../import/variables';
+
 .shadow {
     box-shadow: rgba(0, 0, 0, .15) 0 2px 4px 0;
 }
@@ -29,5 +31,11 @@
 
     &.very {
         border-radius: 8px;
+    }
+}
+
+@media (min-width: 600px) {
+    .padded {
+        padding: $gutter-size;
     }
 }
