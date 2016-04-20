@@ -1,0 +1,39 @@
+{
+  "name": "code",
+  "version": "0.0.2",
+  "description": "Front End Driven Development",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/atikenny/FEDD.git"
+  },
+  "keywords": [
+    "FEDD",
+    "GraphQL",
+    "Mongo",
+    "Meteor",
+    "Node",
+    "React",
+    "Redux",
+    "Flux"
+  ],
+  "author": "atikenny",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/atikenny/FEDD/issues"
+  },
+  "homepage": "https://github.com/atikenny/FEDD#readme",
+  "dependencies": {
+    "react": "^15.0.1",
+    "react-dom": "^15.0.1",
+    "react-redux": "^4.4.5",
+    "redux": "^3.4.0"
+  },
+  "devDependencies": {
+    "redux-devtools": "^3.2.0"
+  }
+}
