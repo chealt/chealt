@@ -4,7 +4,6 @@
 # 'meteor add' and 'meteor remove' will edit this file for you,
 # but you can also edit it by hand.
 
-standard-minifiers
 meteor-base
 mobile-experience
 mongo
@@ -18,13 +17,8 @@ random
 ejson
 spacebars
 check
-react
-kadira:react-layout
-react-template-helper
-meteorhacks:npm
 
 
-npm-container
 cosmos:browserify
 fourseven:scss
 msavin:mongol
@@ -40,5 +34,14 @@ cfs:gridfs
 cfs:graphicsmagick
 rajit:bootstrap3-datepicker
 kadira:flow-router
-izzilab:material-ui
 stevezhu:fbgraph
+standard-minifier-css
+standard-minifier-js
+
+
+
+
+
+
+
+

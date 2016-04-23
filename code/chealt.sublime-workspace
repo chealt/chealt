@@ -723,13 +723,13 @@
 	"expanded_folders":
 	[
 		"/C/Users/Attila/Code/chealt/code",
-		"/C/Users/Attila/Code/chealt/code/client",
-		"/C/Users/Attila/Code/chealt/code/client/components",
-		"/C/Users/Attila/Code/chealt/code/lib",
-		"/C/Users/Attila/Code/chealt/code/server"
+		"/C/Users/Attila/Code/chealt/code/client"
 	],
 	"file_history":
 	[
+		"/C/Users/Attila/Code/chealt/code/packages.json",
+		"/C/Users/Attila/Code/chealt/chealt.sublime-project",
+		"/C/Users/Attila/Code/chealt/code/.meteor/packages",
 		"/C/Users/Attila/Code/chealt/code/client/components/profile-page.jsx",
 		"/C/Users/Attila/Code/chealt/code/client/styles/import/_variables.scss",
 		"/C/Users/Attila/Code/chealt/code/client/material-ui-style.jsx",
@@ -744,7 +744,6 @@
 		"/C/Users/Attila/AppData/Local/.meteor/packages/izzilab_material-ui/0.2.4/npm/node_modules/material-ui/src/svg-icons/navigation/more-vert.jsx",
 		"/C/Users/Attila/AppData/Local/.meteor/packages/izzilab_material-ui/0.2.4/npm/node_modules/material-ui/src/index.js",
 		"/C/Users/Attila/AppData/Local/.meteor/packages/izzilab_material-ui/0.2.4/npm/node_modules/material-ui/gulpfile.js",
-		"/C/Users/Attila/Code/chealt/code/packages.json",
 		"/C/Users/Attila/Code/chealt/code/packages/npm-container/index.js",
 		"/C/Users/Attila/Code/chealt/code/packages/npm-container/package.js",
 		"/C/Users/Attila/Code/chealt/code/packages/npm-container/.npm/package/node_modules/.package.json",
@@ -832,7 +831,6 @@
 		"/C/Users/Attila/Code/video-poll/client/templates/head.html",
 		"/C/Users/Attila/Code/tablehockey/tablehockey/client/templates/main.html",
 		"/C/Users/Attila/Code/chealt/code/client/styles/growing-textarea.scss",
-		"/C/Users/Attila/Code/chealt/chealt.sublime-project",
 		"/C/Users/Attila/Code/chealt/code/client/components/sports-icon.jsx",
 		"/C/Users/Attila/Code/chealt/code/client/styles/icons.scss",
 		"/C/Users/Attila/Code/chealt/code/client/components/layout/anything-closer.jsx",
@@ -856,8 +854,7 @@
 		"/C/Users/Attila/Code/video-poll/server/vimeoAPI.js",
 		"/C/Users/Attila/Code/video-poll/server/config.js",
 		"/C/Users/Attila/Code/video-poll/server/youtubeAPI.js",
-		"/C/Users/Attila/AppData/Local/.meteor/packages/renaldo_youtube-api/0.0.1/npm/node_modules/youtube-api/index.js",
-		"/C/Users/Attila/AppData/Local/.meteor/packages/renaldo_youtube-api/0.0.1/npm/node_modules/youtube-api/api/v3.0.0/videos.js"
+		"/C/Users/Attila/AppData/Local/.meteor/packages/renaldo_youtube-api/0.0.1/npm/node_modules/youtube-api/index.js"
 	],
 	"find":
 	{
