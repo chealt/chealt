@@ -17,7 +17,6 @@ random
 ejson
 spacebars
 check
-kadira:react-layout
 
 
 cosmos:browserify
@@ -35,7 +34,6 @@ cfs:gridfs
 cfs:graphicsmagick
 rajit:bootstrap3-datepicker
 kadira:flow-router
-izzilab:material-ui
 stevezhu:fbgraph
 standard-minifier-css
 standard-minifier-js
