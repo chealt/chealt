@@ -71,7 +71,6 @@ logging@1.0.12
 meteor@1.1.14
 meteor-base@1.0.4
 meteorhacks:async@1.0.0
-meteorhacks:npm@1.5.0
 meteortoys:toykit@2.2.1
 minifier-css@1.1.11
 minifier-js@1.1.11
@@ -99,7 +98,6 @@ rate-limit@1.0.4
 react@0.14.6
 react-meteor-data@0.2.9
 react-runtime@0.14.5
-react-template-helper@0.2.9
 reactive-dict@1.1.7
 reactive-var@1.0.9
 reload@1.1.8

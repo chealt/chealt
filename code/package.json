@@ -1,32 +1,27 @@
 {
   "name": "code",
   "version": "0.0.2",
-  "description": "Front End Driven Development",
+  "description": "Chealt",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "meteor"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/atikenny/FEDD.git"
+    "url": "git+https://github.com/atikenny/Chealt.git"
   },
   "keywords": [
-    "FEDD",
-    "GraphQL",
-    "Mongo",
-    "Meteor",
-    "Node",
-    "React",
-    "Redux",
-    "Flux"
+    "Chealt",
+    "sport",
+    "tracking"
   ],
   "author": "atikenny",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/atikenny/FEDD/issues"
+    "url": "https://github.com/atikenny/Chealt/issues"
   },
-  "homepage": "https://github.com/atikenny/FEDD#readme",
+  "homepage": "https://github.com/atikenny/Chealt#readme",
   "dependencies": {
     "react": "^15.0.1",
     "react-dom": "^15.0.1",

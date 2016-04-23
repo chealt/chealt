@@ -18,8 +18,6 @@ ejson
 spacebars
 check
 kadira:react-layout
-react-template-helper
-meteorhacks:npm
 
 
 cosmos:browserify
@@ -43,9 +41,9 @@ standard-minifier-css
 standard-minifier-js
 
 
-react-meteor-data
 
 
 
 
-npm-container
+
+
