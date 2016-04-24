@@ -1,12 +1,12 @@
 {
-	"folders":
-	[
-		{
-			"path": "code",
+    "folders":
+    [
+        {
+            "path": ".",
             "folder_exclude_patterns": [
                 ".meteor",
                 "node_modules"
             ]
-		}
-	]
+        }
+    ]
 }
