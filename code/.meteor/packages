@@ -7,7 +7,6 @@
 meteor-base
 mobile-experience
 mongo
-blaze-html-templates
 session
 jquery
 tracker
@@ -43,3 +42,6 @@ standard-minifier-js
 
 
 
+static-html
+ecmascript
+react-meteor-data

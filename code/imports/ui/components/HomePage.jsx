@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 
-class Home extends Component {
-    mixins: [ReactMeteorData]
-
+export default class HomePage extends Component {
     getMeteorData() {
         return {
             events: Events.find(transformFilterInput(this.props.filter)).fetch()
@@ -10,7 +8,7 @@ class Home extends Component {
     }
 
     renderEvents() {
-        return this.data.events.map((event) => {
+        return this.props.events.map((event) => {
             return (
                 <Event
                     key={event._id}
@@ -26,7 +24,12 @@ class Home extends Component {
             </div>
         );
     }
-});
+}
+
+HomePage.propTypes = {
+    filter: React.PropTypes.string,
+    events: React.PropTypes.array
+};
 
 const transformFilterInput = (input) => {
     let transformedFilter = {};
@@ -45,5 +48,3 @@ const transformFilterInput = (input) => {
 
     return transformedFilter;
 };
-
-export default Home;

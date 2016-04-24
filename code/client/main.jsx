@@ -1,7 +1,7 @@
 import React        from 'react';
 import { Meteor }   from 'meteor/meteor';
 import { render }   from 'react-dom';
-import Home         from '../imports/ui/components/Home.jsx';
+import Home         from '../imports/ui/containers/Home.jsx';
 
 const menuItems = [
     { key: 0, name: 'Chealt', link: '/' },
