@@ -1,10 +1,14 @@
-Home = React.createClass({
-    mixins: [ReactMeteorData],
+import React, { Component } from 'react';
+
+class Home extends Component {
+    mixins: [ReactMeteorData]
+
     getMeteorData() {
         return {
             events: Events.find(transformFilterInput(this.props.filter)).fetch()
         };
-    },
+    }
+
     renderEvents() {
         return this.data.events.map((event) => {
             return (
@@ -13,7 +17,8 @@ Home = React.createClass({
                     event={event} />
             );
         });
-    },
+    }
+
     render() {
         return (
             <div className='cards-container padded'>
@@ -23,7 +28,7 @@ Home = React.createClass({
     }
 });
 
-function transformFilterInput(input) {
+const transformFilterInput = (input) => {
     let transformedFilter = {};
 
     if (input) {
@@ -39,4 +44,6 @@ function transformFilterInput(input) {
     }
 
     return transformedFilter;
-}
+};
+
+export default Home;
