@@ -21,7 +21,6 @@ check
 
 cosmos:browserify
 fourseven:scss
-msavin:mongol
 service-configuration
 accounts-google
 percolate:google-api
