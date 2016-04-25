@@ -1,7 +1,6 @@
-Event = React.createClass({
-    propTypes: {
-        event: React.PropTypes.object.isRequired
-    },
+import React, { Component } from 'react';
+
+export default class Event extends Component {
     getInitialState() {
         return {
             isCommentsShown: false,
@@ -9,13 +8,14 @@ Event = React.createClass({
             isActivityListShown: false,
             isAdminMode: false
         };
-    },
-    mixins: [ReactMeteorData],
+    }
+
     getMeteorData() {
         return {
             isOwnEvent: Meteor.userId() === this.props.event.host._id
         };
-    },
+    }
+
     componentDidMount() {
         if (!this.props.event.geocode) {
             Meteor.call('updateGeoCode', {
@@ -23,16 +23,20 @@ Event = React.createClass({
                 address: this.props.event.location
             });
         }
-    },
+    }
+
     attend() {
         Meteor.call('attendEvent', this.props.event._id);
-    },
+    }
+
     unattend() {
         Meteor.call('unattendEvent', this.props.event._id);
-    },
+    }
+
     isEditable() {
         return this.state.isAdminMode && this.data.isOwnEvent;
-    },
+    }
+
     commentsList() {
         if (this.state.isCommentsShown) {
             return (
@@ -41,19 +45,22 @@ Event = React.createClass({
                     itemId={this.props.event._id} />
             );
         }
-    },
+    }
+
     activityList() {
         if (this.state.isActivityListShown) {
             return (
                 <ActivityList items={this.props.event.activityList} />
             );
         }
-    },
+    }
+
     removeImage(fileId) {
         if (this.isEditable()) {
             Meteor.call('eventRemoveImage', fileId, this.props.event._id);
         }
-    },
+    }
+
     images() {
         if (this.props.event.images && this.props.event.images.length) {
             return (
@@ -63,7 +70,8 @@ Event = React.createClass({
                     removeImage={this.removeImage} />
             );
         }
-    },
+    }
+
     imageUploader() {
         if (this.isEditable()) {
             return (
@@ -71,17 +79,20 @@ Event = React.createClass({
                     successCallback={this.imageUploadSuccess} />
             );
         }
-    },
+    }
+
     imageUploadSuccess(fileId) {
         Meteor.call('eventImageUpload', fileId, this.props.event._id);
-    },
+    }
+
     description() {
         if (this.props.event.description) {
             return (
                 <div className='description'>{this.props.event.description}</div>
             );
         }
-    },
+    }
+
     render() {
         return (
             <div className='card event'>
@@ -125,4 +136,8 @@ Event = React.createClass({
             </div>
         );
     }
-});
+}
+
+Event.propTypes = {
+    event: React.PropTypes.object.isRequired
+};

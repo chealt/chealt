@@ -1,11 +1,12 @@
 import { Meteor }           from 'meteor/meteor';
 import { createContainer }  from 'meteor/react-meteor-data';
 import HomePage             from '../components/HomePage.jsx';
+import { Events }           from '../../api/events/events.js';
 
 export default createContainer(({ params }) => {
-    const eventsHandle = Meteor.subscribe('events');
+    const eventsHandle = Meteor.subscribe('events.public');
 
     return {
-        events: eventsHandle.ready() ? eventsHandle.find().fetch() : []
+        events: eventsHandle.ready() ? Events.find().fetch() : []
     };
 }, HomePage);
