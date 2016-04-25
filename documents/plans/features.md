@@ -1,4 +1,5 @@
 # Features
+MVP with bold.
 
 ## Calendar
 * Create calendars about your activities like: 30 days og yoga, burning fat or iron man regimen.
@@ -7,22 +8,22 @@
 * Create a place's schedule.
 
 ## Map
-* List events.
+* **List events.**
 * Set optional distance limit for events.
 * Filter by reoccuring events.
 * Filter by group.
-* Filter by sport.
+* **Filter by sport.**
 * Filter by professional (who the trainer is).
 
 ## Events
-* List events.
-* Filter by place.
+* **List events.**
+* **Filter by place.**
 * Filter by group.
-* Filter by sport.
+* **Filter by sport.**
 * Filter by professional (who the trainer is).
 
 ## Place page
-* List events.
+* **List events.**
 * List blog entries.
 * Show schedule.
 * Show description.
@@ -31,22 +32,23 @@
 ## Sign up
 * Set user type (from personas).
 * Integrate Facebook.
-* Integrate Google+.
+* **Integrate Google+.**
 * Integrate Twitter.
-* Set favourite sport.
+* **Set favourite sport.**
 * Set favourite place.
 * Set favourite professionals.
-* Set language.
+* **Set language.**
 
 ## Event page
 * Show video.
-* Show description.
-* Show language(s).
-* Show photos.
-* Show on map.
+* **Show description.**
+* **Show language(s).**
+* **Show photos.**
+* **Show on map.**
 * Show schedule (reoccuring events).
 * Show comments.
 * Show reviews.
+* Show event items (like sessions or tasks). 
 
 ## Group page
 * Show description.
@@ -58,7 +60,7 @@
 * Show blog entries.
 
 ## Profile page
-* Show schedule.
+* **Show schedule.**
 * Show profile information.
 * Show user feed.
 * Show dashboard with statistics.
