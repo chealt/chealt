@@ -1,20 +1,21 @@
-Icon = React.createClass({
-    propTypes: {
-        type: React.PropTypes.string.isRequired
-    },
-    render() {
-        var iconClass = 'icon icon-' + this.props.type;
+import React from 'react';
 
-        if (this.props.additionalClasses) {
-            iconClass += ' ' + this.props.additionalClasses;
-        }
+export default Icon = ({ type, position, additionalClasses }) => {
+    let iconClass = 'icon icon-' + type;
 
-        if (this.props.position) {
-            iconClass += ' ' + this.props.position;
-        }
-
-        return (
-            <span className={iconClass}></span>
-        );
+    if (additionalClasses) {
+        iconClass += ' ' + additionalClasses;
     }
-});
+
+    if (position) {
+        iconClass += ' ' + position;
+    }
+
+    return (
+        <span className={iconClass}></span>
+    );
+};
+
+Icon.propTypes = {
+    type: React.PropTypes.string.isRequired
+};

@@ -1,22 +1,17 @@
-Tooltip = React.createClass({
-    propTypes: {
-        content: React.PropTypes.node.isRequired,
-        tooltipContent: React.PropTypes.node.isRequired
-    },
-    render() {
-        let tooltipClass = 'tooltip';
+import React from 'react';
 
-        if (this.props.side) {
-            tooltipClass += ' ' + this.props.side;
-        } else {
-            tooltipClass += ' right';
-        }
+export default Tooltip = ({ side = 'right', content, tooltipContent }) => {
+    const tooltipClass = `tooltip ${side}`;
 
-        return (
-            <div className='tooltiped'>
-                {this.props.content}
-                <span className={tooltipClass}>{this.props.tooltipContent}</span>
-            </div>
-        );
-    }
-});
+    return (
+        <div className='tooltiped'>
+            {content}
+            <span className={tooltipClass}>{tooltipContent}</span>
+        </div>
+    );
+};
+
+Tooltip.propTypes = {
+    content: React.PropTypes.node.isRequired,
+    tooltipContent: React.PropTypes.node.isRequired
+};

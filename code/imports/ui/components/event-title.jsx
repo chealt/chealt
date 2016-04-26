@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import FormatDate           from './helpers/format-date.jsx';
 
 export default class Event extends Component {
     sportsIcon() {

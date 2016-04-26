@@ -1,7 +1,7 @@
-ProfilePicture = React.createClass({
-    propTypes: {
-        user: React.PropTypes.object.isRequired
-    },
+import React, { Component } from 'react';
+import Tooltip              from './tooltip.jsx';
+
+export default class ProfilePicture extends Component {
     profilePicture() {
         if (this.props.user.picture) {
             style = { backgroundImage: 'url(' + this.props.user.picture + ')' };
@@ -19,7 +19,8 @@ ProfilePicture = React.createClass({
                 <span className='picture' style={style}></span>
             </span>
         );
-    },
+    }
+
     element() {
         if (this.props.isTooltiped) {
             return (
@@ -30,8 +31,13 @@ ProfilePicture = React.createClass({
         } else {
             return this.profilePicture();
         }
-    },
+    }
+
     render() {
         return (this.element());
     }
-});
+}
+
+ProfilePicture.propTypes = {
+    user: React.PropTypes.object.isRequired
+};

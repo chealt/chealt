@@ -1,20 +1,19 @@
 import React, { Component } from 'react';
+import ProfileList          from './profile-list.jsx';
 
 export default class Guests extends Component {
-    getMeteorData() {
-        return {
-            currentUser: Meteor.user()
-        };
+    currentUser() {
+        return Meteor.user();
     }
 
     isAttending() {
         return this.props.guests.some((guest) => {
-            return guest._id === this.data.currentUser._id;
+            return guest._id === this.currentUser()._id;
         });
     }
 
     attendButton() {
-        if (this.data.currentUser) {
+        if (this.currentUser()) {
             const isAttending = this.isAttending();
             const buttonAction = isAttending ? this.props.unattendMethod : this.props.attendMethod;
             const buttonText = isAttending ? 'cannot go' : 'going';

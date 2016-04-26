@@ -1,11 +1,11 @@
-FormatTime = React.createClass({
-    render() {
-        var paddedHours = '0' + this.props.date.getHours(),
-            paddedMinutes = '0' + this.props.date.getMinutes(),
-            formattedTime = paddedHours.substr(-2) + ':' + paddedMinutes.substr(-2);
+import React from 'react';
 
-        return (
-            <span className='time formatted'>{formattedTime}</span>
-        );
-    }
-});
+export default FormatTime = ({ date }) => {
+    const paddedHours = '0' + date.getHours();
+    const paddedMinutes = '0' + date.getMinutes();
+    const formattedTime = paddedHours.substr(-2) + ':' + paddedMinutes.substr(-2);
+
+    return (
+        <span className='time formatted'>{formattedTime}</span>
+    );
+};

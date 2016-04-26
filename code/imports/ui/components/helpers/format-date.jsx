@@ -1,7 +1,5 @@
-FormatDate = React.createClass({
-    render() {
-        return (
-            <span className='date formatted'>{this.props.date}</span>
-        );
-    }
-});
+import React from 'react';
+
+export default FormatDate = ({ date }) => (
+    <span className='date formatted'>{date}</span>
+);

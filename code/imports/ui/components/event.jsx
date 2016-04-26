@@ -17,10 +17,8 @@ export default class Event extends Component {
         };
     }
 
-    getMeteorData() {
-        return {
-            isOwnEvent: Meteor.userId() === this.props.event.host._id
-        };
+    isOwnEvent() {
+        return Meteor.userId() === this.props.event.host._id;
     }
 
     componentDidMount() {
@@ -41,7 +39,7 @@ export default class Event extends Component {
     }
 
     isEditable() {
-        return this.state.isAdminMode && this.data.isOwnEvent;
+        return this.state.isAdminMode && this.isOwnEvent();
     }
 
     commentsList() {
@@ -137,7 +135,7 @@ export default class Event extends Component {
                     toggleMap={StateToggler.bind(this, 'isMapShown')}
                     isCommentsShown={this.state.isCommentsShown}
                     toggleComments={StateToggler.bind(this, 'isCommentsShown')}
-                    isOwnEvent={this.data.isOwnEvent}
+                    isOwnEvent={this.isOwnEvent()}
                     isAdminMode={this.state.isAdminMode}
                     toggleAdminMode={StateToggler.bind(this, 'isAdminMode')} />
             </div>
