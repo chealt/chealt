@@ -1,14 +1,14 @@
-TogglerButton = React.createClass({
-    propTypes: {
-        type: React.PropTypes.string.isRequired,
-        toggleFunction: React.PropTypes.func.isRequired
-    },
-    render() {
-        return (
-            <IconButton
-                type={this.props.type}
-                action={this.props.toggleFunction}
-                additionalClasses={this.props.active ? 'active' : ''} />
-        );
-    }
-});
+import React        from 'react';
+import IconButton   from './icon-button.jsx';
+
+export default TogglerButton = ({ type, toggleFunction, active }) => (
+    <IconButton
+        type={type}
+        action={toggleFunction}
+        additionalClasses={active ? 'active' : ''} />
+);
+
+TogglerButton.propTypes = {
+    type: React.PropTypes.string.isRequired,
+    toggleFunction: React.PropTypes.func.isRequired
+};

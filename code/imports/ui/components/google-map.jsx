@@ -1,25 +1,24 @@
-Map = React.createClass({
-    propTypes: {
-        geocode: React.PropTypes.object.isRequired,
-        isMapShown: React.PropTypes.bool.isRequired,
-        mapId: React.PropTypes.string.isRequired
-    },
-    mixins: [ReactMeteorData],
-    getMeteorData() {
-        return {
-            isGoogleMapsLoaded: GoogleMaps.loaded()
-        };
-    },
-    getInitialState() {
-        return {
+import React, { Component } from 'react';
+
+export default class GoogleMap extends Component {
+    isGoogleMapsLoaded() {
+        return GoogleMaps.loaded();
+    }
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
             isMapLoaded: false
         };
-    },
+    }
+
     componentWillUpdate(nextProps) {
         if (nextProps.isMapShown && !this.state.isMapLoaded) {
             this.loadMap();
         }
-    },
+    }
+
     loadMap() {
         const latitude = this.props.geocode.latitude;
         const longitude = this.props.geocode.longitude;
@@ -44,11 +43,12 @@ Map = React.createClass({
         this.setState({
             isMapLoaded: true
         });
-    },
+    }
+
     render() {
         let classes = 'map';
         
-        if (this.data.isGoogleMapsLoaded) {
+        if (this.isGoogleMapsLoaded()) {
             if (this.props.isMapShown) {
                 classes += ' loaded';
             }
@@ -58,4 +58,10 @@ Map = React.createClass({
             <div className={classes} ref={(ref) => this._map = ref}></div>
         );
     }
-});
+};
+
+GoogleMap.propTypes = {
+    geocode: React.PropTypes.object.isRequired,
+    isMapShown: React.PropTypes.bool.isRequired,
+    mapId: React.PropTypes.string.isRequired
+};

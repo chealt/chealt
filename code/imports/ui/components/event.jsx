@@ -4,6 +4,7 @@ import EventHeader          from './event-header.jsx';
 import Guests               from './guests.jsx';
 import EventFooter          from './event-footer.jsx';
 import StateToggler         from './mixins/state-toggler.jsx';
+import GoogleMap            from './google-map.jsx';
 
 export default class Event extends Component {
     constructor(props) {
@@ -120,7 +121,7 @@ export default class Event extends Component {
                     unattendMethod={this.unattend} />
                 {this.activityList()}
                 {this.commentsList()}
-                <Map
+                <GoogleMap
                     geocode={this.props.event.geocode}
                     isMapShown={this.state.isMapShown}
                     mapId={this.props.event._id} />
@@ -141,7 +142,7 @@ export default class Event extends Component {
             </div>
         );
     }
-}
+};
 
 Event.propTypes = {
     event: React.PropTypes.object.isRequired

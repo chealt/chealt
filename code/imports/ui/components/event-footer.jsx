@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import TogglerButton        from './toggler-button.jsx';
 
 export default class EventFooter extends Component {
     attendance() {
@@ -67,4 +68,4 @@ export default class EventFooter extends Component {
             </div>
         );
     }
-}
+};

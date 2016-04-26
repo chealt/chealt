@@ -1,15 +1,15 @@
-IconButton = React.createClass({
-    propTypes: {
-        action: React.PropTypes.func.isRequired,
-        type: React.PropTypes.string.isRequired
-    },
+import React, { Component } from 'react';
+import Icon                 from './icon.jsx';
+
+export default class IconButton extends Component {
     text() {
         if (this.props.text) {
             return (
                 <span className='text'>{this.props.text}</span>
             );
         }
-    },
+    }
+
     render() {
         let classNames = 'button';
 
@@ -30,4 +30,9 @@ IconButton = React.createClass({
             </button>
         );
     }
-});
+};
+
+IconButton.propTypes = {
+    action: React.PropTypes.func.isRequired,
+    type: React.PropTypes.string.isRequired
+};
