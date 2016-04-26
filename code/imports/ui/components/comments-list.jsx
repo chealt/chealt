@@ -1,33 +1,23 @@
-CommentsList = React.createClass({
-    propTypes: {
-        itemType: React.PropTypes.string.isRequired,
-        itemId: React.PropTypes.string.isRequired
-    },
-    getInitialState() {
-        return {
-            limit: 2,
+import React, { Component } from 'react';
+import ProfilePicture       from './profile-picture.jsx';
+
+export default class CommentsList extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
             newComment: ''
         };
-    },
-    mixins: [ReactMeteorData],
-    getMeteorData() {
+    }
+    
+    getData() {
         return {
             currentUser: Meteor.user(),
-            comments: Comments.find({
-                    itemType: this.props.itemType,
-                    itemId: this.props.itemId
-                }, {
-                    sort: {
-                        createdOn: -1
-                    },
-                    limit: this.state.limit
-                }).fetch(),
-            commentsCount: Comments.find({
-                    itemType: this.props.itemType,
-                    itemId: this.props.itemId
-                }).count()
+            comments: this.props.comments,
+            commentsCount: this.props.commentsCount
         };
-    },
+    }
+
     postComment() {
         Meteor.call('postComment', {
             itemType: this.props.itemType,
@@ -40,26 +30,29 @@ CommentsList = React.createClass({
                 });
             }
         });
-    },
+    }
+
     setNewComment(input) {
         this.setState({
             newComment: input
         });
-    },
+    }
+
     deleteComment(commentId) {
         Meteor.call('deleteComment', commentId, (error, result) => {
-            if (result && this.state.limit > this.data.commentsCount) {
+            if (result && this.state.limit > this.getData().commentsCount) {
                 this.setState({
-                    limit: this.data.commentsCount
+                    limit: this.getData().commentsCount
                 });
             }
         });
-    },
+    }
+
     newComment() {
-        if (this.data.currentUser) {
+        if (this.getData().currentUser) {
             return (
                 <li className='new-comment-container separated top'>
-                    <ProfilePicture user={this.data.currentUser.profile} />
+                    <ProfilePicture user={this.getData().currentUser.profile} />
                     <div className='message-container form-container'>
                         <GrowingTextarea
                             containerClasses='comment-container'
@@ -75,7 +68,8 @@ CommentsList = React.createClass({
                 </li>
             );
         }
-    },
+    }
+
     deleteButton(comment) {
         if (comment.user._id === Meteor.userId()) {
             return (
@@ -84,23 +78,24 @@ CommentsList = React.createClass({
                     onClick={this.deleteComment.bind(this, comment._id)}>delete</button>
             );
         }
-    },
+    }
+
     loadMore() {
-        this.setState({
-            limit: this.state.limit + 2
-        });
-    },
+        this.props.setCommentLimit(this.state.limit + 2);
+    }
+
     loadMoreRender() {
-        if (this.data.commentsCount > this.state.limit) {
+        if (this.getData().commentsCount > this.state.limit) {
             return (<LoadMore onClick={this.loadMore} />);
         }
-    },
+    }
+
     render() {
         return (
             <div className='load-more-container separated top'>
                 {this.loadMoreRender()}
                 <ul className='comments-container'>
-                    {this.data.comments.reverse().map((comment) => {
+                    {this.getData().comments.reverse().map((comment) => {
                         return (
                             <li key={comment._id}>
                                 <ProfilePicture user={comment.user} />
@@ -118,4 +113,10 @@ CommentsList = React.createClass({
             </div>
         );
     }
-});
+};
+
+CommentsList.propTypes = {
+    itemType: React.PropTypes.string.isRequired,
+    itemId: React.PropTypes.string.isRequired,
+    setCommentLimit: React.PropTypes.func.isRequired
+};

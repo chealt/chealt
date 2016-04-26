@@ -5,6 +5,7 @@ import Guests               from './guests.jsx';
 import EventFooter          from './event-footer.jsx';
 import StateToggler         from './mixins/state-toggler.jsx';
 import GoogleMap            from './google-map.jsx';
+import Comments             from '../containers/Comments.jsx';
 
 export default class Event extends Component {
     constructor(props) {
@@ -14,7 +15,8 @@ export default class Event extends Component {
             isCommentsShown: false,
             isMapShown: false,
             isActivityListShown: false,
-            isAdminMode: false
+            isAdminMode: false,
+            commentLimit: 2
         };
     }
 
@@ -46,11 +48,19 @@ export default class Event extends Component {
     commentsList() {
         if (this.state.isCommentsShown) {
             return (
-                <CommentsList
+                <Comments
                     itemType='event'
-                    itemId={this.props.event._id} />
+                    itemId={this.props.event._id}
+                    commentLimit={this.state.commentLimit}
+                    setCommentLimit={this.setCommentLimit} />
             );
         }
+    }
+
+    setCommentLimit(newLimit) {
+        this.setState({
+            commentLimit: newLimit
+        });
     }
 
     activityList() {
