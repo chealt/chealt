@@ -1,20 +1,18 @@
-Guests = React.createClass({
-    propTypes: {
-        guests: React.PropTypes.array.isRequired,
-        attendMethod: React.PropTypes.func.isRequired,
-        unattendMethod: React.PropTypes.func.isRequired
-    },
-    mixins: [ReactMeteorData],
+import React, { Component } from 'react';
+
+export default class Guests extends Component {
     getMeteorData() {
         return {
             currentUser: Meteor.user()
         };
-    },
+    }
+
     isAttending() {
         return this.props.guests.some((guest) => {
             return guest._id === this.data.currentUser._id;
         });
-    },
+    }
+
     attendButton() {
         if (this.data.currentUser) {
             const isAttending = this.isAttending();
@@ -29,7 +27,8 @@ Guests = React.createClass({
                     additionalClasses={buttonClasses} />
             );
         }
-    },
+    }
+
     guests() {
         if (this.props.guests.length) {
             return (
@@ -38,7 +37,8 @@ Guests = React.createClass({
                     containerClass='guests' />
             );
         }
-    },
+    }
+
     render() {
         return (
             <div className='guests-container'>
@@ -47,4 +47,10 @@ Guests = React.createClass({
             </div>
         );
     }
-});
+}
+
+Guests.propTypes = {
+    guests: React.PropTypes.array.isRequired,
+    attendMethod: React.PropTypes.func.isRequired,
+    unattendMethod: React.PropTypes.func.isRequired
+};

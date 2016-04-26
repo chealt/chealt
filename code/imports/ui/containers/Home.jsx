@@ -4,7 +4,7 @@ import HomePage             from '../components/HomePage.jsx';
 import { Events }           from '../../api/events/events.js';
 
 export default createContainer(({ params }) => {
-    const eventsHandle = Meteor.subscribe('events.public');
+    const eventsHandle = Meteor.subscribe('events');
 
     return {
         events: eventsHandle.ready() ? Events.find().fetch() : []

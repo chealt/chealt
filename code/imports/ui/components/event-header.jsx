@@ -1,10 +1,6 @@
-EventHeader = React.createClass({
-    propTypes: {
-        hostName: React.PropTypes.string.isRequired,
-        location: React.PropTypes.string.isRequired,
-        start: React.PropTypes.object.isRequired,
-        end: React.PropTypes.object.isRequired
-    },
+import React, { Component } from 'react';
+
+export default class EventHeader extends Component {
     getTime() {
         if (this.props.start.getTime() !== this.props.end.getTime()) {
             return (
@@ -19,7 +15,8 @@ EventHeader = React.createClass({
                 </div>
             );
         }
-    },
+    }
+
     render() {
         return (
             <div className='content-header row--m equal separated vertical'>
@@ -35,4 +32,11 @@ EventHeader = React.createClass({
             </div>
         );
     }
-});
+}
+
+EventHeader.propTypes = {
+    hostName: React.PropTypes.string.isRequired,
+    location: React.PropTypes.string.isRequired,
+    start: React.PropTypes.object.isRequired,
+    end: React.PropTypes.object.isRequired
+};

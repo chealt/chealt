@@ -1,4 +1,4 @@
-const resizeImage = function (fileObj, readStream, writeStream) {
+/*const resizeImage = function (fileObj, readStream, writeStream) {
     gm(readStream, fileObj.name())
         .resize('600', '600')
         .stream()
@@ -74,4 +74,4 @@ Images.allow({
     download() {
         return true;
     }
-});
+});*/

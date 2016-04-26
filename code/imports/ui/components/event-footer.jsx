@@ -1,4 +1,6 @@
-EventFooter = React.createClass({
+import React, { Component } from 'react';
+
+export default class EventFooter extends Component {
     attendance() {
         let attendanceClass = 'attendance';
         let attendance = this.props.guests.length + '';
@@ -20,7 +22,8 @@ EventFooter = React.createClass({
         return (
             <span className={attendanceClass}>{attendance}</span>
         );
-    },
+    }
+
     activityListToggler() {
         if (this.props.activityList) {
             return (
@@ -30,7 +33,8 @@ EventFooter = React.createClass({
                     active={this.props.isActivityListShown} />
             );
         }
-    },
+    }
+
     adminModeToggler() {
         if (this.props.isOwnEvent) {
             return (
@@ -40,7 +44,8 @@ EventFooter = React.createClass({
                     active={this.props.isAdminMode} />
             );
         }
-    },
+    }
+
     render() {
         return (
             <div className='footer row equal separated top'>
@@ -62,4 +67,4 @@ EventFooter = React.createClass({
             </div>
         );
     }
-});
+}

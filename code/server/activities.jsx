@@ -1,4 +1,4 @@
-const activities = [
+/*const activities = [
     { name: 'archery' },
     { name: 'aerobics', googleFitType: 9 },
     { name: 'badminton', googleFitType: 10 },
@@ -113,4 +113,4 @@ activities.forEach((activity) => {
         activity,
         { upsert: true }
     );
-});
+});*/

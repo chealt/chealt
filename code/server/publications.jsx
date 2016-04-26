@@ -1,4 +1,4 @@
-Meteor.publish('comments', () => {
+/*Meteor.publish('comments', () => {
     return Comments.find();
 });
 
@@ -47,4 +47,4 @@ Meteor.publish('userData', function () {
 
 Meteor.publish('images', function () {
     return Images.find();
-});
+});*/

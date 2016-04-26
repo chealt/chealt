@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
+import EventTitle           from './event-title.jsx';
+import EventHeader          from './event-header.jsx';
+import Guests               from './guests.jsx';
+import EventFooter          from './event-footer.jsx';
+import StateToggler         from './mixins/state-toggler.jsx';
 
 export default class Event extends Component {
-    getInitialState() {
-        return {
+    constructor(props) {
+        super(props);
+        
+        this.state = {
             isCommentsShown: false,
             isMapShown: false,
             isActivityListShown: false,

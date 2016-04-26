@@ -1,26 +1,6 @@
 import { Mongo } from 'meteor/mongo';
 
-class EventsCollection extends Mongo.Collection {
-    insert(doc, callback) {
-        const ourDoc = doc;
-        const result = super.insert(ourDoc, callback);
-
-        return result;
-    }
-    update(selector, modifier) {
-        const result = super.update(selector, modifier);
-
-        return result;
-    }
-    remove(selector) {
-        const todos = this.find(selector).fetch();
-        const result = super.remove(selector);
-
-        return result;
-    }
-}
-
-export const Events = new EventsCollection('Events');
+export const Events = new Mongo.Collection('events');
 
 Events.allow({
     insert: function (userId) {

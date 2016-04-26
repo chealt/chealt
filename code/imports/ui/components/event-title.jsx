@@ -1,15 +1,12 @@
-EventTitle = React.createClass({
-    propTypes: {
-        name: React.PropTypes.string.isRequired,
-        start: React.PropTypes.object.isRequired,
-        end: React.PropTypes.object.isRequired,
-        activity: React.PropTypes.string
-    },
+import React, { Component } from 'react';
+
+export default class Event extends Component {
     sportsIcon() {
         if (this.props.activity) {
             return <SportsIcon activity={this.props.activity} />
         }
-    },
+    }
+
     eventDate() {
         const startDate = this.props.start.toISOString().substring(0, 10);
         const endDate = this.props.end.toISOString().substring(0, 10);
@@ -27,7 +24,8 @@ EventTitle = React.createClass({
                 </span>
             );
         }
-    },
+    }
+
     render() {
         return (
             <h2 className='title'>
@@ -37,4 +35,11 @@ EventTitle = React.createClass({
             </h2>
         );
     }
-});
+}
+
+Event.propTypes = {
+    name: React.PropTypes.string.isRequired,
+    start: React.PropTypes.object.isRequired,
+    end: React.PropTypes.object.isRequired,
+    activity: React.PropTypes.string
+};
