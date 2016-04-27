@@ -1,8 +1,9 @@
-Header = React.createClass({
-    propTypes: {
-        toggleDrawer: React.PropTypes.func.isRequired,
-        filter: React.PropTypes.func.isRequired
-    },
+import React, { Component }     from 'react';
+import DrawerOpener             from '../drawer-opener.jsx';
+import Icon                     from '../icon.jsx';
+import HeaderProfile            from '../header-profile.jsx';
+
+export default class Header extends Component {
     render() {
         const searchIconClass = this.props.filtered ? 'filtered' : '';
 
@@ -28,4 +29,9 @@ Header = React.createClass({
             </div>
         );
     }
-});
+};
+
+Header.propTypes = {
+    toggleDrawer: React.PropTypes.func.isRequired,
+    filter: React.PropTypes.func.isRequired
+};

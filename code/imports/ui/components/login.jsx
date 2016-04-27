@@ -1,4 +1,18 @@
-Login = React.createClass({
+import React, { Component } from 'react';
+import { Meteor }           from 'meteor/meteor';
+import AnythingCloser       from './layout/anything-closer.jsx';
+import Bubble               from './bubble.jsx';
+import BubbleArrow          from './bubble-arrow.jsx';
+
+export default class Login extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            isBubbleShown: false
+        };
+    }
+
     loginWithGoogle() {
         Meteor.loginWithGoogle({
             requestPermissions: [
@@ -8,7 +22,8 @@ Login = React.createClass({
                 'https://www.googleapis.com/auth/fitness.body.write'
             ]
         }, updateUserInfoFromGoogleFit);
-    },
+    }
+
     loginWithFacebook() {
         Meteor.loginWithFacebook({
             requestPermissions: [
@@ -17,27 +32,26 @@ Login = React.createClass({
                 'public_profile'
             ]
         });
-    },
-    getInitialState() {
-        return {
-            isBubbleShown: false
-        };
-    },
+    }
+
     toggleBubble() {
         this.setState({
             isBubbleShown: !this.state.isBubbleShown
         });
-    },
+    }
+
     closeBubble() {
         this.setState({
             isBubbleShown: false
         });
-    },
+    }
+
     anythingCloser() {
         if (this.state.isBubbleShown) {
             return <AnythingCloser onClick={this.closeBubble} />;
         }
-    },
+    }
+
     getBubbleContent() {
         return (
             <div className='login-bubble-content'>
@@ -53,7 +67,8 @@ Login = React.createClass({
                 </button>
             </div>
         );
-    },
+    }
+
     render() {
         return (
             <div className='login-container bubble-container'>
@@ -73,7 +88,7 @@ Login = React.createClass({
             </div>
         );
     }
-});
+};
 
 const dataSourcesUrl = '/fitness/v1/users/me/dataSources';
 

@@ -1,27 +1,32 @@
-Profile = React.createClass({
-    propTypes: {
-        user: React.PropTypes.object.isRequired
-    },
-    getInitialState() {
-        return {
+import React, { Component } from 'react';
+
+export default class Profile extends Component {
+    constructor() {
+        super(props);
+
+        this.state = {
             isBubbleShown: false
         };
-    },
+    }
+
     toggleBubble() {
         this.setState({
             isBubbleShown: !this.state.isBubbleShown
         });
-    },
+    }
+
     closeBubble() {
         this.setState({
             isBubbleShown: false
         });
-    },
+    }
+
     anythingCloser() {
         if (this.state.isBubbleShown) {
             return <AnythingCloser onClick={this.closeBubble} />;
         }
-    },
+    }
+
     getBubbleContent() {
         return (
             <div className='profile-bubble-content'>
@@ -30,7 +35,8 @@ Profile = React.createClass({
                 <Logout />
             </div>
         );
-    },
+    }
+
     render() {
         return (
             <div className='profile-container bubble-container'>
@@ -48,4 +54,8 @@ Profile = React.createClass({
             </div>
         );
     }
-});
+};
+
+Profile.propTypes = {
+    user: React.PropTypes.object.isRequired
+};

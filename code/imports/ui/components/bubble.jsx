@@ -1,8 +1,6 @@
-Bubble = React.createClass({
-    propTypes: {
-        position: React.PropTypes.string.isRequired,
-        isShown: React.PropTypes.bool.isRequired
-    },
+import React, { Component } from 'react';
+
+export default class Bubble extends Component {
     render() {
         let containerClasses = 'bubble ' + this.props.position;
 
@@ -16,4 +14,9 @@ Bubble = React.createClass({
             </div>
         );
     }
-});
+};
+
+Bubble.propTypes = {
+    position: React.PropTypes.string.isRequired,
+    isShown: React.PropTypes.bool.isRequired
+};

@@ -1,8 +1,6 @@
-BubbleArrow = React.createClass({
-    propTypes: {
-        position: React.PropTypes.string.isRequired,
-        isShown: React.PropTypes.bool.isRequired
-    },
+import React, { Component } from 'react';
+
+export default class BubbleArrow extends Component {
     render() {
         let containerClasses = 'bubble-arrow-container ' + this.props.position;
 
@@ -17,4 +15,9 @@ BubbleArrow = React.createClass({
             </div>
         );
     }
-});
+};
+
+BubbleArrow.propTypes = {
+    position: React.PropTypes.string.isRequired,
+    isShown: React.PropTypes.bool.isRequired
+};

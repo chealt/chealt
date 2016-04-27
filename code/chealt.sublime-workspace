@@ -4,6 +4,34 @@
 		"selected_items":
 		[
 			[
+				"Commen",
+				"CommentsComponent"
+			],
+			[
+				"Icon",
+				"IconButton"
+			],
+			[
+				"GoogleM",
+				"GoogleMap"
+			],
+			[
+				"tooltc",
+				"tooltipContent"
+			],
+			[
+				"Profilp",
+				"ProfilePicture"
+			],
+			[
+				"Pro",
+				"ProfilePicture"
+			],
+			[
+				"profil",
+				"profileList"
+			],
+			[
 				"open",
 				"openDialog"
 			],
@@ -296,10 +324,6 @@
 				"padding: "
 			],
 			[
-				"profil",
-				"ProfileList"
-			],
-			[
 				"acti",
 				"activity"
 			],
@@ -490,30 +514,6 @@
 			[
 				"youtub",
 				"youtubeVideoDetails"
-			],
-			[
-				"className",
-				"classNames"
-			],
-			[
-				"drawe",
-				"drawerOpen"
-			],
-			[
-				"Reac",
-				"ReactIntl"
-			],
-			[
-				"render",
-				"renderEvents"
-			],
-			[
-				"appro",
-				"approved"
-			],
-			[
-				"decre",
-				"decrementUnseenFingerprintCount"
 			]
 		]
 	},
@@ -722,11 +722,49 @@
 	},
 	"expanded_folders":
 	[
-		"/C/Users/Attila/Code/chealt/code",
-		"/C/Users/Attila/Code/chealt/code/client"
+		"/E/GIT/atikenny/chealt/code",
+		"/E/GIT/atikenny/chealt/code/client",
+		"/E/GIT/atikenny/chealt/code/imports",
+		"/E/GIT/atikenny/chealt/code/imports/api/events",
+		"/E/GIT/atikenny/chealt/code/imports/api/events/server",
+		"/E/GIT/atikenny/chealt/code/imports/startup/server",
+		"/E/GIT/atikenny/chealt/code/imports/ui",
+		"/E/GIT/atikenny/chealt/code/imports/ui/styles",
+		"/E/GIT/atikenny/chealt/code/server"
 	],
 	"file_history":
 	[
+		"/E/GIT/atikenny/chealt/code/imports/ui/components/event.jsx",
+		"/E/GIT/atikenny/chealt/code/imports/ui/containers/Comments.jsx",
+		"/E/GIT/atikenny/chealt/code/imports/ui/components/comments-list.jsx",
+		"/E/GIT/atikenny/chealt/code/imports/ui/components/profile-list.jsx",
+		"/E/GIT/atikenny/chealt/code/imports/ui/components/HomePage.jsx",
+		"/E/GIT/atikenny/chealt/code/client/main.jsx",
+		"/E/GIT/atikenny/chealt/code/imports/api/comments/comments.js",
+		"/E/GIT/atikenny/chealt/code/imports/api/events/events.js",
+		"/E/GIT/atikenny/chealt/code/imports/startup/server/register-api.js",
+		"/E/GIT/atikenny/chealt/code/imports/api/comments/server/publications.js",
+		"/E/GIT/atikenny/chealt/code/client/main.scss",
+		"/E/GIT/atikenny/chealt/code/imports/ui/components/event-footer.jsx",
+		"/E/GIT/atikenny/chealt/code/imports/ui/components/icon-button.jsx",
+		"/E/GIT/atikenny/chealt/code/imports/ui/components/icon.jsx",
+		"/E/GIT/atikenny/chealt/code/imports/ui/components/toggler-button.jsx",
+		"/E/GIT/atikenny/chealt/code/imports/ui/components/google-map.jsx",
+		"/E/GIT/atikenny/chealt/code/imports/ui/components/profile-picture.jsx",
+		"/E/GIT/atikenny/chealt/code/imports/ui/components/tooltip.jsx",
+		"/E/GIT/atikenny/chealt/code/imports/ui/components/guests.jsx",
+		"/E/GIT/atikenny/chealt/code/imports/ui/components/helpers/format-time.jsx",
+		"/E/GIT/atikenny/chealt/code/imports/ui/components/helpers/format-date.jsx",
+		"/E/GIT/atikenny/chealt/code/imports/ui/components/event-header.jsx",
+		"/E/GIT/atikenny/chealt/code/imports/ui/components/event-title.jsx",
+		"/E/GIT/atikenny/chealt/code/imports/ui/components/mixins/state-toggler.jsx",
+		"/E/GIT/atikenny/chealt/code/imports/ui/containers/Home.jsx",
+		"/E/GIT/atikenny/chealt/code/imports/api/events/server/publications.js",
+		"/E/GIT/atikenny/chealt/code/server/activities.jsx",
+		"/E/GIT/atikenny/chealt/code/imports/startup/server/index.js",
+		"/E/GIT/atikenny/chealt/code/server/publications.jsx",
+		"/E/GIT/atikenny/chealt/code/lib/collections.jsx",
+		"/E/GIT/atikenny/chealt/code/server/main.js",
 		"/C/Users/Attila/Code/chealt/code/packages.json",
 		"/C/Users/Attila/Code/chealt/chealt.sublime-project",
 		"/C/Users/Attila/Code/chealt/code/.meteor/packages",
@@ -823,48 +861,18 @@
 		"/C/Users/Attila/Code/chealt/code/client/styles/login.scss",
 		"/C/Users/Attila/Code/chealt/code/client/components/login.jsx",
 		"/C/Users/Attila/Code/chealt/code/server/services.jsx",
-		"/C/Users/Attila/Code/video-poll/server/accounts-config.js",
-		"/C/Users/Attila/Code/chealt/code/client/styles/profile.scss",
-		"/C/Users/Attila/Code/chealt/code/client/styles/bubble.scss",
-		"/C/Users/Attila/Code/chealt/code/client/styles/comment-list.scss",
-		"/C/Users/Attila/Code/chealt/code/client/components/growing-textarea.jsx",
-		"/C/Users/Attila/Code/video-poll/client/templates/head.html",
-		"/C/Users/Attila/Code/tablehockey/tablehockey/client/templates/main.html",
-		"/C/Users/Attila/Code/chealt/code/client/styles/growing-textarea.scss",
-		"/C/Users/Attila/Code/chealt/code/client/components/sports-icon.jsx",
-		"/C/Users/Attila/Code/chealt/code/client/styles/icons.scss",
-		"/C/Users/Attila/Code/chealt/code/client/components/layout/anything-closer.jsx",
-		"/C/Users/Attila/Code/chealt/code/client/styles/profile-info.scss",
-		"/C/Users/Attila/Code/chealt/documents/assets/icons/sport-icons/flaticon.css",
-		"/C/Users/Attila/Code/chealt/code/.meteor/local/build/programs/server/app/server/publications.jsx",
-		"/C/Users/Attila/Code/chealt/code/lib/collections.js",
-		"/C/Users/Attila/Code/chealt/code/server/google-fit.jsx",
-		"/C/Users/Attila/AppData/Local/.meteor/packages/percolate_google-api/1.0.2/web.browser/packages/percolate_google-api.js",
-		"/C/Users/Attila/Code/chealt/code/client/styles/profile-picture.scss",
-		"/C/Users/Attila/Code/chealt/code/client/components/logout.jsx",
-		"/C/Users/Attila/Code/chealt/code/client/components/bubble.jsx",
-		"/C/Users/Attila/Code/chealt/code/client/components/drawer-opener.jsx",
-		"/C/Users/Attila/Code/chealt/code/client/components/helpers/format-date.jsx",
-		"/C/Users/Attila/Code/chealt/code/.meteor/local/build/programs/web.browser/app/client/components/main-button.jsx",
-		"/C/Users/Attila/Code/chealt/code/client/styles/normalize.scss",
-		"/C/Users/Attila/Code/chealt/code/client/styles/_variables.scss",
-		"/C/Users/Attila/Code/chealt/code/client/styles/variables.scss",
-		"/C/Users/Attila/Code/chealt/code/client/components/helpers/format-time.jsx",
-		"/C/Users/Attila/Code/blink/Source/devtools/front_end/cm/codemirror.js",
-		"/C/Users/Attila/Code/video-poll/server/vimeoAPI.js",
-		"/C/Users/Attila/Code/video-poll/server/config.js",
-		"/C/Users/Attila/Code/video-poll/server/youtubeAPI.js",
-		"/C/Users/Attila/AppData/Local/.meteor/packages/renaldo_youtube-api/0.0.1/npm/node_modules/youtube-api/index.js"
+		"/C/Users/Attila/Code/video-poll/server/accounts-config.js"
 	],
 	"find":
 	{
-		"height": 35.0
+		"height": 34.0
 	},
 	"find_in_files":
 	{
 		"height": 96.0,
 		"where_history":
 		[
+			"<project>,*.jsx",
 			"<project>,*.*",
 			"<project>,*.jsx",
 			"<project>,*.*",
@@ -895,6 +903,24 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"ProfilePi",
+			"params.",
+			"this.props",
+			"getMeteorData",
+			"Comments",
+			"Events",
+			"getData()",
+			"this.data",
+			"this.props.",
+			"Map",
+			"this.props.",
+			"ProfilePic",
+			"this.data.currentUser",
+			"props.",
+			"Icon",
+			"this.",
+			"isOwnEvent",
+			"events.js",
 			"388e3c",
 			"39ad66",
 			"#39ad66",
@@ -1004,25 +1030,7 @@
 			"div",
 			"class",
 			"locale",
-			"local",
-			"locale-d",
-			"_id: 1, ",
-			"FingerPrint",
-			"fingerprint",
-			"FingerPrint",
-			"fingerprint",
-			"FingerPrint",
-			"fingerprint",
-			"FingerPrint",
-			"getUnseenFingerPrints",
-			"generateDifference",
-			"emitOnSocket",
-			"name",
-			"keydown",
-			"change",
-			"attachCookieSuggestEvent",
-			"browser-width",
-			"isMatchingSize"
+			"local"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1101,6 +1109,166 @@
 		"selected_items":
 		[
 			[
+				"commlis",
+				"imports\\ui\\components\\comments-list.jsx"
+			],
+			[
+				"commlist",
+				"imports\\ui\\components\\comments-list.jsx"
+			],
+			[
+				"even",
+				"imports\\ui\\components\\event.jsx"
+			],
+			[
+				"main",
+				"client\\main.jsx"
+			],
+			[
+				"hompa",
+				"imports\\ui\\components\\HomePage.jsx"
+			],
+			[
+				"hom",
+				"imports\\ui\\containers\\Home.jsx"
+			],
+			[
+				"public",
+				"imports\\api\\events\\server\\publications.js"
+			],
+			[
+				"regi",
+				"imports\\startup\\server\\register-api.js"
+			],
+			[
+				"event",
+				"imports\\api\\events\\events.js"
+			],
+			[
+				"comli",
+				"imports\\ui\\components\\comments-list.jsx"
+			],
+			[
+				"evenjsx",
+				"imports\\ui\\components\\event.jsx"
+			],
+			[
+				"icon",
+				"imports\\ui\\components\\icon.jsx"
+			],
+			[
+				"togg",
+				"imports\\ui\\components\\toggler-button.jsx"
+			],
+			[
+				"evefooter",
+				"imports\\ui\\components\\event-footer.jsx"
+			],
+			[
+				"map",
+				"imports\\ui\\components\\map.jsx"
+			],
+			[
+				"to",
+				"imports\\ui\\components\\tooltip.jsx"
+			],
+			[
+				"propic",
+				"imports\\ui\\components\\profile-picture.jsx"
+			],
+			[
+				"profillis",
+				"imports\\ui\\components\\profile-list.jsx"
+			],
+			[
+				"gu",
+				"imports\\ui\\components\\guests.jsx"
+			],
+			[
+				"fotim",
+				"imports\\ui\\components\\helpers\\format-time.jsx"
+			],
+			[
+				"formda",
+				"imports\\ui\\components\\helpers\\format-date.jsx"
+			],
+			[
+				"fomtim",
+				"imports\\ui\\components\\helpers\\format-time.jsx"
+			],
+			[
+				"iconjs",
+				"imports\\ui\\components\\icon.jsx"
+			],
+			[
+				"form",
+				"imports\\ui\\components\\helpers\\format-time.jsx"
+			],
+			[
+				"evehea",
+				"imports\\ui\\components\\event-header.jsx"
+			],
+			[
+				"evnti",
+				"imports\\ui\\components\\event-title.jsx"
+			],
+			[
+				"st",
+				"imports\\ui\\components\\mixins\\state-toggler.jsx"
+			],
+			[
+				"eventfoot",
+				"imports\\ui\\components\\event-footer.jsx"
+			],
+			[
+				"gues",
+				"imports\\ui\\components\\guests.jsx"
+			],
+			[
+				"evenhe",
+				"imports\\ui\\components\\event-header.jsx"
+			],
+			[
+				"eventit",
+				"imports\\ui\\components\\event-title.jsx"
+			],
+			[
+				"homp",
+				"imports\\ui\\components\\HomePage.jsx"
+			],
+			[
+				"api",
+				"imports\\api\\events\\server\\publications.js"
+			],
+			[
+				"eve",
+				"imports\\api\\events\\events.js"
+			],
+			[
+				"homejs",
+				"imports\\ui\\containers\\Home.jsx"
+			],
+			[
+				"eventjs",
+				"imports\\api\\events\\events.js"
+			],
+			[
+				"regis",
+				"imports\\startup\\server\\register-api.js"
+			],
+			[
+				"impostart",
+				"imports\\startup\\server\\index.js"
+			],
+			[
+				"server",
+				"server\\main.js"
+			],
+			[
+				"home",
+				"imports\\ui\\containers\\Home.jsx"
+			],
+			[
 				"materi",
 				"client\\material-ui-style.jsx"
 			],
@@ -1149,10 +1317,6 @@
 				"client\\components\\guests.jsx"
 			],
 			[
-				"event",
-				"client\\components\\event.jsx"
-			],
-			[
 				"projsx",
 				"client\\components\\profile-picture.jsx"
 			],
@@ -1161,24 +1325,12 @@
 				"client\\components\\profile.jsx"
 			],
 			[
-				"home",
-				"client\\components\\home.jsx"
-			],
-			[
 				"frilis",
 				"client\\components\\friends-list.jsx"
 			],
 			[
-				"public",
-				"server\\publications.jsx"
-			],
-			[
 				"methods",
 				"lib\\methods.jsx"
-			],
-			[
-				"commlist",
-				"client\\components\\comments-list.jsx"
 			],
 			[
 				"vara",
@@ -1211,10 +1363,6 @@
 			[
 				"comm",
 				"client\\styles\\core\\common.scss"
-			],
-			[
-				"hom",
-				"client\\styles\\home.scss"
 			],
 			[
 				"comms",
@@ -1309,10 +1457,6 @@
 				"client\\styles\\events.scss"
 			],
 			[
-				"eventit",
-				"client\\components\\event-title.jsx"
-			],
-			[
 				"editabl",
 				"client\\components\\editable.jsx"
 			],
@@ -1373,10 +1517,6 @@
 				"client\\components\\event-title.jsx"
 			],
 			[
-				"even",
-				"client\\components\\event.jsx"
-			],
-			[
 				"heaprof",
 				"client\\styles\\header-profile.scss"
 			],
@@ -1407,10 +1547,6 @@
 			[
 				"ima",
 				"client\\styles\\image-list.scss"
-			],
-			[
-				"icon",
-				"client\\components\\icon.jsx"
 			],
 			[
 				"iconb",
@@ -1469,14 +1605,6 @@
 				"client\\subscriptions.js"
 			],
 			[
-				"map",
-				"client\\components\\map.jsx"
-			],
-			[
-				"eve",
-				"client\\components\\event.jsx"
-			],
-			[
 				"gusts",
 				"client\\components\\guests.jsx"
 			],
@@ -1491,126 +1619,6 @@
 			[
 				"too",
 				"client\\styles\\tooltip.scss"
-			],
-			[
-				"eventscs",
-				"client\\styles\\events.scss"
-			],
-			[
-				"layo",
-				"client\\components\\layout\\layout.jsx"
-			],
-			[
-				"head",
-				"client\\components\\layout\\header.jsx"
-			],
-			[
-				"activit",
-				"server\\activities.jsx"
-			],
-			[
-				"hea",
-				"client\\styles\\header.scss"
-			],
-			[
-				"vari",
-				"client\\styles\\import\\_variables.scss"
-			],
-			[
-				"prolist",
-				"client\\components\\profile-list.jsx"
-			],
-			[
-				"profili",
-				"client\\components\\profile-info.jsx"
-			],
-			[
-				"guest",
-				"client\\components\\guests.jsx"
-			],
-			[
-				"card",
-				"client\\styles\\card.scss"
-			],
-			[
-				"var",
-				"client\\styles\\import\\_variables.scss"
-			],
-			[
-				"profilli",
-				"client\\components\\profile-list.jsx"
-			],
-			[
-				"profilpi",
-				"client\\components\\profile-picture.jsx"
-			],
-			[
-				"evet",
-				"client\\components\\event.jsx"
-			],
-			[
-				"lay",
-				"client\\components\\layout\\layout.jsx"
-			],
-			[
-				"ho",
-				"client\\styles\\home.scss"
-			],
-			[
-				"foot",
-				"client\\styles\\footer.scss"
-			],
-			[
-				"foo",
-				"client\\styles\\footer.scss"
-			],
-			[
-				"varia",
-				"client\\styles\\import\\_variables.scss"
-			],
-			[
-				"footer",
-				"client\\components\\layout\\footer.jsx"
-			],
-			[
-				"proli",
-				"client\\components\\profile-list.jsx"
-			],
-			[
-				"pro",
-				"server\\profile.jsx"
-			],
-			[
-				"se",
-				"server\\services.jsx"
-			],
-			[
-				"login",
-				"client\\styles\\login.scss"
-			],
-			[
-				"bubb",
-				"client\\styles\\bubble.scss"
-			],
-			[
-				"profilesc",
-				"client\\styles\\profile.scss"
-			],
-			[
-				"profilsc",
-				"client\\styles\\profile.scss"
-			],
-			[
-				"growtex",
-				"client\\components\\growing-textarea.jsx"
-			],
-			[
-				"evetscs",
-				"client\\styles\\events.scss"
-			],
-			[
-				"grow",
-				"client\\components\\growing-textarea.jsx"
 			]
 		],
 		"width": 0.0

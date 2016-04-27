@@ -1,10 +1,9 @@
-AnythingCloser = React.createClass({
-    propTypes: {
-        onClick: React.PropTypes.func.isRequired
-    },
-    render() {
-        return (
-            <div className='anything-closer' onClick={this.props.onClick}></div>
-        );
-    }
-})
+import React from 'react';
+
+export default AnythingCloser = ({ onClick }) => (
+    <div className='anything-closer' onClick={onClick}></div>
+);
+
+AnythingCloser.propTypes = {
+    onClick: React.PropTypes.func.isRequired
+};

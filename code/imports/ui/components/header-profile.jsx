@@ -1,20 +1,19 @@
-HeaderProfile = React.createClass({
-    mixins: [ReactMeteorData],
-    getMeteorData() {
-        return {
-            currentUser: Meteor.user()
-        };
-    },
+import React, { Component } from 'react';
+import { Meteor }           from 'meteor/meteor';
+import Profile              from './profile.jsx';
+import Login                from './login.jsx';
+
+export default class HeaderProfile extends Component {
     getModule() {
-        if (this.data.currentUser) {
-            return <Profile user={this.data.currentUser} />;
+        if (Meteor.user()) {
+            return <Profile user={Meteor.user()} />;
         } else {
             return <Login />;
         }
-    },
+    }
     render() {
         return (
             <div id='header-profile-container'>{this.getModule()}</div>
         );
     }
-});
+};

@@ -1,7 +1,5 @@
-Footer = React.createClass({
-    render() {
-        return (
-            <footer>&copy; Chealt</footer>
-        );
-    }
-});
+import React from 'react';
+
+export default Footer = () => (
+    <footer>&copy; Chealt</footer>
+);
