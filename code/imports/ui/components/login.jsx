@@ -48,7 +48,7 @@ export default class Login extends Component {
 
     anythingCloser() {
         if (this.state.isBubbleShown) {
-            return <AnythingCloser onClick={this.closeBubble} />;
+            return <AnythingCloser onClick={this.closeBubble.bind(this)} />;
         }
     }
 
@@ -74,7 +74,7 @@ export default class Login extends Component {
             <div className='login-container bubble-container'>
                 <button
                     className='google-login button main upper invert'
-                    onClick={this.toggleBubble} >
+                    onClick={this.toggleBubble.bind(this)} >
                     login
                 </button>
                 <BubbleArrow
