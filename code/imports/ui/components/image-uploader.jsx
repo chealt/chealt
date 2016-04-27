@@ -1,7 +1,7 @@
-ImageUploader = React.createClass({
-    propTypes: {
-        successCallback: React.PropTypes.func.isRequired
-    },
+import React, { Component } from 'react';
+import IconButton           from './icon-button.jsx';
+
+export default class ImageUploader extends Component {
     upload(event) {
         const successCallback = this.props.successCallback;
 
@@ -12,10 +12,12 @@ ImageUploader = React.createClass({
                 }
             });
         });
-    },
+    }
+
     triggerUpload() {
-        this._fileInput.getDOMNode().click();
-    },
+        this._fileInput.click();
+    }
+
     render() {
         return (
             <div className='image-uploader-container'>
@@ -24,14 +26,18 @@ ImageUploader = React.createClass({
                     multiple
                     accept='image/*'
                     style={{ display: 'none' }}
-                    onChange={this.upload}
+                    onChange={this.upload.bind(this)}
                     ref={(ref) => this._fileInput = ref} />
                 <IconButton
                     type='images'
-                    action={this.triggerUpload}
+                    action={this.triggerUpload.bind(this)}
                     additionalClasses='upload upper active centered'
                     text='add' />
             </div>
         );
     }
-});
+};
+
+ImageUploader.propTypes = {
+    successCallback: React.PropTypes.func.isRequired
+};

@@ -6,6 +6,7 @@ import EventFooter          from './event-footer.jsx';
 import StateToggler         from './mixins/state-toggler.jsx';
 import GoogleMap            from './google-map.jsx';
 import Comments             from '../containers/Comments.jsx';
+import ImageUploader        from './image-uploader.jsx';
 
 export default class Event extends Component {
     constructor(props) {
@@ -127,8 +128,8 @@ export default class Event extends Component {
                 {this.description()}
                 <Guests 
                     guests={this.props.event.guests}
-                    attendMethod={this.attend}
-                    unattendMethod={this.unattend} />
+                    attendMethod={this.attend.bind(this)}
+                    unattendMethod={this.unattend.bind(this)} />
                 {this.activityList()}
                 {this.commentsList()}
                 <GoogleMap
