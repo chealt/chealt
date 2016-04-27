@@ -1,3 +1,6 @@
+import { Meteor }   from 'meteor/meteor';
+import { Events }   from './events.js';
+
 const validateEmail = (email) => {
     let validEmail;
 
@@ -15,7 +18,17 @@ const isAlreadyFriend = (email) => {
     });
 };
 
-Meteor.methods({
+export const unattendEvent = (eventId) => {
+    Events.update({ _id: eventId}, {
+        $pull: {
+            guests: {
+                _id: Meteor.userId()
+            }
+        }
+    });
+};
+
+/*Meteor.methods({
     attendEvent(eventId) {
         const userProfile = Meteor.user().profile;
 
@@ -152,4 +165,4 @@ Meteor.methods({
             }
         });
     }
-});
+});*/
