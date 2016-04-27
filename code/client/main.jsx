@@ -9,6 +9,7 @@ const menuItems = [
 ];
 
 Meteor.startup(() => {
+    GoogleMaps.load({ v: '3', key: 'AIzaSyA2jFaKDk6FkIdfyXxaN1pXT3fRQ1hoXkU' });
     render(
         <Layout
             title='Chealt'

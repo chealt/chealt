@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 
 export default class GoogleMap extends Component {
-    isGoogleMapsLoaded() {
-        return GoogleMaps.loaded();
-    }
-
     constructor(props) {
         super(props);
 
         this.state = {
             isMapLoaded: false
         };
+    }
+
+    isGoogleMapsLoaded() {
+        return GoogleMaps.loaded();
     }
 
     componentWillUpdate(nextProps) {
@@ -26,7 +26,7 @@ export default class GoogleMap extends Component {
 
         GoogleMaps.create({
             name: mapId,
-            element: this._map.getDOMNode(),
+            element: this._map,
             options: {
                 center: new google.maps.LatLng(latitude, longitude),
                 zoom: 16

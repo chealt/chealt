@@ -4,4 +4,8 @@ footer {
     background-color: $color-footer-background;
     color: $color-footer-text;
     padding: 12px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    box-sizing: border-box; 
 }
