@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
+import AnythingCloser       from './layout/anything-closer.jsx';
+import ProfilePicture       from './profile-picture.jsx';
+import ProfileInfo          from './profile-info.jsx';
+import Logout               from './logout.jsx';
+import Bubble               from './bubble.jsx';
+import BubbleArrow          from './bubble-arrow.jsx';
 
 export default class Profile extends Component {
-    constructor() {
+    constructor(props) {
         super(props);
 
         this.state = {
@@ -23,7 +29,7 @@ export default class Profile extends Component {
 
     anythingCloser() {
         if (this.state.isBubbleShown) {
-            return <AnythingCloser onClick={this.closeBubble} />;
+            return <AnythingCloser onClick={this.closeBubble.bind(this)} />;
         }
     }
 
@@ -42,7 +48,7 @@ export default class Profile extends Component {
             <div className='profile-container bubble-container'>
                 <ProfilePicture
                     user={this.props.user.profile}
-                    onClick={this.toggleBubble} />
+                    onClick={this.toggleBubble.bind(this)} />
                 <BubbleArrow
                     position='below'
                     isShown={this.state.isBubbleShown} />

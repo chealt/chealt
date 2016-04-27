@@ -1,10 +1,9 @@
-SportsIcon = React.createClass({
-    propTypes: {
-        activity: React.PropTypes.string.isRequired
-    },
-    render() {
-        const iconClass = 'sports-icon ' + this.props.activity;
+import React from 'react';
 
-        return (<span className={iconClass}></span>);
-    }
-});
+export default SportsIcon = ({ activity }) => (
+    <span className={`sports-icon ${activity}`}></span>
+);
+
+SportsIcon.propTypes = {
+    activity: React.PropTypes.string.isRequired
+};

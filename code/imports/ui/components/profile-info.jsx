@@ -1,7 +1,7 @@
-ProfileInfo = React.createClass({
-    propTypes: {
-        user: React.PropTypes.object.isRequired
-    },
+import React, { Component } from 'react';
+import SportsIcon           from './sports-icon.jsx';
+
+export default class ProfileInfo extends Component {
     weight() {
         if (this.props.user.profile.weight) {
             return (
@@ -10,7 +10,8 @@ ProfileInfo = React.createClass({
                 </div>
             );
         }
-    },
+    }
+
     activities() {
         if (this.props.user.profile.activityTypes) {
             return (
@@ -25,7 +26,8 @@ ProfileInfo = React.createClass({
                 </ul>
             );
         }
-    },
+    }
+    
     render() {
         return (
             <div className='profile-info'>
@@ -36,4 +38,8 @@ ProfileInfo = React.createClass({
             </div>
         );
     }
-});
+};
+
+ProfileInfo.propTypes = {
+    user: React.PropTypes.object.isRequired
+};

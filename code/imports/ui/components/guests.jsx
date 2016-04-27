@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ProfileList          from './profile-list.jsx';
+import MainButton           from './main-button.jsx';
 
 export default class Guests extends Component {
     currentUser() {

@@ -1,8 +1,6 @@
-MainButton = React.createClass({
-    propTypes: {
-        action: React.PropTypes.func.isRequired,
-        text: React.PropTypes.string.isRequired
-    },
+import React, { Component } from 'react';
+
+export default class MainButton extends Component {
     render() {
         let classNames = 'button main';
 
@@ -18,4 +16,9 @@ MainButton = React.createClass({
             </button>
         );
     }
-});
+};
+
+MainButton.propTypes = {
+    action: React.PropTypes.func.isRequired,
+    text: React.PropTypes.string.isRequired
+};
