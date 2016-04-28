@@ -25,6 +25,7 @@ export default createContainer(({ itemId, itemType, commentLimit }) => {
     ).count();
 
     return {
+        user: Meteor.user(),
         comments: commentsHandle.ready() ? filteredComments : [],
         commentsCount: commentsHandle.ready() ? commentsCount : 0
     };

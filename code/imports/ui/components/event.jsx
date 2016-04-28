@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import EventTitle           from './event-title.jsx';
 import EventHeader          from './event-header.jsx';
-import Guests               from './guests.jsx';
+import Guests               from '../containers/Guests.jsx';
 import EventFooter          from './event-footer.jsx';
 import StateToggler         from './mixins/state-toggler.jsx';
 import GoogleMap            from './google-map.jsx';

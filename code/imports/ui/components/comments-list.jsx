@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ProfilePicture       from './profile-picture.jsx';
+import GrowingTextarea      from './growing-textarea.jsx';
 
 export default class CommentsList extends Component {
     constructor(props) {
@@ -10,14 +11,6 @@ export default class CommentsList extends Component {
         };
     }
     
-    getData() {
-        return {
-            currentUser: Meteor.user(),
-            comments: this.props.comments,
-            commentsCount: this.props.commentsCount
-        };
-    }
-
     postComment() {
         Meteor.call('postComment', {
             itemType: this.props.itemType,
@@ -40,19 +33,19 @@ export default class CommentsList extends Component {
 
     deleteComment(commentId) {
         Meteor.call('deleteComment', commentId, (error, result) => {
-            if (result && this.state.limit > this.getData().commentsCount) {
+            if (result && this.state.limit > this.props.commentsCount) {
                 this.setState({
-                    limit: this.getData().commentsCount
+                    limit: this.props.commentsCount
                 });
             }
         });
     }
 
     newComment() {
-        if (this.getData().currentUser) {
+        if (this.props.user) {
             return (
                 <li className='new-comment-container separated top'>
-                    <ProfilePicture user={this.getData().currentUser.profile} />
+                    <ProfilePicture user={this.props.user.profile} />
                     <div className='message-container form-container'>
                         <GrowingTextarea
                             containerClasses='comment-container'
@@ -71,7 +64,7 @@ export default class CommentsList extends Component {
     }
 
     deleteButton(comment) {
-        if (comment.user._id === Meteor.userId()) {
+        if (comment.user._id === this.props.user._id) {
             return (
                 <button
                     className='delete button neutral upper'
@@ -85,7 +78,7 @@ export default class CommentsList extends Component {
     }
 
     loadMoreRender() {
-        if (this.getData().commentsCount > this.state.limit) {
+        if (this.props.commentsCount > this.state.limit) {
             return (<LoadMore onClick={this.loadMore} />);
         }
     }
@@ -95,7 +88,7 @@ export default class CommentsList extends Component {
             <div className='load-more-container separated top'>
                 {this.loadMoreRender()}
                 <ul className='comments-container'>
-                    {this.getData().comments.reverse().map((comment) => {
+                    {this.props.comments.reverse().map((comment) => {
                         return (
                             <li key={comment._id}>
                                 <ProfilePicture user={comment.user} />
@@ -118,5 +111,8 @@ export default class CommentsList extends Component {
 CommentsList.propTypes = {
     itemType: React.PropTypes.string.isRequired,
     itemId: React.PropTypes.string.isRequired,
-    setCommentLimit: React.PropTypes.func.isRequired
+    setCommentLimit: React.PropTypes.func.isRequired,
+    user: React.PropTypes.object,
+    comments: React.PropTypes.array,
+    commentsCount: React.PropTypes.number
 };
