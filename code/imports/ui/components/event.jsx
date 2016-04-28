@@ -42,7 +42,7 @@ export default class Event extends Component {
     }
 
     unattend() {
-        unattendEvent.call(this.props.event._id);
+        unattendEvent.call(null, this.props.event._id);
     }
 
     isEditable() {
