@@ -52,7 +52,7 @@ export default class CommentsList extends Component {
                             additionalClasses='comment neutral'
                             name='new-comment'
                             placeholder='your comment...'
-                            onChange={this.setNewComment}
+                            onChange={this.setNewComment.bind(this)}
                             value={this.state.newComment} />
                         <button
                             className='post button neutral upper'

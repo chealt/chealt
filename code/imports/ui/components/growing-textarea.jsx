@@ -1,24 +1,32 @@
-GrowingTextarea = React.createClass({
-    getInitialState() {
-        return {
+import React, { Component } from 'react';
+
+export default class GrowingTextarea extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
             height: 42
         };
-    },
+    }
+
     calculateHeight(event) {
         this.setState({
             height: event.target.scrollHeight
         });
-    },
+    }
+
     style() {
         return {
             height: this.state.height
         };
-    },
+    }
+
     onChange(event) {
         if (this.props.onChange) {
             this.props.onChange(event.target.value);
         }
-    },
+    }
+
     render() {
         let classes = 'growing-textarea';
         let containerClasses = 'textarea-container';
@@ -39,10 +47,10 @@ GrowingTextarea = React.createClass({
                     className={classes}
                     name={this.props.name}
                     placeholder={this.props.placeholder}
-                    onKeyUp={this.calculateHeight}
-                    onChange={this.onChange}
+                    onKeyUp={this.calculateHeight.bind(this)}
+                    onChange={this.onChange.bind(this)}
                     value={this.props.value}></textarea>
             </div>
         );
     }
-});
+};

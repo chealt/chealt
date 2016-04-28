@@ -3,18 +3,14 @@ import ProfileList          from './profile-list.jsx';
 import MainButton           from './main-button.jsx';
 
 export default class Guests extends Component {
-    currentUser() {
-        return Meteor.user();
-    }
-
     isAttending() {
         return this.props.guests.some((guest) => {
-            return guest._id === this.currentUser()._id;
+            return guest._id === this.props.user._id;
         });
     }
 
     attendButton() {
-        if (this.currentUser()) {
+        if (this.props.user) {
             const isAttending = this.isAttending();
             const buttonAction = isAttending ? this.props.unattendMethod : this.props.attendMethod;
             const buttonText = isAttending ? 'cannot go' : 'going';
