@@ -28,6 +28,22 @@ export const unattendEvent = (eventId) => {
     });
 };
 
+export const attendEvent = (eventId) => {
+    const userProfile = Meteor.user().profile;
+
+    Events.update({ _id: eventId}, {
+        $push: {
+            guests: {
+                _id: Meteor.userId(),
+                email: userProfile.email,
+                name: userProfile.name,
+                picture: userProfile.picture,
+                RSVP: 'attend'
+            }
+        }
+    });
+};
+
 /*Meteor.methods({
     attendEvent(eventId) {
         const userProfile = Meteor.user().profile;

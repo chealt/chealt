@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
+import React, { Component }             from 'react';
 
-import EventTitle           from './event-title.jsx';
-import EventHeader          from './event-header.jsx';
-import Guests               from '../containers/Guests.jsx';
-import EventFooter          from './event-footer.jsx';
-import StateToggler         from './mixins/state-toggler.jsx';
-import GoogleMap            from './google-map.jsx';
-import Comments             from '../containers/Comments.jsx';
-import ImageUploader        from './image-uploader.jsx';
+import EventTitle                       from './event-title.jsx';
+import EventHeader                      from './event-header.jsx';
+import Guests                           from '../containers/Guests.jsx';
+import EventFooter                      from './event-footer.jsx';
+import StateToggler                     from './mixins/state-toggler.jsx';
+import GoogleMap                        from './google-map.jsx';
+import Comments                         from '../containers/Comments.jsx';
+import ImageUploader                    from './image-uploader.jsx';
 
-import { unattendEvent }    from '../../api/events/methods.js';
+import { attendEvent, unattendEvent }   from '../../api/events/methods.js';
 
 export default class Event extends Component {
     constructor(props) {
@@ -38,7 +38,7 @@ export default class Event extends Component {
     }
 
     attend() {
-        Meteor.call('attendEvent', this.props.event._id);
+        attendEvent.call(null, this.props.event._id);
     }
 
     unattend() {
