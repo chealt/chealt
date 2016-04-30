@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import ProfilePicture       from './profile-picture.jsx';
 import GrowingTextarea      from './growing-textarea.jsx';
+import {
+    postComment,
+    deleteComment
+} from '../../api/comments/methods.js';
 
 export default class CommentsList extends Component {
     constructor(props) {
@@ -12,7 +16,7 @@ export default class CommentsList extends Component {
     }
     
     postComment() {
-        Meteor.call('postComment', {
+        postComment.call(null, {
             itemType: this.props.itemType,
             itemId: this.props.itemId,
             message: this.state.newComment
@@ -32,7 +36,7 @@ export default class CommentsList extends Component {
     }
 
     deleteComment(commentId) {
-        Meteor.call('deleteComment', commentId, (error, result) => {
+        deleteComment.call(null, commentId, (error, result) => {
             if (result && this.state.limit > this.props.commentsCount) {
                 this.setState({
                     limit: this.props.commentsCount
@@ -56,7 +60,7 @@ export default class CommentsList extends Component {
                             value={this.state.newComment} />
                         <button
                             className='post button neutral upper'
-                            onClick={this.postComment}>post</button>
+                            onClick={this.postComment.bind(this)}>post</button>
                     </div>
                 </li>
             );
@@ -110,7 +114,7 @@ export default class CommentsList extends Component {
 
 CommentsList.propTypes = {
     itemType: React.PropTypes.string.isRequired,
-    itemId: React.PropTypes.string.isRequired,
+    itemId: React.PropTypes.object.isRequired,
     setCommentLimit: React.PropTypes.func.isRequired,
     user: React.PropTypes.object,
     comments: React.PropTypes.array,
