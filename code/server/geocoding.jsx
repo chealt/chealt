@@ -1,7 +1,7 @@
 const geo = new GeoCoder({
     geocoderProvider: 'google',
     httpAdapter: 'https',
-    apiKey: 'AIzaSyA2jFaKDk6FkIdfyXxaN1pXT3fRQ1hoXkU'
+    apiKey: 'AIzaSyCwo4n63B8CiW0x1Zf0KYHctSNW2qkmRbI'
 });
 
 Meteor.methods({

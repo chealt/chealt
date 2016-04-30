@@ -44,6 +44,18 @@ export const attendEvent = (eventId) => {
     });
 };
 
+export const updateGeoCode = ({ eventId, address }) => {
+    const geocode = Meteor.call('getGeoCode', address);
+
+    if (geocode) {
+        return Events.update({
+            _id: eventId
+        }, {
+            $set: { geocode: geocode }
+        });
+    }
+};
+
 /*Meteor.methods({
     attendEvent(eventId) {
         const userProfile = Meteor.user().profile;

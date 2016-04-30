@@ -9,7 +9,11 @@ import GoogleMap                        from './google-map.jsx';
 import Comments                         from '../containers/Comments.jsx';
 import ImageUploader                    from './image-uploader.jsx';
 
-import { attendEvent, unattendEvent }   from '../../api/events/methods.js';
+import {
+    attendEvent,
+    unattendEvent,
+    updateGeoCode
+} from '../../api/events/methods.js';
 
 export default class Event extends Component {
     constructor(props) {
@@ -30,7 +34,7 @@ export default class Event extends Component {
 
     componentDidMount() {
         if (!this.props.event.geocode) {
-            Meteor.call('updateGeoCode', {
+            updateGeoCode.call(null, {
                 eventId: this.props.event._id,
                 address: this.props.event.location
             });
@@ -65,6 +69,17 @@ export default class Event extends Component {
         this.setState({
             commentLimit: newLimit
         });
+    }
+
+    googleMap() {
+        if (this.props.event.geocode) {
+            return (
+                <GoogleMap
+                    geocode={this.props.event.geocode}
+                    isMapShown={this.state.isMapShown}
+                    mapId={this.props.event._id} />
+            );
+        }
     }
 
     activityList() {
@@ -130,17 +145,14 @@ export default class Event extends Component {
                 {this.imageUploader()}
                 {this.description()}
                 <Guests 
-                    guests={this.props.event.guests}
+                    guests={this.props.event.guests || []}
                     attendMethod={this.attend.bind(this)}
                     unattendMethod={this.unattend.bind(this)} />
                 {this.activityList()}
                 {this.commentsList()}
-                <GoogleMap
-                    geocode={this.props.event.geocode}
-                    isMapShown={this.state.isMapShown}
-                    mapId={this.props.event._id} />
+                {this.googleMap()}
                 <EventFooter
-                    guests={this.props.event.guests}
+                    guests={this.props.event.guests || []}
                     maxAttendance={this.props.event.maxAttendance}
                     minAttendance={this.props.event.minAttendance}
                     activityList={this.props.event.activityList}
@@ -152,7 +164,8 @@ export default class Event extends Component {
                     toggleComments={StateToggler.bind(this, 'isCommentsShown')}
                     isOwnEvent={this.isOwnEvent()}
                     isAdminMode={this.state.isAdminMode}
-                    toggleAdminMode={StateToggler.bind(this, 'isAdminMode')} />
+                    toggleAdminMode={StateToggler.bind(this, 'isAdminMode')}
+                    hasMap={Boolean(this.props.event.geocode)} />
             </div>
         );
     }

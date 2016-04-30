@@ -4,7 +4,7 @@ import TogglerButton        from './toggler-button.jsx';
 export default class EventFooter extends Component {
     attendance() {
         let attendanceClass = 'attendance';
-        let attendance = this.props.guests.length + '';
+        let attendance = String(this.props.guests.length);
 
         if (this.props.maxAttendance) {
             attendance += '/' + this.props.maxAttendance;
@@ -47,6 +47,17 @@ export default class EventFooter extends Component {
         }
     }
 
+    mapToggler() {
+        if (this.props.hasMap) {
+            return (
+                <TogglerButton
+                    type='map'
+                    toggleFunction={this.props.toggleMap}
+                    active={this.props.isMapShown} />
+            );
+        }
+    }
+
     render() {
         return (
             <div className='footer row equal separated top'>
@@ -55,10 +66,7 @@ export default class EventFooter extends Component {
                 </div>
                 <div className='controls-container'>
                     {this.activityListToggler()}
-                    <TogglerButton
-                        type='map'
-                        toggleFunction={this.props.toggleMap}
-                        active={this.props.isMapShown} />
+                    {this.mapToggler()}
                     <TogglerButton
                         type='bubbles4'
                         toggleFunction={this.props.toggleComments}
