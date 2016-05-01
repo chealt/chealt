@@ -15,7 +15,7 @@ Events.allow({
     update: function (userId, document) {
         const isHost = userId === document.host._id;
 
-        return isHost || isSharedWithUser(document, userId);
+        return document.isPublic || isHost || isSharedWithUser(document, userId);
     },
     remove: function (userId, document) {
         return userId === document.host._id;

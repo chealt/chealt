@@ -45,3 +45,4 @@ standard-minifier-js
 static-html
 ecmascript
 react-meteor-data
+mdg:validated-method

@@ -36,7 +36,7 @@ export default class CommentsList extends Component {
     }
 
     deleteComment(commentId) {
-        deleteComment.call(null, commentId, (error, result) => {
+        deleteComment.call(commentId, (error, result) => {
             if (result && this.state.limit > this.props.commentsCount) {
                 this.setState({
                     limit: this.props.commentsCount

@@ -16,8 +16,18 @@ export const postComment = (comment) => {
     return Comments.insert(_comment);
 };
 
-export const deleteComment = (commentId) => {
+/*export const deleteComment = (commentId) => {
     if (Comments.findOne({ 'user._id': Meteor.userId() })) {
         return Comments.remove({ _id: commentId });
     }
-};
+};*/
+
+export const deleteComment = new ValidatedMethod({
+    name: 'comments.deleteComment',
+    validate(commentId) {
+        return commentId && Comments.findOne({ 'user._id': Meteor.userId() });
+    },
+    run(commentId) {
+        return Comments.remove({ _id: commentId });
+    }
+});
