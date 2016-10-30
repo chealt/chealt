@@ -60,14 +60,14 @@ export default class Event extends Component {
                     itemType='event'
                     itemId={this.props.event._id}
                     commentLimit={this.state.commentLimit}
-                    setCommentLimit={this.setCommentLimit} />
+                    loadMore={this.loadMoreComments.bind(this)} />
             );
         }
     }
 
-    setCommentLimit(newLimit) {
+    loadMoreComments() {
         this.setState({
-            commentLimit: newLimit
+            commentLimit: this.state.commentLimit + 2
         });
     }
 

@@ -5,8 +5,15 @@ export default class GrowingTextarea extends Component {
         super(props);
 
         this.state = {
-            height: 42
+            height: 42,
+            value: this.props.value || ''
         };
+    }
+
+    resetValue() {
+        this.setState({
+            value: ''
+        });
     }
 
     calculateHeight(event) {
@@ -22,9 +29,9 @@ export default class GrowingTextarea extends Component {
     }
 
     onChange(event) {
-        if (this.props.onChange) {
-            this.props.onChange(event.target.value);
-        }
+        this.setState({
+            value: event.target.value
+        });
     }
 
     render() {
@@ -49,7 +56,7 @@ export default class GrowingTextarea extends Component {
                     placeholder={this.props.placeholder}
                     onKeyUp={this.calculateHeight.bind(this)}
                     onChange={this.onChange.bind(this)}
-                    value={this.props.value}></textarea>
+                    value={this.state.value}></textarea>
             </div>
         );
     }

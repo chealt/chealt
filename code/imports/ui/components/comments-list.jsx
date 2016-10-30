@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ProfilePicture       from './profile-picture.jsx';
 import GrowingTextarea      from './growing-textarea.jsx';
+import LoadMore             from './load-more.jsx';
 import {
     postComment,
     deleteComment
@@ -9,40 +10,28 @@ import {
 export default class CommentsList extends Component {
     constructor(props) {
         super(props);
-
-        this.state = {
-            newComment: ''
-        };
     }
     
     postComment() {
         postComment.call({
             itemType: this.props.itemType,
             itemId: this.props.itemId,
-            message: this.state.newComment
+            message: this.textInput.state.value
         }, (error, result) => {
             if (result) {
-                this.setState({
-                    newComment: ''
-                });
+                this.textInput.resetValue();
             }
         });
     }
 
-    setNewComment(input) {
-        this.setState({
-            newComment: input
-        });
+    loadMoreRender() {
+        if (this.props.limit < this.props.commentsCount) {
+            return (<LoadMore onClick={this.props.loadMore} />);
+        }
     }
 
     deleteComment(commentId) {
-        deleteComment.call(commentId, (error, result) => {
-            if (result && this.state.limit > this.props.commentsCount) {
-                this.setState({
-                    limit: this.props.commentsCount
-                });
-            }
-        });
+        deleteComment.call(commentId);
     }
 
     newComment() {
@@ -56,8 +45,8 @@ export default class CommentsList extends Component {
                             additionalClasses='comment neutral'
                             name='new-comment'
                             placeholder='your comment...'
-                            onChange={this.setNewComment.bind(this)}
-                            value={this.state.newComment} />
+                            ref={(input) => this.textInput = input}
+                            value='' />
                         <button
                             className='post button neutral upper'
                             onClick={this.postComment.bind(this)}>post</button>
@@ -74,16 +63,6 @@ export default class CommentsList extends Component {
                     className='delete button neutral upper'
                     onClick={this.deleteComment.bind(this, comment._id)}>delete</button>
             );
-        }
-    }
-
-    loadMore() {
-        this.props.setCommentLimit(this.state.limit + 2);
-    }
-
-    loadMoreRender() {
-        if (this.props.commentsCount > this.state.limit) {
-            return (<LoadMore onClick={this.loadMore} />);
         }
     }
 
@@ -115,7 +94,7 @@ export default class CommentsList extends Component {
 CommentsList.propTypes = {
     itemType: React.PropTypes.string.isRequired,
     itemId: React.PropTypes.object.isRequired,
-    setCommentLimit: React.PropTypes.func.isRequired,
+    loadMore: React.PropTypes.func.isRequired,
     user: React.PropTypes.object,
     comments: React.PropTypes.array,
     commentsCount: React.PropTypes.number

@@ -1,7 +1,6 @@
-LoadMore = React.createClass({
-    propTypes: {
-        onClick: React.PropTypes.func.isRequired
-    },
+import React, { Component } from 'react';
+
+export default class LoadMore extends Component {
     render() {
         let triggerClassName = 'load-more-trigger'
 
@@ -15,4 +14,8 @@ LoadMore = React.createClass({
             </div>
         );
     }
-});
+};
+
+LoadMore.propTypes = {
+    onClick: React.PropTypes.func.isRequired
+}
