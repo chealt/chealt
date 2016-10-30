@@ -19,31 +19,55 @@ const isAlreadyFriend = (email) => {
     });
 };
 
-export const unattendEvent = (eventId) => {
-    Events.update({ _id: eventId}, {
-        $pull: {
-            guests: {
-                _id: Meteor.userId()
-            }
+export const unattendEvent = new ValidatedMethod({
+    name: 'events.unattendEvent',
+    validate(eventId) {
+        if (!Meteor.userId()) {
+            throw new Meteor.error('events.unattendEvent.unauthorized', 'You must be logged in to unattend an event!');
         }
-    });
-};
 
-export const attendEvent = (eventId) => {
-    const userProfile = Meteor.user().profile;
-
-    Events.update({ _id: eventId}, {
-        $push: {
-            guests: {
-                _id: Meteor.userId(),
-                email: userProfile.email,
-                name: userProfile.name,
-                picture: userProfile.picture,
-                RSVP: 'attend'
-            }
+        if (!eventId) {
+            throw new Meteor.Error('events.unattendEvent.missingEventId', 'No event id provided for unattending an event!');
         }
-    });
-};
+    },
+    run(eventId) {
+        Events.update({ _id: eventId}, {
+            $pull: {
+                guests: {
+                    _id: Meteor.userId()
+                }
+            }
+        });
+    }
+});
+
+export const attendEvent = new ValidatedMethod({
+    name: 'events.attendEvent',
+    validate(eventId) {
+        if (!Meteor.userId()) {
+            throw new Meteor.error('events.attendEvent.unauthorized', 'You must be logged in to attend an event!');
+        }
+
+        if (!eventId) {
+            throw new Meteor.Error('events.attendEvent.missingEventId', 'No event id provided for attending an event!');
+        }
+    },
+    run(eventId) {
+        const userProfile = Meteor.user().profile;
+
+        return Events.update({ _id: eventId }, {
+            $push: {
+                guests: {
+                    _id: Meteor.userId(),
+                    email: userProfile.email,
+                    name: userProfile.name,
+                    picture: userProfile.picture,
+                    RSVP: 'attend'
+                }
+            }
+        });
+    }
+});
 
 export const updateGeoCode = new ValidatedMethod({
     name: 'events.updateGeoCode',
@@ -59,9 +83,7 @@ export const updateGeoCode = new ValidatedMethod({
     run({ eventId, address }) {
         Meteor.call('getGeoCode', address, (error, result) => {
             if (result) {
-                return Events.update({
-                    _id: eventId
-                }, {
+                return Events.update({_id: eventId }, {
                     $set: { geocode: result }
                 });
             }
