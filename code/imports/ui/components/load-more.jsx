@@ -10,7 +10,7 @@ export default class LoadMore extends Component {
 
         return (
             <div className={triggerClassName}>
-                <span className='load-more' onClick={this.props.onClick}>...</span>
+                <button className='load-more' onClick={this.props.onClick}>...</button>
             </div>
         );
     }
