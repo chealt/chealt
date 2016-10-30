@@ -16,7 +16,7 @@ export default class CommentsList extends Component {
     }
     
     postComment() {
-        postComment.call(null, {
+        postComment.call({
             itemType: this.props.itemType,
             itemId: this.props.itemId,
             message: this.state.newComment

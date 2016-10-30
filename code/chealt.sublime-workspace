@@ -65,7 +65,7 @@
 			],
 			[
 				"compo",
-				"component	React.PropTypes.component"
+				"component\tReact.PropTypes.component"
 			],
 			[
 				"valida",
@@ -121,7 +121,7 @@
 			],
 			[
 				"func",
-				"function	React.PropTypes.func"
+				"function\tReact.PropTypes.func"
 			],
 			[
 				"flo",
@@ -133,7 +133,7 @@
 			],
 			[
 				"com",
-				"component	React.PropTypes.component"
+				"component\tReact.PropTypes.component"
 			],
 			[
 				"isadmin",
@@ -445,7 +445,7 @@
 			],
 			[
 				"fun",
-				"function	React.PropTypes.func"
+				"function\tReact.PropTypes.func"
 			],
 			[
 				"contecon",
@@ -519,22 +519,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "imports/ui/components/comments-list.jsx",
-			"settings":
-			{
-				"buffer_size": 3907,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "imports/api/comments/methods.js",
-			"settings":
-			{
-				"buffer_size": 927,
-				"line_ending": "Windows"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -716,7 +700,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 398.0
+		"width": 414.0
 	},
 	"console":
 	{
@@ -738,10 +722,19 @@
 	},
 	"expanded_folders":
 	[
-		"/C/Users/Attila/Code/chealt/code"
+		"/C/Users/Attila/Code/chealt/code",
+		"/C/Users/Attila/Code/chealt/code/imports/api/comments/server",
+		"/C/Users/Attila/Code/chealt/code/imports/api/events/server",
+		"/C/Users/Attila/Code/chealt/code/imports/startup/server"
 	],
 	"file_history":
 	[
+		"/C/Users/Attila/Code/chealt/code/server/activities.jsx",
+		"/C/Users/Attila/Code/chealt/code/imports/api/comments/methods.js",
+		"/C/Users/Attila/Code/chealt/code/.meteor/local/build/main.js",
+		"/C/Users/Attila/Code/chealt/code/.meteor/local/build/programs/server/config.json",
+		"/C/Users/Attila/Code/chealt/code/.meteor/local/build/programs/server/packages/babel-compiler.js",
+		"/C/Users/Attila/Code/chealt/code/imports/ui/components/comments-list.jsx",
 		"/C/Users/Attila/Code/chealt/code/imports/api/events/events.js",
 		"/C/Users/Attila/Code/chealt/code/imports/api/events/methods.js",
 		"/C/Users/Attila/Code/chealt/code/imports/ui/styles/layout.scss",
@@ -752,9 +745,7 @@
 		"/C/Users/Attila/Code/chealt/code/imports/ui/components/profile.jsx",
 		"/C/Users/Attila/Code/chealt/code/imports/ui/components/logout.jsx",
 		"/C/Users/Attila/Code/chealt/code/server/profile.jsx",
-		"/C/Users/Attila/Code/chealt/code/imports/api/comments/methods.js",
 		"/C/Users/Attila/Code/chealt/code/imports/api/comments/comments.js",
-		"/C/Users/Attila/Code/chealt/code/imports/ui/components/comments-list.jsx",
 		"/C/Users/Attila/Code/chealt/code/imports/ui/components/event.jsx",
 		"/C/Users/Attila/Code/chealt/code/imports/ui/components/guests.jsx",
 		"/C/Users/Attila/Code/chealt/code/imports/ui/components/event-footer.jsx",
@@ -852,7 +843,6 @@
 		"/C/Users/Attila/AppData/Local/.meteor/packages/cfs_graphicsmagick/0.0.18/os/packages/cfs_graphicsmagick.js",
 		"/C/Users/Attila/Code/chealt/code/client/components/map.jsx",
 		"/C/Users/Attila/Code/chealt/code/client/styles/tooltip.scss",
-		"/C/Users/Attila/Code/chealt/code/server/activities.jsx",
 		"/C/Users/Attila/Code/chealt/code/client/styles/activity-list.scss",
 		"/C/Users/Attila/Code/chealt/code/client/styles/header.scss",
 		"/C/Users/Attila/Code/chealt/code/client/components/profile-list.jsx",
@@ -866,10 +856,7 @@
 		"/C/Users/Attila/AppData/Roaming/Sublime Text 3/Packages/Color Highlighter/ColorHighlighter.sublime-settings",
 		"/C/Users/Attila/AppData/Roaming/Sublime Text 3/Packages/User/ColorHighlighter.sublime-settings",
 		"/C/Users/Attila/Code/chealt/code/client/styles/common.scss",
-		"/C/Users/Attila/Code/chealt/code/client/styles/elements.scss",
-		"/C/Users/Attila/Code/chealt/code/client/styles/login.scss",
-		"/C/Users/Attila/Code/chealt/code/client/components/login.jsx",
-		"/C/Users/Attila/Code/chealt/code/server/services.jsx"
+		"/C/Users/Attila/Code/chealt/code/client/styles/elements.scss"
 	],
 	"find":
 	{
@@ -910,6 +897,8 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"setDiskCacheDirectory",
+			"setCacheDir",
 			"#wrapper",
 			"logout",
 			"comments",
@@ -1035,8 +1024,6 @@
 			"_id: 1, ",
 			"FingerPrint",
 			"fingerprint",
-			"FingerPrint",
-			"fingerprint",
 			"FingerPrint"
 		],
 		"highlight": true,
@@ -1058,70 +1045,8 @@
 	"groups":
 	[
 		{
-			"selected": 1,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "imports/ui/components/comments-list.jsx",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3907,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								932,
-								932
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 285.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "imports/api/comments/methods.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 927,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								852,
-								852
-							]
-						],
-						"settings":
-						{
-							"color_scheme": "Packages/User/Color Highlighter/themes/Seti_monokai (SL).tmTheme",
-							"syntax": "Packages/JavaScriptNext - ES6 Syntax/JavaScriptNext.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -1717,7 +1642,7 @@
 	"show_minimap": true,
 	"show_open_files": false,
 	"show_tabs": true,
-	"side_bar_visible": false,
+	"side_bar_visible": true,
 	"side_bar_width": 306.0,
 	"status_bar_visible": true,
 	"template_settings":
