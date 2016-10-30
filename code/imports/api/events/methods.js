@@ -1,5 +1,6 @@
-import { Meteor }   from 'meteor/meteor';
-import { Events }   from './events.js';
+import { Meteor }           from 'meteor/meteor';
+import { Events }           from './events.js';
+import { ValidatedMethod }  from 'meteor/mdg:validated-method';
 
 const validateEmail = (email) => {
     let validEmail;
@@ -44,17 +45,29 @@ export const attendEvent = (eventId) => {
     });
 };
 
-export const updateGeoCode = ({ eventId, address }) => {
-    const geocode = Meteor.call('getGeoCode', address);
+export const updateGeoCode = new ValidatedMethod({
+    name: 'events.updateGeoCode',
+    validate({ eventId, address }) {
+        if (!eventId) {
+            throw new Meteor.Error('events.updateGeoCode.missingEventId', 'No event id provided for geocode update!');
+        }
 
-    if (geocode) {
-        return Events.update({
-            _id: eventId
-        }, {
-            $set: { geocode: geocode }
+        if (!address) {
+            throw new Meteor.Error('events.updateGeoCode.missingAddress', 'No address provided for the event!');
+        }
+    },
+    run({ eventId, address }) {
+        Meteor.call('getGeoCode', address, (error, result) => {
+            if (result) {
+                return Events.update({
+                    _id: eventId
+                }, {
+                    $set: { geocode: result }
+                });
+            }
         });
     }
-};
+});
 
 /*Meteor.methods({
     updateUserWeight(weight) {

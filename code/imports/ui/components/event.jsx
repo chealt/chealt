@@ -34,7 +34,7 @@ export default class Event extends Component {
 
     componentDidMount() {
         if (!this.props.event.geocode) {
-            updateGeoCode.call(null, {
+            updateGeoCode.call({
                 eventId: this.props.event._id,
                 address: this.props.event.location
             });
@@ -77,7 +77,7 @@ export default class Event extends Component {
                 <GoogleMap
                     geocode={this.props.event.geocode}
                     isMapShown={this.state.isMapShown}
-                    mapId={this.props.event._id} />
+                    mapId={this.props.event._id.valueOf()} />
             );
         }
     }
