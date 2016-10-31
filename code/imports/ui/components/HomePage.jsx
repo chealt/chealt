@@ -1,5 +1,5 @@
 import React, { Component }     from 'react';
-import Event                    from './event.jsx';
+import Event                    from './events/event.jsx';
 
 export default class HomePage extends Component {
     getMeteorData() {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Icon                 from './icon.jsx';
-import FormatTime           from './helpers/format-time.jsx';
+import Icon                 from '../icon.jsx';
+import FormatTime           from '../helpers/format-time.jsx';
 
 export default class EventHeader extends Component {
     getTime() {

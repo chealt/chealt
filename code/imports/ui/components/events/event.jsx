@@ -1,19 +1,18 @@
-import React, { Component }             from 'react';
+import React, { Component } from 'react';
 
-import EventTitle                       from './event-title.jsx';
-import EventHeader                      from './event-header.jsx';
-import Guests                           from '../containers/Guests.jsx';
-import EventFooter                      from './event-footer.jsx';
-import StateToggler                     from './mixins/state-toggler.jsx';
-import GoogleMap                        from './google-map.jsx';
-import Comments                         from '../containers/Comments.jsx';
-import ImageUploader                    from './image-uploader.jsx';
+import EventTitle           from './event-title.jsx';
+import EventHeader          from './event-header.jsx';
+import EventFooter          from './event-footer.jsx';
+import StateToggler         from '../mixins/state-toggler.jsx';
+import GoogleMap            from '../google-map.jsx';
+import Guests               from '../../containers/Guests.jsx';
+import Comments             from '../../containers/Comments.jsx';
 
 import {
     attendEvent,
     unattendEvent,
     updateGeoCode
-} from '../../api/events/methods.js';
+} from '../../../api/events/methods.js';
 
 export default class Event extends Component {
     constructor(props) {
@@ -22,14 +21,8 @@ export default class Event extends Component {
         this.state = {
             isCommentsShown: false,
             isMapShown: false,
-            isActivityListShown: false,
-            isAdminMode: false,
             commentLimit: 2
         };
-    }
-
-    isOwnEvent() {
-        return Meteor.userId() === this.props.event.host._id;
     }
 
     componentDidMount() {
@@ -47,10 +40,6 @@ export default class Event extends Component {
 
     unattend() {
         unattendEvent.call(this.props.event._id);
-    }
-
-    isEditable() {
-        return this.state.isAdminMode && this.isOwnEvent();
     }
 
     commentsList() {
@@ -82,20 +71,6 @@ export default class Event extends Component {
         }
     }
 
-    activityList() {
-        if (this.state.isActivityListShown) {
-            return (
-                <ActivityList items={this.props.event.activityList} />
-            );
-        }
-    }
-
-    removeImage(fileId) {
-        if (this.isEditable()) {
-            Meteor.call('eventRemoveImage', fileId, this.props.event._id);
-        }
-    }
-
     images() {
         if (this.props.event.images && this.props.event.images.length) {
             return (
@@ -105,19 +80,6 @@ export default class Event extends Component {
                     removeImage={this.removeImage} />
             );
         }
-    }
-
-    imageUploader() {
-        if (this.isEditable()) {
-            return (
-                <ImageUploader
-                    successCallback={this.imageUploadSuccess} />
-            );
-        }
-    }
-
-    imageUploadSuccess(fileId) {
-        Meteor.call('eventImageUpload', fileId, this.props.event._id);
     }
 
     description() {
@@ -142,29 +104,21 @@ export default class Event extends Component {
                     start={this.props.event.start}
                     end={this.props.event.end} />
                 {this.images()}
-                {this.imageUploader()}
                 {this.description()}
                 <Guests 
                     guests={this.props.event.guests || []}
                     attendMethod={this.attend.bind(this)}
                     unattendMethod={this.unattend.bind(this)} />
-                {this.activityList()}
                 {this.commentsList()}
                 {this.googleMap()}
                 <EventFooter
                     guests={this.props.event.guests || []}
                     maxAttendance={this.props.event.maxAttendance}
                     minAttendance={this.props.event.minAttendance}
-                    activityList={this.props.event.activityList}
-                    isActivityListShown={this.state.isActivityListShown}
-                    toggleActivityList={StateToggler.bind(this, 'isActivityListShown')}
                     isMapShown={this.state.isMapShown}
                     toggleMap={StateToggler.bind(this, 'isMapShown')}
                     isCommentsShown={this.state.isCommentsShown}
                     toggleComments={StateToggler.bind(this, 'isCommentsShown')}
-                    isOwnEvent={this.isOwnEvent()}
-                    isAdminMode={this.state.isAdminMode}
-                    toggleAdminMode={StateToggler.bind(this, 'isAdminMode')}
                     hasMap={Boolean(this.props.event.geocode)} />
             </div>
         );
