@@ -25,6 +25,7 @@ export default createContainer(({ filter }) => {
     const eventsHandle = Meteor.subscribe('events');
 
     return {
+        canComment: Boolean(Meteor.userId()),
         events: eventsHandle.ready() ? Events.find(transformFilterInput(filter)).fetch() : []
     };
 }, HomePage);

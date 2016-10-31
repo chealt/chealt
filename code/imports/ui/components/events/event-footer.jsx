@@ -24,17 +24,25 @@ const mapToggler = (hasMap, toggleMap, isMapShown) => {
     }
 };
 
-export default EventFooter = ({ guests, minAttendance, maxAttendance, hasMap, toggleMap, isMapShown, toggleComments, isCommentsShown }) => (
+const commentToggler = (canComment, toggleComments, isCommentsShown) => {
+    if (canComment) {
+        return (
+            <TogglerButton
+                type='bubbles4'
+                toggleFunction={toggleComments}
+                active={isCommentsShown} />
+        );
+    }
+};
+
+export default EventFooter = ({ guests, minAttendance, maxAttendance, hasMap, toggleMap, isMapShown, canComment, toggleComments, isCommentsShown }) => (
     <div className='footer row equal separated top'>
         <div className='figures-container'>
             {attendance(guests, minAttendance, maxAttendance)}
         </div>
         <div className='controls-container'>
             {mapToggler(hasMap, toggleMap, isMapShown)}
-            <TogglerButton
-                type='bubbles4'
-                toggleFunction={toggleComments}
-                active={isCommentsShown} />
+            {commentToggler(canComment, toggleComments, isCommentsShown)}
         </div>
     </div>
 );

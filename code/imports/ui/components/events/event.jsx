@@ -118,6 +118,7 @@ export default class Event extends Component {
                     isMapShown={this.state.isMapShown}
                     toggleMap={StateToggler.bind(this, 'isMapShown')}
                     isCommentsShown={this.state.isCommentsShown}
+                    canComment={this.props.canComment}
                     toggleComments={StateToggler.bind(this, 'isCommentsShown')}
                     hasMap={Boolean(this.props.event.geocode)} />
             </div>
