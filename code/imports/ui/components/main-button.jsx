@@ -1,24 +1,23 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-export default class MainButton extends Component {
-    render() {
-        let classNames = 'button main';
+export default MainButton = ({ additionalClasses, action, text }) => {
+    let classNames = 'button main';
 
-        if (this.props.additionalClasses) {
-            classNames += ' ' + this.props.additionalClasses;
-        }
-
-        return (
-            <button
-                className={classNames}
-                onClick={this.props.action} >
-                {this.props.text}
-            </button>
-        );
+    if (additionalClasses) {
+        classNames += ' ' + additionalClasses;
     }
+
+    return (
+        <button
+            className={classNames}
+            onClick={action} >
+            {text}
+        </button>
+    );
 };
 
 MainButton.propTypes = {
     action: React.PropTypes.func.isRequired,
-    text: React.PropTypes.string.isRequired
+    text: React.PropTypes.string.isRequired,
+    additionalClasses: React.PropTypes.string
 };

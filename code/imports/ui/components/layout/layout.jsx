@@ -57,9 +57,10 @@ export default class Layout extends Component {
                 <div className={contentContainerClasses}>
                     <Header
                         toggleDrawer={StateToggler.bind(this, 'isDrawerOpen')}
-                        filter={this.filter}
+                        filter={this.filter.bind(this)}
                         filtered={this.state.filtered} />
-                    <Home />
+                    <Home
+                        filter={this.state.filter} />
                 </div>
                 <Footer />
                 {this.anythingCloser()}

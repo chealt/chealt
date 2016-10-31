@@ -37,7 +37,7 @@ export default class Profile extends Component {
         return (
             <div className='profile-bubble-content'>
                 <ProfileInfo
-                    user={this.props.user} />
+                    profile={this.props.user.profile} />
                 <Logout />
             </div>
         );
@@ -48,7 +48,7 @@ export default class Profile extends Component {
             <div className='profile-container bubble-container'>
                 <ProfilePicture
                     user={this.props.user.profile}
-                    onClick={this.toggleBubble.bind(this)} />
+                    onPictureClick={this.toggleBubble.bind(this)} />
                 <BubbleArrow
                     position='below'
                     isShown={this.state.isBubbleShown} />

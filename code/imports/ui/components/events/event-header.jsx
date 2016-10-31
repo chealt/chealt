@@ -1,40 +1,36 @@
-import React, { Component } from 'react';
-import Icon                 from '../icon.jsx';
-import FormatTime           from '../helpers/format-time.jsx';
+import React        from 'react';
+import Icon         from '../icon.jsx';
+import FormatTime   from '../helpers/format-time.jsx';
 
-export default class EventHeader extends Component {
-    getTime() {
-        if (this.props.start.getTime() !== this.props.end.getTime()) {
-            return (
-                <div className='time-container row--m equal'>
-                    <div className='start'>
-                        <FormatTime date={this.props.start} />
-                    </div>
-                    <Icon type='clock3' additionalClasses='clock' />
-                    <div className='end'>
-                        <FormatTime date={this.props.end} />
-                    </div>
-                </div>
-            );
-        }
-    }
-
-    render() {
+const getTime = (start, end) => {
+    if (start.getTime() !== end.getTime()) {
         return (
-            <div className='content-header row--m equal separated vertical'>
-                <div className='host'>
-                    <Icon type='user' position='before' />
-                    <span className='text'>host: {this.props.hostName}</span>
+            <div className='time-container row--m equal'>
+                <div className='start'>
+                    <FormatTime date={start} />
                 </div>
-                {this.getTime()}
-                <div className='location'>
-                    <Icon type='earth2' position='before' />
-                    {this.props.location}
+                <Icon type='clock3' additionalClasses='clock' />
+                <div className='end'>
+                    <FormatTime date={end} />
                 </div>
             </div>
         );
     }
-}
+};
+
+export default EventHeader = ({ start, end, hostName, location }) => (
+    <div className='content-header row--m equal separated vertical'>
+        <div className='host'>
+            <Icon type='user' position='before' />
+            <span className='text'>host: {hostName}</span>
+        </div>
+        {getTime(start, end)}
+        <div className='location'>
+            <Icon type='earth2' position='before' />
+            {location}
+        </div>
+    </div>
+);
 
 EventHeader.propTypes = {
     hostName: React.PropTypes.string.isRequired,

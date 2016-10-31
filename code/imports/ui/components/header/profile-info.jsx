@@ -1,45 +1,41 @@
-import React, { Component } from 'react';
-import SportsIcon           from '../sports-icon.jsx';
+import React        from 'react';
+import SportsIcon   from '../sports-icon.jsx';
 
-export default class ProfileInfo extends Component {
-    weight() {
-        if (this.props.user.profile.weight) {
-            return (
-                <div className='weight'>
-                    Weight: {this.props.user.profile.weight}
-                </div>
-            );
-        }
-    }
-
-    activities() {
-        if (this.props.user.profile.activityTypes) {
-            return (
-                <ul className='activities'>
-                    {this.props.user.profile.activityTypes.map((activity) => {
-                        return (
-                            <li className='activity' key={activity._id}>
-                                <SportsIcon activity={activity.name} />
-                            </li>
-                        );
-                    })}
-                </ul>
-            );
-        }
-    }
-    
-    render() {
+const renderWeight = (weight) => {
+    if (weight) {
         return (
-            <div className='profile-info'>
-                <div className='name'>{this.props.user.profile.name}</div>
-                <div className='email'>{this.props.user.profile.email}</div>
-                {this.weight()}
-                {this.activities()}
+            <div className='weight'>
+                Weight: {weight}
             </div>
         );
     }
 };
 
+const activities = (activityTypes) => {
+    if (activityTypes) {
+        return (
+            <ul className='activities'>
+                {activityTypes.map((activity) => {
+                    return (
+                        <li className='activity' key={activity._id}>
+                            <SportsIcon activity={activity.name} />
+                        </li>
+                    );
+                })}
+            </ul>
+        );
+    }
+};
+
+export default ProfileInfo = ({ profile }) => (
+    <div className='profile-info'>
+        <div className='name'>{profile.name}</div>
+        <div className='email'>{profile.email}</div>
+        {renderWeight(profile.weight)}
+        {activities(profile.activityTypes)}
+    </div>
+);
+
 ProfileInfo.propTypes = {
-    user: React.PropTypes.object.isRequired
+    profile: React.PropTypes.object.isRequired
 };

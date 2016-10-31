@@ -1,38 +1,39 @@
-import React, { Component } from 'react';
-import Icon                 from './icon.jsx';
+import React    from 'react';
+import Icon     from './icon.jsx';
 
-export default class IconButton extends Component {
-    text() {
-        if (this.props.text) {
-            return (
-                <span className='text'>{this.props.text}</span>
-            );
-        }
-    }
-
-    render() {
-        let classNames = 'button';
-
-        if (this.props.additionalClasses) {
-            classNames += ' ' + this.props.additionalClasses;
-        }
-
-        if (this.props.isUnstyled) {
-            classNames += ' unstyled';
-        }
-
+const renderText = (text) => {
+    if (text) {
         return (
-            <button
-                className={classNames}
-                onClick={this.props.action} >
-                <Icon type={this.props.type} />
-                {this.text()}
-            </button>
+            <span className='text'>{text}</span>
         );
     }
 };
 
+export default IconButton = ({ additionalClasses, isUnstyled, action, type, text }) => {
+    let classNames = 'button';
+
+    if (additionalClasses) {
+        classNames += ' ' + additionalClasses;
+    }
+
+    if (isUnstyled) {
+        classNames += ' unstyled';
+    }
+
+    return (
+        <button
+            className={classNames}
+            onClick={action} >
+            <Icon type={type} />
+            {renderText(text)}
+        </button>
+    );
+};
+
 IconButton.propTypes = {
     action: React.PropTypes.func.isRequired,
-    type: React.PropTypes.string.isRequired
+    type: React.PropTypes.string.isRequired,
+    text: React.PropTypes.string,
+    isUnstyled: React.PropTypes.bool,
+    additionalClasses: React.PropTypes.string
 };

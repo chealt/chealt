@@ -1,44 +1,40 @@
-import React, { Component } from 'react';
-import Attendance           from './attendance.jsx';
-import TogglerButton        from '../toggler-button.jsx';
+import React            from 'react';
+import Attendance       from './attendance.jsx';
+import TogglerButton    from '../toggler-button.jsx';
 
-export default class EventFooter extends Component {
-    attendance() {
-        if (this.props.guests) {
-            return (
-                <Attendance
-                    guests={this.props.guests}
-                    minAttendance={this.props.minAttendance}
-                    maxAttendance={this.props.maxAttendance} />
-            );
-        }
-    }
-
-    mapToggler() {
-        if (this.props.hasMap) {
-            return (
-                <TogglerButton
-                    type='map'
-                    toggleFunction={this.props.toggleMap}
-                    active={this.props.isMapShown} />
-            );
-        }
-    }
-
-    render() {
+const attendance = (guests, minAttendance, maxAttendance) => {
+    if (guests) {
         return (
-            <div className='footer row equal separated top'>
-                <div className='figures-container'>
-                    {this.attendance()}
-                </div>
-                <div className='controls-container'>
-                    {this.mapToggler()}
-                    <TogglerButton
-                        type='bubbles4'
-                        toggleFunction={this.props.toggleComments}
-                        active={this.props.isCommentsShown} />
-                </div>
-            </div>
+            <Attendance
+                guests={guests}
+                minAttendance={minAttendance}
+                maxAttendance={maxAttendance} />
         );
     }
 };
+
+const mapToggler = (hasMap, toggleMap, isMapShown) => {
+    if (hasMap) {
+        return (
+            <TogglerButton
+                type='map'
+                toggleFunction={toggleMap}
+                active={isMapShown} />
+        );
+    }
+};
+
+export default EventFooter = ({ guests, minAttendance, maxAttendance, hasMap, toggleMap, isMapShown, toggleComments, isCommentsShown }) => (
+    <div className='footer row equal separated top'>
+        <div className='figures-container'>
+            {attendance(guests, minAttendance, maxAttendance)}
+        </div>
+        <div className='controls-container'>
+            {mapToggler(hasMap, toggleMap, isMapShown)}
+            <TogglerButton
+                type='bubbles4'
+                toggleFunction={toggleComments}
+                active={isCommentsShown} />
+        </div>
+    </div>
+);

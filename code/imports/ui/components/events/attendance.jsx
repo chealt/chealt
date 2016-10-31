@@ -1,28 +1,26 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-export default class Attendance extends Component {
-    render() {
-        let attendanceClass = 'attendance';
-        let attendance = String(this.props.guests.length);
+export default Attendance = ({ guests, minAttendance, maxAttendance }) => {
+    let attendanceClass = 'attendance';
+    let attendance = String(guests.length);
 
-        if (this.props.maxAttendance) {
-            attendance += '/' + this.props.maxAttendance;
+    if (maxAttendance) {
+        attendance += '/' + maxAttendance;
 
-            if (this.props.guests.length > this.props.maxAttendance) {
-                attendanceClass += ' above';
-            }
+        if (guests.length > maxAttendance) {
+            attendanceClass += ' above';
         }
-
-        if (this.props.minAttendance) {
-            if (this.props.guests.length < this.props.minAttendance) {
-                attendanceClass += ' below';
-            }
-        }
-
-        return (
-            <span className={attendanceClass}>{attendance}</span>
-        );
     }
+
+    if (minAttendance) {
+        if (guests.length < minAttendance) {
+            attendanceClass += ' below';
+        }
+    }
+
+    return (
+        <span className={attendanceClass}>{attendance}</span>
+    );
 };
 
 Attendance.propTypes = {
