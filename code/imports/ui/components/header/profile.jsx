@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import AnythingCloser       from './layout/anything-closer.jsx';
-import ProfilePicture       from './profile-picture.jsx';
 import ProfileInfo          from './profile-info.jsx';
 import Logout               from './logout.jsx';
-import Bubble               from './bubble.jsx';
-import BubbleArrow          from './bubble-arrow.jsx';
+import ProfilePicture       from '../profile-picture.jsx';
+import AnythingCloser       from '../anything-closer.jsx';
+import Bubble               from '../bubble.jsx';
+import BubbleArrow          from '../bubble-arrow.jsx';
 
 export default class Profile extends Component {
     constructor(props) {

@@ -5,8 +5,8 @@ import EventHeader          from './event-header.jsx';
 import EventFooter          from './event-footer.jsx';
 import StateToggler         from '../mixins/state-toggler.jsx';
 import GoogleMap            from '../google-map.jsx';
-import Guests               from '../../containers/Guests.jsx';
-import Comments             from '../../containers/Comments.jsx';
+import Guests               from '../../containers/guests.jsx';
+import Comments             from '../../containers/comments.jsx';
 
 import {
     attendEvent,

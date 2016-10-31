@@ -1,6 +1,6 @@
 import { Meteor }           from 'meteor/meteor';
 import { createContainer }  from 'meteor/react-meteor-data';
-import HomePage             from '../components/HomePage.jsx';
+import HomePage             from '../components/home-page.jsx';
 import { Events }           from '../../api/events/events.js';
 
 export default createContainer(({ params }) => {

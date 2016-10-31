@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Meteor }           from 'meteor/meteor';
-import AnythingCloser       from './layout/anything-closer.jsx';
-import Bubble               from './bubble.jsx';
-import BubbleArrow          from './bubble-arrow.jsx';
+import AnythingCloser       from '../anything-closer.jsx';
+import Bubble               from '../bubble.jsx';
+import BubbleArrow          from '../bubble-arrow.jsx';
 
 export default class Login extends Component {
     constructor(props) {

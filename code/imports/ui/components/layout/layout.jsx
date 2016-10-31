@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Header               from './header.jsx';
+import Header               from '../header/header.jsx';
 import Drawer               from '../drawer.jsx';
-import Home                 from '../../containers/Home.jsx';
-import AnythingCloser       from './anything-closer.jsx';
+import Home                 from '../../containers/home.jsx';
+import AnythingCloser       from '../anything-closer.jsx';
 import Footer               from './footer.jsx';
 import StateToggler         from '../mixins/state-toggler.jsx';
 

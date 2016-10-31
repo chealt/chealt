@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import DrawerOpener         from './drawer-opener.jsx';
+import DrawerOpener         from './header/drawer-opener.jsx';
 
 export default class Drawer extends Component {
     render() {

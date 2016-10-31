@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SportsIcon           from './sports-icon.jsx';
+import SportsIcon           from '../sports-icon.jsx';
 
 export default class ProfileInfo extends Component {
     weight() {

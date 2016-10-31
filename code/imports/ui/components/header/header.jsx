@@ -1,7 +1,7 @@
 import React, { Component }     from 'react';
-import DrawerOpener             from '../drawer-opener.jsx';
+import DrawerOpener             from './drawer-opener.jsx';
 import Icon                     from '../icon.jsx';
-import HeaderProfile            from '../../containers/HeaderProfile.jsx';
+import HeaderProfile            from '../../containers/header-profile.jsx';
 
 export default class Header extends Component {
     render() {
