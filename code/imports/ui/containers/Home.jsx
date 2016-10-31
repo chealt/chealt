@@ -21,11 +21,12 @@ const transformFilterInput = (input) => {
     return transformedFilter;
 };
 
-export default createContainer(({ filter }) => {
+export default createContainer(({ filter, showNotification }) => {
     const eventsHandle = Meteor.subscribe('events');
 
     return {
         canComment: Boolean(Meteor.userId()),
-        events: eventsHandle.ready() ? Events.find(transformFilterInput(filter)).fetch() : []
+        events: eventsHandle.ready() ? Events.find(transformFilterInput(filter)).fetch() : [],
+        showNotification: showNotification
     };
 }, HomePage);

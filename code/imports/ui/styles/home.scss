@@ -13,6 +13,8 @@ h3 {
 }
 
 .content-container {
+    padding-top: $app-bar-height + $gutter-size;
+
     &.background {
         opacity: .5;
         filter: blur(4px);

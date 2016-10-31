@@ -1,10 +1,15 @@
 @import 'import/variables';
 
 #app-bar-container {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    box-sizing: border-box;
     margin-bottom: $gutter-size * 2;
     padding: $gutter-size;
     background-color: $color-main-background;
     display: flex;
+    z-index: $highest-z;
 
     #toggle-container {
         flex: 1;

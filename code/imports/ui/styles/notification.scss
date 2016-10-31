@@ -1,0 +1,18 @@
+@import 'import/variables';
+
+.notification-container {
+    position: fixed;
+    top: $app-bar-height;
+    width: 100%;
+    box-sizing: border-box;
+    padding: $gutter-size;
+    z-index: $highest-z;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .6s ease;
+
+    &.shown {
+        opacity: 1;
+        visibility: visible;
+    }
+}

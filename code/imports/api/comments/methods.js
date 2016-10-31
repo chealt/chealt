@@ -39,6 +39,24 @@ export const deleteComment = new ValidatedMethod({
         }
     },
     run(commentId) {
-        return Comments.remove({ _id: commentId });
+        return Comments.update({ _id: commentId }, { $set: { deleted: true } });
+    }
+});
+
+export const revertDeleteComment = new ValidatedMethod({
+    name: 'comments.revertDeleteComment',
+    validate(commentId) {
+        if (!commentId) {
+            throw new Meteor.Error('comments.revertDeleteComment.missingId', 'No comment id provided for undo delete!');
+        }
+
+        const comment = Comments.findOne({ _id: commentId, 'user._id': Meteor.userId() });
+
+        if (!comment) {
+            throw new Meteor.Error('comments.revertDeleteComment.unathorized', 'Not allowed to undo delete!');
+        }
+    },
+    run(commentId) {
+        return Comments.update({ _id: commentId }, { $set: { deleted: false } });
     }
 });

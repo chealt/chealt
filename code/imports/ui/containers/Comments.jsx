@@ -3,8 +3,8 @@ import { createContainer }  from 'meteor/react-meteor-data';
 import CommentsList         from '../components/comments-list.jsx';
 import { Comments }         from '../../api/comments/comments.js';
 
-export default createContainer(({ itemId, itemType, commentLimit }) => {
-    const commentsHandle = Meteor.subscribe('comments');
+export default createContainer(({ itemId, itemType, commentLimit, showNotification }) => {
+    const commentsHandle = Meteor.subscribe('comments.public');
     const filteredComments = Comments.find(
         {
             itemType: itemType,
@@ -28,6 +28,7 @@ export default createContainer(({ itemId, itemType, commentLimit }) => {
         user: Meteor.user(),
         comments: commentsHandle.ready() ? filteredComments : [],
         commentsCount: commentsHandle.ready() ? commentsCount : 0,
-        limit: commentLimit
+        limit: commentLimit,
+        showNotification: showNotification
     };
 }, CommentsList);
