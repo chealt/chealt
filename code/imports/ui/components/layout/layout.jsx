@@ -7,6 +7,8 @@ import AnythingCloser       from '../anything-closer.jsx';
 import Footer               from './footer.jsx';
 import StateToggler         from '../mixins/state-toggler.jsx';
 
+const notificationAuthideDelay = 1 * 3000;
+
 export default class Layout extends Component {
     constructor(props) {
         super(props);
@@ -49,6 +51,14 @@ export default class Layout extends Component {
             notification: text,
             undoMethod: undoMethod,
             showNotification: true
+        });
+
+        setTimeout(this.hideNotification.bind(this), notificationAuthideDelay);
+    }
+
+    hideNotification() {
+        this.setState({
+            showNotification: false
         });
     }
 

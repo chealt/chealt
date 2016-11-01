@@ -2,17 +2,18 @@
 
 .notification-container {
     position: fixed;
-    top: $app-bar-height;
+    top: $app-bar-height + $gutter-size;
     width: 100%;
     box-sizing: border-box;
     padding: $gutter-size;
     z-index: $highest-z;
     visibility: hidden;
     opacity: 0;
-    transition: opacity .6s ease;
+    transition: visibility .6s ease, opacity .6s ease;
+    background-color: $color-notification;
 
     &.shown {
-        opacity: 1;
+        opacity: .95;
         visibility: visible;
     }
 }

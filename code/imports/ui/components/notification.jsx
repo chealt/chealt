@@ -11,7 +11,7 @@ const renderUndoButton = (undoMethod) => {
 };
 
 export default Notification = ({ text, shown, undoMethod }) => {
-    let notificationClass = 'notification-container';
+    let notificationClass = 'notification-container shadow';
 
     if (shown) {
         notificationClass += ' shown';

@@ -61,16 +61,18 @@ const deleteButton = (userId, comment, showNotification) => {
 };
 
 const callDeleteComment = (commentId, showNotification) => {
-    deleteComment.call(commentId, (error, result) => {
-        if (result) {
-            showNotification({
-                text: 'You successfully deleted your comment!',
-                undoMethod: () => {
-                    revertDeleteComment.call(commentId);
-                }
-            });
-        }
-    });
+    deleteComment.call(commentId, showRevertDeleteCommentNotification.bind(null, commentId, showNotification));
+};
+
+const showRevertDeleteCommentNotification = (commentId, showNotification, error, result) => {
+    if (result) {
+        showNotification({
+            text: 'You successfully deleted your comment!',
+            undoMethod: () => {
+                revertDeleteComment.call(commentId);
+            }
+        });
+    }
 };
 
 export default CommentsList = ({ itemType, itemId, limit, commentsCount, loadMore, comments, user, showNotification }) => (

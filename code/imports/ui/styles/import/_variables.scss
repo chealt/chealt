@@ -2,6 +2,13 @@
 $gutter-size:                           12px;
 $app-bar-height:                        60px;
 
+/* FONT SIZES */
+$font-size-largest:                     24px;
+$font-size-large:                       18px;
+$font-size-medium:                      14px;
+$font-size-small:                       12px;
+$font-size-smallest:                    10px;
+
 /* Z-INDEXES */
 $highest-z:                             1000;
 $high-z:                                 800;
@@ -23,5 +30,6 @@ $color-filter:                          #b12222;
 $color-subtitle:                        #a9a9a9;
 $color-footer-background:               #585858;
 $color-footer-text:                     #fff;
+$color-notification:                    #ffd959;
 $color-alert:                           #db4437;
 $color-error:                           $color-alert;

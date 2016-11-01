@@ -4,11 +4,12 @@ import CommentsList         from '../components/comments-list.jsx';
 import { Comments }         from '../../api/comments/comments.js';
 
 export default createContainer(({ itemId, itemType, commentLimit, showNotification }) => {
-    const commentsHandle = Meteor.subscribe('comments.public');
+    const commentsHandle = Meteor.subscribe('comments');
     const filteredComments = Comments.find(
         {
             itemType: itemType,
-            itemId: itemId
+            itemId: itemId,
+            $or: [ { deleted: { $exists: false } }, { deleted: false } ]
         },
         {
             sort: {
@@ -20,7 +21,8 @@ export default createContainer(({ itemId, itemType, commentLimit, showNotificati
     const commentsCount = Comments.find(
         {
             itemType: itemType,
-            itemId: itemId
+            itemId: itemId,
+            $or: [ { deleted: { $exists: false } }, { deleted: false } ]
         }
     ).count();
 
