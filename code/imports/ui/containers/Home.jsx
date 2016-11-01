@@ -21,7 +21,7 @@ const transformFilterInput = (input) => {
     return transformedFilter;
 };
 
-export default createContainer(({ filter, showNotification }) => {
+export default createContainer(({ filter }) => {
     const eventsHandle = Meteor.subscribe('events');
 
     return {

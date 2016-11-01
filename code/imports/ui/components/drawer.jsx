@@ -4,7 +4,7 @@ import { connect }      from 'react-redux';
 import DrawerOpener     from './header/drawer-opener.jsx';
 import { toggleDrawer } from '../actions/drawer';
 
-export default Drawer = ({ toggleDrawer, isDrawerOpen, id, items }) => {
+const Drawer = ({ toggleDrawer, isDrawerOpen, id, items }) => {
     let className = 'side-drawer shadow';
     
     if (isDrawerOpen) {
@@ -46,7 +46,7 @@ const mapDrawerDispatch = (dispatch) => {
     };
 };
 
-export default connect(mapDrawerState, mapDrawerDispatch)(Layout);
+export default connect(mapDrawerState, mapDrawerDispatch)(Drawer);
 
 Drawer.propTypes = {
     id: React.PropTypes.string.isRequired,

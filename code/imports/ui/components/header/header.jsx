@@ -5,9 +5,10 @@ import DrawerOpener     from './drawer-opener.jsx';
 import Icon             from '../icon.jsx';
 import HeaderProfile    from '../../containers/header-profile.jsx';
 import { toggleDrawer } from '../../actions/drawer';
+import { filter }       from '../../actions/filter';
 
-const Header = ({ filtered, toggleDrawer, filter }) => {
-    const searchIconClass = filtered ? 'filtered' : '';
+const Header = ({ isFiltered, toggleDrawer, filter }) => {
+    const searchIconClass = isFiltered ? 'filtered' : '';
 
     return (
         <div id='app-bar-container' className='shadow'>
@@ -32,17 +33,27 @@ const Header = ({ filtered, toggleDrawer, filter }) => {
     );
 };
 
-const mapDrawerDispatch = (dispatch) => {
+const mapDispatch = (dispatch) => {
     return {
         toggleDrawer: () => {
             dispatch(toggleDrawer());
+        },
+        filter: (event) => {
+            dispatch(filter(event.target.value));
         }
     };
 };
 
-export default connect(null, mapDrawerDispatch)(Header);
+const mapState = ({ filter }) => {
+    return {
+        isFiltered: filter.isFiltered
+    };
+};
+
+export default connect(mapState, mapDispatch)(Header);
 
 Header.propTypes = {
     toggleDrawer: React.PropTypes.func.isRequired,
-    filter: React.PropTypes.func.isRequired
+    filter: React.PropTypes.func.isRequired,
+    isFiltered: React.PropTypes.bool
 };

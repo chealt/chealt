@@ -23,22 +23,10 @@ const StatefullNotification = connect(mapNotificationState)(Notification);
 class Layout extends Component {
     constructor(props) {
         super(props);
-
-        this.state = {
-            filter: '',
-            filtered: false
-        };
     }
 
     componentWillMount() {
         document.title = this.props.title;  
-    }
-
-    filter(event) {
-        this.setState({
-            filter: event.target.value,
-            filtered: !!event.target.value
-        });
     }
 
     anythingCloser() {
@@ -57,12 +45,9 @@ class Layout extends Component {
         return (
             <div id='wrapper'>
                 <div className={contentContainerClasses}>
-                    <Header
-                        filter={this.filter.bind(this)}
-                        filtered={this.state.filtered} />
+                    <Header />
                     <StatefullNotification />
-                    <Home
-                        filter={this.state.filter} />
+                    <Home filter={this.props.filter} />
                 </div>
                 <Footer />
                 {this.anythingCloser()}
@@ -74,8 +59,9 @@ class Layout extends Component {
     }
 };
 
-const mapDrawerState = ({ isDrawerOpen }) => {
+const mapState = ({ isDrawerOpen, filter }) => {
     return {
+        filter: filter.filter,
         isDrawerOpen
     };
 };
@@ -88,7 +74,7 @@ const mapDrawerDispatch = (dispatch) => {
     };
 };
 
-export default connect(mapDrawerState, mapDrawerDispatch)(Layout);
+export default connect(mapState, mapDrawerDispatch)(Layout);
 
 Layout.propTypes = {
     title: React.PropTypes.string.isRequired
