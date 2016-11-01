@@ -8,8 +8,9 @@ import Notification         from '../notification';
 import AnythingCloser       from '../anything-closer';
 import Footer               from './footer';
 import StateToggler         from '../mixins/state-toggler';
+import { closeDrawer }      from '../../actions/drawer';
 
-const mapStateToProps = ({ notification }) => {
+const mapNotificationState = ({ notification }) => {
     return {
         text: notification.text,
         undoMethod: notification.undoMethod,
@@ -17,14 +18,13 @@ const mapStateToProps = ({ notification }) => {
     };
 };
 
-const StatefullNotification = connect(mapStateToProps)(Notification);
+const StatefullNotification = connect(mapNotificationState)(Notification);
 
 class Layout extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            isDrawerOpen: false,
             filter: '',
             filtered: false
         };
@@ -41,35 +41,23 @@ class Layout extends Component {
         });
     }
 
-    closeDrawer() {
-        this.setState({
-            isDrawerOpen: false
-        });
-    }
-
     anythingCloser() {
-        if (this.state.isDrawerOpen) {
-            return <AnythingCloser onClick={this.closeDrawer.bind(this)} />;
+        if (this.props.isDrawerOpen) {
+            return <AnythingCloser onClick={this.props.closeDrawer} />;
         }
     }
 
     render() {
         let contentContainerClasses = 'content-container';
         
-        if (this.state.isDrawerOpen) {
+        if (this.props.isDrawerOpen) {
             contentContainerClasses += ' background';
         }
 
         return (
             <div id='wrapper'>
-                <Drawer
-                    id='app-side-drawer'
-                    items={this.props.menuItems}
-                    isDrawerOpen={this.state.isDrawerOpen}
-                    toggleDrawer={StateToggler.bind(this, 'isDrawerOpen')} />
                 <div className={contentContainerClasses}>
                     <Header
-                        toggleDrawer={StateToggler.bind(this, 'isDrawerOpen')}
                         filter={this.filter.bind(this)}
                         filtered={this.state.filtered} />
                     <StatefullNotification />
@@ -78,12 +66,29 @@ class Layout extends Component {
                 </div>
                 <Footer />
                 {this.anythingCloser()}
+                <Drawer
+                    id='app-side-drawer'
+                    items={this.props.menuItems} />
             </div>
         );
     }
 };
 
-export default Layout;
+const mapDrawerState = ({ isDrawerOpen }) => {
+    return {
+        isDrawerOpen
+    };
+};
+
+const mapDrawerDispatch = (dispatch) => {
+    return {
+        closeDrawer: () => {
+            dispatch(closeDrawer());
+        }
+    };
+};
+
+export default connect(mapDrawerState, mapDrawerDispatch)(Layout);
 
 Layout.propTypes = {
     title: React.PropTypes.string.isRequired

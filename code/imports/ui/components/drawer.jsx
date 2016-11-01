@@ -1,5 +1,8 @@
-import React        from 'react';
-import DrawerOpener from './header/drawer-opener.jsx';
+import React            from 'react';
+import { connect }      from 'react-redux';
+
+import DrawerOpener     from './header/drawer-opener.jsx';
+import { toggleDrawer } from '../actions/drawer';
 
 export default Drawer = ({ toggleDrawer, isDrawerOpen, id, items }) => {
     let className = 'side-drawer shadow';
@@ -28,6 +31,22 @@ export default Drawer = ({ toggleDrawer, isDrawerOpen, id, items }) => {
         </div>
     );
 };
+
+const mapDrawerState = ({ isDrawerOpen }) => {
+    return {
+        isDrawerOpen
+    };
+};
+
+const mapDrawerDispatch = (dispatch) => {
+    return {
+        toggleDrawer: () => {
+            dispatch(toggleDrawer());
+        }
+    };
+};
+
+export default connect(mapDrawerState, mapDrawerDispatch)(Layout);
 
 Drawer.propTypes = {
     id: React.PropTypes.string.isRequired,

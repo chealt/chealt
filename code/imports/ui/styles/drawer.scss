@@ -2,7 +2,7 @@
 
 .side-drawer {
     position: absolute;
-    z-index: 10;
+    z-index: $highest-z;
     top: 0;
     bottom: 0;
     transform: translateX(-100%);

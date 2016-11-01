@@ -1,9 +1,12 @@
 import React            from 'react';
+import { connect }      from 'react-redux';
+
 import DrawerOpener     from './drawer-opener.jsx';
 import Icon             from '../icon.jsx';
 import HeaderProfile    from '../../containers/header-profile.jsx';
+import { toggleDrawer } from '../../actions/drawer';
 
-export default Header = ({ filtered, toggleDrawer, filter }) => {
+const Header = ({ filtered, toggleDrawer, filter }) => {
     const searchIconClass = filtered ? 'filtered' : '';
 
     return (
@@ -28,6 +31,16 @@ export default Header = ({ filtered, toggleDrawer, filter }) => {
         </div>
     );
 };
+
+const mapDrawerDispatch = (dispatch) => {
+    return {
+        toggleDrawer: () => {
+            dispatch(toggleDrawer());
+        }
+    };
+};
+
+export default connect(null, mapDrawerDispatch)(Header);
 
 Header.propTypes = {
     toggleDrawer: React.PropTypes.func.isRequired,
