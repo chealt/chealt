@@ -49,8 +49,7 @@ export default class Event extends Component {
                     itemType='event'
                     itemId={this.props.event._id}
                     commentLimit={this.state.commentLimit}
-                    loadMore={this.loadMoreComments.bind(this)}
-                    showNotification={this.props.showNotification} />
+                    loadMore={this.loadMoreComments.bind(this)} />
             );
         }
     }

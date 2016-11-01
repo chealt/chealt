@@ -1,25 +1,32 @@
 import React, { Component } from 'react';
-import Header               from '../header/header.jsx';
-import Drawer               from '../drawer.jsx';
-import Home                 from '../../containers/home.jsx';
-import Notification         from '../notification.jsx';
-import AnythingCloser       from '../anything-closer.jsx';
-import Footer               from './footer.jsx';
-import StateToggler         from '../mixins/state-toggler.jsx';
+import { connect }          from 'react-redux';
 
-const notificationAuthideDelay = 1 * 3000;
+import Header               from '../header/header';
+import Drawer               from '../drawer';
+import Home                 from '../../containers/home';
+import Notification         from '../notification';
+import AnythingCloser       from '../anything-closer';
+import Footer               from './footer';
+import StateToggler         from '../mixins/state-toggler';
 
-export default class Layout extends Component {
+const mapStateToProps = ({ notification }) => {
+    return {
+        text: notification.text,
+        undoMethod: notification.undoMethod,
+        shown: notification.shown
+    };
+};
+
+const StatefullNotification = connect(mapStateToProps)(Notification);
+
+class Layout extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
             isDrawerOpen: false,
             filter: '',
-            filtered: false,
-            notification: '',
-            showNotification: false,
-            undoMethod: null
+            filtered: false
         };
     }
 
@@ -46,22 +53,6 @@ export default class Layout extends Component {
         }
     }
 
-    showNotification({ text, undoMethod }) {
-        this.setState({
-            notification: text,
-            undoMethod: undoMethod,
-            showNotification: true
-        });
-
-        setTimeout(this.hideNotification.bind(this), notificationAuthideDelay);
-    }
-
-    hideNotification() {
-        this.setState({
-            showNotification: false
-        });
-    }
-
     render() {
         let contentContainerClasses = 'content-container';
         
@@ -81,13 +72,9 @@ export default class Layout extends Component {
                         toggleDrawer={StateToggler.bind(this, 'isDrawerOpen')}
                         filter={this.filter.bind(this)}
                         filtered={this.state.filtered} />
-                    <Notification
-                        text={this.state.notification}
-                        undoMethod={this.state.undoMethod}
-                        shown={this.state.showNotification} />
+                    <StatefullNotification />
                     <Home
-                        filter={this.state.filter}
-                        showNotification={this.showNotification.bind(this)} />
+                        filter={this.state.filter} />
                 </div>
                 <Footer />
                 {this.anythingCloser()}
@@ -95,6 +82,8 @@ export default class Layout extends Component {
         );
     }
 };
+
+export default Layout;
 
 Layout.propTypes = {
     title: React.PropTypes.string.isRequired

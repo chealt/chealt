@@ -1,7 +1,13 @@
 import React            from 'react';
+import { connect }      from 'react-redux';
+
 import ProfilePicture   from './profile-picture.jsx';
 import GrowingTextarea  from './growing-textarea.jsx';
 import LoadMore         from './load-more.jsx';
+import {
+    showNotification,
+    hideNotification
+} from '../actions/notification';
 import {
     postComment,
     deleteComment,
@@ -50,32 +56,40 @@ const newComment = (user, itemType, itemId) => {
     }
 };
 
-const deleteButton = (userId, comment, showNotification) => {
+const deleteButton = (userId, comment, showNotification, hideNotification) => {
     if (comment.user._id === userId) {
         return (
             <button
                 className='delete button neutral upper'
-                onClick={callDeleteComment.bind(null, comment._id, showNotification)}>delete</button>
+                onClick={callDeleteComment.bind(null, comment._id, showNotification, hideNotification)}>delete</button>
         );
     }
 };
 
-const callDeleteComment = (commentId, showNotification) => {
-    deleteComment.call(commentId, showRevertDeleteCommentNotification.bind(null, commentId, showNotification));
+const callDeleteComment = (commentId, showNotification, hideNotification) => {
+    deleteComment.call(commentId, showRevertDeleteCommentNotification.bind(null, commentId, showNotification, hideNotification));
 };
 
-const showRevertDeleteCommentNotification = (commentId, showNotification, error, result) => {
+const showRevertDeleteCommentNotification = (commentId, showNotification, hideNotification, error, result) => {
+    const notificationAutohideDelay = 1 * 3000;
+    
     if (result) {
         showNotification({
             text: 'You successfully deleted your comment!',
             undoMethod: () => {
-                revertDeleteComment.call(commentId);
+                revertDeleteComment.call(commentId, (error, result) => {
+                    if (result) {
+                        hideNotification();
+                    }
+                });
             }
         });
+
+        setTimeout(hideNotification, notificationAutohideDelay);
     }
 };
 
-export default CommentsList = ({ itemType, itemId, limit, commentsCount, loadMore, comments, user, showNotification }) => (
+const CommentsList = ({ itemType, itemId, limit, commentsCount, loadMore, comments, user, showNotification, hideNotification }) => (
     <div className='load-more-container separated top'>
         {loadMoreRender(limit, commentsCount, loadMore)}
         <ul className='comments-container'>
@@ -87,7 +101,7 @@ export default CommentsList = ({ itemType, itemId, limit, commentsCount, loadMor
                             <div className='comment-container'>
                                 {comment.message}
                             </div>
-                            {deleteButton(user._id, comment, showNotification)}
+                            {deleteButton(user._id, comment, showNotification, hideNotification)}
                         </div>
                     </li>
                 );
@@ -97,6 +111,19 @@ export default CommentsList = ({ itemType, itemId, limit, commentsCount, loadMor
     </div>
 );
 
+const mapDispatchToProps = (dispatch) => {
+    return {
+        showNotification: (props) => {
+            dispatch(showNotification(props));
+        },
+        hideNotification: () => {
+            dispatch(hideNotification());
+        }
+    };
+};
+
+export default connect(null, mapDispatchToProps)(CommentsList);
+
 CommentsList.propTypes = {
     itemType: React.PropTypes.string.isRequired,
     itemId: React.PropTypes.object.isRequired,
@@ -104,5 +131,6 @@ CommentsList.propTypes = {
     user: React.PropTypes.object,
     comments: React.PropTypes.array,
     commentsCount: React.PropTypes.number,
-    showNotification: React.PropTypes.func
+    showNotification: React.PropTypes.func,
+    hideNotification: React.PropTypes.func
 };

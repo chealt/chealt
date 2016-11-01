@@ -26,7 +26,6 @@ export default createContainer(({ filter, showNotification }) => {
 
     return {
         canComment: Boolean(Meteor.userId()),
-        events: eventsHandle.ready() ? Events.find(transformFilterInput(filter)).fetch() : [],
-        showNotification: showNotification
+        events: eventsHandle.ready() ? Events.find(transformFilterInput(filter)).fetch() : []
     };
 }, HomePage);
