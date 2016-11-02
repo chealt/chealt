@@ -1,17 +1,17 @@
 export const openDrawer = () => {
     return {
-        type: 'OPEN'
+        type: 'OPEN_DRAWER'
     };
 };
 
 export const closeDrawer = () => {
     return {
-        type: 'CLOSE'
+        type: 'CLOSE_DRAWER'
     };
 };
 
 export const toggleDrawer = () => {
     return {
-        type: 'TOGGLE'
+        type: 'TOGGLE_DRAWER'
     };
 };

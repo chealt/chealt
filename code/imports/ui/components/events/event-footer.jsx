@@ -1,6 +1,9 @@
 import React            from 'react';
+import { connect }      from 'react-redux';
+
 import Attendance       from './attendance.jsx';
 import TogglerButton    from '../toggler-button.jsx';
+import { toggleMap }    from '../../actions/map';
 
 const attendance = (guests, minAttendance, maxAttendance) => {
     if (guests) {
@@ -35,7 +38,7 @@ const commentToggler = (canComment, toggleComments, isCommentsShown) => {
     }
 };
 
-export default EventFooter = ({ guests, minAttendance, maxAttendance, hasMap, toggleMap, isMapShown, canComment, toggleComments, isCommentsShown }) => (
+const EventFooter = ({ guests, minAttendance, maxAttendance, hasMap, toggleMap, isMapShown, canComment, toggleComments, isCommentsShown }) => (
     <div className='footer row equal separated top'>
         <div className='figures-container'>
             {attendance(guests, minAttendance, maxAttendance)}
@@ -46,3 +49,13 @@ export default EventFooter = ({ guests, minAttendance, maxAttendance, hasMap, to
         </div>
     </div>
 );
+
+const mapDispatch = (dispatch) => {
+    return {
+        toggleMap: () => {
+            dispatch(toggleMap());
+        }
+    };
+};
+
+export default connect(null, mapDispatch)(EventFooter);

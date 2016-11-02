@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect }          from 'react-redux';
 
 import EventTitle           from './event-title.jsx';
 import EventHeader          from './event-header.jsx';
@@ -14,13 +15,12 @@ import {
     updateGeoCode
 } from '../../../api/events/methods.js';
 
-export default class Event extends Component {
+class Event extends Component {
     constructor(props) {
         super(props);
         
         this.state = {
             isCommentsShown: false,
-            isMapShown: false,
             commentLimit: 2
         };
     }
@@ -65,7 +65,7 @@ export default class Event extends Component {
             return (
                 <GoogleMap
                     geocode={this.props.event.geocode}
-                    isMapShown={this.state.isMapShown}
+                    isMapShown={this.props.isMapShown}
                     mapId={this.props.event._id.valueOf()} />
             );
         }
@@ -115,8 +115,7 @@ export default class Event extends Component {
                     guests={this.props.event.guests || []}
                     maxAttendance={this.props.event.maxAttendance}
                     minAttendance={this.props.event.minAttendance}
-                    isMapShown={this.state.isMapShown}
-                    toggleMap={StateToggler.bind(this, 'isMapShown')}
+                    isMapShown={this.props.isMapShown}
                     isCommentsShown={this.state.isCommentsShown}
                     canComment={this.props.canComment}
                     toggleComments={StateToggler.bind(this, 'isCommentsShown')}
@@ -125,6 +124,14 @@ export default class Event extends Component {
         );
     }
 };
+
+const mapState = ({ isMapShown }) => {
+    return {
+        isMapShown
+    };
+};
+
+export default connect(mapState)(Event);
 
 Event.propTypes = {
     event: React.PropTypes.object.isRequired

@@ -10,7 +10,7 @@ const filter = (state = initialState, action) => {
                 filter: action.filter,
                 isFiltered: Boolean(action.filter)
             };
-        case 'CLEAR':
+        case 'CLEAR_FILTER':
             return initialState;
         default:
             return state;

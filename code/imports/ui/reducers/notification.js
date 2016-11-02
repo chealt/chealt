@@ -6,13 +6,13 @@ const initialState = {
 
 const notification = (state = initialState, action) => {
     switch (action.type) {
-        case 'SHOW':
+        case 'SHOW_NOTIFICATION':
             return {
                 text: action.text,
                 undoMethod: action.undoMethod,
                 shown: true
             };
-        case 'HIDE':
+        case 'HIDE_NOTIFICATION':
             return Object.assign({}, state, {
                 shown: false
             });

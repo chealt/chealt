@@ -1,10 +1,10 @@
 const isDrawerOpen = (state = false, action) => {
     switch (action.type) {
-        case 'OPEN':
+        case 'OPEN_DRAWER':
             return true;
-        case 'CLOSE':
+        case 'CLOSE_DRAWER':
             return false;
-        case 'TOGGLE':
+        case 'TOGGLE_DRAWER':
             return !state;
         default:
             return state;

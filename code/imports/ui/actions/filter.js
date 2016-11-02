@@ -7,6 +7,6 @@ export const filter = (filter) => {
 
 export const clearFilter = () => {
     return {
-        type: 'CLEAR'
+        type: 'CLEAR_FILTER'
     };
 };

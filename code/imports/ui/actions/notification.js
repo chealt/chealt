@@ -1,6 +1,6 @@
 export const showNotification = ({ text, undoMethod }) => {
     return {
-        type: 'SHOW',
+        type: 'SHOW_NOTIFICATION',
         text,
         undoMethod
     };
@@ -8,6 +8,6 @@ export const showNotification = ({ text, undoMethod }) => {
 
 export const hideNotification = () => {
     return {
-        type: 'HIDE'
+        type: 'HIDE_NOTIFICATION'
     };
 };
