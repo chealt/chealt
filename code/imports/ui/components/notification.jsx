@@ -1,4 +1,5 @@
-import React from 'react';
+import React        from 'react';
+import { connect }  from 'react-redux';
 
 const renderUndoButton = (undoMethod) => {
     if (undoMethod) {
@@ -10,7 +11,7 @@ const renderUndoButton = (undoMethod) => {
     }
 };
 
-export default Notification = ({ text, shown, undoMethod }) => {
+const Notification = ({ text, shown, undoMethod }) => {
     let notificationClass = 'notification-container shadow';
 
     if (shown) {
@@ -24,6 +25,16 @@ export default Notification = ({ text, shown, undoMethod }) => {
         </div>
     );
 };
+
+const mapState = ({ notification }) => {
+    return {
+        text: notification.text,
+        undoMethod: notification.undoMethod,
+        shown: notification.shown
+    };
+};
+
+export default connect(mapState)(Notification);
 
 Notification.propTypes = {
     text: React.PropTypes.string.isRequired,

@@ -10,23 +10,13 @@ import StateToggler         from '../mixins/state-toggler';
 import Home                 from '../../containers/home';
 import { closeDrawer }      from '../../actions/drawer';
 
-const mapNotificationState = ({ notification }) => {
-    return {
-        text: notification.text,
-        undoMethod: notification.undoMethod,
-        shown: notification.shown
-    };
-};
-
-const StatefullNotification = connect(mapNotificationState)(Notification);
-
 class Layout extends Component {
     constructor(props) {
         super(props);
     }
 
     componentWillMount() {
-        document.title = this.props.title;  
+        document.title = this.props.title;
     }
 
     anythingCloser() {
@@ -46,7 +36,7 @@ class Layout extends Component {
             <div id='wrapper'>
                 <div className={contentContainerClasses}>
                     <Header />
-                    <StatefullNotification />
+                    <Notification />
                     <Home filter={this.props.filter} />
                 </div>
                 <Footer />
@@ -66,7 +56,7 @@ const mapState = ({ isDrawerOpen, filter }) => {
     };
 };
 
-const mapDrawerDispatch = (dispatch) => {
+const mapDispatch = (dispatch) => {
     return {
         closeDrawer: () => {
             dispatch(closeDrawer());
@@ -74,7 +64,7 @@ const mapDrawerDispatch = (dispatch) => {
     };
 };
 
-export default connect(mapState, mapDrawerDispatch)(Layout);
+export default connect(mapState, mapDispatch)(Layout);
 
 Layout.propTypes = {
     title: React.PropTypes.string.isRequired

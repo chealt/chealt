@@ -67,10 +67,10 @@ const deleteButton = (userId, comment, showNotification, hideNotification) => {
 };
 
 const callDeleteComment = (commentId, showNotification, hideNotification) => {
-    deleteComment.call(commentId, showRevertDeleteCommentNotification.bind(null, commentId, showNotification, hideNotification));
+    deleteComment.call(commentId, showUndoDeleteCommentNotification.bind(null, commentId, showNotification, hideNotification));
 };
 
-const showRevertDeleteCommentNotification = (commentId, showNotification, hideNotification, error, result) => {
+const showUndoDeleteCommentNotification = (commentId, showNotification, hideNotification, error, result) => {
     const notificationAutohideDelay = 1 * 3000;
     
     if (result) {
