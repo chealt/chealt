@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { connect }          from 'react-redux';
 
+import Footer               from './footer';
 import Header               from '../header/header';
 import Drawer               from '../drawer';
-import Home                 from '../../containers/home';
 import Notification         from '../notification';
 import AnythingCloser       from '../anything-closer';
-import Footer               from './footer';
 import StateToggler         from '../mixins/state-toggler';
+import Home                 from '../../containers/home';
 import { closeDrawer }      from '../../actions/drawer';
 
 const mapNotificationState = ({ notification }) => {

@@ -1,9 +1,12 @@
-import React            from 'react';
-import { connect }      from 'react-redux';
+import React                from 'react';
+import { connect }          from 'react-redux';
 
-import Attendance       from './attendance.jsx';
-import TogglerButton    from '../toggler-button.jsx';
-import { toggleMap }    from '../../actions/map';
+import Attendance           from './attendance.jsx';
+import TogglerButton        from '../toggler-button.jsx';
+import {
+    toggleEventMap,
+    toggleEventComments
+} from '../../actions/events';
 
 const attendance = (guests, minAttendance, maxAttendance) => {
     if (guests) {
@@ -16,46 +19,53 @@ const attendance = (guests, minAttendance, maxAttendance) => {
     }
 };
 
-const mapToggler = (hasMap, toggleMap, isMapShown) => {
+const mapToggler = (hasMap, toggleEventMap, isMapShown) => {
     if (hasMap) {
         return (
             <TogglerButton
                 type='map'
-                toggleFunction={toggleMap}
+                toggleFunction={toggleEventMap}
                 active={isMapShown} />
         );
     }
 };
 
-const commentToggler = (canComment, toggleComments, isCommentsShown) => {
+const commentToggler = (canComment, toggleEventComments, isCommentsShown) => {
     if (canComment) {
         return (
             <TogglerButton
                 type='bubbles4'
-                toggleFunction={toggleComments}
+                toggleFunction={toggleEventComments}
                 active={isCommentsShown} />
         );
     }
 };
 
-const EventFooter = ({ guests, minAttendance, maxAttendance, hasMap, toggleMap, isMapShown, canComment, toggleComments, isCommentsShown }) => (
+const EventFooter = ({ guests, minAttendance, maxAttendance, hasMap, toggleEventMap, isMapShown, canComment, toggleEventComments, isCommentsShown }) => (
     <div className='footer row equal separated top'>
         <div className='figures-container'>
             {attendance(guests, minAttendance, maxAttendance)}
         </div>
         <div className='controls-container'>
-            {mapToggler(hasMap, toggleMap, isMapShown)}
-            {commentToggler(canComment, toggleComments, isCommentsShown)}
+            {mapToggler(hasMap, toggleEventMap, isMapShown)}
+            {commentToggler(canComment, toggleEventComments, isCommentsShown)}
         </div>
     </div>
 );
 
-const mapDispatch = (dispatch) => {
+const mapDispatch = (dispatch, ownProps) => {
     return {
-        toggleMap: () => {
-            dispatch(toggleMap());
+        toggleEventMap: () => {
+            dispatch(toggleEventMap(ownProps.eventId));
+        },
+        toggleEventComments: () => {
+            dispatch(toggleEventComments(ownProps.eventId));
         }
     };
 };
 
 export default connect(null, mapDispatch)(EventFooter);
+
+EventFooter.propTypes = {
+    eventId: React.PropTypes.object.isRequired
+};

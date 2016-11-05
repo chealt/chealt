@@ -62,6 +62,6 @@ export default class GoogleMap extends Component {
 
 GoogleMap.propTypes = {
     geocode: React.PropTypes.object.isRequired,
-    isMapShown: React.PropTypes.bool.isRequired,
-    mapId: React.PropTypes.string.isRequired
+    mapId: React.PropTypes.string.isRequired,
+    isMapShown: React.PropTypes.bool
 };

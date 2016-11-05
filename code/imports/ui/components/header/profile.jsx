@@ -1,66 +1,65 @@
 import React, { Component } from 'react';
-import ProfileInfo          from './profile-info.jsx';
-import Logout               from './logout.jsx';
-import ProfilePicture       from '../profile-picture.jsx';
-import AnythingCloser       from '../anything-closer.jsx';
-import Bubble               from '../bubble.jsx';
-import BubbleArrow          from '../bubble-arrow.jsx';
+import { connect }          from 'react-redux';
 
-export default class Profile extends Component {
-    constructor(props) {
-        super(props);
+import ProfileInfo          from './profile-info';
+import Logout               from './logout';
+import ProfilePicture       from '../profile-picture';
+import AnythingCloser       from '../anything-closer';
+import Bubble               from '../bubble';
+import BubbleArrow          from '../bubble-arrow';
+import {
+    toggleProfileBubble,
+    closeProfileBubble
+} from '../../actions/profile';
 
-        this.state = {
-            isBubbleShown: false
-        };
-    }
-
-    toggleBubble() {
-        this.setState({
-            isBubbleShown: !this.state.isBubbleShown
-        });
-    }
-
-    closeBubble() {
-        this.setState({
-            isBubbleShown: false
-        });
-    }
-
-    anythingCloser() {
-        if (this.state.isBubbleShown) {
-            return <AnythingCloser onClick={this.closeBubble.bind(this)} />;
-        }
-    }
-
-    getBubbleContent() {
-        return (
-            <div className='profile-bubble-content'>
-                <ProfileInfo
-                    profile={this.props.user.profile} />
-                <Logout />
-            </div>
-        );
-    }
-
-    render() {
-        return (
-            <div className='profile-container bubble-container'>
-                <ProfilePicture
-                    user={this.props.user.profile}
-                    onPictureClick={this.toggleBubble.bind(this)} />
-                <BubbleArrow
-                    position='below'
-                    isShown={this.state.isBubbleShown} />
-                <Bubble
-                    position='below'
-                    isShown={this.state.isBubbleShown}
-                    content={this.getBubbleContent()} />
-                {this.anythingCloser()}
-            </div>
-        );
+const anythingCloser = (isBubbleShown, closeProfileBubble) => {
+    if (isBubbleShown) {
+        return <AnythingCloser onClick={closeProfileBubble} />;
     }
 };
+
+const getBubbleContent = (profile) => (
+    <div className='profile-bubble-content'>
+        <ProfileInfo
+            profile={profile} />
+        <Logout />
+    </div>
+);
+
+const Profile = ({ user, toggleProfileBubble, closeProfileBubble, isBubbleShown }) => (
+    <div className='profile-container bubble-container'>
+        <ProfilePicture
+            user={user.profile}
+            onPictureClick={toggleProfileBubble} />
+        <BubbleArrow
+            position='below'
+            isShown={isBubbleShown} />
+        <Bubble
+            position='below'
+            isShown={isBubbleShown}
+            content={getBubbleContent(user.profile)} />
+        {anythingCloser(isBubbleShown, closeProfileBubble)}
+    </div>
+);
+
+const mapState = ({ profile }) => {
+    return {
+        isBubbleShown: profile.isBubbleShown
+    };
+};
+
+const mapDispatch = (dispatch) => {
+    return {
+        toggleProfileBubble: () => {
+            dispatch(toggleProfileBubble());
+        },
+        closeProfileBubble: () => {
+            dispatch(closeProfileBubble());
+        }
+    }
+};
+
+export default connect(mapState, mapDispatch)(Profile);
 
 Profile.propTypes = {
     user: React.PropTypes.object.isRequired

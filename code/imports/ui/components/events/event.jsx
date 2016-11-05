@@ -1,30 +1,21 @@
 import React, { Component } from 'react';
 import { connect }          from 'react-redux';
 
-import EventTitle           from './event-title.jsx';
-import EventHeader          from './event-header.jsx';
-import EventFooter          from './event-footer.jsx';
-import StateToggler         from '../mixins/state-toggler.jsx';
-import GoogleMap            from '../google-map.jsx';
-import Guests               from '../../containers/guests.jsx';
-import Comments             from '../../containers/comments.jsx';
-
+import EventTitle           from './event-title';
+import EventHeader          from './event-header';
+import EventFooter          from './event-footer';
+import StateToggler         from '../mixins/state-toggler';
+import GoogleMap            from '../google-map';
+import Guests               from '../../containers/guests';
+import Comments             from '../../containers/comments';
+import { showMoreComments } from '../../actions/events';
 import {
     attendEvent,
     unattendEvent,
     updateGeoCode
-} from '../../../api/events/methods.js';
+} from '../../../api/events/methods';
 
 class Event extends Component {
-    constructor(props) {
-        super(props);
-        
-        this.state = {
-            isCommentsShown: false,
-            commentLimit: 2
-        };
-    }
-
     componentDidMount() {
         if (!this.props.event.geocode) {
             updateGeoCode.call({
@@ -43,21 +34,15 @@ class Event extends Component {
     }
 
     commentsList() {
-        if (this.state.isCommentsShown) {
+        if (this.props.event.isCommentsShown) {
             return (
                 <Comments
                     itemType='event'
                     itemId={this.props.event._id}
-                    commentLimit={this.state.commentLimit}
-                    loadMore={this.loadMoreComments.bind(this)} />
+                    commentLimit={this.props.event.commentLimit}
+                    loadMore={this.props.showMoreComments} />
             );
         }
-    }
-
-    loadMoreComments() {
-        this.setState({
-            commentLimit: this.state.commentLimit + 2
-        });
     }
 
     googleMap() {
@@ -65,7 +50,7 @@ class Event extends Component {
             return (
                 <GoogleMap
                     geocode={this.props.event.geocode}
-                    isMapShown={this.props.isMapShown}
+                    isMapShown={this.props.event.isMapShown}
                     mapId={this.props.event._id.valueOf()} />
             );
         }
@@ -112,26 +97,28 @@ class Event extends Component {
                 {this.commentsList()}
                 {this.googleMap()}
                 <EventFooter
+                    eventId={this.props.event._id}
                     guests={this.props.event.guests || []}
                     maxAttendance={this.props.event.maxAttendance}
                     minAttendance={this.props.event.minAttendance}
-                    isMapShown={this.props.isMapShown}
-                    isCommentsShown={this.state.isCommentsShown}
+                    isMapShown={this.props.event.isMapShown}
+                    isCommentsShown={this.props.event.isCommentsShown}
                     canComment={this.props.canComment}
-                    toggleComments={StateToggler.bind(this, 'isCommentsShown')}
                     hasMap={Boolean(this.props.event.geocode)} />
             </div>
         );
     }
 };
 
-const mapState = ({ isMapShown }) => {
+const mapDispatch = (dispatch, ownProps) => {
     return {
-        isMapShown
+        showMoreComments: () => {
+            dispatch(showMoreComments(ownProps.event._id));
+        }
     };
 };
 
-export default connect(mapState)(Event);
+export default connect(null, mapDispatch)(Event);
 
 Event.propTypes = {
     event: React.PropTypes.object.isRequired
