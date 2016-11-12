@@ -1,5 +1,6 @@
 import React    from 'react';
-import Icon     from '../icon.jsx';
+
+import Icon     from '../common/icon.jsx';
 
 export default DrawerOpener = ({ toggleDrawer, id }) => (
     <button

@@ -1,5 +1,6 @@
 import React    from 'react';
-import Tooltip  from './tooltip.jsx';
+
+import Tooltip  from './common/tooltip.jsx';
 
 const profilePicture = (user, onPictureClick) => {
     if (user.picture) {

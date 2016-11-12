@@ -2,8 +2,8 @@ import React            from 'react';
 import { connect }      from 'react-redux';
 
 import ProfilePicture   from './profile-picture.jsx';
-import GrowingTextarea  from './growing-textarea.jsx';
 import LoadMore         from './load-more.jsx';
+import GrowingTextarea  from './common/growing-textarea.jsx';
 import {
     showNotification,
     hideNotification

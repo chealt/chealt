@@ -2,7 +2,7 @@ import React                from 'react';
 import { connect }          from 'react-redux';
 
 import Attendance           from './attendance.jsx';
-import TogglerButton        from '../toggler-button.jsx';
+import TogglerButton        from '../common/buttons/toggler-button.jsx';
 import {
     toggleEventMap,
     toggleEventComments

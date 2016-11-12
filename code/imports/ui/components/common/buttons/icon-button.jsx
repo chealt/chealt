@@ -1,5 +1,6 @@
 import React    from 'react';
-import Icon     from './icon.jsx';
+
+import Icon     from '../icon.jsx';
 
 const renderText = (text) => {
     if (text) {

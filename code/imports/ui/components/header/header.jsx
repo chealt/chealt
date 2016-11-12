@@ -2,7 +2,7 @@ import React            from 'react';
 import { connect }      from 'react-redux';
 
 import DrawerOpener     from './drawer-opener.jsx';
-import Icon             from '../icon.jsx';
+import Icon             from '../common/icon.jsx';
 import HeaderProfile    from '../../containers/header-profile.jsx';
 import { toggleDrawer } from '../../actions/drawer';
 import { filter }       from '../../actions/filter';

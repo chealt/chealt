@@ -1,5 +1,6 @@
 import React        from 'react';
-import Icon         from '../icon.jsx';
+
+import Icon         from '../common/icon.jsx';
 import FormatTime   from '../helpers/format-time.jsx';
 
 const getTime = (start, end) => {

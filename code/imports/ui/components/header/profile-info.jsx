@@ -1,4 +1,5 @@
 import React        from 'react';
+
 import SportsIcon   from '../sports-icon.jsx';
 
 const renderWeight = (weight) => {

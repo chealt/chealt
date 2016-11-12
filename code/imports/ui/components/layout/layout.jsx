@@ -3,9 +3,9 @@ import { connect }          from 'react-redux';
 
 import Footer               from './footer';
 import Header               from '../header/header';
-import Drawer               from '../drawer';
-import Notification         from '../notification';
-import AnythingCloser       from '../anything-closer';
+import Drawer               from '../header/drawer';
+import Notification         from '../common/notification';
+import AnythingCloser       from '../common/anything-closer';
 import StateToggler         from '../mixins/state-toggler';
 import Home                 from '../../containers/home';
 import { closeDrawer }      from '../../actions/drawer';

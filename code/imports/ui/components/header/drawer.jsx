@@ -1,8 +1,8 @@
 import React            from 'react';
 import { connect }      from 'react-redux';
 
-import DrawerOpener     from './header/drawer-opener.jsx';
-import { toggleDrawer } from '../actions/drawer';
+import DrawerOpener     from './drawer-opener.jsx';
+import { toggleDrawer } from '../../actions/drawer';
 
 const Drawer = ({ toggleDrawer, isDrawerOpen, id, items }) => {
     let className = 'side-drawer shadow';

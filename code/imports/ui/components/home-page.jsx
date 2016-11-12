@@ -2,8 +2,8 @@ import React                    from 'react';
 import { connect }              from 'react-redux';
 
 import CreateButton             from './create-button';
-import { openEventCreator }     from '../actions/create-event';
 import Event                    from './events/event.jsx';
+import { openEventCreator }     from '../actions/create-event';
 
 const renderEvents = (events, canComment) => {
     return events.map((event) => (
@@ -35,9 +35,11 @@ const mapState = ({ events }, ownProps) => {
 };
 
 const mapDispatch = (dispatch) => {
-    openEventCreator: () => {
-        dispatch(openEventCreator());
-    }
+    return {
+        openEventCreator: () => {
+            dispatch(openEventCreator());
+        }
+    };
 };
 
 export default connect(mapState, mapDispatch)(HomePage);

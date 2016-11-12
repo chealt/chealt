@@ -4,9 +4,9 @@ import { connect }          from 'react-redux';
 import ProfileInfo          from './profile-info';
 import Logout               from './logout';
 import ProfilePicture       from '../profile-picture';
-import AnythingCloser       from '../anything-closer';
-import Bubble               from '../bubble';
-import BubbleArrow          from '../bubble-arrow';
+import AnythingCloser       from '../common/anything-closer';
+import Bubble               from '../common/bubble';
+import BubbleArrow          from '../common/bubble-arrow';
 import {
     toggleProfileBubble,
     closeProfileBubble

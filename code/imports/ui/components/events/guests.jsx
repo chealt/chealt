@@ -1,6 +1,7 @@
 import React        from 'react';
+
 import ProfileList  from '../profile-list.jsx';
-import MainButton   from '../main-button.jsx';
+import MainButton   from '../common/buttons/main-button.jsx';
 
 const isUserAttending = (guests, user) => guests.some((guest) => guest._id === user._id);
 
