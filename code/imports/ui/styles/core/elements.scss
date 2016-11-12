@@ -17,6 +17,10 @@
     padding: 8px 12px;
     user-select: none;
 
+    &.shadow {
+        box-shadow: rgba(0, 0, 0, .3) 0 6px 10px 0;
+    }
+
     &.selectable {
         user-select: auto;
     }
@@ -34,6 +38,12 @@
             background-color: $color-main-background-invert;
             color: $color-main-text-invert;
         }
+    }
+
+    &.circular {
+        border-radius: 50%;
+        padding: 19px;
+        line-height: 0;
     }
 
     &.neutral {
