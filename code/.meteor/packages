@@ -46,4 +46,4 @@ static-html
 ecmascript@0.5.9
 react-meteor-data
 mdg:validated-method
-shell-server
+shell-server@0.2.1
