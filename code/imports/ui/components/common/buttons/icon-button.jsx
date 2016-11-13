@@ -11,7 +11,7 @@ const renderText = (text) => {
 };
 
 export default IconButton = ({ additionalClasses, isUnstyled, action, type, text }) => {
-    let classNames = 'button';
+    let classNames = 'button with-icon';
 
     if (additionalClasses) {
         classNames += ' ' + additionalClasses;

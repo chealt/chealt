@@ -6,14 +6,6 @@
     width: 100%;
     box-sizing: border-box;
     padding: $gutter-size;
-    z-index: $highest-z;
-    visibility: hidden;
-    opacity: 0;
-    transition: visibility .6s ease, opacity .6s ease;
+    z-index: $high-z;
     background-color: $color-notification;
-
-    &.shown {
-        opacity: .95;
-        visibility: visible;
-    }
 }

@@ -1,5 +1,6 @@
-import React        from 'react';
-import { connect }  from 'react-redux';
+import React                    from 'react';
+import { connect }              from 'react-redux';
+import ReactCSSTransitionGroup  from 'react-addons-css-transition-group';
 
 const renderUndoButton = (undoMethod) => {
     if (undoMethod) {
@@ -11,20 +12,25 @@ const renderUndoButton = (undoMethod) => {
     }
 };
 
-const Notification = ({ text, shown, undoMethod }) => {
-    let notificationClass = 'notification-container shadow';
-
+const renderNotification = (shown, text, undoMethod) => {
     if (shown) {
-        notificationClass += ' shown';
+        return (
+            <div className='notification-container shadow'>
+                <span className="text">{text}</span>
+                {renderUndoButton(undoMethod)}
+            </div>
+        );
     }
+}
 
-    return (
-        <div className={notificationClass}>
-            <span className="text">{text}</span>
-            {renderUndoButton(undoMethod)}
-        </div>
-    );
-};
+const Notification = ({ shown, text, undoMethod }) => (
+    <ReactCSSTransitionGroup
+        transitionName='fader'
+        transitionEnterTimeout={600}
+        transitionLeaveTimeout={600}>
+        {renderNotification(shown, text, undoMethod)}
+    </ReactCSSTransitionGroup>
+);
 
 const mapState = ({ notification }) => {
     return {
@@ -37,7 +43,7 @@ const mapState = ({ notification }) => {
 export default connect(mapState)(Notification);
 
 Notification.propTypes = {
-    text: React.PropTypes.string.isRequired,
     shown: React.PropTypes.bool.isRequired,
+    text: React.PropTypes.string.isRequired,
     undoMethod: React.PropTypes.func
 };

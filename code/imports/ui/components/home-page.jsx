@@ -2,7 +2,8 @@ import React                    from 'react';
 import { connect }              from 'react-redux';
 
 import CreateButton             from './create-button';
-import Event                    from './events/event.jsx';
+import Event                    from './events/event';
+import CreateEvent              from './events/create-event';
 import { openEventCreator }     from '../actions/create-event';
 
 const renderEvents = (events, canComment) => {
@@ -14,11 +15,12 @@ const renderEvents = (events, canComment) => {
     ));
 };
 
-const HomePage = ({ events, canComment, openEventCreator }) => (
+const HomePage = ({ events, canComment, openEventCreator, createEvent }) => (
     <div className='cards-container padded'>
         {renderEvents(events, canComment)}
         <CreateButton
             createMethod={openEventCreator} />
+        <CreateEvent />
     </div>
 );
 

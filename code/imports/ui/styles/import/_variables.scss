@@ -2,6 +2,9 @@
 $gutter-size:                           12px;
 $app-bar-height:                        60px;
 
+/* PADDINGS */
+$button-padding:                        8px 12px;
+
 /* FONT SIZES */
 $font-size-largest:                     24px;
 $font-size-large:                       18px;
@@ -23,6 +26,7 @@ $color-main-text:                       #fff;
 $color-main-background-invert:          $color-main-text;
 $color-main-text-invert:                $color-main-background;
 $color-neutral-background:              #e5e5e5;
+$color-light-background:                #fff;
 $color-light-neutral-background:        #f5f5f5;
 $color-dark-neutral-background:         #ccc;
 $color-list-item-highlight:             #f0f0f0;

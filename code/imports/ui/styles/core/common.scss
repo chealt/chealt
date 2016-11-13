@@ -46,6 +46,37 @@
     }
 }
 
+.absolute {
+    position: absolute;
+
+    &.top {
+        top: $gutter-size;
+    }
+
+    &.right {
+        right: $gutter-size;
+    }
+}
+
+.fader-enter {
+    opacity: 0;
+
+    &.fader-enter-active {
+        opacity: 1;
+        transition: opacity .6s ease;
+    }
+}
+
+.fader-leave {
+    opacity: 1;
+
+    &.fader-leave-active {
+        opacity: 0;
+        transition: opacity .6s ease;
+    }
+}
+
+
 @media (min-width: 600px) {
     .padded {
         padding: $gutter-size;
