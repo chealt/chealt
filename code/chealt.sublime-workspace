@@ -4,6 +4,46 @@
 		"selected_items":
 		[
 			[
+				"creevent",
+				"createEvent"
+			],
+			[
+				"backgrou",
+				"background-color: "
+			],
+			[
+				"Creevent",
+				"CreateEvent"
+			],
+			[
+				"createvent",
+				"createEvent"
+			],
+			[
+				"creaevent",
+				"createEvent"
+			],
+			[
+				"Reac",
+				"React.PropTypes.func"
+			],
+			[
+				"paddin",
+				"padding: "
+			],
+			[
+				"Pro",
+				"PropTypes.func"
+			],
+			[
+				"toggleve",
+				"toggleEventComments"
+			],
+			[
+				"hompacon",
+				"HomePageContainer"
+			],
+			[
 				"mapdra",
 				"mapDrawerState"
 			],
@@ -22,10 +62,6 @@
 			[
 				"Rea",
 				"React.PropTypes.func"
-			],
-			[
-				"Reac",
-				"React.PropTypes.bool"
 			],
 			[
 				"loamore",
@@ -352,10 +388,6 @@
 				"deleteComment"
 			],
 			[
-				"paddin",
-				"padding-top: "
-			],
-			[
 				"borde",
 				"border-style: "
 			],
@@ -482,83 +514,26 @@
 			[
 				"Re",
 				"RegExp"
-			],
-			[
-				"color-main",
-				"color-main-background"
-			],
-			[
-				"isAt",
-				"isAttending"
-			],
-			[
-				"guestbutton",
-				"guestButtonAction"
-			],
-			[
-				"fun",
-				"function\tReact.PropTypes.func"
-			],
-			[
-				"contecon",
-				"contentContainerClasses"
-			],
-			[
-				"box-",
-				"box-sizing: "
-			],
-			[
-				"background",
-				"background-color: "
-			],
-			[
-				"inlin",
-				"inline-block"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "imports/ui/reducers/maps.js",
+			"file": "imports/ui/components/common/full-page-modal.jsx",
 			"settings":
 			{
-				"buffer_size": 600,
+				"buffer_size": 820,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "imports/ui/components/events/event.jsx",
+			"file": "imports/ui/styles/components/common/full-page-modal.scss",
 			"settings":
 			{
-				"buffer_size": 4168,
+				"buffer_size": 388,
 				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "imports/ui/components/events/event-footer.jsx",
-			"settings":
-			{
-				"buffer_size": 1752,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "imports/ui/components/layout/layout.jsx",
-			"settings":
-			{
-				"buffer_size": 2171,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "imports/ui/components/home-page.jsx",
-			"settings":
-			{
-				"buffer_size": 539,
 				"line_ending": "Windows"
 			}
 		}
@@ -772,37 +747,87 @@
 		"/C/Users/Attila/Code/chealt/code",
 		"/C/Users/Attila/Code/chealt/code/imports",
 		"/C/Users/Attila/Code/chealt/code/imports/ui",
-		"/C/Users/Attila/Code/chealt/code/imports/ui/reducers",
+		"/C/Users/Attila/Code/chealt/code/imports/ui/styles",
+		"/C/Users/Attila/Code/chealt/code/imports/ui/styles/import",
 		"/C/Users/Attila/Code/chealt/code/server"
 	],
 	"file_history":
 	[
-		"/C/Users/Attila/Code/chealt/code/imports/ui/containers/home.jsx",
+		"/C/Users/Attila/Code/chealt/code/imports/ui/styles/core/common.scss",
+		"/C/Users/Attila/Code/chealt/code/imports/ui/components/home-page.jsx",
+		"/C/Users/Attila/Code/chealt/code/imports/ui/components/events/create-event.jsx",
+		"/C/Users/Attila/Code/chealt/code/imports/ui/components/common/notification.jsx",
+		"/C/Users/Attila/Code/chealt/code/imports/ui/components/create-button.jsx",
 		"/C/Users/Attila/Code/chealt/code/imports/ui/components/layout/layout.jsx",
-		"/C/Users/Attila/Code/chealt/code/imports/ui/reducers/notification.js",
-		"/C/Users/Attila/Code/chealt/code/imports/ui/reducers/filter.js",
+		"/C/Users/Attila/Code/chealt/code/node_modules/react/lib/ReactCSSTransitionGroup.js",
+		"/C/Users/Attila/Code/chealt/code/imports/ui/components/common/full-page-modal.jsx",
+		"/C/Users/Attila/Code/chealt/code/imports/ui/styles/components/common/notification.scss",
+		"/C/Users/Attila/Code/chealt/code/imports/ui/styles/components/common/full-page-modal.scss",
+		"/C/Users/Attila/Code/chealt/code/package.json",
+		"/C/Users/Attila/Code/chealt/code/imports/ui/components/common/growing-textarea.jsx",
+		"/C/Users/Attila/Code/chealt/code/imports/ui/components/events/event.jsx",
+		"/C/Users/Attila/Code/chealt/code/imports/ui/styles/import/_variables.scss",
+		"/C/Users/Attila/Code/chealt/code/imports/ui/styles/import/_mixins.scss",
+		"/C/Users/Attila/Code/chealt/code/imports/ui/components/common/buttons/icon-button.jsx",
+		"/C/Users/Attila/Code/chealt/code/imports/ui/styles/core/elements.scss",
+		"/C/Users/Attila/Code/chealt/code/imports/ui/styles/components/header.scss",
+		"/C/Users/Attila/Code/chealt/code/imports/ui/styles/components/home.scss",
+		"/C/Users/Attila/Code/chealt/code/imports/ui/reducers/create-event.js",
+		"/C/Users/Attila/Code/chealt/code/imports/ui/actions/create-event.js",
+		"/C/Users/Attila/Code/chealt/code/imports/ui/components/header/drawer.jsx",
+		"/C/Users/Attila/Code/chealt/code/imports/ui/components/events/event-footer.jsx",
+		"/C/Users/Attila/Code/chealt/code/imports/ui/components/events/guests.jsx",
+		"/C/Users/Attila/Code/chealt/code/imports/ui/components/header/logout.jsx",
+		"/C/Users/Attila/Code/chealt/code/imports/ui/components/header/header.jsx",
+		"/C/Users/Attila/Code/chealt/code/imports/ui/components/comments-list.jsx",
+		"/C/Users/Attila/Code/chealt/code/imports/ui/components/profile-picture.jsx",
+		"/C/Users/Attila/Code/chealt/code/imports/ui/components/header/profile-info.jsx",
+		"/C/Users/Attila/Code/chealt/code/imports/ui/components/header/drawer-opener.jsx",
+		"/C/Users/Attila/Code/chealt/code/imports/ui/components/events/event-header.jsx",
+		"/C/Users/Attila/Code/chealt/code/imports/ui/components/common/buttons/toggler-button.jsx",
+		"/C/Users/Attila/Code/chealt/code/imports/ui/components/header/login.jsx",
+		"/C/Users/Attila/Code/chealt/code/imports/ui/components/header/profile.jsx",
+		"/C/Users/Attila/Code/chealt/code/client/main.scss",
+		"/C/Users/Attila/Code/chealt/code/imports/ui/styles/components/drawer.scss",
+		"/C/Users/Attila/Code/chealt/code/imports/ui/styles/components/events.scss",
+		"/C/Users/Attila/Code/chealt/code/imports/ui/styles/components/footer.scss",
+		"/C/Users/Attila/Code/chealt/code/imports/ui/styles/components/image-list.scss",
+		"/C/Users/Attila/Code/chealt/code/imports/ui/styles/components/profile-info.scss",
+		"/C/Users/Attila/Code/chealt/code/imports/ui/styles/components/profile-picture.scss",
+		"/C/Users/Attila/Code/chealt/code/imports/ui/styles/components/comment-list.scss",
+		"/C/Users/Attila/Code/chealt/code/imports/ui/styles/components/activity-list.scss",
+		"/C/Users/Attila/Code/chealt/code/imports/ui/styles/components/common/bubble.scss",
+		"/C/Users/Attila/Code/chealt/code/imports/ui/styles/bubble.scss",
+		"/C/Users/Attila/Code/chealt/code/imports/ui/reducers/index.js",
+		"/C/Users/Attila/Code/chealt/code/imports/ui/reducers/createEvent.js",
+		"/C/Users/Attila/Code/chealt/code/imports/ui/actions/createEvent.js",
+		"/C/Users/Attila/Code/chealt/code/imports/ui/components/image-list.jsx",
+		"/C/Users/Attila/Code/chealt/code/imports/ui/styles/core/icons.scss",
 		"/C/Users/Attila/Code/chealt/code/imports/ui/reducers/drawer.js",
-		"/C/Users/Attila/Code/chealt/code/imports/ui/actions/filter.js",
+		"/C/Users/Attila/Code/chealt/code/imports/ui/components/events/event-title.jsx",
+		"/C/Users/Attila/Code/chealt/code/imports/ui/components/sports-icon.jsx",
+		"/C/Users/Attila/Code/chealt/code/imports/ui/components/notification.jsx",
 		"/C/Users/Attila/Code/chealt/code/imports/ui/actions/notification.js",
+		"/C/Users/Attila/Code/chealt/code/server/profile.jsx",
+		"/C/Users/Attila/Code/chealt/code/imports/ui/reducers/profile.js",
+		"/C/Users/Attila/Code/chealt/code/imports/ui/reducers/_profile.js",
+		"/C/Users/Attila/Code/chealt/code/imports/ui/reducers/notification.js",
+		"/C/Users/Attila/Code/chealt/code/imports/ui/reducers/events.js",
+		"/C/Users/Attila/Code/chealt/code/imports/ui/components/google-map.jsx",
+		"/C/Users/Attila/Code/chealt/code/imports/ui/actions/events.js",
+		"/C/Users/Attila/Code/chealt/code/imports/ui/actions/filter.js",
+		"/C/Users/Attila/Code/chealt/code/imports/ui/containers/home.jsx",
+		"/C/Users/Attila/Code/chealt/code/imports/ui/components/toggler-button.jsx",
+		"/C/Users/Attila/Code/chealt/code/client/main.jsx",
+		"/C/Users/Attila/Code/chealt/code/imports/ui/reducers/filter.js",
 		"/C/Users/Attila/Code/chealt/code/imports/ui/actions/drawer.js",
 		"/C/Users/Attila/Code/chealt/code/imports/ui/actions/map.js",
 		"/C/Users/Attila/Code/chealt/code/imports/ui/reducers/map.js",
-		"/C/Users/Attila/Code/chealt/code/imports/ui/reducers/index.js",
-		"/C/Users/Attila/Code/chealt/code/imports/ui/components/header/header.jsx",
 		"/C/Users/Attila/Code/chealt/code/imports/ui/components/drawer.jsx",
 		"/C/Users/Attila/Code/chealt/code/imports/ui/styles/drawer.scss",
-		"/C/Users/Attila/Code/chealt/code/imports/ui/styles/import/_variables.scss",
-		"/C/Users/Attila/Code/chealt/code/imports/ui/components/comments-list.jsx",
 		"/C/Users/Attila/Code/chealt/code/imports/ui/styles/notification.scss",
-		"/C/Users/Attila/Code/chealt/code/imports/ui/components/notification.jsx",
 		"/C/Users/Attila/Code/chealt/code/imports/ui/containers/comments.jsx",
-		"/C/Users/Attila/Code/chealt/code/imports/ui/components/events/event.jsx",
-		"/C/Users/Attila/Code/chealt/code/imports/ui/components/home-page.jsx",
-		"/C/Users/Attila/Code/chealt/code/client/main.jsx",
 		"/C/Users/Attila/Code/chealt/code/imports/ui/styles/core/normalize.scss",
-		"/C/Users/Attila/Code/chealt/code/client/main.scss",
-		"/C/Users/Attila/Code/chealt/code/imports/ui/styles/core/elements.scss",
-		"/C/Users/Attila/Code/chealt/code/imports/ui/styles/core/common.scss",
 		"/C/Users/Attila/Code/chealt/code/imports/api/comments/server/publications.js",
 		"/C/Users/Attila/Code/chealt/code/imports/api/comments/methods.js",
 		"/C/Users/Attila/Code/chealt/code/imports/api/comments/comments.js",
@@ -811,29 +836,18 @@
 		"/C/Users/Attila/Code/chealt/code/imports/api/events/server/publications.js",
 		"/C/Users/Attila/Code/chealt/code/imports/ui/styles/header.scss",
 		"/C/Users/Attila/Code/chealt/code/imports/ui/styles/home.scss",
-		"/C/Users/Attila/Code/chealt/code/imports/ui/components/events/event-footer.jsx",
 		"/C/Users/Attila/Code/chealt/code/imports/ui/styles/events.scss",
 		"/C/Users/Attila/Code/chealt/code/imports/ui/components/bubble.jsx",
 		"/C/Users/Attila/Code/chealt/code/imports/ui/components/bubble-arrow.jsx",
 		"/C/Users/Attila/Code/chealt/code/imports/ui/components/icon-button.jsx",
-		"/C/Users/Attila/Code/chealt/code/imports/ui/components/image-list.jsx",
 		"/C/Users/Attila/Code/chealt/code/imports/ui/components/load-more.jsx",
 		"/C/Users/Attila/Code/chealt/code/imports/ui/components/main-button.jsx",
-		"/C/Users/Attila/Code/chealt/code/imports/ui/components/profile-picture.jsx",
-		"/C/Users/Attila/Code/chealt/code/imports/ui/components/header/profile.jsx",
 		"/C/Users/Attila/Code/chealt/code/imports/ui/components/profile-list.jsx",
-		"/C/Users/Attila/Code/chealt/code/imports/ui/components/header/drawer-opener.jsx",
 		"/C/Users/Attila/Code/chealt/code/imports/ui/components/header/header-profile.jsx",
-		"/C/Users/Attila/Code/chealt/code/imports/ui/components/header/login.jsx",
-		"/C/Users/Attila/Code/chealt/code/imports/ui/components/header/logout.jsx",
-		"/C/Users/Attila/Code/chealt/code/imports/ui/components/header/profile-info.jsx",
 		"/C/Users/Attila/Code/chealt/code/imports/ui/components/helpers/format-date.jsx",
 		"/C/Users/Attila/Code/chealt/code/imports/ui/components/helpers/format-time.jsx",
 		"/C/Users/Attila/Code/chealt/code/imports/ui/components/layout/footer.jsx",
 		"/C/Users/Attila/Code/chealt/code/imports/ui/components/mixins/state-toggler.jsx",
-		"/C/Users/Attila/Code/chealt/code/imports/ui/components/events/guests.jsx",
-		"/C/Users/Attila/Code/chealt/code/imports/ui/components/events/event-title.jsx",
-		"/C/Users/Attila/Code/chealt/code/imports/ui/components/events/event-header.jsx",
 		"/C/Users/Attila/Code/chealt/code/imports/ui/components/events/attendance.jsx",
 		"/C/Users/Attila/Code/chealt/code/imports/ui/containers/guests.jsx",
 		"/C/Users/Attila/Code/chealt/code/imports/ui/containers/header-profile.jsx",
@@ -849,7 +863,6 @@
 		"/C/Users/Attila/Code/chealt/code/imports/ui/components/event.jsx",
 		"/C/Users/Attila/Code/chealt/code/imports/ui/containers/Home.jsx",
 		"/C/Users/Attila/Code/chealt/code/imports/ui/components/image-uploader.jsx",
-		"/C/Users/Attila/Code/chealt/code/imports/ui/components/google-map.jsx",
 		"/C/Users/Attila/Code/chealt/code/imports/ui/containers/Comments.jsx",
 		"/C/Users/Attila/Code/chealt/code/server/geocoding.jsx",
 		"/C/Users/Attila/Code/chealt/code/imports/ui/components/growing-textarea.jsx",
@@ -861,50 +874,13 @@
 		"/C/Users/Attila/Code/chealt/code/.meteor/local/build/programs/server/packages/babel-compiler.js",
 		"/C/Users/Attila/Code/chealt/code/imports/ui/components/header-profile.jsx",
 		"/C/Users/Attila/Code/chealt/code/imports/ui/components/logout.jsx",
-		"/C/Users/Attila/Code/chealt/code/server/profile.jsx",
 		"/C/Users/Attila/Code/chealt/code/imports/ui/components/guests.jsx",
 		"/C/Users/Attila/Code/chealt/code/imports/ui/containers/Guests.jsx",
 		"/C/Users/Attila/Code/chealt/code/imports/startup/server/index.js",
 		"/C/Users/Attila/Code/chealt/code/server/main.js",
 		"/C/Users/Attila/Code/chealt/code/imports/ui/components/event-header.jsx",
 		"/C/Users/Attila/Code/chealt/code/server/publications.jsx",
-		"/C/Users/Attila/Code/chealt/code/lib/collections.jsx",
-		"/C/Users/Attila/Code/chealt/code/imports/ui/contianers/Home.jsx",
-		"/C/Users/Attila/Code/chealt/code/imports/ui/components/Home.jsx",
-		"/C/Users/Attila/Code/chealt/code/.meteor/local/build/programs/web.browser/program.json",
-		"/C/Users/Attila/Code/chealt/code/.meteor/local/build/programs/web.browser/packages/msavin_mongol.js",
-		"/C/Users/Attila/Code/chealt/code/client/main.html",
-		"/C/Users/Attila/Code/chealt/code/client/components/layout/main.html",
-		"/C/Users/Attila/Code/chealt/code/.meteor/versions",
-		"/C/Users/Attila/Code/chealt/code/client/material-ui-style.jsx",
-		"/C/Users/Attila/Code/chealt/code/client/routes.jsx",
-		"/C/Users/Attila/Code/chealt/code/chealt.sublime-project",
-		"/C/Users/Attila/Code/chealt/code/packages.json",
-		"/C/Users/Attila/Code/chealt/chealt.sublime-project",
-		"/C/Users/Attila/Code/chealt/code/.meteor/packages",
-		"/C/Users/Attila/Code/chealt/code/client/components/profile-page.jsx",
-		"/C/Users/Attila/Code/chealt/code/client/styles/import/_variables.scss",
-		"/C/Users/Attila/Code/chealt/code/client/components/friends-list.jsx",
-		"/C/Users/Attila/Code/chealt/code/client/components/confirm-dialog.jsx",
-		"/C/Users/Attila/Code/chealt/code/packages/npm-container/.npm/package/node_modules/material-ui/src/dialog.jsx",
-		"/C/Users/Attila/Code/chealt/code/lib/methods.jsx",
-		"/C/Users/Attila/Code/chealt/code/client/components/right-icon-menu.jsx",
-		"/C/Users/Attila/Code/chealt/code/packages/npm-container/.npm/package/node_modules/material-ui/src/lists/list.jsx",
-		"/C/Users/Attila/Code/chealt/code/packages/npm-container/.npm/package/node_modules/material-ui/src/lists/list-item.jsx",
-		"/C/Users/Attila/AppData/Local/.meteor/packages/izzilab_material-ui/0.2.4/npm/node_modules/material-ui/src/lists/list-item.jsx",
-		"/C/Users/Attila/AppData/Local/.meteor/packages/izzilab_material-ui/0.2.4/npm/node_modules/material-ui/src/svg-icons/navigation/more-vert.jsx",
-		"/C/Users/Attila/AppData/Local/.meteor/packages/izzilab_material-ui/0.2.4/npm/node_modules/material-ui/src/index.js",
-		"/C/Users/Attila/AppData/Local/.meteor/packages/izzilab_material-ui/0.2.4/npm/node_modules/material-ui/gulpfile.js",
-		"/C/Users/Attila/Code/chealt/code/packages/npm-container/index.js",
-		"/C/Users/Attila/Code/chealt/code/packages/npm-container/package.js",
-		"/C/Users/Attila/Code/chealt/code/packages/npm-container/.npm/package/node_modules/.package.json",
-		"/C/Users/Attila/Code/chealt/code/packages/npm-container/.npm/package/node_modules/material-ui/gulpfile.js",
-		"/C/Users/Attila/Code/chealt/code/packages/npm-container/.npm/package/node_modules/material-ui/package.json",
-		"/C/Users/Attila/Code/chealt/code/packages/npm-container/.npm/package/node_modules/material-ui/src/svg-icons/navigation/more-vert.jsx",
-		"/C/Users/Attila/Code/chealt/code/client/components/rigth-icon-menu.jsx",
-		"/C/Users/Attila/Code/chealt/code/client/components/invite-friend.jsx",
-		"/C/Users/Attila/Code/chealt/code/client/components/activity-list.jsx",
-		"/C/Users/Attila/Code/chealt/code/client/components/comments-list.jsx"
+		"/C/Users/Attila/Code/chealt/code/lib/collections.jsx"
 	],
 	"find":
 	{
@@ -915,6 +891,11 @@
 		"height": 96.0,
 		"where_history":
 		[
+			"<project>,*.*",
+			"<project>,*.jsx",
+			"<project>,*.scss",
+			"<project>,*.jsx",
+			"<project>,*.scss",
 			"<project>,*.jsx",
 			"<project>,*.scss",
 			"<project>,*.jsx",
@@ -951,6 +932,44 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"body",
+			"ease",
+			".6s",
+			"IconButton",
+			"EventCreator",
+			"CreateEventForm",
+			"common/button",
+			"../icon",
+			"growing-te",
+			"bubble",
+			"notification",
+			"tooltip",
+			"icon",
+			"button",
+			"anything-clos",
+			"drawer",
+			"border-radius: 50%",
+			"box-sha",
+			"button",
+			"IconButton",
+			"plus",
+			"create",
+			"Drawer",
+			"sports-icon",
+			"showRevertDeleteCommentNotification",
+			"this.props.",
+			"closeBubble",
+			"toggleBubble",
+			".jsx",
+			"this.state",
+			"commentLimit",
+			".jsx",
+			"toggleComments",
+			"isMapShown",
+			"/actions",
+			"toggleEventMap",
+			"toggleMap",
+			"_map",
 			"this.state.isMapShown",
 			"mapDrawerState",
 			"showNotification",
@@ -1040,45 +1059,7 @@
 			"BWhite",
 			"fullBlack",
 			"datepicker",
-			".datepicker",
-			"getDate",
-			"isAdminMode",
-			"isAdmin",
-			"this.props.isAdminMode && this.data.isOwnEvent",
-			".child",
-			"$gutter-size",
-			"images",
-			"isOwnEvent",
-			"activityListToggler",
-			"mapToggler",
-			"limit",
-			"this.currentUser._id",
-			"this.currentUser",
-			"ref=",
-			"\"",
-			"this.userId",
-			"div",
-			"action",
-			"event.limit",
-			"subtitle",
-			"12px",
-			"activities",
-			"container",
-			"this.map",
-			"isMapsLoaded",
-			"\"",
-			"translateX",
-			"color",
-			"google",
-			"closeBubble",
-			"deleteComment",
-			"separat",
-			"this.state",
-			"target",
-			"Activities",
-			"key=",
-			"\"",
-			"head"
+			".datepicker"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1099,53 +1080,24 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "imports/ui/reducers/maps.js",
+					"file": "imports/ui/components/common/full-page-modal.jsx",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 600,
+						"buffer_size": 820,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								86,
-								86
-							]
-						],
-						"settings":
-						{
-							"color_scheme": "Packages/User/Color Highlighter/themes/Seti_monokai (SL).tmTheme",
-							"syntax": "Packages/JavaScriptNext - ES6 Syntax/JavaScriptNext.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "imports/ui/components/events/event.jsx",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4168,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1711,
-								1711
+								517,
+								517
 							]
 						],
 						"settings":
@@ -1156,91 +1108,32 @@
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "imports/ui/components/events/event-footer.jsx",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1752,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1040,
-								1040
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 180.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "imports/ui/components/layout/layout.jsx",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2171,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1615,
-								1615
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 780.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "imports/ui/components/home-page.jsx",
+					"buffer": 1,
+					"file": "imports/ui/styles/components/common/full-page-modal.scss",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 539,
+						"buffer_size": 388,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								242,
+								242
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"color_scheme": "Packages/User/Color Highlighter/themes/Seti_monokai (SL).tmTheme",
+							"syntax": "Packages/Syntax Highlighting for Sass/Syntaxes/SCSS.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
@@ -1248,7 +1141,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 0,
 					"type": "text"
 				}
 			]
@@ -1307,8 +1200,320 @@
 		"selected_items":
 		[
 			[
+				"fullpamod",
+				"imports\\ui\\styles\\components\\common\\full-page-modal.scss"
+			],
+			[
+				"fullpa",
+				"imports\\ui\\components\\common\\full-page-modal.jsx"
+			],
+			[
+				"crevent",
+				"imports\\ui\\components\\events\\create-event.jsx"
+			],
+			[
+				"create",
+				"imports\\ui\\components\\create-button.jsx"
+			],
+			[
+				"notific",
+				"imports\\ui\\components\\common\\notification.jsx"
+			],
+			[
+				"layou",
+				"imports\\ui\\components\\layout\\layout.jsx"
+			],
+			[
+				"crevnjsx",
+				"imports\\ui\\components\\events\\create-event.jsx"
+			],
+			[
 				"hompa",
 				"imports\\ui\\components\\home-page.jsx"
+			],
+			[
+				"core",
+				"imports\\ui\\styles\\core\\common.scss"
+			],
+			[
+				"creaevenjs",
+				"imports\\ui\\components\\events\\create-event.jsx"
+			],
+			[
+				"grotex",
+				"imports\\ui\\components\\common\\growing-textarea.jsx"
+			],
+			[
+				"gro",
+				"imports\\ui\\components\\common\\growing-textarea.jsx"
+			],
+			[
+				"packjson",
+				"package.json"
+			],
+			[
+				"creevent",
+				"imports\\ui\\components\\events\\create-event.jsx"
+			],
+			[
+				"eventjs",
+				"imports\\ui\\components\\events\\event.jsx"
+			],
+			[
+				"notificscs",
+				"imports\\ui\\styles\\components\\common\\notification.scss"
+			],
+			[
+				"va",
+				"imports\\ui\\styles\\import\\_variables.scss"
+			],
+			[
+				"varia",
+				"imports\\ui\\styles\\import\\_variables.scss"
+			],
+			[
+				"iconb",
+				"imports\\ui\\components\\common\\buttons\\icon-button.jsx"
+			],
+			[
+				"variab",
+				"imports\\ui\\styles\\import\\_variables.scss"
+			],
+			[
+				"elescs",
+				"imports\\ui\\styles\\core\\elements.scss"
+			],
+			[
+				"corescs",
+				"imports\\ui\\styles\\core\\common.scss"
+			],
+			[
+				"hescs",
+				"imports\\ui\\styles\\components\\header.scss"
+			],
+			[
+				"iconbutton",
+				"imports\\ui\\components\\common\\buttons\\icon-button.jsx"
+			],
+			[
+				"cretbutt",
+				"imports\\ui\\components\\create-button.jsx"
+			],
+			[
+				"homscs",
+				"imports\\ui\\styles\\components\\home.scss"
+			],
+			[
+				"variascs",
+				"imports\\ui\\styles\\import\\_variables.scss"
+			],
+			[
+				"scs",
+				"imports\\ui\\styles\\core\\common.scss"
+			],
+			[
+				"fullmo",
+				"imports\\ui\\styles\\components\\common\\full-page-modal.scss"
+			],
+			[
+				"re",
+				"imports\\ui\\reducers\\create-event.js"
+			],
+			[
+				"actioncre",
+				"imports\\ui\\actions\\create-event.js"
+			],
+			[
+				"evenjsx",
+				"imports\\ui\\components\\events\\event.jsx"
+			],
+			[
+				"drawejsx",
+				"imports\\ui\\components\\header\\drawer.jsx"
+			],
+			[
+				"drajsx",
+				"imports\\ui\\components\\header\\drawer.jsx"
+			],
+			[
+				"mainscs",
+				"client\\main.scss"
+			],
+			[
+				"bubblscs",
+				"imports\\ui\\styles\\bubble.scss"
+			],
+			[
+				"redinde",
+				"imports\\ui\\reducers\\index.js"
+			],
+			[
+				"homp",
+				"imports\\ui\\components\\home-page.jsx"
+			],
+			[
+				"reducer",
+				"imports\\ui\\reducers\\createEvent.js"
+			],
+			[
+				"aciocre",
+				"imports\\ui\\actions\\createEvent.js"
+			],
+			[
+				"commo",
+				"imports\\ui\\styles\\core\\common.scss"
+			],
+			[
+				"variabl",
+				"imports\\ui\\styles\\import\\_variables.scss"
+			],
+			[
+				"events",
+				"imports\\ui\\components\\events\\event.jsx"
+			],
+			[
+				"icons",
+				"imports\\ui\\styles\\core\\icons.scss"
+			],
+			[
+				"actiodrw",
+				"imports\\ui\\actions\\drawer.js"
+			],
+			[
+				"drre",
+				"imports\\ui\\reducers\\drawer.js"
+			],
+			[
+				"redudr",
+				"imports\\ui\\reducers\\drawer.js"
+			],
+			[
+				"reduce",
+				"imports\\ui\\reducers\\index.js"
+			],
+			[
+				"layout",
+				"imports\\ui\\components\\layout\\layout.jsx"
+			],
+			[
+				"sporicon",
+				"imports\\ui\\components\\sports-icon.jsx"
+			],
+			[
+				"eventit",
+				"imports\\ui\\components\\events\\event-title.jsx"
+			],
+			[
+				"evenjs",
+				"imports\\ui\\components\\events\\event.jsx"
+			],
+			[
+				"acnotif",
+				"imports\\ui\\actions\\notification.js"
+			],
+			[
+				"profiljs",
+				"server\\profile.jsx"
+			],
+			[
+				"prored",
+				"imports\\ui\\reducers\\profile.js"
+			],
+			[
+				"redupro",
+				"imports\\ui\\reducers\\profile.js"
+			],
+			[
+				"profilejsx",
+				"imports\\ui\\components\\header\\profile.jsx"
+			],
+			[
+				"profiljsx",
+				"server\\profile.jsx"
+			],
+			[
+				"reind",
+				"imports\\ui\\reducers\\index.js"
+			],
+			[
+				"reno",
+				"imports\\ui\\reducers\\notification.js"
+			],
+			[
+				"ac",
+				"imports\\ui\\actions\\notification.js"
+			],
+			[
+				"redueven",
+				"imports\\ui\\reducers\\events.js"
+			],
+			[
+				"aceven",
+				"imports\\ui\\actions\\events.js"
+			],
+			[
+				"reeven",
+				"imports\\ui\\reducers\\events.js"
+			],
+			[
+				"evnjsx",
+				"imports\\ui\\components\\events\\event.jsx"
+			],
+			[
+				"actioneve",
+				"imports\\ui\\actions\\events.js"
+			],
+			[
+				"action",
+				"imports\\ui\\actions\\filter.js"
+			],
+			[
+				"aceve",
+				"imports\\ui\\actions\\events.js"
+			],
+			[
+				"evefoot",
+				"imports\\ui\\components\\events\\event-footer.jsx"
+			],
+			[
+				"goomap",
+				"imports\\ui\\components\\google-map.jsx"
+			],
+			[
+				"eventjsx",
+				"imports\\ui\\components\\events\\event.jsx"
+			],
+			[
+				"red",
+				"imports\\ui\\reducers\\events.js"
+			],
+			[
+				"home",
+				"imports\\ui\\containers\\home.jsx"
+			],
+			[
+				"toggbut",
+				"imports\\ui\\components\\toggler-button.jsx"
+			],
+			[
+				"reduinde",
+				"imports\\ui\\reducers\\index.js"
+			],
+			[
+				"evenfoot",
+				"imports\\ui\\components\\events\\event-footer.jsx"
+			],
+			[
+				"acmap",
+				"imports\\ui\\actions\\map.js"
+			],
+			[
+				"reducinde",
+				"imports\\ui\\reducers\\index.js"
+			],
+			[
+				"mainjs",
+				"client\\main.jsx"
 			],
 			[
 				"hom",
@@ -1317,14 +1522,6 @@
 			[
 				"map",
 				"imports\\ui\\reducers\\map.js"
-			],
-			[
-				"layou",
-				"imports\\ui\\components\\layout\\layout.jsx"
-			],
-			[
-				"action",
-				"imports\\ui\\actions\\filter.js"
 			],
 			[
 				"actionno",
@@ -1339,24 +1536,12 @@
 				"imports\\ui\\reducers\\map.js"
 			],
 			[
-				"acmap",
-				"imports\\ui\\actions\\map.js"
-			],
-			[
-				"reind",
-				"imports\\ui\\reducers\\index.js"
-			],
-			[
 				"redu",
 				"imports\\ui\\reducers\\filter.js"
 			],
 			[
 				"eventfoot",
 				"imports\\ui\\components\\events\\event-footer.jsx"
-			],
-			[
-				"eventjsx",
-				"imports\\ui\\components\\events\\event.jsx"
 			],
 			[
 				"fil",
@@ -1371,20 +1556,12 @@
 				"imports\\ui\\components\\header\\header.jsx"
 			],
 			[
-				"red",
-				"imports\\ui\\reducers\\drawer.js"
-			],
-			[
 				"reduc",
 				"imports\\ui\\reducers\\index.js"
 			],
 			[
 				"drawe",
 				"imports\\ui\\components\\drawer.jsx"
-			],
-			[
-				"varia",
-				"imports\\ui\\styles\\import\\_variables.scss"
 			],
 			[
 				"drawesc",
@@ -1405,10 +1582,6 @@
 			[
 				"redno",
 				"imports\\ui\\reducers\\notification.js"
-			],
-			[
-				"redinde",
-				"imports\\ui\\reducers\\index.js"
 			],
 			[
 				"noacio",
@@ -1451,10 +1624,6 @@
 				"imports\\ui\\components\\layout\\layout.jsx"
 			],
 			[
-				"mainjs",
-				"client\\main.jsx"
-			],
-			[
 				"notifi",
 				"imports\\ui\\styles\\notification.scss"
 			],
@@ -1485,14 +1654,6 @@
 			[
 				"commscs",
 				"imports\\ui\\styles\\core\\common.scss"
-			],
-			[
-				"mainscs",
-				"client\\main.scss"
-			],
-			[
-				"variabl",
-				"imports\\ui\\styles\\import\\_variables.scss"
 			],
 			[
 				"variable",
@@ -1549,274 +1710,6 @@
 			[
 				"notificsc",
 				"imports\\ui\\styles\\notification.scss"
-			],
-			[
-				"commme",
-				"imports\\api\\comments\\methods.js"
-			],
-			[
-				"comlis",
-				"imports\\ui\\components\\comments-list.jsx"
-			],
-			[
-				"commens",
-				"imports\\ui\\containers\\comments.jsx"
-			],
-			[
-				"commenjsx",
-				"imports\\ui\\containers\\comments.jsx"
-			],
-			[
-				"notifijsx",
-				"imports\\ui\\components\\notification.jsx"
-			],
-			[
-				"home",
-				"imports\\ui\\containers\\home.jsx"
-			],
-			[
-				"metho",
-				"imports\\api\\comments\\methods.js"
-			],
-			[
-				"notiscs",
-				"imports\\ui\\styles\\notification.scss"
-			],
-			[
-				"homscs",
-				"imports\\ui\\styles\\home.scss"
-			],
-			[
-				"variab",
-				"imports\\ui\\styles\\import\\_variables.scss"
-			],
-			[
-				"mainsc",
-				"client\\main.scss"
-			],
-			[
-				"heascs",
-				"imports\\ui\\styles\\header.scss"
-			],
-			[
-				"comm",
-				"imports\\api\\comments\\methods.js"
-			],
-			[
-				"comment",
-				"imports\\api\\comments\\server\\publications.js"
-			],
-			[
-				"scss",
-				"client\\main.scss"
-			],
-			[
-				"hompag",
-				"imports\\ui\\components\\home-page.jsx"
-			],
-			[
-				"eventsjsx",
-				"imports\\ui\\components\\events\\event.jsx"
-			],
-			[
-				"evenjsx",
-				"imports\\ui\\components\\events\\event.jsx"
-			],
-			[
-				"event",
-				"imports\\api\\events\\server\\publications.js"
-			],
-			[
-				"evenscs",
-				"imports\\ui\\styles\\events.scss"
-			],
-			[
-				"draw",
-				"imports\\ui\\styles\\drawer.scss"
-			],
-			[
-				"bublw",
-				"imports\\ui\\components\\bubble-arrow.jsx"
-			],
-			[
-				"iconbu",
-				"imports\\ui\\components\\icon-button.jsx"
-			],
-			[
-				"logout",
-				"imports\\ui\\components\\header\\logout.jsx"
-			],
-			[
-				"guests",
-				"imports\\ui\\components\\events\\guests.jsx"
-			],
-			[
-				"hepro",
-				"imports\\ui\\containers\\header-profile.jsx"
-			],
-			[
-				"mainbu",
-				"imports\\ui\\components\\main-button.jsx"
-			],
-			[
-				"heprofil",
-				"imports\\ui\\containers\\header-profile.jsx"
-			],
-			[
-				"headjsx",
-				"imports\\ui\\components\\header\\header.jsx"
-			],
-			[
-				"headejsx",
-				"imports\\ui\\components\\header\\header.jsx"
-			],
-			[
-				"hea",
-				"imports\\ui\\components\\layout\\header.jsx"
-			],
-			[
-				"mainj",
-				"client\\main.jsx"
-			],
-			[
-				"evescss",
-				"imports\\ui\\styles\\events.scss"
-			],
-			[
-				"evefoot",
-				"imports\\ui\\components\\events\\event-footer.jsx"
-			],
-			[
-				"imaupload",
-				"imports\\ui\\components\\image-uploader.jsx"
-			],
-			[
-				"eventfoo",
-				"imports\\ui\\components\\event-footer.jsx"
-			],
-			[
-				"commjsx",
-				"imports\\ui\\containers\\Comments.jsx"
-			],
-			[
-				"commmethod",
-				"imports\\api\\comments\\methods.js"
-			],
-			[
-				"evenme",
-				"imports\\api\\events\\methods.js"
-			],
-			[
-				"googmap",
-				"imports\\ui\\components\\google-map.jsx"
-			],
-			[
-				"elem",
-				"imports\\ui\\styles\\core\\elements.scss"
-			],
-			[
-				"loadmore",
-				"imports\\ui\\components\\load-more.jsx"
-			],
-			[
-				"loadmre",
-				"imports\\ui\\components\\load-more.jsx"
-			],
-			[
-				"growintext",
-				"imports\\ui\\components\\growing-textarea.jsx"
-			],
-			[
-				"evenjs",
-				"imports\\ui\\components\\event.jsx"
-			],
-			[
-				"growin",
-				"imports\\ui\\components\\growing-textarea.jsx"
-			],
-			[
-				"profilpictu",
-				"imports\\ui\\components\\profile-picture.jsx"
-			],
-			[
-				"events",
-				"imports\\api\\events\\events.js"
-			],
-			[
-				"publi",
-				"imports\\api\\comments\\server\\publications.js"
-			],
-			[
-				"layouscs",
-				"imports\\ui\\styles\\layout.scss"
-			],
-			[
-				"commli",
-				"imports\\ui\\components\\comments-list.jsx"
-			],
-			[
-				"commo",
-				"imports\\ui\\styles\\core\\common.scss"
-			],
-			[
-				"evemethod",
-				"imports\\api\\events\\methods.js"
-			],
-			[
-				"projsx",
-				"imports\\ui\\components\\profile.jsx"
-			],
-			[
-				"profil",
-				"server\\profile.jsx"
-			],
-			[
-				"methods",
-				"imports\\api\\comments\\methods.js"
-			],
-			[
-				"ev",
-				"imports\\ui\\components\\event.jsx"
-			],
-			[
-				"commlist",
-				"imports\\ui\\components\\comments-list.jsx"
-			],
-			[
-				"evenfoot",
-				"imports\\ui\\components\\event-footer.jsx"
-			],
-			[
-				"foot",
-				"imports\\ui\\components\\event-footer.jsx"
-			],
-			[
-				"comme",
-				"imports\\ui\\containers\\Comments.jsx"
-			],
-			[
-				"evnfoo",
-				"imports\\ui\\components\\event-footer.jsx"
-			],
-			[
-				"evnjsx",
-				"imports\\ui\\components\\event.jsx"
-			],
-			[
-				"publica",
-				"imports\\api\\events\\server\\publications.js"
-			],
-			[
-				"regisa",
-				"imports\\startup\\server\\register-api.js"
-			],
-			[
-				"index",
-				"imports\\startup\\server\\index.js"
-			],
-			[
-				"evenhe",
-				"imports\\ui\\components\\event-header.jsx"
 			]
 		],
 		"width": 0.0

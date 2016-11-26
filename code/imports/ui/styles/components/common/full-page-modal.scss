@@ -1,7 +1,6 @@
 @import '../../import/variables';
 
 .full-page-modal {
-    padding: $gutter-size;
     position: fixed;
     top: 0;
     right: 0;
@@ -10,8 +9,18 @@
     background-color: $color-light-background;
     z-index: $highest-z;
 
+    .header {
+        display: flex;
+        padding: $gutter-size;
+    }
+
     .title {
+        flex-grow: 1;
         padding: $button-padding;
         font-size: $font-size-largest;
+    }
+
+    .content {
+        padding: $gutter-size;
     }
 }

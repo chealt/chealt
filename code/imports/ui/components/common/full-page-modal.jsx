@@ -12,15 +12,16 @@ const renderTitle = (title) => {
 
 const FullPageModal = ({ children, closeMethod, title }) => (
     <div className='full-page-modal'>
-        {renderTitle(title)}
-        <IconButton
-            type='cross'
-            action={closeMethod}
-            additionalClasses='close absolute top right' />
-        <button
-            className='close-butotn'
-            onClick={closeMethod}></button>
-        {children}
+        <div className='header bottom separated'>
+            {renderTitle(title)}
+            <IconButton
+                type='cross'
+                action={closeMethod}
+                additionalClasses='close' />
+        </div>
+        <div className='content'>
+            {children}
+        </div>
     </div>
 );
 

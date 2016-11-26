@@ -3,6 +3,7 @@ import { connect }              from 'react-redux';
 import ReactCSSTransitionGroup  from 'react-addons-css-transition-group';
 
 import FullPageModal            from '../common/full-page-modal';
+import CreateEventFormContainer from '../../containers/create-event-form';
 import {
     closeEventCreator
 } from '../../actions/create-event';
@@ -13,7 +14,7 @@ const renderCreateEvent = (createEvent, closeMethod) => {
             <FullPageModal
                 closeMethod={closeMethod}
                 title='Create Event'>
-                <div className='event-creator'></div>
+                <CreateEventFormContainer />
             </FullPageModal>
         );
     }
