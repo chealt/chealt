@@ -24,12 +24,15 @@
   "homepage": "https://github.com/atikenny/Chealt#readme",
   "dependencies": {
     "babel-runtime": "^6.18.0",
+    "fbjs": "^0.2.1",
+    "material-ui": "^0.14.4",
     "react": "^15.0.1",
     "react-addons-css-transition-group": "^15.0.1",
     "react-addons-pure-render-mixin": "^15.0.1",
     "react-dom": "^15.0.1",
     "react-mounter": "^1.2.0",
     "react-redux": "^4.4.5",
+    "react-tap-event-plugin": "^0.2.0",
     "redux": "^3.6.0"
   },
   "devDependencies": {

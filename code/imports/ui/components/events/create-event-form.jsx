@@ -1,20 +1,43 @@
 import React            from 'react';
 
 import Form             from '../form/form';
-import TextInput        from '../form/text-input';
-import DateTimeInput    from '../form/date-time-input';
-import Select           from '../form/select';
-import Checkbox         from '../form/checkbox';
 
-const CreateEventForm = ({ activities }) => (
+import TextField        from 'material-ui/lib/text-field';
+import SelectField      from 'material-ui/lib/select-field';
+import MenuItem         from 'material-ui/lib/menus/menu-item';
+import Checkbox         from 'material-ui/lib/checkbox';
+import DatePicker       from 'material-ui/lib/date-picker/date-picker';
+import TimePicker       from 'material-ui/lib/time-picker/time-picker';
+
+const CreateEventForm = ({ activities, selectedActivityValue }) => (
     <Form name='create-event-form'>
-        <TextInput name='event-name' label='name' />
-        <TextInput name='event-host' label='host' />
-        <DateTimeInput name='event-start' label='start' />
-        <DateTimeInput name='event-end' label='end' />
-        <TextInput name='event-location' label='location' />
-        <Select name='event-activity' label='activity' options={activities} />
-        <Checkbox name='event-is-public' label='public' />
+        <div className='input-container'>
+            <TextField name='event-name' hintText='name' />
+        </div>
+        <div className='input-container'>
+            <TextField name='event-host' hintText='host' />
+        </div>
+        <div className='input-container'>
+            <DatePicker name='event-start' hintText='start date' />
+            <TimePicker format='24hr' hintText='start time' />
+        </div>
+        <div className='input-container'>
+            <DatePicker name='event-end' hintText='end date' />
+            <TimePicker format='24hr' hintText='end time' />
+        </div>
+        <div className='input-container'>
+            <TextField name='event-location' hintText='location' />
+        </div>
+        <div className='input-container'>
+            <SelectField value={selectedActivityValue}>
+            {activities.map((activity, index) => (
+                <MenuItem key={index} value={activity.value} primaryText={activity.name} />
+            ))}
+            </SelectField>
+        </div>
+        <div className='input-container'>
+            <Checkbox name='event-is-public' label='public' />
+        </div>
     </Form>
 );
 

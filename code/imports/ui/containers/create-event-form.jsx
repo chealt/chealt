@@ -8,9 +8,12 @@ import { Activities }       from '../../api/activities/activities';
 const CreateEventFormContainer = createContainer(() => {
     const activitiesHandle = Meteor.subscribe('activities');
     const activities = activitiesHandle.ready() ? Activities.find().fetch() : [];
+    const activityOptions = mapItemsToOptions(activities, 'name', '_id');
+    const selectedActivityValue = activityOptions.length ? activityOptions[0].value : '';
 
     return {
-        activities: mapItemsToOptions(activities, 'name', '_id')
+        activities: activityOptions,
+        selectedActivityValue
     };
 }, CreateEventForm);
 

@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { connect }          from 'react-redux';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+
+injectTapEventPlugin();
 
 import Footer               from './footer';
 import Header               from '../header/header';
