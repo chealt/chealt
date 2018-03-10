@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "An ML powered app for staying healthy and balanced.",
   "main": "src/index.js",
+  "docs": "documents",
   "scripts": {
     "test": "jest",
     "start": "node src/index.js",
@@ -24,6 +25,7 @@
   },
   "homepage": "https://github.com/atikenny/Chealt#readme",
   "dependencies": {
+    "deeplearn": "^0.5.1",
     "react": "^15.0.1",
     "react-redux": "^4.4.5",
     "redux": "^3.6.0"
