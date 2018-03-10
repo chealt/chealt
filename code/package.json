@@ -1,11 +1,16 @@
 {
-  "name": "code",
-  "version": "0.0.2",
-  "description": "Chealt",
-  "main": "index.js",
+  "name": "Chealt",
+  "version": "0.0.1",
+  "description": "An ML powered app for staying healthy and balanced.",
+  "main": "src/index.js",
+  "docs": "documents",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "meteor"
+    "test": "jest --config=jest.config.js",
+    "test:coverage": "yarn test --coverage",
+    "start": "node src/index.js",
+    "lint": "eslint . --ext .js,.jsx",
+    "verify": "yarn lint && yarn test",
+    "precommit": "yarn verify"
   },
   "repository": {
     "type": "git",
@@ -13,8 +18,7 @@
   },
   "keywords": [
     "Chealt",
-    "sport",
-    "tracking"
+    "health"
   ],
   "author": "atikenny",
   "license": "ISC",
@@ -23,19 +27,25 @@
   },
   "homepage": "https://github.com/atikenny/Chealt#readme",
   "dependencies": {
-    "babel-runtime": "^6.18.0",
-    "fbjs": "^0.2.1",
-    "material-ui": "^0.14.4",
+    "deeplearn": "^0.5.1",
     "react": "^15.0.1",
-    "react-addons-css-transition-group": "^15.0.1",
-    "react-addons-pure-render-mixin": "^15.0.1",
-    "react-dom": "^15.0.1",
-    "react-mounter": "^1.2.0",
     "react-redux": "^4.4.5",
-    "react-tap-event-plugin": "^0.2.0",
     "redux": "^3.6.0"
   },
   "devDependencies": {
-    "redux-devtools": "^3.2.0"
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.2.2",
+    "babel-jest": "^22.4.1",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "eslint": "^4.18.2",
+    "eslint-plugin-import": "^2.9.0",
+    "eslint-plugin-react": "^7.7.0",
+    "husky": "^0.15.0-rc.8",
+    "jest": "^22.4.2",
+    "raf": "^3.4.0"
   }
 }

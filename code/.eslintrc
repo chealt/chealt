@@ -1,0 +1,28 @@
+{
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended"
+    ],
+    "parser": "babel-eslint",
+    "env": {
+        "node": true,
+        "jest": true,
+        "browser": true
+    },
+    "plugins": ["import"],
+    "rules": {
+        "indent":                           ["error", 4],
+        "array-bracket-spacing":            ["error"],
+        "complexity":                       ["error", 10],
+        "object-curly-spacing":             ["error", "always"],
+        "padding-line-between-statements":  ["error", {
+            blankLine: "always",
+            prev: "*",
+            next: "return"
+        }],
+        "padded-blocks":                    ["error", "never"],
+        "eol-last":                         ["error", "always"],
+        "import/extensions":                ["error", "never"],
+        "no-trailing-spaces":               ["error"]
+    }
+}
