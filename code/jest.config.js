@@ -5,7 +5,7 @@ module.exports = {
     coveragePathIgnorePatterns: [
         '/node-modules/'
     ],
-    coverageDirectory: 'coverage',
+    coverageDirectory: '../coverage',
     transformIgnorePatterns: [
         'node_modules/'
     ]

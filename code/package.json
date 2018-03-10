@@ -6,6 +6,7 @@
   "docs": "documents",
   "scripts": {
     "test": "jest --config=jest.config.js",
+    "test:coverage": "yarn test --coverage",
     "start": "node src/index.js",
     "lint": "eslint . --ext .js,.jsx",
     "verify": "yarn lint && yarn test",
