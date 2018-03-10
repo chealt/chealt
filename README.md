@@ -1,3 +1,3 @@
 # chealt
 
-Fitness social networking app, for finding / creating / joining fitness activities around you.
+An ML powered app for staying healthy and balanced.

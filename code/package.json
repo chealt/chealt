@@ -1,11 +1,11 @@
 {
-  "name": "code",
-  "version": "0.0.2",
-  "description": "Chealt",
-  "main": "index.js",
+  "name": "Chealt",
+  "version": "0.0.1",
+  "description": "An ML powered app for staying healthy and balanced.",
+  "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "meteor"
+    "test": "jest",
+    "start": "node src/index.js"
   },
   "repository": {
     "type": "git",
@@ -13,8 +13,7 @@
   },
   "keywords": [
     "Chealt",
-    "sport",
-    "tracking"
+    "health"
   ],
   "author": "atikenny",
   "license": "ISC",
@@ -23,19 +22,8 @@
   },
   "homepage": "https://github.com/atikenny/Chealt#readme",
   "dependencies": {
-    "babel-runtime": "^6.18.0",
-    "fbjs": "^0.2.1",
-    "material-ui": "^0.14.4",
     "react": "^15.0.1",
-    "react-addons-css-transition-group": "^15.0.1",
-    "react-addons-pure-render-mixin": "^15.0.1",
-    "react-dom": "^15.0.1",
-    "react-mounter": "^1.2.0",
     "react-redux": "^4.4.5",
-    "react-tap-event-plugin": "^0.2.0",
     "redux": "^3.6.0"
-  },
-  "devDependencies": {
-    "redux-devtools": "^3.2.0"
   }
 }
