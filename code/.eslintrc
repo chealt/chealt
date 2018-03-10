@@ -5,7 +5,9 @@
     ],
     "parser": "babel-eslint",
     "env": {
-        "node": true
+        "node": true,
+        "jest": true,
+        "browser": true
     },
     "plugins": ["import"],
     "rules": {
