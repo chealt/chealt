@@ -5,6 +5,8 @@
 
 # chealt
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/atikenny/chealt.svg)](https://greenkeeper.io/)
+
 An ML powered app for staying healthy and balanced.
 
 [travis-badge]: https://travis-ci.org/atikenny/chealt.svg?branch=master
