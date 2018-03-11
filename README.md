@@ -2,10 +2,9 @@
 [![Dependencies Status][david-badge]][david-badge-url]
 [![Dev Dependencies Status][david-dev-badge]][david-dev-badge-url]
 [![Coverage Status][coveralls-badge]][coveralls-badge-url]
+[![Greenkeeper badge][greenkeeper-badge]][greenkeeper-badge-url]
 
 # chealt
-
-[![Greenkeeper badge](https://badges.greenkeeper.io/atikenny/chealt.svg)](https://greenkeeper.io/)
 
 An ML powered app for staying healthy and balanced.
 
@@ -17,3 +16,5 @@ An ML powered app for staying healthy and balanced.
 [david-dev-badge-url]: https://david-dm.org/atikenny/chealt?type=dev
 [coveralls-badge]: https://coveralls.io/repos/github/atikenny/chealt/badge.svg?branch=master
 [coveralls-badge-url]: https://coveralls.io/github/atikenny/chealt?branch=master
+[greenkeeper-badge]: https://badges.greenkeeper.io/atikenny/chealt.svg
+[greenkeeper-badge-url]: https://greenkeeper.io/
