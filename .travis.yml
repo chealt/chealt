@@ -3,3 +3,5 @@ node_js:
   - "9.5"
 after_success:
   - yarn postbuild
+notifications:
+  slack: chealt:hZ2D2B4hAlJQuLnE3gzmLQ7k
