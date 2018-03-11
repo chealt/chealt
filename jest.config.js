@@ -5,7 +5,10 @@ module.exports = {
     coveragePathIgnorePatterns: [
         '/node-modules/'
     ],
-    coverageDirectory: '../coverage',
+    coverageReporters: [
+        "lcov"
+    ],
+    coverageDirectory: 'coverage',
     transformIgnorePatterns: [
         'node_modules/'
     ]
