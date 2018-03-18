@@ -1,3 +1,3 @@
-import startSever from './start-server';
+import startSever from './server/start-server';
 
 startSever();

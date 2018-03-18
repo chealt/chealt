@@ -1,8 +1,8 @@
 import './index';
 
-import startServer from './start-server';
+import startServer from './server/start-server';
 
-jest.mock('./start-server', () => jest.fn());
+jest.mock('./server/start-server', () => jest.fn());
 
 describe('index', () => {
     it('starts the server', () => {
