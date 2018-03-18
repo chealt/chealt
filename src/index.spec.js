@@ -1,9 +1,11 @@
-import init from './index';
+import './index';
 
-describe('init()', () => {
-    it('returns 2 dummy', () => {
-        const result = init();
+import startServer from './start-server';
 
-        expect(result).toBe(2);
+jest.mock('./start-server', () => jest.fn());
+
+describe('index', () => {
+    it('starts the server', () => {
+        expect(startServer).toHaveBeenCalled();
     });
 });
