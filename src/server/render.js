@@ -1,24 +1,16 @@
 import { renderToNodeStream } from 'react-dom/server';
 
+import { header, footer } from './layout';
+
 const render = (pageRenderer) => (req, res) => {
-    res.write(`
-        <!DOCTYPE html>
-        <html>
-            <head>
-                <title>Chealt</title>
-            </head>
-            <body>
-    `);
+    res.write(header());
 
     const stream = renderToNodeStream(pageRenderer());
 
     stream.pipe(res, { end: false });
 
     stream.on('end', () => {
-        res.write(`
-                </body>
-            </html>
-        `);
+        res.write(footer());
 
         res.end();
     });
