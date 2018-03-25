@@ -2,23 +2,41 @@ import startServer from './start-server';
 
 import express from 'express';
 
-jest.mock('express', () => jest.fn(() => ({
-    listen: jest.fn()
-})));
+import render from './render';
+import { render as renderHome } from '../home';
+
+jest.mock('express', () => jest.fn());
+jest.mock('../home', () => ({ render: jest.fn() }));
+jest.mock('./render', () => jest.fn());
 
 describe('index module', () => {
+    const listenSpy = jest.fn();
+    const useSpy = jest.fn();
+
+    beforeEach(() => {
+        express.mockImplementation(() => ({
+            listen: listenSpy,
+            use: useSpy
+        }));
+    });
+
     it('creates express web server', () => {
         startServer();
 
         expect(express).toHaveBeenCalled();
     });
 
-    it('starts listening on port 3000 by default', () => {
-        const listenSpy = jest.fn();
-        express.mockImplementation(() => ({
-            listen: listenSpy
-        }));
+    it('adds the home route', () => {
+        const renderResult = 'render result';
+        render.mockImplementation(() => renderResult);
 
+        startServer();
+
+        expect(useSpy).toHaveBeenCalledWith('/', renderResult);
+        expect(render).toHaveBeenCalledWith(renderHome);
+    });
+
+    it('starts listening on port 3000 by default', () => {
         startServer();
 
         expect(listenSpy).toHaveBeenCalledWith(3000, expect.any(Function));
@@ -27,10 +45,6 @@ describe('index module', () => {
     it('uses the env SERVER_PORT variable as the port', () => {
         const serverPort = "1234";
         process.env.SERVER_PORT = serverPort;
-        const listenSpy = jest.fn();
-        express.mockImplementation(() => ({
-            listen: listenSpy
-        }));
 
         startServer();
 
@@ -39,15 +53,12 @@ describe('index module', () => {
 
     it('logs message after start', () => {
         global.console = { log: jest.fn() };
-        let triggerCallback;
         const serverPort = 1234;
         process.env.SERVER_PORT = serverPort;
-        const listenSpy = jest.fn((port, callback) => {
+        let triggerCallback;
+        listenSpy.mockImplementation((port, callback) => {
             triggerCallback = callback;
         });
-        express.mockImplementation(() => ({
-            listen: listenSpy
-        }));
 
         startServer();
         triggerCallback();
