@@ -1,5 +1,3 @@
-const init = () => {
-    return 2;
-};
+import startSever from './server/start-server';
 
-export default init;
+startSever();

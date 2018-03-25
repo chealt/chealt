@@ -9,20 +9,27 @@
         "jest": true,
         "browser": true
     },
-    "plugins": ["import"],
+    "plugins": [
+        "filenames",
+        "import"
+    ],
     "rules": {
-        "indent":                           ["error", 4],
         "array-bracket-spacing":            ["error"],
         "complexity":                       ["error", 10],
-        "object-curly-spacing":             ["error", "always"],
-        "padding-line-between-statements":  ["error", {
-            blankLine: "always",
-            prev: "*",
-            next: "return"
-        }],
-        "padded-blocks":                    ["error", "never"],
         "eol-last":                         ["error", "always"],
+        "filenames/match-exported":         ["error", "kebab"],
+        "filenames/match-regex":            ["error", "^[a-z-.]+$", true],
         "import/extensions":                ["error", "never"],
-        "no-trailing-spaces":               ["error"]
+        "indent":                           ["error", 4],
+        "no-trailing-spaces":               ["error"],
+        "object-curly-spacing":             ["error", "always"],
+        "padded-blocks":                    ["error", "never"],
+        "padding-line-between-statements":  ["error",
+            { blankLine: "always", prev: "*", next: "return" },
+            { blankLine: "always", prev: "*", next: "break" },
+            { blankLine: "always", prev: "*", next: "if" },
+            { blankLine: "always", prev: "if", next: "*" }
+        ],
+        "space-in-parens":                  ["error", "never"]
     }
 }
