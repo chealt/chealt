@@ -2,5 +2,5 @@
 
 ## Shortcuts
 
-Delete line: `Shift + Cmd + k`
+Delete line: `Cmd + Shift + k`
 Duplicate line: `Shift + Alt + Up Arrow / Down Arrow`
