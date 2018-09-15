@@ -1,0 +1,19 @@
+{
+  "name": "chealt",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/atikenny/chealt.git"
+  },
+  "author": "Attila Bartha",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/atikenny/chealt/issues"
+  },
+  "homepage": "https://github.com/atikenny/chealt#readme"
+}
