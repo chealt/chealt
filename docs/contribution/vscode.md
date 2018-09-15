@@ -1,5 +1,9 @@
 # Visual Studio Code
 
+## Settings
+
+See `.vscode/settings.json`.
+
 ## Shortcuts
 
 Delete line: `Cmd + Shift + k`
