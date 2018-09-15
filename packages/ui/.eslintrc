@@ -18,10 +18,12 @@
             { blankLine: "always", prev: "*", next: "if" },
             { blankLine: "always", prev: "if", next: "*" }
         ],
+        "semi":                               ["error", "always"],
         "space-in-parens":                    ["error", "never"],
         "space-infix-ops":                    ["error"]
     },
     "parserOptions": {
-        "ecmaVersion": 6
+        "ecmaVersion": 8,
+        "sourceType": "module"
     }
 }
