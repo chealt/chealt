@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/atikenny/chealt/issues"
   },
-  "homepage": "https://github.com/atikenny/chealt#readme"
+  "homepage": "https://github.com/atikenny/chealt#readme",
+  "devDependencies": {
+    "lerna": "^3.4.0"
+  }
 }
