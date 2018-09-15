@@ -1,4 +1,5 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const buildFolder = path.resolve(__dirname, '../dist');
 
@@ -16,5 +17,10 @@ module.exports = {
     output: {
         filename: 'main.js',
         path: buildFolder
-    }
+    },
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: './src/index.html'
+        })
+    ]
 };
