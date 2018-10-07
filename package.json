@@ -1,4 +1,5 @@
 {
+  "private": true,
   "name": "chealt",
   "version": "0.0.0",
   "description": "",
@@ -6,6 +7,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "workspaces": [
+    "packages/*"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/atikenny/chealt.git"
@@ -17,10 +21,11 @@
   },
   "homepage": "https://github.com/atikenny/chealt#readme",
   "devDependencies": {
-    "@babel/cli": "^7.0.0",
-    "@babel/core": "^7.0.1",
-    "@babel/preset-env": "^7.0.0",
-    "lerna": "^3.4.0"
+    "@babel/cli": "^7.1.0",
+    "@babel/core": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
+    "eslint": "^5.6.1",
+    "lerna": "^3.4.1"
   },
   "dependencies": {}
 }

@@ -13,10 +13,10 @@
         "object-curly-spacing":               ["error", "always"],
         "padded-blocks":                      ["error", "never"],
         "padding-line-between-statements":    ["error",
-            { blankLine: "always", prev: "*", next: "return" },
-            { blankLine: "always", prev: "*", next: "break" },
-            { blankLine: "always", prev: "*", next: "if" },
-            { blankLine: "always", prev: "if", next: "*" }
+            { "blankLine": "always", "prev": "*", "next": "return" },
+            { "blankLine": "always", "prev": "*", "next": "break" },
+            { "blankLine": "always", "prev": "*", "next": "if" },
+            { "blankLine": "always", "prev": "if", "next": "*" }
         ],
         "semi":                               ["error", "always"],
         "space-in-parens":                    ["error", "never"],
