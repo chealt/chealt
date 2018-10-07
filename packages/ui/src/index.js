@@ -1,1 +1,3 @@
-console.log('hello world');
+import ApolloClient from 'apollo-boost';
+
+const client = new ApolloClient({});
