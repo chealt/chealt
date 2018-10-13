@@ -1,6 +1,9 @@
 {
     "rules": {
-        "extends":      "eslint:recommended",
+        "extends": [
+            "eslint:recommended",
+            "plugin:react/recommended"
+        ],
         
         "array-bracket-spacing":              ["error"],
         "comma-dangle":                       ["error", "never"],
@@ -22,8 +25,19 @@
         "space-in-parens":                    ["error", "never"],
         "space-infix-ops":                    ["error"]
     },
+    "settings": {
+        "react": {
+            "version": "16.5.2"
+        }
+    },
     "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
         "ecmaVersion": 8,
         "sourceType": "module"
-    }
+    },
+    "plugins": [
+        "react"
+    ]
 }
