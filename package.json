@@ -4,6 +4,9 @@
   "version": "0.0.0",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": ">=10.12"
+  },
   "scripts": {
     "start": "yarn start:data-server & yarn start:ui",
     "start:data-server": "npm run start --prefix packages/data-server",
@@ -29,7 +32,9 @@
     "@babel/core": "^7.1.0",
     "@babel/preset-env": "^7.1.0",
     "eslint": "^5.6.1",
-    "lerna": "^3.4.1"
+    "husky": "^1.1.2",
+    "lerna": "^3.4.1",
+    "lint-staged": "^7.3.0"
   },
   "dependencies": {}
 }
