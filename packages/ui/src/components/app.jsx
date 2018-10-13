@@ -1,12 +1,17 @@
 import React from 'react';
 import ApolloClient from 'apollo-boost';
+import { ApolloProvider } from "react-apollo";
+
+import Meals from './meals';
 
 const client = new ApolloClient({
     uri: 'http://localhost:4000/graphql'
 });
 
 const App = () => (
-    <div />
+    <ApolloProvider client={client}>
+        <Meals />
+    </ApolloProvider>
 );
 
 export default App;

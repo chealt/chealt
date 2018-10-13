@@ -12,7 +12,7 @@ module.exports = {
         compress: true,
         port: 9000
     },
-    devtool: 'cheap-eval-source-map',
+    devtool: 'source-map',
     mode: isProduction ? 'production' : 'development',
     resolve: {
         extensions: ['.mjs', '.js', '.jsx']
