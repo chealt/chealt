@@ -6,7 +6,7 @@ const buildFolder = path.resolve(__dirname, '../dist');
 const isProduction = process.env.NODE_ENV === 'production';
 
 module.exports = {
-    entry: './src/index.js',
+    entry: './src/index.jsx',
     devServer: {
         contentBase: buildFolder,
         compress: true,
@@ -14,6 +14,9 @@ module.exports = {
     },
     devtool: 'cheap-eval-source-map',
     mode: isProduction ? 'production' : 'development',
+    resolve: {
+        extensions: ['.mjs', '.js', '.jsx']
+    },
     output: {
         filename: 'main.js',
         path: buildFolder
@@ -22,5 +25,14 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: './src/index.html'
         })
-    ]
+    ],
+    module: {
+        rules: [
+            {
+                test: /\.jsx?$/,
+                exclude: /node_modules/,
+                use: 'babel-loader'
+            }
+        ]
+    }
 };
