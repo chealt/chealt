@@ -1,12 +1,6 @@
 const { ApolloServer, gql } = require('apollo-server');
 
-const meals = [
-    {
-        imageUrl: '',
-        name: 'my first meal',
-        datetime: new Date().toISOString()
-    }
-];
+const meals = require('./data/meals.json');
 
 const typeDefs = gql`
     type Meal {
