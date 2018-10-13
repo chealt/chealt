@@ -2,6 +2,8 @@ import React from 'react';
 import gql from "graphql-tag";
 import { Query } from "react-apollo";
 
+import Items from './items';
+
 const GET_MEALS = gql`
     {
         meals {
@@ -15,9 +17,9 @@ const GET_MEALS = gql`
 const Meals = () => (
     <Query query={GET_MEALS}>
         {({ loading, error, data: { meals } }) => (
-            !loading && !error && meals.map(meal => (
-                <div>{meal.name}, {meal.datetime}</div>
-            ))
+            !loading && !error && (
+                <Items meals={meals} />
+            )
         )}
     </Query>
 );
