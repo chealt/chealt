@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "start": "yarn start:data-server & yarn start:ui",
-    "start:data-server": "node --experimental-modules packages/data-server/src/index.js",
+    "start:data-server": "npm run start --prefix packages/data-server",
     "start:ui": "npm run start --prefix packages/ui"
   },
   "workspaces": [
