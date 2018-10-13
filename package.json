@@ -7,7 +7,9 @@
   "scripts": {
     "start": "yarn start:data-server & yarn start:ui",
     "start:data-server": "npm run start --prefix packages/data-server",
-    "start:ui": "npm run start --prefix packages/ui"
+    "start:ui": "npm run start --prefix packages/ui",
+    "lint": "yarn lint:scripts",
+    "lint:scripts": "eslint . --ext .js,.mjs"
   },
   "workspaces": [
     "packages/*"
