@@ -1,8 +1,6 @@
 import React from 'react';
 import { array } from 'prop-types';
 
-import Items from './items';
-
 const Meals = ({ meals }) => (
     meals.map(({ name, datetime }) => (
         <div key={name}>{name}, {datetime}</div>

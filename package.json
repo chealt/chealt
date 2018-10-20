@@ -8,6 +8,7 @@
     "node": ">=10.12"
   },
   "scripts": {
+    "bootstrap": "lerna bootstrap",
     "start": "npm run start:ui",
     "start:ui": "npm run start --prefix packages/ui",
     "lint": "npm run lint:scripts",
@@ -36,8 +37,7 @@
     "eslint-plugin-react": "^7.11.1",
     "husky": "^1.1.2",
     "lerna": "^3.4.1",
-    "lint-staged": "^7.3.0",
-    "react": "^16.5.2"
+    "lint-staged": "^7.3.0"
   },
   "dependencies": {}
 }
