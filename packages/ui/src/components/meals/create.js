@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Form from '../form/index';
 import Input from '../form/input';
 
 const Create = () => (
