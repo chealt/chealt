@@ -10,6 +10,7 @@ module.exports = {
     devServer: {
         contentBase: buildFolder,
         compress: true,
+        overlay: true,
         port: 9000
     },
     devtool: 'source-map',

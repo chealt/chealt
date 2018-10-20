@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Meals from './meals/index';
+import Meals from './meals/container';
 
 const App = () => (
     <Meals />

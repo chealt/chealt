@@ -11,7 +11,7 @@
         "complexity":                         ["error", 10],
         "eol-last":                           ["error", "always"],
         "import/newline-after-import":        ["error"],
-        "indent":                             ["error", 4],
+        "indent":                             ["error", 4, { "SwitchCase": 1 }],
         "no-multiple-empty-lines":            ["error", { "max": 1 }],
         "no-trailing-spaces":                 ["error"],
         "object-curly-spacing":               ["error", "always"],
