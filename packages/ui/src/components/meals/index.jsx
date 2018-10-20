@@ -1,27 +1,16 @@
 import React from 'react';
-import gql from "graphql-tag";
-import { Query } from "react-apollo";
+import { array } from 'prop-types';
 
 import Items from './items';
 
-const GET_MEALS = gql`
-    {
-        meals {
-            imageUrl
-            name
-            datetime
-        }
-    }
-`;
-
-const Meals = () => (
-    <Query query={GET_MEALS}>
-        {({ loading, error, data: { meals } }) => (
-            !loading && !error && (
-                <Items meals={meals} />
-            )
-        )}
-    </Query>
+const Meals = ({ meals }) => (
+    meals.map(({ name, datetime }) => (
+        <div key={name}>{name}, {datetime}</div>
+    ))
 );
+
+Meals.propTypes = {
+    meals: array.isRequired
+};
 
 export default Meals;
