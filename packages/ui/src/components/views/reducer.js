@@ -4,7 +4,7 @@ const defaultState = {
 
 const views = (state = defaultState, action) => {
     switch (action.type) {
-        case 'VIEWS.SWICTH_VIEW':
+        case 'VIEWS.SWITCH_VIEW':
             return {
                 currentView: action.payload
             };
