@@ -8,11 +8,10 @@
     "node": ">=10.12"
   },
   "scripts": {
-    "start": "yarn start:data-server & yarn start:ui",
-    "start:data-server": "npm run start --prefix packages/data-server",
+    "start": "npm run start:ui",
     "start:ui": "npm run start --prefix packages/ui",
-    "lint": "yarn lint:scripts",
-    "lint:scripts": "eslint . --ext .js,.jsx,.mjs"
+    "lint": "npm run lint:scripts",
+    "lint:scripts": "eslint . --ext .js,.jsx"
   },
   "workspaces": [
     "packages/*"
