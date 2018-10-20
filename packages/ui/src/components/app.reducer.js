@@ -1,13 +1,14 @@
 import { combineReducers } from 'redux';
 
 import meals from './meals/reducer';
+import views from './views/reducer';
 
 const mainReducer = (reducers, initialState) => {
     const appState = {
         state: initialState
     };
 
-    return (state = {}, action) => {
+    return (state = undefined, action) => {
         switch (action.type) {
             case 'APP.LOAD_STATE':
                 appState.state = action.payload;
@@ -20,7 +21,8 @@ const mainReducer = (reducers, initialState) => {
 };
 
 const appReducers = combineReducers({
-    meals
+    meals,
+    views
 });
 
 export {

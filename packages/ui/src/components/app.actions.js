@@ -4,8 +4,8 @@ const loadAppState = (payload) => ({
 });
 
 const initAppState = () => {
-    return (dispatch) => {
-        dispatch(loadAppState({}));
+    return (/*dispatch*/) => {
+        //dispatch(loadAppState());
     };
 };
 

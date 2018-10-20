@@ -1,4 +1,4 @@
-const meals = (state = [], action) => {
+const meals = (state = null, action) => {
     switch (action.type) {
         default:
             return state;
