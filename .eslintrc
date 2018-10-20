@@ -1,11 +1,13 @@
 {
+    "env": {
+        "browser": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended"
+    ],
     "parser": "babel-eslint",
     "rules": {
-        "extends": [
-            "eslint:recommended",
-            "plugin:react/recommended"
-        ],
-        
         "array-bracket-spacing":              ["error"],
         "comma-dangle":                       ["error", "never"],
         "comma-spacing":                      ["error", { "before": false, "after": true }],
@@ -25,9 +27,7 @@
         ],
         "semi":                               ["error", "always"],
         "space-in-parens":                    ["error", "never"],
-        "space-infix-ops":                    ["error"],
-
-        "react/prop-types":                   ["error"]
+        "space-infix-ops":                    ["error"]
     },
     "settings": {
         "react": {

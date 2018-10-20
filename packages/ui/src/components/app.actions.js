@@ -1,7 +1,7 @@
-const loadAppState = (payload) => ({
-    type: 'APP.LOAD_STATE',
-    payload
-});
+// const loadAppState = (payload) => ({
+//     type: 'APP.LOAD_STATE',
+//     payload
+// });
 
 const initAppState = () => {
     return (/*dispatch*/) => {
@@ -9,6 +9,12 @@ const initAppState = () => {
     };
 };
 
+const showCreateItem = (payload) => ({
+    type: 'APP.SHOW_CREATE_ITEM',
+    payload
+});
+
 export {
-    initAppState
+    initAppState,
+    showCreateItem
 };

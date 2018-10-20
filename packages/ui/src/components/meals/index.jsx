@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { array } from 'prop-types';
 
 const Meals = ({ meals }) => (
-    meals && meals.map(({ name, datetime }) => (
-        <div key={name}>{name}, {datetime}</div>
-    )) || null
+    <Fragment>
+        {meals && meals.map(({ name, datetime }) => (
+            <div key={name}>{name}, {datetime}</div>
+        )) || null}
+    </Fragment>
 );
 
 Meals.propTypes = {

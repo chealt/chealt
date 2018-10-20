@@ -5,3 +5,7 @@
 .main.nav-bar > * {
     flex-grow: 1;
 }
+
+.main.nav-bar .button {
+    padding: var(--grid-size--xlarge);
+}
