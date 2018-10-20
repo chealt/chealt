@@ -15,7 +15,7 @@ module.exports = {
     devtool: 'source-map',
     mode: isProduction ? 'production' : 'development',
     resolve: {
-        extensions: ['.mjs', '.js', '.jsx']
+        extensions: ['.js', '.jsx']
     },
     output: {
         filename: 'main.js',
