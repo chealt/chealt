@@ -1,9 +1,8 @@
 module.exports = {
     clearMocks: true,
-    moduleFileExtensions: [
-        "js"
-    ],
+    moduleFileExtensions: ['js'],
     preset: 'jest-puppeteer',
     rootDir: '../../',
-    setupTestFrameworkScriptFile: '<rootDir>/config/jest/ui.setup.js'
+    setupTestFrameworkScriptFile: '<rootDir>/config/jest/ui.setup.js',
+    testMatch: ['**/*.ui-spec.js']
 };
