@@ -1,6 +1,10 @@
 language: node_js
 cache: yarn
-script:
-  - yarn lint
-  - yarn test
-  - yarn test:ui
+jobs:
+  include:
+    - stage: 'linting'
+      script: yarn lint
+    - stage: 'unit tests'
+      script: yarn test
+    - stage: 'UI tests'
+      script: yarn test:ui
