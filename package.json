@@ -13,7 +13,9 @@
     "lint": "yarn lint:scripts",
     "lint:scripts": "eslint . --ext .js,.jsx"
   },
-  "workspaces": ["packages/*"],
+  "workspaces": [
+    "packages/*"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/atikenny/chealt.git"
@@ -35,7 +37,7 @@
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-react": "^7.11.1",
     "husky": "^1.1.2",
-    "lint-staged": "^7.3.0"
+    "lint-staged": "^8.1.0"
   },
   "dependencies": {}
 }
