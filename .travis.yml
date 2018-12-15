@@ -5,7 +5,7 @@ jobs:
     - stage: 'Linting'
       script: yarn lint
     - stage: 'Testing'
-      name: Unit tests'
+      name: 'Unit tests'
       script: yarn test
     - script: yarn test:ui
       name: 'UI tests'
