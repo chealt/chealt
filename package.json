@@ -11,10 +11,13 @@
     "start": "yarn start:ui",
     "start:ui": "yarn start --prefix packages/ui",
     "test": "yarn workspace @chealt/ui run test",
+    "test:ui": "yarn workspace @chealt/ui run test:ui",
     "lint": "yarn lint:scripts",
     "lint:scripts": "eslint . --ext .js,.jsx"
   },
-  "workspaces": ["packages/*"],
+  "workspaces": [
+    "packages/*"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/atikenny/chealt.git"
@@ -32,11 +35,14 @@
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
     "babel-eslint": "^10.0.1",
+    "concurrently": "^4.1.0",
     "eslint": "^5.6.1",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-react": "^7.11.1",
     "husky": "^1.1.2",
-    "lint-staged": "^8.1.0"
+    "lint-staged": "^8.1.0",
+    "prettier": "^1.15.3",
+    "wait-on": "^3.2.0"
   },
   "dependencies": {}
 }
