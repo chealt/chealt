@@ -2,9 +2,10 @@ language: node_js
 cache: yarn
 jobs:
   include:
-    - stage: 'linting'
+    - stage: 'Linting'
       script: yarn lint
-    - stage: 'unit tests'
+    - stage: 'Testing'
+      name: Unit tests'
       script: yarn test
-    - stage: 'UI tests'
+      name: 'UI tests'
       script: yarn test:ui
