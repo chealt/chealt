@@ -5,7 +5,7 @@
   "description": "",
   "main": "index.js",
   "engines": {
-    "node": ">=10.12"
+    "node": ">=10.14.2"
   },
   "scripts": {
     "bootstrap": "lerna bootstrap",
@@ -14,9 +14,7 @@
     "lint": "npm run lint:scripts",
     "lint:scripts": "eslint . --ext .js,.jsx"
   },
-  "workspaces": [
-    "packages/*"
-  ],
+  "workspaces": ["packages/*"],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/atikenny/chealt.git"
