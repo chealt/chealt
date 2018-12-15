@@ -3,3 +3,4 @@ cache: yarn
 script:
   - yarn lint
   - yarn test
+  - yarn test:ui
