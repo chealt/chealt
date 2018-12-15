@@ -10,12 +10,11 @@
   "scripts": {
     "start": "yarn start:ui",
     "start:ui": "yarn start --prefix packages/ui",
+    "test": "yarn workspace @chealt/ui run test",
     "lint": "yarn lint:scripts",
     "lint:scripts": "eslint . --ext .js,.jsx"
   },
-  "workspaces": [
-    "packages/*"
-  ],
+  "workspaces": ["packages/*"],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/atikenny/chealt.git"
