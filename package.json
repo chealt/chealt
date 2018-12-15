@@ -12,6 +12,7 @@
     "start:ui": "yarn workspace @chealt/ui run start",
     "test": "yarn workspace @chealt/ui run test",
     "test:ui": "yarn workspace @chealt/ui run test:ui",
+    "test:ui:local": "yarn workspace @chealt/ui run test:ui:local",
     "lint": "yarn lint:scripts",
     "lint:scripts": "eslint . --ext .js,.jsx"
   },

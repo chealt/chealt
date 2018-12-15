@@ -10,7 +10,11 @@ import './app.css';
 
 const App = ({ currentView }) => (
     <Fragment>
-        <Input type="text" name="feeling" placeholder="Tell me you feel..." />
+        <Input
+            type="text"
+            name="feeling"
+            placeholder="Tell me how you feel..."
+        />
         <div className="view-container">
             {(currentView === 'meals' && <Meals />) || <div />}
         </div>
