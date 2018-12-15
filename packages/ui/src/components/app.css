@@ -1,17 +1,21 @@
 :root {
     /* LAYOUT */
-    --grid-size:            4px;
-    --grid-size--large:     calc(var(--grid-size) * 2);
-    --grid-size--xlarge:    calc(var(--grid-size) * 4);
+    --grid-size: 4px;
+    --grid-size--large: calc(var(--grid-size) * 2);
+    --grid-size--xlarge: calc(var(--grid-size) * 4);
+
+    --rounded: 4px;
 
     /* COLORS */
-    --color-brand:          #38bd3c;
-    --color-brand-text:     #fff;
+    --color-brand: #38bd3c;
+    --color-brand-text: #fff;
+    --color-brand--light: #38bd3c61;
 
     /* FONTS */
-    --font-size:            16px;
-    --font-weight:          400;
-    --font-family:          Arial, sans-serif;
+    --font-size: 16px;
+    --font-size--large: 24px;
+    --font-weight: 400;
+    --font-family: Arial, sans-serif;
 }
 
 html,
