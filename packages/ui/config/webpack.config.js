@@ -4,12 +4,14 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const buildFolder = path.resolve(__dirname, '../dist');
 
 const isProduction = process.env.NODE_ENV === 'production';
+const isCI = process.env.BUILD_ENV === 'ci';
 
 module.exports = {
     entry: './src/index.jsx',
     devServer: {
-        contentBase: buildFolder,
         compress: true,
+        contentBase: buildFolder,
+        open: !isCI,
         overlay: true,
         port: 9000
     },
@@ -30,11 +32,8 @@ module.exports = {
     module: {
         rules: [
             {
-                test:/\.css$/,
-                use: [
-                    'style-loader',
-                    'css-loader'
-                ]
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader']
             },
             {
                 test: /\.jsx?$/,
