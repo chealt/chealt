@@ -1,7 +1,6 @@
 import { combineReducers } from 'redux';
 
-import meals from './meals/reducer';
-import views from './views/reducer';
+import feelings from './feelings.reducer';
 
 const mainReducer = (reducers, initialState) => {
     const appState = {
@@ -21,8 +20,7 @@ const mainReducer = (reducers, initialState) => {
 };
 
 const appReducers = combineReducers({
-    meals,
-    views
+    feelings
 });
 
 export {

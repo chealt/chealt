@@ -1,0 +1,9 @@
+{
+  "private": true,
+  "name": "@chealt/component-library",
+  "version": "0.0.0",
+  "main": "src/index.js",
+  "scripts": {},
+  "author": "Attila Bartha",
+  "license": "ISC"
+}
