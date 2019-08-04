@@ -1,2 +1,4 @@
-export { default as Form } from './form';
-export { default as Input } from './form/input';
+import './index.css';
+
+export { default as Form } from './Form';
+export { default as Input } from './Form/Input';

@@ -1,7 +1,9 @@
 import React from 'react';
 
+import './index.css';
+
 const Input = (props) => (
-    <input {...props} />
+    <input className="input" {...props} />
 );
 
 export default Input;

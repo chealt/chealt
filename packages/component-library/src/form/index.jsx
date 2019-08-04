@@ -1,8 +1,10 @@
 import React from 'react';
 import { node } from 'prop-types';
 
+import './index.css';
+
 const Form = ({ children }, ...props) => (
-    <form {...props}>
+    <form className="form" {...props}>
         {children}
     </form>
 );

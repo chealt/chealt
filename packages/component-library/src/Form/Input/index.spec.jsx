@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import Input from './input';
+import Input from '.';
 
 describe('input form component', () => {
     it('renders an input', () => {

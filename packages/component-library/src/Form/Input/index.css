@@ -1,0 +1,6 @@
+.input {
+    flex: 1;
+    padding: var(--grid-size--large, var(--default-grid-size--large));
+    margin: var(--grid-size--large, var(--default-grid-size--large));
+    font-size: var(--font-size, var(--default-font-size));
+}

@@ -2,7 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 import { bool, node } from 'prop-types';
 
-import './button.css';
+import './index.css';
 
 const Button = ({ children, isActive, ...props }) => (
     <button
