@@ -1,11 +1,9 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const baseWebpackConfig = require(
-    '../../../../config/webpack/webpack.config.js'
-);
+const { webpackConfig } = require('@chealt/build-tools');
 
 module.exports = {
-    ...baseWebpackConfig,
+    ...webpackConfig,
     entry: './src/index.jsx',
     plugins: [
         new HtmlWebpackPlugin({

@@ -1,6 +1,6 @@
 const path = require('path');
 
-const babelOptions = require('../../.babelrc.js');
+const babelOptions = require('./.babelrc.js');
 
 const isProduction = process.env.NODE_ENV === 'production';
 
