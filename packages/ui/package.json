@@ -11,7 +11,7 @@
     "test:ui:debug": "DEBUG=true yarn test:ui",
     "test:ui:run": "JEST_PUPPETEER_CONFIG=config/jest/ui.puppeteer.config.js jest --config=config/jest/ui.config.js",
     "test:ui:wait": "wait-on -t 60000 http-get://localhost:9000/",
-    "watch": "webpack-dev-server --config config/webpack.config.js"
+    "watch": "webpack-dev-server --config config/webpack/webpack.config.js"
   },
   "author": "Attila Bartha",
   "license": "ISC",
