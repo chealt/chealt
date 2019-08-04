@@ -5,7 +5,7 @@ import { Input, Form } from '@chealt/component-library';
 
 const FeelingsForm = ({ saveFeeling }) => (
     <Form name="feelings-form" onSubmit={saveFeeling}>
-        <Input type="text" name="feeling" />
+        <Input type="text" name="feeling" placeholder="How do you feel today..." />
     </Form>
 );
 
