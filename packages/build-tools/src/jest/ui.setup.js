@@ -1,1 +1,1 @@
-import '../config-local-env';
+require('../config-local-env');

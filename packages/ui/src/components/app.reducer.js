@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 
-import feelings from './feelings.reducer';
+import feelings from './FeelingsForm/reducer';
 
 const mainReducer = (reducers, initialState) => {
     const appState = {
