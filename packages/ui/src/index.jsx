@@ -6,7 +6,7 @@ import thunk from 'redux-thunk';
 
 import { appReducers, mainReducer } from './components/app.reducer';
 import App from './components';
-import { initAuthentication } from './components/app.actions';
+import { initAuth } from './components/Authentication/actions';
 import { preloadState, saveState } from './components/persist';
 import { observeStoreWithout } from './components/redux-utils';
 
@@ -18,7 +18,7 @@ const store = createStore(
     composeEnhancers(applyMiddleware(thunk))
 );
 
-store.dispatch(initAuthentication());
+store.dispatch(initAuth());
 observeStoreWithout(store, ['authentication'], saveState);
 
 render(

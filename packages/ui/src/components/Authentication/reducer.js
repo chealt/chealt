@@ -1,4 +1,5 @@
 const defaultState = {
+    isAuthenticated: false,
     inProgress: false
 };
 
@@ -13,6 +14,11 @@ const authentication = (state = defaultState, action) => {
             return {
                 ...state,
                 inProgress: false
+            };
+        case 'AUTH.LOADED':
+            return {
+                ...state,
+                isAuthenticated: action.isAuthenticated
             };
         default:
             return state;

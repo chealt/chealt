@@ -20,4 +20,6 @@ const login = async () => {
     });
 };
 
-export { initAuth0, login };
+const checkLoginStatus = () => auth0.isAuthenticated();
+
+export { initAuth0, login, checkLoginStatus };

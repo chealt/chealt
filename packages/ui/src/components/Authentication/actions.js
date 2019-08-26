@@ -1,7 +1,16 @@
-import { login as auth0Login } from './auth0';
+import { login as auth0Login, checkLoginStatus, initAuth0 } from './auth0';
 
 const started = () => ({
     type: 'AUTH.STARTED'
+});
+
+const finished = () => ({
+    type: 'AUTH.FINISHED'
+});
+
+const loaded = (isAuthenticated) => ({
+    type: 'AUTH.LOADED',
+    isAuthenticated
 });
 
 const login = () => {
@@ -12,4 +21,17 @@ const login = () => {
     };
 };
 
-export { login };
+const initAuth = () => {
+    return async (dispatch) => {
+        dispatch(started());
+
+        await initAuth0();
+        const isAuthenticated = await checkLoginStatus();
+
+        dispatch(loaded(isAuthenticated));
+
+        dispatch(finished());
+    };
+};
+
+export { login, initAuth };
