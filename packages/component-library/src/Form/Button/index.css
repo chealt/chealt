@@ -1,12 +1,9 @@
 .button {
     border: 0 none;
-    padding: var(--grid-size--large, --default-grid-size--large);
+    padding: var(--grid-size--large, var(--default-grid-size--large));
     outline: none;
     cursor: pointer;
     font: inherit;
-}
-
-.button.active {
-    background-color: var(--color-brand, --default-color-brand);
-    color: var(--color-brand-text, --default-color-brand-text);
+    background-color: var(--color-brand, var(--default-color-brand));
+    color: var(--color-brand-text, var(--default-color-brand-text));
 }

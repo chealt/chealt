@@ -16,6 +16,7 @@
   "author": "Attila Bartha",
   "license": "ISC",
   "dependencies": {
+    "@auth0/auth0-spa-js": "^1.2.0",
     "@chealt/component-library": "0.0.0"
   },
   "devDependencies": {

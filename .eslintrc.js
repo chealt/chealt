@@ -65,11 +65,14 @@ module.exports = {
         quotes: ['error', 'single'],
         semi: ['error', 'always'],
         'space-in-parens': ['error', 'never'],
-        'space-infix-ops': ['error']
+        'space-infix-ops': ['error'],
+
+        // React
+        'react/jsx-filename-extension': 'error'
     },
     settings: {
         react: {
-            version: '16.5.2'
+            version: 'detect'
         }
     },
     parserOptions: {
