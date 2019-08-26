@@ -16,4 +16,20 @@ const observeStore = (store, select, onChange) => {
     return unsubscribe;
 };
 
-export { observeStore };
+const observeStoreWithout = (store, needles, onChange) => {
+    observeStore(
+        store,
+        (state) => {
+            return Object.keys(state).reduce((filteredState, stateProperty) => {
+                if (!needles.includes(stateProperty)) {
+                    filteredState[stateProperty] = state[stateProperty];
+                }
+
+                return filteredState;
+            }, {});
+        },
+        onChange
+    );
+};
+
+export { observeStore, observeStoreWithout };

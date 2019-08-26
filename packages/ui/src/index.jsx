@@ -8,6 +8,7 @@ import { appReducers, mainReducer } from './components/app.reducer';
 import App from './components';
 import { initAuthentication } from './components/app.actions';
 import { preloadState, saveState } from './components/persist';
+import { observeStoreWithout } from './components/redux-utils';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -18,7 +19,7 @@ const store = createStore(
 );
 
 store.dispatch(initAuthentication());
-store.subscribe(() => saveState(store.getState()));
+observeStoreWithout(store, ['authentication'], saveState);
 
 render(
     <Provider store={store}>
