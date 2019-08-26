@@ -1,20 +1,30 @@
-// const loadAppState = (payload) => ({
-//     type: 'APP.LOAD_STATE',
-//     payload
-// });
+import { load as loadFeelings } from './FeelingsForm/actions';
 
 const initAppState = () => {
-    return (/*dispatch*/) => {
-        //dispatch(loadAppState());
+    return (dispatch) => {
+        dispatch(loadFeelings());
     };
 };
 
-const showCreateItem = (payload) => ({
-    type: 'APP.SHOW_CREATE_ITEM',
-    payload
-});
+const initAuthentication = () => {
+    return async () => {
+        if (window.PasswordCredential || window.FederatedCredential) {
+            const credentials = await navigator.credentials.get({
+                password: true,
+                federated: {
+                    providers: [
+                        'https://accounts.google.com'
+                    ]
+                },
+                mediation: 'optional'
+            });
+
+            console.log(credentials);
+        }
+    };
+};
 
 export {
     initAppState,
-    showCreateItem
+    initAuthentication
 };

@@ -7,6 +7,11 @@ const feelings = (state = defaultState, action) => {
                 ...state,
                 action.feeling
             ]));
+        case 'FEELINGS.LOAD':
+            return Array.from(new Set([
+                ...state,
+                action.feelings
+            ]));
         default:
             return state;
     }
