@@ -9,8 +9,8 @@ const mainReducer = (reducers, initialState) => {
 
     return (state = undefined, action) => {
         switch (action.type) {
-            case 'APP.LOAD_STATE':
-                appState.state = action.payload;
+            case 'APP.LOAD':
+                appState.state = action.state;
 
                 return appState.state;
             default:
@@ -23,7 +23,4 @@ const appReducers = combineReducers({
     feelings
 });
 
-export {
-    appReducers,
-    mainReducer
-};
+export { appReducers, mainReducer };

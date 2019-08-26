@@ -6,7 +6,11 @@ import thunk from 'redux-thunk';
 
 import { appReducers, mainReducer } from './components/app.reducer';
 import App from './components/app';
-import { initAppState, initAuthentication } from './components/app.actions';
+import {
+    initAppState,
+    initAuthentication,
+    saveAppState
+} from './components/app.actions';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -17,6 +21,7 @@ const store = createStore(
 
 store.dispatch(initAppState());
 store.dispatch(initAuthentication());
+store.subscribe(() => saveAppState(store.getState()));
 
 render(
     <Provider store={store}>

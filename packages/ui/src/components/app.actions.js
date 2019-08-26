@@ -8,8 +8,9 @@ const APP_STORAGE_KEY = 'CHEALT';
 const initAppState = () => {
     return (dispatch) => {
         const state = window.localStorage.getItem(APP_STORAGE_KEY);
+        const parsedState = state ? JSON.parse(state) : undefined;
 
-        dispatch(loadAppState(state));
+        dispatch(loadAppState(parsedState));
     };
 };
 
@@ -29,4 +30,8 @@ const initAuthentication = () => {
     };
 };
 
-export { initAppState, initAuthentication };
+const saveAppState = (state) => {
+    window.localStorage.setItem(APP_STORAGE_KEY, JSON.stringify(state));
+};
+
+export { initAppState, initAuthentication, saveAppState };
