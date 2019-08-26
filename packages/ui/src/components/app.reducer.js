@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 
 import feelings from './FeelingsForm/reducer';
+import authentication from './Authentication/reducer';
 
 const mainReducer = (reducers, initialState) => {
     const appState = {
@@ -20,6 +21,7 @@ const mainReducer = (reducers, initialState) => {
 };
 
 const appReducers = combineReducers({
+    authentication,
     feelings
 });
 

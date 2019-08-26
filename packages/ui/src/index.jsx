@@ -5,23 +5,20 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 
 import { appReducers, mainReducer } from './components/app.reducer';
-import App from './components/app';
-import {
-    initAppState,
-    initAuthentication,
-    saveAppState
-} from './components/app.actions';
+import App from './components';
+import { initAuthentication } from './components/app.actions';
+import { preloadState, saveState } from './components/persist';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const store = createStore(
     mainReducer(appReducers),
+    preloadState(),
     composeEnhancers(applyMiddleware(thunk))
 );
 
-store.dispatch(initAppState());
 store.dispatch(initAuthentication());
-store.subscribe(() => saveAppState(store.getState()));
+store.subscribe(() => saveState(store.getState()));
 
 render(
     <Provider store={store}>

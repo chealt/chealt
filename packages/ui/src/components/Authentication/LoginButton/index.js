@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 
 import LoginButton from './LoginButton';
 
-import { login } from './actions';
+import { login } from '../actions';
 
 const mapDispatch = (dispatch) => ({
     login: () => {

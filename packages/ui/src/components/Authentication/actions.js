@@ -1,7 +1,7 @@
-import { login as auth0Login } from '../../Authentication/auth0';
+import { login as auth0Login } from './auth0';
 
 const started = () => ({
-    type: 'LOGIN.STARTED'
+    type: 'AUTH.STARTED'
 });
 
 const login = () => {
