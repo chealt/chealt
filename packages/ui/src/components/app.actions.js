@@ -1,8 +1,15 @@
-import { load as loadFeelings } from './FeelingsForm/actions';
+const loadAppState = (state) => ({
+    type: 'APP.LOAD',
+    state
+});
+
+const APP_STORAGE_KEY = 'CHEALT';
 
 const initAppState = () => {
     return (dispatch) => {
-        dispatch(loadFeelings());
+        const state = window.localStorage.getItem(APP_STORAGE_KEY);
+
+        dispatch(loadAppState(state));
     };
 };
 
@@ -12,9 +19,7 @@ const initAuthentication = () => {
             const credentials = await navigator.credentials.get({
                 password: true,
                 federated: {
-                    providers: [
-                        'https://accounts.google.com'
-                    ]
+                    providers: ['https://accounts.google.com']
                 },
                 mediation: 'optional'
             });
@@ -24,7 +29,4 @@ const initAuthentication = () => {
     };
 };
 
-export {
-    initAppState,
-    initAuthentication
-};
+export { initAppState, initAuthentication };
