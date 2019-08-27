@@ -1,4 +1,11 @@
-import { login as auth0Login, checkLoginStatus, initAuth0 } from './auth0';
+import {
+    login as auth0Login,
+    logout as auth0Logout,
+    checkLoginStatus,
+    initAuth0,
+    handleRedirect,
+    cleanAuth0RedirectUrl
+} from './auth0';
 
 const started = () => ({
     type: 'AUTH.STARTED'
@@ -18,6 +25,18 @@ const login = () => {
         dispatch(started());
 
         await auth0Login();
+
+        dispatch(finished());
+    };
+};
+
+const logout = () => {
+    return async (dispatch) => {
+        dispatch(started());
+
+        await auth0Logout();
+
+        dispatch(finished());
     };
 };
 
@@ -26,7 +45,12 @@ const initAuth = () => {
         dispatch(started());
 
         await initAuth0();
+        await handleRedirect();
         const isAuthenticated = await checkLoginStatus();
+
+        if (isAuthenticated) {
+            cleanAuth0RedirectUrl();
+        }
 
         dispatch(loaded(isAuthenticated));
 
@@ -34,4 +58,4 @@ const initAuth = () => {
     };
 };
 
-export { login, initAuth };
+export { login, logout, initAuth };

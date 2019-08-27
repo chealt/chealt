@@ -4,18 +4,23 @@ import { bool } from 'prop-types';
 import FeelingsForm from './FeelingsForm';
 import Header from './Header';
 import LoginButton from './Authentication/LoginButton';
+import LogoutButton from './Authentication/LogoutButton';
 
 import './app.css';
 
-const App = ({ hideLogin }) => (
+const App = ({ authInProgress, isAuthenticated }) => (
     <Fragment>
-        <Header>{!hideLogin && <LoginButton />}</Header>
+        <Header>
+            {!authInProgress && !isAuthenticated && <LoginButton />}
+            {!authInProgress && isAuthenticated && <LogoutButton />}
+        </Header>
         <FeelingsForm />
     </Fragment>
 );
 
 App.propTypes = {
-    hideLogin: bool
+    authInProgress: bool,
+    isAuthenticated: bool
 };
 
 export default App;

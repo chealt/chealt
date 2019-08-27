@@ -20,6 +20,31 @@ const login = async () => {
     });
 };
 
+const handleRedirect = () => {
+    const query = window.location.search;
+
+    if (query.includes('code=') && query.includes('state=')) {
+        return auth0.handleRedirectCallback();
+    }
+};
+
 const checkLoginStatus = () => auth0.isAuthenticated();
 
-export { initAuth0, login, checkLoginStatus };
+const cleanAuth0RedirectUrl = () => {
+    window.history.replaceState({}, document.title, '/');
+};
+
+const logout = () => {
+    auth0.logout({
+        returnTo: window.location.origin
+    });
+};
+
+export {
+    initAuth0,
+    login,
+    logout,
+    checkLoginStatus,
+    handleRedirect,
+    cleanAuth0RedirectUrl
+};
