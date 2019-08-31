@@ -5,5 +5,8 @@
   "main": "src/index.js",
   "scripts": {},
   "author": "Attila Bartha",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "enzyme": "^3.10.0"
+  }
 }

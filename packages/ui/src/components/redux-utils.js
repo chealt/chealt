@@ -19,15 +19,14 @@ const observeStore = (store, select, onChange) => {
 const observeStoreWithout = (store, needles, onChange) => {
     observeStore(
         store,
-        (state) => {
-            return Object.keys(state).reduce((filteredState, stateProperty) => {
+        (state) =>
+            Object.keys(state).reduce((filteredState, stateProperty) => {
                 if (!needles.includes(stateProperty)) {
                     filteredState[stateProperty] = state[stateProperty];
                 }
 
                 return filteredState;
-            }, {});
-        },
+            }, {}),
         onChange
     );
 };

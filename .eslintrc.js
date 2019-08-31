@@ -84,6 +84,15 @@ module.exports = {
     settings: {
         react: {
             version: 'detect'
+        },
+        'import/resolver': {
+            webpack: {
+                config: {
+                    resolve: {
+                        extensions: ['.js', '.jsx']
+                    }
+                }
+            }
         }
     },
     parserOptions: {
