@@ -1,10 +1,3 @@
-import {
-    getUser,
-    login as auth0Login,
-    logout as auth0Logout,
-    initAuth0
-} from './auth0';
-
 const started = () => ({
     type: 'AUTH.STARTED'
 });
@@ -21,18 +14,11 @@ const loaded = (isAuthenticated) => ({
 const login = () => async (dispatch) => {
     dispatch(started());
 
-    await auth0Login();
-    const user = await getUser();
-
-    dispatch(loaded(Boolean(user)));
-
     dispatch(finished());
 };
 
 const logout = () => async (dispatch) => {
     dispatch(started());
-
-    await auth0Logout();
 
     dispatch(finished());
 };
@@ -40,10 +26,7 @@ const logout = () => async (dispatch) => {
 const initAuth = () => async (dispatch) => {
     dispatch(started());
 
-    await initAuth0();
-    const user = await getUser();
-
-    dispatch(loaded(Boolean(user)));
+    dispatch(loaded(false));
 
     dispatch(finished());
 };
