@@ -1,10 +1,8 @@
 import {
+    getUser,
     login as auth0Login,
     logout as auth0Logout,
-    checkLoginStatus,
-    initAuth0,
-    handleRedirect,
-    cleanAuth0RedirectUrl
+    initAuth0
 } from './auth0';
 
 const started = () => ({
@@ -20,42 +18,34 @@ const loaded = (isAuthenticated) => ({
     isAuthenticated
 });
 
-const login = () => {
-    return async (dispatch) => {
-        dispatch(started());
+const login = () => async (dispatch) => {
+    dispatch(started());
 
-        await auth0Login();
+    await auth0Login();
+    const user = await getUser();
 
-        dispatch(finished());
-    };
+    dispatch(loaded(Boolean(user)));
+
+    dispatch(finished());
 };
 
-const logout = () => {
-    return async (dispatch) => {
-        dispatch(started());
+const logout = () => async (dispatch) => {
+    dispatch(started());
 
-        await auth0Logout();
+    await auth0Logout();
 
-        dispatch(finished());
-    };
+    dispatch(finished());
 };
 
-const initAuth = () => {
-    return async (dispatch) => {
-        dispatch(started());
+const initAuth = () => async (dispatch) => {
+    dispatch(started());
 
-        await initAuth0();
-        await handleRedirect();
-        const isAuthenticated = await checkLoginStatus();
+    await initAuth0();
+    const user = await getUser();
 
-        if (isAuthenticated) {
-            cleanAuth0RedirectUrl();
-        }
+    dispatch(loaded(Boolean(user)));
 
-        dispatch(loaded(isAuthenticated));
-
-        dispatch(finished());
-    };
+    dispatch(finished());
 };
 
 export { login, logout, initAuth };

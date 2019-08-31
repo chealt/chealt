@@ -14,25 +14,7 @@ const initAuth0 = async () => {
     });
 };
 
-const login = async () => {
-    await auth0.loginWithRedirect({
-        redirect_uri: window.location.origin
-    });
-};
-
-const handleRedirect = () => {
-    const query = window.location.search;
-
-    if (query.includes('code=') && query.includes('state=')) {
-        return auth0.handleRedirectCallback();
-    }
-};
-
-const checkLoginStatus = () => auth0.isAuthenticated();
-
-const cleanAuth0RedirectUrl = () => {
-    window.history.replaceState({}, document.title, '/');
-};
+const login = () => auth0.loginWithPopup();
 
 const logout = () => {
     auth0.logout({
@@ -40,11 +22,6 @@ const logout = () => {
     });
 };
 
-export {
-    initAuth0,
-    login,
-    logout,
-    checkLoginStatus,
-    handleRedirect,
-    cleanAuth0RedirectUrl
-};
+const getUser = () => auth0.getUser();
+
+export { initAuth0, login, logout, getUser };
