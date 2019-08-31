@@ -4,9 +4,12 @@ import { bool, node } from 'prop-types';
 
 import './index.css';
 
-const Button = ({ children, isActive, ...props }) => (
+const Button = ({ children, isActive, isInProgress, ...props }) => (
     <button
-        className={classnames('button', { active: isActive })}
+        className={classnames('button', {
+            active: isActive,
+            disabled: isInProgress
+        })}
         {...props}>
         {children}
     </button>
@@ -14,7 +17,8 @@ const Button = ({ children, isActive, ...props }) => (
 
 Button.propTypes = {
     children: node.isRequired,
-    isActive: bool
+    isActive: bool,
+    isInProgress: bool
 };
 
 export default Button;

@@ -7,3 +7,8 @@
     background-color: var(--color-brand, var(--default-color-brand));
     color: var(--color-brand-text, var(--default-color-brand-text));
 }
+
+.button.disabled {
+    opacity: 0.5;
+    user-select: none;
+}
