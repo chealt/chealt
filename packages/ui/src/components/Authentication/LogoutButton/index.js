@@ -4,6 +4,10 @@ import LogoutButton from './LogoutButton';
 
 import { logout } from '../actions';
 
+const mapState = ({ authentication }) => ({
+    authInProgress: authentication.inProgress
+});
+
 const mapDispatch = (dispatch) => ({
     logout: () => {
         dispatch(logout());
@@ -11,6 +15,6 @@ const mapDispatch = (dispatch) => ({
 });
 
 export default connect(
-    null,
+    mapState,
     mapDispatch
 )(LogoutButton);

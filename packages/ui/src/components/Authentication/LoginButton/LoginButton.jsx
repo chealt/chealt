@@ -1,11 +1,16 @@
 import React from 'react';
-import { func } from 'prop-types';
+import { bool, func } from 'prop-types';
 
 import { Button } from '@chealt/component-library';
 
-const LoginButton = ({ login }) => <Button onClick={login}>Login</Button>;
+const LoginButton = ({ authInProgress, login }) => (
+    <Button onClick={login} isInProgress={authInProgress}>
+        Login
+    </Button>
+);
 
 LoginButton.propTypes = {
+    authInProgress: bool,
     login: func.isRequired
 };
 

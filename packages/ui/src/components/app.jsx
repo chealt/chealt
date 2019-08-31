@@ -8,18 +8,17 @@ import LogoutButton from './Authentication/LogoutButton';
 
 import './app.css';
 
-const App = ({ authInProgress, isAuthenticated }) => (
+const App = ({ isAuthenticated }) => (
     <Fragment>
         <Header>
-            {!authInProgress && !isAuthenticated && <LoginButton />}
-            {!authInProgress && isAuthenticated && <LogoutButton />}
+            {!isAuthenticated && <LoginButton />}
+            {isAuthenticated && <LogoutButton />}
         </Header>
         <FeelingsForm />
     </Fragment>
 );
 
 App.propTypes = {
-    authInProgress: bool,
     isAuthenticated: bool
 };
 

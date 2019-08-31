@@ -4,6 +4,10 @@ import LoginButton from './LoginButton';
 
 import { login } from '../actions';
 
+const mapState = ({ authentication }) => ({
+    authInProgress: authentication.inProgress
+});
+
 const mapDispatch = (dispatch) => ({
     login: () => {
         dispatch(login());
@@ -11,6 +15,6 @@ const mapDispatch = (dispatch) => ({
 });
 
 export default connect(
-    null,
+    mapState,
     mapDispatch
 )(LoginButton);
