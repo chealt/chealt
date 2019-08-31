@@ -12,6 +12,7 @@ module.exports = {
     parser: 'babel-eslint',
     rules: {
         'array-bracket-spacing': ['error'],
+        'arrow-body-style': ['error'],
         'comma-dangle': ['error', 'never'],
         'comma-spacing': [
             'error',
@@ -68,7 +69,17 @@ module.exports = {
         'space-infix-ops': ['error'],
 
         // React
-        'react/jsx-filename-extension': 'error'
+        'react/jsx-filename-extension': ['error'],
+
+        // import
+        'import/no-unresolved': ['error'],
+        'import/named': ['error'],
+        'import/namespace': ['error'],
+        'import/default': ['error'],
+        'import/export': ['error'],
+        'import/no-named-as-default': ['error'],
+        'import/no-named-as-default-member': ['error'],
+        'import/no-duplicates': ['error']
     },
     settings: {
         react: {
