@@ -1,3 +1,6 @@
+import { init } from './utils';
+import { login as googleLogin } from './Google';
+
 const started = () => ({
     type: 'AUTH.STARTED'
 });
@@ -14,6 +17,8 @@ const loaded = (isAuthenticated) => ({
 const login = () => async (dispatch) => {
     dispatch(started());
 
+    await googleLogin();
+
     dispatch(finished());
 };
 
@@ -25,6 +30,8 @@ const logout = () => async (dispatch) => {
 
 const initAuth = () => async (dispatch) => {
     dispatch(started());
+
+    init();
 
     dispatch(loaded(false));
 
