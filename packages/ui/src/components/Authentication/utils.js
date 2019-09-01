@@ -1,7 +1,5 @@
 import { init as googleInit } from './Google';
 
-const init = () => {
-    googleInit();
-};
+const init = () => googleInit();
 
 export { init };
