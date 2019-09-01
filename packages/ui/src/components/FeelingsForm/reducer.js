@@ -3,15 +3,15 @@ const defaultState = [];
 const feelings = (state = defaultState, action) => {
     switch (action.type) {
         case 'FEELINGS.ADD':
-            return Array.from(new Set([
+            return [
                 ...state,
-                action.feeling
-            ]));
+                {
+                    id: Date.now(),
+                    feeling: action.feeling
+                }
+            ];
         case 'FEELINGS.LOAD':
-            return Array.from(new Set([
-                ...state,
-                action.feelings
-            ]));
+            return [...state, action.feelings];
         default:
             return state;
     }
