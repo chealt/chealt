@@ -23,6 +23,7 @@ module.exports = {
         ],
         complexity: ['error', 10],
         'eol-last': ['error', 'always'],
+        eqeqeq: ['error'],
         'import/newline-after-import': ['error'],
         indent: [
             'error',
