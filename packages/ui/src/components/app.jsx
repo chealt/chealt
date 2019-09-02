@@ -5,6 +5,7 @@ import FeelingsForm from './FeelingsForm';
 import Header from './Header';
 import LoginButton from './Authentication/LoginButton';
 import LogoutButton from './Authentication/LogoutButton';
+import Feelings from './Feelings';
 
 import './app.css';
 
@@ -15,6 +16,7 @@ const App = ({ isAuthenticated }) => (
             {isAuthenticated && <LogoutButton />}
         </Header>
         <FeelingsForm />
+        <Feelings />
     </Fragment>
 );
 
