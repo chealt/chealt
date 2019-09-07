@@ -1,12 +1,14 @@
 import React from 'react';
 import { array } from 'prop-types';
 
+import { List, ListItem } from '@chealt/component-library';
+
 const Feelings = ({ feelings }) => (
-    <ul>
+    <List className="padded">
         {feelings.map(({ id, feeling }) => (
-            <li key={id}>{feeling}</li>
+            <ListItem key={id}>{feeling}</ListItem>
         ))}
-    </ul>
+    </List>
 );
 
 Feelings.propTypes = {
