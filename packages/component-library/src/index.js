@@ -1,4 +1,4 @@
-import './index.css';
+import './styles/index.css';
 
 export { default as Form } from './Form';
 export { serializer as formSerializer } from './Form/utils';
