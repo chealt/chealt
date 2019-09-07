@@ -1,3 +1,4 @@
+const accessibilityRules = require('./rules/accessibility');
 const javascriptRules = require('./rules/javascript');
 const importRules = require('./rules/import');
 const reactRules = require('./rules/react');
@@ -15,12 +16,9 @@ module.exports = {
     },
     parser: 'babel-eslint',
     rules: {
+        ...accessibilityRules,
         ...javascriptRules,
-
-        // React
         ...reactRules,
-
-        // import
         ...importRules
     },
     settings: {
@@ -44,5 +42,5 @@ module.exports = {
         ecmaVersion: 8,
         sourceType: 'module'
     },
-    plugins: ['import', 'react']
+    plugins: ['import', 'react', 'jsx-a11y']
 };
