@@ -1,10 +1,22 @@
 import React from 'react';
-import { node } from 'prop-types';
+import { bool, node } from 'prop-types';
+import classnames from 'classnames';
 
-const Item = ({ children, ...props }) => <li {...props}>{children}</li>;
+import './item.css';
+
+const Item = ({ children, isBordered, ...props }) => (
+    <li
+        className={classnames('list-item', 'padded--l', {
+            bordered: isBordered
+        })}
+        {...props}>
+        {children}
+    </li>
+);
 
 Item.propTypes = {
-    children: node
+    children: node,
+    isBordered: bool
 };
 
 export default Item;

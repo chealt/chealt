@@ -4,9 +4,11 @@ import { array } from 'prop-types';
 import { List, ListItem } from '@chealt/component-library';
 
 const Feelings = ({ feelings }) => (
-    <List className="padded">
+    <List className="margin--l">
         {feelings.map(({ id, feeling }) => (
-            <ListItem key={id}>{feeling}</ListItem>
+            <ListItem key={id} isBordered>
+                {feeling}
+            </ListItem>
         ))}
     </List>
 );
