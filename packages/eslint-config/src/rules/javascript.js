@@ -1,6 +1,7 @@
 module.exports = {
     'array-bracket-spacing': ['error'],
     'arrow-body-style': ['error'],
+    'arrow-parens': ['error'],
     'comma-dangle': ['error', 'never'],
     'comma-spacing': [
         'error',
@@ -60,7 +61,6 @@ module.exports = {
 
     // recommended
     'array-callback-return': 'error',
-    'arrow-parens': ['error', 'as-needed'],
     'arrow-spacing': 'error',
     'block-spacing': 'error',
     'brace-style': ['error', '1tbs'],
