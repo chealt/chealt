@@ -4,11 +4,13 @@ import { array } from 'prop-types';
 import { FormattedDate, List, ListItem } from '@chealt/component-library';
 
 const Feelings = ({ feelings }) => (
-    <List className="margin--l">
+    <List className="margin--l" isLastRight>
         {feelings.map(({ id, feeling }) => (
             <ListItem key={id} isBordered>
-                {feeling}
-                <FormattedDate date={id} />
+                <span>{feeling}</span>
+                <span>
+                    <FormattedDate date={id} />
+                </span>
             </ListItem>
         ))}
     </List>
