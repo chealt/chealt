@@ -79,15 +79,6 @@ module.exports = {
     'handle-callback-err': ['error', 'err'],
     'key-spacing': ['error', { beforeColon: false, afterColon: true }],
     'keyword-spacing': 'error',
-    'lines-around-comment': [
-        'error',
-        {
-            beforeBlockComment: true,
-            afterBlockComment: false,
-            beforeLineComment: true,
-            afterLineComment: false
-        }
-    ],
     'max-len': [
         'error',
         160,
