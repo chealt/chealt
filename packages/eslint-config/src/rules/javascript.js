@@ -29,6 +29,7 @@ module.exports = {
         }
     ],
     'no-trailing-spaces': ['error'],
+    'no-undefined': 'off',
     'object-curly-spacing': ['error', 'always'],
     'padded-blocks': ['error', 'never'],
     'padding-line-between-statements': [
@@ -169,7 +170,6 @@ module.exports = {
     'no-throw-literal': 'error',
     'no-undef': ['error', { typeof: true }],
     'no-undef-init': 'error',
-    'no-undefined': 'error',
     'no-underscore-dangle': ['error', { allowAfterThis: true }],
     'no-unmodified-loop-condition': 'error',
     'no-unneeded-ternary': 'error',

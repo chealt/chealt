@@ -7,7 +7,6 @@ const DEFAULT_OPTIONS = {
 };
 
 const getFormattedDate = (date, options) =>
-    // eslint-disable-next-line no-undefined
     new Intl.DateTimeFormat(undefined, {
         ...DEFAULT_OPTIONS,
         ...options
