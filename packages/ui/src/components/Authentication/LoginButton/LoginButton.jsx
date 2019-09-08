@@ -7,7 +7,6 @@ const LoginButton = ({ authInProgress, login }) => (
     <Button
         className="border-radius"
         onClick={login}
-        isBordered
         isInProgress={authInProgress}>
         Login
     </Button>
