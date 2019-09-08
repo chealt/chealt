@@ -5,3 +5,7 @@
 .list-item.bordered {
     border-bottom: 1px solid var(--color-border, var(--default-color-border));
 }
+
+.list-item:hover {
+    box-shadow: var(--list-item-shadow, var(--default-shadow));
+}
