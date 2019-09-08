@@ -4,7 +4,11 @@ import { bool, func } from 'prop-types';
 import { Button } from '@chealt/component-library';
 
 const LoginButton = ({ authInProgress, login }) => (
-    <Button onClick={login} isInProgress={authInProgress}>
+    <Button
+        className="border-radius"
+        onClick={login}
+        isBordered
+        isInProgress={authInProgress}>
         Login
     </Button>
 );
