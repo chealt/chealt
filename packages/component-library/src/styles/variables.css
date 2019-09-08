@@ -13,4 +13,7 @@
     --default-font-size: 16px;
     --default-font-weight: 400;
     --default-font-family: Arial, sans-serif;
+
+    /* BORDERS */
+    --default-border-radius: 8px;
 }

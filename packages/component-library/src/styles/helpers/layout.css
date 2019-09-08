@@ -19,3 +19,10 @@
         var(--default-grid-size--large)
     ) !important;
 }
+
+.border-radius {
+    border-radius: var(
+        --border-radius,
+        var(--default-border-radius)
+    ) !important;
+}
