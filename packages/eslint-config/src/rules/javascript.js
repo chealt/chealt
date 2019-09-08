@@ -12,6 +12,7 @@ module.exports = {
     complexity: ['error', 10],
     'eol-last': ['error', 'always'],
     eqeqeq: ['error'],
+    'func-style': ['error'],
     'import/newline-after-import': ['error'],
     indent: [
         'error',
@@ -56,6 +57,8 @@ module.exports = {
     semi: ['error', 'always'],
     'space-in-parens': ['error', 'never'],
     'space-infix-ops': ['error'],
+
+    // recommended
     'array-callback-return': 'error',
     'arrow-parens': ['error', 'as-needed'],
     'arrow-spacing': 'error',
@@ -72,7 +75,6 @@ module.exports = {
     'dot-location': ['error', 'property'],
     'dot-notation': ['error', { allowKeywords: true }],
     'func-call-spacing': 'error',
-    'func-style': ['error', 'declaration'],
     'function-paren-newline': ['error', 'consistent'],
     'generator-star-spacing': 'error',
     'guard-for-in': 'error',
