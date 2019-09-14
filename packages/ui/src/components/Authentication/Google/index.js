@@ -13,6 +13,7 @@ const init = () => {
         window.onGoogleLoad = () => {
             window.gapi.load('auth2', async () => {
                 googleAuth = await window.gapi.auth2.init({
+                    // eslint-disable-next-line camelcase
                     client_id:
                         '506399327542-3ndnltv6qfv3a7n6vniseket04h0betk.apps.googleusercontent.com'
                 });
@@ -27,6 +28,12 @@ const init = () => {
 };
 
 const isAuthenticated = () => googleAuth.isSignedIn.get();
+const getAccessToken = async () => {
+    const googleUser = await googleAuth.currentUser.get();
+    const authResponse = await googleUser.getAuthResponse(true);
+
+    return authResponse.access_token;
+};
 
 const login = () =>
     googleAuth.signIn({
@@ -35,4 +42,4 @@ const login = () =>
 
 const logout = () => googleAuth.signOut();
 
-export { init, login, logout, isAuthenticated };
+export { init, login, logout, isAuthenticated, getAccessToken };

@@ -170,7 +170,13 @@ module.exports = {
     'no-throw-literal': 'error',
     'no-undef': ['error', { typeof: true }],
     'no-undef-init': 'error',
-    'no-underscore-dangle': ['error', { allowAfterThis: true }],
+    'no-underscore-dangle': [
+        'error',
+        {
+            allowAfterThis: true,
+            allow: ['__REDUX_DEVTOOLS_EXTENSION_COMPOSE__']
+        }
+    ],
     'no-unmodified-loop-condition': 'error',
     'no-unneeded-ternary': 'error',
     'no-unused-expressions': 'error',

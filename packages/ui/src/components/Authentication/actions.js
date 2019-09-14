@@ -2,8 +2,11 @@ import { init } from './utils';
 import {
     login as googleLogin,
     logout as googleLogout,
-    isAuthenticated as isAuthenticatedWithGoogle
+    isAuthenticated as isAuthenticatedWithGoogle,
+    getAccessToken
 } from './Google';
+
+const GOOGLE_AUTH_TYPE = 'google';
 
 const started = () => ({
     type: 'AUTH.STARTED'
@@ -13,9 +16,11 @@ const finished = () => ({
     type: 'AUTH.FINISHED'
 });
 
-const loaded = (isAuthenticated) => ({
+const loaded = (isAuthenticated, authType, accessToken) => ({
     type: 'AUTH.LOADED',
-    isAuthenticated
+    isAuthenticated,
+    authType,
+    accessToken
 });
 
 const login = () => async (dispatch) => {
@@ -24,7 +29,7 @@ const login = () => async (dispatch) => {
     await googleLogin();
     const isAuthenticated = isAuthenticatedWithGoogle();
 
-    dispatch(loaded(isAuthenticated));
+    dispatch(loaded(isAuthenticated, GOOGLE_AUTH_TYPE));
 
     dispatch(finished());
 };
@@ -45,10 +50,11 @@ const initAuth = () => async (dispatch) => {
 
     await init();
     const isAuthenticated = isAuthenticatedWithGoogle();
+    const accessToken = await getAccessToken();
 
-    dispatch(loaded(isAuthenticated));
+    dispatch(loaded(isAuthenticated, GOOGLE_AUTH_TYPE, accessToken));
 
     dispatch(finished());
 };
 
-export { login, logout, initAuth };
+export { login, logout, initAuth, GOOGLE_AUTH_TYPE };

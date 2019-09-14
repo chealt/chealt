@@ -1,6 +1,8 @@
 const defaultState = {
     isAuthenticated: false,
-    inProgress: false
+    inProgress: false,
+    authType: undefined,
+    accessToken: undefined
 };
 
 const authentication = (state = defaultState, action) => {
@@ -18,7 +20,9 @@ const authentication = (state = defaultState, action) => {
         case 'AUTH.LOADED':
             return {
                 ...state,
-                isAuthenticated: action.isAuthenticated
+                isAuthenticated: action.isAuthenticated,
+                authType: action.authType,
+                accessToken: action.accessToken
             };
         default:
             return state;

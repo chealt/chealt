@@ -7,6 +7,7 @@ import thunk from 'redux-thunk';
 import { appReducers, mainReducer } from './components/app.reducer';
 import App from './components';
 import { initAuth } from './components/Authentication/actions';
+import { initGoogleFitData } from './components/Google/GoogleFit';
 import { preloadState, saveState } from './components/persist';
 import { observeStoreWithout } from './components/redux-utils';
 
@@ -20,6 +21,7 @@ const store = createStore(
 
 store.dispatch(initAuth());
 observeStoreWithout(store, ['authentication'], saveState);
+initGoogleFitData(store);
 
 render(
     <Provider store={store}>
