@@ -209,7 +209,6 @@ module.exports = {
     'semi-spacing': ['error', { before: false, after: true }],
     'semi-style': 'error',
     'space-before-blocks': 'error',
-    'space-before-function-paren': ['error', 'never'],
     'space-unary-ops': ['error', { words: true, nonwords: false }],
     'spaced-comment': ['error', 'always', { exceptions: ['-'] }],
     strict: ['error', 'global'],
