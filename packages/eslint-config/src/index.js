@@ -2,6 +2,7 @@ const accessibilityRules = require('./rules/accessibility');
 const javascriptRules = require('./rules/javascript');
 const importRules = require('./rules/import');
 const reactRules = require('./rules/react');
+const prettierRules = require('./rules/prettier');
 
 module.exports = {
     env: {
@@ -18,7 +19,8 @@ module.exports = {
         ...accessibilityRules,
         ...javascriptRules,
         ...reactRules,
-        ...importRules
+        ...importRules,
+        ...prettierRules
     },
     settings: {
         react: {
