@@ -1,3 +1,5 @@
+/* eslint-disable import/group-exports */
+
 import './styles/index.css';
 
 export { default as Form } from './Form';

@@ -16,15 +16,15 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.jsx?$/,
-                exclude: /node_modules/,
+                test: /\.jsx?$/u,
+                exclude: /node_modules/u,
                 use: {
                     loader: 'babel-loader',
                     options: babelOptions
                 }
             },
             {
-                test: /\.css$/,
+                test: /\.css$/u,
                 use: ['style-loader', 'css-loader']
             }
         ]

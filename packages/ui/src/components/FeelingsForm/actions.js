@@ -1,4 +1,4 @@
-const save = feeling => ({
+const save = (feeling) => ({
     type: 'FEELINGS.ADD',
     feeling
 });
