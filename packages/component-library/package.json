@@ -7,6 +7,6 @@
   "author": "Attila Bartha",
   "license": "ISC",
   "devDependencies": {
-    "enzyme": "^3.10.0"
+    "enzyme": "^3.11.0"
   }
 }
