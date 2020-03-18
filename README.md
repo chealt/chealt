@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.com/atikenny/chealt.svg?token=xkApiMFPUyrRBhnNZe2e&branch=master)](https://travis-ci.com/atikenny/chealt)
-
 # Chealt
 
 ## Contribution
