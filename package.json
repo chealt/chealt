@@ -9,6 +9,7 @@
     "start:ui": "yarn workspace @chealt/ui run start",
     "test": "yarn workspace @chealt/ui run test",
     "test:ui": "yarn workspace @chealt/ui run test:ui",
+    "check": "yarn lint && yarn prettier:check",
     "lint": "yarn lint:scripts",
     "lint:scripts": "eslint . --ext .js,.jsx",
     "prettier:check": "prettier --check packages/**/*.js"
