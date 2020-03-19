@@ -14,7 +14,4 @@ const mapDispatch = (dispatch) => ({
     }
 });
 
-export default connect(
-    mapState,
-    mapDispatch
-)(LogoutButton);
+export default connect(mapState, mapDispatch)(LogoutButton);

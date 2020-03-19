@@ -10,7 +10,8 @@
     "test": "yarn workspace @chealt/ui run test",
     "test:ui": "yarn workspace @chealt/ui run test:ui",
     "lint": "yarn lint:scripts",
-    "lint:scripts": "eslint . --ext .js,.jsx"
+    "lint:scripts": "eslint . --ext .js,.jsx",
+    "prettier:check": "prettier --check packages/**/*.js"
   },
   "workspaces": [
     "packages/*"
