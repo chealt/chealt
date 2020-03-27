@@ -4,7 +4,9 @@
   "version": "0.0.0",
   "description": "Health management platform",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "start": "http-server packages/ui/src"
+  },
   "workspaces": [
     "packages/*"
   ],
