@@ -4,7 +4,9 @@
   "version": "0.0.0",
   "description": "Health management platform",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "start": "http-server packages/ui/src"
+  },
   "workspaces": [
     "packages/*"
   ],
@@ -18,6 +20,8 @@
     "url": "https://github.com/atikenny/chealt/issues"
   },
   "homepage": "https://github.com/atikenny/chealt#readme",
-  "devDependencies": {},
+  "devDependencies": {
+    "http-server": "^0.12.1"
+  },
   "dependencies": {}
 }
