@@ -19,5 +19,7 @@
   },
   "homepage": "https://github.com/atikenny/chealt#readme",
   "devDependencies": {},
-  "dependencies": {}
+  "dependencies": {
+    "plugin_test01": "^1.1.0"
+  }
 }
