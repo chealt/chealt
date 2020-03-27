@@ -1,9 +1,0 @@
-{
-    "private": true,
-    "name": "@chealt/build-tools",
-    "version": "0.0.0",
-    "main": "src/index.js",
-    "scripts": {},
-    "author": "Attila Bartha",
-    "license": "ISC"
-}
