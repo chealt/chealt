@@ -1,8 +1,0 @@
-#app {
-    display: flex;
-    flex-direction: column;
-}
-
-.view-container {
-    flex-grow: 1;
-}
