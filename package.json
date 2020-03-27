@@ -18,6 +18,8 @@
     "url": "https://github.com/atikenny/chealt/issues"
   },
   "homepage": "https://github.com/atikenny/chealt#readme",
-  "devDependencies": {},
+  "devDependencies": {
+    "http-server": "^0.12.1"
+  },
   "dependencies": {}
 }
