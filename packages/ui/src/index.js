@@ -1,5 +1,5 @@
-import { html, render } from "https://unpkg.com/lit-html?module";
+import { render } from "https://unpkg.com/lit-html?module";
 
-import App from "./components/App/App.js";
+import app from "./components/App/App.js";
 
-render(App(), document.body);
+render(app(), document.body);

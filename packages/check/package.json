@@ -1,0 +1,13 @@
+{
+    "name": "@atikenny/check",
+    "version": "0.0.1",
+    "private": true,
+    "license": "UNLICENSED",
+    "main": "src/index.js",
+    "peerDependencies": {
+        "babel-eslint": "^10.0.3",
+        "eslint": "^6.8.0",
+        "eslint-plugin-import": "^2.20.1",
+        "prettier": "^2.0.4"
+    }
+}
