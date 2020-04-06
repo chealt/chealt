@@ -24,4 +24,6 @@ jobs:
 
             # Runs a single command using the runners shell
             - name: Run checks
-              run: yarn run check
+              run: |
+                  yarn install
+                  yarn run check
