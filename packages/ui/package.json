@@ -7,8 +7,7 @@
         "start": "serve src"
     },
     "dependencies": {
-        "@chealt/ui-library": "*",
-        "lit-html": "^1.2.1"
+        "@chealt/ui-library": "*"
     },
     "devDependencies": {
         "serve": "^11.3.0"

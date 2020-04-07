@@ -4,7 +4,5 @@
     "private": true,
     "license": "UNLICENSED",
     "main": "src/index.js",
-    "dependencies": {
-        "lit-html": "^1.2.1"
-    }
+    "dependencies": {}
 }
