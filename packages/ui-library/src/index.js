@@ -1,1 +1,1 @@
-export { default as PageTitle } from "./components/PageTitle";
+export { default as pageTitle } from "./components/pageTitle";

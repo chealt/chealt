@@ -6,6 +6,9 @@
     "scripts": {
         "start": "serve src"
     },
+    "dependencies": {
+        "@chealt/ui-library": "*"
+    },
     "peerDependencies": {
         "serve": "^11.3.0"
     }
