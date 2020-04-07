@@ -1,0 +1,12 @@
+{
+    "name": "@chealt/ui",
+    "version": "0.0.1",
+    "private": true,
+    "license": "UNLICENSED",
+    "scripts": {
+        "start": "serve src"
+    },
+    "peerDependencies": {
+        "serve": "^11.3.0"
+    }
+}

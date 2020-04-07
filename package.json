@@ -8,7 +8,7 @@
     "check": "yarn lint:prettier & yarn lint:eslint",
     "lint:eslint": "eslint .",
     "lint:prettier": "prettier --check --config .prettierrc.js \"**/*.js\"",
-    "start": "serve packages/ui/src"
+    "start": "yarn workspace @chealt/ui start"
   },
   "workspaces": [
     "packages/*"
