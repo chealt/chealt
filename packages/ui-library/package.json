@@ -4,5 +4,6 @@
     "private": true,
     "license": "UNLICENSED",
     "main": "src/index.js",
+    "module": "src/index.js",
     "dependencies": {}
 }

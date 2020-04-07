@@ -1,4 +1,4 @@
-import { render } from "lit-html";
+import { render } from "https://unpkg.com/lit-html?module";
 
 import app from "./components/app/index.js";
 
