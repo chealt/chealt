@@ -1,10 +1,10 @@
 import { html } from "https://unpkg.com/lit-html?module";
 
-import "@chealt/ui-library/src/components/pageTitle";
+import { pageTitle } from "@chealt/ui-library";
 
 const app = () => html`
     <div id="app-container">
-        <page-title title="Homepage"></page-title>
+        ${pageTitle({ title: "Homepage" })}
     </div>
 `;
 
