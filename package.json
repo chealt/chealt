@@ -8,7 +8,7 @@
     "check": "yarn lint:prettier & yarn lint:eslint",
     "lint:eslint": "eslint .",
     "lint:prettier": "prettier --check --config .prettierrc.js \"**/*.js\"",
-    "start": "http-server packages/ui/src"
+    "start": "serve packages/ui/src"
   },
   "workspaces": [
     "packages/*"
@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/atikenny/chealt#readme",
   "devDependencies": {
-    "http-server": "^0.12.1"
+    "serve": "^11.3.0"
   },
   "dependencies": {
     "babel-eslint": "^10.1.0",
