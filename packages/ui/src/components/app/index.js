@@ -1,5 +1,6 @@
 import { html } from "https://unpkg.com/lit-html?module";
-import { pageTitle } from "https://unpkg.com/@chealt/ui-library?module";
+
+import pageTitle from "../../ui-library/PageTitle/index.js";
 
 const app = () => html`
     <div id="app-container">

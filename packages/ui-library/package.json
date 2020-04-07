@@ -1,9 +1,0 @@
-{
-    "name": "@chealt/ui-library",
-    "version": "0.0.1",
-    "private": true,
-    "license": "UNLICENSED",
-    "main": "src/index.js",
-    "module": "src/index.js",
-    "dependencies": {}
-}
