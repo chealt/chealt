@@ -6,7 +6,8 @@
     "scripts": {
         "start": "serve src"
     },
-    "peerDependencies": {
+    "dependencies": {},
+    "devDependencies": {
         "serve": "^11.3.0"
     }
 }
