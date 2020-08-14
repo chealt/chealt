@@ -1,32 +1,32 @@
 {
-  "private": true,
-  "name": "chealt",
-  "version": "0.0.0",
-  "description": "Health management platform",
-  "main": "index.js",
-  "scripts": {
-    "check": "yarn lint:prettier & yarn lint:eslint",
-    "lint:eslint": "eslint .",
-    "lint:prettier": "prettier --check --config .prettierrc.js \"**/*.js\"",
-    "start": "yarn workspace @chealt/ui start"
-  },
-  "workspaces": [
-    "packages/*"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/atikenny/chealt.git"
-  },
-  "author": "Attila Bartha",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/atikenny/chealt/issues"
-  },
-  "homepage": "https://github.com/atikenny/chealt#readme",
-  "dependencies": {
-    "babel-eslint": "^10.1.0",
-    "eslint": "^6.8.0",
-    "eslint-plugin-import": "^2.20.2",
-    "prettier": "^2.0.4"
-  }
+    "private": true,
+    "name": "chealt",
+    "version": "0.0.0",
+    "description": "Health management platform",
+    "main": "index.js",
+    "scripts": {
+        "check": "yarn lint:prettier & yarn lint:eslint",
+        "lint:eslint": "eslint .",
+        "lint:prettier": "prettier --check --config .prettierrc.js \"**/*.js\"",
+        "start": "yarn workspace @chealt/ui start"
+    },
+    "workspaces": [
+        "packages/*"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/atikenny/chealt.git"
+    },
+    "author": "Attila Bartha",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/atikenny/chealt/issues"
+    },
+    "homepage": "https://github.com/atikenny/chealt#readme",
+    "dependencies": {
+        "babel-eslint": "^10.1.0",
+        "eslint": "^7.6.0",
+        "eslint-plugin-import": "^2.22.0",
+        "prettier": "^2.0.5"
+    }
 }
