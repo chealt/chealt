@@ -1,3 +1,3 @@
-const { prettierConfig } = require("@atikenny/check");
+const { prettierConfig } = require("@chealt/check");
 
 module.exports = prettierConfig;
