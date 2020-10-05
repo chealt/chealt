@@ -3,3 +3,6 @@ dist
 
 # Mac
 .DS_Store
+
+# Yarn
+yarn-error.log
