@@ -1,13 +1,16 @@
 {
     "name": "@chealt/check",
     "version": "0.0.1",
-    "private": true,
-    "license": "UNLICENSED",
+    "license": "MIT",
     "main": "src/index.js",
     "peerDependencies": {
         "babel-eslint": "^10.0.3",
         "eslint": "^7.6.0",
         "eslint-plugin-import": "^2.22.0",
         "prettier": "^2.0.5"
-    }
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "sideEffects": false
 }

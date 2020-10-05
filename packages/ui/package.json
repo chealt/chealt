@@ -1,13 +1,16 @@
 {
     "name": "@chealt/ui",
     "version": "0.0.1",
-    "private": true,
-    "license": "UNLICENSED",
+    "license": "MIT",
     "scripts": {
         "start": "serve src"
     },
     "dependencies": {},
     "devDependencies": {
         "serve": "^11.3.2"
-    }
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "sideEffects": false
 }

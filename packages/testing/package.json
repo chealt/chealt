@@ -1,7 +1,10 @@
 {
     "name": "@chealt/testing",
     "version": "0.0.1",
-    "private": true,
     "license": "MIT",
-    "scripts": {}
+    "scripts": {},
+    "publishConfig": {
+        "access": "public"
+    },
+    "sideEffects": false
 }
