@@ -1,6 +1,5 @@
 const javascriptRules = require("./rules/javascript");
 const importRules = require("./rules/import");
-const prettierRules = require("./rules/prettier");
 
 const config = {
     env: {
@@ -15,14 +14,14 @@ const config = {
     parser: "babel-eslint",
     rules: {
         ...javascriptRules,
-        ...importRules,
-        ...prettierRules
+        ...importRules
     },
     parserOptions: {
         ecmaVersion: 8,
         sourceType: "module"
     },
-    plugins: ["import"]
+    extends: ["prettier"],
+    plugins: ["import", "prettier"]
 };
 
 module.exports = config;

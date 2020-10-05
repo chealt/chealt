@@ -1,10 +1,12 @@
 {
     "name": "@chealt/jest-mock-environment",
-    "version": "0.0.1",
-    "license": "ISC",
+    "version": "0.1.0",
+    "license": "MIT",
+    "main": "src/index.js",
     "scripts": {},
-    "dependencies": {},
-    "devDependencies": {},
+    "dependencies": {
+        "jest-environment-puppeteer": "^4.4.0"
+    },
     "publishConfig": {
         "access": "public"
     },
