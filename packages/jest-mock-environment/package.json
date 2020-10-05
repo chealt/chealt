@@ -4,7 +4,9 @@
     "license": "MIT",
     "main": "src/index.js",
     "scripts": {},
-    "dependencies": {},
+    "dependencies": {
+        "jest-environment-puppeteer": "^4.4.0"
+    },
     "devDependencies": {},
     "publishConfig": {
         "access": "public"
