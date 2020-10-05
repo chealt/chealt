@@ -7,7 +7,6 @@
     "dependencies": {
         "jest-environment-puppeteer": "^4.4.0"
     },
-    "devDependencies": {},
     "publishConfig": {
         "access": "public"
     },
