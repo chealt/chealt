@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+
 const logLevels = {
     debug: 1,
     info: 2,
@@ -14,26 +16,26 @@ const getLogger = (level) => {
         debug:
             level <= logLevels.debug
                 ? (message) => {
-                      console.debug(message);
-                  }
+                    console.debug(message);
+                }
                 : noop,
         info:
             level <= logLevels.info
                 ? (message) => {
-                      console.info(message);
-                  }
+                    console.info(message);
+                }
                 : noop,
         warning:
             level <= logLevels.warning
                 ? (message) => {
-                      console.warning(message);
-                  }
+                    console.warning(message);
+                }
                 : noop,
         error:
             level <= logLevels.error
                 ? (message) => {
-                      console.error(message);
-                  }
+                    console.error(message);
+                }
                 : noop
     };
 };
