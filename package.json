@@ -15,14 +15,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/atikenny/chealt.git"
+    "url": "git+https://github.com/chealt/chealt.git"
   },
   "author": "Attila Bartha",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/atikenny/chealt/issues"
+    "url": "https://github.com/chealt/chealt/issues"
   },
-  "homepage": "https://github.com/atikenny/chealt#readme",
+  "homepage": "https://github.com/chealt/chealt#readme",
   "devDependencies": {
     "babel-eslint": "^10.1.0",
     "eslint": "^7.10.0",
