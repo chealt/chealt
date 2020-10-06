@@ -2,8 +2,9 @@
   "private": true,
   "name": "chealt",
   "version": "0.0.0",
-  "description": "Health management platform",
-  "main": "index.js",
+  "engines": {
+    "node": "14"
+  },
   "scripts": {
     "check": "yarn lint:eslint",
     "lint:eslint": "eslint .",
