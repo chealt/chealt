@@ -19,8 +19,6 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      env:
-        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
     - uses: actions/setup-node@v2-beta
@@ -32,3 +30,5 @@ jobs:
       run: |
         yarn install
         yarn run check
+      env:
+        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
