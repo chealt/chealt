@@ -4,7 +4,7 @@ const config = {
   'import/group-exports': ['error'],
   'import/named': ['error'],
   'import/namespace': ['error'],
-  'import/no-unresolved': ['error', { ignore: ['unpkg'] }],
+  'import/no-unresolved': ['error', { commonjs: true, ignore: ['unpkg'] }],
   'import/no-named-as-default': ['error'],
   'import/no-named-as-default-member': ['error'],
   'import/no-duplicates': ['error']
