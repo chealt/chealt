@@ -1,10 +1,10 @@
-import { html } from "https://unpkg.com/lit-html?module";
+import { html } from 'https://unpkg.com/lit-html?module';
 
-import pageTitle from "../../ui-library/PageTitle/index.js";
+import pageTitle from '../../ui-library/PageTitle/index.js';
 
 const app = () => html`
     <div id="app-container">
-        ${pageTitle({ title: "Homepage" })}
+        ${pageTitle({ title: 'Homepage' })}
     </div>
 `;
 

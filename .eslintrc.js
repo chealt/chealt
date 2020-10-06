@@ -1,3 +1,3 @@
-const { eslintConfig } = require("@chealt/check");
+const { eslintConfig } = require('@chealt/check');
 
 module.exports = eslintConfig;
