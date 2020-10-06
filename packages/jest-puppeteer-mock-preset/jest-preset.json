@@ -1,0 +1,7 @@
+{
+  "testRunner": "jest-circus/runner",
+  "globalSetup": "@chealt/jest-mock-environment/setup",
+  "globalTeardown": "@chealt/jest-mock-environment/teardown",
+  "testEnvironment": "@chealt/jest-mock-environment",
+  "setupFilesAfterEnv": ["expect-puppeteer"]
+}
