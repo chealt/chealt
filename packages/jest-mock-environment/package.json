@@ -2,7 +2,7 @@
     "name": "@chealt/jest-mock-environment",
     "version": "0.2.0",
     "license": "MIT",
-    "main": "src/index.js",
+    "main": "index.js",
     "scripts": {},
     "dependencies": {
         "jest-environment-puppeteer": "^4.4.0"
