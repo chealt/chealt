@@ -1,18 +1,18 @@
-const PuppeteerEnvironment = require("jest-environment-puppeteer");
-const path = require("path");
+const PuppeteerEnvironment = require('jest-environment-puppeteer');
+const path = require('path');
 
-const factory = require("./factory");
-const { getLogger, logLevels } = require("./logger");
-const { addTestResponses, setResponsesPath } = require("./state");
+const factory = require('./factory');
+const { getLogger, logLevels } = require('./logger');
+const { addTestResponses, setResponsesPath } = require('./state');
 
 const { MOCK, DEBUG } = process.env;
 
-const isTestStartEvent = (event) => event.name === "test_fn_start";
-const isTestsEndEvent = (event) => event.name === "teardown";
+const isTestStartEvent = (event) => event.name === 'test_fn_start';
+const isTestsEndEvent = (event) => event.name === 'teardown';
 const getTestID = (event) => {
   let id = event.name;
 
-  if (event.parent && event.parent.name !== "ROOT_DESCRIBE_BLOCK") {
+  if (event.parent && event.parent.name !== 'ROOT_DESCRIBE_BLOCK') {
     const parentID = getTestID(event.parent); // eslint-disable-line no-unused-vars
     id = `${parentID}/${id}`;
   }

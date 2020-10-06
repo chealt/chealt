@@ -1,5 +1,5 @@
-const fs = require("fs");
-const { promisify } = require("util");
+const fs = require('fs');
+const { promisify } = require('util');
 
 const writeFile = promisify(fs.writeFile);
 
@@ -8,7 +8,7 @@ let allResponses = {};
 const state = () => {
   let responsesPath;
   const saveResponsesFile = (responses) =>
-    writeFile(responsesPath, JSON.stringify(responses, "", 4));
+    writeFile(responsesPath, JSON.stringify(responses, '', 4));
   const setResponsesPath = (path) => {
     responsesPath = path;
   };

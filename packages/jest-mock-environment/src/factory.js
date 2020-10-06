@@ -20,8 +20,8 @@ const getMockResponse = ({
 const factory = async ({ config: configParam, page, mocks, logger } = {}) => {
   let runningTestName;
   const config = {
-    dataRequestResourceTypes: ["fetch", "xhr"],
-    notInterceptedUrls: ["browser-sync"],
+    dataRequestResourceTypes: ['fetch', 'xhr'],
+    notInterceptedUrls: ['browser-sync'],
     ...configParam
   };
   const responses = {};
@@ -68,7 +68,7 @@ const factory = async ({ config: configParam, page, mocks, logger } = {}) => {
       (notInterceptedUrl) => url.includes(notInterceptedUrl)
     );
     const headers = request.headers();
-    const isJSON = headers && headers.accept === "application/json";
+    const isJSON = headers && headers.accept === 'application/json';
     const method = request.method();
     const shouldInterceptRequest =
             shouldInterceptUrl && isDataRequest && isJSON;
@@ -153,8 +153,8 @@ const factory = async ({ config: configParam, page, mocks, logger } = {}) => {
 
   const init = async () => {
     await page.setRequestInterception(true);
-    page.on("request", interceptRequest);
-    page.on("response", saveResponse);
+    page.on('request', interceptRequest);
+    page.on('response', saveResponse);
   };
 
   await init();
