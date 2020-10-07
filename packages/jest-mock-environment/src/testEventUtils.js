@@ -11,7 +11,7 @@ const getTestID = (event) => {
   return id;
 };
 
-export {
+module.exports = {
   isTestStartEvent,
   isTestsEndEvent,
   getTestID
