@@ -1,22 +1,3 @@
-const getMockResponse = ({
-  mocks,
-  runningTestName,
-  requestDetails: { url, method }
-}) => {
-  const testMocks = mocks && mocks[runningTestName];
-  const testMocksForUrl = testMocks && testMocks[url];
-  const hasMockResponses = testMocksForUrl && testMocksForUrl.length;
-  const mockResponseIndex =
-        hasMockResponses &&
-        testMocksForUrl.findIndex((mock) => mock.method === method);
-  const mockResponse =
-        hasMockResponses && mockResponseIndex !== -1
-          ? testMocksForUrl.splice(mockResponseIndex, 1)[0] // we remove the element from the array
-          : undefined;
-
-  return mockResponse;
-};
-
 const factory = async ({ config: configParam, page, mocks, logger } = {}) => {
   let runningTestName;
   const config = {
@@ -25,6 +6,36 @@ const factory = async ({ config: configParam, page, mocks, logger } = {}) => {
     ...configParam
   };
   const responses = {};
+  const removePort = (url) => url.replace(/:\d\d\d\d[\d]*/gu, '');
+  const findMocks = (runningTestMocks, url) => {
+    const { isPortAgnostic } = config;
+
+    const mockKey = Object.keys(runningTestMocks).find(
+      (responseUrl) => (!isPortAgnostic ? responseUrl === url : removePort(responseUrl) === removePort(url))
+    );
+
+    if (mockKey) {
+      return runningTestMocks[mockKey];
+    }
+
+    return undefined;
+  };
+  const getMockResponse = ({
+    requestDetails: { url, method }
+  }) => {
+    const testMocks = mocks && mocks[runningTestName];
+    const testMocksForUrl = testMocks && findMocks(testMocks, url);
+    const hasMockResponses = testMocksForUrl && testMocksForUrl.length;
+    const mockResponseIndex =
+      hasMockResponses &&
+      testMocksForUrl.findIndex((mock) => mock.method === method);
+    const mockResponse =
+      hasMockResponses && mockResponseIndex !== -1
+        ? testMocksForUrl.splice(mockResponseIndex, 1)[0] // we remove the element from the array
+        : undefined;
+
+    return mockResponse;
+  };
   const getResponseDetails = async (response, url) => {
     let body;
     let json;
