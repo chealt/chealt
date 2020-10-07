@@ -52,8 +52,7 @@ const factory = async ({ config: configParam, page, mocks, logger } = {}) => {
       headers,
       status,
       statusText,
-      body,
-      json
+      body
     };
   };
 
