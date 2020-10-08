@@ -4,7 +4,7 @@ const factory = require('./factory');
 const { getLogger, logLevels } = require('./logger');
 const { addTestResponses, setResponsesPath } = require('./state');
 const { isTestStartEvent, isTestsEndEvent, getTestID } = require('./testEventUtils');
-const { getMocks, getResponsesPath, hasResponses, validateConfig } = require('./envUtils');
+const { filterEmptyResponses, getMocks, getResponsesPath, hasResponses, validateConfig } = require('./envUtils');
 
 const { DEBUG } = process.env;
 
@@ -48,9 +48,10 @@ class MockEnvironment extends PuppeteerEnvironment {
 
   addTestResponses() {
     const responses = this.envInstance.getResponses();
+    const nonEmptyResponses = filterEmptyResponses(responses);
 
-    if (!this.shouldUseMocks && hasResponses(responses)) {
-      addTestResponses(responses);
+    if (!this.shouldUseMocks && hasResponses(nonEmptyResponses)) {
+      addTestResponses(nonEmptyResponses);
     }
   }
 }

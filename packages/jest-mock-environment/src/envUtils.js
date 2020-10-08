@@ -1,5 +1,23 @@
 const path = require('path');
 
+const filterEmptyResponses = (responses) => {
+  const filteredResponses = {};
+
+  Object.keys(responses).forEach((testId) => {
+    Object.keys(responses[testId]).forEach((url) => {
+      if (responses[testId][url].length) {
+        if (!filteredResponses[testId]) {
+          filteredResponses[testId] = {};
+        }
+
+        filteredResponses[testId][url] = responses[testId][url];
+      }
+    });
+  });
+
+  return filteredResponses;
+};
+
 const getMocks = (responsesPath) => require(responsesPath);
 
 const getResponsesPath = (rootDir, mockResponsePath) => path.join(rootDir, mockResponsePath);
@@ -21,6 +39,7 @@ const validateConfig = (config) => {
 };
 
 module.exports = {
+  filterEmptyResponses,
   getMocks,
   getResponsesPath,
   hasResponses,
