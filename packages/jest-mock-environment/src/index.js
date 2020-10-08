@@ -16,6 +16,7 @@ class MockEnvironment extends PuppeteerEnvironment {
     const responsesPath = getResponsesPath(rootDir, mockResponsePath);
     setResponsesPath(responsesPath);
 
+    this.config = config;
     this.shouldUseMocks = shouldUseMocks;
     this.mocks = shouldUseMocks && getMocks(responsesPath);
     this.isPortAgnostic = isPortAgnostic;
@@ -26,6 +27,7 @@ class MockEnvironment extends PuppeteerEnvironment {
   } = {}) {
     await super.setup();
     // Your setup
+    logger.debug(`Setting up environemnt with config: ${JSON.stringify(this.config, null, 4)}`);
     this.logger = logger;
     this.envInstance = await factory({
       page: this.global.page,

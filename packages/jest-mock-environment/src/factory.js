@@ -90,6 +90,7 @@ const factory = async ({ config: configParam, page, mocks, logger } = {}) => {
     };
 
     if (shouldInterceptRequest) {
+      logger.debug(`Intercepting request with url: ${url}`);
       const mockResponse = getMockResponse({
         mocks,
         runningTestName,
@@ -130,6 +131,8 @@ const factory = async ({ config: configParam, page, mocks, logger } = {}) => {
           });
         }
       }
+    } else {
+      logger.debug(`Request not intercepted for url: ${url}`);
     }
 
     request.continue();
@@ -146,6 +149,7 @@ const factory = async ({ config: configParam, page, mocks, logger } = {}) => {
       const method = request.method();
 
       if (details) {
+        logger.debug(`Intercepting response for url: ${url}`);
         originalRequest.push({
           url,
           method,
