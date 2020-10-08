@@ -84,7 +84,7 @@ const config = {
   'keyword-spacing': 'error',
   'max-len': [
     'error',
-    160,
+    120,
     {
       ignoreComments: true,
       ignoreUrls: true,
