@@ -1,38 +1,25 @@
 const PuppeteerEnvironment = require('jest-environment-puppeteer');
-const path = require('path');
 
 const factory = require('./factory');
 const { getLogger, logLevels } = require('./logger');
 const { addTestResponses, setResponsesPath } = require('./state');
 const { isTestStartEvent, isTestsEndEvent, getTestID } = require('./testEventUtils');
+const { filterEmptyResponses, getMocks, getResponsesPath, hasResponses, validateConfig } = require('./envUtils');
 
-const { MOCK, DEBUG } = process.env;
+const { DEBUG } = process.env;
 
 class MockEnvironment extends PuppeteerEnvironment {
   constructor(config) {
     super(config);
 
-    MockEnvironment.validateConfig(config);
-    const { testEnvironmentOptions: { mockResponsePath, isPortAgnostic } } = config;
-    const responsesPath = path.join(config.rootDir, mockResponsePath);
+    const { mockResponsePath, isPortAgnostic, rootDir, shouldUseMocks } = validateConfig(config);
+    const responsesPath = getResponsesPath(rootDir, mockResponsePath);
     setResponsesPath(responsesPath);
-    // eslint-disable-next-line import/no-dynamic-require, global-require
-    this.mocks = MOCK && require(responsesPath);
+
+    this.config = config;
+    this.shouldUseMocks = shouldUseMocks;
+    this.mocks = shouldUseMocks && getMocks(responsesPath);
     this.isPortAgnostic = isPortAgnostic;
-  }
-
-  static shouldSaveResponses(responses) {
-    return !MOCK && Object.keys(responses).length;
-  }
-
-  static validateConfig(config) {
-    if (!config.testEnvironmentOptions) {
-      throw new Error('You need to specify the `testEnvironmentOptions` in your jest config!');
-    } else if (!config.testEnvironmentOptions.mockResponsePath) {
-      throw new Error('Please specify where the mocks should be saved to and loaded from using the `mockResponsePath` test environment option.');
-    } else {
-      return true;
-    }
   }
 
   async setup({
@@ -40,6 +27,7 @@ class MockEnvironment extends PuppeteerEnvironment {
   } = {}) {
     await super.setup();
     // Your setup
+    logger.debug(`Setting up environemnt with config: ${JSON.stringify(this.config, null, 4)}`);
     this.logger = logger;
     this.envInstance = await factory({
       page: this.global.page,
@@ -60,9 +48,10 @@ class MockEnvironment extends PuppeteerEnvironment {
 
   addTestResponses() {
     const responses = this.envInstance.getResponses();
+    const nonEmptyResponses = filterEmptyResponses(responses);
 
-    if (MockEnvironment.shouldSaveResponses(responses)) {
-      addTestResponses(responses);
+    if (!this.shouldUseMocks && hasResponses(nonEmptyResponses)) {
+      addTestResponses(nonEmptyResponses);
     }
   }
 }
