@@ -1,12 +1,10 @@
 const path = require('path');
 
-const { MOCK } = process.env;
-
 const getMocks = (responsesPath) => require(responsesPath);
 
 const getResponsesPath = (rootDir, mockResponsePath) => path.join(rootDir, mockResponsePath);
 
-const shouldSaveResponses = (responses) => !MOCK && Object.keys(responses).length;
+const hasResponses = (responses) => Object.keys(responses).length;
 
 const validateConfig = (config) => {
   if (!config.rootDir) {
@@ -16,15 +14,15 @@ const validateConfig = (config) => {
   } else if (!config.testEnvironmentOptions.mockResponsePath) {
     throw new Error('Please specify where the mocks should be saved to and loaded from using the `mockResponsePath` test environment option.');
   } else {
-    const { rootDir, testEnvironmentOptions: { mockResponsePath, isPortAgnostic } } = config;
+    const { rootDir, testEnvironmentOptions: { mockResponsePath, isPortAgnostic, shouldUseMocks } } = config;
 
-    return { mockResponsePath, isPortAgnostic, rootDir, isMock: Boolean(MOCK) };
+    return { mockResponsePath, isPortAgnostic, rootDir, shouldUseMocks };
   }
 };
 
 module.exports = {
   getMocks,
   getResponsesPath,
-  shouldSaveResponses,
+  hasResponses,
   validateConfig
 };
