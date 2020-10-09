@@ -1,0 +1,1 @@
+# @chealt/jest-mock-environment
