@@ -15,3 +15,15 @@ npm install @chealt/jest-puppeteer-mock-preset puppeteer
 ```
 yarn add @chealt/jest-puppeteer-mock-preset puppeteer
 ```
+
+## Usage
+
+Update your Jest config with
+
+```json
+{
+  "preset": "@chealt/jest-puppeteer-mock-preset"
+}
+```
+
+See additional environment options in the [mock environment README](https://www.npmjs.com/package/@chealt/jest-mock-environment).
