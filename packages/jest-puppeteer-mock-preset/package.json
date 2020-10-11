@@ -1,12 +1,12 @@
 {
   "name": "@chealt/jest-puppeteer-mock-preset",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "license": "MIT",
   "scripts": {},
   "dependencies": {
     "@chealt/jest-mock-environment": "^0.4.4",
     "expect-puppeteer": "^4.4.0",
-    "jest-circus": "^26.5.2"
+    "jest-circus": "^26.5.3"
   },
   "peerDependencies": {
     "puppeteer": "^5.3.1"
