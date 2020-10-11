@@ -8,7 +8,7 @@ let allResponses = {};
 const state = () => {
   let responsesPath;
   const saveResponsesFile = (responses) =>
-    writeFile(responsesPath, JSON.stringify(responses, '', 4));
+    writeFile(responsesPath, JSON.stringify(responses));
   const setResponsesPath = (path) => {
     responsesPath = path;
   };
