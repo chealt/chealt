@@ -1,14 +1,19 @@
 {
-    "name": "@chealt/jest-mock-environment",
-    "version": "0.4.4",
-    "license": "MIT",
-    "main": "index.js",
-    "scripts": {},
-    "dependencies": {
-        "jest-environment-puppeteer": "^4.4.0"
-    },
-    "publishConfig": {
-        "access": "public"
-    },
-    "sideEffects": false
+  "name": "@chealt/jest-mock-environment",
+  "version": "0.4.5",
+  "license": "MIT",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chealt/chealt.git"
+  },
+  "homepage": "https://github.com/chealt/chealt#chealt",
+  "scripts": {},
+  "dependencies": {
+    "jest-environment-puppeteer": "^4.4.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "sideEffects": false
 }
