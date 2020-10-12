@@ -13,16 +13,12 @@
   "workspaces": [
     "packages/*"
   ],
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/chealt/chealt.git"
   },
-  "author": "Attila Bartha",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/chealt/chealt/issues"
-  },
-  "homepage": "https://github.com/chealt/chealt#readme",
+  "homepage": "https://github.com/chealt/chealt#chealt",
   "devDependencies": {
     "babel-eslint": "^10.1.0",
     "eslint": "^7.11.0",
