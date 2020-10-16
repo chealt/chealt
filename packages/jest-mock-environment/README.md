@@ -29,6 +29,8 @@ Update your Jest config with
 }
 ```
 
+See a more detailed example in the [Jest Mock example package](https://github.com/chealt/chealt/tree/main/packages/jest-mock-example).
+
 ### Additional configuration
 
 Using the Jest config `testEnvironmentOptions` you have the following options:

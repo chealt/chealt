@@ -31,6 +31,7 @@ const factory = async ({ config: configParam, page, mocks, logger } = {}) => {
   const getResponseDetails = async (response, url) => {
     let body;
     let json;
+    let text;
     const status = response.status();
     const statusText = response.statusText();
     const headers = response.headers();
@@ -38,17 +39,21 @@ const factory = async ({ config: configParam, page, mocks, logger } = {}) => {
     try {
       json = await response.json();
     } catch {
-      // sometimes the response is no longer available when we try to parse it
-      // this might be a bug in puppeteer, therefore we don't do anything
-      logger.debug(`Could not parse response for url: ${url}`);
+      try {
+        text = await response.text();
+      } catch {
+        // sometimes the response is no longer available when we try to parse it
+        // this might be a bug in puppeteer, therefore we don't do anything
+        logger.debug(`Could not read response for url: ${url}, text: ${text}`);
 
-      return undefined;
+        return undefined;
+      }
     }
 
     if (json) {
       body = json;
     } else {
-      body = await response.text();
+      body = text;
     }
 
     return {
@@ -70,15 +75,13 @@ const factory = async ({ config: configParam, page, mocks, logger } = {}) => {
       (notInterceptedUrl) => url.includes(notInterceptedUrl)
     );
     const headers = request.headers();
-    const isJSON = headers && headers.accept === 'application/json';
     const method = request.method();
     const shouldInterceptRequest =
-            shouldInterceptUrl && isDataRequest && isJSON;
+            shouldInterceptUrl && isDataRequest;
     const requestDetails = {
       url,
       headers,
-      method,
-      isJSON
+      method
     };
 
     if (shouldInterceptRequest) {
@@ -102,6 +105,10 @@ const factory = async ({ config: configParam, page, mocks, logger } = {}) => {
         });
 
         return;
+      }
+
+      if (mocks) {
+        logger.debug(`Could not find mock for url: ${url}`);
       }
 
       if (!responses[runningTestName]) {
