@@ -33,7 +33,7 @@ const getCoverage = async (page) => {
   };
 };
 
-export {
+module.exports = {
   startCollecting,
   getCoverage
 };
