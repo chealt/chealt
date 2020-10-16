@@ -3,6 +3,8 @@ const factory = async ({ config: configParam, page, mocks, logger } = {}) => {
   const config = {
     dataRequestResourceTypes: ['fetch', 'xhr'],
     notInterceptedUrls: ['browser-sync'],
+    isPortAgnostic: false,
+    shouldUseMocks: false,
     ...configParam
   };
   const responses = {};
