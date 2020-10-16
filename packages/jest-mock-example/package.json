@@ -1,0 +1,20 @@
+{
+  "name": "@chealt/jest-mock-example",
+  "version": "0.0.1",
+  "license": "MIT",
+  "main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chealt/chealt.git"
+  },
+  "homepage": "https://github.com/chealt/chealt#chealt",
+  "scripts": {},
+  "dependencies": {
+    "@chealt/jest-puppeteer-mock-preset": "^0.3.2",
+    "puppeteer": "^5.3.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "sideEffects": false
+}
