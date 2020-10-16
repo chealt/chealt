@@ -57,7 +57,7 @@ class MockEnvironment extends PuppeteerEnvironment {
       this.envInstance.setTestName(testID);
 
       if (this.shouldCollectCoverage) {
-        await this.envInstance.startCollectingCoverage();
+        this.envInstance.startCollectingCoverage();
       }
 
       await this.envInstance.startInterception();
@@ -68,11 +68,11 @@ class MockEnvironment extends PuppeteerEnvironment {
         await this.addCodeCoverages();
       }
     } else if (isTestEndEvent(event)) {
+      await this.envInstance.stopInterception();
+
       if (this.shouldCollectCoverage) {
         await this.envInstance.stopCollectingCoverage();
       }
-
-      await this.envInstance.stopInterception();
     }
   }
 
