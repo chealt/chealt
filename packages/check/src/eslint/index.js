@@ -9,7 +9,8 @@ const config = {
     es6: true
   },
   globals: {
-    page: true
+    page: true,
+    jestPuppeteer: true
   },
   parser: 'babel-eslint',
   rules: {
