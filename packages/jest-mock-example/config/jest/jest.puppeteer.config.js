@@ -8,6 +8,5 @@ module.exports = {
     shouldUseMocks: Boolean(process.env.MOCK)
   },
   testMatch: ['**/*.ui-test.js'],
-  testTimeout: 1000 * 60,
-  setupFilesAfterEnv: ['<rootDir>/config/jest/puppeteer.setup.js']
+  testTimeout: 1000 * 60
 };
