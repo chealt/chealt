@@ -4,6 +4,7 @@ const factory = async ({ config: configParam, page, mocks, logger } = {}) => {
     dataRequestResourceTypes: ['fetch', 'xhr'],
     notInterceptedUrls: ['browser-sync'],
     isPortAgnostic: false,
+    isHostAgnostic: false,
     shouldUseMocks: false,
     ...configParam
   };
