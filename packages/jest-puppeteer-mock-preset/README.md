@@ -28,4 +28,4 @@ Update your Jest config with
 
 See additional environment options in the [mock environment README](https://www.npmjs.com/package/@chealt/jest-mock-environment).
 
-See a more detailed example in the [Jest Mock example package](../jest-mock-example/).
+See a more detailed example in the [Jest Mock example package](https://github.com/chealt/chealt/tree/main/packages/jest-mock-example).
