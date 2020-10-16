@@ -1,4 +1,5 @@
 const { findMocksForUrl } = require('./mockUtils');
+const { startCollecting, getCoverage } = require('./coverage/index.js');
 
 const factory = async ({ config: configParam, page, mocks, logger } = {}) => {
   let runningTestName;
@@ -12,6 +13,7 @@ const factory = async ({ config: configParam, page, mocks, logger } = {}) => {
   };
   const findMocks = findMocksForUrl(config);
   const responses = {};
+  const coverages = {};
   const getMockResponse = ({
     requestDetails: { url, method }
   }) => {
@@ -164,6 +166,12 @@ const factory = async ({ config: configParam, page, mocks, logger } = {}) => {
 
   const getResponses = () => responses;
 
+  const startCollectingCoverage = () => startCollecting(page);
+  const stopCollectingCoverage = async () => {
+    coverages[runningTestName] = await getCoverage(page);
+  };
+  const getCodeCoverages = () => coverages;
+
   const startInterception = async () => {
     await page.setRequestInterception(true);
     page.on('request', interceptRequest);
@@ -172,9 +180,11 @@ const factory = async ({ config: configParam, page, mocks, logger } = {}) => {
 
   return {
     getResponses,
-    setTestName
     setTestName,
-    startInterception
+    startInterception,
+    startCollectingCoverage,
+    stopCollectingCoverage,
+    getCodeCoverages
   };
 };
 

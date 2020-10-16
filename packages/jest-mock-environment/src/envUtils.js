@@ -20,7 +20,7 @@ const filterEmptyResponses = (responses) => {
 
 const getMocks = (responsesPath) => require(responsesPath);
 
-const getResponsesPath = (rootDir, mockResponsePath) => path.join(rootDir, mockResponsePath);
+const getFullPath = (rootDir, relativePath) => path.join(rootDir, relativePath);
 
 const hasResponses = (responses) => Object.keys(responses).length;
 
@@ -38,18 +38,19 @@ const validateConfig = (config) => {
         mockResponsePath,
         isHostAgnostic,
         isPortAgnostic,
-        shouldUseMocks
+        shouldUseMocks,
+        coveragePath
       }
     } = config;
 
-    return { mockResponsePath, isHostAgnostic, isPortAgnostic, rootDir, shouldUseMocks };
+    return { coveragePath, mockResponsePath, isHostAgnostic, isPortAgnostic, rootDir, shouldUseMocks };
   }
 };
 
 module.exports = {
   filterEmptyResponses,
   getMocks,
-  getResponsesPath,
+  getFullPath,
   hasResponses,
   validateConfig
 };
