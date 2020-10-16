@@ -44,7 +44,21 @@ Example:
 ```json
 {
   "testEnvironmentOptions": {
-    "mockResponsePath": "test/puppeteer/mocks/responses.json"
+    "mockResponsePath": "mocks/responses.json"
+  }
+}
+```
+
+#### coveragePath
+
+Relative path to the `rootDir` in your config to store the Code Coverage report.
+
+Example:
+
+```json
+{
+  "testEnvironmentOptions": {
+    "coveragePath": "reports/coverage.json"
   }
 }
 ```
