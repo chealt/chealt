@@ -1,25 +1,17 @@
+const { findMocksForUrl } = require('./mockUtils');
+
 const factory = async ({ config: configParam, page, mocks, logger } = {}) => {
   let runningTestName;
   const config = {
     dataRequestResourceTypes: ['fetch', 'xhr'],
     notInterceptedUrls: ['browser-sync'],
+    isPortAgnostic: false,
+    isHostAgnostic: false,
+    shouldUseMocks: false,
     ...configParam
   };
+  const findMocks = findMocksForUrl(config);
   const responses = {};
-  const removePort = (url) => url.replace(/:\d\d\d\d[\d]*/gu, '');
-  const findMocks = (runningTestMocks, url) => {
-    const { isPortAgnostic } = config;
-
-    const mockKey = Object.keys(runningTestMocks).find(
-      (responseUrl) => (!isPortAgnostic ? responseUrl === url : removePort(responseUrl) === removePort(url))
-    );
-
-    if (mockKey) {
-      return runningTestMocks[mockKey];
-    }
-
-    return undefined;
-  };
   const getMockResponse = ({
     requestDetails: { url, method }
   }) => {

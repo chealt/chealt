@@ -47,12 +47,12 @@ Example:
 }
 ```
 
-#### shouldUseMocks
+#### isHostAgnostic
 
 Type: `Boolean`
 Default: `false`
 
-If `true` the recorded responses will be used, otherwise the environment records the requests and responses.
+If `true` when using the mocks the host in the URL (including the protocol) won't be used to match the recorded response.
 
 #### isPortAgnostic
 
@@ -60,3 +60,11 @@ Type: `Boolean`
 Default: `false`
 
 If `true` when using the mocks the port in the URL won't be used to match the recorded response.
+
+#### shouldUseMocks
+
+Type: `Boolean`
+Default: `false`
+
+If `true` the recorded responses will be used, otherwise the environment records the requests and responses.
+
