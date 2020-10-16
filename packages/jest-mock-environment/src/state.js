@@ -40,7 +40,9 @@ const state = () => {
   };
   const getCoverages = () => allCodeCoverages;
   const saveCoverages = async () => {
-    await saveCoveragesFile(allCodeCoverages);
+    if (coveragesPath) {
+      await saveCoveragesFile(allCodeCoverages);
+    }
   };
 
   return {
