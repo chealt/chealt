@@ -12,13 +12,14 @@ class MockEnvironment extends PuppeteerEnvironment {
   constructor(config) {
     super(config);
 
-    const { mockResponsePath, isPortAgnostic, rootDir, shouldUseMocks } = validateConfig(config);
+    const { mockResponsePath, isHostAgnostic, isPortAgnostic, rootDir, shouldUseMocks } = validateConfig(config);
     const responsesPath = getResponsesPath(rootDir, mockResponsePath);
     setResponsesPath(responsesPath);
 
     this.config = config;
     this.shouldUseMocks = shouldUseMocks;
     this.mocks = shouldUseMocks && getMocks(responsesPath);
+    this.isHostAgnostic = isHostAgnostic;
     this.isPortAgnostic = isPortAgnostic;
   }
 
@@ -33,7 +34,7 @@ class MockEnvironment extends PuppeteerEnvironment {
       page: this.global.page,
       mocks: this.mocks,
       logger,
-      config: { isPortAgnostic: this.isPortAgnostic }
+      config: { isPortAgnostic: this.isPortAgnostic, isHostAgnostic: this.isHostAgnostic }
     });
   }
 

@@ -32,9 +32,17 @@ const validateConfig = (config) => {
   } else if (!config.testEnvironmentOptions.mockResponsePath) {
     throw new Error('Please specify where the mocks should be saved to and loaded from using the `mockResponsePath` test environment option.');
   } else {
-    const { rootDir, testEnvironmentOptions: { mockResponsePath, isPortAgnostic, shouldUseMocks } } = config;
+    const {
+      rootDir,
+      testEnvironmentOptions: {
+        mockResponsePath,
+        isHostAgnostic,
+        isPortAgnostic,
+        shouldUseMocks
+      }
+    } = config;
 
-    return { mockResponsePath, isPortAgnostic, rootDir, shouldUseMocks };
+    return { mockResponsePath, isHostAgnostic, isPortAgnostic, rootDir, shouldUseMocks };
   }
 };
 
