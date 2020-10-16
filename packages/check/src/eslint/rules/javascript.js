@@ -53,6 +53,16 @@ const config = {
       blankLine: 'always',
       prev: 'if',
       next: '*'
+    },
+    {
+      blankLine: 'always',
+      prev: '*',
+      next: 'for'
+    },
+    {
+      blankLine: 'always',
+      prev: 'for',
+      next: '*'
     }
   ],
   quotes: ['error', 'single', { avoidEscape: true }],
