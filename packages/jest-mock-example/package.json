@@ -8,7 +8,9 @@
     "url": "git+https://github.com/chealt/chealt.git"
   },
   "homepage": "https://github.com/chealt/chealt#chealt",
-  "scripts": {},
+  "scripts": {
+    "test": "JEST_PUPPETEER_CONFIG=./config/puppeteer/puppeteer.config.js jest --runInBand --config=./config/jest/jest.puppeteer.config.js"
+  },
   "dependencies": {
     "@chealt/jest-puppeteer-mock-preset": "^0.3.2",
     "puppeteer": "^5.3.1"
