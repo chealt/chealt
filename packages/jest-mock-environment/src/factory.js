@@ -177,11 +177,15 @@ const factory = async ({ config: configParam, page, mocks, logger } = {}) => {
     page.on('request', interceptRequest);
     page.on('response', saveResponse);
   };
+  const stopInterception = async () => {
+    await page.removeAllListeners('request');
+  };
 
   return {
     getResponses,
     setTestName,
     startInterception,
+    stopInterception,
     startCollectingCoverage,
     stopCollectingCoverage,
     getCodeCoverages

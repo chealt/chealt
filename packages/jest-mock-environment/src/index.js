@@ -71,6 +71,8 @@ class MockEnvironment extends PuppeteerEnvironment {
       if (this.shouldCollectCoverage) {
         await this.envInstance.stopCollectingCoverage();
       }
+
+      await this.envInstance.stopInterception();
     }
   }
 
