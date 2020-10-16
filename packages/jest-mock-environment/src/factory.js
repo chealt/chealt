@@ -164,17 +164,17 @@ const factory = async ({ config: configParam, page, mocks, logger } = {}) => {
 
   const getResponses = () => responses;
 
-  const init = async () => {
+  const startInterception = async () => {
     await page.setRequestInterception(true);
     page.on('request', interceptRequest);
     page.on('response', saveResponse);
   };
 
-  await init();
-
   return {
     getResponses,
     setTestName
+    setTestName,
+    startInterception
   };
 };
 

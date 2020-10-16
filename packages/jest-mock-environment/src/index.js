@@ -42,6 +42,7 @@ class MockEnvironment extends PuppeteerEnvironment {
     if (isTestStartEvent(event)) {
       const testID = getTestID(event.test);
       this.envInstance.setTestName(testID);
+      await this.envInstance.startInterception();
     } else if (isTestsEndEvent(event)) {
       this.addTestResponses();
     }
