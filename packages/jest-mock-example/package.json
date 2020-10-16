@@ -13,6 +13,9 @@
     "@chealt/jest-puppeteer-mock-preset": "^0.3.2",
     "puppeteer": "^5.3.1"
   },
+  "peerDependencies": {
+    "jest": "^26.5.3"
+  },
   "publishConfig": {
     "access": "public"
   },
