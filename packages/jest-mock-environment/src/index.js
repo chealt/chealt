@@ -20,7 +20,8 @@ class MockEnvironment extends PuppeteerEnvironment {
       rootDir,
       shouldUseMocks,
       collectCoverage,
-      coverageDirectory
+      coverageDirectory,
+      collectCoverageFrom
     } = validateConfig(config);
     const responsesPath = getFullPath(rootDir, mockResponsePath);
     setResponsesPath(responsesPath);
@@ -31,6 +32,7 @@ class MockEnvironment extends PuppeteerEnvironment {
     }
 
     this.collectCoverage = collectCoverage;
+    this.collectCoverageFrom = collectCoverageFrom;
     this.config = config;
     this.shouldUseMocks = shouldUseMocks;
     this.mocks = shouldUseMocks && getMocks(responsesPath);
@@ -49,7 +51,11 @@ class MockEnvironment extends PuppeteerEnvironment {
       page: this.global.page,
       mocks: this.mocks,
       logger,
-      config: { isPortAgnostic: this.isPortAgnostic, isHostAgnostic: this.isHostAgnostic }
+      config: {
+        isPortAgnostic: this.isPortAgnostic,
+        isHostAgnostic: this.isHostAgnostic,
+        collectCoverageFrom: this.collectCoverageFrom
+      }
     });
   }
 
@@ -73,7 +79,7 @@ class MockEnvironment extends PuppeteerEnvironment {
       await this.envInstance.stopInterception();
 
       if (this.collectCoverage) {
-        await this.envInstance.stopCollectingCoverage();
+        await this.envInstance.stopCollectingCoverage(this.collectCoverageFrom);
       }
     }
   }

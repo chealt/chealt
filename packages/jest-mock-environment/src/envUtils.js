@@ -42,18 +42,20 @@ const validateConfig = (config) => {
         isPortAgnostic,
         shouldUseMocks,
         collectCoverage,
-        coverageDirectory
+        coverageDirectory,
+        collectCoverageFrom
       }
     } = config;
 
     return {
-      collectCoverage,
-      coverageDirectory,
       mockResponsePath,
       isHostAgnostic,
       isPortAgnostic,
       rootDir,
-      shouldUseMocks
+      shouldUseMocks,
+      collectCoverage,
+      coverageDirectory,
+      collectCoverageFrom
     };
   }
 };

@@ -3,11 +3,20 @@ const startCollecting = (page) => Promise.all([
   page.coverage.startCSSCoverage()
 ]);
 
-const getCoverage = async (page) => {
+const getCoverage = async (page, collectCoverageFrom) => {
   const [jsCoverage, cssCoverage] = await Promise.all([
     page.coverage.stopJSCoverage(),
     page.coverage.stopCSSCoverage()
   ]);
+  const finalJSCoverage = jsCoverage;
+  const finalCSSCoverage = cssCoverage;
+
+  if (collectCoverageFrom) {
+    // TODO: filter coverage data based on config
+    finalJSCoverage = jsCoverage.filter((coverage) => coverage);
+    finalCSSCoverage = cssCoverage.filter((coverage) => coverage);
+  }
+
   let totalBytes = 0;
   let usedBytes = 0;
   const coverage = [...jsCoverage, ...cssCoverage];
@@ -27,8 +36,8 @@ const getCoverage = async (page) => {
     totalBytes,
     percentage,
     coverageDetails: {
-      js: jsCoverage,
-      css: cssCoverage
+      js: finalJSCoverage,
+      css: finalCSSCoverage
     }
   };
 };
