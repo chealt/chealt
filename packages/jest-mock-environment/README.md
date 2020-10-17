@@ -49,16 +49,26 @@ Example:
 }
 ```
 
-#### coveragePath
+#### collectCoverage
 
-Relative path to the `rootDir` in your config to store the Code Coverage report.
+Type: `Boolean`
+Default: `false`
+
+Indicates whether the coverage information should be collected while executing the test.
+
+#### coverageDirectory
+
+Type: `String`
+Default: `undefined`
+
+Relative path to the `rootDir` in your config to store the code coverage.
 
 Example:
 
 ```json
 {
   "testEnvironmentOptions": {
-    "coveragePath": "reports/coverage.json"
+    "coverageDirectory": "coverage"
   }
 }
 ```

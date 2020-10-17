@@ -31,6 +31,8 @@ const validateConfig = (config) => {
     throw new Error('You need to specify the `testEnvironmentOptions` in your jest config!');
   } else if (!config.testEnvironmentOptions.mockResponsePath) {
     throw new Error('Please specify where the mocks should be saved to and loaded from using the `mockResponsePath` test environment option.');
+  } else if (config.testEnvironmentOptions.collectCoverage && !config.testEnvironmentOptions.coverageDirectory) {
+    throw new Error('When coverage is collected you need to provide a coverageDirectory option.');
   } else {
     const {
       rootDir,
@@ -39,11 +41,20 @@ const validateConfig = (config) => {
         isHostAgnostic,
         isPortAgnostic,
         shouldUseMocks,
-        coveragePath
+        collectCoverage,
+        coverageDirectory
       }
     } = config;
 
-    return { coveragePath, mockResponsePath, isHostAgnostic, isPortAgnostic, rootDir, shouldUseMocks };
+    return {
+      collectCoverage,
+      coverageDirectory,
+      mockResponsePath,
+      isHostAgnostic,
+      isPortAgnostic,
+      rootDir,
+      shouldUseMocks
+    };
   }
 };
 

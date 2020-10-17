@@ -6,7 +6,8 @@ module.exports = {
     isHostAgnostic: true,
     mockResponsePath: 'mocks/responses.json',
     shouldUseMocks: Boolean(process.env.MOCK),
-    coveragePath: 'reports/coverages.json'
+    collectCoverage: true,
+    coverageDirectory: 'coverage'
   },
   testMatch: ['**/*.ui-test.js'],
   testTimeout: 1000 * 60

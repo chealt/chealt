@@ -1,3 +1,4 @@
+const path = require('path');
 const PuppeteerEnvironment = require('jest-environment-puppeteer');
 
 const factory = require('./factory');
@@ -18,17 +19,18 @@ class MockEnvironment extends PuppeteerEnvironment {
       isPortAgnostic,
       rootDir,
       shouldUseMocks,
-      coveragePath
+      collectCoverage,
+      coverageDirectory
     } = validateConfig(config);
     const responsesPath = getFullPath(rootDir, mockResponsePath);
     setResponsesPath(responsesPath);
 
-    if (coveragePath) {
-      const coverageFullPath = getFullPath(rootDir, coveragePath);
+    if (collectCoverage) {
+      const coverageFullPath = getFullPath(rootDir, path.join(coverageDirectory, '/coverage.json'));
       setCoveragesPath(coverageFullPath);
-      this.shouldCollectCoverage = true;
     }
 
+    this.collectCoverage = collectCoverage;
     this.config = config;
     this.shouldUseMocks = shouldUseMocks;
     this.mocks = shouldUseMocks && getMocks(responsesPath);
@@ -56,7 +58,7 @@ class MockEnvironment extends PuppeteerEnvironment {
       const testID = getTestID(event.test);
       this.envInstance.setTestName(testID);
 
-      if (this.shouldCollectCoverage) {
+      if (this.collectCoverage) {
         this.envInstance.startCollectingCoverage();
       }
 
@@ -64,13 +66,13 @@ class MockEnvironment extends PuppeteerEnvironment {
     } else if (isTestsEndEvent(event)) {
       this.addTestResponses();
 
-      if (this.shouldCollectCoverage) {
+      if (this.collectCoverage) {
         await this.addCodeCoverages();
       }
     } else if (isTestEndEvent(event)) {
       await this.envInstance.stopInterception();
 
-      if (this.shouldCollectCoverage) {
+      if (this.collectCoverage) {
         await this.envInstance.stopCollectingCoverage();
       }
     }
