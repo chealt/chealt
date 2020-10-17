@@ -1056,22 +1056,6 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@chealt/jest-mock-environment@^0.6.1":
-  version "0.6.1"
-  resolved "https://registry.yarnpkg.com/@chealt/jest-mock-environment/-/jest-mock-environment-0.6.1.tgz#50f0008865ecc1ea2c232b6b21745dff165733de"
-  integrity sha512-Z1j8IllN9iUl1kZFA2hjGRYm64f0/TT8ynO+3w2G37QXRri8LZVLN0qVCcgLS8wsR5dgtLAxkYly0mwNfCZ6ZQ==
-  dependencies:
-    jest-environment-puppeteer "^4.4.0"
-
-"@chealt/jest-puppeteer-mock-preset@^0.4.0":
-  version "0.4.1"
-  resolved "https://registry.yarnpkg.com/@chealt/jest-puppeteer-mock-preset/-/jest-puppeteer-mock-preset-0.4.1.tgz#314a0844f3193e93047b1fb8f82dd1e6af539e8a"
-  integrity sha512-pmf728zlrHg2m0be/dGjJJEtLFfMtVp6rFY3Elqy7MmfP36645aBO0F+c/w0afVzki1blNvvNeGgvgliK6k21A==
-  dependencies:
-    "@chealt/jest-mock-environment" "^0.6.1"
-    expect-puppeteer "^4.4.0"
-    jest-circus "^26.5.3"
-
 "@cnakazawa/watch@^1.0.3":
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/@cnakazawa/watch/-/watch-1.0.4.tgz#f864ae85004d0fcab6f50be9141c4da368d1656a"
