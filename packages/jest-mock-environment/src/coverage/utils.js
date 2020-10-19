@@ -37,7 +37,16 @@ const calculateCoverageDetails = (jsCoverage, cssCoverage) => {
 };
 
 const printCoverages = ({ logger, coverages }) => {
-  logger.info(coverages);
+  Object.keys(coverages).forEach((testID) => {
+    const { report } = coverages[testID];
+
+    logger.info(`
+${testID}:
+  Total: ${report.totalReport}
+  Unused: ${report.unusedReport}
+  Potential improvement: ${report.timeSavings.GGFormatted} (2G), ${report.timeSavings.GGGFormatted} (3G)
+    `);
+  });
 };
 
 module.exports = {
