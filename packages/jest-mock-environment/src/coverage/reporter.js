@@ -3,6 +3,23 @@ const formatRawSize = (size) => new Intl.NumberFormat().format(size);
 const formatPercentage = (percentage) => (
   new Intl.NumberFormat(undefined, { style: 'unit', unit: 'percent' }).format(percentage.toFixed(2))
 );
+const formatSeconds = (seconds) => (
+  new Intl.NumberFormat(undefined, { style: 'unit', unit: 'second' }).format(seconds)
+);
+
+const bytesPerSec = {
+  GG: 376 / 8 * 1024,
+  GGG: 1500 / 8 * 1024
+};
+const getDownloadTime = (size, speed) => {
+  switch (speed) {
+    case '2G':
+      return size / bytesPerSec.GG;
+    case '3G':
+    default:
+      return size / bytesPerSec.GGG;
+  }
+};
 const getDetailsSummary = (details) => {
   const { totalBytes, usedBytes, percentage } = details;
   const totalFormatted = formatSize(totalBytes);
@@ -16,6 +33,10 @@ const getDetailsSummary = (details) => {
   const unusedRawFormatted = formatRawSize(unusedBytes);
   const unusedReport = `${unusedFormatted} (${unusedRawFormatted} B)`;
   const percentageFormatted = formatPercentage(percentage);
+  const timeSavingsGG = getDownloadTime(unusedBytes, '2G');
+  const timeSavingsGGFormatted = formatSeconds(timeSavingsGG);
+  const timeSavingsGGG = getDownloadTime(unusedBytes, '3G');
+  const timeSavingsGGGFormatted = formatSeconds(timeSavingsGGG);
 
   return {
     report: {
@@ -25,7 +46,13 @@ const getDetailsSummary = (details) => {
       usedReport,
       unusedFormatted,
       unusedReport,
-      percentageFormatted
+      percentageFormatted,
+      timeSavings: {
+        GG: timeSavingsGG,
+        GGFormatted: timeSavingsGGFormatted,
+        GGG: timeSavingsGGG,
+        GGGFormatted: timeSavingsGGGFormatted
+      }
     },
     unusedBytes,
     ...details
