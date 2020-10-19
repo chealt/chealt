@@ -1,3 +1,5 @@
+const { filterByUrl } = require('./utils');
+
 const startCollecting = (page) => Promise.all([
   page.coverage.startJSCoverage(),
   page.coverage.startCSSCoverage()
@@ -8,18 +10,18 @@ const getCoverage = async (page, collectCoverageFrom) => {
     page.coverage.stopJSCoverage(),
     page.coverage.stopCSSCoverage()
   ]);
-  const finalJSCoverage = jsCoverage;
-  const finalCSSCoverage = cssCoverage;
+  let finalJSCoverage = jsCoverage;
+  let finalCSSCoverage = cssCoverage;
 
   if (collectCoverageFrom) {
-    // TODO: filter coverage data based on config
-    finalJSCoverage = jsCoverage.filter((coverage) => coverage);
-    finalCSSCoverage = cssCoverage.filter((coverage) => coverage);
+    const byUrl = filterByUrl(collectCoverageFrom);
+    finalJSCoverage = jsCoverage.filter(byUrl);
+    finalCSSCoverage = cssCoverage.filter(byUrl);
   }
 
   let totalBytes = 0;
   let usedBytes = 0;
-  const coverage = [...jsCoverage, ...cssCoverage];
+  const coverage = [...finalJSCoverage, ...finalCSSCoverage];
 
   for (const entry of coverage) {
     totalBytes += entry.text.length;
