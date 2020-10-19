@@ -7,7 +7,9 @@ module.exports = {
     mockResponsePath: 'mocks/responses.json',
     shouldUseMocks: Boolean(process.env.MOCK),
     collectCoverage: true,
-    coverageDirectory: 'coverage'
+    coverageDirectory: 'coverage',
+    // eslint-disable-next-line no-useless-escape
+    collectCoverageFrom: ['https:\/\/www\.google\.com']
   },
   testMatch: ['**/*.ui-test.js'],
   testTimeout: 1000 * 60
