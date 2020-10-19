@@ -1,5 +1,5 @@
 const { findMocksForUrl } = require('./mockUtils');
-const { startCollecting, getCoverage } = require('./coverage/index.js');
+const { startCollecting, getCoverage } = require('./coverage/index');
 
 const factory = async ({ config: configParam, page, mocks, logger } = {}) => {
   let runningTestName;
