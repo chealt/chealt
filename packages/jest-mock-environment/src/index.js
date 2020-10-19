@@ -35,7 +35,14 @@ class MockEnvironment extends PuppeteerEnvironment {
     // Your setup
     logger.debug(`Setting up environemnt with config: ${JSON.stringify(this.config, null, 4)}`);
 
-    const { isHostAgnostic, isPortAgnostic, collectCoverage, collectCoverageFrom, recordCoverageText } = this.config;
+    const {
+      collectCoverage,
+      collectCoverageFrom,
+      isHostAgnostic,
+      isPortAgnostic,
+      printCoverageSummary,
+      recordCoverageText
+    } = this.config;
 
     if (collectCoverage) {
       logger.debug(`Will collect coverage information in: ${this.coverageFullPath}`);
@@ -50,6 +57,7 @@ class MockEnvironment extends PuppeteerEnvironment {
         isPortAgnostic,
         isHostAgnostic,
         collectCoverageFrom,
+        printCoverageSummary,
         recordCoverageText
       }
     });
