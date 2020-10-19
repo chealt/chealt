@@ -1,6 +1,8 @@
 const formatSize = (size) => `${(size / 1024 / 1024).toFixed(2)} MB`;
 const formatRawSize = (size) => new Intl.NumberFormat().format(size);
-const formatPercentage = (percentage) => `${percentage.toFixed(2)}%`;
+const formatPercentage = (percentage) => (
+  new Intl.NumberFormat(undefined, { style: 'unit', unit: 'percent' }).format(percentage.toFixed(2))
+);
 const getDetailsSummary = (details) => {
   const { totalBytes, usedBytes, percentage } = details;
   const totalFormatted = formatSize(totalBytes);
