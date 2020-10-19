@@ -1,12 +1,22 @@
 const fs = require('fs');
 const { promisify } = require('util');
+const coverageUtils = require('./coverage/utils');
 
 const writeFile = promisify(fs.writeFile);
 
 let allResponses = {};
 let allCodeCoverages = {};
+let config = {};
+let logger = {};
 
 const state = () => {
+  // CONFIG
+  const setConfig = (_config) => {
+    config = _config;
+  };
+  const setLogger = (_logger) => {
+    logger = _logger;
+  };
   // RESPONSES
   let responsesPath;
   const saveResponsesFile = (responses) =>
@@ -44,8 +54,15 @@ const state = () => {
       await saveCoveragesFile(allCodeCoverages);
     }
   };
+  const printCoverages = () => {
+    if (config.printCoverageSummary) {
+      coverageUtils.printCoverages({ logger, coverages: allCodeCoverages });
+    }
+  };
 
   return {
+    setConfig,
+    setLogger,
     // RESPONSES
     addTestResponses,
     getResponses,
@@ -54,6 +71,7 @@ const state = () => {
     // COVERAGES
     addCodeCoverages,
     getCoverages,
+    printCoverages,
     saveCoverages,
     setCoveragesPath
   };

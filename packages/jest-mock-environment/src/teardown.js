@@ -1,6 +1,6 @@
 const { teardown: teardownPuppeteer } = require('jest-environment-puppeteer');
 
-const { saveResponses, saveCoverages } = require('./state');
+const { saveResponses, saveCoverages, printCoverages } = require('./state');
 
 const { MOCK } = process.env;
 
@@ -10,6 +10,7 @@ const globalTeardown = async (globalConfig) => {
   }
 
   await saveCoverages();
+  printCoverages();
 
   // Your global teardown
   await teardownPuppeteer(globalConfig);

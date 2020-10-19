@@ -36,8 +36,13 @@ const calculateCoverageDetails = (jsCoverage, cssCoverage) => {
   };
 };
 
+const printCoverages = ({ logger, coverages }) => {
+  logger.info(coverages);
+};
+
 module.exports = {
   calculateCoverageDetails,
   filterByUrl,
+  printCoverages,
   removeCoverageText
 };
