@@ -167,7 +167,9 @@ const factory = async ({ config: configParam, page, mocks, logger } = {}) => {
   const getResponses = () => responses;
 
   const startCollectingCoverage = () => startCollecting(page);
-  const stopCollectingCoverage = async (collectCoverageFrom) => {
+  const stopCollectingCoverage = async () => {
+    const { collectCoverageFrom } = config;
+
     coverages[runningTestName] = await getCoverage(page, collectCoverageFrom);
   };
   const getCodeCoverages = () => coverages;
