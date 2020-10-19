@@ -7,17 +7,21 @@ const formatSeconds = (seconds) => (
   new Intl.NumberFormat(undefined, { style: 'unit', unit: 'second' }).format(seconds)
 );
 
-const bytesPerSec = {
-  GG: 376 / 8 * 1024,
-  GGG: 1500 / 8 * 1024
+const KBPerSec = {
+  GG: 30,
+  GGG: 50
+};
+const BPerSec = {
+  GG: KBPerSec.GG * 1024,
+  GGG: KBPerSec.GGG * 1024
 };
 const getDownloadTime = (size, speed) => {
   switch (speed) {
     case '2G':
-      return size / bytesPerSec.GG;
+      return size / BPerSec.GG;
     case '3G':
     default:
-      return size / bytesPerSec.GGG;
+      return size / BPerSec.GGG;
   }
 };
 const getDetailsReport = (details) => {
