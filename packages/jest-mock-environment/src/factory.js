@@ -8,6 +8,7 @@ const factory = async ({ config: configParam, page, mocks, logger } = {}) => {
     notInterceptedUrls: ['browser-sync'],
     isPortAgnostic: false,
     isHostAgnostic: false,
+    recordCoverageText: false,
     shouldUseMocks: false,
     ...configParam
   };
@@ -168,9 +169,9 @@ const factory = async ({ config: configParam, page, mocks, logger } = {}) => {
 
   const startCollectingCoverage = () => startCollecting(page);
   const stopCollectingCoverage = async () => {
-    const { collectCoverageFrom } = config;
+    const { collectCoverageFrom, recordCoverageText } = config;
 
-    coverages[runningTestName] = await getCoverage(page, collectCoverageFrom);
+    coverages[runningTestName] = await getCoverage({ page, collectCoverageFrom, recordCoverageText });
   };
   const getCodeCoverages = () => coverages;
 

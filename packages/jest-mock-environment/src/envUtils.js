@@ -38,6 +38,7 @@ const validateConfig = (config) => {
       rootDir,
       testEnvironmentOptions: {
         collectCoverage,
+        collectCoverageFrom,
         coverageDirectory,
         mockResponsePath,
         shouldUseMocks
@@ -46,6 +47,7 @@ const validateConfig = (config) => {
 
     return {
       collectCoverage,
+      collectCoverageFrom,
       coverageDirectory,
       mockResponsePath,
       rootDir,

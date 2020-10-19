@@ -1,11 +1,11 @@
-const { filterByUrl } = require('./utils');
+const { filterByUrl, removeCoverageText } = require('./utils');
 
 const startCollecting = (page) => Promise.all([
   page.coverage.startJSCoverage(),
   page.coverage.startCSSCoverage()
 ]);
 
-const getCoverage = async (page, collectCoverageFrom) => {
+const getCoverage = async ({ page, collectCoverageFrom, recordCoverageText }) => {
   const [jsCoverage, cssCoverage] = await Promise.all([
     page.coverage.stopJSCoverage(),
     page.coverage.stopCSSCoverage()
@@ -15,8 +15,13 @@ const getCoverage = async (page, collectCoverageFrom) => {
 
   if (collectCoverageFrom) {
     const byUrl = filterByUrl(collectCoverageFrom);
-    finalJSCoverage = jsCoverage.filter(byUrl);
-    finalCSSCoverage = cssCoverage.filter(byUrl);
+    finalJSCoverage = finalJSCoverage.filter(byUrl);
+    finalCSSCoverage = finalCSSCoverage.filter(byUrl);
+  }
+
+  if (!recordCoverageText) {
+    finalJSCoverage = finalJSCoverage.map(removeCoverageText);
+    finalCSSCoverage = finalCSSCoverage.map(removeCoverageText);
   }
 
   let totalBytes = 0;

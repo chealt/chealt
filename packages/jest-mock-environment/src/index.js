@@ -13,22 +13,18 @@ class MockEnvironment extends PuppeteerEnvironment {
   constructor(config) {
     super(config);
 
-    const {
-      collectCoverage,
-      coverageDirectory,
-      mockResponsePath,
-      rootDir,
-      shouldUseMocks
-    } = validateConfig(config);
+    const cleanConfig = validateConfig(config);
+    const { rootDir, collectCoverage, coverageDirectory, mockResponsePath, shouldUseMocks } = cleanConfig;
     const responsesPath = getFullPath(rootDir, mockResponsePath);
     setResponsesPath(responsesPath);
 
     if (collectCoverage) {
       const coverageFullPath = getFullPath(rootDir, path.join(coverageDirectory, '/coverage.json'));
       setCoveragesPath(coverageFullPath);
+      this.coverageFullPath = coverageFullPath;
     }
 
-    this.config = config;
+    this.config = cleanConfig;
     this.mocks = shouldUseMocks && getMocks(responsesPath);
   }
 
@@ -39,7 +35,11 @@ class MockEnvironment extends PuppeteerEnvironment {
     // Your setup
     logger.debug(`Setting up environemnt with config: ${JSON.stringify(this.config, null, 4)}`);
 
-    const { isHostAgnostic, isPortAgnostic, collectCoverageFrom } = this.config;
+    const { isHostAgnostic, isPortAgnostic, collectCoverage, collectCoverageFrom, recordCoverageText } = this.config;
+
+    if (collectCoverage) {
+      logger.debug(`Will collect coverage information in: ${this.coverageFullPath}`);
+    }
 
     this.logger = logger;
     this.envInstance = await factory({
@@ -49,7 +49,8 @@ class MockEnvironment extends PuppeteerEnvironment {
       config: {
         isPortAgnostic,
         isHostAgnostic,
-        collectCoverageFrom
+        collectCoverageFrom,
+        recordCoverageText
       }
     });
   }
