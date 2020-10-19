@@ -14,14 +14,11 @@ class MockEnvironment extends PuppeteerEnvironment {
     super(config);
 
     const {
-      mockResponsePath,
-      isHostAgnostic,
-      isPortAgnostic,
-      rootDir,
-      shouldUseMocks,
       collectCoverage,
       coverageDirectory,
-      collectCoverageFrom
+      mockResponsePath,
+      rootDir,
+      shouldUseMocks
     } = validateConfig(config);
     const responsesPath = getFullPath(rootDir, mockResponsePath);
     setResponsesPath(responsesPath);
@@ -31,13 +28,8 @@ class MockEnvironment extends PuppeteerEnvironment {
       setCoveragesPath(coverageFullPath);
     }
 
-    this.collectCoverage = collectCoverage;
-    this.collectCoverageFrom = collectCoverageFrom;
     this.config = config;
-    this.shouldUseMocks = shouldUseMocks;
     this.mocks = shouldUseMocks && getMocks(responsesPath);
-    this.isHostAgnostic = isHostAgnostic;
-    this.isPortAgnostic = isPortAgnostic;
   }
 
   async setup({
@@ -46,25 +38,30 @@ class MockEnvironment extends PuppeteerEnvironment {
     await super.setup();
     // Your setup
     logger.debug(`Setting up environemnt with config: ${JSON.stringify(this.config, null, 4)}`);
+
+    const { isHostAgnostic, isPortAgnostic, collectCoverageFrom } = this.config;
+
     this.logger = logger;
     this.envInstance = await factory({
       page: this.global.page,
       mocks: this.mocks,
       logger,
       config: {
-        isPortAgnostic: this.isPortAgnostic,
-        isHostAgnostic: this.isHostAgnostic,
-        collectCoverageFrom: this.collectCoverageFrom
+        isPortAgnostic,
+        isHostAgnostic,
+        collectCoverageFrom
       }
     });
   }
 
   async handleTestEvent(event) {
+    const { collectCoverage } = this.config;
+
     if (isTestStartEvent(event)) {
       const testID = getTestID(event.test);
       this.envInstance.setTestName(testID);
 
-      if (this.collectCoverage) {
+      if (collectCoverage) {
         this.envInstance.startCollectingCoverage();
       }
 
@@ -72,13 +69,13 @@ class MockEnvironment extends PuppeteerEnvironment {
     } else if (isTestsEndEvent(event)) {
       this.addTestResponses();
 
-      if (this.collectCoverage) {
+      if (collectCoverage) {
         await this.addCodeCoverages();
       }
     } else if (isTestEndEvent(event)) {
       await this.envInstance.stopInterception();
 
-      if (this.collectCoverage) {
+      if (collectCoverage) {
         await this.envInstance.stopCollectingCoverage();
       }
     }
@@ -88,7 +85,7 @@ class MockEnvironment extends PuppeteerEnvironment {
     const responses = this.envInstance.getResponses();
     const nonEmptyResponses = filterEmptyResponses(responses);
 
-    if (!this.shouldUseMocks && hasResponses(nonEmptyResponses)) {
+    if (!this.config.shouldUseMocks && hasResponses(nonEmptyResponses)) {
       addTestResponses(nonEmptyResponses);
     }
   }
