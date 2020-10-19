@@ -8,6 +8,7 @@ const factory = async ({ config: configParam, page, mocks, logger } = {}) => {
     notInterceptedUrls: ['browser-sync'],
     isPortAgnostic: false,
     isHostAgnostic: false,
+    printCoverageSummary: false,
     recordCoverageText: false,
     shouldUseMocks: false,
     ...configParam

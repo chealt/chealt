@@ -3,7 +3,7 @@ const PuppeteerEnvironment = require('jest-environment-puppeteer');
 
 const factory = require('./factory');
 const { getLogger, logLevels } = require('./logger');
-const { addCodeCoverages, addTestResponses, setResponsesPath, setCoveragesPath } = require('./state');
+const { addCodeCoverages, addTestResponses, setResponsesPath, setCoveragesPath, setConfig, setLogger } = require('./state');
 const { isTestStartEvent, isTestEndEvent, isTestsEndEvent, getTestID } = require('./testEventUtils');
 const { filterEmptyResponses, getMocks, getFullPath, hasResponses, validateConfig } = require('./envUtils');
 
@@ -24,6 +24,7 @@ class MockEnvironment extends PuppeteerEnvironment {
       this.coverageFullPath = coverageFullPath;
     }
 
+    setConfig(cleanConfig);
     this.config = cleanConfig;
     this.mocks = shouldUseMocks && getMocks(responsesPath);
   }
@@ -40,12 +41,15 @@ class MockEnvironment extends PuppeteerEnvironment {
       collectCoverageFrom,
       isHostAgnostic,
       isPortAgnostic,
+      printCoverageSummary,
       recordCoverageText
     } = this.config;
 
     if (collectCoverage) {
       logger.debug(`Will collect coverage information in: ${this.coverageFullPath}`);
     }
+
+    setLogger(logger);
 
     this.logger = logger;
     this.envInstance = await factory({
@@ -56,6 +60,7 @@ class MockEnvironment extends PuppeteerEnvironment {
         isPortAgnostic,
         isHostAgnostic,
         collectCoverageFrom,
+        printCoverageSummary,
         recordCoverageText
       }
     });
