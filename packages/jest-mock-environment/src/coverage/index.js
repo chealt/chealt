@@ -1,4 +1,4 @@
-const { filterByUrl, removeCoverageText } = require('./utils');
+const { filterByUrl, removeCoverageText, calculateCoverageDetails } = require('./utils');
 
 const startCollecting = (page) => Promise.all([
   page.coverage.startJSCoverage(),
@@ -19,20 +19,9 @@ const getCoverage = async ({ page, collectCoverageFrom, recordCoverageText }) =>
     finalCSSCoverage = finalCSSCoverage.filter(byUrl);
   }
 
-  let totalBytes = 0;
-  let usedBytes = 0;
-  const coverage = [...finalJSCoverage, ...finalCSSCoverage];
+  const { usedBytes, totalBytes, percentage } = calculateCoverageDetails(finalJSCoverage, finalCSSCoverage);
 
-  for (const entry of coverage) {
-    totalBytes += entry.text.length;
-
-    for (const range of entry.ranges) {
-      usedBytes += range.end - range.start - 1;
-    }
-  }
-
-  const percentage = usedBytes / totalBytes * 100;
-
+  // This must be done after the calculate method as that depends on the text length.
   if (!recordCoverageText) {
     finalJSCoverage = finalJSCoverage.map(removeCoverageText);
     finalCSSCoverage = finalCSSCoverage.map(removeCoverageText);
