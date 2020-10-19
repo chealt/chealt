@@ -20,7 +20,7 @@ const filterEmptyResponses = (responses) => {
 
 const getMocks = (responsesPath) => require(responsesPath);
 
-const getResponsesPath = (rootDir, mockResponsePath) => path.join(rootDir, mockResponsePath);
+const getFullPath = (rootDir, relativePath) => path.join(rootDir, relativePath);
 
 const hasResponses = (responses) => Object.keys(responses).length;
 
@@ -31,25 +31,37 @@ const validateConfig = (config) => {
     throw new Error('You need to specify the `testEnvironmentOptions` in your jest config!');
   } else if (!config.testEnvironmentOptions.mockResponsePath) {
     throw new Error('Please specify where the mocks should be saved to and loaded from using the `mockResponsePath` test environment option.');
+  } else if (config.testEnvironmentOptions.collectCoverage && !config.testEnvironmentOptions.coverageDirectory) {
+    throw new Error('When coverage is collected you need to provide a coverageDirectory option.');
   } else {
     const {
       rootDir,
       testEnvironmentOptions: {
+        collectCoverage,
+        collectCoverageFrom,
+        coverageDirectory,
         mockResponsePath,
-        isHostAgnostic,
-        isPortAgnostic,
+        recordCoverageText,
         shouldUseMocks
       }
     } = config;
 
-    return { mockResponsePath, isHostAgnostic, isPortAgnostic, rootDir, shouldUseMocks };
+    return {
+      collectCoverage,
+      collectCoverageFrom,
+      coverageDirectory,
+      mockResponsePath,
+      recordCoverageText,
+      rootDir,
+      shouldUseMocks
+    };
   }
 };
 
 module.exports = {
   filterEmptyResponses,
   getMocks,
-  getResponsesPath,
+  getFullPath,
   hasResponses,
   validateConfig
 };

@@ -44,10 +44,50 @@ Example:
 ```json
 {
   "testEnvironmentOptions": {
-    "mockResponsePath": "test/puppeteer/mocks/responses.json"
+    "mockResponsePath": "mocks/responses.json"
   }
 }
 ```
+
+#### collectCoverage
+
+Type: `Boolean`
+Default: `false`
+
+Indicates whether the coverage information should be collected while executing the test.
+
+#### collectCoverageFrom
+
+Type: `array<String>`
+Default: `undefined`
+
+A list of Strings to be created regular expressions of to match the URLs to be collected coverage information from. These will be passed to `new RegExp` with the `u` flag and any URL matching any one of them will be included.
+
+To take effect the `collectCoverage` option must be `true`.
+
+#### coverageDirectory
+
+Type: `String`
+Default: `undefined`
+
+Relative path to the `rootDir` in your config to store the code coverage.
+
+Example:
+
+```json
+{
+  "testEnvironmentOptions": {
+    "coverageDirectory": "coverage"
+  }
+}
+```
+
+#### recordCoverageText
+
+Type: `Boolean`
+Default: `false`
+
+When Puppeteer collects coverage information it records each asset's text as well as the ranges. This can make the coverage file quite large, therefore, by default, the library excludes this information from the output.
 
 #### isHostAgnostic
 

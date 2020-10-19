@@ -28,7 +28,7 @@ const getLogger = (level) => {
     warning:
             level <= logLevels.warning
               ? (message) => {
-                console.warning(message);
+                console.warn(message);
               }
               : noop,
     error:

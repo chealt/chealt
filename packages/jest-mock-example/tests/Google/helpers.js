@@ -4,7 +4,10 @@ const agreeToConsent = async () => {
 
   // THEN
   const consentFrame = page.frames().find((frame) => frame.url().includes('consent.google.com'));
-  await expect(consentFrame).toClick('span', { text: 'I agree' });
+
+  if (consentFrame) {
+    await expect(consentFrame).toClick('span', { text: 'I agree' });
+  }
 };
 
 export {

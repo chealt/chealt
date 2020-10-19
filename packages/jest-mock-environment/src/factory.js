@@ -1,4 +1,5 @@
 const { findMocksForUrl } = require('./mockUtils');
+const { startCollecting, getCoverage } = require('./coverage/index');
 
 const factory = async ({ config: configParam, page, mocks, logger } = {}) => {
   let runningTestName;
@@ -7,11 +8,13 @@ const factory = async ({ config: configParam, page, mocks, logger } = {}) => {
     notInterceptedUrls: ['browser-sync'],
     isPortAgnostic: false,
     isHostAgnostic: false,
+    recordCoverageText: false,
     shouldUseMocks: false,
     ...configParam
   };
   const findMocks = findMocksForUrl(config);
   const responses = {};
+  const coverages = {};
   const getMockResponse = ({
     requestDetails: { url, method }
   }) => {
@@ -164,17 +167,31 @@ const factory = async ({ config: configParam, page, mocks, logger } = {}) => {
 
   const getResponses = () => responses;
 
-  const init = async () => {
+  const startCollectingCoverage = () => startCollecting(page);
+  const stopCollectingCoverage = async () => {
+    const { collectCoverageFrom, recordCoverageText } = config;
+
+    coverages[runningTestName] = await getCoverage({ page, collectCoverageFrom, recordCoverageText });
+  };
+  const getCodeCoverages = () => coverages;
+
+  const startInterception = async () => {
     await page.setRequestInterception(true);
     page.on('request', interceptRequest);
     page.on('response', saveResponse);
   };
-
-  await init();
+  const stopInterception = async () => {
+    await page.removeAllListeners('request');
+  };
 
   return {
     getResponses,
-    setTestName
+    setTestName,
+    startInterception,
+    stopInterception,
+    startCollectingCoverage,
+    stopCollectingCoverage,
+    getCodeCoverages
   };
 };
 

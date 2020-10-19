@@ -1,4 +1,5 @@
 const isTestStartEvent = (event) => event.name === 'test_fn_start';
+const isTestEndEvent = (event) => event.name === 'test_done';
 const isTestsEndEvent = (event) => event.name === 'teardown';
 const getTestID = (event) => {
   let id = event.name;
@@ -13,6 +14,7 @@ const getTestID = (event) => {
 
 module.exports = {
   isTestStartEvent,
+  isTestEndEvent,
   isTestsEndEvent,
   getTestID
 };
