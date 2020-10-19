@@ -82,6 +82,13 @@ Example:
 }
 ```
 
+#### recordCoverageText
+
+Type: `Boolean`
+Default: `false`
+
+When Puppeteer collects coverage information it records each asset's text as well as the ranges. This can make the coverage file quite large, therefore, by default, the library excludes this information from the output.
+
 #### isHostAgnostic
 
 Type: `Boolean`
