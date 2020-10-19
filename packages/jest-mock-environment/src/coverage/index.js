@@ -19,11 +19,6 @@ const getCoverage = async ({ page, collectCoverageFrom, recordCoverageText }) =>
     finalCSSCoverage = finalCSSCoverage.filter(byUrl);
   }
 
-  if (!recordCoverageText) {
-    finalJSCoverage = finalJSCoverage.map(removeCoverageText);
-    finalCSSCoverage = finalCSSCoverage.map(removeCoverageText);
-  }
-
   let totalBytes = 0;
   let usedBytes = 0;
   const coverage = [...finalJSCoverage, ...finalCSSCoverage];
@@ -37,6 +32,11 @@ const getCoverage = async ({ page, collectCoverageFrom, recordCoverageText }) =>
   }
 
   const percentage = usedBytes / totalBytes * 100;
+
+  if (!recordCoverageText) {
+    finalJSCoverage = finalJSCoverage.map(removeCoverageText);
+    finalCSSCoverage = finalCSSCoverage.map(removeCoverageText);
+  }
 
   return {
     usedBytes,
