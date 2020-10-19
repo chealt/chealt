@@ -20,7 +20,7 @@ const getDownloadTime = (size, speed) => {
       return size / bytesPerSec.GGG;
   }
 };
-const getDetailsSummary = (details) => {
+const getDetailsReport = (details) => {
   const { totalBytes, usedBytes, percentage } = details;
   const totalFormatted = formatSize(totalBytes);
   const totalRawFormatted = formatRawSize(totalBytes);
@@ -54,11 +54,10 @@ const getDetailsSummary = (details) => {
         GGGFormatted: timeSavingsGGGFormatted
       }
     },
-    unusedBytes,
-    ...details
+    unusedBytes
   };
 };
 
 module.exports = {
-  getDetailsSummary
+  getDetailsReport
 };

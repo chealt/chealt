@@ -1,12 +1,12 @@
 const { filterByUrl, removeCoverageText, calculateCoverageDetails } = require('./utils');
-const { getDetailsSummary, printReport } = require('./reporter');
+const { getDetailsReport } = require('./reporter');
 
 const startCollecting = (page) => Promise.all([
   page.coverage.startJSCoverage(),
   page.coverage.startCSSCoverage()
 ]);
 
-const getCoverage = async ({ page, collectCoverageFrom, recordCoverageText, printCoverageSummary, logger }) => {
+const getCoverage = async ({ page, collectCoverageFrom, recordCoverageText }) => {
   const [jsCoverage, cssCoverage] = await Promise.all([
     page.coverage.stopJSCoverage(),
     page.coverage.stopCSSCoverage()
@@ -38,12 +38,12 @@ const getCoverage = async ({ page, collectCoverageFrom, recordCoverageText, prin
     }
   };
 
-  if (printCoverageSummary) {
-    const detailsSummary = getDetailsSummary(details);
-    printReport(detailsSummary, logger);
-  }
+  const report = getDetailsReport(details);
 
-  return details;
+  return {
+    ...details,
+    ...report
+  };
 };
 
 module.exports = {

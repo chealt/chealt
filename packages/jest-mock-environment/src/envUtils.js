@@ -41,7 +41,6 @@ const validateConfig = (config) => {
         collectCoverageFrom,
         coverageDirectory,
         mockResponsePath,
-        printCoverageSummary,
         recordCoverageText,
         shouldUseMocks
       }
@@ -52,7 +51,6 @@ const validateConfig = (config) => {
       collectCoverageFrom,
       coverageDirectory,
       mockResponsePath,
-      printCoverageSummary,
       recordCoverageText,
       rootDir,
       shouldUseMocks

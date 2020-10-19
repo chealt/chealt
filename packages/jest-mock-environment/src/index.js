@@ -40,7 +40,6 @@ class MockEnvironment extends PuppeteerEnvironment {
       collectCoverageFrom,
       isHostAgnostic,
       isPortAgnostic,
-      printCoverageSummary,
       recordCoverageText
     } = this.config;
 
@@ -57,7 +56,6 @@ class MockEnvironment extends PuppeteerEnvironment {
         isPortAgnostic,
         isHostAgnostic,
         collectCoverageFrom,
-        printCoverageSummary,
         recordCoverageText
       }
     });

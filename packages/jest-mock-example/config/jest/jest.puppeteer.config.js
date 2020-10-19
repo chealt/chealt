@@ -8,7 +8,6 @@ module.exports = {
     shouldUseMocks: Boolean(process.env.MOCK),
     collectCoverage: true,
     coverageDirectory: 'coverage',
-    printCoverageSummary: true,
     recordCoverageText: false,
     // eslint-disable-next-line no-useless-escape
     collectCoverageFrom: ['https:\/\/www\.google\.com']
