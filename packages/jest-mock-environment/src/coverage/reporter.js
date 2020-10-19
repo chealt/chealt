@@ -11,14 +11,23 @@ const getDetailsSummary = (details) => {
   const usedFormatted = formatSize(usedBytes);
   const usedRawFormatted = formatRawSize(usedBytes);
   const usedReport = `${usedFormatted} (${usedRawFormatted} B)`;
+  const unusedBytes = totalBytes - usedBytes;
+  const unusedFormatted = formatSize(unusedBytes);
+  const unusedRawFormatted = formatRawSize(unusedBytes);
+  const unusedReport = `${unusedFormatted} (${unusedRawFormatted} B)`;
   const percentageFormatted = formatPercentage(percentage);
 
   return {
-    totalFormatted,
-    totalReport,
-    usedFormatted,
-    usedReport,
-    percentageFormatted,
+    report: {
+      totalFormatted,
+      totalReport,
+      usedFormatted,
+      usedReport,
+      unusedFormatted,
+      unusedReport,
+      percentageFormatted
+    },
+    unusedBytes,
     ...details
   };
 };
