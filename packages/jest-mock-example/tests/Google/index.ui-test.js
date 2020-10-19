@@ -1,7 +1,7 @@
 import { agreeToConsent } from './helpers';
 
 describe('Google', () => {
-  it('should the Google logo', async () => {
+  it('should show the Google logo', async () => {
     // GIVEN
     await agreeToConsent();
 
