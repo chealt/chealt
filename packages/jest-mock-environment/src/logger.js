@@ -5,8 +5,8 @@ const logLevels = {
   info: 2,
   warning: 3,
   error: 4,
-  //
-  default: 3
+  // DEFAULT LOG LEVEL
+  default: 2
 };
 
 const getLogger = (level) => {
