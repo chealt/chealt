@@ -1,4 +1,5 @@
 /* eslint-disable no-console */
+const chalk = require('chalk');
 
 const logLevels = {
   debug: 1,
@@ -16,25 +17,25 @@ const getLogger = (level) => {
     debug:
             level <= logLevels.debug
               ? (message) => {
-                console.debug(message);
+                console.log(chalk.bold.dim(' DEBUG '), chalk.grey(message));
               }
               : noop,
     info:
             level <= logLevels.info
               ? (message) => {
-                console.info(message);
+                console.log(chalk.bold.inverse(' INFO '), chalk.white(message));
               }
               : noop,
     warning:
             level <= logLevels.warning
               ? (message) => {
-                console.warn(message);
+                console.log(chalk.bold.bgYellow(' WARN '), chalk.white(message));
               }
               : noop,
     error:
             level <= logLevels.error
               ? (message) => {
-                console.error(message);
+                console.log(chalk.bold.bgRed(' ERROR '), chalk.white(message));
               }
               : noop
   };
