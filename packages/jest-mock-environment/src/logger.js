@@ -16,26 +16,26 @@ const getLogger = (level) => {
   return {
     debug:
             level <= logLevels.debug
-              ? (message) => {
-                console.log(chalk.bold.dim(' DEBUG '), chalk.grey(message));
+              ? (message, prefix) => {
+                console.log(prefix ? prefix : chalk.bold.dim(' DEBUG '), chalk.grey(message));
               }
               : noop,
     info:
             level <= logLevels.info
-              ? (message) => {
-                console.log(chalk.bold.inverse(' INFO '), chalk.white(message));
+              ? (message, prefix) => {
+                console.log(prefix ? prefix : chalk.bold.inverse(' INFO '), chalk.white(message));
               }
               : noop,
     warning:
             level <= logLevels.warning
-              ? (message) => {
-                console.log(chalk.bold.bgYellow(' WARN '), chalk.white(message));
+              ? (message, prefix) => {
+                console.log(prefix ? prefix : chalk.bold.bgYellow(' WARN '), chalk.white(message));
               }
               : noop,
     error:
             level <= logLevels.error
-              ? (message) => {
-                console.log(chalk.bold.bgRed(' ERROR '), chalk.white(message));
+              ? (message, prefix) => {
+                console.log(prefix ? prefix : chalk.bold.bgRed(' ERROR '), chalk.white(message));
               }
               : noop
   };
