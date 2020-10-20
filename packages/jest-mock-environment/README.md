@@ -82,6 +82,13 @@ Example:
 }
 ```
 
+#### printCoverageSummary
+
+Type: `Boolean`
+Default: `false`
+
+Indicate if you would like to see the coverage summary in the console after the tests finished executing.
+
 #### recordCoverageText
 
 Type: `Boolean`

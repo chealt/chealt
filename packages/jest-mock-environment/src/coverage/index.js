@@ -1,4 +1,5 @@
 const { filterByUrl, removeCoverageText, calculateCoverageDetails } = require('./utils');
+const { getDetailsReport } = require('./reporter');
 
 const startCollecting = (page) => Promise.all([
   page.coverage.startJSCoverage(),
@@ -27,7 +28,7 @@ const getCoverage = async ({ page, collectCoverageFrom, recordCoverageText }) =>
     finalCSSCoverage = finalCSSCoverage.map(removeCoverageText);
   }
 
-  return {
+  const details = {
     usedBytes,
     totalBytes,
     percentage,
@@ -35,6 +36,13 @@ const getCoverage = async ({ page, collectCoverageFrom, recordCoverageText }) =>
       js: finalJSCoverage,
       css: finalCSSCoverage
     }
+  };
+
+  const report = getDetailsReport(details);
+
+  return {
+    ...details,
+    ...report
   };
 };
 

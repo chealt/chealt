@@ -1,3 +1,5 @@
+const { bold, grey, inverse } = require('chalk');
+
 const filterByUrl = (collectCoverageFrom) => ({ url }) => {
   const shouldCollectCoverage = collectCoverageFrom.some((urlRegex) => new RegExp(urlRegex, 'u').test(url));
 
@@ -36,8 +38,23 @@ const calculateCoverageDetails = (jsCoverage, cssCoverage) => {
   };
 };
 
+const printCoverages = ({ logger, coverages }) => {
+  const prefix = inverse.bold(' COVERAGE ');
+  Object.keys(coverages).forEach((testID) => {
+    const { report } = coverages[testID];
+
+    logger.info(`
+  ${grey(testID)}:
+    ${bold('Total:     ')} ${report.totalReport}
+    ${bold('Unused:    ')} ${report.unusedReport}
+    ${bold('Could save:')} ${report.timeSavings.GGGFormatted} (3G), ${report.timeSavings.GGFormatted} (2G)
+    `, prefix);
+  });
+};
+
 module.exports = {
   calculateCoverageDetails,
   filterByUrl,
+  printCoverages,
   removeCoverageText
 };

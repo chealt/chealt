@@ -1,6 +1,6 @@
 {
   "name": "@chealt/jest-mock-environment",
-  "version": "0.7.2",
+  "version": "0.8.0",
   "license": "MIT",
   "main": "index.js",
   "repository": {
@@ -10,6 +10,7 @@
   "homepage": "https://github.com/chealt/chealt#chealt",
   "scripts": {},
   "dependencies": {
+    "chalk": "^4.1.0",
     "jest-environment-puppeteer": "^4.4.0"
   },
   "publishConfig": {
