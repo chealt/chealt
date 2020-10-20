@@ -10,6 +10,7 @@
   "homepage": "https://github.com/chealt/chealt#chealt",
   "scripts": {},
   "dependencies": {
+    "chalk": "^4.1.0",
     "jest-environment-puppeteer": "^4.4.0"
   },
   "publishConfig": {
