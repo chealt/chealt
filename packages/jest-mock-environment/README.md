@@ -117,3 +117,26 @@ Default: `false`
 
 If `true` the recorded responses will be used, otherwise the environment records the requests and responses.
 
+#### recordScreenshots
+
+Type: `Boolean`
+Default: `false`
+
+Indicates whether screenshots should be taken while executing the test.
+
+#### screenshotDirectory
+
+Type: `String`
+Default: `undefined`
+
+Relative path to the `rootDir` in your config to store the screenshots taken during the test run.
+
+Example:
+
+```json
+{
+  "testEnvironmentOptions": {
+    "screenshotDirectory": "screenshots"
+  }
+}
+```
