@@ -33,6 +33,8 @@ const validateConfig = (config) => {
     throw new Error('Please specify where the mocks should be saved to and loaded from using the `mockResponsePath` test environment option.');
   } else if (config.testEnvironmentOptions.collectCoverage && !config.testEnvironmentOptions.coverageDirectory) {
     throw new Error('When coverage is collected you need to provide a coverageDirectory option.');
+  } else if (config.testEnvironmentOptions.recordScreenshots && !config.testEnvironmentOptions.screenshotDirectory) {
+    throw new Error('When screenshots are taken you need to provide a screenshotDirectory option.');
   } else {
     const {
       rootDir,
@@ -43,6 +45,8 @@ const validateConfig = (config) => {
         mockResponsePath,
         printCoverageSummary,
         recordCoverageText,
+        recordScreenshots,
+        screenshotDirectory,
         shouldUseMocks
       }
     } = config;
@@ -55,6 +59,8 @@ const validateConfig = (config) => {
       printCoverageSummary,
       recordCoverageText,
       rootDir,
+      recordScreenshots,
+      screenshotDirectory,
       shouldUseMocks
     };
   }
