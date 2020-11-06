@@ -14,7 +14,15 @@ class MockEnvironment extends PuppeteerEnvironment {
     super(config);
 
     const cleanConfig = validateConfig(config);
-    const { rootDir, collectCoverage, coverageDirectory, mockResponsePath, shouldUseMocks } = cleanConfig;
+    const {
+      rootDir,
+      collectCoverage,
+      coverageDirectory,
+      mockResponsePath,
+      shouldUseMocks,
+      recordScreenshots,
+      screenshotDirectory
+    } = cleanConfig;
     const responsesPath = getFullPath(rootDir, mockResponsePath);
     setResponsesPath(responsesPath);
 
@@ -22,6 +30,11 @@ class MockEnvironment extends PuppeteerEnvironment {
       const coverageFullPath = getFullPath(rootDir, path.join(coverageDirectory, '/coverage.json'));
       setCoveragesPath(coverageFullPath);
       this.coverageFullPath = coverageFullPath;
+    }
+
+    if (recordScreenshots) {
+      const screenshotFullPath = getFullPath(rootDir, screenshotDirectory);
+      this.screenshotFullPath = screenshotFullPath;
     }
 
     setConfig(cleanConfig);
@@ -67,7 +80,7 @@ class MockEnvironment extends PuppeteerEnvironment {
   }
 
   async handleTestEvent(event) {
-    const { collectCoverage } = this.config;
+    const { collectCoverage, recordScreenshots } = this.config;
 
     if (isTestStartEvent(event)) {
       const testID = getTestID(event.test);
@@ -78,6 +91,10 @@ class MockEnvironment extends PuppeteerEnvironment {
       }
 
       await this.envInstance.startInterception();
+
+      if (recordScreenshots) {
+        await this.envInstance.startRecording();
+      }
     } else if (isTestsEndEvent(event)) {
       this.addTestResponses();
 
@@ -89,6 +106,10 @@ class MockEnvironment extends PuppeteerEnvironment {
 
       if (collectCoverage) {
         await this.envInstance.stopCollectingCoverage();
+      }
+
+      if (recordScreenshots) {
+        await this.envInstance.stopRecording(this.screenshotFullPath);
       }
     }
   }

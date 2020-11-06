@@ -1,5 +1,10 @@
+const fs = require('fs');
+const { promisify } = require('util');
+
 const { findMocksForUrl } = require('./mockUtils');
 const { startCollecting, getCoverage } = require('./coverage/index');
+
+const writeFile = promisify(fs.writeFile);
 
 const factory = async ({ config: configParam, page, mocks, logger } = {}) => {
   let runningTestName;
@@ -190,6 +195,22 @@ const factory = async ({ config: configParam, page, mocks, logger } = {}) => {
     await page.removeAllListeners('request');
   };
 
+  const startRecording = async () => {
+    await page.tracing.start({ screenshots: true });
+  };
+
+  const stopRecording = async (screenshotFullPath) => {
+    const buffer = await page.tracing.stop();
+    const trace = JSON.parse(await String(buffer));
+    const screenshotEvents = trace.traceEvents.filter((event) => event.name === 'Screenshot');
+
+    return Promise.all(screenshotEvents.map(async (screenshotEvent, index) => {
+      const imageBuffer = Buffer.from(screenshotEvent.args.snapshot, 'base64');
+      const screenshotPath = `${screenshotFullPath}/${runningTestName.replace(/\//gu, '--')}-${index}.png`;
+      await writeFile(screenshotPath, imageBuffer);
+    }));
+  };
+
   return {
     getResponses,
     setTestName,
@@ -197,7 +218,9 @@ const factory = async ({ config: configParam, page, mocks, logger } = {}) => {
     stopInterception,
     startCollectingCoverage,
     stopCollectingCoverage,
-    getCodeCoverages
+    getCodeCoverages,
+    startRecording,
+    stopRecording
   };
 };
 
