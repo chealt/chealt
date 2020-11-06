@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@chealt/jest-puppeteer-mock-preset": "^0.6.0",
-    "puppeteer": "^5.3.1"
+    "puppeteer": "^5.4.0"
   },
   "peerDependencies": {
     "jest": "^26.5.3"
