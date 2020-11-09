@@ -56,6 +56,8 @@ Default: `false`
 
 Indicates whether the coverage information should be collected while executing the test.
 
+![coverage example](https://github.com/chealt/chealt/blob/main/packages/jest-mock-environment/docs/coverage/coverage-example-screenshot.png)
+
 #### collectCoverageFrom
 
 Type: `array<String>`
