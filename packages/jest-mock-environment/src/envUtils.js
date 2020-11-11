@@ -20,7 +20,7 @@ const filterEmptyResponses = (responses) => {
 
 const getMocks = (responsesPath) => require(responsesPath);
 
-const getFullPath = (rootDir, relativePath) => path.join(rootDir, relativePath);
+const getFullPath = (...paths) => path.join(...paths);
 
 const hasResponses = (responses) => Object.keys(responses).length;
 
@@ -29,8 +29,8 @@ const validateConfig = (config) => {
     throw new Error('You need to specify the `rootDir` in your jest config!');
   } else if (!config.testEnvironmentOptions) {
     throw new Error('You need to specify the `testEnvironmentOptions` in your jest config!');
-  } else if (!config.testEnvironmentOptions.mockResponsePath) {
-    throw new Error('Please specify where the mocks should be saved to and loaded from using the `mockResponsePath` test environment option.');
+  } else if (!config.testEnvironmentOptions.mockResponseDir) {
+    throw new Error('Please specify where the mocks should be saved to and loaded from using the `mockResponseDir` test environment option.');
   } else if (config.testEnvironmentOptions.collectCoverage && !config.testEnvironmentOptions.coverageDirectory) {
     throw new Error('When coverage is collected you need to provide a coverageDirectory option.');
   } else if (config.testEnvironmentOptions.recordScreenshots && !config.testEnvironmentOptions.screenshotDirectory) {
@@ -42,7 +42,7 @@ const validateConfig = (config) => {
         collectCoverage,
         collectCoverageFrom,
         coverageDirectory,
-        mockResponsePath,
+        mockResponseDir,
         printCoverageSummary,
         recordCoverageText,
         recordScreenshots,
@@ -55,7 +55,7 @@ const validateConfig = (config) => {
       collectCoverage,
       collectCoverageFrom,
       coverageDirectory,
-      mockResponsePath,
+      mockResponseDir,
       printCoverageSummary,
       recordCoverageText,
       rootDir,
