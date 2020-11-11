@@ -35,16 +35,17 @@ See a more detailed example in the [Jest Mock example package](https://github.co
 
 Using the Jest config `testEnvironmentOptions` you have the following options:
 
-#### mockResponsePath (required)
+#### mockResponseDir (required)
 
 Relative path to the `rootDir` in your config to store and load the recorded responses.
+The mocks will be saved using the specs' relative path with the postfix `.mocks.json`.
 
 Example:
 
 ```json
 {
   "testEnvironmentOptions": {
-    "mockResponsePath": "mocks/responses.json"
+    "mockResponseDir": "mocks"
   }
 }
 ```
