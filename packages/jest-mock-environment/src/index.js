@@ -3,28 +3,30 @@ const PuppeteerEnvironment = require('jest-environment-puppeteer');
 
 const factory = require('./factory');
 const { getLogger, logLevels } = require('./logger');
-const { addCodeCoverages, addTestResponses, setResponsesPath, setCoveragesPath, setConfig, setLogger } = require('./state');
+const { addCodeCoverages, addTestResponses, saveResponses, setResponsesPath, setCoveragesPath, setConfig, setLogger, clearResponses } = require('./state');
 const { isTestStartEvent, isTestEndEvent, isTestsEndEvent, getTestID } = require('./testEventUtils');
 const { filterEmptyResponses, getMocks, getFullPath, hasResponses, validateConfig } = require('./envUtils');
 
 const { DEBUG } = process.env;
 
 class MockEnvironment extends PuppeteerEnvironment {
-  constructor(config) {
-    super(config);
+  constructor(config, context) {
+    super(config, context);
 
     const cleanConfig = validateConfig(config);
     const {
       rootDir,
       collectCoverage,
       coverageDirectory,
-      mockResponsePath,
+      mockResponseDir,
       shouldUseMocks,
       recordScreenshots,
       screenshotDirectory
     } = cleanConfig;
-    const responsesPath = getFullPath(rootDir, mockResponsePath);
+    const relativeTestPath = `${context.testPath.replace(rootDir, '')}.mocks.json`;
+    const responsesPath = getFullPath(rootDir, mockResponseDir, relativeTestPath);
     setResponsesPath(responsesPath);
+    clearResponses();
 
     if (collectCoverage) {
       const coverageFullPath = getFullPath(rootDir, path.join(coverageDirectory, '/coverage.json'));
@@ -120,6 +122,7 @@ class MockEnvironment extends PuppeteerEnvironment {
 
     if (!this.config.shouldUseMocks && hasResponses(nonEmptyResponses)) {
       addTestResponses(nonEmptyResponses);
+      saveResponses();
     }
   }
 

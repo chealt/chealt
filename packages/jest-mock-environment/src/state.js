@@ -1,8 +1,5 @@
-const fs = require('fs');
-const { promisify } = require('util');
+const { writeFileSafe } = require('./fileUtils');
 const coverageUtils = require('./coverage/utils');
-
-const writeFile = promisify(fs.writeFile);
 
 let allResponses = {};
 let allCodeCoverages = {};
@@ -19,16 +16,18 @@ const state = () => {
   };
   // RESPONSES
   let responsesPath;
-  const saveResponsesFile = (responses) =>
-    writeFile(responsesPath, JSON.stringify(responses));
-  const setResponsesPath = (path) => {
-    responsesPath = path;
+  const saveResponsesFile = (responses) => writeFileSafe(responsesPath, JSON.stringify(responses));
+  const setResponsesPath = (newPath) => {
+    responsesPath = newPath;
   };
   const addTestResponses = (responses) => {
     allResponses = {
       ...allResponses,
       ...responses
     };
+  };
+  const clearResponses = () => {
+    allResponses = {};
   };
   const getResponses = () => allResponses;
   const saveResponses = async () => {
@@ -38,9 +37,9 @@ const state = () => {
   // COVERAGES
   let coveragesPath;
   const saveCoveragesFile = (coverages) =>
-    writeFile(coveragesPath, JSON.stringify(coverages));
-  const setCoveragesPath = (path) => {
-    coveragesPath = path;
+    writeFileSafe(coveragesPath, JSON.stringify(coverages));
+  const setCoveragesPath = (newPath) => {
+    coveragesPath = newPath;
   };
   const addCodeCoverages = (coverages) => {
     allCodeCoverages = {
@@ -65,6 +64,7 @@ const state = () => {
     setLogger,
     // RESPONSES
     addTestResponses,
+    clearResponses,
     getResponses,
     saveResponses,
     setResponsesPath,

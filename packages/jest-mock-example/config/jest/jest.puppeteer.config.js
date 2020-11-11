@@ -4,7 +4,7 @@ module.exports = {
   verbose: !process.env.CI,
   testEnvironmentOptions: {
     isHostAgnostic: true,
-    mockResponsePath: 'mocks/responses.json',
+    mockResponseDir: 'mocks',
     shouldUseMocks: Boolean(process.env.MOCK),
     collectCoverage: true,
     coverageDirectory: 'coverage',
