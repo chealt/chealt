@@ -1,10 +1,6 @@
-const fs = require('fs');
-const { promisify } = require('util');
-
 const { findMocksForUrl } = require('./mockUtils');
 const { startCollecting, getCoverage } = require('./coverage/index');
-
-const writeFile = promisify(fs.writeFile);
+const { writeFileSafe } = require('./fileUtils');
 
 const factory = async ({ config: configParam, page, mocks, logger } = {}) => {
   let runningTestName;
@@ -204,10 +200,11 @@ const factory = async ({ config: configParam, page, mocks, logger } = {}) => {
     const trace = JSON.parse(await String(buffer));
     const screenshotEvents = trace.traceEvents.filter((event) => event.name === 'Screenshot');
 
-    return Promise.all(screenshotEvents.map(async (screenshotEvent, index) => {
+    return Promise.all(screenshotEvents.map((screenshotEvent, index) => {
       const imageBuffer = Buffer.from(screenshotEvent.args.snapshot, 'base64');
       const screenshotPath = `${screenshotFullPath}/${runningTestName.replace(/\//gu, '--')}-${index}.png`;
-      await writeFile(screenshotPath, imageBuffer);
+
+      return writeFileSafe(screenshotPath, imageBuffer);
     }));
   };
 
