@@ -19,9 +19,9 @@ class MockEnvironment extends PuppeteerEnvironment {
       collectCoverage,
       coverageDirectory,
       mockResponseDir,
-      shouldUseMocks,
       recordScreenshots,
-      screenshotDirectory
+      screenshotDirectory,
+      shouldUseMocks
     } = cleanConfig;
     const relativeTestPath = `${context.testPath.replace(rootDir, '')}.mocks.json`;
     const responsesPath = getFullPath(rootDir, mockResponseDir, relativeTestPath);
@@ -57,7 +57,8 @@ class MockEnvironment extends PuppeteerEnvironment {
       isHostAgnostic,
       isPortAgnostic,
       printCoverageSummary,
-      recordCoverageText
+      recordCoverageText,
+      requestPathIgnorePatterns
     } = this.config;
 
     if (collectCoverage) {
@@ -76,7 +77,8 @@ class MockEnvironment extends PuppeteerEnvironment {
         isHostAgnostic,
         collectCoverageFrom,
         printCoverageSummary,
-        recordCoverageText
+        recordCoverageText,
+        requestPathIgnorePatterns
       }
     });
   }

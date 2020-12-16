@@ -6,7 +6,7 @@ const factory = async ({ config: configParam, page, mocks, logger } = {}) => {
   let runningTestName;
   const config = {
     dataRequestResourceTypes: ['fetch', 'xhr'],
-    notInterceptedUrls: ['browser-sync'],
+    requestPathIgnorePatterns: ['browser-sync'],
     isPortAgnostic: false,
     isHostAgnostic: false,
     printCoverageSummary: false,
@@ -68,21 +68,22 @@ const factory = async ({ config: configParam, page, mocks, logger } = {}) => {
       body
     };
   };
+  const getMatchingIgnorePattern = (url) => config.requestPathIgnorePatterns.find((ignorePattern) => new RegExp(ignorePattern, 'u').test(url));
 
   const interceptRequest = async (request) => {
-    const { dataRequestResourceTypes, notInterceptedUrls } = config;
+    const { dataRequestResourceTypes } = config;
     const requestResourceType = request.resourceType();
     const isDataRequest = dataRequestResourceTypes.includes(
       requestResourceType
     );
     const url = request.url();
-    const shouldInterceptUrl = !notInterceptedUrls.some(
-      (notInterceptedUrl) => url.includes(notInterceptedUrl)
-    );
+    const matchingIgnorePattern = getMatchingIgnorePattern(url);
+    const shouldInterceptUrl = !matchingIgnorePattern;
+
     const headers = request.headers();
     const method = request.method();
     const shouldInterceptRequest =
-            shouldInterceptUrl && isDataRequest;
+      shouldInterceptUrl && isDataRequest;
     const requestDetails = {
       url,
       headers,
@@ -137,6 +138,10 @@ const factory = async ({ config: configParam, page, mocks, logger } = {}) => {
       }
     } else {
       logger.debug(`Request not intercepted for url: ${url}`);
+
+      if (matchingIgnorePattern) {
+        logger.debug(`Request matched ignore pattern: ${matchingIgnorePattern}.`);
+      }
     }
 
     request.continue();

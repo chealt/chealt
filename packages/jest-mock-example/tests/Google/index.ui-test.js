@@ -9,7 +9,7 @@ describe('Google', () => {
     await page.goto('https://google.com');
 
     // THEN
-    await expect(page).toMatchElement('img[alt=Google]');
+    await expect(page).toMatchElement('[aria-label="Google Search"]');
   });
 
   it('should have an input field for searching', async () => {

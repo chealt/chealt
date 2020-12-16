@@ -46,6 +46,7 @@ const validateConfig = (config) => {
         printCoverageSummary,
         recordCoverageText,
         recordScreenshots,
+        requestPathIgnorePatterns,
         screenshotDirectory,
         shouldUseMocks
       }
@@ -58,8 +59,9 @@ const validateConfig = (config) => {
       mockResponseDir,
       printCoverageSummary,
       recordCoverageText,
-      rootDir,
       recordScreenshots,
+      requestPathIgnorePatterns,
+      rootDir,
       screenshotDirectory,
       shouldUseMocks
     };
