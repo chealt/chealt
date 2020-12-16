@@ -7,8 +7,7 @@
   },
   "scripts": {
     "check": "yarn lint:eslint",
-    "lint:eslint": "eslint .",
-    "start": "yarn workspace @chealt/ui start"
+    "lint:eslint": "eslint ."
   },
   "workspaces": [
     "packages/*"
