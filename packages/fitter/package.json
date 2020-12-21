@@ -9,7 +9,9 @@
   },
   "homepage": "https://github.com/chealt/chealt#chealt",
   "scripts": {},
-  "dependencies": {},
+  "dependencies": {
+    "lit-element": "^2.4.0"
+  },
   "publishConfig": {
     "access": "public"
   },
