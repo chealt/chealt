@@ -1,0 +1,17 @@
+{
+  "name": "@chealt/fitter",
+  "version": "0.0.1",
+  "license": "MIT",
+  "main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chealt/chealt.git"
+  },
+  "homepage": "https://github.com/chealt/chealt#chealt",
+  "scripts": {},
+  "dependencies": {},
+  "publishConfig": {
+    "access": "public"
+  },
+  "sideEffects": false
+}
