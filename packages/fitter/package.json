@@ -8,7 +8,9 @@
     "url": "git+https://github.com/chealt/chealt.git"
   },
   "homepage": "https://github.com/chealt/chealt#chealt",
-  "scripts": {},
+  "scripts": {
+    "build": "rollup -c config/Rollup/rollup.config.js"
+  },
   "dependencies": {
     "lit-element": "^2.4.0"
   },
