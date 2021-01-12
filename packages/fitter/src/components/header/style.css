@@ -14,7 +14,7 @@
 	font-size: 100%;
 }
 
-.header nav a {
+.header nav > * {
 	display: inline-block;
 	height: 56px;
 	line-height: 56px;

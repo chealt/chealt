@@ -1,4 +1,8 @@
 :root {
+  /* COLORS */
   --main-color: #444;
   --main-text-color: #fff;
+
+  /* LAYOUT */
+  --gutter-size: 16px;
 }

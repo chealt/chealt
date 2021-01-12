@@ -18,3 +18,10 @@ html, body {
 #app {
 	height: 100%;
 }
+
+button {
+	color: black;
+	background-color: transparent;
+	padding: var(--gutter-size);
+	border: 0 none;
+}

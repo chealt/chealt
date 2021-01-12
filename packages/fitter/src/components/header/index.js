@@ -3,38 +3,40 @@ import { useEffect, useState } from 'preact/hooks';
 import style from './style.css';
 
 const Header = () => {
+  const [user, setUser] = useState();
   const [isLoginOpen, setLoginOpen] = useState(false);
+  const toggleLogin = () => setLoginOpen(!isLoginOpen);
+  const throwError = (error) => {
+    throw new Error(error);
+  };
 
   const renderGoogleSignIn = () => {
-    const onSuccess = (googleUser) => {
-      console.log(`Logged in as: ${googleUser.getBasicProfile().getName()}`);
-    };
-
-    const onFailure = (error) => {
-      console.log(error);
-    };
-
     window.gapi.signin2.render('google-signin', {
       scope: 'profile email https://www.googleapis.com/auth/fitness.activity.read',
       longtitle: true,
       theme: 'dark',
-      onsuccess: onSuccess,
-      onfailure: onFailure
+      onsuccess: (user) => {
+        setUser(user);
+        setLoginOpen(false);
+      },
+      onfailure: throwError
     });
   };
 
   useEffect(() => {
-    document.querySelector('#googleScript').addEventListener('load', () => {
-      renderGoogleSignIn();
-    });
+    const googlePlatformScript = document.querySelector('#googleScript');
+
+    googlePlatformScript.addEventListener('load', renderGoogleSignIn);
   });
 
   return (
     <header class={style.header}>
       <nav>
-        <button onClick={() => {
-          setLoginOpen(!isLoginOpen);
-        }}>Login</button>
+        {!user && (
+          <button onClick={toggleLogin}>Login</button>
+        ) || (
+          <span>{user.getBasicProfile().getName()}</span>
+        )}
       </nav>
       <ul style={{display: isLoginOpen ? 'block' : 'none'}}>
         <li>
