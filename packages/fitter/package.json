@@ -17,7 +17,7 @@
   },
   "devDependencies": {
     "enzyme": "^3.10.0",
-    "enzyme-adapter-preact-pure": "^2.0.0",
+    "enzyme-adapter-preact-pure": "^3.0.0",
     "eslint": "^7.17.0",
     "eslint-config-preact": "^1.1.0",
     "jest": "^26.6.3",
