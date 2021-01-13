@@ -9,6 +9,7 @@ const Header = () => {
   const throwError = (error) => {
     throw new Error(error);
   };
+  const userName = user && user.getBasicProfile().getName();
 
   const renderGoogleSignIn = () => {
     window.gapi.signin2.render('google-signin', {
@@ -35,7 +36,7 @@ const Header = () => {
         {!user && (
           <button onClick={toggleLogin}>Login</button>
         ) || (
-          <span>{user.getBasicProfile().getName()}</span>
+          <span>{userName}</span>
         )}
       </nav>
       <ul style={{display: isLoginOpen ? 'block' : 'none'}}>
