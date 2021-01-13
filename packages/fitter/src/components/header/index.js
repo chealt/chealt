@@ -3,6 +3,7 @@ import { useEffect, useState } from 'preact/hooks';
 import style from './style.css';
 
 const Header = () => {
+  const [isLoadingAuth, setLoadingAuth] = useState(true);
   const [user, setUser] = useState();
   const [isLoginOpen, setLoginOpen] = useState(false);
   const toggleLogin = () => setLoginOpen(!isLoginOpen);
@@ -17,6 +18,7 @@ const Header = () => {
       longtitle: true,
       theme: 'dark',
       onsuccess: (user) => {
+        setLoadingAuth(false);
         setUser(user);
         setLoginOpen(false);
       },
@@ -33,10 +35,14 @@ const Header = () => {
   return (
     <header class={style.header}>
       <nav>
-        {!user && (
+        {!user && !isLoadingAuth && (
           <button onClick={toggleLogin}>Login</button>
-        ) || (
+        )}
+        {userName && (
           <span>{userName}</span>
+        )}
+        {isLoadingAuth && (
+          <span>Loading...</span>
         )}
       </nav>
       <ul style={{display: isLoginOpen ? 'block' : 'none'}}>
