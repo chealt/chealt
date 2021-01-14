@@ -1,11 +1,16 @@
 .card {
   border: 1px solid var(--main-color-divider);
   border-radius: 5px;
-  padding: var(--gutter-size);
   background-color: var(--main-color--darker);
   margin-bottom: var(--gutter-size);
 }
 
-.card:hover {
+.card:last-child {
+  margin-bottom: auto;
+}
+
+.card:hover,
+.card:active,
+.card:focus {
   border-color: var(--main-color-divider--highlighted);
 }
