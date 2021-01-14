@@ -1,8 +1,11 @@
 :root {
   /* COLORS */
-  --main-color: #444;
+  --main-color: rgb(50, 50, 50);
+  --main-color--darker: rgb(37, 37, 37);
   --main-color-invert: #fff;
   --main-text-color: #fff;
+  --main-color-divider: rgb(62, 62, 62);
+  --main-color-divider--highlighted: rgb(90, 90, 90);
 
   /* LAYOUT */
   --gutter-size: 16px;

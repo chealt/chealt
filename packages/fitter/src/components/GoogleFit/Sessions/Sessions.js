@@ -3,6 +3,7 @@ import { useContext, useEffect } from 'preact/hooks';
 
 import { loadSessions } from './api';
 import { Context } from '../../context';
+import Card from '../../Card/Card';
 
 const Sessions = () => {
   const { dateFormat, googleUser, googleSessions, setGoogleSessions } = useContext(Context);
@@ -20,13 +21,13 @@ const Sessions = () => {
 
   return (
     googleSessions && (
-      <ul>
+      <div>
         {googleSessions.map((session) => (
-          <li key={session.id}>
+          <Card key={session.id}>
             {new Intl.DateTimeFormat('default', dateFormat).format(session.startTime)}
-          </li>
+          </Card>
         ))}
-      </ul>
+      </div>
     )
   );
 };
