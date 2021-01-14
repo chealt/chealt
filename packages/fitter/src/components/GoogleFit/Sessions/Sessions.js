@@ -6,6 +6,7 @@ import { Context } from '../../context';
 import { Card, CardBody, CardFooter, CardSubtitle, CardTitle } from '../../Card';
 import ActivityType from '../ActivityType/ActivityType';
 import MoveMinutes from '../MoveMinutes/MoveMinutes';
+import Distance from '../Distance/Distance';
 
 const Sessions = () => {
   const { dateFormat, googleUser, googleSessions, setGoogleSessions, timeFormat } = useContext(Context);
@@ -36,6 +37,8 @@ const Sessions = () => {
               </CardSubtitle>
               <CardFooter>
                 <ActivityType type={activityType} />
+                <Distance startTimeMillis={startTimeMillis} endTimeMillis={endTimeMillis} />
+                {' in '}
                 <MoveMinutes startTimeMillis={startTimeMillis} endTimeMillis={endTimeMillis} />
               </CardFooter>
             </CardBody>
