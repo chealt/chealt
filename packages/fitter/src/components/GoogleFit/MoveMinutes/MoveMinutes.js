@@ -1,4 +1,3 @@
-import { h } from 'preact';
 import { useEffect, useState, useContext } from 'preact/hooks';
 
 import { Context } from '../../context';
@@ -38,7 +37,7 @@ const MoveMinutes = ({ startTimeMillis, endTimeMillis }) => {
   }, [accessToken, startTimeMillis, endTimeMillis]);
 
   return (
-    moveMinutes && <div>in {moveMinutes} mins</div>
+    moveMinutes ? `${moveMinutes} mins` : ''
   );
 };
 
