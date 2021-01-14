@@ -16,10 +16,28 @@ html, body {
 }
 
 button {
-	color: black;
+	color: var(--main-text-color--darker);
 	background-color: transparent;
 	padding: var(--gutter-size);
-	border: 0 none;
+	border: 2px solid var(--main-color-divider--light);
+	border-radius: 25px;
+	font-family: inherit;
+	font-size: 1.2rem;
+	font-weight: var(--font-weight--bold);
+	transition: .13s background-color ease-out;
+}
+
+button.small {
+	font-size: 1rem;
+	padding: var(--gutter-size--small) var(--gutter-size);
+}
+
+button:hover,
+button:active,
+button:focus {
+	color: var(--main-color--darker);
+	background-color: var(--main-text-color);
+	cursor: pointer;
 }
 
 h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child {

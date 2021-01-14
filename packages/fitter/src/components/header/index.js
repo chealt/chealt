@@ -18,19 +18,19 @@ const Header = () => {
     <header class={style.header}>
       <nav>
         {!googleUser && !isLoadingAuth && (
-          <button onClick={toggleLogin}>Login</button>
+          <button class="small" onClick={toggleLogin}>Login</button>
         )}
         {userName && (
           <>
             <span>{userName}</span>
-            <img src={profileImageUrl} className={style.avatar} />
+            <img src={profileImageUrl} class={style.avatar} />
           </>
         )}
         {isLoadingAuth && (
           <span>Loading...</span>
         )}
       </nav>
-      <ul style={{display: isLoginOpen ? 'block' : 'none'}}>
+      <ul class={style.menu} style={{ display: isLoginOpen ? 'block' : 'none' }}>
         <li>
           <GoogleSignin />
         </li>

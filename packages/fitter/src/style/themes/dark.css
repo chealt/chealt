@@ -4,12 +4,15 @@
   --main-color--darker: rgb(37, 37, 37);
   --main-color-invert: #fff;
   --main-text-color: #fff;
+  --main-text-color--darker: rgb(227, 227, 227);
   --secondary-text-color: rgb(185, 185, 185);
   --main-color-divider: rgb(62, 62, 62);
+  --main-color-divider--light: rgb(227, 227, 227);
   --main-color-divider--highlighted: rgb(90, 90, 90);
 
   /* LAYOUT */
   --gutter-size: 16px;
+  --gutter-size--small: 8px;
 
   /* TEXT */
   --font-weight--bold: 700;
