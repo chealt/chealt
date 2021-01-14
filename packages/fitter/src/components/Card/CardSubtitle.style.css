@@ -1,0 +1,4 @@
+.cardSubtitle {
+  color: var(--secondary-text-color);
+  font-weight: var(--font-weight--bold);
+}

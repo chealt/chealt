@@ -9,13 +9,13 @@ const AppProvider = ({ children }) => {
   const [isLoadingAuth, setLoadingAuth] = useState(true);
   const [dateFormat, setDateFormat] = useState({
     weekday: 'long',
-    year: 'numeric',
     month: 'long',
-    day: 'numeric',
-    hour: 'numeric',
-    minute: 'numeric',
-    second: 'numeric'
+    day: 'numeric'
   });
+  const [timeFormat, setTimeFormat] = useState({
+    hour: 'numeric',
+    minute: 'numeric'
+  })
 
   return (
     <Context.Provider value={{
@@ -23,10 +23,12 @@ const AppProvider = ({ children }) => {
       googleSessions,
       googleUser,
       isLoadingAuth,
+      timeFormat,
       setDateFormat,
       setGoogleSessions,
       setGoogleUser,
-      setLoadingAuth
+      setLoadingAuth,
+      setTimeFormat
     }}>{children}</Context.Provider>
   );
 };

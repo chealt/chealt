@@ -4,9 +4,13 @@
   --main-color--darker: rgb(37, 37, 37);
   --main-color-invert: #fff;
   --main-text-color: #fff;
+  --secondary-text-color: rgb(185, 185, 185);
   --main-color-divider: rgb(62, 62, 62);
   --main-color-divider--highlighted: rgb(90, 90, 90);
 
   /* LAYOUT */
   --gutter-size: 16px;
+
+  /* TEXT */
+  --font-weight--bold: 700;
 }

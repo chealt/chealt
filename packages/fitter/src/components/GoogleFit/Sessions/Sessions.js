@@ -3,10 +3,10 @@ import { useContext, useEffect } from 'preact/hooks';
 
 import { loadSessions } from './api';
 import { Context } from '../../context';
-import { Card, CardBody, CardTitle } from '../../Card';
+import { Card, CardBody, CardSubtitle, CardTitle } from '../../Card';
 
 const Sessions = () => {
-  const { dateFormat, googleUser, googleSessions, setGoogleSessions } = useContext(Context);
+  const { dateFormat, googleUser, googleSessions, setGoogleSessions, timeFormat } = useContext(Context);
   const accessToken = googleUser && googleUser.getAuthResponse(true).access_token;
 
   useEffect(() => {
@@ -28,7 +28,10 @@ const Sessions = () => {
               <CardTitle>
                 <h2>{name}</h2>
               </CardTitle>
-              {new Intl.DateTimeFormat('default', dateFormat).format(startTime)}
+              <CardSubtitle>
+                <div>{new Intl.DateTimeFormat('default', dateFormat).format(startTime)}</div>
+                <div>{new Intl.DateTimeFormat('default', timeFormat).format(startTime)}</div>
+              </CardSubtitle>
             </CardBody>
           </Card>
         ))}
