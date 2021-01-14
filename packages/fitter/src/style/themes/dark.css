@@ -1,6 +1,7 @@
 :root {
   /* COLORS */
   --main-color: #444;
+  --main-color-invert: #fff;
   --main-text-color: #fff;
 
   /* LAYOUT */

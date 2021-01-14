@@ -10,7 +10,9 @@ const Header = () => {
   const { googleUser, isLoadingAuth } = useContext(Context);
   const [isLoginOpen, setLoginOpen] = useState(false);
   const toggleLogin = () => setLoginOpen(!isLoginOpen);
-  const userName = googleUser && googleUser.getBasicProfile().getName();
+  const userProfile = googleUser?.getBasicProfile();
+  const userName = userProfile?.getName();
+  const profileImageUrl = userProfile?.getImageUrl();
 
   return (
     <header class={style.header}>
@@ -19,7 +21,10 @@ const Header = () => {
           <button onClick={toggleLogin}>Login</button>
         )}
         {userName && (
-          <span>{userName}</span>
+          <>
+            <span>{userName}</span>
+            <img src={profileImageUrl} className={style.avatar} />
+          </>
         )}
         {isLoadingAuth && (
           <span>Loading...</span>

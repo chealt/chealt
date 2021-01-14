@@ -25,3 +25,7 @@ button {
 	padding: var(--gutter-size);
 	border: 0 none;
 }
+
+.page {
+	margin: var(--gutter-size);
+}
