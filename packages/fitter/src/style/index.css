@@ -4,8 +4,8 @@ html, body {
 	padding: 0;
 	margin: 0;
 	background: var(--main-color);
-	font-family: 'Helvetica Neue', arial, sans-serif;
-	font-weight: 400;
+	font-family: adobe-clean, "Source Sans Pro", -apple-system, system-ui, "Segoe UI", Roboto, Ubuntu, "Trebuchet MS", "Lucida Grande", sans-serif;
+	font-size: 14px;
 	color: var(--main-text-color);
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -15,10 +15,6 @@ html, body {
 	box-sizing: border-box;
 }
 
-#app {
-	height: 100%;
-}
-
 button {
 	color: black;
 	background-color: transparent;
@@ -26,6 +22,6 @@ button {
 	border: 0 none;
 }
 
-.page {
-	margin: var(--gutter-size);
+h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child {
+	margin-top: 0;
 }

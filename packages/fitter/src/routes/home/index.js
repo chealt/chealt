@@ -1,12 +1,13 @@
 import { h } from 'preact';
 
+import Page from '../../components/Page/Page';
 import GoogleSessions from '../../components/GoogleFit/Sessions/Sessions'
 
 const Home = () => (
-  <div class="page">
+  <Page>
     <h1>Sessions</h1>
     <GoogleSessions />
-  </div>
+  </Page>
 );
 
 export default Home;
