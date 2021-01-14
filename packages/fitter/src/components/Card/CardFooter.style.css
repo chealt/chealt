@@ -3,4 +3,5 @@
   margin-top: var(--gutter-size);
   padding-top: var(--gutter-size);
   display: flex;
+  justify-content: space-between;
 }

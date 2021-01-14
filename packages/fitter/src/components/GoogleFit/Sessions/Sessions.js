@@ -5,6 +5,7 @@ import { loadSessions } from './api';
 import { Context } from '../../context';
 import { Card, CardBody, CardFooter, CardSubtitle, CardTitle } from '../../Card';
 import ActivityType from '../ActivityType/ActivityType';
+import MoveMinutes from '../MoveMinutes/MoveMinutes';
 
 const Sessions = () => {
   const { dateFormat, googleUser, googleSessions, setGoogleSessions, timeFormat } = useContext(Context);
@@ -23,7 +24,7 @@ const Sessions = () => {
   return (
     googleSessions && (
       <>
-        {googleSessions.map(({ id, name, startTime, activityType }) => (
+        {googleSessions.map(({ endTimeMillis, id, name, startTime, startTimeMillis, activityType }) => (
           <Card key={id}>
             <CardBody>
               <CardTitle>
@@ -35,6 +36,7 @@ const Sessions = () => {
               </CardSubtitle>
               <CardFooter>
                 <ActivityType type={activityType} />
+                <MoveMinutes startTimeMillis={startTimeMillis} endTimeMillis={endTimeMillis} />
               </CardFooter>
             </CardBody>
           </Card>
