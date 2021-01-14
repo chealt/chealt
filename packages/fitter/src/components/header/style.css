@@ -17,8 +17,12 @@
 
 .header .avatar {
 	border-radius: 100%;
-	border: 1px solid var(--main-color-invert);
+	border: 1px solid var(--main-color-divider);
 	height: 100%;
 	min-width: 46px;
 	min-height: 46px;
+}
+
+.header .avatar:hover {
+	border: 1px solid var(--main-color-divider--highlighted);
 }
