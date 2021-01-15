@@ -29,17 +29,19 @@ const Sessions = () => {
           <Card key={id}>
             <CardBody>
               <CardTitle>
-                <h2>{name}</h2>
+                <h2>{new Intl.DateTimeFormat('default', dateFormat).format(startTime)}</h2>
+                <div>{new Intl.DateTimeFormat('default', timeFormat).format(startTime)}</div>
               </CardTitle>
               <CardSubtitle>
-                <div>{new Intl.DateTimeFormat('default', dateFormat).format(startTime)}</div>
-                <div>{new Intl.DateTimeFormat('default', timeFormat).format(startTime)}</div>
+                <div>
+                  <Distance startTimeMillis={startTimeMillis} endTimeMillis={endTimeMillis} />
+                  {' in '}
+                  <MoveMinutes startTimeMillis={startTimeMillis} endTimeMillis={endTimeMillis} />
+                </div>
               </CardSubtitle>
               <CardFooter>
+                <div>{name}</div>
                 <ActivityType type={activityType} />
-                <Distance startTimeMillis={startTimeMillis} endTimeMillis={endTimeMillis} />
-                {' in '}
-                <MoveMinutes startTimeMillis={startTimeMillis} endTimeMillis={endTimeMillis} />
               </CardFooter>
             </CardBody>
           </Card>

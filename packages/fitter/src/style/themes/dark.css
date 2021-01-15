@@ -6,6 +6,8 @@
   --main-text-color: #fff;
   --main-text-color--darker: rgb(227, 227, 227);
   --secondary-text-color: rgb(185, 185, 185);
+  --cta-text-color: rgb(255, 181, 91);
+  --cta-text-color--secondary: rgb(63, 200, 156);
   --main-color-divider: rgb(62, 62, 62);
   --main-color-divider--light: rgb(227, 227, 227);
   --main-color-divider--highlighted: rgb(90, 90, 90);

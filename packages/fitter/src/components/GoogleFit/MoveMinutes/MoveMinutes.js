@@ -37,7 +37,7 @@ const MoveMinutes = ({ startTimeMillis, endTimeMillis }) => {
   }, [accessToken, startTimeMillis, endTimeMillis]);
 
   return (
-    moveMinutes ? `${moveMinutes} mins` : ''
+    moveMinutes ? <span class="cta-text">{moveMinutes} mins</span> : ''
   );
 };
 

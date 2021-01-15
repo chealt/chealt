@@ -6,6 +6,7 @@ html, body {
 	background: var(--main-color);
 	font-family: adobe-clean, "Source Sans Pro", -apple-system, system-ui, "Segoe UI", Roboto, Ubuntu, "Trebuchet MS", "Lucida Grande", sans-serif;
 	font-size: 14px;
+	line-height: 1.4rem;
 	color: var(--main-text-color);
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -42,4 +43,12 @@ button:focus {
 
 h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child {
 	margin-top: 0;
+}
+
+.cta-text {
+	color: var(--cta-text-color);
+}
+
+.cta-text--secondary {
+	color: var(--cta-text-color--secondary);
 }

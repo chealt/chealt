@@ -44,7 +44,7 @@ const Distance = ({ startTimeMillis, endTimeMillis }) => {
   }, [accessToken, startTimeMillis, endTimeMillis]);
 
   return (
-    distance ? `${distance} km` : ''
+    distance ? <span class="cta-text--secondary">{distance} km</span> : ''
   );
 };
 
