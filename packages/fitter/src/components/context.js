@@ -8,8 +8,8 @@ const AppProvider = ({ children }) => {
   const [googleSessions, setGoogleSessions] = useState();
   const [isLoadingAuth, setLoadingAuth] = useState(true);
   const [dateFormat, setDateFormat] = useState({
-    weekday: 'long',
-    month: 'long',
+    weekday: 'short',
+    month: 'short',
     day: 'numeric'
   });
   const [timeFormat, setTimeFormat] = useState({
