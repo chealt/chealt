@@ -1,3 +1,15 @@
+:root {	
+	/* LAYOUT */
+  --gutter-size: 16px;
+  --gutter-size--small: 8px;
+	
+  /* TEXT */
+	--font-weight--bold: 700;
+	
+	/* BORDER */
+	--border-radius--small: 5px;
+}
+
 html, body {
 	height: 100%;
 	width: 100%;
@@ -30,4 +42,18 @@ h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child {
 
 .centered {
 	align-self: center;
+}
+
+.rounded--small {
+	border-radius: var(--border-radius--small);
+}
+
+.text--emphasized {
+	font-weight: var(--font-weight--bold);
+}
+
+svg.icon {
+	width: 10px;
+	height: 10px;
+	fill: var(--main-text-color);
 }
