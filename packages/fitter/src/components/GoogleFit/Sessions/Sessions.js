@@ -40,12 +40,14 @@ const Sessions = () => {
   }, [googleSessions]);
 
   const loadNewSessions = async (accessToken, startTimeMillis) => {
+    // reset Toast to clear any potential messages
+    setToastMessage();
     const newSessions = await loadSessions(accessToken, startTimeMillis);
 
     if (!newSessions.length) {
       // if there are no sessions, we adjust the load more time interval
       setNextStartTimeMillis(getNextStartTimeMillis(nextStartTimeMillis));
-      setToastMessage('No new sessions!');
+      setToastMessage(`No new sessions in the month before ${formatDate(dateFormat, startTimeMillis)}`);
     } else {
       const mergedSessions = mergeSessions(googleSessions, newSessions);
 
