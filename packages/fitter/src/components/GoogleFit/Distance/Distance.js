@@ -6,7 +6,7 @@ const getDistance = (distanceResponse) => {
   const points = distanceResponse?.bucket[0]?.dataset[0]?.point;
   const distance = points?.reduce((sum, point) => sum + point.value[0].fpVal, 0);
 
-  return (distance / 1000).toFixed(2);
+  return distance && (distance / 1000).toFixed(2);
 };
 
 const loadDistance = ({ accessToken, startTimeMillis, endTimeMillis }) => fetch("https://www.googleapis.com/fitness/v1/users/me/dataset:aggregate", {
@@ -36,15 +36,20 @@ const Distance = ({ startTimeMillis, endTimeMillis }) => {
   useEffect(() => {
     if (startTimeMillis && endTimeMillis) {
       (async() => {
-        setDistance(
-          await loadDistance({ accessToken, startTimeMillis, endTimeMillis })
-        );
+        const distanceResult = await loadDistance({ accessToken, startTimeMillis, endTimeMillis })
+
+        setDistance(distanceResult);
       })()
     }
   }, [accessToken, startTimeMillis, endTimeMillis]);
 
   return (
-    distance ? <span class="cta-text--secondary">{distance} km</span> : ''
+    distance ? (
+      <>
+        <span class="cta-text--secondary">{distance} km</span>
+        {' in '}
+      </>
+    ) : null
   );
 };
 

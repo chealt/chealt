@@ -74,7 +74,6 @@ const Sessions = () => {
               <CardSubtitle>
                 <div>
                   <Distance startTimeMillis={startTimeMillis} endTimeMillis={endTimeMillis} />
-                  {' in '}
                   <MoveMinutes startTimeMillis={startTimeMillis} endTimeMillis={endTimeMillis} />
                 </div>
                 <div>
