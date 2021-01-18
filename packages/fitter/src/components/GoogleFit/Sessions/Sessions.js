@@ -8,6 +8,7 @@ import ActivityType from '../ActivityType/ActivityType';
 import MoveMinutes from '../MoveMinutes/MoveMinutes';
 import Distance from '../Distance/Distance';
 import HeartPoints from '../HeartPoints/HeartPoints';
+import Button from '../../Button/Button';
 
 const Sessions = () => {
   const { dateFormat, googleUser, googleSessions, setGoogleSessions, timeFormat } = useContext(Context);
@@ -70,11 +71,11 @@ const Sessions = () => {
             </CardBody>
           </Card>
         ))}
-        <button
-          class="small centered"
-          onClick={() => loadNewSessions(accessToken, nextStartTimeMillis)}>
+        <div class="centered">
+          <Button size="small" onClick={() => loadNewSessions(accessToken, nextStartTimeMillis)}>
             Load more
-        </button>
+          </Button>
+        </div>
       </>
     )
   );

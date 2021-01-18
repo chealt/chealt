@@ -3,6 +3,7 @@ import { useContext, useState } from 'preact/hooks';
 
 import { Context } from '../context';
 import GoogleSignin from '../Authentication/Google/GoogleSignin';
+import Button from '../Button/Button';
 
 import style from './style.css';
 
@@ -18,7 +19,7 @@ const Header = () => {
     <header class={style.header}>
       <nav>
         {!googleUser && !isLoadingAuth && (
-          <button class="small" onClick={toggleLogin}>Login</button>
+          <Button size="small" onClick={toggleLogin}>Login</Button>
         )}
         {userName && (
           <>
