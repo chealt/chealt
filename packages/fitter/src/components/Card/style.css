@@ -1,6 +1,5 @@
 .card {
   border: 1px solid var(--main-color-divider);
-  border-radius: 5px;
   background-color: var(--main-color--darker);
   margin-bottom: var(--gutter-size);
 }
