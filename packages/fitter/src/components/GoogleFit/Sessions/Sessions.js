@@ -10,6 +10,7 @@ import Distance from '../Distance/Distance';
 import HeartPoints from '../HeartPoints/HeartPoints';
 import Button from '../../Button/Button';
 import { formatTime, formatDate } from '../../../utils/dateTime';
+import NoSessionsToast from './NoSessionsToast';
 
 const Sessions = () => {
   const {
@@ -46,8 +47,13 @@ const Sessions = () => {
 
     if (!newSessions.length) {
       // if there are no sessions, we adjust the load more time interval
-      setNextStartTimeMillis(getNextStartTimeMillis(nextStartTimeMillis));
-      setToastMessage(`No new sessions in the month before ${formatDate(dateFormat, startTimeMillis)}`);
+      const updatedNextStartTimeMillis = getNextStartTimeMillis(nextStartTimeMillis);
+      setToastMessage(
+        <NoSessionsToast
+          startTimeMillis={nextStartTimeMillis}
+          loadMore={() => loadNewSessions(accessToken, updatedNextStartTimeMillis)} />
+      );
+      setNextStartTimeMillis(updatedNextStartTimeMillis);
     } else {
       const mergedSessions = mergeSessions(googleSessions, newSessions);
 
