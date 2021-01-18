@@ -1,7 +1,7 @@
 import { h } from 'preact';
-import { useContext, useEffect } from 'preact/hooks';
+import { useContext, useEffect, useState } from 'preact/hooks';
 
-import { loadSessions } from './api';
+import { loadSessions, mergeSessions, getNextStartTimeMillis } from './api';
 import { Context } from '../../context';
 import { Card, CardBody, CardFooter, CardSubtitle, CardTitle } from '../../Card';
 import ActivityType from '../ActivityType/ActivityType';
@@ -12,6 +12,7 @@ import HeartPoints from '../HeartPoints/HeartPoints';
 const Sessions = () => {
   const { dateFormat, googleUser, googleSessions, setGoogleSessions, timeFormat } = useContext(Context);
   const accessToken = googleUser && googleUser.getAuthResponse(true).access_token;
+  const [nextStartTimeMillis, setNextStartTimeMillis] = useState();
 
   useEffect(() => {
     if (accessToken) {
@@ -22,6 +23,25 @@ const Sessions = () => {
       })()
     }
   }, [accessToken, setGoogleSessions]);
+
+  useEffect(() => {
+    if (googleSessions) {
+      setNextStartTimeMillis(googleSessions.slice(-1)[0].startTimeMillis);
+    }
+  }, [googleSessions]);
+
+  const loadNewSessions = async (accessToken, startTimeMillis) => {
+    const newSessions = await loadSessions(accessToken, startTimeMillis);
+
+    if (!newSessions.length) {
+      // if there are no sessions, we adjust the load more time interval
+      setNextStartTimeMillis(getNextStartTimeMillis(nextStartTimeMillis));
+    } else {
+      const mergedSessions = mergeSessions(googleSessions, newSessions);
+
+      setGoogleSessions(mergedSessions);
+    }
+  };
 
   return (
     googleSessions && (
@@ -50,6 +70,11 @@ const Sessions = () => {
             </CardBody>
           </Card>
         ))}
+        <button
+          class="small centered"
+          onClick={() => loadNewSessions(accessToken, nextStartTimeMillis)}>
+            Load more
+        </button>
       </>
     )
   );

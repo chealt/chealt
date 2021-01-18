@@ -1,3 +1,5 @@
 .page {
 	padding: var(--gutter-size);
+	display: flex;
+	flex-direction: column;
 }
