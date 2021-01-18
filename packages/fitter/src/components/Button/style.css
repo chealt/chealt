@@ -3,7 +3,7 @@ button {
 	color: var(--main-text-color--darker);
 	background-color: transparent;
 	padding: var(--gutter-size);
-	border: 2px solid var(--main-color-divider--light);
+	border: 2px solid var(--main-color-divider--lighter);
 	border-radius: 25px;
 	font-family: inherit;
 	font-size: 1.2rem;

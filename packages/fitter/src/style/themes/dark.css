@@ -11,6 +11,7 @@
   --cta-text-color: rgb(255, 181, 91);
   --cta-text-color--secondary: rgb(63, 200, 156);
   --main-color-divider: rgb(62, 62, 62);
-  --main-color-divider--light: rgb(227, 227, 227);
+  --main-color-divider--darker: rgb(144, 144, 144);
+  --main-color-divider--lighter: rgb(227, 227, 227);
   --main-color-divider--highlighted: rgb(90, 90, 90);
 }
