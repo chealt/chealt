@@ -9,9 +9,17 @@ import MoveMinutes from '../MoveMinutes/MoveMinutes';
 import Distance from '../Distance/Distance';
 import HeartPoints from '../HeartPoints/HeartPoints';
 import Button from '../../Button/Button';
+import { formatTime, formatDate } from '../../../utils/dateTime';
 
 const Sessions = () => {
-  const { dateFormat, googleUser, googleSessions, setGoogleSessions, timeFormat } = useContext(Context);
+  const {
+    dateFormat,
+    googleUser,
+    googleSessions,
+    setGoogleSessions,
+    timeFormat,
+    setToastMessage
+  } = useContext(Context);
   const accessToken = googleUser && googleUser.getAuthResponse(true).access_token;
   const [nextStartTimeMillis, setNextStartTimeMillis] = useState();
 
@@ -37,6 +45,7 @@ const Sessions = () => {
     if (!newSessions.length) {
       // if there are no sessions, we adjust the load more time interval
       setNextStartTimeMillis(getNextStartTimeMillis(nextStartTimeMillis));
+      setToastMessage('No new sessions!');
     } else {
       const mergedSessions = mergeSessions(googleSessions, newSessions);
 
@@ -51,8 +60,8 @@ const Sessions = () => {
           <Card key={id}>
             <CardBody>
               <CardTitle>
-                <h2>{new Intl.DateTimeFormat('default', dateFormat).format(startTime)}</h2>
-                <div>{new Intl.DateTimeFormat('default', timeFormat).format(startTime)}</div>
+                <h2>{formatDate(dateFormat, startTime)}</h2>
+                <div>{formatTime(timeFormat, startTime)}</div>
               </CardTitle>
               <CardSubtitle>
                 <div>
