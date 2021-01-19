@@ -19,10 +19,10 @@ const SignIn = ({ isHidden }) => {
         setAuthMenuOpen(false);
       },
       onfailure: (error) => {
+        setLoadingAuth(false);
         throw new Error(error);
       }
     });
-    setLoadingAuth(false);
   }, [setScriptLoaded, setLoadingAuth, setAuthMenuOpen, setGoogleUser]);
 
   useEffect(() => {

@@ -9,7 +9,7 @@ import { Context } from '../../components/context';
 import NoAuth from '../../components/Authentication/NoAuth';
 
 const Home = () => {
-  const { googleUser } = useContext(Context);
+  const { googleUser, isLoadingAuth } = useContext(Context);
 
   return (
     <>
@@ -18,7 +18,7 @@ const Home = () => {
         {googleUser && (
           <GoogleSessions />
         )}
-        {!googleUser && (
+        {!googleUser && !isLoadingAuth && (
           <NoAuth />
         )}
       </Page>
