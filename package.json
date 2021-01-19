@@ -9,9 +9,12 @@
     "check": "yarn lint:eslint",
     "lint:eslint": "eslint ."
   },
-  "workspaces": [
-    "packages/*"
-  ],
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ],
+    "nohoist": ["**/preact", "**/preact-render-to-string"]
+  },
   "license": "MIT",
   "repository": {
     "type": "git",
