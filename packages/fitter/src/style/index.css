@@ -57,3 +57,8 @@ svg.icon {
 	height: 10px;
 	fill: var(--main-text-color);
 }
+
+.shadow {
+	will-change: filter;
+	filter: drop-shadow(rgba(0, 0, 0, 0.5) 0px 1px 4px);
+}

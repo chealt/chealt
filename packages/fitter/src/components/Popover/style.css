@@ -4,9 +4,12 @@
 	padding: var(--gutter-size);
 	list-style: none;
 	margin: 0px;
-	display: none;
+	visibility: hidden;
+	opacity: 0;
+	transition: opacity 0.13s ease-in-out 0s, visibility 0.13s linear 0s;
 }
 
 .popover.open {
-	display: block;
+	visibility: visible;
+	opacity: 1;
 }

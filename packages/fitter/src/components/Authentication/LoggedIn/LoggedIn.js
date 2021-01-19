@@ -12,9 +12,9 @@ const LoggedIn = () => {
   const profileImageUrl = userProfile?.getImageUrl();
 
   return (
-    <div class={style.content}>
+    <div class={style.content} onClick={() => setAuthMenuOpen(!isAuthMenuOpen)}>
       <span>{userName}</span>
-      <img src={profileImageUrl} class={style.avatar} onClick={() => setAuthMenuOpen(!isAuthMenuOpen)} />
+      <img src={profileImageUrl} class={style.avatar} />
     </div>
   );
 };

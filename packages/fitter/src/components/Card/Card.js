@@ -2,8 +2,8 @@ import { h } from 'preact';
 
 import style from './style.css';
 
-const Card = ({ children }) => (
-  <div class={`${style.card} rounded--small`}>{children}</div>
+const Card = ({ hasShadow, children }) => (
+  <div class={`${style.card} rounded--small ${hasShadow ? 'shadow' : ''}`}>{children}</div>
 );
 
 export default Card;
