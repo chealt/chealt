@@ -10,7 +10,7 @@ const Home = () => (
       <h1>Sessions</h1>
       <GoogleSessions />
     </Page>
-    <Toast>No sessions found between 2020-01-01 and 2020-02-02</Toast>
+    <Toast />
   </>
 );
 
