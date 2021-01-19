@@ -14,7 +14,7 @@ const LoggedIn = () => {
   return (
     <div class={style.content} onClick={() => setAuthMenuOpen(!isAuthMenuOpen)}>
       <span>{userName}</span>
-      <img src={profileImageUrl} class={style.avatar} />
+      <img src={profileImageUrl} class={style.avatar} alt="Avatar" />
     </div>
   );
 };
