@@ -2,7 +2,7 @@ import { h } from 'preact';
 import { useContext, useState } from 'preact/hooks';
 
 import { Context } from '../context';
-import GoogleSignin from '../Authentication/Google/GoogleSignin';
+import { SignIn } from '../Authentication/Google';
 import Button from '../Button/Button';
 
 import style from './style.css';
@@ -33,7 +33,7 @@ const Header = () => {
       </nav>
       <ul class={style.menu} style={{ display: isLoginOpen ? 'block' : 'none' }}>
         <li>
-          <GoogleSignin />
+          <SignIn />
         </li>
       </ul>
     </header>

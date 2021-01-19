@@ -1,1 +1,1 @@
-export { default } from './GoogleSignin';
+export { default as SignIn } from './Signin';
