@@ -11,16 +11,16 @@ const Toast = () => {
   const { toastMessage, setToastMessage } = useContext(Context);
 
   return (
-    toastMessage && (
-      <div class={style.toast}>
-        <div class={`${style.container} rounded--small text--emphasized`}>
+    <div class={`${style.toast} showup ${toastMessage ? 'open' : ''}`}>
+      {toastMessage && (
+        <div class={`${style.container} rounded--small text--emphasized shadow`}>
           <div class={style.content}>{toastMessage}</div>
           <div class={style.buttons}>
             <Button type="ghost" size="small" onClick={() => setToastMessage()}><Cross /></Button>
           </div>
         </div>
-      </div>
-    )
+      )}
+    </div>
   );
 };
 

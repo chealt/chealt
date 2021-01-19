@@ -5,7 +5,7 @@ import { Card, CardBody } from '../Card';
 import style from './style.css';
 
 const Popover = ({ isOpen, children }) => (
-  <div class={`${style.popover} ${isOpen ? style.open : ''}`}>
+  <div class={`${style.popover} showup ${isOpen ? 'open' : ''}`}>
     <Card hasShadow>
       <CardBody>
         {children}
