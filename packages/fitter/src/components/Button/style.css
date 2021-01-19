@@ -9,6 +9,7 @@ button {
 	font-size: 1.2rem;
 	font-weight: var(--font-weight--bold);
 	transition: .13s background-color ease-out;
+	user-select: none;
 }
 
 button.small {
@@ -34,6 +35,7 @@ button.ghost:focus {
 }
 
 button.cta {
+	color: var(--main-cta-text-color);
 	background-color: var(--main-cta-color);
 	border-color: transparent;
 }
