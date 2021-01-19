@@ -88,7 +88,7 @@ const Sessions = () => {
           </Card>
         ))}
         <div class="centered">
-          <Button size="small" onClick={() => loadNewSessions(accessToken, nextStartTimeMillis)}>
+          <Button size="small" type="cta" onClick={() => loadNewSessions(accessToken, nextStartTimeMillis)}>
             Load more
           </Button>
         </div>
