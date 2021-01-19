@@ -1,5 +1,6 @@
 :root {	
 	/* LAYOUT */
+  --gutter-size--large: 32px;
   --gutter-size: 16px;
   --gutter-size--small: 8px;
 	

@@ -1,17 +1,30 @@
 import { h } from 'preact';
+import { useContext } from 'preact/hooks';
 
 import Page from '../../components/Page/Page';
+import Title from '../../components/Page/Title';
 import GoogleSessions from '../../components/GoogleFit/Sessions/Sessions'
 import Toast from '../../components/Toast/Toast';
+import { Context } from '../../components/context';
+import NoAuth from '../../components/Authentication/NoAuth';
 
-const Home = () => (
-  <>
-    <Page>
-      <h1>Sessions</h1>
-      <GoogleSessions />
-    </Page>
-    <Toast />
-  </>
-);
+const Home = () => {
+  const { googleUser } = useContext(Context);
+
+  return (
+    <>
+      <Page>
+        <Title>Fitter</Title>
+        {googleUser && (
+          <GoogleSessions />
+        )}
+        {!googleUser && (
+          <NoAuth />
+        )}
+      </Page>
+      <Toast />
+    </>
+  );
+};
 
 export default Home;

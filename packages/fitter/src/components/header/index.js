@@ -10,13 +10,13 @@ import AuthMenu from '../Authentication/AuthMenu';
 
 const Header = () => {
   const { googleUser, isLoadingAuth, isAuthMenuOpen, setAuthMenuOpen } = useContext(Context);
-  const toggleLogin = () => setAuthMenuOpen(!isAuthMenuOpen);
+  const toggleSignIn = () => setAuthMenuOpen(!isAuthMenuOpen);
 
   return (
     <header class={style.header}>
       <nav>
         {!googleUser && !isLoadingAuth && (
-          <Button size="small" onClick={toggleLogin}>Login</Button>
+          <Button size="small" onClick={toggleSignIn}>Sign In</Button>
         )}
         {googleUser && (
           <LoggedIn />

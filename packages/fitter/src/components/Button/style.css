@@ -32,3 +32,15 @@ button.ghost:active,
 button.ghost:focus {
 	background-color: var(--main-color--lightest);
 }
+
+button.cta {
+	background-color: var(--main-cta-color);
+	border-color: transparent;
+}
+
+button.cta:hover,
+button.cta:active,
+button.cta:focus {
+	color: currentColor;
+	background-color: var(--main-cta-color--darker);
+}

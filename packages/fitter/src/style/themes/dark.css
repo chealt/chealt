@@ -6,6 +6,8 @@
   --main-color--darker: rgb(37, 37, 37);
   --main-color-invert: #fff;
   --main-text-color: #fff;
+  --main-cta-color: rgb(20, 115, 230);
+  --main-cta-color--darker: rgb(13, 102, 208);
   --main-text-color--darker: rgb(227, 227, 227);
   --secondary-text-color: rgb(185, 185, 185);
   --cta-text-color: rgb(255, 181, 91);
