@@ -4,6 +4,7 @@ import { useState } from 'preact/hooks';
 export const Context = createContext(null);
 
 const AppProvider = ({ children }) => {
+  const [isAuthMenuOpen, setAuthMenuOpen] = useState(false);
   const [toastMessage, setToastMessage] = useState();
   const [googleUser, setGoogleUser] = useState();
   const [googleSessions, setGoogleSessions] = useState();
@@ -23,9 +24,11 @@ const AppProvider = ({ children }) => {
       dateFormat,
       googleSessions,
       googleUser,
+      isAuthMenuOpen,
       isLoadingAuth,
       timeFormat,
       toastMessage,
+      setAuthMenuOpen,
       setDateFormat,
       setGoogleSessions,
       setGoogleUser,

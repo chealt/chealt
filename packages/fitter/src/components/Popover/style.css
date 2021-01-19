@@ -1,0 +1,12 @@
+.popover {
+	position: absolute;
+	right: 0px;
+	padding: var(--gutter-size);
+	list-style: none;
+	margin: 0px;
+	display: none;
+}
+
+.popover.open {
+	display: block;
+}

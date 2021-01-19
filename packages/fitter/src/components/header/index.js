@@ -1,19 +1,16 @@
 import { h } from 'preact';
-import { useContext, useState } from 'preact/hooks';
+import { useContext } from 'preact/hooks';
 
 import { Context } from '../context';
-import { SignIn } from '../Authentication/Google';
 import Button from '../Button/Button';
 
 import style from './style.css';
+import LoggedIn from '../Authentication/LoggedIn/LoggedIn';
+import AuthMenu from '../Authentication/AuthMenu';
 
 const Header = () => {
-  const { googleUser, isLoadingAuth } = useContext(Context);
-  const [isLoginOpen, setLoginOpen] = useState(false);
-  const toggleLogin = () => setLoginOpen(!isLoginOpen);
-  const userProfile = googleUser?.getBasicProfile();
-  const userName = userProfile?.getName();
-  const profileImageUrl = userProfile?.getImageUrl();
+  const { googleUser, isLoadingAuth, isAuthMenuOpen, setAuthMenuOpen } = useContext(Context);
+  const toggleLogin = () => setAuthMenuOpen(!isAuthMenuOpen);
 
   return (
     <header class={style.header}>
@@ -21,21 +18,14 @@ const Header = () => {
         {!googleUser && !isLoadingAuth && (
           <Button size="small" onClick={toggleLogin}>Login</Button>
         )}
-        {userName && (
-          <>
-            <span>{userName}</span>
-            <img src={profileImageUrl} class={style.avatar} />
-          </>
+        {googleUser && (
+          <LoggedIn />
         )}
         {isLoadingAuth && (
           <span>Loading...</span>
         )}
       </nav>
-      <ul class={style.menu} style={{ display: isLoginOpen ? 'block' : 'none' }}>
-        <li>
-          <SignIn />
-        </li>
-      </ul>
+      <AuthMenu />
     </header>
   );
 }

@@ -3,10 +3,10 @@ import { useEffect, useContext } from 'preact/hooks';
 
 import { Context } from '../../context';
 
-const GoogleSignin = () => {
-  const { setGoogleUser, setLoadingAuth } = useContext(Context);
+const SignIn = () => {
+  const { setAuthMenuOpen, setGoogleUser, setLoadingAuth } = useContext(Context);
 
-  const renderGoogleSignIn = () => {
+  const SignIn = () => {
     window.gapi.signin2.render('google-signin', {
       scope: 'profile email https://www.googleapis.com/auth/fitness.activity.read https://www.googleapis.com/auth/fitness.location.read',
       longtitle: true,
@@ -14,6 +14,7 @@ const GoogleSignin = () => {
       onsuccess: async (user) => {
         setLoadingAuth(false);
         setGoogleUser(user);
+        setAuthMenuOpen(false);
       },
       onfailure: (error) => {
         throw new Error(error);
@@ -25,7 +26,7 @@ const GoogleSignin = () => {
   useEffect(() => {
     const googlePlatformScript = document.querySelector('#googleScript');
 
-    googlePlatformScript.addEventListener('load', renderGoogleSignIn);
+    googlePlatformScript.addEventListener('load', SignIn);
   });
 
   return (
@@ -33,6 +34,4 @@ const GoogleSignin = () => {
   );
 };
 
-GoogleSignin.propTypes = {};
-
-export default GoogleSignin;
+export default SignIn;
