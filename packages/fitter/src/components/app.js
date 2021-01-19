@@ -9,12 +9,12 @@ import Home from '../routes/home';
 
 const App = () => (
   <AppProvider>
-    <div id="app">
+    <main>
       <Header />
       <Router>
         <Home path="/" />
       </Router>
-    </div>
+    </main>
   </AppProvider>
 )
 
