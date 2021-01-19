@@ -5,12 +5,14 @@ import { Context } from '../../context';
 import Button from '../../Button/Button';
 
 const SignOut = () => {
-  const { setGoogleUser } = useContext(Context);
+  const { setGoogleUser, setAuthMenuOpen, setGoogleSessions } = useContext(Context);
 
   const signOut = () => {
     const auth2 = window.gapi.auth2.getAuthInstance();
     auth2.signOut().then(() => {
+      setAuthMenuOpen();
       setGoogleUser();
+      setGoogleSessions();
     });
   };
 

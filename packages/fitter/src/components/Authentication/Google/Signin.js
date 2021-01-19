@@ -1,12 +1,14 @@
 import { h } from 'preact';
-import { useEffect, useContext } from 'preact/hooks';
+import { useEffect, useContext, useState, useCallback } from 'preact/hooks';
 
 import { Context } from '../../context';
 
-const SignIn = () => {
-  const { setAuthMenuOpen, setGoogleUser, setLoadingAuth } = useContext(Context);
+const SignIn = ({ isHidden }) => {
+  const [scriptLoaded, setScriptLoaded] = useState(false);
+  const { googleUser, setAuthMenuOpen, setGoogleUser, setLoadingAuth } = useContext(Context);
 
-  const SignIn = () => {
+  const renderSignIn = useCallback(() => {
+    setScriptLoaded(true);
     window.gapi.signin2.render('google-signin', {
       scope: 'profile email https://www.googleapis.com/auth/fitness.activity.read https://www.googleapis.com/auth/fitness.location.read',
       longtitle: true,
@@ -21,16 +23,24 @@ const SignIn = () => {
       }
     });
     setLoadingAuth(false);
-  };
+  }, [setScriptLoaded, setLoadingAuth, setAuthMenuOpen, setGoogleUser]);
 
   useEffect(() => {
-    const googlePlatformScript = document.querySelector('#googleScript');
+    if (!scriptLoaded) {
+      const googlePlatformScript = document.querySelector('#googleScript');
 
-    googlePlatformScript.addEventListener('load', SignIn);
-  });
+      googlePlatformScript.addEventListener('load', () => setScriptLoaded(true));
+    }
+  }, [scriptLoaded]);
+
+  useEffect(() => {
+    if (!googleUser && scriptLoaded) {
+      renderSignIn();
+    }
+  }, [googleUser, scriptLoaded, renderSignIn]);
 
   return (
-    <div id="google-signin" />
+    <div id="google-signin" class={isHidden ? 'hidden' : ''} />
   );
 };
 

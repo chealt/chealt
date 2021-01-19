@@ -14,9 +14,7 @@ const AuthMenu = () => {
       {googleUser && (
         <SignOut />
       )}
-      {!googleUser && (
-        <SignIn />
-      )}
+      <SignIn isHidden={googleUser} />
     </Popover>
   );
 };
