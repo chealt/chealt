@@ -1,3 +1,18 @@
 const { eslintConfig } = require('@chealt/check');
 
-module.exports = eslintConfig;
+const config = {
+  ...eslintConfig,
+  overrides: [
+    {
+      files: ['packages/fitter/**/*.js'],
+      settings: {
+        react: {
+          pragma: 'h',
+          version: 'detect'
+        }
+      }
+    }
+  ]
+};
+
+module.exports = config;
