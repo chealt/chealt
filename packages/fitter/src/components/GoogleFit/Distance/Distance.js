@@ -9,7 +9,7 @@ const getDistance = (distanceResponse) => {
   return distance && (distance / 1000).toFixed(2);
 };
 
-const loadDistance = ({ accessToken, startTimeMillis, endTimeMillis }) => fetch("https://www.googleapis.com/fitness/v1/users/me/dataset:aggregate", {
+const loadDistance = ({ accessToken, startTimeMillis, endTimeMillis }) => fetch('https://www.googleapis.com/fitness/v1/users/me/dataset:aggregate', {
   mode: 'cors',
   method: 'post',
   headers: {
@@ -18,7 +18,7 @@ const loadDistance = ({ accessToken, startTimeMillis, endTimeMillis }) => fetch(
   body: JSON.stringify({
     aggregateBy: [
       {
-        dataTypeName: "com.google.distance.delta"
+        dataTypeName: 'com.google.distance.delta'
       }
     ],
     startTimeMillis,
@@ -26,7 +26,7 @@ const loadDistance = ({ accessToken, startTimeMillis, endTimeMillis }) => fetch(
   })
 })
   .then((response) => response.json())
-  .then((responseJSON) => getDistance(responseJSON))
+  .then((responseJSON) => getDistance(responseJSON));
 
 const Distance = ({ startTimeMillis, endTimeMillis }) => {
   const [distance, setDistance] = useState();
@@ -36,10 +36,10 @@ const Distance = ({ startTimeMillis, endTimeMillis }) => {
   useEffect(() => {
     if (startTimeMillis && endTimeMillis) {
       (async() => {
-        const distanceResult = await loadDistance({ accessToken, startTimeMillis, endTimeMillis })
+        const distanceResult = await loadDistance({ accessToken, startTimeMillis, endTimeMillis });
 
         setDistance(distanceResult);
-      })()
+      })();
     }
   }, [accessToken, startTimeMillis, endTimeMillis]);
 

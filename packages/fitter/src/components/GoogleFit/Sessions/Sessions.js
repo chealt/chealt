@@ -30,7 +30,7 @@ const Sessions = () => {
         const sessions = await loadSessions(accessToken);
 
         setGoogleSessions(sessions);
-      })()
+      })();
     }
   }, [accessToken, setGoogleSessions]);
 

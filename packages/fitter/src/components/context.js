@@ -17,7 +17,7 @@ const AppProvider = ({ children }) => {
   const [timeFormat, setTimeFormat] = useState({
     hour: 'numeric',
     minute: 'numeric'
-  })
+  });
 
   return (
     <Context.Provider value={{

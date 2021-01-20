@@ -3,7 +3,7 @@ import { useContext } from 'preact/hooks';
 
 import Page from '../../components/Page/Page';
 import Title from '../../components/Page/Title';
-import GoogleSessions from '../../components/GoogleFit/Sessions/Sessions'
+import GoogleSessions from '../../components/GoogleFit/Sessions/Sessions';
 import Toast from '../../components/Toast/Toast';
 import { Context } from '../../components/context';
 import NoAuth from '../../components/Authentication/NoAuth';

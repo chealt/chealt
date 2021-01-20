@@ -18,7 +18,7 @@ const getFetchOptions = (accessToken) => ({
 const getNextStartTimeMillis = (startTimeMillis) => parseInt(startTimeMillis, 10) - loadMoreIntervalMillis;
 
 const loadSessions = (accessToken, startedBeforeMillis) => {
-  let sessionsURL = "https://www.googleapis.com/fitness/v1/users/me/sessions";
+  let sessionsURL = 'https://www.googleapis.com/fitness/v1/users/me/sessions';
 
   if (startedBeforeMillis) {
     const startTime = new Date(getNextStartTimeMillis(startedBeforeMillis)).toISOString();
@@ -28,7 +28,7 @@ const loadSessions = (accessToken, startedBeforeMillis) => {
 
   return fetch(sessionsURL, getFetchOptions(accessToken))
     .then((response) => response.json())
-    .then(mapSessions)
+    .then(mapSessions);
 };
 
 const mergeSessions = (sessions, newSessions) => {
@@ -41,4 +41,4 @@ export {
   getNextStartTimeMillis,
   loadSessions,
   mergeSessions
-}
+};

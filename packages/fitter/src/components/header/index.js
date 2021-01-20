@@ -28,6 +28,6 @@ const Header = () => {
       <AuthMenu />
     </header>
   );
-}
+};
 
 export default Header;

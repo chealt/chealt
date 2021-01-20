@@ -2,7 +2,7 @@ import { useEffect, useState, useContext } from 'preact/hooks';
 
 import { Context } from '../../context';
 
-const loadMoveMinutes = ({ accessToken, startTimeMillis, endTimeMillis }) => fetch("https://www.googleapis.com/fitness/v1/users/me/dataset:aggregate", {
+const loadMoveMinutes = ({ accessToken, startTimeMillis, endTimeMillis }) => fetch('https://www.googleapis.com/fitness/v1/users/me/dataset:aggregate', {
   mode: 'cors',
   method: 'post',
   headers: {
@@ -11,7 +11,7 @@ const loadMoveMinutes = ({ accessToken, startTimeMillis, endTimeMillis }) => fet
   body: JSON.stringify({
     aggregateBy: [
       {
-        dataTypeName: "com.google.active_minutes"
+        dataTypeName: 'com.google.active_minutes'
       }
     ],
     startTimeMillis,
@@ -19,7 +19,7 @@ const loadMoveMinutes = ({ accessToken, startTimeMillis, endTimeMillis }) => fet
   })
 })
   .then((response) => response.json())
-  .then((responseJSON) => responseJSON?.bucket[0]?.dataset[0]?.point.length)
+  .then((responseJSON) => responseJSON?.bucket[0]?.dataset[0]?.point.length);
 
 const MoveMinutes = ({ startTimeMillis, endTimeMillis }) => {
   const [moveMinutes, setMoveMinutes] = useState();
@@ -32,7 +32,7 @@ const MoveMinutes = ({ startTimeMillis, endTimeMillis }) => {
         setMoveMinutes(
           await loadMoveMinutes({ accessToken, startTimeMillis, endTimeMillis })
         );
-      })()
+      })();
     }
   }, [accessToken, startTimeMillis, endTimeMillis]);
 
