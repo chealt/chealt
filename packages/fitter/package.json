@@ -6,20 +6,11 @@
     "build": "preact build",
     "serve": "sirv build --port 8080 --cors --single",
     "dev": "preact watch",
-    "lint": "eslint src",
     "test": "jest"
-  },
-  "eslintConfig": {
-    "extends": "preact",
-    "ignorePatterns": [
-      "build/"
-    ]
   },
   "devDependencies": {
     "enzyme": "^3.10.0",
     "enzyme-adapter-preact-pure": "^3.0.0",
-    "eslint": "^7.18.0",
-    "eslint-config-preact": "^1.1.0",
     "jest": "^26.6.3",
     "jest-preset-preact": "^4.0.2",
     "preact-cli": "^3.0.0",
