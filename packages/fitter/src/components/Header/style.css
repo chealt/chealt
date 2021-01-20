@@ -1,0 +1,11 @@
+.header {
+	padding: var(--gutter-size);
+	background: var(--main-color);
+}
+
+.header nav {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	height: 48px;
+}

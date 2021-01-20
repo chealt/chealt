@@ -1,5 +1,4 @@
 node_modules
-dist
 
 # Mac
 .DS_Store
@@ -19,3 +18,7 @@ reports
 coverage
 !packages/jest-mock-environment/**/coverage
 screenshots
+
+# Build
+build
+size-plugin.json
