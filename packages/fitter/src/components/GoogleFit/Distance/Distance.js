@@ -1,3 +1,4 @@
+import { h } from 'preact';
 import { useEffect, useState, useContext } from 'preact/hooks';
 
 import { Context } from '../../context';

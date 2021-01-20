@@ -40,7 +40,7 @@ const Sessions = () => {
     }
   }, [googleSessions]);
 
-  const loadNewSessions = async (accessToken, startTimeMillis) => {
+  const loadNewSessions = async (startTimeMillis) => {
     // reset Toast to clear any potential messages
     setToastMessage();
     const newSessions = await loadSessions(accessToken, startTimeMillis);
