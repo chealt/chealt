@@ -10,10 +10,10 @@
   "homepage": "https://github.com/chealt/chealt#chealt",
   "scripts": {},
   "dependencies": {
-    "chalk": "^4.1.0",
-    "cwd": "^0.10.0",
-    "jest-environment-node": "^26.6.2",
-    "merge-deep": "^3.0.3"
+    "chalk": "4.1.0",
+    "cwd": "0.10.0",
+    "jest-environment-node": "26.6.2",
+    "merge-deep": "3.0.3"
   },
   "publishConfig": {
     "access": "public",
