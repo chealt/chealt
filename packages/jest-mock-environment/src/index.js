@@ -1,5 +1,5 @@
 const path = require('path');
-const PuppeteerEnvironment = require('jest-environment-puppeteer');
+const PuppeteerEnvironment = require('@chealt/jest-puppeteer-env');
 
 const factory = require('./factory');
 const { getLogger, logLevels } = require('./logger');

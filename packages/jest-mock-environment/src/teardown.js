@@ -1,4 +1,4 @@
-const { teardown: teardownPuppeteer } = require('jest-environment-puppeteer');
+const { teardown: teardownPuppeteer } = require('@chealt/jest-puppeteer-env');
 
 const { saveCoverages, printCoverages } = require('./state');
 
