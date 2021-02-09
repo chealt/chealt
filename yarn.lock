@@ -3741,7 +3741,7 @@ cssstyle@^2.2.0:
 
 cwd@^0.10.0:
   version "0.10.0"
-  resolved "https://registry.yarnpkg.com/cwd/-/cwd-0.10.0.tgz#172400694057c22a13b0cf16162c7e4b7a7fe567"
+  resolved "https://na.artifactory.swg-devops.com/artifactory/api/npm/wcp-tmp-ace-fr-team-npm-virtual/cwd/-/cwd-0.10.0.tgz?dl=https%3A%2F%2Fregistry.npmjs.org%2Fcwd%2F-%2Fcwd-0.10.0.tgz#172400694057c22a13b0cf16162c7e4b7a7fe567"
   integrity sha1-FyQAaUBXwioTsM8WFix+S3p/5Wc=
   dependencies:
     find-pkg "^0.1.2"
@@ -6519,8 +6519,8 @@ jest-environment-jsdom@^26.6.2:
 
 jest-environment-node@^26.6.2:
   version "26.6.2"
-  resolved "https://registry.yarnpkg.com/jest-environment-node/-/jest-environment-node-26.6.2.tgz#824e4c7fb4944646356f11ac75b229b0035f2b0c"
-  integrity sha512-zhtMio3Exty18dy8ee8eJ9kjnRyZC1N4C1Nt/VShN1apyXc8rWGtJ9lI7vqiWcyyXS4BVSEn9lxAM2D+07/Tag==
+  resolved "https://na.artifactory.swg-devops.com/artifactory/api/npm/wcp-tmp-ace-fr-team-npm-virtual/jest-environment-node/-/jest-environment-node-26.6.2.tgz?dl=https%3A%2F%2Fregistry.npmjs.org%2Fjest-environment-node%2F-%2Fjest-environment-node-26.6.2.tgz#824e4c7fb4944646356f11ac75b229b0035f2b0c"
+  integrity sha1-gk5Mf7SURkY1bxGsdbIpsANfKww=
   dependencies:
     "@jest/environment" "^26.6.2"
     "@jest/fake-timers" "^26.6.2"
@@ -7394,6 +7394,15 @@ merge-deep@^3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/merge-deep/-/merge-deep-3.0.2.tgz#f39fa100a4f1bd34ff29f7d2bf4508fbb8d83ad2"
   integrity sha512-T7qC8kg4Zoti1cFd8Cr0M+qaZfOwjlPDEdZIIPPB2JZctjaPM4fX+i7HOId69tAti2fvO6X5ldfYUONDODsrkA==
+  dependencies:
+    arr-union "^3.1.0"
+    clone-deep "^0.2.4"
+    kind-of "^3.0.2"
+
+merge-deep@^3.0.3:
+  version "3.0.3"
+  resolved "https://na.artifactory.swg-devops.com/artifactory/api/npm/wcp-tmp-ace-fr-team-npm-virtual/merge-deep/-/merge-deep-3.0.3.tgz?dl=https%3A%2F%2Fregistry.npmjs.org%2Fmerge-deep%2F-%2Fmerge-deep-3.0.3.tgz#1a2b2ae926da8b2ae93a0ac15d90cd1922766003"
+  integrity sha1-Gisq6SbaiyrpOgrBXZDNGSJ2YAM=
   dependencies:
     arr-union "^3.1.0"
     clone-deep "^0.2.4"
