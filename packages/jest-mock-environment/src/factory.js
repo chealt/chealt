@@ -213,6 +213,11 @@ const factory = async ({ config: configParam, page, mocks, logger } = {}) => {
     }));
   };
 
+  const takeScreenshot = (screenshotFullPath) => page.screenshot({
+    path: `${screenshotFullPath}/${runningTestName.replace(/\//gu, '--')}-failure.png`,
+    fullPage: true
+  });
+
   return {
     getResponses,
     setTestName,
@@ -222,7 +227,8 @@ const factory = async ({ config: configParam, page, mocks, logger } = {}) => {
     stopCollectingCoverage,
     getCodeCoverages,
     startRecording,
-    stopRecording
+    stopRecording,
+    takeScreenshot
   };
 };
 
