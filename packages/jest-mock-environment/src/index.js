@@ -4,7 +4,7 @@ const PuppeteerEnvironment = require('@chealt/jest-puppeteer-env');
 const factory = require('./factory');
 const { getLogger, logLevels } = require('./logger');
 const { addCodeCoverages, addTestResponses, saveResponses, setResponsesPath, setCoveragesPath, setConfig, setLogger, clearResponses } = require('./state');
-const { isTestStartEvent, isTestEndEvent, isTestsEndEvent, getTestID } = require('./testEventUtils');
+const { isTestStartEvent, isTestEndEvent, isTestFailureEvent, isTestsEndEvent, getTestID } = require('./testEventUtils');
 const { filterEmptyResponses, getMocks, getFullPath, hasResponses, validateConfig } = require('./envUtils');
 
 const { DEBUG } = process.env;
@@ -115,6 +115,8 @@ class MockEnvironment extends PuppeteerEnvironment {
       if (recordScreenshots) {
         await this.envInstance.stopRecording(this.screenshotFullPath);
       }
+    } else if (isTestFailureEvent(event)) {
+      await this.envInstance.takeScreenshot(this.screenshotFullPath);
     }
   }
 

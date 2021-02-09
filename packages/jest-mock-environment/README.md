@@ -149,3 +149,7 @@ Example:
   }
 }
 ```
+
+### Screenshot on failure
+
+The environment will take a screenshot of the full page if a test fails and store it using the following format: `<<TEST_NAME>>--failure.png`.
