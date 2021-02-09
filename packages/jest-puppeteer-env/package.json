@@ -2,7 +2,7 @@
   "name": "@chealt/jest-puppeteer-env",
   "version": "0.1.0",
   "license": "MIT",
-  "main": "src/environment.js",
+  "main": "src/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/chealt/chealt.git"
@@ -12,6 +12,7 @@
   "dependencies": {
     "chalk": "4.1.0",
     "cwd": "0.10.0",
+    "jest-dev-server": "4.4.0",
     "jest-environment-node": "26.6.2",
     "merge-deep": "3.0.3"
   },
