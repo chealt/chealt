@@ -2847,13 +2847,13 @@ commander@^2.18.0, commander@^2.19.0, commander@^2.20.0:
 
 commander@^3.0.2:
   version "3.0.2"
-  resolved "https://na.artifactory.swg-devops.com/artifactory/api/npm/wcp-tmp-ace-fr-team-npm-virtual/commander/-/commander-3.0.2.tgz?dl=https%3A%2F%2Fregistry.npmjs.org%2Fcommander%2F-%2Fcommander-3.0.2.tgz#6837c3fb677ad9933d1cfba42dd14d5117d6b39e"
-  integrity sha1-aDfD+2d62ZM9HPukLdFNURfWs54=
+  resolved "https://registry.yarnpkg.com/commander/-/commander-3.0.2.tgz#6837c3fb677ad9933d1cfba42dd14d5117d6b39e"
+  integrity sha512-Gar0ASD4BDyKC4hl4DwHqDrmvjoxWKZigVnAbn5H1owvm4CxCPdb0HQDehwNYMJpla5+M2tPmPARzhtYuwpHow==
 
 commander@^5.1.0:
   version "5.1.0"
-  resolved "https://na.artifactory.swg-devops.com/artifactory/api/npm/wcp-tmp-ace-fr-team-npm-virtual/commander/-/commander-5.1.0.tgz?dl=https%3A%2F%2Fregistry.npmjs.org%2Fcommander%2F-%2Fcommander-5.1.0.tgz#46abbd1652f8e059bddaef99bbdcb2ad9cf179ae"
-  integrity sha1-Rqu9FlL44Fm92u+Zu9yyrZzxea4=
+  resolved "https://registry.yarnpkg.com/commander/-/commander-5.1.0.tgz#46abbd1652f8e059bddaef99bbdcb2ad9cf179ae"
+  integrity sha512-P0CysNDQ7rtVw4QIQtm+MRxV66vKFSvlsQvGYXZWR3qFU0jlMKHZZZgw8e+8DSah4UDKMqnknRDQz+xuQXQ/Zg==
 
 commander@~2.19.0:
   version "2.19.0"
@@ -4567,8 +4567,8 @@ find-pkg@^0.1.2:
 
 find-process@^1.4.3:
   version "1.4.4"
-  resolved "https://na.artifactory.swg-devops.com/artifactory/api/npm/wcp-tmp-ace-fr-team-npm-virtual/find-process/-/find-process-1.4.4.tgz?dl=https%3A%2F%2Fregistry.npmjs.org%2Ffind-process%2F-%2Ffind-process-1.4.4.tgz#52820561162fda0d1feef9aed5d56b3787f0fd6e"
-  integrity sha1-UoIFYRYv2g0f7vmu1dVrN4fw/W4=
+  resolved "https://registry.yarnpkg.com/find-process/-/find-process-1.4.4.tgz#52820561162fda0d1feef9aed5d56b3787f0fd6e"
+  integrity sha512-rRSuT1LE4b+BFK588D2V8/VG9liW0Ark1XJgroxZXI0LtwmQJOb490DvDYvbm+Hek9ETFzTutGfJ90gumITPhQ==
   dependencies:
     chalk "^4.0.0"
     commander "^5.1.0"
@@ -9238,7 +9238,7 @@ run-queue@^1.0.0, run-queue@^1.0.3:
 
 rx@^4.1.0:
   version "4.1.0"
-  resolved "https://na.artifactory.swg-devops.com/artifactory/api/npm/wcp-tmp-ace-fr-team-npm-virtual/rx/-/rx-4.1.0.tgz?dl=https%3A%2F%2Fregistry.npmjs.org%2Frx%2F-%2Frx-4.1.0.tgz#a5f13ff79ef3b740fe30aa803fb09f98805d4782"
+  resolved "https://registry.yarnpkg.com/rx/-/rx-4.1.0.tgz#a5f13ff79ef3b740fe30aa803fb09f98805d4782"
   integrity sha1-pfE/957zt0D+MKqAP7CfmIBdR4I=
 
 sade@^1.4.1, sade@^1.6.0:
@@ -9695,8 +9695,8 @@ sourcemap-codec@^1.4.4:
 
 spawnd@^4.4.0:
   version "4.4.0"
-  resolved "https://na.artifactory.swg-devops.com/artifactory/api/npm/wcp-tmp-ace-fr-team-npm-virtual/spawnd/-/spawnd-4.4.0.tgz?dl=https%3A%2F%2Fregistry.npmjs.org%2Fspawnd%2F-%2Fspawnd-4.4.0.tgz#bb52c5b34a22e3225ae1d3acb873b2cd58af0886"
-  integrity sha1-u1LFs0oi4yJa4dOsuHOyzVivCIY=
+  resolved "https://registry.yarnpkg.com/spawnd/-/spawnd-4.4.0.tgz#bb52c5b34a22e3225ae1d3acb873b2cd58af0886"
+  integrity sha512-jLPOfB6QOEgMOQY15Z6+lwZEhH3F5ncXxIaZ7WHPIapwNNLyjrs61okj3VJ3K6tmP5TZ6cO0VAu9rEY4MD4YQg==
   dependencies:
     exit "^0.1.2"
     signal-exit "^3.0.2"
@@ -10362,8 +10362,8 @@ tr46@^2.0.2:
 
 tree-kill@^1.2.2:
   version "1.2.2"
-  resolved "https://na.artifactory.swg-devops.com/artifactory/api/npm/wcp-tmp-ace-fr-team-npm-virtual/tree-kill/-/tree-kill-1.2.2.tgz?dl=https%3A%2F%2Fregistry.npmjs.org%2Ftree-kill%2F-%2Ftree-kill-1.2.2.tgz#4ca09a9092c88b73a7cdc5e8a01b507b0790a0cc"
-  integrity sha1-TKCakJLIi3OnzcXooBtQeweQoMw=
+  resolved "https://registry.yarnpkg.com/tree-kill/-/tree-kill-1.2.2.tgz#4ca09a9092c88b73a7cdc5e8a01b507b0790a0cc"
+  integrity sha512-L0Orpi8qGpRG//Nd+H90vFB+3iHnue1zSSGmNOOCh1GLJ7rUKVwV2HvijphGQS2UmhUZewS9VgvxYIdgr+fG1A==
 
 tryer@^1.0.1:
   version "1.0.1"
@@ -10796,8 +10796,8 @@ w3c-xmlserializer@^2.0.0:
 
 wait-on@^3.3.0:
   version "3.3.0"
-  resolved "https://na.artifactory.swg-devops.com/artifactory/api/npm/wcp-tmp-ace-fr-team-npm-virtual/wait-on/-/wait-on-3.3.0.tgz?dl=https%3A%2F%2Fregistry.npmjs.org%2Fwait-on%2F-%2Fwait-on-3.3.0.tgz#9940981d047a72a9544a97b8b5fca45b2170a082"
-  integrity sha1-mUCYHQR6cqlUSpe4tfykWyFwoII=
+  resolved "https://registry.yarnpkg.com/wait-on/-/wait-on-3.3.0.tgz#9940981d047a72a9544a97b8b5fca45b2170a082"
+  integrity sha512-97dEuUapx4+Y12aknWZn7D25kkjMk16PbWoYzpSdA8bYpVfS6hpl2a2pOWZ3c+Tyt3/i4/pglyZctG3J4V1hWQ==
   dependencies:
     "@hapi/joi" "^15.0.3"
     core-js "^2.6.5"
@@ -10807,8 +10807,8 @@ wait-on@^3.3.0:
 
 wait-port@^0.2.7:
   version "0.2.9"
-  resolved "https://na.artifactory.swg-devops.com/artifactory/api/npm/wcp-tmp-ace-fr-team-npm-virtual/wait-port/-/wait-port-0.2.9.tgz?dl=https%3A%2F%2Fregistry.npmjs.org%2Fwait-port%2F-%2Fwait-port-0.2.9.tgz#3905cf271b5dbe37a85c03b85b418b81cb24ee55"
-  integrity sha1-OQXPJxtdvjeoXAO4W0GLgcsk7lU=
+  resolved "https://registry.yarnpkg.com/wait-port/-/wait-port-0.2.9.tgz#3905cf271b5dbe37a85c03b85b418b81cb24ee55"
+  integrity sha512-hQ/cVKsNqGZ/UbZB/oakOGFqic00YAMM5/PEj3Bt4vKarv2jWIWzDbqlwT94qMs/exAQAsvMOq99sZblV92zxQ==
   dependencies:
     chalk "^2.4.2"
     commander "^3.0.2"
