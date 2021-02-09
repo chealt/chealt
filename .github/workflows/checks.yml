@@ -25,10 +25,13 @@ jobs:
       with:
         node-version: '14'
 
-    # Runs a single command using the runners shell
-    - name: Run checks
-      run: |
-        yarn install
-        yarn run check
+    - name: Install
+      run: yarn install --frozen-lockfile
       env:
         NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+    - name: Lint
+      run: yarn run check
+    - name: Test
+      run: yarn test
+      env:
+        CI: true

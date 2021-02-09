@@ -1,4 +1,4 @@
-const { setup: setupPuppeteer } = require('jest-environment-puppeteer');
+const { setup: setupPuppeteer } = require('@chealt/jest-puppeteer-env');
 
 const globalSetup = async (globalConfig) => {
   await setupPuppeteer(globalConfig);

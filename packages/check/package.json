@@ -12,7 +12,8 @@
     "prettier": "^2.2.1"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
   },
   "sideEffects": false
 }
