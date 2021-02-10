@@ -57,6 +57,7 @@ class MockEnvironment extends PuppeteerEnvironment {
     setConfig(cleanConfig);
     this.config = cleanConfig;
     this.mocks = shouldUseMocks && getMocks(responsesPath);
+    this.globalMocks = shouldUseMocks && getMocks(getFullPath(rootDir, mockResponseDir, 'globals.json'));
   }
 
   async setup({ logger = getLogger(DEBUG ? logLevels.debug : logLevels.default) } = {}) {
