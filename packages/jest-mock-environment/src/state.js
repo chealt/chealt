@@ -36,8 +36,7 @@ const state = () => {
 
   // COVERAGES
   let coveragesPath;
-  const saveCoveragesFile = (coverages) =>
-    writeFileSafe(coveragesPath, JSON.stringify(coverages));
+  const saveCoveragesFile = (coverages) => writeFileSafe(coveragesPath, JSON.stringify(coverages));
   const setCoveragesPath = (newPath) => {
     coveragesPath = newPath;
   };

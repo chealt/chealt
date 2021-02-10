@@ -16,7 +16,9 @@ const Toast = () => {
         <div class={`${style.container} rounded--small text--emphasized shadow`}>
           <div class={style.content}>{toastMessage}</div>
           <div class={style.buttons}>
-            <Button type="ghost" size="small" onClick={() => setToastMessage()}><Cross /></Button>
+            <Button type="ghost" size="small" onClick={() => setToastMessage()}>
+              <Cross />
+            </Button>
           </div>
         </div>
       )}

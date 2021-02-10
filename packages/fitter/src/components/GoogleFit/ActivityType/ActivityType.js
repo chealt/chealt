@@ -6,8 +6,6 @@ const TYPES = {
   unknown: 'activity'
 };
 
-const ActivityType = ({ type }) => (
-  <div>{TYPES[type] || TYPES.unknown}</div>
-);
+const ActivityType = ({ type }) => <div>{TYPES[type] || TYPES.unknown}</div>;
 
 export default ActivityType;

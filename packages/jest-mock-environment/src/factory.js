@@ -17,15 +17,11 @@ const factory = async ({ config: configParam, page, mocks, logger } = {}) => {
   const findMocks = findMocksForUrl(config);
   const responses = {};
   const coverages = {};
-  const getMockResponse = ({
-    requestDetails: { url, method }
-  }) => {
+  const getMockResponse = ({ requestDetails: { url, method } }) => {
     const testMocks = mocks && mocks[runningTestName];
     const testMocksForUrl = testMocks && findMocks(testMocks, url);
     const hasMockResponses = testMocksForUrl && testMocksForUrl.length;
-    const mockResponseIndex =
-      hasMockResponses &&
-      testMocksForUrl.findIndex((mock) => mock.method === method);
+    const mockResponseIndex = hasMockResponses && testMocksForUrl.findIndex((mock) => mock.method === method);
     const mockResponse =
       hasMockResponses && mockResponseIndex !== -1
         ? testMocksForUrl.splice(mockResponseIndex, 1)[0] // we remove the element from the array
@@ -68,22 +64,20 @@ const factory = async ({ config: configParam, page, mocks, logger } = {}) => {
       body
     };
   };
-  const getMatchingIgnorePattern = (url) => config.requestPathIgnorePatterns.find((ignorePattern) => new RegExp(ignorePattern, 'u').test(url));
+  const getMatchingIgnorePattern = (url) =>
+    config.requestPathIgnorePatterns.find((ignorePattern) => new RegExp(ignorePattern, 'u').test(url));
 
   const interceptRequest = async (request) => {
     const { dataRequestResourceTypes } = config;
     const requestResourceType = request.resourceType();
-    const isDataRequest = dataRequestResourceTypes.includes(
-      requestResourceType
-    );
+    const isDataRequest = dataRequestResourceTypes.includes(requestResourceType);
     const url = request.url();
     const matchingIgnorePattern = getMatchingIgnorePattern(url);
     const shouldInterceptUrl = !matchingIgnorePattern;
 
     const headers = request.headers();
     const method = request.method();
-    const shouldInterceptRequest =
-      shouldInterceptUrl && isDataRequest;
+    const shouldInterceptRequest = shouldInterceptUrl && isDataRequest;
     const requestDetails = {
       url,
       headers,
@@ -99,11 +93,7 @@ const factory = async ({ config: configParam, page, mocks, logger } = {}) => {
       });
 
       if (mockResponse) {
-        logger.debug(
-          `Responding with mock: ${JSON.stringify(
-            mockResponse.body
-          )}, for url: ${url}`
-        );
+        logger.debug(`Responding with mock: ${JSON.stringify(mockResponse.body)}, for url: ${url}`);
         await request.respond({
           status: mockResponse.status,
           headers: mockResponse.headers,
@@ -149,8 +139,7 @@ const factory = async ({ config: configParam, page, mocks, logger } = {}) => {
 
   const saveResponse = async (response) => {
     const url = response.url();
-    const originalRequest =
-            responses[runningTestName] && responses[runningTestName][url];
+    const originalRequest = responses[runningTestName] && responses[runningTestName][url];
 
     if (originalRequest) {
       const details = await getResponseDetails(response, url);
@@ -205,18 +194,21 @@ const factory = async ({ config: configParam, page, mocks, logger } = {}) => {
     const trace = JSON.parse(await String(buffer));
     const screenshotEvents = trace.traceEvents.filter((event) => event.name === 'Screenshot');
 
-    return Promise.all(screenshotEvents.map((screenshotEvent, index) => {
-      const imageBuffer = Buffer.from(screenshotEvent.args.snapshot, 'base64');
-      const screenshotPath = `${screenshotFullPath}/${runningTestName.replace(/\//gu, '--')}-${index}.png`;
+    return Promise.all(
+      screenshotEvents.map((screenshotEvent, index) => {
+        const imageBuffer = Buffer.from(screenshotEvent.args.snapshot, 'base64');
+        const screenshotPath = `${screenshotFullPath}/${runningTestName.replace(/\//gu, '--')}-${index}.png`;
 
-      return writeFileSafe(screenshotPath, imageBuffer);
-    }));
+        return writeFileSafe(screenshotPath, imageBuffer);
+      })
+    );
   };
 
-  const takeScreenshot = (screenshotFullPath) => page.screenshot({
-    path: `${screenshotFullPath}/${runningTestName.replace(/\//gu, '--')}-failure.png`,
-    fullPage: true
-  });
+  const takeScreenshot = (screenshotFullPath) =>
+    page.screenshot({
+      path: `${screenshotFullPath}/${runningTestName.replace(/\//gu, '--')}-failure.png`,
+      fullPage: true
+    });
 
   return {
     getResponses,

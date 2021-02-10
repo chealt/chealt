@@ -13,14 +13,9 @@ import { formatTime, formatDate } from '../../../utils/dateTime';
 import NoSessionsToast from './NoSessionsToast';
 
 const Sessions = () => {
-  const {
-    dateFormat,
-    googleUser,
-    googleSessions,
-    setGoogleSessions,
-    timeFormat,
-    setToastMessage
-  } = useContext(Context);
+  const { dateFormat, googleUser, googleSessions, setGoogleSessions, timeFormat, setToastMessage } = useContext(
+    Context
+  );
   const accessToken = googleUser && googleUser.getAuthResponse(true).access_token;
   const [nextStartTimeMillis, setNextStartTimeMillis] = useState();
 
@@ -51,7 +46,8 @@ const Sessions = () => {
       setToastMessage(
         <NoSessionsToast
           startTimeMillis={nextStartTimeMillis}
-          loadMore={() => loadNewSessions(accessToken, updatedNextStartTimeMillis)} />
+          loadMore={() => loadNewSessions(accessToken, updatedNextStartTimeMillis)}
+        />
       );
       setNextStartTimeMillis(updatedNextStartTimeMillis);
     } else {

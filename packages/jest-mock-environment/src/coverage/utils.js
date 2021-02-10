@@ -29,7 +29,7 @@ const calculateCoverageDetails = (jsCoverage, cssCoverage) => {
     }
   }
 
-  const percentage = usedBytes / totalBytes * 100;
+  const percentage = (usedBytes / totalBytes) * 100;
 
   return {
     usedBytes,
@@ -43,12 +43,15 @@ const printCoverages = ({ logger, coverages }) => {
   Object.keys(coverages).forEach((testID) => {
     const { report } = coverages[testID];
 
-    logger.info(`
+    logger.info(
+      `
   ${grey(testID)}:
     ${bold('Total:     ')} ${report.totalReport}
     ${bold('Unused:    ')} ${report.unusedReport}
     ${bold('Could save:')} ${report.timeSavings.GGGFormatted} (3G), ${report.timeSavings.GGFormatted} (2G)
-    `, prefix);
+    `,
+      prefix
+    );
   });
 };
 

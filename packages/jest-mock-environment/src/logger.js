@@ -10,35 +10,26 @@ const logLevels = {
   default: 2
 };
 
-const getLogger = (level) => {
-  const noop = () => null;
-
-  return {
-    debug:
-            level <= logLevels.debug
-              ? (message, prefix) => {
-                console.log(prefix ? prefix : chalk.bold.dim(' DEBUG '), chalk.grey(message));
-              }
-              : noop,
-    info:
-            level <= logLevels.info
-              ? (message, prefix) => {
-                console.log(prefix ? prefix : chalk.bold.inverse(' INFO '), chalk.white(message));
-              }
-              : noop,
-    warning:
-            level <= logLevels.warning
-              ? (message, prefix) => {
-                console.log(prefix ? prefix : chalk.bold.bgYellow(' WARN '), chalk.white(message));
-              }
-              : noop,
-    error:
-            level <= logLevels.error
-              ? (message, prefix) => {
-                console.log(prefix ? prefix : chalk.bold.bgRed(' ERROR '), chalk.white(message));
-              }
-              : noop
-  };
+const defaultLoggers = {
+  debug: (message, prefix) => {
+    console.log(prefix ? prefix : chalk.bold.dim(' DEBUG '), chalk.grey(message));
+  },
+  info: (message, prefix) => {
+    console.log(prefix ? prefix : chalk.bold.inverse(' INFO '), chalk.white(message));
+  },
+  warning: (message, prefix) => {
+    console.log(prefix ? prefix : chalk.bold.bgYellow(' WARN '), chalk.white(message));
+  },
+  error: (message, prefix) => {
+    console.log(prefix ? prefix : chalk.bold.bgRed(' ERROR '), chalk.white(message));
+  }
 };
+
+const getLogger = (level) => ({
+  debug: level <= logLevels.debug ? defaultLoggers.debug : () => null,
+  info: level <= logLevels.info ? defaultLoggers.info : () => null,
+  warning: level <= logLevels.warning ? defaultLoggers.warning : () => null,
+  error: level <= logLevels.error ? defaultLoggers.error : () => null
+});
 
 module.exports = { getLogger, logLevels };

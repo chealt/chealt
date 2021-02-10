@@ -15,12 +15,8 @@ const Home = () => {
     <>
       <Page>
         <Title>Fitter</Title>
-        {googleUser && (
-          <GoogleSessions />
-        )}
-        {!googleUser && !isLoadingAuth && (
-          <NoAuth />
-        )}
+        {googleUser && <GoogleSessions />}
+        {!googleUser && !isLoadingAuth && <NoAuth />}
       </Page>
       <Toast />
     </>

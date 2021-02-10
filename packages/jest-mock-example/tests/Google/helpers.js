@@ -10,6 +10,4 @@ const agreeToConsent = async () => {
   }
 };
 
-export {
-  agreeToConsent
-};
+export { agreeToConsent };
