@@ -14,7 +14,7 @@ module.exports = {
     collectCoverageFrom: ['https://www.google.com'],
     recordScreenshots: true,
     screenshotDirectory: 'screenshots',
-    requestPathIgnorePatterns: ['async', 'client']
+    requestPathIgnorePatterns: ['async']
   },
   testMatch: ['**/*.ui-test.js'],
   testTimeout: 1000 * 60
