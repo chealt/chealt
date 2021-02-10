@@ -2,7 +2,7 @@ const { findMocksForUrl } = require('./mockUtils');
 const { startCollecting, getCoverage } = require('./coverage/index');
 const { writeFileSafe } = require('./fileUtils');
 
-const factory = async ({ config: configParam, page, mocks, logger } = {}) => {
+const factory = async ({ config: configParam, page, mocks, globalMocks, logger } = {}) => {
   let runningTestName;
   const config = {
     dataRequestResourceTypes: ['fetch', 'xhr'],
@@ -19,7 +19,7 @@ const factory = async ({ config: configParam, page, mocks, logger } = {}) => {
   const coverages = {};
   const getMockResponse = ({ requestDetails: { url, method } }) => {
     const testMocks = mocks && mocks[runningTestName];
-    const testMocksForUrl = testMocks && findMocks(testMocks, url);
+    const testMocksForUrl = testMocks && (findMocks(globalMocks, url) || findMocks(testMocks, url));
     const hasMockResponses = testMocksForUrl && testMocksForUrl.length;
     const mockResponseIndex = hasMockResponses && testMocksForUrl.findIndex((mock) => mock.method === method);
     const mockResponse =

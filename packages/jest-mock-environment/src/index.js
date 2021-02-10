@@ -57,7 +57,7 @@ class MockEnvironment extends PuppeteerEnvironment {
     setConfig(cleanConfig);
     this.config = cleanConfig;
     this.mocks = shouldUseMocks && getMocks(responsesPath);
-    this.globalMocks = shouldUseMocks && getMocks(getFullPath(rootDir, mockResponseDir, 'globals.json'));
+    this.globalMocks = shouldUseMocks && getMocks(getFullPath(rootDir, mockResponseDir, 'global.mocks.json'));
   }
 
   async setup({ logger = getLogger(DEBUG ? logLevels.debug : logLevels.default) } = {}) {
@@ -85,6 +85,7 @@ class MockEnvironment extends PuppeteerEnvironment {
     this.envInstance = await factory({
       page: this.global.page,
       mocks: this.mocks,
+      globalMocks: this.globalMocks,
       logger,
       config: {
         isPortAgnostic,
