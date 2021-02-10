@@ -18,7 +18,13 @@ const filterEmptyResponses = (responses) => {
   return filteredResponses;
 };
 
-const getMocks = (responsesPath) => require(responsesPath);
+const getMocks = (responsesPath) => {
+  try {
+    require(responsesPath);
+  } catch {
+    // if there are no mocks we don't do anything
+  }
+};
 
 const getFullPath = (...paths) => path.join(...paths);
 
