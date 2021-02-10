@@ -23,11 +23,15 @@ const factory = async ({ config: configParam, page, mocks, globalMocks, logger }
     const hasMockResponses = testMocksForUrl && testMocksForUrl.length;
     const mockResponseIndex = hasMockResponses && testMocksForUrl.findIndex((mock) => mock.method === method);
     const mockResponse =
-      hasMockResponses && mockResponseIndex !== -1
-        ? testMocksForUrl.splice(mockResponseIndex, 1)[0] // we remove the element from the array
-        : undefined;
+      hasMockResponses &&
+      mockResponseIndex !== -1 &&
+      // we remove the element from the array
+      // unless it's the last item
+      (testMocksForUrl.length !== 1
+        ? testMocksForUrl.splice(mockResponseIndex, 1)[0]
+        : testMocksForUrl[mockResponseIndex]);
 
-    return mockResponse;
+    return mockResponse || undefined;
   };
   const getResponseDetails = async (response, url) => {
     let body;
