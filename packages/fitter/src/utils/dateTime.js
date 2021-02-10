@@ -2,7 +2,4 @@ const formatDate = (dateFormat, time) => new Intl.DateTimeFormat('default', date
 
 const formatTime = (timeFormat, time) => new Intl.DateTimeFormat('default', timeFormat).format(time);
 
-export {
-  formatDate,
-  formatTime
-};
+export { formatDate, formatTime };

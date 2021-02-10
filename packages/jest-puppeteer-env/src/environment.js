@@ -45,20 +45,14 @@ class PuppeteerEnvironment extends NodeEnvironment {
           debugger;
         });
         // eslint-disable-next-line no-console
-        console.log(
-          chalk.blue('\n\n🕵️‍  Code is paused, press enter to resume')
-        );
+        console.log(chalk.blue('\n\n🕵️‍  Code is paused, press enter to resume'));
 
         // Run an infinite promise
         return new Promise((resolve) => {
           const { stdin } = process;
           const listening = stdin.listenerCount('data') > 0;
           const onKeyPress = (key) => {
-            if (
-              key === KEYS.CONTROL_C ||
-              key === KEYS.CONTROL_D ||
-              key === KEYS.ENTER
-            ) {
+            if (key === KEYS.CONTROL_C || key === KEYS.CONTROL_D || key === KEYS.ENTER) {
               stdin.removeListener('data', onKeyPress);
 
               if (!listening) {
@@ -124,10 +118,7 @@ class PuppeteerEnvironment extends NodeEnvironment {
         if (config.browserContext === 'incognito') {
           // Using this, pages will be created in a pristine context.
           this.global.context = await this.global.browser.createIncognitoBrowserContext();
-        } else if (
-          config.browserContext === 'default' ||
-          !config.browserContext
-        ) {
+        } else if (config.browserContext === 'default' || !config.browserContext) {
           /**
            * Since this is a new browser, browserContexts() will return only one instance
            * https://github.com/GoogleChrome/puppeteer/blob/master/docs/api.md#browserbrowsercontexts

@@ -50,6 +50,8 @@ Example:
 }
 ```
 
+It is also possible to create global mocks that will be used for all tests. The environment will check if a `global.mocks.json` exists in the `mockResponseDir` and prefer that over the test mocks. The content of the file is similar to the test mock files but it does NOT include the name of the spec.
+
 #### collectCoverage
 
 Type: `Boolean`

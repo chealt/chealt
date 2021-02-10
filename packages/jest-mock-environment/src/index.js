@@ -3,8 +3,23 @@ const PuppeteerEnvironment = require('@chealt/jest-puppeteer-env');
 
 const factory = require('./factory');
 const { getLogger, logLevels } = require('./logger');
-const { addCodeCoverages, addTestResponses, saveResponses, setResponsesPath, setCoveragesPath, setConfig, setLogger, clearResponses } = require('./state');
-const { isTestStartEvent, isTestEndEvent, isTestFailureEvent, isTestsEndEvent, getTestID } = require('./testEventUtils');
+const {
+  addCodeCoverages,
+  addTestResponses,
+  saveResponses,
+  setResponsesPath,
+  setCoveragesPath,
+  setConfig,
+  setLogger,
+  clearResponses
+} = require('./state');
+const {
+  isTestStartEvent,
+  isTestEndEvent,
+  isTestFailureEvent,
+  isTestsEndEvent,
+  getTestID
+} = require('./testEventUtils');
 const { filterEmptyResponses, getMocks, getFullPath, hasResponses, validateConfig } = require('./envUtils');
 
 const { DEBUG } = process.env;
@@ -42,11 +57,10 @@ class MockEnvironment extends PuppeteerEnvironment {
     setConfig(cleanConfig);
     this.config = cleanConfig;
     this.mocks = shouldUseMocks && getMocks(responsesPath);
+    this.globalMocks = shouldUseMocks && getMocks(getFullPath(rootDir, mockResponseDir, 'global.mocks.json'));
   }
 
-  async setup({
-    logger = getLogger(DEBUG ? logLevels.debug : logLevels.default)
-  } = {}) {
+  async setup({ logger = getLogger(DEBUG ? logLevels.debug : logLevels.default) } = {}) {
     await super.setup();
     // Your setup
     logger.debug(`Setting up environemnt with config: ${JSON.stringify(this.config, null, 4)}`);
@@ -71,6 +85,7 @@ class MockEnvironment extends PuppeteerEnvironment {
     this.envInstance = await factory({
       page: this.global.page,
       mocks: this.mocks,
+      globalMocks: this.globalMocks,
       logger,
       config: {
         isPortAgnostic,

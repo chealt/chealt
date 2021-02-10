@@ -25,12 +25,10 @@ const DEFAULT_CONFIG_CI = merge(DEFAULT_CONFIG, {
 });
 
 const readConfig = async () => {
-  const defaultConfig =
-    process.env.CI === 'true' ? DEFAULT_CONFIG_CI : DEFAULT_CONFIG;
+  const defaultConfig = process.env.CI === 'true' ? DEFAULT_CONFIG_CI : DEFAULT_CONFIG;
 
   const hasCustomConfigPath = !!process.env.JEST_PUPPETEER_CONFIG;
-  const configPath =
-    process.env.JEST_PUPPETEER_CONFIG || 'jest-puppeteer.config.js';
+  const configPath = process.env.JEST_PUPPETEER_CONFIG || 'jest-puppeteer.config.js';
   const absConfigPath = path.resolve(cwd(), configPath);
   const configExists = await exists(absConfigPath);
 
@@ -63,9 +61,7 @@ const getPuppeteer = (config) => {
       return require('puppeteer-firefox');
     /* eslint-enable */
     default:
-      throw new Error(
-        `Error: "browser" config option is given an unsupported value: ${config.browser}`
-      );
+      throw new Error(`Error: "browser" config option is given an unsupported value: ${config.browser}`);
   }
 };
 

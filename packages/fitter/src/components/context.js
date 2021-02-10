@@ -20,22 +20,26 @@ const AppProvider = ({ children }) => {
   });
 
   return (
-    <Context.Provider value={{
-      dateFormat,
-      googleSessions,
-      googleUser,
-      isAuthMenuOpen,
-      isLoadingAuth,
-      timeFormat,
-      toastMessage,
-      setAuthMenuOpen,
-      setDateFormat,
-      setGoogleSessions,
-      setGoogleUser,
-      setLoadingAuth,
-      setTimeFormat,
-      setToastMessage
-    }}>{children}</Context.Provider>
+    <Context.Provider
+      value={{
+        dateFormat,
+        googleSessions,
+        googleUser,
+        isAuthMenuOpen,
+        isLoadingAuth,
+        timeFormat,
+        toastMessage,
+        setAuthMenuOpen,
+        setDateFormat,
+        setGoogleSessions,
+        setGoogleUser,
+        setLoadingAuth,
+        setTimeFormat,
+        setToastMessage
+      }}
+    >
+      {children}
+    </Context.Provider>
   );
 };
 

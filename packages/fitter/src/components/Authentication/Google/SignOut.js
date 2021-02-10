@@ -17,7 +17,9 @@ const SignOut = () => {
   };
 
   return (
-    <Button type="ghost" size="small" onClick={signOut}>Sign out</Button>
+    <Button type="ghost" size="small" onClick={signOut}>
+      Sign out
+    </Button>
   );
 };
 

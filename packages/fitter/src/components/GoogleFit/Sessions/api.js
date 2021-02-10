@@ -1,12 +1,13 @@
-const loadMoreIntervalMillis = (1000 * 60 * 60 * 24 * 7 * 4); // 4 weeks in milliseconds
+const loadMoreIntervalMillis = 1000 * 60 * 60 * 24 * 7 * 4; // 4 weeks in milliseconds
 const byStartTime = (a, b) => b.startTime - a.startTime;
 
-const mapSessions = (sessions) => sessions.session
-  .map(((session) => ({
-    ...session,
-    startTime: new Date(parseInt(session.startTimeMillis, 10))
-  })))
-  .sort(byStartTime);
+const mapSessions = (sessions) =>
+  sessions.session
+    .map((session) => ({
+      ...session,
+      startTime: new Date(parseInt(session.startTimeMillis, 10))
+    }))
+    .sort(byStartTime);
 
 const getFetchOptions = (accessToken) => ({
   mode: 'cors',
@@ -37,8 +38,4 @@ const mergeSessions = (sessions, newSessions) => {
   return [...sessions, ...uniqueNewSessions];
 };
 
-export {
-  getNextStartTimeMillis,
-  loadSessions,
-  mergeSessions
-};
+export { getNextStartTimeMillis, loadSessions, mergeSessions };

@@ -8,7 +8,8 @@ const SignIn = ({ isHidden }) => {
 
   const renderSignIn = useCallback(() => {
     window.gapi.signin2.render('google-signin', {
-      scope: 'profile email https://www.googleapis.com/auth/fitness.activity.read https://www.googleapis.com/auth/fitness.location.read',
+      scope:
+        'profile email https://www.googleapis.com/auth/fitness.activity.read https://www.googleapis.com/auth/fitness.location.read',
       longtitle: true,
       theme: 'dark',
       onsuccess: async (user) => {
@@ -35,9 +36,7 @@ const SignIn = ({ isHidden }) => {
     }
   }, [googleUser, isLoadingAuth, renderSignIn]);
 
-  return (
-    <div id="google-signin" class={isHidden ? 'hidden' : ''} />
-  );
+  return <div id="google-signin" class={isHidden ? 'hidden' : ''} />;
 };
 
 export default SignIn;

@@ -18,7 +18,17 @@ const filterEmptyResponses = (responses) => {
   return filteredResponses;
 };
 
-const getMocks = (responsesPath) => require(responsesPath);
+const getMocks = (responsesPath) => {
+  let mocks;
+
+  try {
+    mocks = require(responsesPath);
+  } catch {
+    // if there are no mocks we don't do anything
+  }
+
+  return mocks;
+};
 
 const getFullPath = (...paths) => path.join(...paths);
 
@@ -30,7 +40,9 @@ const validateConfig = (config) => {
   } else if (!config.testEnvironmentOptions) {
     throw new Error('You need to specify the `testEnvironmentOptions` in your jest config!');
   } else if (!config.testEnvironmentOptions.mockResponseDir) {
-    throw new Error('Please specify where the mocks should be saved to and loaded from using the `mockResponseDir` test environment option.');
+    throw new Error(
+      'Please specify where the mocks should be saved to and loaded from using the `mockResponseDir` test environment option.'
+    );
   } else if (config.testEnvironmentOptions.collectCoverage && !config.testEnvironmentOptions.coverageDirectory) {
     throw new Error('When coverage is collected you need to provide a coverageDirectory option.');
   } else if (config.testEnvironmentOptions.recordScreenshots && !config.testEnvironmentOptions.screenshotDirectory) {

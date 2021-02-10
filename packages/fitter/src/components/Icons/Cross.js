@@ -7,4 +7,3 @@ const Cross = () => (
 );
 
 export default Cross;
-

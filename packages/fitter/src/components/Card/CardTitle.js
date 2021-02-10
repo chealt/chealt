@@ -1,7 +1,5 @@
 import { h } from 'preact';
 
-const CardTitle = ({ children }) => (
-  <>{children}</>
-);
+const CardTitle = ({ children }) => <>{children}</>;
 
 export default CardTitle;

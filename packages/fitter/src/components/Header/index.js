@@ -16,14 +16,12 @@ const Header = () => {
     <header class={style.header}>
       <nav>
         {!googleUser && !isLoadingAuth && (
-          <Button size="small" onClick={toggleSignIn}>Sign In</Button>
+          <Button size="small" onClick={toggleSignIn}>
+            Sign In
+          </Button>
         )}
-        {googleUser && (
-          <LoggedIn />
-        )}
-        {isLoadingAuth && (
-          <span>Loading...</span>
-        )}
+        {googleUser && <LoggedIn />}
+        {isLoadingAuth && <span>Loading...</span>}
       </nav>
       <AuthMenu />
     </header>

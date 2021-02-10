@@ -11,10 +11,10 @@ module.exports = {
     printCoverageSummary: true,
     recordCoverageText: false,
     // eslint-disable-next-line no-useless-escape
-    collectCoverageFrom: ['https:\/\/www\.google\.com'],
+    collectCoverageFrom: ['https://www.google.com'],
     recordScreenshots: true,
     screenshotDirectory: 'screenshots',
-    requestPathIgnorePatterns: ['async', 'client']
+    requestPathIgnorePatterns: ['async']
   },
   testMatch: ['**/*.ui-test.js'],
   testTimeout: 1000 * 60
