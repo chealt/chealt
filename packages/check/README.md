@@ -1,3 +1,6 @@
+[![npm](https://img.shields.io/npm/v/@chealt/check.svg)](http://npm.im/@chealt/check)
+[![License](https://img.shields.io/npm/l/@chealt/check.svg)](/LICENSE)
+
 # @chealt/check
 
 Yet another opinionated ESLint config.
