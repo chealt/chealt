@@ -1,3 +1,5 @@
+[![npm](https://img.shields.io/npm/v/@chealt/jest-mock-environment.svg)](http://npm.im/@chealt/jest-mock-environment)
+[![License](https://img.shields.io/npm/l/@chealt/jest-mock-environment.svg)](/LICENSE)
 # @chealt/jest-mock-environment
 
 A custom environment for Jest to record and replay requests and their responses during a test execution using Puppeteer.
