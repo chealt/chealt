@@ -1,3 +1,6 @@
+[![npm](https://img.shields.io/npm/v/@chealt/jest-puppeteer-mock-preset.svg)](http://npm.im/@chealt/jest-puppeteer-mock-preset)
+[![License](https://img.shields.io/npm/l/@chealt/jest-puppeteer-mock-preset.svg)](/LICENSE)
+
 # @chealt/jest-puppeteer-mock-preset
 
 Jest preset configuration for using the [@chealt/jest-mock-environment](https://www.npmjs.com/package/@chealt/jest-mock-environment) to record and replay requests and responses during a test execution using Puppeteer.
