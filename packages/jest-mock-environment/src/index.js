@@ -34,6 +34,8 @@ class MockEnvironment extends PuppeteerEnvironment {
     const {
       rootDir,
       collectCoverage,
+      collectPerfMetrics,
+      perfMetricsDirectory,
       coverageDirectory,
       mockResponseDir,
       recordScreenshots,
@@ -56,9 +58,11 @@ class MockEnvironment extends PuppeteerEnvironment {
       this.screenshotFullPath = screenshotFullPath;
     }
 
-    const relativePerfPath = `${context.testPath.replace(rootDir, '')}.perfMetrics.json`;
-    const performancePath = getFullPath(rootDir, 'performance', relativePerfPath);
-    setPerformancePath(performancePath);
+    if (collectPerfMetrics) {
+      const relativePerfPath = `${context.testPath.replace(rootDir, '')}.perfMetrics.json`;
+      const performancePath = getFullPath(rootDir, perfMetricsDirectory, relativePerfPath);
+      setPerformancePath(performancePath);
+    }
 
     setConfig(cleanConfig);
     this.config = cleanConfig;

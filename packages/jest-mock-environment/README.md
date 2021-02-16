@@ -154,6 +154,30 @@ Example:
 }
 ```
 
+#### collectPerfMetrics
+
+Type: `Boolean`
+Default: `false`
+
+Indicates whether the performance metrics should be collected while executing the test.
+
+#### perfMetricsDirectory
+
+Type: `String`
+Default: `undefined`
+
+Relative path to the `rootDir` in your config to store the performance metrics.
+
+Example:
+
+```json
+{
+  "testEnvironmentOptions": {
+    "perfMetricsDirectory": "performance"
+  }
+}
+```
+
 ### Screenshot on failure
 
 The environment will take a screenshot of the full page if a test fails and store it using the following format: `<<TEST_NAME>>--failure.png`.
