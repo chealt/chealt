@@ -1,9 +1,12 @@
 const { findMocksForUrl } = require('./mockUtils');
 const { startCollecting, getCoverage } = require('./coverage/index');
 const { writeFileSafe } = require('./fileUtils');
+const performance = require('./performance/index');
 
 const factory = async ({ config: configParam, page, mocks, globalMocks, logger } = {}) => {
   let runningTestName;
+  const client = await page.target().createCDPSession();
+  const { getMetrics } = await performance({ page, client });
   const config = {
     dataRequestResourceTypes: ['fetch', 'xhr'],
     requestPathIgnorePatterns: ['browser-sync'],
@@ -17,6 +20,7 @@ const factory = async ({ config: configParam, page, mocks, globalMocks, logger }
   const findMocks = findMocksForUrl(config);
   const responses = {};
   const coverages = {};
+
   const getMockResponse = ({ requestDetails: { url, method } }) => {
     const testMocks = mocks && mocks[runningTestName];
     const testMocksForUrl = testMocks && (findMocks(globalMocks, url) || findMocks(testMocks, url));
@@ -33,6 +37,7 @@ const factory = async ({ config: configParam, page, mocks, globalMocks, logger }
 
     return mockResponse || undefined;
   };
+
   const getResponseDetails = async (response, url) => {
     let body;
     let json;
@@ -68,6 +73,7 @@ const factory = async ({ config: configParam, page, mocks, globalMocks, logger }
       body
     };
   };
+
   const getMatchingIgnorePattern = (url) =>
     config.requestPathIgnorePatterns.find((ignorePattern) => new RegExp(ignorePattern, 'u').test(url));
 
@@ -178,6 +184,7 @@ const factory = async ({ config: configParam, page, mocks, globalMocks, logger }
       recordCoverageText
     });
   };
+
   const getCodeCoverages = () => coverages;
 
   const startInterception = async () => {
@@ -185,10 +192,12 @@ const factory = async ({ config: configParam, page, mocks, globalMocks, logger }
     page.on('request', interceptRequest);
     page.on('response', saveResponse);
   };
+
   const stopInterception = async () => {
     await page.removeAllListeners('request');
   };
 
+  // SCREENSHOTS & VIDEOS
   const startRecording = async () => {
     await page.tracing.start({ screenshots: true });
   };
@@ -215,6 +224,7 @@ const factory = async ({ config: configParam, page, mocks, globalMocks, logger }
     });
 
   return {
+    getMetrics,
     getResponses,
     setTestName,
     startInterception,

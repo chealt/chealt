@@ -11,7 +11,9 @@ const {
   setCoveragesPath,
   setConfig,
   setLogger,
-  clearResponses
+  clearResponses,
+  setPerformancePath,
+  savePerformanceMetrics
 } = require('./state');
 const {
   isTestStartEvent,
@@ -53,6 +55,10 @@ class MockEnvironment extends PuppeteerEnvironment {
       const screenshotFullPath = getFullPath(rootDir, screenshotDirectory);
       this.screenshotFullPath = screenshotFullPath;
     }
+
+    const relativePerfPath = `${context.testPath.replace(rootDir, '')}.perfMetrics.json`;
+    const performancePath = getFullPath(rootDir, 'performance', relativePerfPath);
+    setPerformancePath(performancePath);
 
     setConfig(cleanConfig);
     this.config = cleanConfig;
@@ -130,6 +136,8 @@ class MockEnvironment extends PuppeteerEnvironment {
       if (recordScreenshots) {
         await this.envInstance.stopRecording(this.screenshotFullPath);
       }
+
+      await savePerformanceMetrics(await this.envInstance.getMetrics());
     } else if (isTestFailureEvent(event)) {
       await this.envInstance.takeScreenshot(this.screenshotFullPath);
     }

@@ -14,6 +14,7 @@ const state = () => {
   const setLogger = (_logger) => {
     logger = _logger;
   };
+
   // RESPONSES
   let responsesPath;
   const saveResponsesFile = (responses) => writeFileSafe(responsesPath, JSON.stringify(responses));
@@ -58,6 +59,15 @@ const state = () => {
     }
   };
 
+  // PERFORMANCE
+  let metricsPath;
+  const setPerformancePath = (newPath) => {
+    metricsPath = newPath;
+  };
+  const savePerformanceMetrics = async (metrics) => {
+    await writeFileSafe(metricsPath, JSON.stringify(metrics));
+  };
+
   return {
     setConfig,
     setLogger,
@@ -72,7 +82,10 @@ const state = () => {
     getCoverages,
     printCoverages,
     saveCoverages,
-    setCoveragesPath
+    setCoveragesPath,
+    // PERFORMANCE
+    savePerformanceMetrics,
+    setPerformancePath
   };
 };
 
