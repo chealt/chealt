@@ -18,6 +18,7 @@ reports
 coverage
 !packages/jest-mock-environment/**/coverage
 screenshots
+packages/jest-mock-example/performance
 
 # Build
 build
