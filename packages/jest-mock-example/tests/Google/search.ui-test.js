@@ -6,7 +6,7 @@ describe('Google', () => {
     await agreeToConsent();
 
     // WHEN
-    await page.goto('https://google.com');
+    await page.goto('https://www.google.com');
     await expect(page).toFill('input[name=q]', 'Puppeteer');
     await page.keyboard.press('Enter');
     await page.waitForNavigation();

@@ -1,6 +1,6 @@
 const agreeToConsent = async () => {
   // WHEN
-  await page.goto('https://google.com');
+  await page.goto('https://www.google.com');
 
   // THEN
   const consentFrame = page.frames().find((frame) => frame.url().includes('consent.google.com'));
