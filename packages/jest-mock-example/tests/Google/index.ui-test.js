@@ -6,7 +6,7 @@ describe('Google', () => {
     await agreeToConsent();
 
     // WHEN
-    await page.goto('https://google.com');
+    await page.goto('https://www.google.com');
 
     // THEN
     await expect(page).toMatchElement('[aria-label="Google Search"]');
@@ -17,7 +17,7 @@ describe('Google', () => {
     await agreeToConsent();
 
     // WHEN
-    await page.goto('https://google.com');
+    await page.goto('https://www.google.com');
 
     // THEN
     await expect(page).toFill('input[name=q]', 'search term');

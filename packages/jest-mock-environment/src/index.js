@@ -11,7 +11,9 @@ const {
   setCoveragesPath,
   setConfig,
   setLogger,
-  clearResponses
+  clearResponses,
+  setPerformancePath,
+  savePerformanceMetrics
 } = require('./state');
 const {
   isTestStartEvent,
@@ -32,6 +34,8 @@ class MockEnvironment extends PuppeteerEnvironment {
     const {
       rootDir,
       collectCoverage,
+      collectPerfMetrics,
+      perfMetricsDirectory,
       coverageDirectory,
       mockResponseDir,
       recordScreenshots,
@@ -52,6 +56,12 @@ class MockEnvironment extends PuppeteerEnvironment {
     if (recordScreenshots) {
       const screenshotFullPath = getFullPath(rootDir, screenshotDirectory);
       this.screenshotFullPath = screenshotFullPath;
+    }
+
+    if (collectPerfMetrics) {
+      const relativePerfPath = `${context.testPath.replace(rootDir, '')}.perfMetrics.json`;
+      const performancePath = getFullPath(rootDir, perfMetricsDirectory, relativePerfPath);
+      setPerformancePath(performancePath);
     }
 
     setConfig(cleanConfig);
@@ -99,40 +109,64 @@ class MockEnvironment extends PuppeteerEnvironment {
   }
 
   async handleTestEvent(event) {
+    if (isTestStartEvent(event)) {
+      await this.handleStartEvent(event);
+    } else if (isTestsEndEvent(event)) {
+      await this.handleTestsEndEvent();
+    } else if (isTestEndEvent(event)) {
+      await this.handleTestEndEvent();
+    } else if (isTestFailureEvent(event)) {
+      await this.handleTestFailEvent();
+    }
+  }
+
+  async handleStartEvent(event) {
     const { collectCoverage, recordScreenshots } = this.config;
 
-    if (isTestStartEvent(event)) {
-      const testID = getTestID(event.test);
-      this.envInstance.setTestName(testID);
+    const testID = getTestID(event.test);
+    this.envInstance.setTestName(testID);
 
-      if (collectCoverage) {
-        this.envInstance.startCollectingCoverage();
-      }
-
-      await this.envInstance.startInterception();
-
-      if (recordScreenshots) {
-        await this.envInstance.startRecording();
-      }
-    } else if (isTestsEndEvent(event)) {
-      this.addTestResponses();
-
-      if (collectCoverage) {
-        await this.addCodeCoverages();
-      }
-    } else if (isTestEndEvent(event)) {
-      await this.envInstance.stopInterception();
-
-      if (collectCoverage) {
-        await this.envInstance.stopCollectingCoverage();
-      }
-
-      if (recordScreenshots) {
-        await this.envInstance.stopRecording(this.screenshotFullPath);
-      }
-    } else if (isTestFailureEvent(event)) {
-      await this.envInstance.takeScreenshot(this.screenshotFullPath);
+    if (collectCoverage) {
+      this.envInstance.startCollectingCoverage();
     }
+
+    await this.envInstance.startInterception();
+
+    if (recordScreenshots) {
+      await this.envInstance.startRecording();
+    }
+  }
+
+  async handleTestsEndEvent() {
+    const { collectCoverage } = this.config;
+
+    this.addTestResponses();
+
+    if (collectCoverage) {
+      await this.addCodeCoverages();
+    }
+  }
+
+  async handleTestEndEvent() {
+    const { collectCoverage, recordScreenshots, collectPerfMetrics } = this.config;
+
+    await this.envInstance.stopInterception();
+
+    if (collectCoverage) {
+      await this.envInstance.stopCollectingCoverage();
+    }
+
+    if (recordScreenshots) {
+      await this.envInstance.stopRecording(this.screenshotFullPath);
+    }
+
+    if (collectPerfMetrics) {
+      await savePerformanceMetrics(await this.envInstance.getMetrics());
+    }
+  }
+
+  handleTestFailEvent() {
+    return this.envInstance.takeScreenshot(this.screenshotFullPath);
   }
 
   addTestResponses() {
