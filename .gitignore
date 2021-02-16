@@ -16,7 +16,7 @@ yarn-error.log
 mocks
 reports
 coverage
-!packages/jest-mock-environment/**/coverage
+!packages/jest-puppeteer-env/**/coverage
 screenshots
 packages/jest-mock-example/performance
 
