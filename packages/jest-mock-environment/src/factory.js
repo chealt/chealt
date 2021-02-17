@@ -1,6 +1,6 @@
 const { findMocksForUrl } = require('./mockUtils');
 const { startCollecting, getCoverage } = require('./coverage/index');
-const { writeFileSafe } = require('./fileUtils');
+const { writeFileSafe, createDir } = require('./fileUtils');
 const performance = require('./performance/index');
 
 const factory = async ({ config: configParam, page, mocks, globalMocks, logger } = {}) => {
@@ -21,9 +21,16 @@ const factory = async ({ config: configParam, page, mocks, globalMocks, logger }
   const responses = {};
   const coverages = {};
 
-  const getMockResponse = ({ requestDetails: { url, method } }) => {
+  const getMocksForUrl = ({ url }) => {
     const testMocks = mocks && mocks[runningTestName];
-    const testMocksForUrl = testMocks && (findMocks(globalMocks, url) || findMocks(testMocks, url));
+    const testMocksForUrl = testMocks && findMocks(testMocks, url);
+    const globalMocksForUrl = globalMocks && findMocks(globalMocks, url);
+
+    return globalMocksForUrl || testMocksForUrl;
+  };
+
+  const getMockResponse = ({ requestDetails: { url, method } }) => {
+    const testMocksForUrl = getMocksForUrl({ url });
     const hasMockResponses = testMocksForUrl && testMocksForUrl.length;
     const mockResponseIndex = hasMockResponses && testMocksForUrl.findIndex((mock) => mock.method === method);
     const mockResponse =
@@ -217,11 +224,15 @@ const factory = async ({ config: configParam, page, mocks, globalMocks, logger }
     );
   };
 
-  const takeScreenshot = (screenshotFullPath) =>
-    page.screenshot({
-      path: `${screenshotFullPath}/${runningTestName.replace(/\//gu, '--')}-failure.png`,
+  const takeScreenshot = async (screenshotFullPath) => {
+    const path = `${screenshotFullPath}/${runningTestName.replace(/\//gu, '--')}-failure.png`;
+    await createDir(path);
+
+    return page.screenshot({
+      path,
       fullPage: true
     });
+  };
 
   return {
     getMetrics,

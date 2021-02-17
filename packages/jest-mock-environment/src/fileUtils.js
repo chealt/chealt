@@ -5,13 +5,19 @@ const { promisify } = require('util');
 const writeFile = promisify(fs.writeFile);
 const mkdir = promisify(fs.mkdir);
 
-const writeFileSafe = async (filepath, content) => {
+const createDir = (filepath) => {
   const dirname = path.dirname(filepath);
-  await mkdir(dirname, { recursive: true });
+
+  return mkdir(dirname, { recursive: true });
+};
+
+const writeFileSafe = async (filepath, content) => {
+  await createDir(filepath);
 
   return writeFile(filepath, content);
 };
 
 module.exports = {
+  createDir,
   writeFileSafe
 };
