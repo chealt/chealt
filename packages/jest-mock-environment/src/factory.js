@@ -21,9 +21,16 @@ const factory = async ({ config: configParam, page, mocks, globalMocks, logger }
   const responses = {};
   const coverages = {};
 
-  const getMockResponse = ({ requestDetails: { url, method } }) => {
+  const getMocksForUrl = ({ url }) => {
     const testMocks = mocks && mocks[runningTestName];
-    const testMocksForUrl = testMocks && (findMocks(globalMocks, url) || findMocks(testMocks, url));
+    const testMocksForUrl = testMocks && findMocks(testMocks, url);
+    const globalMocksForUrl = globalMocks && findMocks(globalMocks, url);
+
+    return globalMocksForUrl || testMocksForUrl;
+  };
+
+  const getMockResponse = ({ requestDetails: { url, method } }) => {
+    const testMocksForUrl = getMocksForUrl({ url });
     const hasMockResponses = testMocksForUrl && testMocksForUrl.length;
     const mockResponseIndex = hasMockResponses && testMocksForUrl.findIndex((mock) => mock.method === method);
     const mockResponse =
