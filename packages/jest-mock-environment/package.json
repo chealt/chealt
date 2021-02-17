@@ -1,6 +1,6 @@
 {
   "name": "@chealt/jest-mock-environment",
-  "version": "0.16.1",
+  "version": "0.16.2",
   "license": "MIT",
   "main": "index.js",
   "repository": {
