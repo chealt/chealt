@@ -1,6 +1,6 @@
 const { findMocksForUrl } = require('./mockUtils');
 const { startCollecting, getCoverage } = require('./coverage/index');
-const { writeFileSafe } = require('./fileUtils');
+const { writeFileSafe, createDir } = require('./fileUtils');
 const performance = require('./performance/index');
 
 const factory = async ({ config: configParam, page, mocks, globalMocks, logger } = {}) => {
@@ -217,11 +217,15 @@ const factory = async ({ config: configParam, page, mocks, globalMocks, logger }
     );
   };
 
-  const takeScreenshot = (screenshotFullPath) =>
-    page.screenshot({
-      path: `${screenshotFullPath}/${runningTestName.replace(/\//gu, '--')}-failure.png`,
+  const takeScreenshot = async (screenshotFullPath) => {
+    const path = `${screenshotFullPath}/${runningTestName.replace(/\//gu, '--')}-failure.png`;
+    await createDir(path);
+
+    return page.screenshot({
+      path,
       fullPage: true
     });
+  };
 
   return {
     getMetrics,
