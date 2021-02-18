@@ -12,7 +12,7 @@
     "test": "JEST_PUPPETEER_CONFIG=./config/puppeteer/puppeteer.config.js jest --runInBand --config=./config/jest/jest.puppeteer.config.js"
   },
   "dependencies": {
-    "@chealt/jest-puppeteer-mock-preset": "0.14.0",
+    "@chealt/jest-puppeteer-mock-preset": "0.14.2",
     "puppeteer": "7.1.0"
   },
   "peerDependencies": {
