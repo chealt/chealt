@@ -1,0 +1,25 @@
+{
+  "name": "@chealt/jest-puppeteer-env-example",
+  "version": "0.0.1",
+  "license": "MIT",
+  "main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chealt/chealt.git"
+  },
+  "homepage": "https://github.com/chealt/chealt#chealt",
+  "scripts": {
+    "test": "JEST_PUPPETEER_CONFIG=./config/puppeteer/puppeteer.config.js jest --runInBand --config=./config/jest/jest.puppeteer.config.js"
+  },
+  "dependencies": {
+    "@chealt/jest-puppeteer-env-preset": "1.0.0",
+    "puppeteer": "7.1.0"
+  },
+  "peerDependencies": {
+    "jest": "^26.5.3"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "sideEffects": false
+}
