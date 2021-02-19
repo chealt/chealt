@@ -37,7 +37,15 @@ See a more detailed example in the [Jest Mock example package](https://github.co
 
 Using the Jest config `testEnvironmentOptions` you have the following options:
 
-#### mockResponseDir (required)
+#### recordRequests
+
+Type: `Boolean`
+Default: `false`
+
+Indicates whether the requests should be recorded while executing the test.
+When it is set, the `mockResponseDir` will be used to store the recorded requests, therefore that option must be set as well.
+
+#### mockResponseDir
 
 Relative path to the `rootDir` in your config to store and load the recorded responses.
 The mocks will be saved using the specs' relative path with the postfix `.mocks.json`.
