@@ -24,6 +24,14 @@ Update your Jest config with
 
 ```json
 {
+  "preset": "@chealt/jest-puppeteer-env/preset"
+}
+```
+
+Or you can add the preset manually to your config to override options.
+
+```json
+{
   "testRunner": "jest-circus/runner",
   "globalSetup": "@chealt/jest-puppeteer-env/setup",
   "globalTeardown": "@chealt/jest-puppeteer-env/teardown",

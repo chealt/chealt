@@ -1,6 +1,6 @@
 module.exports = {
   rootDir: '../../',
-  preset: '@chealt/jest-puppeteer-env-preset',
+  preset: '@chealt/jest-puppeteer-env/preset',
   verbose: !process.env.CI,
   testEnvironmentOptions: {
     collectCoverage: true,
