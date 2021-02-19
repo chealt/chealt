@@ -1,5 +1,6 @@
 const { setup: setupServer, teardown: teardownServer } = require('jest-dev-server');
-const { readConfig, getPuppeteer } = require('./readConfig');
+const { readConfig, getPuppeteer } = require('./configUtils');
+const { saveCoverages, printCoverages } = require('./state');
 
 let browser;
 
@@ -32,6 +33,9 @@ const setup = async (jestConfig = {}) => {
 };
 
 const teardown = async (jestConfig = {}) => {
+  await saveCoverages();
+  printCoverages();
+
   const config = await readConfig();
 
   if (config.connect) {
