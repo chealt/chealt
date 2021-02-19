@@ -22,9 +22,9 @@ const {
   isTestsEndEvent,
   getTestID
 } = require('./testEventUtils');
-const { filterEmptyResponses, getMocks, getFullPath, hasResponses, validateConfig } = require('./envUtils');
+const { filterEmptyResponses, getMocks, getFullPath, hasResponses } = require('./envUtils');
 const chalk = require('chalk');
-const { readConfig, getPuppeteer } = require('./configUtils');
+const { readConfig, getPuppeteer, validateConfig } = require('./configUtils');
 
 const handleError = (error) => {
   process.emit('uncaughtException', error);
