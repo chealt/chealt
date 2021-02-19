@@ -2,7 +2,7 @@
 [![License](https://img.shields.io/npm/l/@chealt/jest-puppeteer-env.svg)](/LICENSE)
 # @chealt/jest-puppeteer-env
 
-A custom environment for Jest with many performance, accessibility testing and the ability to record and mock requests.
+A custom environment for Jest with many performance, accessibility testing features and the ability to record and mock requests.
 
 ## Install
 
