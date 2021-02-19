@@ -17,8 +17,8 @@ mocks
 reports
 coverage
 !packages/jest-puppeteer-env/**/coverage
-screenshots
-packages/jest-mock-example/performance
+packages/jest-puppeteer-env-example/screenshots
+packages/jest-puppeteer-env-example/performance
 
 # Build
 build
