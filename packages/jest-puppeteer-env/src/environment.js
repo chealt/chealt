@@ -50,14 +50,21 @@ class PuppeteerEnvironment extends NodeEnvironment {
       perfMetricsDirectory,
       coverageDirectory,
       mockResponseDir,
+      recordRequests,
       recordScreenshots,
       screenshotDirectory,
       shouldUseMocks
     } = cleanConfig;
-    const relativeTestPath = `${context.testPath.replace(rootDir, '')}.mocks.json`;
-    const responsesPath = getFullPath(rootDir, mockResponseDir, relativeTestPath);
-    setResponsesPath(responsesPath);
-    clearResponses();
+
+    if (recordRequests || shouldUseMocks) {
+      const relativeTestPath = `${context.testPath.replace(rootDir, '')}.mocks.json`;
+      const responsesPath = getFullPath(rootDir, mockResponseDir, relativeTestPath);
+      setResponsesPath(responsesPath);
+      clearResponses();
+
+      this.mocks = shouldUseMocks && getMocks(responsesPath);
+      this.globalMocks = shouldUseMocks && getMocks(getFullPath(rootDir, mockResponseDir, 'global.mocks.json'));
+    }
 
     if (collectCoverage) {
       const coverageFullPath = getFullPath(rootDir, path.join(coverageDirectory, '/coverage.json'));
@@ -78,8 +85,6 @@ class PuppeteerEnvironment extends NodeEnvironment {
 
     setConfig(cleanConfig);
     this.config = cleanConfig;
-    this.mocks = shouldUseMocks && getMocks(responsesPath);
-    this.globalMocks = shouldUseMocks && getMocks(getFullPath(rootDir, mockResponseDir, 'global.mocks.json'));
   }
   // Jest is not available here, so we have to reverse engineer
   // the setTimeout function, see https://github.com/facebook/jest/blob/v23.1.0/packages/jest-runtime/src/index.js#L823
@@ -214,6 +219,7 @@ class PuppeteerEnvironment extends NodeEnvironment {
       isPortAgnostic,
       printCoverageSummary,
       recordCoverageText,
+      recordRequests,
       requestPathIgnorePatterns
     } = this.config;
 
@@ -235,6 +241,7 @@ class PuppeteerEnvironment extends NodeEnvironment {
         collectCoverageFrom,
         printCoverageSummary,
         recordCoverageText,
+        recordRequests,
         requestPathIgnorePatterns
       }
     });
@@ -270,9 +277,11 @@ class PuppeteerEnvironment extends NodeEnvironment {
   }
 
   async handleTestsEndEvent() {
-    const { collectCoverage } = this.config;
+    const { collectCoverage, recordRequests } = this.config;
 
-    this.addTestResponses();
+    if (recordRequests) {
+      this.addTestResponses();
+    }
 
     if (collectCoverage) {
       await this.addCodeCoverages();

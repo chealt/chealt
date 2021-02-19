@@ -14,6 +14,7 @@ const factory = async ({ config: configParam, page, mocks, globalMocks, logger }
     isHostAgnostic: false,
     printCoverageSummary: false,
     recordCoverageText: false,
+    recordRequests: false,
     shouldUseMocks: false,
     ...configParam
   };
@@ -85,7 +86,7 @@ const factory = async ({ config: configParam, page, mocks, globalMocks, logger }
     config.requestPathIgnorePatterns.find((ignorePattern) => new RegExp(ignorePattern, 'u').test(url));
 
   const interceptRequest = async (request) => {
-    const { dataRequestResourceTypes } = config;
+    const { dataRequestResourceTypes, recordRequests } = config;
     const requestResourceType = request.resourceType();
     const isDataRequest = dataRequestResourceTypes.includes(requestResourceType);
     const url = request.url();
@@ -124,23 +125,25 @@ const factory = async ({ config: configParam, page, mocks, globalMocks, logger }
         logger.debug(`Could not find mock for url: ${url}`);
       }
 
-      if (!responses[runningTestName]) {
-        responses[runningTestName] = {};
-      }
+      if (recordRequests) {
+        if (!responses[runningTestName]) {
+          responses[runningTestName] = {};
+        }
 
-      responses[runningTestName][url] = [];
+        responses[runningTestName][url] = [];
 
-      const response = request.response();
+        const response = request.response();
 
-      if (response) {
-        const details = await getResponseDetails(response);
+        if (response) {
+          const details = await getResponseDetails(response);
 
-        if (details) {
-          responses[runningTestName][url].push({
-            url,
-            method,
-            ...details
-          });
+          if (details) {
+            responses[runningTestName][url].push({
+              url,
+              method,
+              ...details
+            });
+          }
         }
       }
     } else {
@@ -197,7 +200,12 @@ const factory = async ({ config: configParam, page, mocks, globalMocks, logger }
   const startInterception = async () => {
     await page.setRequestInterception(true);
     page.on('request', interceptRequest);
-    page.on('response', saveResponse);
+
+    const { recordRequests } = config;
+
+    if (recordRequests) {
+      page.on('response', saveResponse);
+    }
   };
 
   const stopInterception = async () => {
