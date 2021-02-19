@@ -3,20 +3,20 @@ module.exports = {
   preset: '@chealt/jest-puppeteer-env-preset',
   verbose: !process.env.CI,
   testEnvironmentOptions: {
+    collectCoverage: true,
+    collectCoverageFrom: ['https://www.google.com'],
+    collectPerfMetrics: true,
+    coverageDirectory: 'coverage',
     isHostAgnostic: true,
     mockResponseDir: 'mocks',
-    shouldUseMocks: Boolean(process.env.MOCK),
-    collectCoverage: true,
-    coverageDirectory: 'coverage',
+    perfMetricsDirectory: 'performance',
     printCoverageSummary: true,
     recordCoverageText: false,
-    // eslint-disable-next-line no-useless-escape
-    collectCoverageFrom: ['https://www.google.com'],
+    recordRequests: Boolean(process.env.RECORD_REQUESTS),
     recordScreenshots: true,
-    screenshotDirectory: 'screenshots',
     requestPathIgnorePatterns: ['async'],
-    collectPerfMetrics: true,
-    perfMetricsDirectory: 'performance'
+    screenshotDirectory: 'screenshots',
+    shouldUseMocks: Boolean(process.env.MOCK)
   },
   testMatch: ['**/*.ui-test.js'],
   testTimeout: 1000 * 60
