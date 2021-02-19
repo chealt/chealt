@@ -13,8 +13,6 @@ const createDir = (filepath) => {
 
 const writeFileSafe = async (filepath, content) => {
   await createDir(filepath);
-  const dirname = path.dirname(filepath);
-  await mkdir(dirname, { recursive: true });
 
   return writeFile(filepath, content);
 };
