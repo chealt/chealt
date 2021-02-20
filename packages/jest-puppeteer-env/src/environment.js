@@ -13,7 +13,8 @@ const {
   setLogger,
   clearResponses,
   setPerformancePath,
-  savePerformanceMetrics
+  savePerformanceMetrics,
+  saveA11YResults
 } = require('./state');
 const {
   isTestStartEvent,
@@ -25,6 +26,7 @@ const {
 const { filterEmptyResponses, getMocks, getFullPath, hasResponses } = require('./envUtils');
 const chalk = require('chalk');
 const { readConfig, getPuppeteer, validateConfig } = require('./configUtils');
+const accessibility = require('./accessibility');
 
 const handleError = (error) => {
   process.emit('uncaughtException', error);
@@ -85,6 +87,7 @@ class PuppeteerEnvironment extends NodeEnvironment {
 
     setConfig(cleanConfig);
     this.config = cleanConfig;
+    this.testPath = context.testPath;
   }
   // Jest is not available here, so we have to reverse engineer
   // the setTimeout function, see https://github.com/facebook/jest/blob/v23.1.0/packages/jest-runtime/src/index.js#L823
@@ -289,7 +292,7 @@ class PuppeteerEnvironment extends NodeEnvironment {
   }
 
   async handleTestEndEvent() {
-    const { collectCoverage, recordScreenshots, collectPerfMetrics } = this.config;
+    const { collectCoverage, recordScreenshots, collectPerfMetrics, rootDir } = this.config;
 
     await this.envInstance.stopInterception();
 
@@ -304,6 +307,10 @@ class PuppeteerEnvironment extends NodeEnvironment {
     if (collectPerfMetrics) {
       await savePerformanceMetrics(await this.envInstance.getMetrics());
     }
+
+    const relativeA11YPath = `${this.testPath.replace(rootDir, '')}.a11y.json`;
+    const a11yPath = getFullPath(rootDir, 'accessibility', relativeA11YPath);
+    await saveA11YResults(a11yPath, await accessibility(this.global.page));
   }
 
   handleTestFailEvent() {

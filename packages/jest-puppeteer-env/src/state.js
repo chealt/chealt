@@ -68,6 +68,11 @@ const state = () => {
     await writeFileSafe(metricsPath, JSON.stringify(metrics));
   };
 
+  // A11Y
+  const saveA11YResults = async (a11yPath, findings) => {
+    await writeFileSafe(a11yPath, JSON.stringify(findings));
+  };
+
   return {
     setConfig,
     setLogger,
@@ -85,7 +90,9 @@ const state = () => {
     setCoveragesPath,
     // PERFORMANCE
     savePerformanceMetrics,
-    setPerformancePath
+    setPerformancePath,
+    // A11Y
+    saveA11YResults
   };
 };
 
