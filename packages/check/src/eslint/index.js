@@ -13,7 +13,7 @@ const config = {
     page: true,
     jestPuppeteer: true
   },
-  parser: 'babel-eslint',
+  parser: '@babel/eslint-parser',
   rules: {
     ...javascriptRules,
     ...importRules,

@@ -69,6 +69,8 @@ const cleanConfig = (config) => {
   const {
     rootDir,
     testEnvironmentOptions: {
+      A11YDirectory,
+      checkA11Y,
       collectCoverage,
       collectCoverageFrom,
       coverageDirectory,
@@ -86,6 +88,8 @@ const cleanConfig = (config) => {
   } = config;
 
   return {
+    A11YDirectory,
+    checkA11Y,
     collectCoverage,
     collectCoverageFrom,
     collectPerfMetrics,
