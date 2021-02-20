@@ -4,7 +4,7 @@
   "license": "MIT",
   "main": "src/index.js",
   "peerDependencies": {
-    "babel-eslint": "^10.1.0",
+    "@babel/eslint-parser": "^7.12.17",
     "eslint": "^7.20.0",
     "eslint-config-prettier": "^7.2.0",
     "eslint-plugin-import": "^2.22.1",
