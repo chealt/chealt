@@ -194,6 +194,30 @@ Example:
 }
 ```
 
+#### checkA11Y
+
+Type: `Boolean`
+Default: `false`
+
+Indicates whether accessibility should be checked before the test exits.
+
+#### A11YDirectory
+
+Type: `String`
+Default: `undefined`
+
+Relative path to the `rootDir` in your config to store the accessibility findings when the test run.
+
+Example:
+
+```json
+{
+  "testEnvironmentOptions": {
+    "A11YDirectory": "accessibility"
+  }
+}
+```
+
 ### Screenshot on failure
 
 The environment will take a screenshot of the full page if a test fails and store it using the following format: `<<TEST_NAME>>--failure.png`.
