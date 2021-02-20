@@ -10,6 +10,7 @@
   "homepage": "https://github.com/chealt/chealt#chealt",
   "scripts": {},
   "dependencies": {
+    "@axe-core/puppeteer": "^4.1.1",
     "chalk": "4.1.0",
     "cwd": "0.10.0",
     "expect-puppeteer": "4.4.0",
