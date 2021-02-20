@@ -292,7 +292,7 @@ class PuppeteerEnvironment extends NodeEnvironment {
   }
 
   async handleTestEndEvent() {
-    const { collectCoverage, recordScreenshots, collectPerfMetrics, rootDir } = this.config;
+    const { collectCoverage, recordScreenshots, collectPerfMetrics, rootDir, checkA11Y, A11YDirectory } = this.config;
 
     await this.envInstance.stopInterception();
 
@@ -308,9 +308,11 @@ class PuppeteerEnvironment extends NodeEnvironment {
       await savePerformanceMetrics(await this.envInstance.getMetrics());
     }
 
-    const relativeA11YPath = `${this.testPath.replace(rootDir, '')}.a11y.json`;
-    const a11yPath = getFullPath(rootDir, 'accessibility', relativeA11YPath);
-    await saveA11YResults(a11yPath, await accessibility(this.global.page));
+    if (checkA11Y) {
+      const relativeA11YPath = `${this.testPath.replace(rootDir, '')}.a11y.json`;
+      const a11yPath = getFullPath(rootDir, A11YDirectory, relativeA11YPath);
+      await saveA11YResults(a11yPath, await accessibility(this.global.page));
+    }
   }
 
   handleTestFailEvent() {
