@@ -8,7 +8,7 @@ const checkViolations = ({ violations, failLevel }) => {
   const failLevelIndex = failLevels.indexOf(failLevel);
 
   if (failLevelIndex === -1) {
-    throw new Error(`Fail level must be one of: ${failLevels}, received: ${failLevel}`);
+    throw new Error(`Fail level must be one of: ${failLevels.join(', ')}, received: ${failLevel}`);
   }
 
   return violations.filter((violation) => {

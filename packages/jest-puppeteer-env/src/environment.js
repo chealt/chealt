@@ -298,9 +298,7 @@ class PuppeteerEnvironment extends NodeEnvironment {
       recordScreenshots,
       collectPerfMetrics,
       rootDir,
-      accessibility: { failLevel },
-      checkA11Y,
-      A11YDirectory
+      accessibility: { shouldCheck, failLevel, reportDirectory }
     } = this.config;
 
     await this.envInstance.stopInterception();
@@ -317,18 +315,20 @@ class PuppeteerEnvironment extends NodeEnvironment {
       await savePerformanceMetrics(await this.envInstance.getMetrics());
     }
 
-    if (checkA11Y) {
+    if (shouldCheck) {
       const { analyze, checkViolations } = accessibility;
       const relativeA11YPath = `${this.testPath.replace(rootDir, '')}.a11y.json`;
-      const a11yPath = getFullPath(rootDir, A11YDirectory, relativeA11YPath);
+      const a11yPath = getFullPath(rootDir, reportDirectory, relativeA11YPath);
       const results = await analyze(this.global.page);
 
       await saveA11YResults(a11yPath, results);
 
-      const failingViolations = checkViolations({ violations: results.violations, failLevel });
+      if (failLevel) {
+        const failingViolations = checkViolations({ violations: results.violations, failLevel });
 
-      if (failingViolations.length) {
-        throw new Error(`Found a11y violations in test: ${this.testID}, check the report for more information.`);
+        if (failingViolations.length) {
+          throw new Error(`Found a11y violations in test: ${this.testID}, check the report for more information.`);
+        }
       }
     }
   }
