@@ -3,8 +3,11 @@ module.exports = {
   preset: '@chealt/jest-puppeteer-env/preset',
   verbose: !process.env.CI,
   testEnvironmentOptions: {
-    checkA11Y: true,
-    A11YDirectory: 'accessibility',
+    accessibility: {
+      shouldCheck: true,
+      // failLevel: 'critical',
+      reportDirectory: 'accessibility'
+    },
     collectCoverage: true,
     collectCoverageFrom: ['https://www.google.com'],
     collectPerfMetrics: true,

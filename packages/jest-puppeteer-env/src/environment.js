@@ -267,6 +267,7 @@ class PuppeteerEnvironment extends NodeEnvironment {
 
     const testID = getTestID(event.test);
     this.envInstance.setTestName(testID);
+    this.testID = testID;
 
     if (collectCoverage) {
       this.envInstance.startCollectingCoverage();
@@ -292,7 +293,13 @@ class PuppeteerEnvironment extends NodeEnvironment {
   }
 
   async handleTestEndEvent() {
-    const { collectCoverage, recordScreenshots, collectPerfMetrics, rootDir, checkA11Y, A11YDirectory } = this.config;
+    const {
+      collectCoverage,
+      recordScreenshots,
+      collectPerfMetrics,
+      rootDir,
+      accessibility: { shouldCheck, failLevel, reportDirectory }
+    } = this.config;
 
     await this.envInstance.stopInterception();
 
@@ -308,10 +315,21 @@ class PuppeteerEnvironment extends NodeEnvironment {
       await savePerformanceMetrics(await this.envInstance.getMetrics());
     }
 
-    if (checkA11Y) {
+    if (shouldCheck) {
+      const { analyze, checkViolations } = accessibility;
       const relativeA11YPath = `${this.testPath.replace(rootDir, '')}.a11y.json`;
-      const a11yPath = getFullPath(rootDir, A11YDirectory, relativeA11YPath);
-      await saveA11YResults(a11yPath, await accessibility(this.global.page));
+      const a11yPath = getFullPath(rootDir, reportDirectory, relativeA11YPath);
+      const results = await analyze(this.global.page);
+
+      await saveA11YResults(a11yPath, results);
+
+      if (failLevel) {
+        const failingViolations = checkViolations({ violations: results.violations, failLevel });
+
+        if (failingViolations.length) {
+          throw new Error(`Found a11y violations in test: ${this.testID}, check the report for more information.`);
+        }
+      }
     }
   }
 

@@ -194,14 +194,38 @@ Example:
 }
 ```
 
-#### checkA11Y
+#### Accessibility
+
+##### failLevel
+
+Type: `String`
+Default: `undefined`
+
+Fail tests that have `a11y` violations. Possible values are `moderate`, `serious`, `critical` in order of seriousness. Any `a11y` violation more serious than the level specified will throw an error.
+
+Example:
+
+```json
+{
+  "testEnvironmentOptions": {
+    "accessibility": {
+      "shouldCheck": true,
+      "failLevel": "critical"
+    }
+  }
+}
+```
+
+When provided the `shouldCheck` accessibility config must be true as well.
+
+##### shouldCheck
 
 Type: `Boolean`
 Default: `false`
 
 Indicates whether accessibility should be checked before the test exits.
 
-#### A11YDirectory
+##### reportDirectory
 
 Type: `String`
 Default: `undefined`
@@ -213,10 +237,15 @@ Example:
 ```json
 {
   "testEnvironmentOptions": {
-    "A11YDirectory": "accessibility"
+    "accessibility": {
+      "shouldCheck": true,
+      "reportDirectory": "accessibility"
+    }
   }
 }
 ```
+
+When provided the `shouldCheck` accessibility config must be true as well.
 
 ### Screenshot on failure
 

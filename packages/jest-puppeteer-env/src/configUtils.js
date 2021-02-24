@@ -69,8 +69,7 @@ const cleanConfig = (config) => {
   const {
     rootDir,
     testEnvironmentOptions: {
-      A11YDirectory,
-      checkA11Y,
+      accessibility,
       collectCoverage,
       collectCoverageFrom,
       coverageDirectory,
@@ -88,8 +87,7 @@ const cleanConfig = (config) => {
   } = config;
 
   return {
-    A11YDirectory,
-    checkA11Y,
+    accessibility,
     collectCoverage,
     collectCoverageFrom,
     collectPerfMetrics,
@@ -127,6 +125,16 @@ const validateConfig = (config) => {
     throw new Error('When screenshots are taken you need to provide a screenshotDirectory option.');
   } else if (config.testEnvironmentOptions.collectPerfMetrics && !config.testEnvironmentOptions.perfMetricsDirectory) {
     throw new Error('When performance metrics are collected you need to provide a perfMetricsDirectory option.');
+  } else if (
+    config.testEnvironmentOptions.accessibility?.shouldCheck &&
+    !config.testEnvironmentOptions.accessibility?.reportDirectory
+  ) {
+    throw new Error('When a11y should be checked you need to provide a reportDirectory option.');
+  } else if (
+    !config.testEnvironmentOptions.accessibility?.shouldCheck &&
+    config.testEnvironmentOptions.accessibility?.failLevel
+  ) {
+    throw new Error('When a11y failLevel is provided you need to set the shouldCheck option.');
   } else {
     return cleanConfig(config);
   }
