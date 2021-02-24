@@ -293,7 +293,15 @@ class PuppeteerEnvironment extends NodeEnvironment {
   }
 
   async handleTestEndEvent() {
-    const { collectCoverage, recordScreenshots, collectPerfMetrics, rootDir, checkA11Y, A11YDirectory } = this.config;
+    const {
+      collectCoverage,
+      recordScreenshots,
+      collectPerfMetrics,
+      rootDir,
+      accessibility: { failLevel },
+      checkA11Y,
+      A11YDirectory
+    } = this.config;
 
     await this.envInstance.stopInterception();
 
@@ -317,7 +325,7 @@ class PuppeteerEnvironment extends NodeEnvironment {
 
       await saveA11YResults(a11yPath, results);
 
-      const failingViolations = checkViolations({ violations: results.violations, failLevel: 'moderate' });
+      const failingViolations = checkViolations({ violations: results.violations, failLevel });
 
       if (failingViolations.length) {
         throw new Error(`Found a11y violations in test: ${this.testID}, check the report for more information.`);
