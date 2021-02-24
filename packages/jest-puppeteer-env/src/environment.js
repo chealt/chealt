@@ -267,6 +267,7 @@ class PuppeteerEnvironment extends NodeEnvironment {
 
     const testID = getTestID(event.test);
     this.envInstance.setTestName(testID);
+    this.testID = testID;
 
     if (collectCoverage) {
       this.envInstance.startCollectingCoverage();
@@ -309,9 +310,18 @@ class PuppeteerEnvironment extends NodeEnvironment {
     }
 
     if (checkA11Y) {
+      const { analyze, checkViolations } = accessibility;
       const relativeA11YPath = `${this.testPath.replace(rootDir, '')}.a11y.json`;
       const a11yPath = getFullPath(rootDir, A11YDirectory, relativeA11YPath);
-      await saveA11YResults(a11yPath, await accessibility(this.global.page));
+      const results = await analyze(this.global.page);
+
+      await saveA11YResults(a11yPath, results);
+
+      const failingViolations = checkViolations({ violations: results.violations, failLevel: 'moderate' });
+
+      if (failingViolations.length) {
+        throw new Error(`Found a11y violations in test: ${this.testID}, check the report for more information.`);
+      }
     }
   }
 
