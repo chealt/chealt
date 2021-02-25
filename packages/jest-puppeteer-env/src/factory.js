@@ -12,8 +12,6 @@ const factory = async ({ config: configParam, page, mocks, globalMocks, logger }
     requestPathIgnorePatterns: ['browser-sync'],
     isPortAgnostic: false,
     isHostAgnostic: false,
-    printCoverageSummary: false,
-    recordCoverageText: false,
     recordRequests: false,
     shouldUseMocks: false,
     ...configParam
@@ -186,7 +184,9 @@ const factory = async ({ config: configParam, page, mocks, globalMocks, logger }
   // CODE COVERAGE
   const startCollectingCoverage = () => startCollecting(page);
   const stopCollectingCoverage = async () => {
-    const { collectCoverageFrom, recordCoverageText } = config;
+    const {
+      performance: { collectCoverageFrom, recordCoverageText }
+    } = config;
 
     coverages[runningTestName] = await getCoverage({
       page,
