@@ -54,7 +54,7 @@ const state = () => {
     }
   };
   const printCoverages = () => {
-    if (config.printCoverageSummary) {
+    if (config.performance?.printCoverageSummary) {
       coverageUtils.printCoverages({ logger, coverages: allCodeCoverages });
     }
   };

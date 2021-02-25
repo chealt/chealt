@@ -70,32 +70,20 @@ const cleanConfig = (config) => {
     rootDir,
     testEnvironmentOptions: {
       accessibility,
-      collectCoverage,
-      collectCoverageFrom,
-      coverageDirectory,
       mockResponseDir,
-      perfMetricsDirectory,
-      printCoverageSummary,
-      recordCoverageText,
+      performance,
       recordRequests,
       recordScreenshots,
       requestPathIgnorePatterns,
       screenshotDirectory,
-      shouldUseMocks,
-      collectPerfMetrics
+      shouldUseMocks
     }
   } = config;
 
   return {
     accessibility,
-    collectCoverage,
-    collectCoverageFrom,
-    collectPerfMetrics,
-    coverageDirectory,
     mockResponseDir,
-    perfMetricsDirectory,
-    printCoverageSummary,
-    recordCoverageText,
+    performance,
     recordRequests,
     recordScreenshots,
     requestPathIgnorePatterns,
