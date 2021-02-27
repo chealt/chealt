@@ -15,7 +15,17 @@ module.exports = {
       coverageDirectory: 'coverage',
       perfMetricsDirectory: 'performance',
       printCoverageSummary: true,
-      recordCoverageText: false
+      recordCoverageText: false,
+      bundleSizes: [
+        {
+          path: 'xjs/_/js',
+          maxSize: '600 B'
+        },
+        {
+          path: 'og/_/ss',
+          maxSize: '10 B'
+        }
+      ]
     },
     isHostAgnostic: true,
     mockResponseDir: 'mocks',

@@ -279,6 +279,7 @@ class PuppeteerEnvironment extends NodeEnvironment {
   }
 
   async handleTestEndEvent() {
+    const failures = [];
     const { performance, recordScreenshots, rootDir, accessibility } = this.config;
 
     await this.envInstance.stopInterception();
@@ -289,6 +290,14 @@ class PuppeteerEnvironment extends NodeEnvironment {
 
     if (performance?.collectPerfMetrics) {
       await savePerformanceMetrics(await this.envInstance.getMetrics());
+    }
+
+    if (performance?.bundleSizes) {
+      const violations = this.envInstance.getBundleSizeViolations();
+
+      if (violations?.length) {
+        failures.push('Found bundle size violations, check the report for more information.');
+      }
     }
 
     if (recordScreenshots) {
@@ -310,9 +319,14 @@ class PuppeteerEnvironment extends NodeEnvironment {
         });
 
         if (failingViolations.length) {
-          throw new Error(`Found a11y violations in test: ${this.testID}, check the report for more information.`);
+          failures.push('Found a11y violations, check the report for more information.');
         }
       }
+    }
+
+    if (failures.length) {
+      failures.forEach((failure) => this.logger.error(failure));
+      throw new Error(`Failing test: ${this.testID}`);
     }
   }
 

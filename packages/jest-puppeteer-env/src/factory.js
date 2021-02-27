@@ -6,7 +6,6 @@ const performance = require('./performance/index');
 const factory = async ({ config: configParam, page, mocks, globalMocks, logger } = {}) => {
   let runningTestName;
   const client = await page.target().createCDPSession();
-  const { getMetrics } = await performance({ page, client });
   const config = {
     dataRequestResourceTypes: ['fetch', 'xhr'],
     requestPathIgnorePatterns: ['browser-sync'],
@@ -16,9 +15,11 @@ const factory = async ({ config: configParam, page, mocks, globalMocks, logger }
     shouldUseMocks: false,
     ...configParam
   };
+  const { getMetrics, checkBundleSize } = await performance({ page, client, config });
   const findMocks = findMocksForUrl(config);
   const responses = {};
   const coverages = {};
+  const bundleSizeViolations = {};
 
   const getMocksForUrl = ({ url }) => {
     const testMocks = mocks && mocks[runningTestName];
@@ -201,16 +202,32 @@ const factory = async ({ config: configParam, page, mocks, globalMocks, logger }
     await page.setRequestInterception(true);
     page.on('request', interceptRequest);
 
-    const { recordRequests } = config;
+    if (config.recordRequests || config.performance?.bundleSizes) {
+      page.on('response', (response) => {
+        if (config.recordRequests) {
+          saveResponse(response);
+        }
 
-    if (recordRequests) {
-      page.on('response', saveResponse);
+        if (config.performance?.bundleSizes) {
+          const violation = checkBundleSize(response);
+
+          if (violation) {
+            if (!bundleSizeViolations[runningTestName]) {
+              bundleSizeViolations[runningTestName] = [];
+            }
+
+            bundleSizeViolations[runningTestName].push(violation);
+          }
+        }
+      });
     }
   };
 
   const stopInterception = async () => {
     await page.removeAllListeners('request');
   };
+
+  const getBundleSizeViolations = () => bundleSizeViolations[runningTestName];
 
   // SCREENSHOTS & VIDEOS
   const startRecording = async () => {
@@ -243,6 +260,7 @@ const factory = async ({ config: configParam, page, mocks, globalMocks, logger }
   };
 
   return {
+    getBundleSizeViolations,
     getMetrics,
     getResponses,
     setTestName,
