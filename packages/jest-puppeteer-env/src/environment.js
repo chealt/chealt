@@ -278,6 +278,7 @@ class PuppeteerEnvironment extends NodeEnvironment {
     }
   }
 
+  // eslint-disable-next-line complexity
   async handleTestEndEvent() {
     const failures = [];
     const { performance, recordScreenshots, rootDir, accessibility } = this.config;
@@ -295,7 +296,7 @@ class PuppeteerEnvironment extends NodeEnvironment {
     if (performance?.bundleSizes) {
       const violations = this.envInstance.getBundleSizeViolations();
 
-      if (violations?.length) {
+      if (violations?.length && performance?.failOnBundleSizeViolation) {
         failures.push('Found bundle size violations, check the report for more information.');
       }
     }

@@ -25,7 +25,8 @@ module.exports = {
           path: 'og/_/ss',
           maxSize: '10 B'
         }
-      ]
+      ],
+      failOnBundleSizeViolation: true
     },
     isHostAgnostic: true,
     mockResponseDir: 'mocks',
