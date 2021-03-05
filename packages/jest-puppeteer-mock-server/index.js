@@ -1,1 +1,3 @@
-module.exports = require('./src/mock-server');
+import mockServer from './src/mock-server.js';
+
+mockServer();

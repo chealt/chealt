@@ -2,13 +2,16 @@
   "name": "@chealt/jest-puppeteer-mock-server",
   "version": "0.0.1",
   "license": "MIT",
+  "type": "module",
   "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/chealt/chealt.git"
   },
   "homepage": "https://github.com/chealt/chealt#chealt",
-  "scripts": {},
+  "scripts": {
+    "start": "node index.js"
+  },
   "dependencies": {
     "express": "^4.17.1"
   },
