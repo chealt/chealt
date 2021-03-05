@@ -10,12 +10,14 @@ const mockServer = () => {
 
   validate(config);
 
-  const { PORT } = config;
+  const { PORT, MOCKS_FOLDER } = config;
 
   const app = express();
 
   app.listen(PORT, () => {
-    console.log(`Mock server is listening on port: ${PORT}`);
+    console.log(`Mock server is listening on port: ${PORT}...`);
+
+    console.log(`Mocks are loaded from folder: ${MOCKS_FOLDER}`);
   });
 };
 
