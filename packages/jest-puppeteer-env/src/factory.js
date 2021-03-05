@@ -216,7 +216,9 @@ const factory = async ({ config: configParam, page, mocks, globalMocks, logger }
               bundleSizeViolations[runningTestName] = [];
             }
 
-            bundleSizeViolations[runningTestName].push(violation);
+            if (!bundleSizeViolations[runningTestName].some(({ url }) => url === violation.url)) {
+              bundleSizeViolations[runningTestName].push(violation);
+            }
           }
         }
       });
