@@ -67,6 +67,13 @@ const state = () => {
   const savePerformanceMetrics = async (metrics) => {
     await writeFileSafe(metricsPath, JSON.stringify(metrics));
   };
+  let bundleSizeViolationsPath;
+  const setBundleSizeViolationsPath = (newPath) => {
+    bundleSizeViolationsPath = newPath;
+  };
+  const saveBundleSizeViolations = async (violations) => {
+    await writeFileSafe(bundleSizeViolationsPath, JSON.stringify(violations));
+  };
 
   // A11Y
   const saveA11YResults = async (a11yPath, findings) => {
@@ -91,6 +98,9 @@ const state = () => {
     // PERFORMANCE
     savePerformanceMetrics,
     setPerformancePath,
+    // BUNDLE SIZE VIOLATIONS
+    saveBundleSizeViolations,
+    setBundleSizeViolationsPath,
     // A11Y
     saveA11YResults
   };

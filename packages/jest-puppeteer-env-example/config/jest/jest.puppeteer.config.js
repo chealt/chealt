@@ -26,7 +26,7 @@ module.exports = {
           maxSize: '10 B'
         }
       ],
-      failOnBundleSizeViolation: true
+      failOnBundleSizeViolation: false
     },
     isHostAgnostic: true,
     mockResponseDir: 'mocks',

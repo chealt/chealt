@@ -14,6 +14,8 @@ const {
   clearResponses,
   setPerformancePath,
   savePerformanceMetrics,
+  setBundleSizeViolationsPath,
+  saveBundleSizeViolations,
   saveA11YResults
 } = require('./state');
 const {
@@ -75,6 +77,12 @@ class PuppeteerEnvironment extends NodeEnvironment {
       const relativePerfPath = `${context.testPath.replace(rootDir, '')}.perfMetrics.json`;
       const performancePath = getFullPath(rootDir, performance.perfMetricsDirectory, relativePerfPath);
       setPerformancePath(performancePath);
+    }
+
+    if (performance?.bundleSizes) {
+      const relativeBundleSizePath = `${context.testPath.replace(rootDir, '')}.bundleSizeViolations.json`;
+      const bundleSizeViolationsPath = getFullPath(rootDir, performance.perfMetricsDirectory, relativeBundleSizePath);
+      setBundleSizeViolationsPath(bundleSizeViolationsPath);
     }
 
     if (recordScreenshots) {
@@ -296,8 +304,12 @@ class PuppeteerEnvironment extends NodeEnvironment {
     if (performance?.bundleSizes) {
       const violations = this.envInstance.getBundleSizeViolations();
 
-      if (violations?.length && performance?.failOnBundleSizeViolation) {
-        failures.push('Found bundle size violations, check the report for more information.');
+      if (violations?.length) {
+        if (performance?.failOnBundleSizeViolation) {
+          failures.push('Found bundle size violations, check the report for more information.');
+        }
+
+        await saveBundleSizeViolations(violations);
       }
     }
 
