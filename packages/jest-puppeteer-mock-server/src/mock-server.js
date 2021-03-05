@@ -1,7 +1,7 @@
 import express from 'express';
 
 import { defaultConfig, validate } from './config.js';
-import { getFolderAbsPath } from './utils.js';
+import { getFolderAbsPath, getMocks } from './utils.js';
 
 const mockServer = () => {
   const config = {
@@ -16,10 +16,13 @@ const mockServer = () => {
 
   const app = express();
 
-  app.listen(PORT, () => {
+  app.listen(PORT, async () => {
     console.log(`Mock server is listening on port: ${PORT}...`);
 
     console.log(`Mocks are loaded from folder: ${mocksFolderAbsPath}`);
+
+    const files = await getMocks(mocksFolderAbsPath);
+    console.log(files);
   });
 };
 
