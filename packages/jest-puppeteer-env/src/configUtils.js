@@ -126,8 +126,9 @@ const validatePerformanceConfig = (config) => {
     throw new Error('When coverage is collected you need to provide a coverageDirectory option.');
   }
 
-  if (performance.collectPerfMetrics && !performance.perfMetricsDirectory) {
-    throw new Error('When performance metrics are collected you need to provide a perfMetricsDirectory option.');
+  if (performance.collectPerfMetrics && !performance.reportDirectory) {
+    throw new Error('When performance metrics are collected you need to provide a reportDirectory option.');
+  }
   }
 };
 

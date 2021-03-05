@@ -75,13 +75,13 @@ class PuppeteerEnvironment extends NodeEnvironment {
 
     if (performance?.collectPerfMetrics) {
       const relativePerfPath = `${context.testPath.replace(rootDir, '')}.perfMetrics.json`;
-      const performancePath = getFullPath(rootDir, performance.perfMetricsDirectory, relativePerfPath);
+      const performancePath = getFullPath(rootDir, performance.reportDirectory, relativePerfPath);
       setPerformancePath(performancePath);
     }
 
     if (performance?.bundleSizes) {
       const relativeBundleSizePath = `${context.testPath.replace(rootDir, '')}.bundleSizeViolations.json`;
-      const bundleSizeViolationsPath = getFullPath(rootDir, performance.perfMetricsDirectory, relativeBundleSizePath);
+      const bundleSizeViolationsPath = getFullPath(rootDir, performance.reportDirectory, relativeBundleSizePath);
       setBundleSizeViolationsPath(bundleSizeViolationsPath);
     }
 

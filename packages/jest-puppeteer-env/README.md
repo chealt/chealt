@@ -180,7 +180,7 @@ Default: `false`
 
 Indicates whether the performance metrics should be collected while executing the test.
 
-##### perfMetricsDirectory
+##### reportDirectory
 
 Type: `String`
 Default: `undefined`
@@ -193,7 +193,7 @@ Example:
 {
   "testEnvironmentOptions": {
     "performance": {
-      "perfMetricsDirectory": "performance"
+      "reportDirectory": "performance"
     }
   }
 }

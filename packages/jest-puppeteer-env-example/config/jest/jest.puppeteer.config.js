@@ -13,7 +13,7 @@ module.exports = {
       collectCoverageFrom: ['https://www.google.com'],
       collectPerfMetrics: true,
       coverageDirectory: 'coverage',
-      perfMetricsDirectory: 'performance',
+      reportDirectory: 'performance',
       printCoverageSummary: true,
       recordCoverageText: false,
       bundleSizes: [
