@@ -54,7 +54,7 @@ const state = () => {
     }
   };
   const printCoverages = () => {
-    if (config.printCoverageSummary) {
+    if (config.performance?.printCoverageSummary) {
       coverageUtils.printCoverages({ logger, coverages: allCodeCoverages });
     }
   };
@@ -66,6 +66,13 @@ const state = () => {
   };
   const savePerformanceMetrics = async (metrics) => {
     await writeFileSafe(metricsPath, JSON.stringify(metrics));
+  };
+  let bundleSizeViolationsPath;
+  const setBundleSizeViolationsPath = (newPath) => {
+    bundleSizeViolationsPath = newPath;
+  };
+  const saveBundleSizeViolations = async (violations) => {
+    await writeFileSafe(bundleSizeViolationsPath, JSON.stringify(violations));
   };
 
   // A11Y
@@ -91,6 +98,9 @@ const state = () => {
     // PERFORMANCE
     savePerformanceMetrics,
     setPerformancePath,
+    // BUNDLE SIZE VIOLATIONS
+    saveBundleSizeViolations,
+    setBundleSizeViolationsPath,
     // A11Y
     saveA11YResults
   };

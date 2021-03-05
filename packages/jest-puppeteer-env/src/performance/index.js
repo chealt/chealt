@@ -1,4 +1,6 @@
-const performance = async ({ page, client }) => {
+const { checkBundleSize: checkBundleSizeFactory } = require('./bundleSize');
+
+const performance = async ({ page, client, config }) => {
   const enabling = client.send('Performance.enable');
 
   const getMetrics = () =>
@@ -12,7 +14,12 @@ const performance = async ({ page, client }) => {
       pageMetrics
     }));
 
+  const checkBundleSize = config.performance?.bundleSizes
+    ? checkBundleSizeFactory({ bundleSizes: config.performance.bundleSizes })
+    : undefined;
+
   return {
+    checkBundleSize,
     getMetrics
   };
 };

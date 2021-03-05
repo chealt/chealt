@@ -8,15 +8,28 @@ module.exports = {
       // failLevel: 'critical',
       reportDirectory: 'accessibility'
     },
-    collectCoverage: true,
-    collectCoverageFrom: ['https://www.google.com'],
-    collectPerfMetrics: true,
-    coverageDirectory: 'coverage',
+    performance: {
+      collectCoverage: true,
+      collectCoverageFrom: ['https://www.google.com'],
+      collectPerfMetrics: true,
+      coverageDirectory: 'coverage',
+      reportDirectory: 'performance',
+      printCoverageSummary: true,
+      recordCoverageText: false,
+      bundleSizes: [
+        {
+          path: 'xjs/_/js',
+          maxSize: '600 B'
+        },
+        {
+          path: 'og/_/ss',
+          maxSize: '10 B'
+        }
+      ],
+      failOnBundleSizeViolation: false
+    },
     isHostAgnostic: true,
     mockResponseDir: 'mocks',
-    perfMetricsDirectory: 'performance',
-    printCoverageSummary: true,
-    recordCoverageText: false,
     recordRequests: Boolean(process.env.RECORD_REQUESTS),
     recordScreenshots: true,
     requestPathIgnorePatterns: ['async'],

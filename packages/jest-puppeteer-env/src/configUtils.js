@@ -70,32 +70,20 @@ const cleanConfig = (config) => {
     rootDir,
     testEnvironmentOptions: {
       accessibility,
-      collectCoverage,
-      collectCoverageFrom,
-      coverageDirectory,
       mockResponseDir,
-      perfMetricsDirectory,
-      printCoverageSummary,
-      recordCoverageText,
+      performance,
       recordRequests,
       recordScreenshots,
       requestPathIgnorePatterns,
       screenshotDirectory,
-      shouldUseMocks,
-      collectPerfMetrics
+      shouldUseMocks
     }
   } = config;
 
   return {
     accessibility,
-    collectCoverage,
-    collectCoverageFrom,
-    collectPerfMetrics,
-    coverageDirectory,
     mockResponseDir,
-    perfMetricsDirectory,
-    printCoverageSummary,
-    recordCoverageText,
+    performance,
     recordRequests,
     recordScreenshots,
     requestPathIgnorePatterns,
@@ -105,39 +93,79 @@ const cleanConfig = (config) => {
   };
 };
 
-// eslint-disable-next-line complexity
-const validateConfig = (config) => {
-  if (!config.rootDir) {
+const validateBaseConfig = (config) => {
+  const { rootDir, testEnvironmentOptions } = config;
+
+  if (!rootDir) {
     throw new Error('You need to specify the `rootDir` in your jest config!');
-  } else if (!config.testEnvironmentOptions) {
+  }
+
+  if (!testEnvironmentOptions) {
     throw new Error('You need to specify the `testEnvironmentOptions` in your jest config!');
-  } else if (config.testEnvironmentOptions.recordRequests && !config.testEnvironmentOptions.mockResponseDir) {
+  }
+
+  if (testEnvironmentOptions.recordRequests && !testEnvironmentOptions.mockResponseDir) {
     throw new Error(
       'Please specify where the mocks should be saved to and loaded from using the `mockResponseDir` test environment option.'
     );
-  } else if (config.testEnvironmentOptions.recordRequests && config.testEnvironmentOptions.shouldUseMocks) {
+  }
+
+  if (testEnvironmentOptions.recordRequests && testEnvironmentOptions.shouldUseMocks) {
     throw new Error(
       'You cannot record and use mocks at the same time, please only set `recordRequests` or `shouldUseMocks` to true.'
     );
-  } else if (config.testEnvironmentOptions.collectCoverage && !config.testEnvironmentOptions.coverageDirectory) {
-    throw new Error('When coverage is collected you need to provide a coverageDirectory option.');
-  } else if (config.testEnvironmentOptions.recordScreenshots && !config.testEnvironmentOptions.screenshotDirectory) {
-    throw new Error('When screenshots are taken you need to provide a screenshotDirectory option.');
-  } else if (config.testEnvironmentOptions.collectPerfMetrics && !config.testEnvironmentOptions.perfMetricsDirectory) {
-    throw new Error('When performance metrics are collected you need to provide a perfMetricsDirectory option.');
-  } else if (
-    config.testEnvironmentOptions.accessibility?.shouldCheck &&
-    !config.testEnvironmentOptions.accessibility?.reportDirectory
-  ) {
-    throw new Error('When a11y should be checked you need to provide a reportDirectory option.');
-  } else if (
-    !config.testEnvironmentOptions.accessibility?.shouldCheck &&
-    config.testEnvironmentOptions.accessibility?.failLevel
-  ) {
-    throw new Error('When a11y failLevel is provided you need to set the shouldCheck option.');
-  } else {
-    return cleanConfig(config);
   }
+};
+
+const validatePerformanceConfig = (config) => {
+  const {
+    testEnvironmentOptions: { performance }
+  } = config;
+
+  if (performance.collectCoverage && !performance.coverageDirectory) {
+    throw new Error('When coverage is collected you need to provide a coverageDirectory option.');
+  }
+
+  if (performance.collectPerfMetrics && !performance.reportDirectory) {
+    throw new Error('When performance metrics are collected you need to provide a reportDirectory option.');
+  }
+
+  if (performance.bundleSizes && !performance.reportDirectory) {
+    throw new Error('When bundle size violations are collected you need to provide a reportDirectory option.');
+  }
+};
+
+const validateAccessibilityConfig = (config) => {
+  const {
+    testEnvironmentOptions: { accessibility }
+  } = config;
+
+  if (accessibility?.shouldCheck && !accessibility?.reportDirectory) {
+    throw new Error('When a11y should be checked you need to provide a reportDirectory option.');
+  }
+
+  if (!accessibility?.shouldCheck && accessibility?.failLevel) {
+    throw new Error('When a11y failLevel is provided you need to set the shouldCheck option.');
+  }
+};
+
+const validateScreenshotsConfig = (config) => {
+  const {
+    testEnvironmentOptions: { recordScreenshots, screenshotDirectory }
+  } = config;
+
+  if (recordScreenshots && !screenshotDirectory) {
+    throw new Error('When screenshots are taken you need to provide a screenshotDirectory option.');
+  }
+};
+
+const validateConfig = (config) => {
+  validateBaseConfig(config);
+  validatePerformanceConfig(config);
+  validateAccessibilityConfig(config);
+  validateScreenshotsConfig(config);
+
+  return cleanConfig(config);
 };
 
 module.exports = {

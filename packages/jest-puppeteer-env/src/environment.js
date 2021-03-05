@@ -14,6 +14,8 @@ const {
   clearResponses,
   setPerformancePath,
   savePerformanceMetrics,
+  setBundleSizeViolationsPath,
+  saveBundleSizeViolations,
   saveA11YResults
 } = require('./state');
 const {
@@ -26,7 +28,7 @@ const {
 const { filterEmptyResponses, getMocks, getFullPath, hasResponses } = require('./envUtils');
 const chalk = require('chalk');
 const { readConfig, getPuppeteer, validateConfig } = require('./configUtils');
-const accessibility = require('./accessibility');
+const accessibilityUtils = require('./accessibility');
 
 const handleError = (error) => {
   process.emit('uncaughtException', error);
@@ -47,10 +49,7 @@ class PuppeteerEnvironment extends NodeEnvironment {
     const cleanConfig = validateConfig(config);
     const {
       rootDir,
-      collectCoverage,
-      collectPerfMetrics,
-      perfMetricsDirectory,
-      coverageDirectory,
+      performance,
       mockResponseDir,
       recordRequests,
       recordScreenshots,
@@ -68,21 +67,27 @@ class PuppeteerEnvironment extends NodeEnvironment {
       this.globalMocks = shouldUseMocks && getMocks(getFullPath(rootDir, mockResponseDir, 'global.mocks.json'));
     }
 
-    if (collectCoverage) {
-      const coverageFullPath = getFullPath(rootDir, path.join(coverageDirectory, '/coverage.json'));
+    if (performance?.collectCoverage) {
+      const coverageFullPath = getFullPath(rootDir, path.join(performance.coverageDirectory, '/coverage.json'));
       setCoveragesPath(coverageFullPath);
       this.coverageFullPath = coverageFullPath;
+    }
+
+    if (performance?.collectPerfMetrics) {
+      const relativePerfPath = `${context.testPath.replace(rootDir, '')}.perfMetrics.json`;
+      const performancePath = getFullPath(rootDir, performance.reportDirectory, relativePerfPath);
+      setPerformancePath(performancePath);
+    }
+
+    if (performance?.bundleSizes) {
+      const relativeBundleSizePath = `${context.testPath.replace(rootDir, '')}.bundleSizeViolations.json`;
+      const bundleSizeViolationsPath = getFullPath(rootDir, performance.reportDirectory, relativeBundleSizePath);
+      setBundleSizeViolationsPath(bundleSizeViolationsPath);
     }
 
     if (recordScreenshots) {
       const screenshotFullPath = getFullPath(rootDir, screenshotDirectory);
       this.screenshotFullPath = screenshotFullPath;
-    }
-
-    if (collectPerfMetrics) {
-      const relativePerfPath = `${context.testPath.replace(rootDir, '')}.perfMetrics.json`;
-      const performancePath = getFullPath(rootDir, perfMetricsDirectory, relativePerfPath);
-      setPerformancePath(performancePath);
     }
 
     setConfig(cleanConfig);
@@ -215,18 +220,9 @@ class PuppeteerEnvironment extends NodeEnvironment {
     // Your setup
     logger.debug(`Setting up environemnt with config: ${JSON.stringify(this.config, null, 4)}`);
 
-    const {
-      collectCoverage,
-      collectCoverageFrom,
-      isHostAgnostic,
-      isPortAgnostic,
-      printCoverageSummary,
-      recordCoverageText,
-      recordRequests,
-      requestPathIgnorePatterns
-    } = this.config;
+    const { isHostAgnostic, isPortAgnostic, performance, recordRequests, requestPathIgnorePatterns } = this.config;
 
-    if (collectCoverage) {
+    if (performance?.collectCoverage) {
       logger.debug(`Will collect coverage information in: ${this.coverageFullPath}`);
     }
 
@@ -241,9 +237,7 @@ class PuppeteerEnvironment extends NodeEnvironment {
       config: {
         isPortAgnostic,
         isHostAgnostic,
-        collectCoverageFrom,
-        printCoverageSummary,
-        recordCoverageText,
+        performance,
         recordRequests,
         requestPathIgnorePatterns
       }
@@ -263,13 +257,13 @@ class PuppeteerEnvironment extends NodeEnvironment {
   }
 
   async handleStartEvent(event) {
-    const { collectCoverage, recordScreenshots } = this.config;
+    const { performance, recordScreenshots } = this.config;
 
     const testID = getTestID(event.test);
     this.envInstance.setTestName(testID);
     this.testID = testID;
 
-    if (collectCoverage) {
+    if (performance?.collectCoverage) {
       this.envInstance.startCollectingCoverage();
     }
 
@@ -281,55 +275,71 @@ class PuppeteerEnvironment extends NodeEnvironment {
   }
 
   async handleTestsEndEvent() {
-    const { collectCoverage, recordRequests } = this.config;
+    const { performance, recordRequests } = this.config;
 
     if (recordRequests) {
       this.addTestResponses();
     }
 
-    if (collectCoverage) {
+    if (performance?.collectCoverage) {
       await this.addCodeCoverages();
     }
   }
 
+  // eslint-disable-next-line complexity
   async handleTestEndEvent() {
-    const {
-      collectCoverage,
-      recordScreenshots,
-      collectPerfMetrics,
-      rootDir,
-      accessibility: { shouldCheck, failLevel, reportDirectory }
-    } = this.config;
+    const failures = [];
+    const { performance, recordScreenshots, rootDir, accessibility } = this.config;
 
     await this.envInstance.stopInterception();
 
-    if (collectCoverage) {
+    if (performance?.collectCoverage) {
       await this.envInstance.stopCollectingCoverage();
+    }
+
+    if (performance?.collectPerfMetrics) {
+      await savePerformanceMetrics(await this.envInstance.getMetrics());
+    }
+
+    if (performance?.bundleSizes) {
+      const violations = this.envInstance.getBundleSizeViolations();
+
+      if (violations?.length) {
+        if (performance?.failOnBundleSizeViolation) {
+          failures.push('Found bundle size violations, check the report for more information.');
+        }
+
+        await saveBundleSizeViolations(violations);
+      }
     }
 
     if (recordScreenshots) {
       await this.envInstance.stopRecording(this.screenshotFullPath);
     }
 
-    if (collectPerfMetrics) {
-      await savePerformanceMetrics(await this.envInstance.getMetrics());
-    }
-
-    if (shouldCheck) {
-      const { analyze, checkViolations } = accessibility;
+    if (accessibility?.shouldCheck) {
+      const { analyze, checkViolations } = accessibilityUtils;
       const relativeA11YPath = `${this.testPath.replace(rootDir, '')}.a11y.json`;
-      const a11yPath = getFullPath(rootDir, reportDirectory, relativeA11YPath);
+      const a11yPath = getFullPath(rootDir, accessibility.reportDirectory, relativeA11YPath);
       const results = await analyze(this.global.page);
 
       await saveA11YResults(a11yPath, results);
 
-      if (failLevel) {
-        const failingViolations = checkViolations({ violations: results.violations, failLevel });
+      if (accessibility.failLevel) {
+        const failingViolations = checkViolations({
+          violations: results.violations,
+          failLevel: accessibility.failLevel
+        });
 
         if (failingViolations.length) {
-          throw new Error(`Found a11y violations in test: ${this.testID}, check the report for more information.`);
+          failures.push('Found a11y violations, check the report for more information.');
         }
       }
+    }
+
+    if (failures.length) {
+      failures.forEach((failure) => this.logger.error(failure));
+      throw new Error(`Failing test: ${this.testID}`);
     }
   }
 
