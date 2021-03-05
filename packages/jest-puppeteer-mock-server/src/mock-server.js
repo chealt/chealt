@@ -1,7 +1,11 @@
+import fs from 'fs';
+import { promisify } from 'util';
 import express from 'express';
 
 import { defaultConfig, validate } from './config.js';
 import { getFolderAbsPath, getMocks } from './utils.js';
+
+const readFile = promisify(fs.readFile);
 
 const mockServer = () => {
   const config = {
@@ -11,7 +15,7 @@ const mockServer = () => {
 
   validate(config);
 
-  const { PORT, MOCKS_FOLDER } = config;
+  const { PORT, MOCKS_FOLDER, MOCK_EXTENSION } = config;
   const mocksFolderAbsPath = getFolderAbsPath(MOCKS_FOLDER);
 
   const app = express();
@@ -21,8 +25,18 @@ const mockServer = () => {
 
     console.log(`Mocks are loaded from folder: ${mocksFolderAbsPath}`);
 
-    const files = await getMocks(mocksFolderAbsPath);
-    console.log(files);
+    const mockFiles = await getMocks({ folder: mocksFolderAbsPath, extension: MOCK_EXTENSION });
+
+    if (!mockFiles?.length) {
+      console.error('There are no mock files in the specified folder!');
+      process.exit(1);
+    }
+
+    console.log(`Found mock files: [${mockFiles.join(', ')}]`);
+    const mocks = await Promise.all(
+      mockFiles.map((mockFilePath) => readFile(mockFilePath).then((buffer) => JSON.parse(buffer)))
+    );
+    console.log(mocks);
   });
 };
 

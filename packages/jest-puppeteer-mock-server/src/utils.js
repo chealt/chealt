@@ -6,6 +6,6 @@ const globAsync = promisify(glob);
 
 const getFolderAbsPath = (folder) => path.join(process.cwd(), folder);
 
-const getMocks = (folder) => globAsync(`${folder}/**/*.mocks.json`);
+const getMocks = ({ folder, extension }) => globAsync(`${folder}/**/*.${extension}`);
 
 export { getFolderAbsPath, getMocks };

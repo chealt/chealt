@@ -1,5 +1,6 @@
 const defaultConfig = {
-  PORT: 3001
+  PORT: 3001,
+  MOCK_EXTENSION: 'mocks.json'
 };
 
 const validate = ({ PORT, MOCKS_FOLDER }) => {
