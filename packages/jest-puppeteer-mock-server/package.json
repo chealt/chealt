@@ -9,7 +9,9 @@
   },
   "homepage": "https://github.com/chealt/chealt#chealt",
   "scripts": {},
-  "dependencies": {},
+  "dependencies": {
+    "express": "^4.17.1"
+  },
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"
