@@ -1,0 +1,18 @@
+{
+  "name": "@chealt/jest-puppeteer-mock-server",
+  "version": "0.0.1",
+  "license": "MIT",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chealt/chealt.git"
+  },
+  "homepage": "https://github.com/chealt/chealt#chealt",
+  "scripts": {},
+  "dependencies": {},
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "sideEffects": false
+}
