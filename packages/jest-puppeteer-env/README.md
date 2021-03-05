@@ -199,6 +199,45 @@ Example:
 }
 ```
 
+#### bundleSzies
+
+Type: `[{ path<String>, maxSize<String> }]`
+Default: `undefined`
+
+`path`: A String to be created regular expressions of to test the requested URL against. These will be passed to `new RegExp` with the `u`.
+`maxSize`: A String that represents the maximum size of the response. Anything can be used that the (bytes packages)[https://www.npmjs.com/package/bytes] can parse.
+
+Example:
+
+```json
+{
+  "testEnvironmentOptions": {
+    "performance": {
+      "reportDirectory": "performance",
+      "bundleSizes": [
+        {
+          "path": "xjs/_/js",
+          "maxSize": "600 B"
+        },
+        {
+          "path": "og/_/ss",
+          "maxSize": "10 B"
+        }
+      ]
+    }
+  }
+}
+```
+
+When specified the `performance.reportDirectory` option must be specified as well and it will be used to store the violations.
+
+##### failOnBundleSizeViolation
+
+Type: `Boolean`
+Default: `false`
+
+Indicates whether the bundle size violations should fail the test.
+
 #### Accessibility
 
 ##### failLevel
