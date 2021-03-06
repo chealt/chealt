@@ -19,9 +19,10 @@ const mockServer = async () => {
   const app = express();
 
   const mocks = await getMocks({ mocksFolderAbsPath, mockExtension: MOCK_EXTENSION });
-  logger.info(mocks);
 
-  app.use(mockMiddleware);
+  app.use(mockMiddleware(mocks));
+
+  app.use('/', (req, res) => res.send(''));
 
   app.listen(PORT, async () => {
     logger.info(`Mock server is listening on port: ${PORT}...`);
