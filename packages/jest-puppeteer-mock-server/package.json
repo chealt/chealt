@@ -10,12 +10,8 @@
   },
   "homepage": "https://github.com/chealt/chealt#chealt",
   "scripts": {
-    "start": "node index.js"
-  },
-  "dependencies": {
-    "express": "^4.17.1",
-    "glob": "^7.1.6",
-    "winston": "^3.3.3"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "publishConfig": {
     "access": "public",
@@ -24,5 +20,13 @@
   "sideEffects": false,
   "engines": {
     "node": "14"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "glob": "^7.1.6",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
   }
 }
