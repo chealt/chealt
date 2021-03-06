@@ -3,6 +3,7 @@ import express from 'express';
 import { defaultConfig, validate } from './config.js';
 import logger from './logger.js';
 import { getFolderAbsPath, getMocks } from './utils.js';
+import mockMiddleware from './mockMiddleware.js';
 
 const mockServer = async () => {
   const config = {
@@ -19,6 +20,8 @@ const mockServer = async () => {
 
   const mocks = await getMocks({ mocksFolderAbsPath, mockExtension: MOCK_EXTENSION });
   logger.info(mocks);
+
+  app.use(mockMiddleware);
 
   app.listen(PORT, async () => {
     logger.info(`Mock server is listening on port: ${PORT}...`);
