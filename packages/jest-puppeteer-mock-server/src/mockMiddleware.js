@@ -23,7 +23,11 @@ const mockMiddleware = (mocks) => (req, res) => {
     res.status(mock.status);
 
     Object.keys(mock.headers).forEach((header) => {
-      res.append(header, mock.headers[header]);
+      // all content will be plain text
+      // so we don't send the content-encoding header
+      if (header !== 'content-encoding') {
+        res.append(header, mock.headers[header]);
+      }
     });
 
     if (mock.headers['content-type'].includes('application/json')) {
