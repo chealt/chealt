@@ -1,6 +1,6 @@
 import logger from './logger.js';
 
-const mockMiddleware = (mocks) => (req, res) => {
+const mockMiddleware = (mocks) => (req, res, next) => {
   logger.info(req.originalUrl);
 
   const matchingMocks = [];
@@ -8,7 +8,8 @@ const mockMiddleware = (mocks) => (req, res) => {
   mocks.forEach((mock) => {
     Object.keys(mock).forEach((testId) => {
       Object.keys(mock[testId]).forEach((url) => {
-        if (url.includes(req.originalUrl)) {
+        if (url.endsWith(req.originalUrl)) {
+          logger.info(req.originalUrl);
           matchingMocks.push(mock[testId][url]);
         }
       });
@@ -35,7 +36,11 @@ const mockMiddleware = (mocks) => (req, res) => {
     } else {
       res.send(mock.body);
     }
+
+    return;
   }
+
+  next();
 };
 
 export default mockMiddleware;

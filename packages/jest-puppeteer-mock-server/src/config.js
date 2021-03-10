@@ -1,5 +1,5 @@
 const defaultConfig = {
-  PORT: 3001,
+  PORT: 3210,
   MOCK_EXTENSION: 'mocks.json'
 };
 
