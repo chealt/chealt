@@ -1,25 +1,29 @@
 import logger from './logger.js';
+import { mockUtils } from '@chealt/jest-puppeteer-env';
 
-const mockMiddleware = (mocks) => (req, res, next) => {
-  logger.info(req.originalUrl);
+const findMocks = mockUtils.findMocksForUrl({ isPortAgnostic: true, isHostAgnostic: true });
+
+const mockMiddleware = (allMocks) => (req, res, next) => {
+  logger.debug(req.originalUrl);
 
   const matchingMocks = [];
 
-  mocks.forEach((mock) => {
-    Object.keys(mock).forEach((testId) => {
-      Object.keys(mock[testId]).forEach((url) => {
-        if (url.endsWith(req.originalUrl)) {
-          logger.info(req.originalUrl);
-          matchingMocks.push(mock[testId][url]);
-        }
-      });
+  allMocks.forEach((suiteMocks) => {
+    Object.keys(suiteMocks).forEach((testId) => {
+      const testMocks = suiteMocks[testId];
+      const mocksMatchingUrl = findMocks(testMocks, req.originalUrl);
+
+      if (mocksMatchingUrl) {
+        logger.debug(`Found mock for url: ${req.originalUrl}`);
+        matchingMocks.push(mocksMatchingUrl);
+      }
     });
   });
 
   if (matchingMocks.length) {
     const mock = matchingMocks[0][0];
 
-    logger.info(mock.body);
+    logger.debug(`Mock response: ${mock.body}`);
 
     res.status(mock.status);
 

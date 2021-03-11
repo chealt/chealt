@@ -3,6 +3,10 @@ const removeHost = (url) => url.replace(/https?:\/\/[^/]*/gu, '');
 
 const findMocksForUrl = ({ isPortAgnostic, isHostAgnostic }) => (mocks, url) => {
   const mockKey = Object.keys(mocks).find((responseUrl) => {
+    if (isPortAgnostic && isHostAgnostic) {
+      return removeHost(removePort(responseUrl)) === removeHost(removePort(url));
+    }
+
     if (isPortAgnostic) {
       return removePort(responseUrl) === removePort(url);
     }
