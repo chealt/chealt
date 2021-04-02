@@ -1,11 +1,11 @@
 {
   "name": "@chealt/check",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "license": "MIT",
   "main": "src/index.js",
   "peerDependencies": {
-    "@babel/eslint-parser": "^7.13.8",
-    "eslint": "^7.21.0",
+    "@babel/eslint-parser": "^7.13.14",
+    "eslint": "^7.23.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-prettier": "^3.3.1",
