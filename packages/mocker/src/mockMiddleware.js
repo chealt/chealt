@@ -1,7 +1,7 @@
 import logger from './logger.js';
-import { mockUtils } from '@chealt/jest-puppeteer-env';
+import { findMocksForUrl } from './utils.js';
 
-const findMocks = mockUtils.findMocksForUrl({ isPortAgnostic: true, isHostAgnostic: true });
+const findMocks = findMocksForUrl({ isPortAgnostic: true, isHostAgnostic: true });
 
 const mockMiddleware = (allMocks) => (req, res, next) => {
   logger.debug(req.originalUrl);
