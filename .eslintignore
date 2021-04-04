@@ -1,1 +1,2 @@
 **/build/**/*.js
+packages/mocker/commonjs/**/*.js
