@@ -94,6 +94,7 @@ const factory = async ({ config: configParam, page, mocks, globalMocks, logger }
 
     const headers = request.headers();
     const method = request.method();
+    const requestBody = request.postData();
     const shouldInterceptRequest = shouldInterceptUrl && isDataRequest;
     const requestDetails = {
       url,
@@ -140,6 +141,8 @@ const factory = async ({ config: configParam, page, mocks, globalMocks, logger }
             responses[runningTestName][url].push({
               url,
               method,
+              requestHeaders: headers,
+              requestBody,
               ...details
             });
           }
@@ -164,12 +167,16 @@ const factory = async ({ config: configParam, page, mocks, globalMocks, logger }
       const details = await getResponseDetails(response, url);
       const request = response.request();
       const method = request.method();
+      const requestBody = request.postData();
+      const requestHeaders = request.headers();
 
       if (details) {
         logger.debug(`Intercepting response for url: ${url}`);
         originalRequest.push({
           url,
           method,
+          requestHeaders,
+          requestBody,
           ...details
         });
       }
