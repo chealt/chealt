@@ -1,0 +1,38 @@
+{
+  "name": "@chealt/mocker",
+  "version": "0.0.1",
+  "license": "MIT",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": {
+    "import": "./src/index.js",
+    "require": "./commonjs/index.cjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chealt/chealt.git"
+  },
+  "homepage": "https://github.com/chealt/chealt#chealt",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "build": "rm -rf commonjs && babel --config-file ./config/babel.commonjs.config.js src --out-dir ./commonjs --out-file-extension .cjs",
+    "prepublish": "yarn build"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "sideEffects": false,
+  "engines": {
+    "node": "14"
+  },
+  "dependencies": {
+    "express": "4.17.1",
+    "glob": "7.1.6",
+    "winston": "3.3.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}

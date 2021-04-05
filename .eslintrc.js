@@ -27,6 +27,7 @@ const config = {
       files: [
         'packages/jest-puppeteer-env/**/*.js',
         'packages/jest-puppeteer-env-example/**/*.js',
+        'packages/mocker/**/*.js',
         'packages/check/**/*.js',
         './.eslintrc.js'
       ],
