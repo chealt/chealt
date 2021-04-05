@@ -1,6 +1,8 @@
-import { agreeToConsent } from './helpers';
+import { agreeToConsent, clearCookies } from './helpers';
 
 describe('Google', () => {
+  beforeEach(clearCookies);
+
   it('should show the Google logo', async () => {
     // GIVEN
     await agreeToConsent();
