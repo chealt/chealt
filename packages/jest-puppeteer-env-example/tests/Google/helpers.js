@@ -3,7 +3,13 @@ const agreeToConsent = async () => {
   await page.goto('https://www.google.com');
 
   // THEN
-  await expect(page).toClick('button', { text: 'I agree' });
+  const consentFrame = page.frames().find((frame) => frame.url().includes('consent.google.com'));
+
+  if (consentFrame) {
+    await expect(consentFrame).toClick('span', { text: 'I agree' });
+  } else {
+    await expect(page).toClick('button', { text: 'I agree' });
+  }
 };
 
 const clearCookies = async () => {
