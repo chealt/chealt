@@ -1,6 +1,6 @@
 {
   "name": "@chealt/mocker",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "license": "MIT",
   "type": "module",
   "main": "src/index.js",
@@ -15,7 +15,7 @@
   "homepage": "https://github.com/chealt/chealt#chealt",
   "scripts": {
     "start": "node server.js",
-    "dev": "nodemon server.js",
+    "dev": "nodemon  --inspect server.js",
     "build": "rm -rf commonjs && babel --config-file ./config/babel.commonjs.config.js src --out-dir ./commonjs --out-file-extension .cjs",
     "prepublish": "yarn build"
   },

@@ -31,21 +31,49 @@ const getMocks = async ({ mocksFolderAbsPath, mockExtension }) => {
 const removePort = (url) => url.replace(/:\d\d\d\d[\d]*/gu, '');
 const removeHost = (url) => url.replace(/https?:\/\/[^/]*/gu, '');
 
-const findMocksForUrl = ({ isPortAgnostic, isHostAgnostic }) => (mocks, url) => {
+const isMatchingUrl = ({ mockUrl, url, isPortAgnostic, isHostAgnostic }) => {
+  if (isPortAgnostic && isHostAgnostic) {
+    return removeHost(removePort(mockUrl)) === removeHost(removePort(url));
+  }
+
+  if (isPortAgnostic) {
+    return removePort(mockUrl) === removePort(url);
+  }
+
+  if (isHostAgnostic) {
+    return removeHost(mockUrl) === removeHost(url);
+  }
+
+  return mockUrl === url;
+};
+
+const isMatchingHeaders = ({ mockHeaders, headers }) =>
+  Object.keys(mockHeaders).every((key) => mockHeaders[key] === headers[key]);
+
+const isMatchingRequest = ({ mock, url, headers, method, requestBody, isPortAgnostic, isHostAgnostic }) => {
+  const matchingUrl = isMatchingUrl({ mockUrl: mock.url, url, isPortAgnostic, isHostAgnostic });
+  const matchingMethod = mock.method === method;
+  const matchingHeaders = !mock.headers || isMatchingHeaders({ mockHeaders: mock.headers, headers });
+  const matchingBody = !requestBody || JSON.stringify(mock.requestBody) === JSON.stringify(requestBody);
+
+  return matchingUrl && matchingMethod && matchingHeaders && matchingBody;
+};
+
+const findMocksForUrl = ({ isPortAgnostic, isHostAgnostic }) => ({ mocks, url, headers, method, requestBody }) => {
   const mockKey = Object.keys(mocks).find((responseUrl) => {
-    if (isPortAgnostic && isHostAgnostic) {
-      return removeHost(removePort(responseUrl)) === removeHost(removePort(url));
-    }
+    const mockResponses = mocks[responseUrl];
 
-    if (isPortAgnostic) {
-      return removePort(responseUrl) === removePort(url);
-    }
-
-    if (isHostAgnostic) {
-      return removeHost(responseUrl) === removeHost(url);
-    }
-
-    return responseUrl === url;
+    return mockResponses.find((mock) =>
+      isMatchingRequest({
+        mock,
+        url,
+        headers,
+        method,
+        requestBody,
+        isPortAgnostic,
+        isHostAgnostic
+      })
+    );
   });
 
   if (mockKey) {

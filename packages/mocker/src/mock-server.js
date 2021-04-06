@@ -13,17 +13,16 @@ const mockServer = async () => {
 
   validate(config);
 
-  const { PORT, MOCKS_FOLDER, MOCK_EXTENSION } = config;
-  const mocksFolderAbsPath = getFolderAbsPath(MOCKS_FOLDER);
-
   const app = express();
 
-  const mocks = await getMocks({ mocksFolderAbsPath, mockExtension: MOCK_EXTENSION });
+  app.use(/\/$/u, (req, res) => res.send(''));
 
+  const { MOCKS_FOLDER, MOCK_EXTENSION } = config;
+  const mocksFolderAbsPath = getFolderAbsPath(MOCKS_FOLDER);
+  const mocks = await getMocks({ mocksFolderAbsPath, mockExtension: MOCK_EXTENSION });
   app.use(mockMiddleware(mocks));
 
-  app.use('/', (req, res) => res.send(''));
-
+  const { PORT } = config;
   app.listen(PORT, async () => {
     logger.info(`Mock server is listening on port: ${PORT}...`);
   });

@@ -7,7 +7,15 @@ const agreeToConsent = async () => {
 
   if (consentFrame) {
     await expect(consentFrame).toClick('span', { text: 'I agree' });
+  } else {
+    await expect(page).toClick('button', { text: 'I agree' });
   }
 };
 
-export { agreeToConsent };
+const clearCookies = async () => {
+  const cookies = await page.cookies();
+
+  return page.deleteCookie(...cookies);
+};
+
+export { agreeToConsent, clearCookies };

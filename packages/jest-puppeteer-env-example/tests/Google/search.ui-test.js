@@ -1,6 +1,6 @@
 import { agreeToConsent } from './helpers';
 
-describe('Google', () => {
+describe.skip('Google', () => {
   it('should be able to search', async () => {
     // GIVEN
     await agreeToConsent();

@@ -86,7 +86,6 @@ const config = {
   'dot-location': ['error', 'property'],
   'dot-notation': ['error', { allowKeywords: true }],
   'func-call-spacing': 'error',
-  'function-paren-newline': ['error', 'consistent'],
   'generator-star-spacing': 'error',
   'guard-for-in': 'error',
   'handle-callback-err': ['error', 'err'],

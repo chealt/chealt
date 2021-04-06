@@ -21,28 +21,20 @@ const factory = async ({ config: configParam, page, mocks, globalMocks, logger }
   const coverages = {};
   const bundleSizeViolations = {};
 
-  const getMocksForUrl = ({ url }) => {
+  const getMocksForUrl = ({ url, method, headers, requestBody }) => {
     const testMocks = mocks && mocks[runningTestName];
-    const testMocksForUrl = testMocks && findMocks(testMocks, url);
-    const globalMocksForUrl = globalMocks && findMocks(globalMocks, url);
+    const testMocksForUrl = testMocks && findMocks({ mocks: testMocks, url, method, headers, requestBody });
+    const globalMocksForUrl = globalMocks && findMocks({ mocks: globalMocks, url, method, headers, requestBody });
 
     return globalMocksForUrl || testMocksForUrl;
   };
 
-  const getMockResponse = ({ requestDetails: { url, method } }) => {
-    const testMocksForUrl = getMocksForUrl({ url });
+  const getMockResponse = ({ requestDetails: { url, method, headers, requestBody } }) => {
+    const testMocksForUrl = getMocksForUrl({ url, method, headers, requestBody });
     const hasMockResponses = testMocksForUrl && testMocksForUrl.length;
-    const mockResponseIndex = hasMockResponses && testMocksForUrl.findIndex((mock) => mock.method === method);
-    const mockResponse =
-      hasMockResponses &&
-      mockResponseIndex !== -1 &&
-      // we remove the element from the array
-      // unless it's the last item
-      (testMocksForUrl.length !== 1
-        ? testMocksForUrl.splice(mockResponseIndex, 1)[0]
-        : testMocksForUrl[mockResponseIndex]);
+    const mockResponse = hasMockResponses && testMocksForUrl[0];
 
-    return mockResponse || undefined;
+    return mockResponse;
   };
 
   const getResponseDetails = async (response, url) => {
@@ -94,11 +86,13 @@ const factory = async ({ config: configParam, page, mocks, globalMocks, logger }
 
     const headers = request.headers();
     const method = request.method();
+    const requestBody = request.postData();
     const shouldInterceptRequest = shouldInterceptUrl && isDataRequest;
     const requestDetails = {
       url,
       headers,
-      method
+      method,
+      requestBody
     };
 
     if (shouldInterceptRequest) {
@@ -140,6 +134,8 @@ const factory = async ({ config: configParam, page, mocks, globalMocks, logger }
             responses[runningTestName][url].push({
               url,
               method,
+              requestHeaders: headers,
+              requestBody,
               ...details
             });
           }
@@ -164,12 +160,16 @@ const factory = async ({ config: configParam, page, mocks, globalMocks, logger }
       const details = await getResponseDetails(response, url);
       const request = response.request();
       const method = request.method();
+      const requestBody = request.postData();
+      const requestHeaders = request.headers();
 
       if (details) {
         logger.debug(`Intercepting response for url: ${url}`);
         originalRequest.push({
           url,
           method,
+          requestHeaders,
+          requestBody,
           ...details
         });
       }

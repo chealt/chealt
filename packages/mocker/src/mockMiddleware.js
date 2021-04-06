@@ -11,7 +11,13 @@ const mockMiddleware = (allMocks) => (req, res, next) => {
   allMocks.forEach((suiteMocks) => {
     Object.keys(suiteMocks).forEach((testId) => {
       const testMocks = suiteMocks[testId];
-      const mocksMatchingUrl = findMocks(testMocks, req.originalUrl);
+      const mocksMatchingUrl = findMocks({
+        mocks: testMocks,
+        url: req.originalUrl,
+        method: req.method,
+        headers: req.headers,
+        requestBody: req.body
+      });
 
       if (mocksMatchingUrl) {
         logger.debug(`Found mock for url: ${req.originalUrl}`);
@@ -35,7 +41,7 @@ const mockMiddleware = (allMocks) => (req, res, next) => {
       }
     });
 
-    if (mock.headers['content-type'].includes('application/json')) {
+    if (mock.headers['content-type']?.includes('application/json')) {
       res.json(mock.body);
     } else {
       res.send(mock.body);
