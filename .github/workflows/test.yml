@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Checks
+name: Test
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the main branch
@@ -29,8 +29,6 @@ jobs:
       run: yarn install --frozen-lockfile
       env:
         NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-    - name: Lint
-      run: yarn run check
     - name: Test
       run: yarn test
       env:
