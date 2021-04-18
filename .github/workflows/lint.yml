@@ -1,4 +1,4 @@
-name: Outdated dependencies
+name: Lint
 
 on:
   push:
@@ -7,14 +7,18 @@ on:
     branches: [main]
 
 jobs:
-  outdated:
+  lint:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - uses: actions/setup-node@v2-beta
       with:
-        node-version: '14'        
-    - name: Run outdated dependecy check
-      run: yarn outdated
+        node-version: '14'
+    - name: Install
+      run: yarn install --frozen-lockfile
       env:
         NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+    - name: Lint
+      run: yarn run check
+      env:
+        CI: true
