@@ -7,7 +7,7 @@ const factory = async ({ config: configParam, page, mocks, globalMocks, logger }
   let runningTestName;
   const client = await page.target().createCDPSession();
   const config = {
-    dataRequestResourceTypes: ['fetch', 'xhr'],
+    dataRequestResourceTypes: ['fetch', 'xhr', 'other'],
     requestPathIgnorePatterns: ['browser-sync'],
     isPortAgnostic: false,
     isHostAgnostic: false,
@@ -29,13 +29,8 @@ const factory = async ({ config: configParam, page, mocks, globalMocks, logger }
     return globalMocksForUrl || testMocksForUrl;
   };
 
-  const getMockResponse = ({ requestDetails: { url, method, headers, requestBody } }) => {
-    const testMocksForUrl = getMocksForUrl({ url, method, headers, requestBody });
-    const hasMockResponses = testMocksForUrl && testMocksForUrl.length;
-    const mockResponse = hasMockResponses && testMocksForUrl[0];
-
-    return mockResponse;
-  };
+  const getMockResponse = ({ requestDetails: { url, method, headers, requestBody } }) =>
+    getMocksForUrl({ url, method, headers, requestBody });
 
   const getResponseDetails = async (response, url) => {
     let body;

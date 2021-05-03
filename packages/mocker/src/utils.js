@@ -31,7 +31,16 @@ const getMocks = async ({ mocksFolderAbsPath, mockExtension }) => {
 const removePort = (url) => url.replace(/:\d\d\d\d[\d]*/gu, '');
 const removeHost = (url) => url.replace(/https?:\/\/[^/]*/gu, '');
 
+const isRegExp = (str) => str.startsWith('/') && str.endsWith('/');
+
 const isMatchingUrl = ({ mockUrl, url, isPortAgnostic, isHostAgnostic }) => {
+  if (isRegExp(mockUrl)) {
+    const cleanMockUrl = mockUrl.slice(1, mockUrl.length - 1); // remove the beginning and ending forward slashes
+    const exp = new RegExp(cleanMockUrl, 'u');
+
+    return exp.test(url);
+  }
+
   if (isPortAgnostic && isHostAgnostic) {
     return removeHost(removePort(mockUrl)) === removeHost(removePort(url));
   }
@@ -48,23 +57,21 @@ const isMatchingUrl = ({ mockUrl, url, isPortAgnostic, isHostAgnostic }) => {
 };
 
 const isMatchingHeaders = ({ mockHeaders, headers }) =>
-  Object.keys(mockHeaders).every((key) => mockHeaders[key] === headers[key]);
+  Object.keys(mockHeaders).every((key) => mockHeaders[key] === headers?.[key]);
 
 const isMatchingRequest = ({ mock, url, headers, method, requestBody, isPortAgnostic, isHostAgnostic }) => {
   const matchingUrl = isMatchingUrl({ mockUrl: mock.url, url, isPortAgnostic, isHostAgnostic });
   const matchingMethod = mock.method === method;
-  const matchingHeaders = !mock.headers || isMatchingHeaders({ mockHeaders: mock.headers, headers });
+  const matchingHeaders = !mock.requestHeaders || isMatchingHeaders({ mockHeaders: mock.requestHeaders, headers });
   const matchingBody = !requestBody || JSON.stringify(mock.requestBody) === JSON.stringify(requestBody);
 
   return matchingUrl && matchingMethod && matchingHeaders && matchingBody;
 };
 
 const findMocksForUrl = ({ isPortAgnostic, isHostAgnostic }) => ({ mocks, url, headers, method, requestBody }) => {
-  const mockKey = Object.keys(mocks).find((responseUrl) => {
-    const mockResponses = mocks[responseUrl];
-
-    return mockResponses.find((mock) =>
-      isMatchingRequest({
+  for (const [, urlMocks] of Object.entries(mocks)) {
+    for (const mock of urlMocks) {
+      const matchingMock = isMatchingRequest({
         mock,
         url,
         headers,
@@ -72,12 +79,12 @@ const findMocksForUrl = ({ isPortAgnostic, isHostAgnostic }) => ({ mocks, url, h
         requestBody,
         isPortAgnostic,
         isHostAgnostic
-      })
-    );
-  });
+      });
 
-  if (mockKey) {
-    return mocks[mockKey];
+      if (matchingMock) {
+        return mock;
+      }
+    }
   }
 
   return undefined;
