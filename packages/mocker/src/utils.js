@@ -62,7 +62,7 @@ const isMatchingHeaders = ({ mockHeaders, headers }) =>
 const isMatchingRequest = ({ mock, url, headers, method, requestBody, isPortAgnostic, isHostAgnostic }) => {
   const matchingUrl = isMatchingUrl({ mockUrl: mock.url, url, isPortAgnostic, isHostAgnostic });
   const matchingMethod = mock.method === method;
-  const matchingHeaders = !mock.headers || isMatchingHeaders({ mockHeaders: mock.headers, headers });
+  const matchingHeaders = !mock.requestHeaders || isMatchingHeaders({ mockHeaders: mock.requestHeaders, headers });
   const matchingBody = !requestBody || JSON.stringify(mock.requestBody) === JSON.stringify(requestBody);
 
   return matchingUrl && matchingMethod && matchingHeaders && matchingBody;

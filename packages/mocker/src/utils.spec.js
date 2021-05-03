@@ -26,6 +26,9 @@ describe('utils module', () => {
       const matchingMock = {
         url: mockUrl,
         method: 'method',
+        requestHeaders: {
+          requestHeader1: 'requestHeader1'
+        },
         headers: {
           header1: 'header1'
         }
@@ -43,7 +46,7 @@ describe('utils module', () => {
           mocks,
           url: mockUrl,
           method: 'method',
-          headers: { header1: 'header1', extraHeader: 'extraHeader' }
+          headers: { requestHeader1: 'requestHeader1', extraHeader: 'extraHeader' }
         })
       ).toEqual([matchingMock]);
     });
