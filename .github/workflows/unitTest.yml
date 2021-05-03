@@ -20,5 +20,3 @@ jobs:
         NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
     - name: Test
       run: yarn test:unit
-      env:
-        CI: true
