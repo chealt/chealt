@@ -15,7 +15,7 @@
   "homepage": "https://github.com/chealt/chealt#chealt",
   "scripts": {
     "start": "node server.js",
-    "test": "jest --config config/jest.config.js",
+    "test:unit": "jest --config config/jest.config.js",
     "dev": "nodemon  --inspect server.js",
     "build": "rm -rf commonjs && babel --config-file ./config/babel.commonjs.config.js src --out-dir ./commonjs --out-file-extension .cjs",
     "prepublish": "yarn build"
