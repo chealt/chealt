@@ -7,7 +7,7 @@ const factory = async ({ config: configParam, page, mocks, globalMocks, logger }
   let runningTestName;
   const client = await page.target().createCDPSession();
   const config = {
-    dataRequestResourceTypes: ['fetch', 'xhr'],
+    dataRequestResourceTypes: ['fetch', 'xhr', 'other'],
     requestPathIgnorePatterns: ['browser-sync'],
     isPortAgnostic: false,
     isHostAgnostic: false,
