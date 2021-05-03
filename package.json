@@ -8,7 +8,7 @@
   "scripts": {
     "check": "yarn lint:eslint",
     "lint:eslint": "eslint .",
-    "test": "yarn workspace @chealt/jest-puppeteer-env-example run test",
+    "test": "yarn workspace @chealt/jest-puppeteer-env-example run test && yarn workspace @chealt/mocker run test",
     "postinstall": "yarn workspace @chealt/mocker run build"
   },
   "workspaces": {
