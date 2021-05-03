@@ -17,7 +17,7 @@ describe('utils module', () => {
       const findMocks = findMocksForUrl({});
 
       // THEN
-      expect(findMocks({ mocks, url: mockUrl, method: 'method' })).toEqual([matchingMock]);
+      expect(findMocks({ mocks, url: mockUrl, method: 'method' })).toEqual(matchingMock);
     });
 
     it('returns mock with matching URL, method and header', () => {
@@ -48,7 +48,7 @@ describe('utils module', () => {
           method: 'method',
           headers: { requestHeader1: 'requestHeader1', extraHeader: 'extraHeader' }
         })
-      ).toEqual([matchingMock]);
+      ).toEqual(matchingMock);
     });
 
     it('returns mock with matching URL, method and request body', () => {
@@ -78,7 +78,7 @@ describe('utils module', () => {
             data: '123'
           }
         })
-      ).toEqual([matchingMock]);
+      ).toEqual(matchingMock);
     });
 
     it('returns mock with matching regular expression URL', () => {
@@ -102,7 +102,35 @@ describe('utils module', () => {
           url: 'http://mockery.com/mock/123/url/asd',
           method: 'method'
         })
-      ).toEqual([matchingMock]);
+      ).toEqual(matchingMock);
+    });
+
+    it('handles multiple mocks with the same URL but different methods', () => {
+      // GIVEN
+      const mockUrl = '/mockery\\.com/mock/.*/url/.*/';
+      const matchingMock = {
+        url: mockUrl,
+        method: 'method'
+      };
+      const notMatchingMock = {
+        url: mockUrl,
+        method: 'not-matching-method'
+      };
+      const mocks = {
+        [mockUrl]: [notMatchingMock, matchingMock]
+      };
+
+      // WHEN
+      const findMocks = findMocksForUrl({});
+
+      // THEN
+      expect(
+        findMocks({
+          mocks,
+          url: 'http://mockery.com/mock/123/url/asd',
+          method: 'method'
+        })
+      ).toEqual(matchingMock);
     });
   });
 });

@@ -69,11 +69,9 @@ const isMatchingRequest = ({ mock, url, headers, method, requestBody, isPortAgno
 };
 
 const findMocksForUrl = ({ isPortAgnostic, isHostAgnostic }) => ({ mocks, url, headers, method, requestBody }) => {
-  const mockKey = Object.keys(mocks).find((responseUrl) => {
-    const mockResponses = mocks[responseUrl];
-
-    return mockResponses.find((mock) =>
-      isMatchingRequest({
+  for (const [, urlMocks] of Object.entries(mocks)) {
+    for (const mock of urlMocks) {
+      const matchingMock = isMatchingRequest({
         mock,
         url,
         headers,
@@ -81,15 +79,13 @@ const findMocksForUrl = ({ isPortAgnostic, isHostAgnostic }) => ({ mocks, url, h
         requestBody,
         isPortAgnostic,
         isHostAgnostic
-      })
-    );
-  });
+      });
 
-  if (mockKey) {
-    return mocks[mockKey];
+      if (matchingMock) {
+        return mock;
+      }
+    }
   }
-
-  return undefined;
 };
 
 export { getFolderAbsPath, getMocks, findMocksForUrl };
