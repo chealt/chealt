@@ -48,7 +48,7 @@ const isMatchingUrl = ({ mockUrl, url, isPortAgnostic, isHostAgnostic }) => {
 };
 
 const isMatchingHeaders = ({ mockHeaders, headers }) =>
-  Object.keys(mockHeaders).every((key) => mockHeaders[key] === headers[key]);
+  Object.keys(mockHeaders).every((key) => mockHeaders[key] === headers?.[key]);
 
 const isMatchingRequest = ({ mock, url, headers, method, requestBody, isPortAgnostic, isHostAgnostic }) => {
   const matchingUrl = isMatchingUrl({ mockUrl: mock.url, url, isPortAgnostic, isHostAgnostic });
