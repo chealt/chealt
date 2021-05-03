@@ -35,7 +35,10 @@ const isRegExp = (str) => str.startsWith('/') && str.endsWith('/');
 
 const isMatchingUrl = ({ mockUrl, url, isPortAgnostic, isHostAgnostic }) => {
   if (isRegExp(mockUrl)) {
-    return new RegExp(mockUrl, 'u').test(url);
+    const cleanMockUrl = mockUrl.slice(1, mockUrl.length - 1); // remove the beginning and ending forward slashes
+    const exp = new RegExp(cleanMockUrl, 'u');
+
+    return exp.test(url);
   }
 
   if (isPortAgnostic && isHostAgnostic) {

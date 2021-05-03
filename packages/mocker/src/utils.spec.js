@@ -80,7 +80,7 @@ describe('utils module', () => {
 
     it('returns mock with matching regular expression URL', () => {
       // GIVEN
-      const mockUrl = '/mock/url/';
+      const mockUrl = '/mockery\\.com/mock/.*/url/.*/';
       const matchingMock = {
         url: mockUrl,
         method: 'method'
@@ -96,7 +96,7 @@ describe('utils module', () => {
       expect(
         findMocks({
           mocks,
-          url: 'http://localhost/mock/url/asd',
+          url: 'http://mockery.com/mock/123/url/asd',
           method: 'method'
         })
       ).toEqual([matchingMock]);
