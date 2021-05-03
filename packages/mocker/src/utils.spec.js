@@ -77,5 +77,29 @@ describe('utils module', () => {
         })
       ).toEqual([matchingMock]);
     });
+
+    it('returns mock with matching regular expression URL', () => {
+      // GIVEN
+      const mockUrl = '/mock/url/';
+      const matchingMock = {
+        url: mockUrl,
+        method: 'method'
+      };
+      const mocks = {
+        [mockUrl]: [matchingMock]
+      };
+
+      // WHEN
+      const findMocks = findMocksForUrl({});
+
+      // THEN
+      expect(
+        findMocks({
+          mocks,
+          url: 'http://localhost/mock/url/asd',
+          method: 'method'
+        })
+      ).toEqual([matchingMock]);
+    });
   });
 });

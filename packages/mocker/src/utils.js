@@ -31,7 +31,13 @@ const getMocks = async ({ mocksFolderAbsPath, mockExtension }) => {
 const removePort = (url) => url.replace(/:\d\d\d\d[\d]*/gu, '');
 const removeHost = (url) => url.replace(/https?:\/\/[^/]*/gu, '');
 
+const isRegExp = (str) => str.startsWith('/') && str.endsWith('/');
+
 const isMatchingUrl = ({ mockUrl, url, isPortAgnostic, isHostAgnostic }) => {
+  if (isRegExp(mockUrl)) {
+    return new RegExp(mockUrl, 'u').test(url);
+  }
+
   if (isPortAgnostic && isHostAgnostic) {
     return removeHost(removePort(mockUrl)) === removeHost(removePort(url));
   }
