@@ -86,6 +86,8 @@ const findMocksForUrl = ({ isPortAgnostic, isHostAgnostic }) => ({ mocks, url, h
       }
     }
   }
+
+  return undefined;
 };
 
 export { getFolderAbsPath, getMocks, findMocksForUrl };
