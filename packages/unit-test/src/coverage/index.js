@@ -4,6 +4,6 @@ const uploadCoverage = ({
   bucketName,
   coverageFolder,
   git: { domain, org, repo, branch, hash }
-}) => {};
+}) => true;
 
 export { uploadCoverage };

@@ -9,7 +9,9 @@
     "url": "git+https://github.com/chealt/chealt.git"
   },
   "homepage": "https://github.com/chealt/chealt#chealt",
-  "scripts": {},
+  "scripts": {
+    "test": "jest --config config/jest.config.js"
+  },
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"
