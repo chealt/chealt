@@ -18,5 +18,7 @@
   "engines": {
     "node": ">=14"
   },
-  "dependencies": {}
+  "dependencies": {
+    "ibm-cos-sdk": "1.10.0"
+  }
 }
