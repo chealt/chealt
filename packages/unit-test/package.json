@@ -10,7 +10,7 @@
   },
   "homepage": "https://github.com/chealt/chealt#chealt",
   "scripts": {
-    "test": "jest --config config/jest.config.js"
+    "test:unit": "jest --config config/jest.config.js"
   },
   "publishConfig": {
     "access": "public",
@@ -21,6 +21,7 @@
     "node": ">=14"
   },
   "dependencies": {
+    "glob": "^7.1.7",
     "ibm-cos-sdk": "1.10.0"
   }
 }
