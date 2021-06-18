@@ -1,7 +1,7 @@
 import { promisify } from 'util';
 import globAsync from 'glob';
 
-import { validateConfig as validateIBMConfig, uploadFiles as uploadIBMFiles } from './IBM';
+import { validateConfig as validateIBMConfig, uploadFiles as uploadIBMFiles } from './IBM/index.js';
 
 const glob = promisify(globAsync);
 

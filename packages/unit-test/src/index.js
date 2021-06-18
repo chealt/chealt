@@ -1,1 +1,1 @@
-export * as coverageUtils from './coverage';
+export * as coverageUtils from './coverage/index.js';
