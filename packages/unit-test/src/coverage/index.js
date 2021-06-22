@@ -75,4 +75,7 @@ const getCoverageSummary = ({ cloudProviderConfig, git }) => {
   return getCoverage({ config: cloudProviderConfig, git, file: 'coverage/coverage-summary.json' });
 };
 
-export { getCoverageSummary, uploadCoverage };
+const calculateCoverageAvg = ({ lines, statements, functions, branches }) =>
+  (lines.pct + statements.pct + functions.pct + branches.pct) / 4;
+
+export { calculateCoverageAvg, getCoverageSummary, uploadCoverage };
