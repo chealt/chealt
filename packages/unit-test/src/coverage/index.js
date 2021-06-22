@@ -72,7 +72,7 @@ const getCoverageSummary = ({ cloudProviderConfig, git }) => {
 
   validateGitConfig(git);
 
-  return getCoverage({ config: cloudProviderConfig, git, file: 'coverage-summary.json' });
+  return getCoverage({ config: cloudProviderConfig, git, file: 'coverage/coverage-summary.json' });
 };
 
 export { getCoverageSummary, uploadCoverage };
