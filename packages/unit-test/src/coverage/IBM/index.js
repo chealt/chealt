@@ -22,6 +22,8 @@ const validateConfig = ({ bucket, endpoint, apiKeyId, serviceInstanceId }) => {
   }
 };
 
+const getKey = ({ git: { org, repo, branch, hash }, file }) => `${org}/${repo}/${branch}/${hash}/${file}`;
+
 const uploadFiles = ({ config: { endpoint, apiKeyId, serviceInstanceId, bucket }, files, git }) => {
   const cos = new IBM.S3({
     endpoint,
@@ -32,7 +34,7 @@ const uploadFiles = ({ config: { endpoint, apiKeyId, serviceInstanceId, bucket }
   return Promise.all(
     files.map(async (file) => {
       const content = await readFile(file);
-      const key = `${git.org}/${git.repo}/${git.branch}/${git.hash}/${file}`;
+      const key = getKey({ git, file });
 
       return cos
         .putObject({
@@ -51,4 +53,22 @@ const uploadFiles = ({ config: { endpoint, apiKeyId, serviceInstanceId, bucket }
   );
 };
 
-export { uploadFiles, validateConfig };
+const getCoverageSummary = async ({ config: { endpoint, apiKeyId, serviceInstanceId, bucket }, git, file }) => {
+  const cos = new IBM.S3({
+    endpoint,
+    apiKeyId,
+    serviceInstanceId
+  });
+
+  const key = getKey({ git, file });
+
+  const object = await cos.getObject({ Bucket: bucket, Key: key }).promise();
+
+  if (!object || !object.Body) {
+    throw new Error(`The specified object does not exist: ${key} in the bucket: ${bucket}`);
+  }
+
+  return Buffer.from(object.Body);
+};
+
+export { getCoverageSummary, uploadFiles, validateConfig };

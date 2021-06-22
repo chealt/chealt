@@ -4,6 +4,9 @@ const mock = {
     return {
       putObject: () => ({
         promise: () => Promise.resolve()
+      }),
+      getObject: () => ({
+        promise: () => Promise.resolve({ Body: [] })
       })
     };
   }

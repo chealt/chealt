@@ -1,7 +1,11 @@
 import { promisify } from 'util';
 import globAsync from 'glob';
 
-import { validateConfig as validateIBMConfig, uploadFiles as uploadIBMFiles } from './IBM/index.js';
+import {
+  validateConfig as validateIBMConfig,
+  uploadFiles as uploadIBMFiles,
+  getCoverageSummary as getIBMCoverageSummary
+} from './IBM/index.js';
 
 const glob = promisify(globAsync);
 
@@ -14,7 +18,8 @@ const getProviderMethods = (config) => {
     case 'IBM':
       return {
         validateConfig: validateIBMConfig,
-        uploadFiles: uploadIBMFiles
+        uploadFiles: uploadIBMFiles,
+        getCoverage: getIBMCoverageSummary
       };
     default:
       throw new Error(`Unknown cloud provider: "${config.provider}"!`);
@@ -61,4 +66,13 @@ const uploadCoverage = async ({ cloudProviderConfig, coverageFolder, git } = {})
   return true;
 };
 
-export { uploadCoverage };
+const getCoverageSummary = ({ cloudProviderConfig, git }) => {
+  const { validateConfig, getCoverage } = getProviderMethods(cloudProviderConfig);
+  validateConfig(cloudProviderConfig);
+
+  validateGitConfig(git);
+
+  return getCoverage({ config: cloudProviderConfig, git, file: 'coverage-summary.json' });
+};
+
+export { getCoverageSummary, uploadCoverage };

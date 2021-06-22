@@ -1,7 +1,7 @@
-import { uploadCoverage } from '.';
+import { getCoverageSummary, uploadCoverage } from '.';
 
 describe('coverage module', () => {
-  describe('await uploadCoverage()', () => {
+  describe('uploadCoverage()', () => {
     it('uploads coverage folder to IBM Cloud', async () => {
       const result = await uploadCoverage({
         cloudProviderConfig: {
@@ -53,6 +53,28 @@ describe('coverage module', () => {
           git: {}
         })
       ).rejects.toThrow();
+    });
+  });
+
+  describe('getCoverageSummary()', () => {
+    it('gets coverage summary', async () => {
+      const coverageSummary = await getCoverageSummary({
+        cloudProviderConfig: {
+          provider: 'IBM',
+          bucket: 'bucket',
+          endpoint: 'endpoint',
+          apiKeyId: 'apiKeyId',
+          serviceInstanceId: 'serviceInstanceId'
+        },
+        git: {
+          org: 'org',
+          repo: 'repo',
+          branch: 'branch',
+          hash: 'hash'
+        }
+      });
+
+      expect(coverageSummary).toEqual(Buffer.from([]));
     });
   });
 });
