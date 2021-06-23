@@ -25,11 +25,12 @@ const config = {
     },
     {
       files: [
+        'packages/check/**/*.js',
         'packages/jest-puppeteer-env/**/*.js',
         'packages/jest-puppeteer-env-example/**/*.js',
         'packages/mocker/**/*.js',
         'packages/mocker/**/*.cjs',
-        'packages/check/**/*.js',
+        'packages/unit-test/**/*.js',
         './.eslintrc.js'
       ],
       parserOptions: {
