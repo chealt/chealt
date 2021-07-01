@@ -26,7 +26,7 @@ const factory = async ({ config: configParam, page, mocks, globalMocks, logger }
     const testMocksForUrl = testMocks && findMocks({ mocks: testMocks, url, method, headers, requestBody });
     const globalMocksForUrl = globalMocks && findMocks({ mocks: globalMocks, url, method, headers, requestBody });
 
-    return globalMocksForUrl || testMocksForUrl;
+    return testMocksForUrl || globalMocksForUrl;
   };
 
   const getMockResponse = ({ requestDetails: { url, method, headers, requestBody } }) =>
@@ -99,7 +99,7 @@ const factory = async ({ config: configParam, page, mocks, globalMocks, logger }
       });
 
       if (mockResponse) {
-        logger.debug(`Responding with mock: ${JSON.stringify(mockResponse.body)}, for url: ${url}`);
+        logger.info(`Responding with mock: ${JSON.stringify(mockResponse.body)}, for url: ${url}`);
         await request.respond({
           status: mockResponse.status,
           headers: mockResponse.headers,
