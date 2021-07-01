@@ -99,7 +99,7 @@ const factory = async ({ config: configParam, page, mocks, globalMocks, logger }
       });
 
       if (mockResponse) {
-        logger.debug(`Responding with mock: ${JSON.stringify(mockResponse.body)}, for url: ${url}`);
+        logger.info(`Responding with mock: ${JSON.stringify(mockResponse.body)}, for url: ${url}`);
         await request.respond({
           status: mockResponse.status,
           headers: mockResponse.headers,
