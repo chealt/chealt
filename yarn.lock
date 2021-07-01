@@ -1216,31 +1216,6 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@chealt/jest-puppeteer-env@4.1.4":
-  version "4.1.4"
-  resolved "https://registry.yarnpkg.com/@chealt/jest-puppeteer-env/-/jest-puppeteer-env-4.1.4.tgz#22ad86ef9ff0d4cb8bc9265904c7964e7cd2c86c"
-  integrity sha512-jhb4Qc03J5+LzbyK08FNpgoRoVbbDXdmNJhUxDccLqTfnI2O78RNuq3DGOfhOWbF8/agI6pI2Yrlnabrsuy7QA==
-  dependencies:
-    "@axe-core/puppeteer" "4.2.2"
-    "@chealt/mocker" "1.1.2"
-    bytes "3.1.0"
-    chalk "4.1.1"
-    cwd "0.10.0"
-    expect-puppeteer "5.0.4"
-    jest-circus "27.0.6"
-    jest-dev-server "5.0.3"
-    jest-environment-node "27.0.6"
-    merge-deep "3.0.3"
-
-"@chealt/mocker@1.1.2":
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/@chealt/mocker/-/mocker-1.1.2.tgz#9290efb2c1d099a843f99d918a2d6c3ee1af742f"
-  integrity sha512-6XQt29ezQhjyfEUeGzGDyRa9fPS1az5Vrf+6qk3a07XGjQdOLi1T6J/GozF+IWUikUGqgtHdw21x9CS9IFMlMw==
-  dependencies:
-    express "4.17.1"
-    glob "7.1.7"
-    winston "3.3.3"
-
 "@dabh/diagnostics@^2.0.2":
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/@dabh/diagnostics/-/diagnostics-2.0.2.tgz#290d08f7b381b8f94607dc8f471a12c675f9db31"
