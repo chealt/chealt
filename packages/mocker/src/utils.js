@@ -65,6 +65,12 @@ const isMatchingRequest = ({ mock, url, headers, method, requestBody, isPortAgno
   const matchingHeaders = !mock.requestHeaders || isMatchingHeaders({ mockHeaders: mock.requestHeaders, headers });
   const matchingBody = !requestBody || JSON.stringify(mock.requestBody) === JSON.stringify(requestBody);
 
+  if (matchingUrl && matchingMethod && matchingHeaders && !matchingBody) {
+    logger.debug('Request body is not matching the mock');
+    logger.debug({ requestBody: JSON.stringify(requestBody) });
+    logger.debug({ mockRequestBody: JSON.stringify(mock.requestBody) });
+  }
+
   return matchingUrl && matchingMethod && matchingHeaders && matchingBody;
 };
 
