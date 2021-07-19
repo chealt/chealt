@@ -1,6 +1,6 @@
 {
   "name": "@chealt/unit-test",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "license": "MIT",
   "type": "module",
   "main": "src/index.js",
@@ -22,6 +22,6 @@
   },
   "dependencies": {
     "glob": "^7.1.7",
-    "ibm-cos-sdk": "1.10.0"
+    "ibm-cos-sdk": "1.10.1"
   }
 }
