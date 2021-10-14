@@ -72,6 +72,7 @@ const factory = async ({ config: configParam, page, mocks, globalMocks, logger }
     config.requestPathIgnorePatterns.find((ignorePattern) => new RegExp(ignorePattern, 'u').test(url));
 
   const getMatchingSwallowPattern = (url) =>
+    config.requestPathSwallowPatterns &&
     config.requestPathSwallowPatterns.find((swallowPattern) => new RegExp(swallowPattern, 'u').test(url));
 
   const parseRequestDetails = (request) => ({
