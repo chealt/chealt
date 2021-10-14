@@ -151,11 +151,11 @@ const validateAccessibilityConfig = (config) => {
 
 const validateScreenshotsConfig = (config) => {
   const {
-    testEnvironmentOptions: { recordScreenshots, screenshotDirectory }
+    testEnvironmentOptions: { screenshotDirectory }
   } = config;
 
-  if (recordScreenshots && !screenshotDirectory) {
-    throw new Error('When screenshots are taken you need to provide a screenshotDirectory option.');
+  if (!screenshotDirectory) {
+    throw new Error('You need to provide a screenshotDirectory option so that failures can be recorded.');
   }
 };
 
