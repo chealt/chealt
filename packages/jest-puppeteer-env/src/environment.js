@@ -210,7 +210,14 @@ class PuppeteerEnvironment extends NodeEnvironment {
     // Your setup
     logger.debug(`Setting up environemnt with config: ${JSON.stringify(this.config, null, 4)}`);
 
-    const { isHostAgnostic, isPortAgnostic, performance, recordRequests, requestPathIgnorePatterns } = this.config;
+    const {
+      isHostAgnostic,
+      isPortAgnostic,
+      performance,
+      recordRequests,
+      requestPathIgnorePatterns,
+      requestPathSwallowPatterns
+    } = this.config;
 
     if (performance?.collectCoverage) {
       logger.debug(`Will collect coverage information in: ${this.coverageFullPath}`);
@@ -229,7 +236,8 @@ class PuppeteerEnvironment extends NodeEnvironment {
         isHostAgnostic,
         performance,
         recordRequests,
-        requestPathIgnorePatterns
+        requestPathIgnorePatterns,
+        requestPathSwallowPatterns
       }
     });
   }

@@ -69,29 +69,55 @@ const factory = async ({ config: configParam, page, mocks, globalMocks, logger }
   };
 
   const getMatchingIgnorePattern = (url) =>
+    config.requestPathIgnorePatterns &&
     config.requestPathIgnorePatterns.find((ignorePattern) => new RegExp(ignorePattern, 'u').test(url));
 
+  const checkSwallowPatterns = (url) =>
+    config.requestPathSwallowPatterns &&
+    config.requestPathSwallowPatterns.some((swallowPattern) => new RegExp(swallowPattern, 'u').test(url));
+
+  const parseRequestDetails = (request) => ({
+    url: request.url(),
+    headers: request.headers(),
+    method: request.method(),
+    requestBody: request.postData(),
+    isDataRequest: config.dataRequestResourceTypes.includes(request.resourceType())
+  });
+
+  // eslint-disable-next-line complexity
   const interceptRequest = async (request) => {
-    const { dataRequestResourceTypes, recordRequests } = config;
-    const requestResourceType = request.resourceType();
-    const isDataRequest = dataRequestResourceTypes.includes(requestResourceType);
-    const url = request.url();
+    const { recordRequests } = config;
+    const { headers, isDataRequest, method, requestBody, url } = parseRequestDetails(request);
+
+    // Early exit for Swallowed requests
+    const shouldSwallowRequest = checkSwallowPatterns(url);
+
+    if (shouldSwallowRequest) {
+      logger.debug(`Swallowing request with url: ${url}`);
+
+      await request.respond({
+        status: 200,
+        statusText: 'OK'
+      });
+
+      return;
+    }
+
     const matchingIgnorePattern = getMatchingIgnorePattern(url);
     const shouldInterceptUrl = !matchingIgnorePattern;
 
-    const headers = request.headers();
-    const method = request.method();
-    const requestBody = request.postData();
     const shouldInterceptRequest = shouldInterceptUrl && isDataRequest;
-    const requestDetails = {
-      url,
-      headers,
-      method,
-      requestBody
-    };
 
     if (shouldInterceptRequest) {
       logger.debug(`Intercepting request with url: ${url}`);
+
+      const requestDetails = {
+        url,
+        headers,
+        method,
+        requestBody
+      };
+
       const mockResponse = getMockResponse({
         mocks,
         runningTestName,
