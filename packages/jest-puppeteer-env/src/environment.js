@@ -47,14 +47,7 @@ class PuppeteerEnvironment extends NodeEnvironment {
     super(config, context);
 
     const cleanConfig = validateConfig(config);
-    const {
-      rootDir,
-      performance,
-      mockResponseDir,
-      recordRequests,
-      screenshotDirectory,
-      shouldUseMocks
-    } = cleanConfig;
+    const { rootDir, performance, mockResponseDir, recordRequests, screenshotDirectory, shouldUseMocks } = cleanConfig;
 
     if (recordRequests || shouldUseMocks) {
       const relativeTestPath = `${context.testPath.replace(rootDir, '')}.mocks.json`;
