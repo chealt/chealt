@@ -52,7 +52,6 @@ class PuppeteerEnvironment extends NodeEnvironment {
       performance,
       mockResponseDir,
       recordRequests,
-      recordScreenshots,
       screenshotDirectory,
       shouldUseMocks
     } = cleanConfig;
@@ -85,10 +84,8 @@ class PuppeteerEnvironment extends NodeEnvironment {
       setBundleSizeViolationsPath(bundleSizeViolationsPath);
     }
 
-    if (recordScreenshots) {
-      const screenshotFullPath = getFullPath(rootDir, screenshotDirectory);
-      this.screenshotFullPath = screenshotFullPath;
-    }
+    const screenshotFullPath = getFullPath(rootDir, screenshotDirectory);
+    this.screenshotFullPath = screenshotFullPath;
 
     setConfig(cleanConfig);
     this.config = cleanConfig;
