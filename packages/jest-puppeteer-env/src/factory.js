@@ -69,6 +69,7 @@ const factory = async ({ config: configParam, page, mocks, globalMocks, logger }
   };
 
   const getMatchingIgnorePattern = (url) =>
+    config.requestPathIgnorePatterns &&
     config.requestPathIgnorePatterns.find((ignorePattern) => new RegExp(ignorePattern, 'u').test(url));
 
   const checkSwallowPatterns = (url) =>
