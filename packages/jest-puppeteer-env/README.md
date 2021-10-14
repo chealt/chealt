@@ -199,7 +199,7 @@ Example:
 }
 ```
 
-#### bundleSzies
+##### bundleSzies
 
 Type: `[{ path<String>, maxSize<String> }]`
 Default: `undefined`
