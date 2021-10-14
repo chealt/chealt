@@ -71,9 +71,9 @@ const factory = async ({ config: configParam, page, mocks, globalMocks, logger }
   const getMatchingIgnorePattern = (url) =>
     config.requestPathIgnorePatterns.find((ignorePattern) => new RegExp(ignorePattern, 'u').test(url));
 
-  const getMatchingSwallowPattern = (url) =>
+  const checkSwallowPatterns = (url) =>
     config.requestPathSwallowPatterns &&
-    config.requestPathSwallowPatterns.find((swallowPattern) => new RegExp(swallowPattern, 'u').test(url));
+    config.requestPathSwallowPatterns.some((swallowPattern) => new RegExp(swallowPattern, 'u').test(url));
 
   const parseRequestDetails = (request) => ({
     url: request.url(),
@@ -89,9 +89,9 @@ const factory = async ({ config: configParam, page, mocks, globalMocks, logger }
     const { headers, isDataRequest, method, requestBody, url } = parseRequestDetails(request);
 
     // Early exit for Swallowed requests
-    const matchingSwallowPattern = getMatchingSwallowPattern(url);
+    const shouldSwallowRequest = checkSwallowPatterns(url);
 
-    if (matchingSwallowPattern) {
+    if (shouldSwallowRequest) {
       logger.debug(`Swallowing request with url: ${url}`);
 
       await request.respond({
