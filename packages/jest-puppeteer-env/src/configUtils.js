@@ -75,6 +75,7 @@ const cleanConfig = (config) => {
       recordRequests,
       recordScreenshots,
       requestPathIgnorePatterns,
+      requestPathSwallowPatterns,
       screenshotDirectory,
       shouldUseMocks
     }
@@ -87,6 +88,7 @@ const cleanConfig = (config) => {
     recordRequests,
     recordScreenshots,
     requestPathIgnorePatterns,
+    requestPathSwallowPatterns,
     rootDir,
     screenshotDirectory,
     shouldUseMocks
