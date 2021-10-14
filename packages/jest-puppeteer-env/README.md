@@ -90,6 +90,13 @@ Type: `array<String>`
 Default: `undefined`
 
 A list of Strings to be created regular expressions of to not be included in the recorded requests. These will be passed to `new RegExp` with the `u` flag and any URL matching any one of them will be included.
+
+#### requestPathSwallowPatterns
+
+Type: `array<String>`
+Default: `undefined`
+
+A list of Strings to be created regular expressions of to respond with 200 OK and empty body with. These will be passed to `new RegExp` with the `u` flag and any URL matching any one of them will be included.
 #### shouldUseMocks
 
 Type: `Boolean`
