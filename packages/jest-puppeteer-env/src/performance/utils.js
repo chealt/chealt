@@ -22,4 +22,19 @@ const getMetricsSummary = (metrics) => {
   return summary;
 };
 
-module.exports = { getMetricsSummary };
+const networks = {
+  Fast3G: {
+    offline: false,
+    downloadThroughput: (1.5 * 1024 * 1024) / 8,
+    uploadThroughput: (750 * 1024) / 8,
+    latency: 40
+  },
+  Slow3G: {
+    offline: false,
+    downloadThroughput: (750 * 1024) / 8,
+    uploadThroughput: (250 * 1024) / 8,
+    latency: 100
+  }
+};
+
+module.exports = { getMetricsSummary, networks };

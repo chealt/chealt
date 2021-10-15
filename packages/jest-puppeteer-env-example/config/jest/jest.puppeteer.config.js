@@ -26,7 +26,9 @@ module.exports = {
           maxSize: '10 B'
         }
       ],
-      failOnBundleSizeViolation: false
+      failOnBundleSizeViolation: false,
+      // slowCPU: true,
+      emulateNetwork: 'Slow3G' // Fast3G, Slow3G
     },
     isHostAgnostic: true,
     mockResponseDir: 'mocks',

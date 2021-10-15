@@ -3,6 +3,7 @@ const path = require('path');
 const { promisify } = require('util');
 const cwd = require('cwd');
 const merge = require('merge-deep');
+const { networks } = require('./performance/utils');
 
 const exists = promisify(fs.exists);
 
@@ -134,6 +135,17 @@ const validatePerformanceConfig = (config) => {
 
   if (performance.bundleSizes && !performance.reportDirectory) {
     throw new Error('When bundle size violations are collected you need to provide a reportDirectory option.');
+  }
+
+  if (
+    performance.emulateNetwork &&
+    !Object.keys(networks).some((networkName) => networkName === performance.emulateNetwork)
+  ) {
+    throw new Error(
+      `Unknown network to emulate: '${performance.emulateNetwork}', please use one of the following: ${Object.keys(
+        networks
+      ).join(', ')}`
+    );
   }
 };
 
