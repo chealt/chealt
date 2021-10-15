@@ -246,6 +246,13 @@ Default: `false`
 
 Indicates whether the bundle size violations should fail the test.
 
+##### emulateNetwork
+
+Type: `String`
+Default: `undefined`
+
+Network conditions to simulate. Options are: `Fast3G`, `Slow3G`.
+
 #### Accessibility
 
 ##### failLevel
