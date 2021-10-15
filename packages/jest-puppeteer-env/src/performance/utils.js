@@ -14,7 +14,7 @@ const getMetricsSummary = (metrics) => {
       summary.domCompleted = navigationMetrics.duration;
       summary.DNSLookup = navigationMetrics.domainLookupEnd - navigationMetrics.domainLookupStart;
       summary.connectionTime = navigationMetrics.connectEnd - navigationMetrics.connectStart;
-      summary.responseTime = navigationMetrics.requestStart - navigationMetrics.responseEnd;
+      summary.responseTime = navigationMetrics.requestEnd - navigationMetrics.responseStart;
       summary.domInteractive = navigationMetrics.domInteractive - navigationMetrics.responseEnd;
     }
   }
