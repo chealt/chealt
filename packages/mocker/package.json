@@ -1,6 +1,6 @@
 {
   "name": "@chealt/mocker",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "license": "MIT",
   "type": "module",
   "main": "src/index.js",
@@ -34,6 +34,6 @@
     "winston": "3.3.3"
   },
   "devDependencies": {
-    "nodemon": "^2.0.13"
+    "nodemon": "^2.0.14"
   }
 }
