@@ -1,6 +1,6 @@
 {
   "name": "@chealt/jest-puppeteer-env",
-  "version": "4.7.0",
+  "version": "4.8.0",
   "license": "MIT",
   "main": "index.js",
   "repository": {
@@ -11,8 +11,8 @@
   "scripts": {},
   "dependencies": {
     "@axe-core/puppeteer": "4.3.1",
-    "@chealt/mocker": "1.5.0",
-    "bytes": "3.1.0",
+    "@chealt/mocker": "1.6.0",
+    "bytes": "3.1.1",
     "chalk": "4.1.2",
     "cwd": "0.10.0",
     "expect-puppeteer": "6.0.0",
