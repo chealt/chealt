@@ -5,8 +5,13 @@ const getMetricsSummary = (metrics) => {
     const firstPaint = metrics.entries.find((entry) => entry.name === 'first-paint');
     const firstContentfulPaint = metrics.entries.find((entry) => entry.name === 'first-contentful-paint');
 
-    summary.firstPaint = firstPaint.startTime;
-    summary.firstContentfulPaint = firstContentfulPaint.startTime;
+    if (firstPaint) {
+      summary.firstPaint = firstPaint.startTime;
+    }
+
+    if (firstContentfulPaint) {
+      summary.firstContentfulPaint = firstContentfulPaint.startTime;
+    }
 
     const navigationMetrics = metrics.entries.find((entry) => entry.entryType === 'navigation');
 
