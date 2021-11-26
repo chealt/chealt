@@ -12,6 +12,8 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/install
+      env:
+        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
     - name: Lint
       run: yarn run check
       env:

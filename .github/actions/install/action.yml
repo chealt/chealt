@@ -18,6 +18,4 @@ runs:
     - name: Install Dependencies
       shell: bash
       if: steps.cache.outputs.cache-hit != 'true'
-      env:
-        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       run: yarn install --frozen-lockfile
