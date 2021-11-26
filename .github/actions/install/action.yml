@@ -19,3 +19,7 @@ runs:
       shell: bash
       if: steps.cache.outputs.cache-hit != 'true'
       run: yarn install --frozen-lockfile
+    - name: Post install
+      shell: bash
+      if: steps.cache.outputs.cache-hit == 'true'
+      run: yarn postinstall
