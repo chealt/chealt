@@ -11,14 +11,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: actions/setup-node@v2-beta
-      with:
-        node-version: '14'
-    - name: Install
-      run: yarn install --frozen-lockfile
+    - uses: ./.github/actions/install
       env:
         NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
     - name: Test
       run: yarn test
       env:
         CI: true
+    - name: Store screenshots
+      if: ${{ failure() }}
+      uses: actions/upload-artifact@v2
+      with:
+        name: screenshots
+        path: packages/jest-puppeteer-env-example/screenshots

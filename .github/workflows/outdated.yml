@@ -11,10 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: actions/setup-node@v2-beta
-      with:
-        node-version: '14'        
-    - name: Run outdated dependecy check
-      run: yarn outdated
+    - uses: ./.github/actions/install
       env:
         NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+    - name: Run outdated dependency check
+      run: yarn outdated

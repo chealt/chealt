@@ -1,12 +1,15 @@
 import { agreeToConsent, clearCookies } from './helpers';
 
-describe.skip('Google', () => {
-  beforeEach(clearCookies);
+describe('Google', () => {
+  beforeEach(async () => {
+    await clearCookies();
+
+    if (!process.env.CI) {
+      await agreeToConsent();
+    }
+  });
 
   it('should show the Google logo', async () => {
-    // GIVEN
-    await agreeToConsent();
-
     // WHEN
     await page.goto('https://www.google.com');
 
@@ -15,9 +18,6 @@ describe.skip('Google', () => {
   });
 
   it('should have an input field for searching', async () => {
-    // GIVEN
-    await agreeToConsent();
-
     // WHEN
     await page.goto('https://www.google.com');
 
