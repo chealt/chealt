@@ -1,6 +1,6 @@
 import { agreeToConsent, clearCookies } from './helpers';
 
-describe.skip('Google', () => {
+describe('Google', () => {
   beforeEach(clearCookies);
 
   it('should show the Google logo', async () => {
