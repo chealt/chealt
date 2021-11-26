@@ -1,4 +1,5 @@
 name: "Set up Node and install dependencies"
+description: "Sets up Node version and installs dependencies."
 
 runs:
   using: "composite"
