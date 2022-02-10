@@ -15,12 +15,10 @@ ENV AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID
 ENV AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
 ENV AWS_REGION=$AWS_REGION
 
-# Copy files into the container
 COPY src/AWS/Lambda/package.json ${LAMBDA_TASK_ROOT}/
-COPY src/AWS/Lambda/puppeteerRunner.js ${LAMBDA_TASK_ROOT}/app.js
 
-# Install, build and test the Puppeteer app and Chrome
 RUN npm install
+COPY src/AWS/Lambda/puppeteerRunner.js ${LAMBDA_TASK_ROOT}/puppeteerRunner.js
 
 # Lambda handler path
-CMD [ "app.handler" ]
+CMD [ "puppeteerRunner.handler" ]
