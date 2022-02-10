@@ -1,0 +1,10 @@
+{
+  "name": "@chealt/puppeteer-lambda",
+  "scripts": {
+    "start": "node test.js"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "puppeteer-core": "13.2.0"
+  }
+}
