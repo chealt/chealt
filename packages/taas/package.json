@@ -9,7 +9,10 @@
     "url": "git+https://github.com/chealt/chealt.git"
   },
   "homepage": "https://github.com/chealt/chealt#chealt",
-  "scripts": {},
+  "scripts": {
+    "build:lambda:docker": "docker build -f=src/AWS/Lambda/Dockerfile . -t 469712753210.dkr.ecr.eu-central-1.amazonaws.com/aws-lambda-puppeteer:latest",
+    "deploy:lambda:docker": "docker push 469712753210.dkr.ecr.eu-central-1.amazonaws.com/aws-lambda-puppeteer:latest"
+  },
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"
