@@ -11,10 +11,14 @@ const config = {
         'packages/mocker/**/*.js',
         'packages/mocker/**/*.cjs',
         'packages/unit-test/**/*.js',
+        'packages/taas/**/*.js',
         './.eslintrc.js'
       ],
       parserOptions: {
         requireConfigFile: false
+      },
+      rules: {
+        'no-console': 'off'
       }
     }
   ]
