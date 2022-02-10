@@ -1,2 +1,3 @@
 **/build/**/*.js
 packages/mocker/commonjs/**/*.cjs
+packages/taas/examples/**/*.js
