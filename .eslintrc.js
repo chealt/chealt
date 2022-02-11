@@ -4,16 +4,7 @@ const config = {
   ...eslintConfig,
   overrides: [
     {
-      files: [
-        'packages/check/**/*.js',
-        'packages/jest-puppeteer-env/**/*.js',
-        'packages/jest-puppeteer-env-example/**/*.js',
-        'packages/mocker/**/*.js',
-        'packages/mocker/**/*.cjs',
-        'packages/unit-test/**/*.js',
-        'packages/taas/**/*.js',
-        './.eslintrc.js'
-      ],
+      files: ['packages/mocker/**/*.cjs', 'packages/**/*.js', './.eslintrc.js'],
       parserOptions: {
         requireConfigFile: false
       },

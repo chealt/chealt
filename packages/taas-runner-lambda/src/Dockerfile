@@ -18,7 +18,7 @@ ENV AWS_REGION=$AWS_REGION
 COPY src/AWS/Lambda/package.json ${LAMBDA_TASK_ROOT}/
 
 RUN npm install
-COPY src/AWS/Lambda/puppeteerRunner.js ${LAMBDA_TASK_ROOT}/puppeteerRunner.js
+COPY src/index.js ${LAMBDA_TASK_ROOT}/index.js
 
 # Lambda handler path
-CMD [ "puppeteerRunner.handler" ]
+CMD [ "index.handler" ]

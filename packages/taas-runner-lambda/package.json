@@ -1,0 +1,27 @@
+{
+  "name": "@chealt/taas-runner-lambda",
+  "version": "0.0.1",
+  "license": "MIT",
+  "type": "module",
+  "main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chealt/chealt.git"
+  },
+  "homepage": "https://github.com/chealt/chealt#chealt",
+  "scripts": {
+    "build": "docker build -f=src/Dockerfile . -t 469712753210.dkr.ecr.eu-central-1.amazonaws.com/aws-lambda-puppeteer:latest",
+    "deploy": "docker push 469712753210.dkr.ecr.eu-central-1.amazonaws.com/aws-lambda-puppeteer:latest"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "sideEffects": false,
+  "engines": {
+    "node": ">=16"
+  },
+  "dependencies": {
+    "puppeteer-core": "13.2.0"
+  }
+}
