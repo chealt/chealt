@@ -11,7 +11,9 @@
   "homepage": "https://github.com/chealt/chealt#chealt",
   "scripts": {
     "build": "docker build -f=src/Dockerfile . -t 469712753210.dkr.ecr.eu-central-1.amazonaws.com/aws-lambda-puppeteer:latest",
-    "deploy": "docker push 469712753210.dkr.ecr.eu-central-1.amazonaws.com/aws-lambda-puppeteer:latest"
+    "deploy": "yarn login:aws && yarn deploy:image",
+    "deploy:image": "docker push 469712753210.dkr.ecr.eu-central-1.amazonaws.com/aws-lambda-puppeteer:latest",
+    "login:aws": "aws ecr get-login-password --region eu-central-1 | docker login --username AWS --password-stdin 469712753210.dkr.ecr.eu-central-1.amazonaws.com"
   },
   "publishConfig": {
     "access": "public",
