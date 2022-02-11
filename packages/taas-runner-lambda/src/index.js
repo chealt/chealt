@@ -18,6 +18,8 @@ const handler = async (event) => {
   const body = await streamToString(response.Body);
   const puppeteerScript = cleanPuppeteerScript(body);
 
+  console.log(`Executing Puppeteer script: ${puppeteerScript}`);
+
   eval(puppeteerScript); // eslint-disable-line no-eval
 
   return {
