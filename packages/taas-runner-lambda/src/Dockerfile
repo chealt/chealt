@@ -18,7 +18,7 @@ ENV AWS_REGION=$AWS_REGION
 COPY package.json ${LAMBDA_TASK_ROOT}/
 
 RUN npm install
-COPY src/index.js ${LAMBDA_TASK_ROOT}/index.js
+COPY src/* ${LAMBDA_TASK_ROOT}/
 
 # Lambda handler path
 CMD [ "index.handler" ]

@@ -1,4 +1,8 @@
 import { S3Client, GetObjectCommand } from '@aws-sdk/client-s3';
+// Puppeteer will be used by the loaded script
+import puppeteer from 'puppeteer-core'; // eslint-disable-line no-unused-vars
+
+import { streamToString } from './utils.js';
 
 const handler = async (event) => {
   const { region, Bucket, Key } = event;
@@ -11,7 +15,8 @@ const handler = async (event) => {
   });
   const response = await client.send(command);
 
-  console.log(response.Body.read());
+  const bodyContents = await streamToString(response.Body);
+  console.log(bodyContents);
 
   return {
     statusCode: 200
