@@ -10,4 +10,4 @@ const removePuppeteerRequire = (script) => script.replace("const puppeteer = req
 
 const cleanPuppeteerScript = (script) => removePuppeteerRequire(script);
 
-module.exports = { cleanPuppeteerScript, streamToString };
+export { cleanPuppeteerScript, streamToString };
