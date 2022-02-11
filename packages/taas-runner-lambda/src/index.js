@@ -15,12 +15,14 @@ const handler = async (event) => {
   });
   const response = await client.send(command);
 
-  const bodyContents = await streamToString(response.Body);
-  console.log(bodyContents);
+  const body = await streamToString(response.Body);
+  const puppeteerScript = cleanPuppeteerScript(body);
+
+  eval(puppeteerScript); // eslint-disable-line no-eval
 
   return {
     statusCode: 200
   };
 };
 
-export { handler };
+module.exports = { handler };
