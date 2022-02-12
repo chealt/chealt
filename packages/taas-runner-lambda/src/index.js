@@ -43,9 +43,11 @@ const handler = async (event, context) => {
   await browser.close();
 
   const testName = Key.replace('.js', '');
+  const timestamp = new Date().toISOString();
+  const screenshotKey = `${testName}/${timestamp}-${context.awsRequestId}/${screenshotFilename}.${screenshotExtension}`;
   const putCommand = new PutObjectCommand({
     Bucket: 'puppeteer-lambda-screenshots',
-    Key: `${testName}/${context.awsRequestId}/${screenshotFilename}.${screenshotExtension}`,
+    Key: screenshotKey,
     Body: screenshot,
     ContentType: 'image'
   });
