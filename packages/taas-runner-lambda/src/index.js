@@ -1,5 +1,5 @@
 const puppeteer = require('puppeteer');
-const { S3Client, GetObjectCommand } = require('@aws-sdk/client-s3');
+const { S3Client, GetObjectCommand, PutObjectCommand } = require('@aws-sdk/client-s3');
 
 const { cleanPuppeteerScript, streamToString } = require('./utils.js');
 
@@ -31,9 +31,17 @@ const handler = async (event) => {
 
   await eval(puppeteerScript); // eslint-disable-line no-eval
 
-  await page.screenshot({ type: 'webp', fullPage: true });
+  const screenshot = await page.screenshot({ type: 'webp', fullPage: true });
 
   await browser.close();
+
+  const putCommand = new PutObjectCommand({
+    Bucket: 'puppeteer-lambda-screenshots',
+    Key: `${Key.replace('.js', '')}.webp`,
+    Body: screenshot,
+    ContentType: 'image'
+  });
+  await client.send(putCommand);
 
   return {
     statusCode: 200
