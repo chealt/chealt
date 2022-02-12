@@ -29,16 +29,23 @@ const handler = async (event, context) => {
   const page = await browser.newPage();
   page.setDefaultTimeout(30 * 1000); // 30 seconds
 
-  await eval(puppeteerScript); // eslint-disable-line no-eval
+  const screenshotExtension = 'webp';
+  let screenshotFilename = 'last-screen';
 
-  const screenshot = await page.screenshot({ type: 'webp', fullPage: true });
+  try {
+    await eval(puppeteerScript); // eslint-disable-line no-eval
+  } catch {
+    screenshotFilename = 'failure';
+  }
+
+  const screenshot = await page.screenshot({ type: screenshotExtension, fullPage: true });
 
   await browser.close();
 
   const testName = Key.replace('.js', '');
   const putCommand = new PutObjectCommand({
     Bucket: 'puppeteer-lambda-screenshots',
-    Key: `${testName}/${context.awsRequestId}/last-screen.webp`,
+    Key: `${testName}/${context.awsRequestId}/${screenshotFilename}.${screenshotExtension}`,
     Body: screenshot,
     ContentType: 'image'
   });
