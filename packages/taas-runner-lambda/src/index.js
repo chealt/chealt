@@ -3,7 +3,7 @@ const { S3Client, GetObjectCommand, PutObjectCommand } = require('@aws-sdk/clien
 
 const { cleanPuppeteerScript, streamToString } = require('./utils.js');
 
-const handler = async (event) => {
+const handler = async (event, context) => {
   const { region, Bucket, Key } = event;
   const client = new S3Client({
     region
@@ -35,9 +35,10 @@ const handler = async (event) => {
 
   await browser.close();
 
+  const testName = Key.replace('.js', '');
   const putCommand = new PutObjectCommand({
     Bucket: 'puppeteer-lambda-screenshots',
-    Key: `${Key.replace('.js', '')}.webp`,
+    Key: `${testName}/${context.awsRequestId}/last-screen.webp`,
     Body: screenshot,
     ContentType: 'image'
   });
