@@ -6,8 +6,16 @@ const streamToString = (stream) =>
     stream.on('end', () => resolve(Buffer.concat(chunks).toString('utf8')));
   });
 
-const removePuppeteerRequire = (script) => script.replace("const puppeteer = require('puppeteer');", '');
+const lastCommand = 'await browser.close();';
+const returnCommand = 'return { browser, page };';
+const addReturn = (script) => script.replace(lastCommand, returnCommand);
 
-const cleanPuppeteerScript = (script) => removePuppeteerRequire(script);
+const cleanPuppeteerScript = (script) => {
+  let cleanScript = script;
 
-export { cleanPuppeteerScript, streamToString };
+  cleanScript = addReturn(cleanScript);
+
+  return cleanScript;
+};
+
+module.exports = { cleanPuppeteerScript, streamToString };

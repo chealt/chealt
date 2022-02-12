@@ -1,8 +1,6 @@
-import { S3Client, GetObjectCommand } from '@aws-sdk/client-s3';
-// Puppeteer will be used by the loaded script
-import puppeteer from 'puppeteer-core'; // eslint-disable-line no-unused-vars
+const { S3Client, GetObjectCommand } = require('@aws-sdk/client-s3');
 
-import { cleanPuppeteerScript, streamToString } from './utils.js';
+const { cleanPuppeteerScript, streamToString } = require('./utils.js');
 
 const handler = async (event) => {
   const { region, Bucket, Key } = event;
@@ -20,11 +18,15 @@ const handler = async (event) => {
 
   console.log(`Executing Puppeteer script: ${puppeteerScript}`);
 
-  eval(puppeteerScript); // eslint-disable-line no-eval
+  const { browser, page } = await eval(puppeteerScript); // eslint-disable-line no-eval
+
+  await page.screenshot({ type: 'webp', fullPage: true });
+
+  await browser.close();
 
   return {
     statusCode: 200
   };
 };
 
-export { handler };
+module.exports = { handler };
