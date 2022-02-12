@@ -22,7 +22,14 @@ const handler = async (event) => {
   const browser = await puppeteer.launch({
     args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage', '--single-process']
   });
-  const { page } = await eval(puppeteerScript); // eslint-disable-line no-eval
+
+  const browserVersion = await browser.version();
+  console.log(`Browser version: ${browserVersion}`);
+
+  const page = await browser.newPage();
+  page.setDefaultTimeout(30 * 1000); // 30 seconds
+
+  await eval(puppeteerScript); // eslint-disable-line no-eval
 
   await page.screenshot({ type: 'webp', fullPage: true });
 
