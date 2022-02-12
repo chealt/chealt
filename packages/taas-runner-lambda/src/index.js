@@ -4,9 +4,12 @@ const { S3Client, GetObjectCommand, PutObjectCommand } = require('@aws-sdk/clien
 const { cleanPuppeteerScript, streamToString } = require('./utils.js');
 
 const handler = async (event, context) => {
-  const { region, Bucket, Key } = event;
+  console.log(event.Records[0].Body);
+
+  const { awsRegion, Body } = event.Records[0];
+  const { Bucket, Key } = JSON.parse(Body);
   const client = new S3Client({
-    region
+    region: awsRegion
   });
   const command = new GetObjectCommand({
     Bucket,
