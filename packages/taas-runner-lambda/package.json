@@ -2,7 +2,7 @@
   "name": "@chealt/taas-runner-lambda",
   "version": "0.0.1",
   "license": "MIT",
-  "type": "module",
+  "type": "commonjs",
   "main": "src/index.js",
   "repository": {
     "type": "git",
@@ -24,7 +24,7 @@
     "node": ">=16"
   },
   "dependencies": {
-    "@aws-sdk/client-s3": "^3.50.0",
-    "puppeteer-core": "13.2.0"
+    "@aws-sdk/client-s3": "^3.51.0",
+    "puppeteer": "13.3.1"
   }
 }
