@@ -1,3 +1,4 @@
+const puppeteer = require('puppeteer');
 const { S3Client, GetObjectCommand } = require('@aws-sdk/client-s3');
 
 const { cleanPuppeteerScript, streamToString } = require('./utils.js');
@@ -18,7 +19,10 @@ const handler = async (event) => {
 
   console.log(`Executing Puppeteer script: ${puppeteerScript}`);
 
-  const { browser, page } = await eval(puppeteerScript); // eslint-disable-line no-eval
+  const browser = await puppeteer.launch({
+    args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage', '--single-process']
+  });
+  const { page } = await eval(puppeteerScript); // eslint-disable-line no-eval
 
   await page.screenshot({ type: 'webp', fullPage: true });
 
