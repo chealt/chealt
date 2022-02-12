@@ -7,12 +7,15 @@ const streamToString = (stream) =>
   });
 
 const lastCommand = 'await browser.close();';
-const returnCommand = 'return { browser, page };';
+const returnCommand = 'return { page };';
 const addReturn = (script) => script.replace(lastCommand, returnCommand);
+const puppeteerLaunchCommand = 'const browser = await puppeteer.launch();';
+const removeLaunch = (script) => script.replace(puppeteerLaunchCommand, '');
 
 const cleanPuppeteerScript = (script) => {
   let cleanScript = script;
 
+  cleanScript = removeLaunch(cleanScript);
   cleanScript = addReturn(cleanScript);
 
   return cleanScript;
