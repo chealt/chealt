@@ -2,12 +2,11 @@ const puppeteer = require('puppeteer');
 const { S3Client, GetObjectCommand, PutObjectCommand } = require('@aws-sdk/client-s3');
 
 const { cleanPuppeteerScript, streamToString } = require('./utils.js');
+const { getAWSRegion, parseSQSBodyJSON } = require('./SQSUtils.js');
 
 const handler = async (event, context) => {
-  console.log(event.Records[0].Body);
-
-  const { awsRegion, Body } = event.Records[0];
-  const { Bucket, Key } = JSON.parse(Body);
+  const awsRegion = getAWSRegion(event);
+  const { Bucket, Key } = parseSQSBodyJSON(event);
   const client = new S3Client({
     region: awsRegion
   });
