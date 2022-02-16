@@ -4,9 +4,26 @@ const { S3Client, GetObjectCommand, PutObjectCommand } = require('@aws-sdk/clien
 const { cleanPuppeteerScript, streamToString } = require('./utils.js');
 const { getAWSRegion, parseSQSBodyJSON } = require('./SQSUtils.js');
 
+const screenshotSaver =
+  (client) =>
+  ({ directory, filename, extension, buffer }) => {
+    const screenshotKey = `${directory}/${filename}.${extension}`;
+
+    console.log(`Saving screenshot: ${screenshotKey}`);
+
+    const putCommand = new PutObjectCommand({
+      Bucket: 'puppeteer-lambda-screenshots',
+      Key: screenshotKey,
+      Body: buffer,
+      ContentType: 'image'
+    });
+
+    return client.send(putCommand);
+  };
+
 const handler = async (event, context) => {
   const awsRegion = getAWSRegion(event);
-  const { Bucket, Key } = parseSQSBodyJSON(event);
+  const { Bucket, Key, shouldTrace } = parseSQSBodyJSON(event);
   const client = new S3Client({
     region: awsRegion
   });
@@ -33,6 +50,16 @@ const handler = async (event, context) => {
 
   const screenshotExtension = 'webp';
   let screenshotFilename = 'last-screen';
+  const testName = Key.replace('.js', '');
+  const timestamp = new Date().toISOString();
+  const screenshotDir = `${testName}/${timestamp}-${context.awsRequestId}`;
+  const traceScreenshotPromises = [];
+
+  if (shouldTrace) {
+    page.on('load', () => {
+      traceScreenshotPromises.push(page.screenshot({ type: screenshotExtension, fullPage: true }));
+    });
+  }
 
   try {
     await eval(puppeteerScript); // eslint-disable-line no-eval
@@ -44,16 +71,28 @@ const handler = async (event, context) => {
 
   await browser.close();
 
-  const testName = Key.replace('.js', '');
-  const timestamp = new Date().toISOString();
-  const screenshotKey = `${testName}/${timestamp}-${context.awsRequestId}/${screenshotFilename}.${screenshotExtension}`;
-  const putCommand = new PutObjectCommand({
-    Bucket: 'puppeteer-lambda-screenshots',
-    Key: screenshotKey,
-    Body: screenshot,
-    ContentType: 'image'
+  const saveScreenshot = screenshotSaver(client);
+
+  if (shouldTrace) {
+    const screenshots = await Promise.all(traceScreenshotPromises);
+    await Promise.all(
+      screenshots.map((buffer, index) =>
+        saveScreenshot({
+          directory: `${screenshotDir}/trace`,
+          filename: `trace-${index}`,
+          extension: screenshotExtension,
+          buffer
+        })
+      )
+    );
+  }
+
+  await saveScreenshot({
+    directory: screenshotDir,
+    filename: screenshotFilename,
+    extension: screenshotExtension,
+    buffer: screenshot
   });
-  await client.send(putCommand);
 
   return {
     statusCode: 200
