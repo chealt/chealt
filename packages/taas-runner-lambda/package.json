@@ -14,7 +14,8 @@
     "deploy": "yarn login:aws && yarn deploy:image && yarn deploy:lambda:image",
     "deploy:image": "docker push 469712753210.dkr.ecr.eu-central-1.amazonaws.com/aws-lambda-puppeteer:latest",
     "deploy:lambda:image": "aws lambda update-function-code --function-name puppeteerRunner --image-uri 469712753210.dkr.ecr.eu-central-1.amazonaws.com/aws-lambda-puppeteer:latest",
-    "login:aws": "aws ecr get-login-password --region eu-central-1 | docker login --username AWS --password-stdin 469712753210.dkr.ecr.eu-central-1.amazonaws.com"
+    "login:aws": "aws ecr get-login-password --region eu-central-1 | docker login --username AWS --password-stdin 469712753210.dkr.ecr.eu-central-1.amazonaws.com",
+    "release": "yarn build && yarn deploy"
   },
   "publishConfig": {
     "access": "public",
