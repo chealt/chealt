@@ -23,7 +23,7 @@ const screenshotSaver =
 
 const handler = async (event, context) => {
   const awsRegion = getAWSRegion(event);
-  const { Bucket, Key, shouldTrace } = parseSQSBodyJSON(event);
+  const { Bucket, Key, shouldTrace, viewport } = parseSQSBodyJSON(event);
   const client = new S3Client({
     region: awsRegion
   });
@@ -34,7 +34,7 @@ const handler = async (event, context) => {
   const response = await client.send(command);
 
   const body = await streamToString(response.Body);
-  const puppeteerScript = cleanPuppeteerScript(body);
+  const puppeteerScript = cleanPuppeteerScript({ script: body, cleanViewport: Boolean(viewport) });
 
   console.log(`Executing Puppeteer script: ${puppeteerScript}`);
 
@@ -47,6 +47,10 @@ const handler = async (event, context) => {
 
   const page = await browser.newPage();
   page.setDefaultTimeout(30 * 1000); // 30 seconds
+
+  if (viewport) {
+    page.setViewport(viewport);
+  }
 
   const screenshotExtension = 'webp';
   let screenshotFilename = 'last-screen';

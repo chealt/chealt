@@ -15,14 +15,20 @@ const newPageCommand = 'const page = await browser.newPage();';
 const removeNewPage = (script) => script.replace(newPageCommand, '');
 const setTimeoutCommand = 'page.setDefaultTimeout(timeout);';
 const removeSetTimeout = (script) => script.replace(setTimeoutCommand, '');
+const viewportSetCommand = /await targetPage.setViewport\(.*\)[;]?/u;
+const removeViewportSet = (script) => script.replace(viewportSetCommand, '');
 
-const cleanPuppeteerScript = (script) => {
+const cleanPuppeteerScript = ({ script, cleanViewport }) => {
   let cleanScript = script;
 
   cleanScript = removeLaunch(cleanScript);
   cleanScript = removeNewPage(cleanScript);
   cleanScript = removeSetTimeout(cleanScript);
   cleanScript = addReturn(cleanScript);
+
+  if (cleanViewport) {
+    cleanScript = removeViewportSet(cleanScript);
+  }
 
   return cleanScript;
 };
