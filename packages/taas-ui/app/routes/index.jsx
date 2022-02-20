@@ -1,7 +1,13 @@
+import IconStyles from '../components/Icons/Icons.styles.css';
+
 export const links = () => [
   {
     rel: 'stylesheet',
     href: 'https://unpkg.com/carbon-components/css/carbon-components.min.css'
+  },
+  {
+    rel: 'stylesheet',
+    href: IconStyles
   }
 ];
 

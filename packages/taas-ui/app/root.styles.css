@@ -1,0 +1,9 @@
+:root {
+  --gutter-size: 32px;
+  --header-height: 49px;
+}
+
+main {
+  padding: var(--gutter-size);
+  margin-top: var(--header-height);
+}

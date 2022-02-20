@@ -1,7 +1,16 @@
 import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from 'remix';
-import Header from './components/Header';
 
-export const meta = () => ({ title: 'Testing as a Service' });
+import Header from './components/Header';
+import RootStyles from './root.styles.css';
+
+const links = () => [
+  {
+    rel: 'stylesheet',
+    href: RootStyles
+  }
+];
+
+const meta = () => ({ title: 'Testing as a Service' });
 
 const App = () => (
   <html lang="en">
@@ -13,12 +22,15 @@ const App = () => (
     </head>
     <body>
       <Header />
-      <Outlet />
-      <ScrollRestoration />
-      <Scripts />
-      <LiveReload />
+      <main>
+        <Outlet />
+        <ScrollRestoration />
+        <Scripts />
+        <LiveReload />
+      </main>
     </body>
   </html>
 );
 
+export { links, meta };
 export default App;
