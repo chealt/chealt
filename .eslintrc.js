@@ -1,16 +1,23 @@
-const { eslintConfig } = require('@chealt/check');
+const {
+  eslintConfig: { baseConfig, reactConfig }
+} = require('@chealt/check');
 
 const config = {
-  ...eslintConfig,
+  ...baseConfig,
+  ignorePatterns: ['packages/taas-ui/api/index.js'],
   overrides: [
     {
-      files: ['packages/mocker/**/*.cjs', 'packages/**/*.js', './.eslintrc.js'],
+      files: ['packages/mocker/**/*.cjs', 'packages/**/*.js', 'packages/**/*.jsx', './.eslintrc.js'],
       parserOptions: {
         requireConfigFile: false
       },
       rules: {
         'no-console': 'off'
       }
+    },
+    {
+      files: ['packages/taas-ui/**/*.jsx'],
+      ...reactConfig
     }
   ]
 };
