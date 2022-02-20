@@ -1,6 +1,7 @@
 import { Link } from 'remix';
 
 import MenuIcon from './Icons/Menu';
+import UserAvatar from './Icons/UserAvatar';
 
 export const links = () => [
   {
@@ -19,6 +20,11 @@ const Header = () => (
     <Link to="/" className="bx--header__name">
       TaaS UI
     </Link>
+    <div className="bx--header__global">
+      <button className="bx--header__action">
+        <UserAvatar />
+      </button>
+    </div>
   </header>
 );
 
