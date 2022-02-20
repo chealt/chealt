@@ -2822,23 +2822,6 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@spectrum-css/button@^6.0.3":
-  version "6.0.3"
-  resolved "https://registry.yarnpkg.com/@spectrum-css/button/-/button-6.0.3.tgz#bba42235bcdf682de1c050cd9bd8f4f8c980f7e2"
-  integrity sha512-54wFVfYh8O3zzeWXgnAAaYy+61wT9sSM4RVLEwOl4L1L1SymWYdOx6w2OIxerJxvdSqP6ywLSd9I+BVKrPAivQ==
-
-"@spectrum-css/page@^5.0.2":
-  version "5.0.2"
-  resolved "https://registry.yarnpkg.com/@spectrum-css/page/-/page-5.0.2.tgz#1c7ef737e20ab1b692a69b3d38a9db22a54abdff"
-  integrity sha512-KPb107fw5ddNk83LB11bMCEf0JWVBY8+EQmmaJniRLRARNOu1OmIKUa5vdHbXGrDInLqSuTMKJK97QpvGPWVDA==
-  dependencies:
-    "@spectrum-css/vars" "^6.1.1"
-
-"@spectrum-css/vars@^6.1.1":
-  version "6.1.1"
-  resolved "https://registry.yarnpkg.com/@spectrum-css/vars/-/vars-6.1.1.tgz#436b76d883fd24b669f43f2397dc3fbe929e25ca"
-  integrity sha512-dTmEJKoRXgVPYLT5uI/0P8JGlr0O/vgMIcN4xCime99Wyg+8rOnwvPC2fGZRhlTnK+wVTTrDOm7axe7KE/9aRA==
-
 "@szmarczak/http-timer@^1.1.2":
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/@szmarczak/http-timer/-/http-timer-1.1.2.tgz#b1665e2c461a2cd92f4c1bbf50d5454de0d4b421"

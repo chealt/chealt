@@ -6,9 +6,6 @@
   "dependencies": {
     "@remix-run/react": "^1.2.1",
     "@remix-run/vercel": "^1.2.1",
-    "@spectrum-css/button": "^6.0.3",
-    "@spectrum-css/page": "^5.0.2",
-    "@spectrum-css/vars": "^6.1.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "remix": "^1.2.1"
