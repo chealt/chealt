@@ -16,6 +16,11 @@ const reactConfig = {
     'react/no-unknown-property': ['error', { ignore: ['class'] }]
   },
   settings: {
+    'import/resolver': {
+      node: {
+        extensions: ['.js', '.jsx']
+      }
+    },
     react: {
       version: 'detect'
     }
