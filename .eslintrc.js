@@ -1,5 +1,5 @@
 const {
-  eslintConfig: { baseConfig, reactConfig }
+  eslintConfig: { baseConfig, svelteConfig }
 } = require('@chealt/check');
 
 const config = {
@@ -16,8 +16,8 @@ const config = {
       }
     },
     {
-      files: ['packages/taas-ui/**/*.jsx'],
-      ...reactConfig
+      files: ['*.svelte'],
+      ...svelteConfig
     }
   ]
 };

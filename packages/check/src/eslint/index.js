@@ -2,6 +2,11 @@ const javascriptRules = require('./rules/javascript');
 const importRules = require('./rules/import');
 const prettierRules = require('./rules/prettier');
 
+const svelteConfig = {
+  plugins: ['svelte3'],
+  processor: 'svelte3/svelte3'
+};
+
 const reactConfig = {
   extends: ['plugin:react/recommended'],
   plugins: ['react'],
@@ -55,5 +60,6 @@ const baseConfig = {
 
 module.exports = {
   baseConfig,
-  reactConfig
+  reactConfig,
+  svelteConfig
 };

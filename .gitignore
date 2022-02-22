@@ -23,3 +23,6 @@ packages/jest-puppeteer-env-example/screenshots
 build
 size-plugin.json
 packages/mocker/commonjs
+
+# Svelte
+.svelte-kit
