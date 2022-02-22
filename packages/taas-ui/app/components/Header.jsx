@@ -1,5 +1,6 @@
 import { Link } from 'remix';
 
+import Button from './Button/Button';
 import MenuIcon from './Icons/Menu';
 import UserAvatar from './Icons/UserAvatar';
 
@@ -14,16 +15,16 @@ export const links = () => [
 
 const Header = () => (
   <header className="bx--header">
-    <button className="bx--header__menu-toggle bx--header__action bx--header__menu-trigger">
+    <Button className="bx--header__menu-toggle bx--header__action bx--header__menu-trigger" ariaLabel="Menu" iconOnly>
       <MenuIcon />
-    </button>
+    </Button>
     <Link to="/" className="bx--header__name">
       TaaS UI
     </Link>
     <div className="bx--header__global">
-      <button className="bx--header__action">
+      <Button className="bx--header__action" tooltip="User" position="bottom" iconOnly>
         <UserAvatar />
-      </button>
+      </Button>
     </div>
   </header>
 );
