@@ -40,6 +40,10 @@ const pageContentSaver =
     return client.send(putCommand);
   };
 
+const launchOptions = {
+  args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage', '--single-process']
+};
+
 const handler = async (event, context) => {
   const awsRegion = getAWSRegion(event);
   const { Bucket, Key, shouldTrace, shouldRecordContent, viewport } = parseSQSBodyJSON(event);
@@ -57,9 +61,9 @@ const handler = async (event, context) => {
 
   console.log(`Executing Puppeteer script: ${puppeteerScript}`);
 
-  const browser = await puppeteer.launch({
-    args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage', '--single-process']
-  });
+  const browser = await puppeteer.launch(launchOptions);
+
+  console.log(`Browser launched with options: ${JSON.stringify(launchOptions)}`);
 
   const browserVersion = await browser.version();
   console.log(`Browser version: ${browserVersion}`);
