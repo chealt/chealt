@@ -130,7 +130,7 @@ const handler = async (event, context) => {
       pageContents.map(({ url, content }) =>
         savePageContent({
           directory: `${recordingDir}/page-content`,
-          filename: `content-${url}`,
+          filename: `${encodeURIComponent(url)}`,
           extension: 'html',
           content
         })
