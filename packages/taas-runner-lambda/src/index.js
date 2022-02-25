@@ -9,7 +9,7 @@ const screenshotSaver =
   ({ directory, filename, extension, buffer }) => {
     const screenshotKey = `${directory}/${filename}.${extension}`;
 
-    console.log(`Saving screenshot: ${screenshotKey}`);
+    console.log(`Saving screenshot to: ${screenshotKey}`);
 
     const putCommand = new PutObjectCommand({
       Bucket: 'puppeteer-lambda-screenshots',
@@ -21,9 +21,26 @@ const screenshotSaver =
     return client.send(putCommand);
   };
 
+const pageContentSaver =
+  (client) =>
+  ({ directory, filename, extension, content }) => {
+    const screenshotKey = `${directory}/${filename}.${extension}`;
+
+    console.log(`Saving page content to: ${screenshotKey}`);
+
+    const putCommand = new PutObjectCommand({
+      Bucket: 'puppeteer-lambda-screenshots',
+      Key: screenshotKey,
+      Body: content,
+      ContentType: 'html'
+    });
+
+    return client.send(putCommand);
+  };
+
 const handler = async (event, context) => {
   const awsRegion = getAWSRegion(event);
-  const { Bucket, Key, shouldTrace, viewport } = parseSQSBodyJSON(event);
+  const { Bucket, Key, shouldTrace, shouldRecordContent, viewport } = parseSQSBodyJSON(event);
   const client = new S3Client({
     region: awsRegion
   });
@@ -56,12 +73,23 @@ const handler = async (event, context) => {
   let screenshotFilename = 'last-screen';
   const testName = Key.replace('.js', '');
   const timestamp = new Date().toISOString();
-  const screenshotDir = `${testName}/${timestamp}-${context.awsRequestId}`;
+  const recordingDir = `${testName}/${timestamp}-${context.awsRequestId}`;
   const traceScreenshotPromises = [];
 
   if (shouldTrace) {
     page.on('load', () => {
       traceScreenshotPromises.push(page.screenshot({ type: screenshotExtension, fullPage: true }));
+    });
+  }
+
+  const pageContentPromises = [];
+
+  if (shouldRecordContent) {
+    page.on('load', () => {
+      pageContentPromises.push({
+        url: page.url(),
+        content: page.content()
+      });
     });
   }
 
@@ -82,7 +110,7 @@ const handler = async (event, context) => {
     await Promise.all(
       screenshots.map((buffer, index) =>
         saveScreenshot({
-          directory: `${screenshotDir}/trace`,
+          directory: `${recordingDir}/trace`,
           filename: `trace-${index}`,
           extension: screenshotExtension,
           buffer
@@ -91,8 +119,25 @@ const handler = async (event, context) => {
     );
   }
 
+  const savePageContent = pageContentSaver(client);
+
+  if (shouldRecordContent) {
+    const pageContents = await Promise.all(pageContentPromises);
+
+    await Promise.all(
+      pageContents.map(({ url, content }) =>
+        savePageContent({
+          directory: `${recordingDir}/page-content`,
+          filename: `content-${url}`,
+          extension: 'html',
+          content
+        })
+      )
+    );
+  }
+
   await saveScreenshot({
-    directory: screenshotDir,
+    directory: recordingDir,
     filename: screenshotFilename,
     extension: screenshotExtension,
     buffer: screenshot
