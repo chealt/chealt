@@ -23,16 +23,18 @@ const screenshotSaver =
 
 const pageContentSaver =
   (client) =>
-  ({ directory, filename, extension, content }) => {
+  async ({ directory, filename, extension, content }) => {
     const screenshotKey = `${directory}/${filename}.${extension}`;
 
     console.log(`Saving page content to: ${screenshotKey}`);
 
+    const Body = await content;
+
     const putCommand = new PutObjectCommand({
       Bucket: 'puppeteer-lambda-screenshots',
       Key: screenshotKey,
-      Body: content,
-      ContentType: 'html'
+      Body,
+      ContentType: 'text/html'
     });
 
     return client.send(putCommand);
