@@ -13,5 +13,8 @@
     "@sveltejs/kit": "1.0.0-next.286",
     "svelte": "^3.46.4"
   },
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "@auth0/auth0-spa-js": "^1.20.0"
+  }
 }
