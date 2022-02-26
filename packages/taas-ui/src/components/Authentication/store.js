@@ -1,6 +1,7 @@
 import { writable, derived } from 'svelte/store';
 
 const isAuthenticated = writable(false);
+const isLoading = writable(true);
 const user = writable({});
 const popupOpen = writable(false);
 const error = writable();
@@ -17,4 +18,4 @@ const userTasks = derived([tasks, user], ([$tasks, $user]) => {
   return loggedInUserTasks;
 });
 
-export { isAuthenticated, user, popupOpen, error, userTasks };
+export { isAuthenticated, isLoading, user, popupOpen, error, userTasks };

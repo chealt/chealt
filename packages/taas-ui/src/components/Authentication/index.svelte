@@ -2,7 +2,7 @@
   import { onMount } from "svelte";
 
   import service from "./service";
-  import { isAuthenticated, user } from "./store";
+  import { isAuthenticated, isLoading, user } from "./store";
   import Form from "../Form/index.svelte";
   import Button from "../Form/Input/button.svelte";
 
@@ -13,6 +13,7 @@
 
     isAuthenticated.set(await auth0Client.isAuthenticated());
     user.set(await auth0Client.getUser());
+    isLoading.set(false);
   });
 
   const login = () => {
@@ -24,10 +25,13 @@
   };
 </script>
 
-{#if !$isAuthenticated}
+{#if $isLoading}
+  Loading user...
+{:else if !$isAuthenticated}
   <Form>
     <Button onClick={login}>Log in</Button>
   </Form>
 {:else}
   <slot />
+  <Button onClick={logout}>Log out</Button>
 {/if}
