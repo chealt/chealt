@@ -136,12 +136,12 @@ const handler = async (event, context) => {
     const pageContents = await Promise.all(pageContentPromises);
 
     await Promise.all(
-      pageContents.map((content, index) =>
+      pageContents.map((pageContent, index) =>
         savePageContent({
           directory: `${recordingDir}/page-content`,
           filename: `content-${index}`,
           extension: 'json',
-          content
+          pageContent
         })
       )
     );
