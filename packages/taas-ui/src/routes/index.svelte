@@ -1,4 +1,7 @@
-<h1>Welcome to SvelteKit</h1>
-<p>
-  Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation
-</p>
+<script>
+  import Heading1 from "../components/Typography/Heading/h1.svelte";
+  import ScriptUpload from "../components/ScriptUpload/index.svelte";
+</script>
+
+<Heading1>Welcome to Testing as a Service!</Heading1>
+<ScriptUpload />
