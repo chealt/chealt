@@ -1,4 +1,8 @@
-<header />
+<script>
+  import Header from "../components/Header/index.svelte";
+</script>
+
+<Header />
 <main>
   <slot />
 </main>
@@ -18,8 +22,11 @@
     --font-size--xs: 0.8rem;
 
     /* COLORS */
+    --color-background: #f6f6f7;
+    --color-background--primary: white;
     --color-primary: #1d3156;
     --color-primary-text: #090e1a;
+    --color-accent-text: white;
     --color-highlight: #ffc410;
 
     /* SHADOWS */
@@ -28,6 +35,7 @@
     /* BORDERS */
     --border-color--primary: var(--color-primary);
     --border-radius: 0.4rem;
+    --border-radius--l: 0.8rem;
   }
 
   :global(body, html) {
@@ -37,11 +45,20 @@
 
   :global(body) {
     font-size: var(--font-size);
-    padding: var(--gutter-size--l);
+    background-color: var(--color-background);
   }
 
   :global(*) {
     font-family: system-ui;
     color: var(--color-primary-text);
+  }
+
+  main {
+    margin: var(--gutter-size--l);
+    padding: var(--gutter-size--l);
+    border-radius: var(--border-radius--l);
+    background-color: var(--color-background--primary);
+    box-shadow: rgba(23, 24, 24, 0.05) 0 0 5px 0,
+      rgba(0, 0, 0, 0.15) 0 1px 2px 0;
   }
 </style>
