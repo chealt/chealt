@@ -28,13 +28,13 @@ const pageContentSaver =
 
     console.log(`Saving page content to: ${screenshotKey}`);
 
-    const Body = await content;
+    const Body = JSON.stringify(await content);
 
     const putCommand = new PutObjectCommand({
       Bucket: 'puppeteer-lambda-screenshots',
       Key: screenshotKey,
       Body,
-      ContentType: 'text/html'
+      ContentType: 'application/json'
     });
 
     return client.send(putCommand);
@@ -131,12 +131,12 @@ const handler = async (event, context) => {
     const pageContents = await Promise.all(pageContentPromises);
 
     await Promise.all(
-      pageContents.map(({ url, content }) =>
+      pageContents.map((pageContent, index) =>
         savePageContent({
           directory: `${recordingDir}/page-content`,
-          filename: `${encodeURIComponent(url)}`,
-          extension: 'html',
-          content
+          filename: `content-${index}`,
+          extension: 'json',
+          content: pageContent
         })
       )
     );
