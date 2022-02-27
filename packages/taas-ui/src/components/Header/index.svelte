@@ -3,7 +3,10 @@
   <nav>
     <ul>
       <li>
-        <a href="/">Upload</a>
+        <a href="/">Home</a>
+      </li>
+      <li>
+        <a href="/upload">Upload</a>
       </li>
     </ul>
   </nav>
@@ -29,7 +32,12 @@
   nav {
     display: flex;
     flex-grow: 1;
+    flex-direction: row;
     justify-content: flex-end;
+  }
+
+  ul {
+    display: flex;
   }
 
   a {

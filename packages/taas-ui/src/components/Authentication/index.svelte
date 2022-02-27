@@ -26,7 +26,7 @@
 </script>
 
 {#if $isLoading}
-  Loading user...
+  Signing in...
 {:else if !$isAuthenticated}
   <Form>
     <Button onClick={login}>Log in</Button>
