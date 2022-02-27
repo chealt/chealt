@@ -25,4 +25,9 @@
   :global(form input:active, form input:focus, button:active, button:focus) {
     outline: 2px solid var(--color-highlight);
   }
+
+  :global(a:active, a:focus) {
+    background-color: var(--color-highlight);
+    outline: 0 none;
+  }
 </style>

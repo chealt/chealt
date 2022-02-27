@@ -1,15 +1,12 @@
+<script>
+  import Nav from "./nav.svelte";
+
+  export let activePage;
+</script>
+
 <header>
   <div class="home-link">TaaS</div>
-  <nav>
-    <ul>
-      <li>
-        <a href="/">Home</a>
-      </li>
-      <li>
-        <a href="/upload">Upload</a>
-      </li>
-    </ul>
-  </nav>
+  <Nav {activePage} />
 </header>
 
 <style>
@@ -17,30 +14,14 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    font-size: var(--font-size--xl);
+    font-size: var(--font-size--l);
   }
 
   header > * {
     color: var(--color-primary);
   }
 
-  .home-link,
-  nav li {
+  .home-link {
     padding: var(--gutter-size--l);
-  }
-
-  nav {
-    display: flex;
-    flex-grow: 1;
-    flex-direction: row;
-    justify-content: flex-end;
-  }
-
-  ul {
-    display: flex;
-  }
-
-  a {
-    text-decoration: none;
   }
 </style>

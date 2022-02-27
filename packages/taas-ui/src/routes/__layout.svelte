@@ -1,11 +1,4 @@
-<script>
-  import Header from "../components/Header/index.svelte";
-</script>
-
-<Header />
-<main>
-  <slot />
-</main>
+<slot />
 <footer />
 
 <style>
@@ -59,7 +52,7 @@
     padding: 0;
   }
 
-  main {
+  :global(main) {
     margin: var(--gutter-size--l);
     padding: var(--gutter-size--l);
     border-radius: var(--border-radius--l);

@@ -1,4 +1,5 @@
 <script>
+  import Header from "../components/Header/index.svelte";
   import Home from "../components/Home/index.svelte";
 </script>
 
@@ -6,4 +7,7 @@
   <title>Taas</title>
 </svelte:head>
 
-<Home />
+<Header activePage="home" />
+<main>
+  <Home />
+</main>

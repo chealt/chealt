@@ -1,4 +1,5 @@
 <script>
+  import Header from "../components/Header/index.svelte";
   import Authentication from "../components/Authentication/index.svelte";
   import ScriptUpload from "../components/ScriptUpload/index.svelte";
 </script>
@@ -7,6 +8,9 @@
   <title>Taas | Upload test script</title>
 </svelte:head>
 
-<Authentication>
-  <ScriptUpload />
-</Authentication>
+<Header activePage="upload" />
+<main>
+  <Authentication>
+    <ScriptUpload />
+  </Authentication>
+</main>
