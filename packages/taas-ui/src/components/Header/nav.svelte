@@ -46,6 +46,10 @@
     display: flex;
   }
 
+  :global(header button) {
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+  }
+
   a {
     padding: var(--gutter-size--l);
     position: relative;
@@ -54,6 +58,7 @@
     border-radius: 0 0 var(--border-radius) var(--border-radius);
   }
 
+  :global(header button:active, header button:focus),
   a:active,
   a:focus {
     background-color: var(--color-highlight);

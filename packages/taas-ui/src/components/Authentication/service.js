@@ -3,16 +3,18 @@ import createAuth0Client from '@auth0/auth0-spa-js';
 import { user, isAuthenticated, popupOpen } from './store';
 import config from './config';
 
+let client;
+
 const createClient = async () => {
-  const auth0Client = await createAuth0Client({
+  client = await createAuth0Client({
     domain: config.domain,
     client_id: config.clientId // eslint-disable-line camelcase
   });
 
-  return auth0Client;
+  return client;
 };
 
-const loginWithPopup = async (client, options) => {
+const loginWithPopup = async (options) => {
   popupOpen.set(true);
 
   try {
@@ -28,7 +30,7 @@ const loginWithPopup = async (client, options) => {
   }
 };
 
-const logout = (client) => client.logout();
+const logout = () => client.logout();
 
 const auth = {
   createClient,
