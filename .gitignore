@@ -8,7 +8,6 @@ yarn-error.log
 
 # IDE stuff
 .idea
-.vscode
 .editorconfig
 .project
 
