@@ -1,4 +1,10 @@
-<form>
+<script>
+  export let accept;
+  export let method = "post";
+  export let hasFiles = false;
+</script>
+
+<form {method} enctype={hasFiles ? "multipart/form-data" : undefined} {accept}>
   <slot />
 </form>
 

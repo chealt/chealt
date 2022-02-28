@@ -32,6 +32,8 @@ const login = async () => {
 
 const logout = () => client.logout();
 
+const getAccessToken = () => client.getTokenSilently();
+
 const auth = {
   createClient,
   getAccessToken,
