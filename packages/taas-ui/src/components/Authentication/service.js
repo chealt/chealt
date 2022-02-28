@@ -14,11 +14,11 @@ const createClient = async () => {
   return client;
 };
 
-const loginWithPopup = async (options) => {
+const login = async () => {
   popupOpen.set(true);
 
   try {
-    await client.loginWithPopup(options);
+    await client.loginWithPopup();
 
     user.set(await client.getUser());
     isAuthenticated.set(true);
@@ -34,7 +34,8 @@ const logout = () => client.logout();
 
 const auth = {
   createClient,
-  loginWithPopup,
+  getAccessToken,
+  login,
   logout
 };
 

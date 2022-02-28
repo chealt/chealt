@@ -19,7 +19,7 @@
   Signing in...
 {:else if !$isAuthenticated}
   <Form>
-    <Button onClick={service.loginWithPopup}>Log in</Button>
+    <Button onClick={service.login}>Log in</Button>
   </Form>
 {:else}
   <slot />
