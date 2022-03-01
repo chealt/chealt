@@ -7,6 +7,7 @@
   import Button from "../Form/Button/index.svelte";
 
   onMount(async () => {
+    isLoading.set(true);
     const client = await service.createClient();
 
     isAuthenticated.set(await client.isAuthenticated());
@@ -17,7 +18,7 @@
 
 {#if $isLoading}
   Signing in...
-{:else if !$isAuthenticated}
+{:else if !$isAuthenticated || !$user}
   <Form>
     <Button onClick={service.login}>Log in</Button>
   </Form>
