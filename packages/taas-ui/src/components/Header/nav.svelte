@@ -8,6 +8,12 @@
       displayName: "Home",
     },
     {
+      name: "scripts",
+      isActive: activePage === "scripts",
+      href: "/scripts",
+      displayName: "Test Scripts",
+    },
+    {
       name: "upload",
       isActive: activePage === "upload",
       href: "/upload",
