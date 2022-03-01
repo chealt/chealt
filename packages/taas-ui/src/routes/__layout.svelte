@@ -18,6 +18,7 @@
     --color-background: #f6f6f7;
     --color-background--primary: white;
     --color-primary: #1d3156;
+    --color-primary--light: #bdc6d6;
     --color-primary-text: #090e1a;
     --color-accent-text: white;
     --color-highlight: #ffc410;
@@ -27,6 +28,7 @@
 
     /* BORDERS */
     --border-color--primary: var(--color-primary);
+    --border-color--light: var(--color-primary--light);
     --border-radius: 0.4rem;
     --border-radius--l: 0.8rem;
   }

@@ -2,6 +2,8 @@
   import Header from "../components/Header/index.svelte";
   import Authentication from "../components/Authentication/index.svelte";
   import Scripts from "../components/Scripts/index.svelte";
+
+  export let scripts = [];
 </script>
 
 <svelte:head>
@@ -11,6 +13,6 @@
 <Header activePage="scripts" />
 <main>
   <Authentication>
-    <Scripts />
+    <Scripts {scripts} />
   </Authentication>
 </main>
