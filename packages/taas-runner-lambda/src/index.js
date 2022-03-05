@@ -32,7 +32,7 @@ const handler = async (event, context) => {
   init({ region });
 
   const { Bucket, Key, shouldTrace, shouldRecordContent, viewport } = parseSQSBodyJSON(event);
-  const script = read({ bucket: Bucket, key: Key });
+  const script = await read({ bucket: Bucket, key: Key });
   const puppeteerScript = cleanPuppeteerScript({ script, cleanViewport: Boolean(viewport) });
 
   console.log(`Executing Puppeteer script: ${puppeteerScript}`);
