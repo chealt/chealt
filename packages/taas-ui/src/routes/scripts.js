@@ -1,4 +1,5 @@
 import { S3Client, ListObjectsV2Command } from '@aws-sdk/client-s3';
+// eslint-lint-disable-next-line import/no-unresolved
 import credentials from '../components/AWS/config';
 
 const get = async () => {
