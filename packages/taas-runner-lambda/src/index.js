@@ -1,68 +1,39 @@
 const puppeteer = require('puppeteer');
-const { S3Client, GetObjectCommand, PutObjectCommand } = require('@aws-sdk/client-s3');
 
-const { cleanPuppeteerScript, streamToString } = require('./utils.js');
+const { cleanPuppeteerScript } = require('./utils.js');
 const { getAWSRegion, parseSQSBodyJSON } = require('./SQSUtils.js');
-
-const screenshotSaver =
-  (client) =>
-  ({ directory, filename, extension, buffer }) => {
-    const screenshotKey = `${directory}/${filename}.${extension}`;
-
-    console.log(`Saving screenshot to: ${screenshotKey}`);
-
-    const putCommand = new PutObjectCommand({
-      Bucket: 'puppeteer-lambda-screenshots',
-      Key: screenshotKey,
-      Body: buffer,
-      ContentType: 'image'
-    });
-
-    return client.send(putCommand);
-  };
-
-const pageContentSaver =
-  (client) =>
-  async ({ directory, filename, extension, pageContent }) => {
-    const screenshotKey = `${directory}/${filename}.${extension}`;
-
-    console.log(`Saving page content to: ${screenshotKey}`);
-
-    const { content: contentPromise, ...rest } = pageContent;
-    const content = await contentPromise;
-    const Body = JSON.stringify({
-      content,
-      ...rest
-    });
-
-    const putCommand = new PutObjectCommand({
-      Bucket: 'puppeteer-lambda-screenshots',
-      Key: screenshotKey,
-      Body,
-      ContentType: 'application/json'
-    });
-
-    return client.send(putCommand);
-  };
+const { read, save, init } = require('./AWS/S3Utils.js');
 
 const launchOptions = {
   args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage', '--single-process']
 };
 
-const handler = async (event, context) => {
-  const awsRegion = getAWSRegion(event);
-  const { Bucket, Key, shouldTrace, shouldRecordContent, viewport } = parseSQSBodyJSON(event);
-  const client = new S3Client({
-    region: awsRegion
-  });
-  const command = new GetObjectCommand({
-    Bucket,
-    Key
-  });
-  const response = await client.send(command);
+const saveScreenshot = ({ directory, filename, extension, buffer }) => {
+  const key = `${directory}/${filename}.${extension}`;
 
-  const body = await streamToString(response.Body);
-  const puppeteerScript = cleanPuppeteerScript({ script: body, cleanViewport: Boolean(viewport) });
+  return save({ bucket: 'puppeteer-lambda-screenshots', key, body: buffer, contentType: 'image' });
+};
+
+const savePageContent = async ({ directory, filename, extension, pageContent }) => {
+  const key = `${directory}/${filename}.${extension}`;
+
+  const { content: contentPromise, ...rest } = pageContent;
+  const content = await contentPromise;
+  const body = JSON.stringify({
+    content,
+    ...rest
+  });
+
+  return save({ body, bucket: 'puppeteer-lambda-screenshots', key, contentType: 'application/json' });
+};
+
+const handler = async (event, context) => {
+  const region = getAWSRegion(event);
+  init({ region });
+
+  const { Bucket, Key, shouldTrace, shouldRecordContent, viewport } = parseSQSBodyJSON(event);
+  const script = read({ bucket: Bucket, key: Key });
+  const puppeteerScript = cleanPuppeteerScript({ script, cleanViewport: Boolean(viewport) });
 
   console.log(`Executing Puppeteer script: ${puppeteerScript}`);
 
@@ -114,8 +85,6 @@ const handler = async (event, context) => {
 
   await browser.close();
 
-  const saveScreenshot = screenshotSaver(client);
-
   if (shouldTrace) {
     const screenshots = await Promise.all(traceScreenshotPromises);
     await Promise.all(
@@ -129,8 +98,6 @@ const handler = async (event, context) => {
       )
     );
   }
-
-  const savePageContent = pageContentSaver(client);
 
   if (shouldRecordContent) {
     const pageContents = await Promise.all(pageContentPromises);
