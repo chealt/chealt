@@ -1,7 +1,7 @@
 import createAuth0Client from '@auth0/auth0-spa-js';
 
 import { user, isAuthenticated, popupOpen } from './store';
-// eslint-lint-disable-next-line import/no-unresolved
+// eslint-disable-next-line import/no-unresolved
 import config from './config';
 
 let client;
