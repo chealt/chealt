@@ -1,41 +1,23 @@
-const { eslintConfig } = require('@chealt/check');
+const {
+  eslintConfig: { baseConfig, svelteConfig }
+} = require('@chealt/check');
 
 const config = {
-  ...eslintConfig,
+  ...baseConfig,
+  ignorePatterns: ['packages/taas-ui/api/index.js'],
   overrides: [
     {
-      files: ['packages/fitter/**/*.js'],
-      extends: ['plugin:react/recommended'],
-      plugins: ['react', 'react-hooks'],
-      settings: {
-        react: {
-          pragma: 'h',
-          version: 'detect'
-        }
+      files: ['packages/mocker/**/*.cjs', 'packages/**/*.js', 'packages/**/*.jsx', './.eslintrc.js'],
+      parserOptions: {
+        requireConfigFile: false
       },
       rules: {
-        'react/no-unknown-property': ['error', { ignore: ['class'] }],
-        'react/prop-types': 'off'
-      },
-      parserOptions: {
-        babelOptions: {
-          configFile: './packages/fitter/.babelrc'
-        }
+        'no-console': 'off'
       }
     },
     {
-      files: [
-        'packages/check/**/*.js',
-        'packages/jest-puppeteer-env/**/*.js',
-        'packages/jest-puppeteer-env-example/**/*.js',
-        'packages/mocker/**/*.js',
-        'packages/mocker/**/*.cjs',
-        'packages/unit-test/**/*.js',
-        './.eslintrc.js'
-      ],
-      parserOptions: {
-        requireConfigFile: false
-      }
+      files: ['*.svelte'],
+      ...svelteConfig
     }
   ]
 };

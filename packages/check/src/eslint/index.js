@@ -2,7 +2,38 @@ const javascriptRules = require('./rules/javascript');
 const importRules = require('./rules/import');
 const prettierRules = require('./rules/prettier');
 
-const config = {
+const svelteConfig = {
+  plugins: ['svelte3'],
+  processor: 'svelte3/svelte3'
+};
+
+const reactConfig = {
+  extends: ['plugin:react/recommended'],
+  plugins: ['react'],
+  parserOptions: {
+    babelOptions: {
+      presets: ['@babel/preset-react']
+    }
+  },
+  rules: {
+    'require-jsdoc': 'off',
+    'react/prop-types': 'off',
+    'react/react-in-jsx-scope': 'off',
+    'react/no-unknown-property': ['error', { ignore: ['class'] }]
+  },
+  settings: {
+    'import/resolver': {
+      node: {
+        extensions: ['.js', '.jsx']
+      }
+    },
+    react: {
+      version: 'detect'
+    }
+  }
+};
+
+const baseConfig = {
   env: {
     browser: true,
     jest: true,
@@ -27,4 +58,8 @@ const config = {
   plugins: ['import', 'prettier']
 };
 
-module.exports = config;
+module.exports = {
+  baseConfig,
+  reactConfig,
+  svelteConfig
+};

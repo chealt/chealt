@@ -1,6 +1,6 @@
 {
   "name": "@chealt/mocker",
-  "version": "1.7.0",
+  "version": "1.8.0",
   "license": "MIT",
   "type": "module",
   "main": "src/index.js",
@@ -29,9 +29,9 @@
     "node": ">=14"
   },
   "dependencies": {
-    "express": "4.17.2",
+    "express": "4.17.3",
     "glob": "7.2.0",
-    "winston": "3.5.1"
+    "winston": "3.6.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"

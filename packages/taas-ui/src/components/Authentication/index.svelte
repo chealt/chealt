@@ -1,0 +1,27 @@
+<script>
+  import { onMount } from "svelte";
+
+  import service from "./service";
+  import { isAuthenticated, isLoading, user } from "./store";
+  import Form from "../Form/index.svelte";
+  import Button from "../Form/Button/index.svelte";
+
+  onMount(async () => {
+    isLoading.set(true);
+    const client = await service.createClient();
+
+    isAuthenticated.set(await client.isAuthenticated());
+    user.set(await client.getUser());
+    isLoading.set(false);
+  });
+</script>
+
+{#if $isLoading}
+  Signing in...
+{:else if !$isAuthenticated || !$user}
+  <Form>
+    <Button onClick={service.login}>Log in</Button>
+  </Form>
+{:else}
+  <slot />
+{/if}

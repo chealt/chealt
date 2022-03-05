@@ -1,0 +1,32 @@
+{
+  "name": "@chealt/taas-runner-lambda",
+  "version": "0.0.2",
+  "license": "MIT",
+  "type": "commonjs",
+  "main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chealt/chealt.git"
+  },
+  "homepage": "https://github.com/chealt/chealt#chealt",
+  "scripts": {
+    "build": "docker build -f=src/Dockerfile . -t 469712753210.dkr.ecr.eu-central-1.amazonaws.com/aws-lambda-puppeteer:latest",
+    "deploy": "yarn login:aws && yarn deploy:image && yarn deploy:lambda:image",
+    "deploy:image": "docker push 469712753210.dkr.ecr.eu-central-1.amazonaws.com/aws-lambda-puppeteer:latest",
+    "deploy:lambda:image": "aws lambda update-function-code --function-name puppeteerRunner --image-uri 469712753210.dkr.ecr.eu-central-1.amazonaws.com/aws-lambda-puppeteer:latest",
+    "login:aws": "aws ecr get-login-password --region eu-central-1 | docker login --username AWS --password-stdin 469712753210.dkr.ecr.eu-central-1.amazonaws.com",
+    "release": "yarn build && yarn deploy"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "sideEffects": false,
+  "engines": {
+    "node": ">=16"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.53.1",
+    "puppeteer": "13.4.1"
+  }
+}

@@ -8,7 +8,6 @@ yarn-error.log
 
 # IDE stuff
 .idea
-.vscode
 .editorconfig
 .project
 
@@ -23,3 +22,6 @@ packages/jest-puppeteer-env-example/screenshots
 build
 size-plugin.json
 packages/mocker/commonjs
+
+# Svelte
+.svelte-kit
