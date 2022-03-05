@@ -34,4 +34,4 @@ const init = ({ region }) => {
   return client;
 };
 
-export { init, read, save };
+module.exports = { init, read, save };
