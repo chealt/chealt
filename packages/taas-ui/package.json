@@ -15,7 +15,7 @@
   },
   "type": "module",
   "dependencies": {
-    "@auth0/auth0-spa-js": "^1.20.0",
-    "@aws-sdk/client-s3": "^3.53.1"
+    "@auth0/auth0-spa-js": "^1.20.1",
+    "@aws-sdk/client-s3": "^3.54.0"
   }
 }

@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/chealt/chealt#chealt",
   "devDependencies": {
-    "@aws-sdk/signature-v4-crt": "^3.53.0",
+    "@aws-sdk/signature-v4-crt": "^3.54.0",
     "@babel/cli": "^7.17.6",
     "@babel/core": "^7.17.5",
     "@babel/eslint-parser": "^7.17.0",
@@ -33,7 +33,7 @@
     "@chealt/check": "^1.1.2",
     "babel-jest": "^27.5.1",
     "babel-plugin-transform-require-extensions": "^2.0.1",
-    "eslint": "^8.10.0",
+    "eslint": "^8.11.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-prettier": "^4.0.0",
@@ -41,7 +41,7 @@
     "eslint-plugin-svelte3": "^3.4.1",
     "jest": "^27.5.1",
     "prettier": "^2.5.1",
-    "puppeteer": "^13.4.1",
+    "puppeteer": "^13.5.1",
     "svelte": "^3.46.4"
   },
   "resolutions": {

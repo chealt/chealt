@@ -1,12 +1,12 @@
 {
   "name": "@chealt/check",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "license": "MIT",
   "main": "src/index.js",
   "peerDependencies": {
     "@babel/eslint-parser": "^7.16.3",
     "@babel/preset-react": "^7.16.7",
-    "eslint": "^8.10.0",
+    "eslint": "^8.11.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-prettier": "^4.0.0",
