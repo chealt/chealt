@@ -5,14 +5,16 @@
 </template>
 
 <script>
-  import '../Typography/Heading1';
+import "../Typography/Heading1";
 </script>
 
 <style>
-  header {
-    display: flex;
-    padding: var(--gap-size--l);
-    background-color: var(--color-neutral--complement);
-    color: var(--color-text);
-  }
+header {
+  display: flex;
+  padding: var(--gap-size--l);
+  background-color: var(--color-neutral--complement);
+  color: var(--color-text);
+  position: sticky;
+  top: 0;
+}
 </style>

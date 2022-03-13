@@ -3,8 +3,8 @@
 </template>
 
 <style>
-  h1 {
-    margin: 0;
-    font-size: var(--font-size--xxl);
-  }
+h1 {
+  margin: 0;
+  font-size: var(--font-size--xl);
+}
 </style>
