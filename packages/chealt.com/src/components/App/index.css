@@ -2,6 +2,7 @@
   /* SPACING */
   --gap-size: 8px;
   --gap-size--l: 12px;
+  --gap-size--xl: 18px;
 
   /* FONTS */
   --font-size: 16px;
@@ -28,6 +29,8 @@ body, html {
   margin: 0;
   padding: 0;
   height: 100%;
+  color: var(--color-text);
+  fill: var(--color-text);
 }
 
 body {

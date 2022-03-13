@@ -1,7 +1,12 @@
 <template>
-  <main-header></main-header>
+  <chealt-header></chealt-header>
+  <chealt-section>
+    <mood-input></mood-input>
+  </chealt-section>
 </template>
 
 <script>
-  import '../Header';
+import "../Header";
+import "../MoodInput";
+import "../Section";
 </script>

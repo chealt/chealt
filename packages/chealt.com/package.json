@@ -12,6 +12,7 @@
     "vite": "^2.8.6"
   },
   "dependencies": {
+    "vite-svg-loader": "^3.1.2",
     "vue": "^3.2.31"
   }
 }
