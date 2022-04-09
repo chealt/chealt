@@ -3,7 +3,7 @@ import Home from './pages/home/index.js';
 import NotFound from './pages/_404.js';
 import Header from './header.js';
 
-const About = lazy(() => import('./pages/about/index.jsx'));
+const About = lazy(() => import('./pages/about/index.js'));
 
 const App = () => (
   <LocationProvider>

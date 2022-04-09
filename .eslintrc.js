@@ -7,7 +7,7 @@ const config = {
   ignorePatterns: ['packages/taas-ui/api/index.js'],
   overrides: [
     {
-      files: ['packages/mocker/**/*.cjs', 'packages/**/*.js', './.eslintrc.js'],
+      files: ['packages/mocker/**/*.cjs', 'packages/**/*.js', './.eslintrc.js', 'packages/**/*.mjs'],
       parserOptions: {
         requireConfigFile: false
       },
@@ -16,7 +16,7 @@ const config = {
       }
     },
     {
-      files: ['packages/**/*.jsx'],
+      files: ['packages/chealt.com/**/*.js'],
       ...preactConfig
     }
   ]
