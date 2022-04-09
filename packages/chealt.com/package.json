@@ -7,9 +7,6 @@
 		"build": "wmr build --prerender",
 		"serve": "wmr serve"
 	},
-	"eslintConfig": {
-		"extends": "preact"
-	},
 	"dependencies": {
 		"preact": "^10.7.1",
 		"preact-iso": "^2.3.0"
