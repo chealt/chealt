@@ -1,5 +1,7 @@
+import styles from './style.module.css';
+
 const Header = () => (
-  <header>
+  <header class={styles.header}>
     <nav>
       <a href="/">Home</a>
     </nav>

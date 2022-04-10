@@ -1,19 +1,19 @@
 import { LocationProvider, Router, Route, ErrorBoundary, hydrate, prerender as ssr } from 'preact-iso';
 import Home from './pages/home/index.js';
 import NotFound from './pages/_404.js';
-import Header from './header.js';
+import Header from './Header/Header.js';
 
 const App = () => (
   <LocationProvider>
-    <div class="app">
-      <Header />
+    <Header />
+    <main>
       <ErrorBoundary>
         <Router>
           <Route path="/" component={Home} />
           <Route default component={NotFound} />
         </Router>
       </ErrorBoundary>
-    </div>
+    </main>
   </LocationProvider>
 );
 
