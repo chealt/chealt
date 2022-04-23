@@ -4,6 +4,7 @@ const Header = () => (
   <header class={styles.header}>
     <nav>
       <a href="/">Home</a>
+      <a href="/upload">Upload</a>
     </nav>
   </header>
 );

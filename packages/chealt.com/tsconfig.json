@@ -5,7 +5,7 @@
 		"jsxFactory": "preact.h",
 		"jsxFragmentFactory": "preact.Fragment",
 		"allowJs": true,
-		"checkJs": true,
+		"checkJs": false,
 		// "strict": true,
 		"noEmit": true,
 		"moduleResolution": "node",
