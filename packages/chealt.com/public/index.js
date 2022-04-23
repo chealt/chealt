@@ -1,6 +1,6 @@
 import { LocationProvider, Router, Route, ErrorBoundary, hydrate, prerender as ssr } from 'preact-iso';
 import Home from './pages/home/index.js';
-import Upload from './pages/upload/index.js';
+import Documents from './pages/documents/index.js';
 import NotFound from './pages/_404.js';
 import Header from './Header/Header.js';
 
@@ -11,7 +11,7 @@ const App = () => (
       <ErrorBoundary>
         <Router>
           <Route path="/" component={Home} />
-          <Route path="/upload" component={Upload} />
+          <Route path="/documents" component={Documents} />
           <Route default component={NotFound} />
         </Router>
       </ErrorBoundary>

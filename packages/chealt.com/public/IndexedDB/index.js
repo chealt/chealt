@@ -1,6 +1,6 @@
 const indexedDB =
   window.indexedDB || window.webkitIndexedDB || window.mozIndexedDB || window.OIndexedDB || window.msIndexedDB;
-const version = 2;
+const version = 3;
 
 let db;
 
@@ -23,7 +23,7 @@ const init = ({ database }) => {
     request.onupgradeneeded = (event) => {
       db = event.target.result;
 
-      const objectStore = db.createObjectStore('images');
+      const objectStore = db.createObjectStore('documents');
 
       objectStore.transaction.oncomplete = resolve;
     };
@@ -32,10 +32,21 @@ const init = ({ database }) => {
 
 const save = async ({ file, type, key }) => {
   const blob = await file.arrayBuffer();
+  const { name, lastModified, size, type: fileType } = file;
 
   db.transaction([type], 'readwrite')
     .objectStore(type)
-    .put(blob, key || file.name);
+    .put(
+      {
+        blob,
+        name,
+        lastModified,
+        size,
+        type: fileType,
+        savedTimestamp: Date.now()
+      },
+      key || file.name
+    );
 };
 
 export { init, save };

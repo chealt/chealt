@@ -2,23 +2,27 @@ import { useEffect } from 'preact/hooks';
 import FileInput from '../../Form/FileInput';
 import { init as initDB, save as saveToDB } from '../../IndexedDB';
 
-const uploadFile = (event) => {
+const uploadDocument = (event) => {
   const input = event.target;
 
-  saveToDB({ file: input.files[0], type: 'images' });
+  for (const file of input.files) {
+    saveToDB({ file, type: 'documents' });
+  }
 };
 
-const Upload = () => {
+const Documents = () => {
   useEffect(() => {
     initDB({ database: 'chealt' });
   }, []);
 
   return (
     <>
-      <h1>Upload</h1>
-      <FileInput onChange={uploadFile}>Document to upload</FileInput>
+      <h1>Documents</h1>
+      <FileInput onChange={uploadDocument} multiple>
+        Upload
+      </FileInput>
     </>
   );
 };
 
-export default Upload;
+export default Documents;
