@@ -6,3 +6,8 @@
   align-items: center;
   padding: var(--gap--l);
 }
+
+.header nav {
+  display: flex;
+  gap: var(--gap--l);
+}
