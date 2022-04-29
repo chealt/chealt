@@ -1,5 +1,5 @@
 const {
-  eslintConfig: { baseConfig, svelteConfig }
+  eslintConfig: { baseConfig, preactConfig }
 } = require('@chealt/check');
 
 const config = {
@@ -7,7 +7,7 @@ const config = {
   ignorePatterns: ['packages/taas-ui/api/index.js'],
   overrides: [
     {
-      files: ['packages/mocker/**/*.cjs', 'packages/**/*.js', 'packages/**/*.jsx', './.eslintrc.js'],
+      files: ['packages/mocker/**/*.cjs', 'packages/**/*.js', './.eslintrc.js', 'packages/**/*.mjs'],
       parserOptions: {
         requireConfigFile: false
       },
@@ -16,8 +16,8 @@ const config = {
       }
     },
     {
-      files: ['*.svelte'],
-      ...svelteConfig
+      files: ['packages/chealt.com/**/*.js'],
+      ...preactConfig
     }
   ]
 };

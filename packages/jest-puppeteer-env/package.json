@@ -10,15 +10,15 @@
   "homepage": "https://github.com/chealt/chealt#chealt",
   "scripts": {},
   "dependencies": {
-    "@axe-core/puppeteer": "4.4.1",
-    "@chealt/mocker": "1.8.0",
-    "bytes": "3.1.2",
-    "chalk": "5.0.1",
-    "cwd": "0.10.0",
-    "expect-puppeteer": "6.1.0",
-    "jest-dev-server": "6.0.3",
-    "jest-environment-node": "27.5.1",
-    "merge-deep": "3.0.3"
+    "@axe-core/puppeteer": "^4.4.2",
+    "@chealt/mocker": "^1.8.0",
+    "bytes": "^3.1.2",
+    "chalk": "^5.0.1",
+    "cwd": "^0.10.0",
+    "expect-puppeteer": "^6.1.0",
+    "jest-dev-server": "^6.0.3",
+    "jest-environment-node": "^28.0.2",
+    "merge-deep": "^3.0.3"
   },
   "publishConfig": {
     "access": "public",
