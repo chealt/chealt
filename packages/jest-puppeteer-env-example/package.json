@@ -12,11 +12,11 @@
     "test": "JEST_PUPPETEER_CONFIG=./config/puppeteer/puppeteer.config.js jest --runInBand --config=./config/jest/jest.puppeteer.config.js"
   },
   "dependencies": {
-    "@chealt/jest-puppeteer-env": "5.3.0",
-    "puppeteer": "13.5.1"
+    "@chealt/jest-puppeteer-env": "^5.2.0",
+    "puppeteer": "^13.7.0"
   },
   "peerDependencies": {
-    "jest": "^27.5.1"
+    "jest": "^28.0.3"
   },
   "publishConfig": {
     "access": "public"
