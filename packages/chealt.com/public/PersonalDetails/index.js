@@ -9,6 +9,9 @@ const PersonalDetails = () => (
       <Input type="date" name="dateOfBirth">
         Date of Birth
       </Input>
+      <Input type="email" name="email">
+        Email
+      </Input>
     </Form>
   </>
 );
