@@ -1,6 +1,7 @@
 import { LocationProvider, Router, Route, ErrorBoundary, hydrate, prerender as ssr } from 'preact-iso';
 import Home from './pages/home/index.js';
 import Documents from './pages/documents/index.js';
+import PersonalDetails from './pages/personal-details/index.js';
 import NotFound from './pages/_404.js';
 import Header from './Header/Header.js';
 import swURL from 'sw:./sw.js'; // eslint-disable-line import/no-unresolved
@@ -15,6 +16,7 @@ const App = () => (
         <Router>
           <Route path="/" component={Home} />
           <Route path="/documents" component={Documents} />
+          <Route path="/personal-details" component={PersonalDetails} />
           <Route default component={NotFound} />
         </Router>
       </ErrorBoundary>
