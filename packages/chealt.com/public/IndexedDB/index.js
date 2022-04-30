@@ -30,15 +30,17 @@ const init = ({ database }) => {
   });
 };
 
-const save = async ({ file, type, key }) => {
+const put = ({ key, value, objectStore }) => objectStore.put({ ...value, savedTimestamp: Date.now() }, key);
+
+const saveFile = async ({ file, type, key }) => {
   const blob = await file.arrayBuffer();
   const { name, lastModified, size, type: fileType } = file;
 
   return new Promise((resolve, reject) => {
     const objectStore = db.transaction([type], 'readwrite').objectStore(type);
 
-    objectStore.put(
-      {
+    put({
+      value: {
         blob,
         name,
         lastModified,
@@ -46,13 +48,28 @@ const save = async ({ file, type, key }) => {
         type: fileType,
         savedTimestamp: Date.now()
       },
-      key || file.name
-    );
+      key: key || file.name,
+      objectStore
+    });
 
     objectStore.transaction.onerror = reject;
     objectStore.transaction.oncomplete = resolve;
   });
 };
+
+const save = async ({ type, key, value }) =>
+  new Promise((resolve, reject) => {
+    const objectStore = db.transaction([type], 'readwrite').objectStore(type);
+
+    put({
+      key,
+      value,
+      objectStore
+    });
+
+    objectStore.transaction.onerror = reject;
+    objectStore.transaction.oncomplete = resolve;
+  });
 
 const list = ({ type }) => {
   const items = [];
@@ -79,4 +96,4 @@ const list = ({ type }) => {
   });
 };
 
-export { init, list, save };
+export { init, list, save, saveFile };
