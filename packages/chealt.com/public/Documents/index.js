@@ -21,16 +21,19 @@ const Documents = () => {
       <PageTitle>Documents</PageTitle>
       <FileInput
         onChange={async (event) => {
-          const uploadPromises = uploadDocuments(event);
-          await Promise.all(uploadPromises);
-          const documents = await getDocuments();
+          const documents = await uploadDocuments(event);
 
           setDocuments(documents);
           event.target.value = null; // clear the input after saving
         }}
         multiple
+        ondrop={async (event) => {
+          const documents = await uploadDocuments(event);
+
+          setDocuments(documents);
+        }}
       >
-        Upload
+        Drag and Drop here or click the button to upload documents
       </FileInput>
       <ul>
         {documents.map((doc) => (
