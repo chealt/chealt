@@ -8,7 +8,6 @@
     "url": "git+https://github.com/chealt/chealt.git"
   },
   "homepage": "https://github.com/chealt/chealt#chealt",
-  "scripts": {},
   "dependencies": {
     "@axe-core/puppeteer": "^4.4.2",
     "@chealt/mocker": "^1.8.0",
@@ -17,8 +16,9 @@
     "cwd": "^0.10.0",
     "expect-puppeteer": "^6.1.0",
     "jest-dev-server": "^6.0.3",
-    "jest-environment-node": "^28.0.2",
-    "merge-deep": "^3.0.3"
+    "jest-environment-node": "^28.1.0",
+    "merge-deep": "^3.0.3",
+    "puppeteer": "^14.1.0"
   },
   "publishConfig": {
     "access": "public",

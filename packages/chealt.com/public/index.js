@@ -1,8 +1,9 @@
 import { LocationProvider, Router, Route, ErrorBoundary, hydrate, prerender as ssr } from 'preact-iso';
-import Home from './pages/home/index.js';
-import Documents from './pages/documents/index.js';
-import NotFound from './pages/_404.js';
-import Header from './Header/Header.js';
+import Home from './pages/Home';
+import Documents from './pages/Documents';
+import PersonalDetails from './pages/PersonalDetails';
+import NotFound from './pages/_404';
+import Header from './Header';
 import swURL from 'sw:./sw.js'; // eslint-disable-line import/no-unresolved
 
 navigator.serviceWorker.register(swURL);
@@ -15,6 +16,7 @@ const App = () => (
         <Router>
           <Route path="/" component={Home} />
           <Route path="/documents" component={Documents} />
+          <Route path="/personal-details" component={PersonalDetails} />
           <Route default component={NotFound} />
         </Router>
       </ErrorBoundary>

@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'preact/hooks';
 import FileInput from '../Form/FileInput';
-import { init as initDB, save as saveToDB, list as listObjectStore } from '../IndexedDB';
+import { init as initDB, saveFile as saveFileToDB, list as listObjectStore } from '../IndexedDB';
+import PageTitle from '../PageTitle';
 
 const uploadDocuments = (event) => {
   const input = event.target;
 
-  return Array.from(input.files).map((file) => saveToDB({ file, type: 'documents' }));
+  return Array.from(input.files).map((file) => saveFileToDB({ file, type: 'documents' }));
 };
 
 const getDocuments = async () => {
@@ -29,7 +30,7 @@ const Documents = () => {
 
   return (
     <>
-      <h1>Documents</h1>
+      <PageTitle>Documents</PageTitle>
       <FileInput
         onChange={async (event) => {
           const uploadPromises = uploadDocuments(event);

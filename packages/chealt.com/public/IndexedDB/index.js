@@ -1,6 +1,6 @@
 const indexedDB =
   window.indexedDB || window.webkitIndexedDB || window.mozIndexedDB || window.OIndexedDB || window.msIndexedDB;
-const version = 3;
+const version = 5;
 
 let db;
 
@@ -23,22 +23,42 @@ const init = ({ database }) => {
     request.onupgradeneeded = (event) => {
       db = event.target.result;
 
-      const objectStore = db.createObjectStore('documents');
+      const promises = [];
 
-      objectStore.transaction.oncomplete = resolve;
+      if (!db.objectStoreNames.contains('documents')) {
+        const objectStore = db.createObjectStore('documents');
+        promises.push(
+          new Promise((resolve) => {
+            objectStore.transaction.oncomplete = resolve;
+          })
+        );
+      }
+
+      if (!db.objectStoreNames.contains('personalDetails')) {
+        const objectStore = db.createObjectStore('personalDetails');
+        promises.push(
+          new Promise((resolve) => {
+            objectStore.transaction.oncomplete = resolve;
+          })
+        );
+      }
+
+      return Promise.all(promises);
     };
   });
 };
 
-const save = async ({ file, type, key }) => {
+const put = ({ key, value, objectStore }) => objectStore.put({ ...value, savedTimestamp: Date.now() }, key);
+
+const saveFile = async ({ file, type, key }) => {
   const blob = await file.arrayBuffer();
   const { name, lastModified, size, type: fileType } = file;
 
   return new Promise((resolve, reject) => {
     const objectStore = db.transaction([type], 'readwrite').objectStore(type);
 
-    objectStore.put(
-      {
+    put({
+      value: {
         blob,
         name,
         lastModified,
@@ -46,13 +66,28 @@ const save = async ({ file, type, key }) => {
         type: fileType,
         savedTimestamp: Date.now()
       },
-      key || file.name
-    );
+      key: key || file.name,
+      objectStore
+    });
 
     objectStore.transaction.onerror = reject;
     objectStore.transaction.oncomplete = resolve;
   });
 };
+
+const save = async ({ type, key, value }) =>
+  new Promise((resolve, reject) => {
+    const objectStore = db.transaction([type], 'readwrite').objectStore(type);
+
+    put({
+      key,
+      value: { value },
+      objectStore
+    });
+
+    objectStore.transaction.onerror = reject;
+    objectStore.transaction.oncomplete = resolve;
+  });
 
 const list = ({ type }) => {
   const items = [];
@@ -79,4 +114,4 @@ const list = ({ type }) => {
   });
 };
 
-export { init, list, save };
+export { init, list, save, saveFile };
