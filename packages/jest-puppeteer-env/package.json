@@ -16,7 +16,7 @@
     "cwd": "^0.10.0",
     "expect-puppeteer": "^6.1.0",
     "jest-dev-server": "^6.0.3",
-    "jest-environment-node": "^28.0.2",
+    "jest-environment-node": "^28.1.0",
     "merge-deep": "^3.0.3"
   },
   "publishConfig": {
