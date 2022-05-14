@@ -8,7 +8,6 @@
     "url": "git+https://github.com/chealt/chealt.git"
   },
   "homepage": "https://github.com/chealt/chealt#chealt",
-  "scripts": {},
   "dependencies": {
     "@axe-core/puppeteer": "^4.4.2",
     "@chealt/mocker": "^1.8.0",
