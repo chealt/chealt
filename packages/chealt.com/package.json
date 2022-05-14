@@ -11,6 +11,7 @@
     "@wmrjs/service-worker": "^0.3.1",
     "preact": "^10.7.2",
     "preact-iso": "^2.3.0",
+    "preact-render-to-string": "^5.2.0",
     "workbox-recipes": "^6.5.3"
   },
   "devDependencies": {
