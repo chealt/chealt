@@ -10,7 +10,7 @@ const getDocuments = async () => {
 };
 
 const getFiles = (event) => {
-  if (event.target.files.length) {
+  if (event.target.files?.length) {
     return Array.from(event.target.files);
   }
 
