@@ -1,4 +1,4 @@
-const Select = ({ children, label, selectProps }) => (
+const Select = ({ children, label, ...selectProps }) => (
   <label>
     {label}
     <select {...selectProps}>{children}</select>

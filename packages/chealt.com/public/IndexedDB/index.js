@@ -1,6 +1,6 @@
 const indexedDB =
   window.indexedDB || window.webkitIndexedDB || window.mozIndexedDB || window.OIndexedDB || window.msIndexedDB;
-const version = 3;
+const version = 5;
 
 let db;
 
@@ -23,9 +23,27 @@ const init = ({ database }) => {
     request.onupgradeneeded = (event) => {
       db = event.target.result;
 
-      const objectStore = db.createObjectStore('documents');
+      const promises = [];
 
-      objectStore.transaction.oncomplete = resolve;
+      if (!db.objectStoreNames.contains('documents')) {
+        const objectStore = db.createObjectStore('documents');
+        promises.push(
+          new Promise((resolve) => {
+            objectStore.transaction.oncomplete = resolve;
+          })
+        );
+      }
+
+      if (!db.objectStoreNames.contains('personalDetails')) {
+        const objectStore = db.createObjectStore('personalDetails');
+        promises.push(
+          new Promise((resolve) => {
+            objectStore.transaction.oncomplete = resolve;
+          })
+        );
+      }
+
+      return Promise.all(promises);
     };
   });
 };
@@ -63,7 +81,7 @@ const save = async ({ type, key, value }) =>
 
     put({
       key,
-      value,
+      value: { value },
       objectStore
     });
 
