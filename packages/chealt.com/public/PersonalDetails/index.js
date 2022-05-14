@@ -12,14 +12,16 @@ const PersonalDetails = () => {
 
   const saveFormData = async (event) => {
     event.preventDefault();
-    const { firstName, lastName, dateOfBirth, email, sex } = event.target;
+    const { firstName, lastName, dateOfBirth, email, sex, height, weight } = event.target;
 
     await Promise.all([
       saveToDB({ type: 'personalDetails', key: 'firstName', value: firstName.value }),
       saveToDB({ type: 'personalDetails', key: 'lastName', value: lastName.value }),
       saveToDB({ type: 'personalDetails', key: 'dateOfBirth', value: dateOfBirth.value }),
       saveToDB({ type: 'personalDetails', key: 'email', value: email.value }),
-      saveToDB({ type: 'personalDetails', key: 'sex', value: sex.value })
+      saveToDB({ type: 'personalDetails', key: 'sex', value: sex.value }),
+      saveToDB({ type: 'personalDetails', key: 'height', value: height.value }),
+      saveToDB({ type: 'personalDetails', key: 'weight', value: weight.value })
     ]);
 
     setPersonalDetails({
@@ -61,6 +63,12 @@ const PersonalDetails = () => {
           <Option value="female">Female</Option>
           <Option value="other">Other</Option>
         </Select>
+        <Input type="number" name="height" value={personalDetails.height}>
+          Height
+        </Input>
+        <Input type="number" name="weight" value={personalDetails.weight}>
+          Weight
+        </Input>
         <button type="submit">Save</button>
       </Form>
     </>
