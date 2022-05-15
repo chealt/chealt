@@ -1,6 +1,16 @@
 .input,
-.select {
+.select,
+.button {
   padding: var(--gap);
   border: 1px solid var(--color-border);
   border-radius: var(--border-radius);
+}
+
+.button {
+  cursor: pointer;
+  background: none;
+}
+
+.button.emphasized {
+  background-color: var(--color-brand);
 }
