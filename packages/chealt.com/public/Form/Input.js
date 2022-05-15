@@ -1,7 +1,9 @@
+import styles from './Input.module.css';
+
 const Input = ({ children, ...inputProps }) => (
   <label>
     {children}
-    <input {...inputProps} />
+    <input class={styles.input} {...inputProps} />
   </label>
 );
 
