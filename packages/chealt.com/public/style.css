@@ -6,7 +6,8 @@
 	--header-height: 48px;
 
 	--color-brand: rgb(236, 179, 66);
-	--color-border: rgb(151, 151, 151);
+	--color-border: rgb(172, 172, 172);
+	--color-border--active: rgb(0, 0, 0);
 
 	--border-radius: 8px;
 }
