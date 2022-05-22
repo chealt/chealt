@@ -33,7 +33,7 @@ const Documents = () => {
           setDocuments(documents);
         }}
       >
-        Drag and Drop here or click the button to upload documents
+        Upload documents
       </FileInput>
       <ul>
         {documents.map((doc) => (

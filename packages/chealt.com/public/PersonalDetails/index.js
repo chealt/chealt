@@ -6,6 +6,7 @@ import Option from '../Form/Option';
 import Select from '../Form/Select';
 import PageTitle from '../PageTitle';
 import { transformPersonalDetails } from './utils';
+import Button from '../Form/Button';
 
 const PersonalDetails = () => {
   const [personalDetails, setPersonalDetails] = useState({});
@@ -69,7 +70,9 @@ const PersonalDetails = () => {
         <Input type="number" name="weight" value={personalDetails.weight}>
           Weight
         </Input>
-        <button type="submit">Save</button>
+        <Button emphasized type="submit">
+          Save
+        </Button>
       </Form>
     </>
   );

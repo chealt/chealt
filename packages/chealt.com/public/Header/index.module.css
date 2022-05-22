@@ -1,13 +1,26 @@
 .header {
-  position: fixed;
+  position: sticky;
   top: 0;
+  left: 0;
+  right: 0;
   height: var(--header-height);
   display: flex;
   align-items: center;
-  padding: var(--gap--l);
+  overflow-x: scroll;
+  background-color: var(--color-brand);
+  box-shadow: 0 8px 0 rgb(38 46 72 / 15%);
+  padding: var(--gap);
 }
 
 .header nav {
   display: flex;
   gap: var(--gap--l);
+  flex-wrap: nowrap;
+}
+
+.header nav a {
+  white-space: nowrap;
+  color: inherit;
+  text-decoration: none;
+  padding: var(--gap);
 }
