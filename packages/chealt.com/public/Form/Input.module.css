@@ -2,7 +2,7 @@
 .select,
 .button,
 input[type="file"]::file-selector-button {
-  padding: var(--gap);
+  padding: var(--gap--m);
   border: 1px solid var(--color-border);
   border-radius: var(--border-radius);
 }
