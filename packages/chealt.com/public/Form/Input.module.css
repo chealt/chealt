@@ -1,6 +1,7 @@
 .input,
 .select,
-.button {
+.button,
+input[type="file"]::file-selector-button {
   padding: var(--gap);
   border: 1px solid var(--color-border);
   border-radius: var(--border-radius);
@@ -9,8 +10,20 @@
 .button {
   cursor: pointer;
   background: none;
+  max-width: 200px;
 }
 
 .button.emphasized {
   background-color: var(--color-brand);
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+}
+
+.text {
+  text-transform: uppercase;
+  font-weight: 600;
 }
