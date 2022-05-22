@@ -1,13 +1,21 @@
 .header {
-  position: fixed;
+  position: sticky;
   top: 0;
+  left: 0;
+  right: 0;
   height: var(--header-height);
   display: flex;
   align-items: center;
   padding: var(--gap--l);
+  overflow-x: scroll;
 }
 
 .header nav {
   display: flex;
   gap: var(--gap--l);
+  flex-wrap: nowrap;
+}
+
+.header nav a {
+  white-space: nowrap;
 }

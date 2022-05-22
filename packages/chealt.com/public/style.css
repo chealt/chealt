@@ -3,8 +3,6 @@
 	--gap--m: 12px;
 	--gap--l: 16px;
 
-	--header-height: 48px;
-
 	--color-brand: rgb(236, 179, 66);
 	--color-border: rgb(172, 172, 172);
 	--color-border--active: rgb(0, 0, 0);
@@ -32,5 +30,9 @@ input {
 }
 
 main {
-	padding: calc(var(--header-height) + var(--gap--l)) var(--gap--l) var(--gap--l) var(--gap--l);
+	padding: var(--gap--l);
+}
+
+main > *:first-child {
+	margin-top: 0;
 }
