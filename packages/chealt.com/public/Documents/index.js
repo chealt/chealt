@@ -2,6 +2,7 @@ import { useEffect, useState } from 'preact/hooks';
 import FileInput from '../Form/FileInput';
 import { init as initDB } from '../IndexedDB';
 import PageTitle from '../PageTitle';
+import Item from './Item';
 import { getDocuments, uploadDocuments } from './utils';
 
 const Documents = () => {
@@ -37,7 +38,9 @@ const Documents = () => {
       </FileInput>
       <ul>
         {documents.map((doc) => (
-          <li key={doc.key}>{doc.key}</li>
+          <li key={doc.key}>
+            <Item>{doc.key}</Item>
+          </li>
         ))}
       </ul>
     </>

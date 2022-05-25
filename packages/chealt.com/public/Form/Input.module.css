@@ -30,7 +30,32 @@ input[type="file"]:is(:hover, :focus)::file-selector-button {
   gap: var(--gap);
 }
 
+.label.inline {
+  flex-direction: row;
+  align-items: center;
+}
+
+.label.inline.input {
+  order: 1;
+}
+
 .text {
   text-transform: uppercase;
   font-weight: 600;
+}
+
+.label.inline .text {
+  order: 2;
+  text-transform: none;
+}
+
+input[type="checkbox"] {
+  inline-size: var(--gap--l);
+  block-size: var(--gap--l); 
+  outline-offset: 5px;
+  accent-color: var(--color-brand);  
+  position: relative; 
+  transform-style: preserve-3d;
+  margin: 0;
+  cursor: pointer;
 }
