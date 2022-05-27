@@ -32,8 +32,11 @@ ul {
 }
 
 ul li {
-	padding: var(--gap--l);
 	border-bottom: 1px solid var(--color-border);
+}
+
+ul li > * {
+	padding: var(--gap--l);
 }
 
 ul li:is(:active, :hover) {

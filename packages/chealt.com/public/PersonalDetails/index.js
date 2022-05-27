@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'preact/hooks';
-import { init as initDB, save as saveToDB, list as listObjectStore } from '../IndexedDB';
+import database from '../IndexedDB';
 import Form from '../Form/Form';
 import Input from '../Form/Input';
 import Option from '../Form/Option';
@@ -10,19 +10,20 @@ import Button from '../Form/Button';
 
 const PersonalDetails = () => {
   const [personalDetails, setPersonalDetails] = useState({});
+  const [instance, setInstance] = useState();
 
   const saveFormData = async (event) => {
     event.preventDefault();
     const { firstName, lastName, dateOfBirth, email, sex, height, weight } = event.target;
 
     await Promise.all([
-      saveToDB({ type: 'personalDetails', key: 'firstName', value: firstName.value }),
-      saveToDB({ type: 'personalDetails', key: 'lastName', value: lastName.value }),
-      saveToDB({ type: 'personalDetails', key: 'dateOfBirth', value: dateOfBirth.value }),
-      saveToDB({ type: 'personalDetails', key: 'email', value: email.value }),
-      saveToDB({ type: 'personalDetails', key: 'sex', value: sex.value }),
-      saveToDB({ type: 'personalDetails', key: 'height', value: height.value }),
-      saveToDB({ type: 'personalDetails', key: 'weight', value: weight.value })
+      instance.save({ type: 'personalDetails', key: 'firstName', value: firstName.value }),
+      instance.save({ type: 'personalDetails', key: 'lastName', value: lastName.value }),
+      instance.save({ type: 'personalDetails', key: 'dateOfBirth', value: dateOfBirth.value }),
+      instance.save({ type: 'personalDetails', key: 'email', value: email.value }),
+      instance.save({ type: 'personalDetails', key: 'sex', value: sex.value }),
+      instance.save({ type: 'personalDetails', key: 'height', value: height.value }),
+      instance.save({ type: 'personalDetails', key: 'weight', value: weight.value })
     ]);
 
     setPersonalDetails({
@@ -35,13 +36,22 @@ const PersonalDetails = () => {
   };
 
   useEffect(() => {
-    (async () => {
-      await initDB({ database: 'chealt' });
-      const personalDetails = await listObjectStore({ type: 'personalDetails' });
+    if (!instance) {
+      (async () => {
+        setInstance(await database({ database: 'chealt' }));
+      })();
+    }
+  }, [instance]);
 
-      setPersonalDetails(transformPersonalDetails(personalDetails));
-    })();
-  }, []);
+  useEffect(() => {
+    if (instance) {
+      (async () => {
+        const personalDetails = await instance.list({ type: 'personalDetails' });
+
+        setPersonalDetails(transformPersonalDetails(personalDetails));
+      })();
+    }
+  }, [instance]);
 
   return (
     <>
