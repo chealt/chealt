@@ -6,6 +6,7 @@ import styles from './Controls.module.css';
 const Controls = ({ instance, setDocuments, selectedDocuments }) => (
   <div class={styles.controls}>
     <Button
+      disabled={!selectedDocuments.length}
       onClick={async (event) => {
         event.preventDefault();
 

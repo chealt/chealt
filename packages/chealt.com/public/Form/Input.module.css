@@ -7,20 +7,20 @@ input[type="file"]::file-selector-button {
   border-radius: var(--border-radius);
 }
 
-.input:is(:hover, :focus),
-.select:is(:hover, :focus),
-.button:is(:hover, :focus),
-input[type="file"]:is(:hover, :focus)::file-selector-button {
+.input:is(:hover, :focus):not(:disabled),
+.select:is(:hover, :focus):not(:disabled),
+.button:is(:hover, :focus):not(:disabled),
+input[type="file"]:is(:hover, :focus):not(:disabled)::file-selector-button {
   border: 2px solid var(--color-border--active);
 }
 
-.button {
+.button:not(:disabled) {
   cursor: pointer;
   background: none;
   max-width: 200px;
 }
 
-.button.emphasized {
+.button.emphasized:not(:disabled) {
   background-color: var(--color-brand);
 }
 
