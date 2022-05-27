@@ -1,5 +1,9 @@
 import Input from '../Form/Input';
 
-const Item = ({ children }) => <Input type="checkbox">{children}</Input>;
+const Item = ({ key, children, ...inputProps }) => (
+  <Input type="checkbox" value={key} {...inputProps}>
+    {children}
+  </Input>
+);
 
 export default Item;

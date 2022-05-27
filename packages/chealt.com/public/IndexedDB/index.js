@@ -2,116 +2,131 @@ const indexedDB =
   window.indexedDB || window.webkitIndexedDB || window.mozIndexedDB || window.OIndexedDB || window.msIndexedDB;
 const version = 5;
 
-let db;
+const db = async ({ database }) => {
+  let instance;
 
-const init = ({ database }) => {
-  if (db) {
-    return Promise.resolve();
-  }
+  const init = () =>
+    new Promise((resolve, reject) => {
+      const request = indexedDB.open(database, version);
 
-  return new Promise((resolve, reject) => {
-    const request = indexedDB.open(database, version);
+      request.onerror = reject;
 
-    request.onerror = reject;
+      request.onsuccess = () => {
+        instance = request.result;
 
-    request.onsuccess = () => {
-      db = request.result;
+        resolve();
+      };
 
-      resolve();
-    };
+      request.onupgradeneeded = (event) => {
+        instance = event.target.result;
 
-    request.onupgradeneeded = (event) => {
-      db = event.target.result;
+        const promises = [];
 
-      const promises = [];
+        if (!instance.objectStoreNames.contains('documents')) {
+          const objectStore = instance.createObjectStore('documents');
+          promises.push(
+            new Promise((resolve) => {
+              objectStore.transaction.oncomplete = resolve;
+            })
+          );
+        }
 
-      if (!db.objectStoreNames.contains('documents')) {
-        const objectStore = db.createObjectStore('documents');
-        promises.push(
-          new Promise((resolve) => {
-            objectStore.transaction.oncomplete = resolve;
-          })
-        );
-      }
+        if (!instance.objectStoreNames.contains('personalDetails')) {
+          const objectStore = instance.createObjectStore('personalDetails');
+          promises.push(
+            new Promise((resolve) => {
+              objectStore.transaction.oncomplete = resolve;
+            })
+          );
+        }
 
-      if (!db.objectStoreNames.contains('personalDetails')) {
-        const objectStore = db.createObjectStore('personalDetails');
-        promises.push(
-          new Promise((resolve) => {
-            objectStore.transaction.oncomplete = resolve;
-          })
-        );
-      }
-
-      return Promise.all(promises);
-    };
-  });
-};
-
-const put = ({ key, value, objectStore }) => objectStore.put({ ...value, savedTimestamp: Date.now() }, key);
-
-const saveFile = async ({ file, type, key }) => {
-  const blob = await file.arrayBuffer();
-  const { name, lastModified, size, type: fileType } = file;
-
-  return new Promise((resolve, reject) => {
-    const objectStore = db.transaction([type], 'readwrite').objectStore(type);
-
-    put({
-      value: {
-        blob,
-        name,
-        lastModified,
-        size,
-        type: fileType,
-        savedTimestamp: Date.now()
-      },
-      key: key || file.name,
-      objectStore
+        return Promise.all(promises);
+      };
     });
 
-    objectStore.transaction.onerror = reject;
-    objectStore.transaction.oncomplete = resolve;
-  });
-};
+  const put = ({ key, value, objectStore }) => objectStore.put({ ...value, savedTimestamp: Date.now() }, key);
 
-const save = async ({ type, key, value }) =>
-  new Promise((resolve, reject) => {
-    const objectStore = db.transaction([type], 'readwrite').objectStore(type);
+  const saveFile = async ({ file, type, key }) => {
+    const blob = await file.arrayBuffer();
+    const { name, lastModified, size, type: fileType } = file;
 
-    put({
-      key,
-      value: { value },
-      objectStore
+    return new Promise((resolve, reject) => {
+      const objectStore = instance.transaction([type], 'readwrite').objectStore(type);
+
+      put({
+        value: {
+          blob,
+          name,
+          lastModified,
+          size,
+          type: fileType,
+          savedTimestamp: Date.now()
+        },
+        key: key || file.name,
+        objectStore
+      });
+
+      objectStore.transaction.onerror = reject;
+      objectStore.transaction.oncomplete = resolve;
+    });
+  };
+
+  const save = async ({ type, key, value }) =>
+    new Promise((resolve, reject) => {
+      const objectStore = instance.transaction([type], 'readwrite').objectStore(type);
+
+      put({
+        key,
+        value: { value },
+        objectStore
+      });
+
+      objectStore.transaction.onerror = reject;
+      objectStore.transaction.oncomplete = resolve;
     });
 
-    objectStore.transaction.onerror = reject;
-    objectStore.transaction.oncomplete = resolve;
-  });
+  const list = async ({ type }) => {
+    if (!instance) {
+      throw new Error('Database not initialized!');
+    }
 
-const list = ({ type }) => {
-  const items = [];
+    const items = [];
 
-  return new Promise((resolve, reject) => {
-    const objectStore = db.transaction(type).objectStore(type);
-    const openedCursor = objectStore.openCursor();
+    return new Promise((resolve, reject) => {
+      const objectStore = instance.transaction(type).objectStore(type);
+      const openedCursor = objectStore.openCursor();
 
-    openedCursor.onerror = reject;
+      openedCursor.onerror = reject;
 
-    openedCursor.onsuccess = (event) => {
-      const cursor = event.target.result;
+      openedCursor.onsuccess = (event) => {
+        const cursor = event.target.result;
 
-      if (cursor) {
-        items.push({
-          key: cursor.key,
-          value: cursor.value
-        });
-        cursor.continue();
-      } else {
-        resolve(items);
-      }
-    };
-  });
+        if (cursor) {
+          items.push({
+            key: cursor.key,
+            value: cursor.value
+          });
+          cursor.continue();
+        } else {
+          resolve(items);
+        }
+      };
+    });
+  };
+
+  const deleteItem = ({ type, key }) =>
+    new Promise((resolve, reject) => {
+      const objectStore = instance.transaction([type], 'readwrite').objectStore(type);
+
+      objectStore.delete(key);
+
+      objectStore.transaction.onerror = reject;
+      objectStore.transaction.oncomplete = resolve;
+    });
+
+  await init();
+
+  return { saveFile, list, deleteItem, save };
 };
 
-export { init, list, save, saveFile };
+export default db;

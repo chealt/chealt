@@ -1,9 +1,7 @@
-import { saveFile as saveFileToDB, list as listObjectStore } from '../IndexedDB';
+const uploadFile = (instance) => (file) => instance.saveFile({ file, type: 'documents' });
 
-const uploadFile = (file) => saveFileToDB({ file, type: 'documents' });
-
-const getDocuments = async () => {
-  const objects = await listObjectStore({ type: 'documents' });
+const getDocuments = (instance) => async () => {
+  const objects = await instance.list({ type: 'documents' });
   const sortedObjects = objects.sort((a, b) => b.value.savedTimestamp - a.value.savedTimestamp);
 
   return sortedObjects;
@@ -23,12 +21,18 @@ const getFiles = (event) => {
   return Array.from(event.dataTransfer.files);
 };
 
-const uploadDocuments = async (event) => {
+const uploadDocuments = (instance) => async (event) => {
   event.preventDefault();
 
-  await Promise.all(getFiles(event).map(uploadFile));
+  await Promise.all(getFiles(event).map(uploadFile(instance)));
 
-  return getDocuments();
+  return getDocuments(instance)();
 };
 
-export { uploadDocuments, getDocuments };
+const deleteDocuments = (instance) => async (documents) => {
+  await Promise.all(documents.map((key) => instance.deleteItem({ type: 'documents', key })));
+
+  return getDocuments(instance)();
+};
+
+export { uploadDocuments, getDocuments, deleteDocuments };
