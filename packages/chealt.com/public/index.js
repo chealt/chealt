@@ -2,6 +2,7 @@ import { LocationProvider, Router, Route, ErrorBoundary, hydrate, prerender as s
 import Home from './pages/Home';
 import Documents from './pages/Documents';
 import PersonalDetails from './pages/PersonalDetails';
+import View from './pages/View';
 import NotFound from './pages/_404';
 import Header from './Header';
 import swURL from 'sw:./sw.js'; // eslint-disable-line import/no-unresolved
@@ -16,6 +17,7 @@ const App = () => (
         <Router>
           <Route path="/" component={Home} />
           <Route path="/documents" component={Documents} />
+          <Route path="/view/:documentKey" component={View} />
           <Route path="/personal-details" component={PersonalDetails} />
           <Route default component={NotFound} />
         </Router>
