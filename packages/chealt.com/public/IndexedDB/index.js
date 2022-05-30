@@ -124,9 +124,21 @@ const db = async ({ database }) => {
       objectStore.transaction.oncomplete = resolve;
     });
 
+  const get = ({ type, key }) =>
+    new Promise((resolve, reject) => {
+      const objectStore = instance.transaction([type], 'readwrite').objectStore(type);
+
+      const request = objectStore.get(key);
+
+      objectStore.transaction.onerror = reject;
+      objectStore.transaction.oncomplete = () => {
+        resolve(request.result);
+      };
+    });
+
   await init();
 
-  return { saveFile, list, deleteItem, save };
+  return { saveFile, list, deleteItem, save, get };
 };
 
 export default db;
