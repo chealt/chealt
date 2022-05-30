@@ -21,6 +21,10 @@ input[type="file"]::file-selector-button {
   width: 100%;
 }
 
+.input[type="date"] {
+  height: auto;
+}
+
 .input:not(:disabled),
 .select:not(:disabled),
 .button:not(:disabled),
