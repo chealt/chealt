@@ -8,6 +8,12 @@ input[type="file"]::file-selector-button {
   font: inherit;
 }
 
+.input:not([type="checkbox"]),
+.select {
+  appearance: none;
+  -webkit-appearance: none;
+}
+
 .select,
 .input {
   width: 100%;
@@ -83,6 +89,8 @@ input[type="checkbox"] {
   transform-style: preserve-3d;
   margin: 0;
   cursor: pointer;
+  appearance: auto;
+  -webkit-appearance: auto;
 }
 
 .selectWrapper {
@@ -95,10 +103,4 @@ input[type="checkbox"] {
   top: 0;
   height: 100%;
   pointer-events: none;
-}
-
-.select {
-  appearance: none;
-  -webkit-appearance: none;
-  background: none;
 }
