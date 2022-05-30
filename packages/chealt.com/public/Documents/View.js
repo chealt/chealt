@@ -2,7 +2,7 @@ import { useEffect, useState } from 'preact/hooks';
 import { useRoute } from 'preact-iso';
 
 import database from '../IndexedDB';
-import { getDocument } from './utils';
+import { getDocument, isImage } from './utils';
 
 import styles from './View.module.css';
 import Link from '../Link';
@@ -18,21 +18,23 @@ const View = () => {
     (async () => {
       if (!instance) {
         setInstance(await database({ database: 'chealt' }));
-      } else {
+      } else if (isImage(documentKey)) {
         const { blob } = await getDocument(instance)({ documentKey });
 
         const source = URL.createObjectURL(new Blob([blob]));
 
         setImageSource(source);
+      } else {
+        console.log(`Unsupported file: ${documentKey}`);
       }
     })();
   }, [instance, documentKey]);
 
   return (
-    <>
+    <div class={styles.view}>
       <Link href="/documents">Back to Documents</Link>
       {imageSource && <img src={imageSource} class={styles.image} />}
-    </>
+    </div>
   );
 };
 
