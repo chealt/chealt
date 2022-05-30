@@ -6,8 +6,18 @@ input[type="file"]::file-selector-button {
   border: 2px solid var(--color-border);
   border-radius: var(--border-radius);
   font: inherit;
-  color: inherit;
+}
+
+.select,
+.input {
   width: 100%;
+}
+
+.input:not(:disabled),
+.select:not(:disabled),
+.button:not(:disabled),
+input[type="file"]:not(:disabled)::file-selector-button {
+  color: inherit;
 }
 
 .input:is(:hover, :focus):not(:disabled),
