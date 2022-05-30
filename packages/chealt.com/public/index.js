@@ -17,7 +17,7 @@ const App = () => (
         <Router>
           <Route path="/" component={Home} />
           <Route path="/documents" component={Documents} />
-          <Route path="/view/:documentKey" component={View} />
+          <Route path="/documents/view/:encodedDocumentKey" component={View} />
           <Route path="/personal-details" component={PersonalDetails} />
           <Route default component={NotFound} />
         </Router>

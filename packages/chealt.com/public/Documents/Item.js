@@ -21,7 +21,7 @@ const Item = ({ documentKey, children, ...inputProps }) => {
         onClick={(event) => {
           event.preventDefault();
 
-          route(`/view/${documentKey}`);
+          route(`/documents/view/${btoa(documentKey)}`);
         }}
       >
         <Launch />

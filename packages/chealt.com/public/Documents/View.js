@@ -9,8 +9,9 @@ import Link from '../Link';
 
 const View = () => {
   const {
-    params: { documentKey }
+    params: { encodedDocumentKey }
   } = useRoute();
+  const documentKey = atob(encodedDocumentKey);
   const [instance, setInstance] = useState();
   const [imageSource, setImageSource] = useState();
 
