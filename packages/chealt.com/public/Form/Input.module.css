@@ -7,6 +7,7 @@ input[type="file"]::file-selector-button {
   border-radius: var(--border-radius);
   font: inherit;
   color: inherit;
+  width: 100%;
 }
 
 .input:is(:hover, :focus):not(:disabled),
@@ -89,6 +90,5 @@ input[type="checkbox"] {
 .select {
   appearance: none;
   -webkit-appearance: none;
-  width: 100%;
   background: none;
 }
