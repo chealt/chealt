@@ -19,14 +19,16 @@ const View = () => {
     (async () => {
       if (!instance) {
         setInstance(await database({ database: 'chealt' }));
-      } else if (isImage(documentKey)) {
-        const { blob } = await getDocument(instance)({ documentKey });
-
-        const source = URL.createObjectURL(new Blob([blob]));
-
-        setImageSource(source);
       } else {
-        console.log(`Unsupported file: ${documentKey}`);
+        const { blob } = await getDocument(instance)({ documentKey });
+        const objectURL = URL.createObjectURL(new Blob([blob]));
+
+        if (isImage(documentKey)) {
+          setImageSource(objectURL);
+        } else {
+          console.log('Unsupported file type.');
+          // window.open(objectURL);
+        }
       }
     })();
   }, [instance, documentKey]);
