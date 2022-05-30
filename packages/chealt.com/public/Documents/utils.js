@@ -40,4 +40,7 @@ const deleteDocuments = (instance) => async (documents) => {
   return getDocuments(instance)();
 };
 
-export { uploadDocuments, getDocuments, getDocument, deleteDocuments };
+const supportedImageExtensions = ['jpg', 'jpeg', 'bmp', 'png', 'gif'];
+const isImage = (filename) => supportedImageExtensions.includes(filename.slice(filename.lastIndexOf('.') + 1));
+
+export { uploadDocuments, getDocuments, getDocument, deleteDocuments, isImage };
