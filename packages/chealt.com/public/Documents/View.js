@@ -5,6 +5,7 @@ import database from '../IndexedDB';
 import { getDocument } from './utils';
 
 import styles from './View.module.css';
+import Link from '../Link';
 
 const View = () => {
   const {
