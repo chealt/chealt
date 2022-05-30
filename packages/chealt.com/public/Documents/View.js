@@ -27,7 +27,12 @@ const View = () => {
     })();
   }, [instance, documentKey]);
 
-  return imageSource && <img src={imageSource} class={styles.image} />;
+  return (
+    <>
+      <Link href="/documents">Back to Documents</Link>
+      {imageSource && <img src={imageSource} class={styles.image} />}
+    </>
+  );
 };
 
 export default View;
