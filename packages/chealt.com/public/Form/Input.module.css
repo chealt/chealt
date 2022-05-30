@@ -28,14 +28,14 @@ input[type="file"]::file-selector-button {
 .input:not(:disabled),
 .select:not(:disabled),
 .button:not(:disabled),
-input[type="file"]:not(:disabled)::file-selector-button {
+.input[type="file"]:not(:disabled)::file-selector-button {
   color: inherit;
 }
 
 .input:is(:hover, :focus):not(:disabled),
 .select:is(:hover, :focus):not(:disabled),
 .button:is(:hover, :focus):not(.ghost,:disabled),
-input[type="file"]:is(:hover, :focus):not(:disabled)::file-selector-button {
+.input[type="file"]:is(:hover, :focus):not(:disabled)::file-selector-button {
   border: 2px solid var(--color-border--active);
 }
 
@@ -86,7 +86,7 @@ input[type="file"]:is(:hover, :focus):not(:disabled)::file-selector-button {
   text-transform: none;
 }
 
-input[type="checkbox"] {
+.input[type="checkbox"] {
   inline-size: var(--gap--l);
   block-size: var(--gap--l); 
   outline-offset: 5px;
