@@ -9,7 +9,7 @@ input[type="file"]::file-selector-button {
 
 .input:is(:hover, :focus):not(:disabled),
 .select:is(:hover, :focus):not(:disabled),
-.button:is(:hover, :focus):not(:disabled),
+.button:is(:hover, :focus):not(.ghost,:disabled),
 input[type="file"]:is(:hover, :focus):not(:disabled)::file-selector-button {
   border: 2px solid var(--color-border--active);
 }
@@ -18,6 +18,14 @@ input[type="file"]:is(:hover, :focus):not(:disabled)::file-selector-button {
   cursor: pointer;
   background: none;
   max-width: 200px;
+}
+
+.button.ghost {
+  border-color: transparent;
+}
+
+.button.ghost:is(:hover, :focus):not(:disabled) {
+  background-color: var(--color-background-highlight);
 }
 
 .button.emphasized:not(:disabled) {

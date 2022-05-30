@@ -53,7 +53,7 @@ const Documents = () => {
                 onClick={() => {
                   setSelectedDocuments(toggleItem(doc.key, selectedDocuments));
                 }}
-                key={doc.key}
+                documentKey={doc.key}
               >
                 {doc.key}
               </Item>

@@ -1,3 +1,4 @@
+import Link from '../Link';
 import PageTitle from '../PageTitle';
 
 const Home = () => (
@@ -14,21 +15,21 @@ const Home = () => (
     <h2>Improvements</h2>
     <p>
       If you have an idea how to make this app even more useful, let us know{' '}
-      <a
+      <Link
         target="_blank"
         href="https://github.com/chealt/chealt/issues/new?assignees=atikenny&labels=component:chealt.com&template=feature_request.md&title="
         rel="noreferrer"
       >
         here
-      </a>{' '}
+      </Link>{' '}
       by creating a{' '}
-      <a
+      <Link
         target="_blank"
         href="https://docs.github.com/en/issues/tracking-your-work-with-issues/about-issues"
         rel="noreferrer"
       >
         GitHub issue
-      </a>
+      </Link>
       .
     </p>
   </>

@@ -1,5 +1,10 @@
 const uploadFile = (instance) => (file) => instance.saveFile({ file, type: 'documents' });
 
+const getDocument =
+  (instance) =>
+  ({ documentKey: key }) =>
+    instance.get({ type: 'documents', key });
+
 const getDocuments = (instance) => async () => {
   const objects = await instance.list({ type: 'documents' });
   const sortedObjects = objects.sort((a, b) => b.value.savedTimestamp - a.value.savedTimestamp);
@@ -35,4 +40,9 @@ const deleteDocuments = (instance) => async (documents) => {
   return getDocuments(instance)();
 };
 
-export { uploadDocuments, getDocuments, deleteDocuments };
+const supportedImageExtensions = ['jpg', 'jpeg', 'bmp', 'png', 'gif'];
+const isImage = (filename) =>
+  supportedImageExtensions.includes(filename.slice(filename.lastIndexOf('.') + 1).toLowerCase());
+const isPDF = (filename) => filename.slice(filename.lastIndexOf('.') + 1).toLowerCase() === 'pdf';
+
+export { uploadDocuments, getDocuments, getDocument, deleteDocuments, isImage, isPDF };
