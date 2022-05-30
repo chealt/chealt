@@ -41,6 +41,8 @@ const deleteDocuments = (instance) => async (documents) => {
 };
 
 const supportedImageExtensions = ['jpg', 'jpeg', 'bmp', 'png', 'gif'];
-const isImage = (filename) => supportedImageExtensions.includes(filename.slice(filename.lastIndexOf('.') + 1));
+const isImage = (filename) =>
+  supportedImageExtensions.includes(filename.slice(filename.lastIndexOf('.') + 1).toLowerCase());
+const isPDF = (filename) => filename.slice(filename.lastIndexOf('.') + 1).toLowerCase() === 'pdf';
 
-export { uploadDocuments, getDocuments, getDocument, deleteDocuments, isImage };
+export { uploadDocuments, getDocuments, getDocument, deleteDocuments, isImage, isPDF };
