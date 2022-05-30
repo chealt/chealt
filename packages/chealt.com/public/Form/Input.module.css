@@ -22,7 +22,7 @@ input[type="file"]::file-selector-button {
 }
 
 .input[type="date"] {
-  height: auto;
+  height: 100%;
 }
 
 .input:not(:disabled),
