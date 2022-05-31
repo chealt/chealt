@@ -1,0 +1,13 @@
+.multiUnit {
+  display: flex;
+}
+
+.multiUnit label {
+  flex-grow: 1;
+}
+
+.multiUnit .imperialUnit {
+  padding: var(--gap--l);
+  align-self: flex-end;
+  flex-basis: 80px;
+}
