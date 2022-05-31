@@ -13,8 +13,8 @@ import styles from './index.module.css';
 const PersonalDetails = () => {
   const [personalDetails, setPersonalDetails] = useState({});
   const [instance, setInstance] = useState();
-  const [newHeight, setNewHeight] = useState(0);
-  const [newWeight, setNewWeight] = useState(0);
+  const [newHeight, setNewHeight] = useState();
+  const [newWeight, setNewWeight] = useState();
 
   const saveFormData = async (event) => {
     event.preventDefault();
@@ -60,8 +60,8 @@ const PersonalDetails = () => {
     }
   }, [instance]);
 
-  const height = newHeight || personalDetails?.height;
-  const weight = newWeight || personalDetails?.weight;
+  const height = newHeight !== undefined ? newHeight : personalDetails.height;
+  const weight = newWeight !== undefined ? newWeight : personalDetails.weight;
   const imperialUnitHeight = height ? getImperialUnitHeight(height) : '- " - \'';
   const imperialUnitWeight = weight ? `${getImperialUnitWeight(weight)} lb` : '- lb';
 
