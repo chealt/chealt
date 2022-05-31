@@ -1,0 +1,12 @@
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.4rem;
+  padding: var(--gap--l);
+}
+
+.emptyState svg {
+  width: 64px;
+  height: 64px;
+}
