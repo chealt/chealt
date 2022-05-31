@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'preact/hooks';
+import { useEffect, useState, useRef } from 'preact/hooks';
 import FileInput from '../Form/FileInput';
 import Form from '../Form/Form';
 import PageTitle from '../PageTitle';
@@ -17,6 +17,8 @@ const Documents = () => {
   const [documents, setDocuments] = useState([]);
   const [selectedDocuments, setSelectedDocuments] = useState([]);
   const [instance, setInstance] = useState();
+  const uploadDocumentInput = useRef(null);
+
   const showDocuments = !isLoading && Boolean(documents.length);
   const noDocuments = !isLoading && !documents.length;
 
@@ -42,7 +44,7 @@ const Documents = () => {
   return (
     <div class={styles.documents}>
       <PageTitle>Documents</PageTitle>
-      <FileInput multiple onChange={uploadDocuments} ondrop={uploadDocuments}>
+      <FileInput multiple onChange={uploadDocuments} ondrop={uploadDocuments} inputRef={uploadDocumentInput}>
         Upload documents
       </FileInput>
       <Form name="documents">
@@ -50,7 +52,16 @@ const Documents = () => {
           <EmptyState>
             <DocumentsIcon />
             <p>Your uploaded documents will be shown here.</p>
-            <Button emphasized>Start uploading</Button>
+            <Button
+              emphasized
+              onClick={(event) => {
+                event.preventDefault();
+
+                uploadDocumentInput.current.click();
+              }}
+            >
+              Start uploading
+            </Button>
           </EmptyState>
         )}
         {showDocuments && (
