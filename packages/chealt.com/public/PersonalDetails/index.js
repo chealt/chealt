@@ -5,15 +5,20 @@ import Input from '../Form/Input';
 import Option from '../Form/Option';
 import Select from '../Form/Select';
 import PageTitle from '../PageTitle';
-import { transformPersonalDetails } from './utils';
+import { transformPersonalDetails, getImperialUnitWeight, getImperialUnitHeight } from './utils';
 import Button from '../Form/Button';
+
+import styles from './index.module.css';
 
 const PersonalDetails = () => {
   const [personalDetails, setPersonalDetails] = useState({});
   const [instance, setInstance] = useState();
+  const [newHeight, setNewHeight] = useState(0);
+  const [newWeight, setNewWeight] = useState(0);
 
   const saveFormData = async (event) => {
     event.preventDefault();
+
     const { firstName, lastName, dateOfBirth, email, sex, height, weight } = event.target;
 
     await Promise.all([
@@ -31,7 +36,9 @@ const PersonalDetails = () => {
       lastName: lastName.value,
       dateOfBirth: dateOfBirth.value,
       email: email.value,
-      sex: sex.value
+      sex: sex.value,
+      height: height.value,
+      weight: weight.value
     });
   };
 
@@ -52,6 +59,11 @@ const PersonalDetails = () => {
       })();
     }
   }, [instance]);
+
+  const height = newHeight || personalDetails?.height;
+  const weight = newWeight || personalDetails?.weight;
+  const imperialUnitHeight = height ? getImperialUnitHeight(height) : '- " - \'';
+  const imperialUnitWeight = weight ? `${getImperialUnitWeight(weight)} lb` : '- lb';
 
   return (
     <>
@@ -74,12 +86,32 @@ const PersonalDetails = () => {
           <Option value="female">Female</Option>
           <Option value="other">Other</Option>
         </Select>
-        <Input type="number" name="height" value={personalDetails.height}>
-          Height
-        </Input>
-        <Input type="number" name="weight" value={personalDetails.weight}>
-          Weight
-        </Input>
+        <div class={styles.multiUnit}>
+          <Input
+            type="number"
+            name="height"
+            value={height}
+            onInput={(event) => {
+              setNewHeight(event.target.value);
+            }}
+          >
+            Height
+          </Input>
+          <div class={styles.imperialUnit}>{imperialUnitHeight}</div>
+        </div>
+        <div class={styles.multiUnit}>
+          <Input
+            type="number"
+            name="weight"
+            value={weight}
+            onInput={(event) => {
+              setNewWeight(event.target.value);
+            }}
+          >
+            Weight
+          </Input>
+          <div class={styles.imperialUnit}>{imperialUnitWeight}</div>
+        </div>
         <Button emphasized type="submit">
           Save
         </Button>
