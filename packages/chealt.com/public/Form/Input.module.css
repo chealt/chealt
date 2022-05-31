@@ -1,7 +1,7 @@
 .input,
 .select,
 .button,
-input[type="file"]::file-selector-button {
+.input[type="file"]::file-selector-button {
   padding: var(--gap--m);
   border: 2px solid var(--color-border);
   border-radius: var(--border-radius);
@@ -9,6 +9,7 @@ input[type="file"]::file-selector-button {
 }
 
 .input:not([type="checkbox"]),
+.input[type="file"]::file-selector-button,
 .select {
   appearance: none;
   -webkit-appearance: none;
