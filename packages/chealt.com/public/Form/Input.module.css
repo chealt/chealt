@@ -36,7 +36,8 @@
   border: 2px solid var(--color-border--active);
 }
 
-.input[type="file"] {
+.input[type="file"],
+.input[type="file"]::file-selector-button {
   cursor: pointer;
 }
 
