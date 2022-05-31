@@ -1,4 +1,4 @@
-.input,
+.input:not([type="file"]),
 .select,
 .button,
 .input[type="file"]::file-selector-button {
@@ -29,11 +29,15 @@
   color: inherit;
 }
 
-.input:is(:hover, :focus):not(:disabled),
+.input:is(:hover, :focus):not(:disabled):not([type="file"]),
 .select:is(:hover, :focus):not(:disabled),
 .button:is(:hover, :focus):not(.ghost,:disabled),
 .input[type="file"]:is(:hover, :focus):not(:disabled)::file-selector-button {
   border: 2px solid var(--color-border--active);
+}
+
+.input[type="file"] {
+  cursor: pointer;
 }
 
 .button:not(:disabled) {
