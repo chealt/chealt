@@ -41,6 +41,16 @@
   cursor: pointer;
 }
 
+/*
+  Fix for Date input height problems on iOS
+  https://linear.app/chealt/issue/CHE-28/fix-date-selector-on-ios
+*/
+.input[type="date"] {
+  height: 3rem;
+  min-height: 3rem;
+  line-height: 1rem;
+}
+
 .button:not(:disabled) {
   cursor: pointer;
   background: none;
