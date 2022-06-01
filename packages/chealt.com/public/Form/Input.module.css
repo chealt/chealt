@@ -46,7 +46,7 @@
   https://linear.app/chealt/issue/CHE-28/fix-date-selector-on-ios
 */
 .input[type="date"] {
-  line-height: normal;
+  line-height: 1rem;
 }
 
 .button:not(:disabled) {
