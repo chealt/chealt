@@ -9,16 +9,16 @@
   },
   "homepage": "https://github.com/chealt/chealt#chealt",
   "dependencies": {
-    "@axe-core/puppeteer": "^4.4.2",
+    "@axe-core/puppeteer": "^4.4.3",
     "@chealt/mocker": "^1.8.0",
     "bytes": "^3.1.2",
     "chalk": "^5.0.1",
     "cwd": "^0.10.0",
     "expect-puppeteer": "^6.1.0",
     "jest-dev-server": "^6.0.3",
-    "jest-environment-node": "^28.1.0",
+    "jest-environment-node": "^28.1.1",
     "merge-deep": "^3.0.3",
-    "puppeteer": "^14.1.1"
+    "puppeteer": "^14.4.1"
   },
   "publishConfig": {
     "access": "public",
