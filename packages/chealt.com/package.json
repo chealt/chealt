@@ -10,9 +10,9 @@
   "dependencies": {
     "@wmrjs/service-worker": "^0.3.1",
     "classnames": "^2.3.1",
-    "preact": "^10.8.1",
+    "preact": "^10.10.0",
     "preact-iso": "^2.3.0",
-    "preact-render-to-string": "^5.2.0",
+    "preact-render-to-string": "^5.2.1",
     "workbox-recipes": "^6.5.3"
   },
   "devDependencies": {
