@@ -16,6 +16,7 @@
     "workbox-recipes": "^6.5.4"
   },
   "devDependencies": {
-    "wmr": "^3.7.2"
+    "wmr": "^3.7.2",
+    "wrangler": "^2.0.27"
   }
 }
