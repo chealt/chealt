@@ -2600,7 +2600,6 @@ __metadata:
     preact-render-to-string: ^5.2.2
     wmr: ^3.7.2
     workbox-recipes: ^6.5.4
-    wrangler: ^2.0.27
   languageName: unknown
   linkType: soft
 
@@ -2674,6 +2673,14 @@ __metadata:
   dependencies:
     glob: ^8.0.3
     ibm-cos-sdk: ^1.12.2
+  languageName: unknown
+  linkType: soft
+
+"@chealt/upload-worker@workspace:packages/upload-worker":
+  version: 0.0.0-use.local
+  resolution: "@chealt/upload-worker@workspace:packages/upload-worker"
+  dependencies:
+    wrangler: ^2.0.27
   languageName: unknown
   linkType: soft
 
