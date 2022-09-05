@@ -10,5 +10,8 @@
   },
   "eslint.packageManager": "yarn",
   "files.insertFinalNewline": true,
-  "html.format.enable": false
+  "html.format.enable": false,
+  "cSpell.words": [
+    "pageerror"
+  ]
 }

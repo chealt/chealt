@@ -208,7 +208,7 @@ class PuppeteerEnvironment extends NodeEnvironment {
     await this.global.jestPuppeteer.resetBrowser();
 
     // Your setup
-    logger.debug(`Setting up environemnt with config: ${JSON.stringify(this.config, null, 4)}`);
+    logger.debug(`Setting up environment with config: ${JSON.stringify(this.config, null, 4)}`);
 
     const {
       isHostAgnostic,
