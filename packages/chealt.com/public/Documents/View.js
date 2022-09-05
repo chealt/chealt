@@ -33,6 +33,7 @@ const View = () => {
           window.open(objectURL);
           setOpenedInNewTab(true);
         } else {
+          // eslint-disable-next-line no-console
           console.log('Unsupported file extension.');
         }
       }

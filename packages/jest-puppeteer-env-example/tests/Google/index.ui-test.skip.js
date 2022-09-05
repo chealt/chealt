@@ -1,6 +1,6 @@
 import { agreeToConsent, clearCookies } from './helpers';
 
-describe('Google', () => {
+describe.skip('Google', () => {
   beforeEach(async () => {
     await clearCookies();
 
