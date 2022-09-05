@@ -10,9 +10,6 @@ const config = {
       files: ['packages/mocker/**/*.cjs', 'packages/**/*.js', './.eslintrc.js', 'packages/**/*.mjs'],
       parserOptions: {
         requireConfigFile: false
-      },
-      rules: {
-        'no-console': 'off'
       }
     },
     {
