@@ -7,6 +7,7 @@ import NotFound from './pages/_404';
 import Header from './Header';
 import swURL from 'sw:./sw.js'; // eslint-disable-line import/no-unresolved
 import LayoutContainer from './Layout/Container';
+import Share from './pages/Share';
 
 navigator.serviceWorker.register(swURL);
 
@@ -20,6 +21,7 @@ const App = () => (
             <Route path="/" component={Home} />
             <Route path="/documents" component={Documents} />
             <Route path="/documents/view/:encodedDocumentKey" component={View} />
+            <Route path="/share" component={Share} />
             <Route path="/personal-details" component={PersonalDetails} />
             <Route default component={NotFound} />
           </Router>
