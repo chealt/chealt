@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const puppeteer = require('puppeteer');
 
 const { cleanPuppeteerScript } = require('./utils.js');
