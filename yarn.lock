@@ -781,6 +781,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@aws-sdk/s3-request-presigner@npm:^3.163.0":
+  version: 3.163.0
+  resolution: "@aws-sdk/s3-request-presigner@npm:3.163.0"
+  dependencies:
+    "@aws-sdk/middleware-sdk-s3": 3.162.0
+    "@aws-sdk/protocol-http": 3.162.0
+    "@aws-sdk/signature-v4-multi-region": 3.163.0
+    "@aws-sdk/smithy-client": 3.162.0
+    "@aws-sdk/types": 3.162.0
+    "@aws-sdk/util-create-request": 3.162.0
+    "@aws-sdk/util-format-url": 3.162.0
+    tslib: ^2.3.1
+  checksum: adf1366131fee1285287d322b538c55470c0d58d1c6896d43ccf6c239582dc58774a44e2bc7837c66f8aea0a9f625b8f1f8d790f23d4406183b433c6fe441e09
+  languageName: node
+  linkType: hard
+
 "@aws-sdk/service-error-classification@npm:3.162.0":
   version: 3.162.0
   resolution: "@aws-sdk/service-error-classification@npm:3.162.0"
@@ -939,6 +955,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@aws-sdk/util-create-request@npm:3.162.0":
+  version: 3.162.0
+  resolution: "@aws-sdk/util-create-request@npm:3.162.0"
+  dependencies:
+    "@aws-sdk/middleware-stack": 3.162.0
+    "@aws-sdk/smithy-client": 3.162.0
+    "@aws-sdk/types": 3.162.0
+    tslib: ^2.3.1
+  checksum: f74dd105dcc7c547a84a7bbf8241e374f58d7066c358e63a4f68c47d4d992b6396dfe4cd874ef56966169e62b35f950d9092e21ddc1047d6e43cf4c07c8937fe
+  languageName: node
+  linkType: hard
+
 "@aws-sdk/util-defaults-mode-browser@npm:3.162.0":
   version: 3.162.0
   resolution: "@aws-sdk/util-defaults-mode-browser@npm:3.162.0"
@@ -962,6 +990,17 @@ __metadata:
     "@aws-sdk/types": 3.162.0
     tslib: ^2.3.1
   checksum: e166245c4482f45b584e3481484e97000cd3f418b34c94713155f8122946d86322fed4fdb83a3f5c43fe7fc20fdcacb55533bc331a9d78cf35f78a89144f0636
+  languageName: node
+  linkType: hard
+
+"@aws-sdk/util-format-url@npm:3.162.0":
+  version: 3.162.0
+  resolution: "@aws-sdk/util-format-url@npm:3.162.0"
+  dependencies:
+    "@aws-sdk/querystring-builder": 3.162.0
+    "@aws-sdk/types": 3.162.0
+    tslib: ^2.3.1
+  checksum: 3070d1cee7fc240208b98d4f33ef1b640dadf581f91f96528e0e6cfb0e7e275eac3ec22ab9a2a0fd789b3bfce80c61ccedd8e19f0259ad29a05a6d72a64359e9
   languageName: node
   linkType: hard
 
@@ -2665,6 +2704,7 @@ __metadata:
   resolution: "@chealt/upload-worker@workspace:packages/upload-worker"
   dependencies:
     "@aws-sdk/client-s3": ^3.163.0
+    "@aws-sdk/s3-request-presigner": ^3.163.0
     wrangler: ^2.0.28
   languageName: unknown
   linkType: soft
