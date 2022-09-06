@@ -4,6 +4,7 @@
   "private": true,
   "main": "./src/index.js",
   "devDependencies": {
+    "@aws-sdk/client-s3": "^3.163.0",
     "wrangler": "^2.0.28"
   }
 }
