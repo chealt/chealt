@@ -1,8 +1,14 @@
 name = "upload"
 
 main = "./src/index.js"
-compatibility_date = "2022-08-28"
+compatibility_date = "2022-09-06"
 
+[env.production]
 r2_buckets  = [
   { binding = "UPLOAD_BUCKET", bucket_name = "chealt-upload", preview_bucket_name =  "chealt-upload" }
 ]
+
+# The necessary secrets are:
+# - ACCOUNT_ID
+# - ACCESS_KEY_ID
+# - ACCESS_KEY_SECRET
