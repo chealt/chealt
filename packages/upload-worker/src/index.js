@@ -11,7 +11,7 @@ export default {
   async fetch(request, env) {
     const cookie = parse(request.headers.get('Cookie') || {});
 
-    if (!cookie.deviceId) {
+    if (!cookie.deviceID) {
       return new Response('Missing device ID', {
         status: 400
       });
