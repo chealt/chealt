@@ -3,6 +3,7 @@ import Button from '../Form/Button';
 import List from '../List/List';
 import ListItem from '../List/ListItem';
 import Controls from '../Form/Controls';
+import Link from '../Link';
 
 const Share = () => (
   <>
@@ -13,8 +14,8 @@ const Share = () => (
         <ListItem>Click on the Share button</ListItem>
         <ListItem>Wait for the QR code to appear</ListItem>
         <ListItem>
-          Open the <a href="https://chealt.com/share">Chealt Share page</a> on the device you want to share your data
-          with
+          Open the <Link href="https://chealt.com/share">Chealt Share page</Link> on the device you want to share your
+          data with
         </ListItem>
         <ListItem>Click the Scan QR button</ListItem>
       </List>
