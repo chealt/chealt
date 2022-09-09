@@ -1,4 +1,4 @@
-import { parse } from 'cookie';
+// import { parse } from 'cookie';
 import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3';
 import { getSignedUrl } from '@aws-sdk/s3-request-presigner';
 
@@ -9,14 +9,15 @@ const getJSONResponse = (response) =>
 
 export default {
   async fetch(request, env) {
-    const cookieHeader = request.headers.get('Cookie');
-    const cookie = parse(cookieHeader || '');
+    // TODO: check for device ID cookie
+    // const cookieHeader = request.headers.get('Cookie');
+    // const cookie = parse(cookieHeader || '');
 
-    if (!cookie.deviceID) {
-      return new Response('Missing device ID', {
-        status: 400
-      });
-    }
+    // if (!cookie.deviceID) {
+    //   return new Response('Missing device ID', {
+    //     status: 400
+    //   });
+    // }
 
     const { ACCOUNT_ID, ACCESS_KEY_ID, ACCESS_KEY_SECRET } = env;
 
