@@ -1,19 +1,33 @@
+import { useEffect, useState } from 'preact/hooks';
+import database from '../IndexedDB';
 import PageTitle from '../PageTitle';
 import Button from '../Form/Button';
 import List from '../List/List';
 import ListItem from '../List/ListItem';
 import Controls from '../Form/Controls';
 import Link from '../Link';
-
-const uploadUrlHost = import.meta.env.UPLOAD_URL_HOST;
+import { getUploadUrl } from './utils';
 
 const Share = () => {
-  const uploadContent = async () => {
-    const uploadUrlResponse = await fetch(uploadUrlHost);
-    const { url } = await uploadUrlResponse.json();
+  const [instance, setInstance] = useState();
 
-    console.log(url);
+  const uploadContent = async () => {
+    const url = await getUploadUrl();
+    const personalDetails = await instance.list({ type: 'personalDetails' });
+
+    await fetch(url, {
+      method: 'PUT',
+      body: JSON.stringify({ personalDetails })
+    });
   };
+
+  useEffect(() => {
+    if (!instance) {
+      (async () => {
+        setInstance(await database({ database: 'chealt' }));
+      })();
+    }
+  }, [instance]);
 
   return (
     <>
