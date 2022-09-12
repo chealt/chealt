@@ -10,13 +10,22 @@ import { upload } from './utils';
 
 const Share = () => {
   const [instance, setInstance] = useState();
+  const [downloadUrl, setDownloadUrl] = useState();
+  const [loadingDownloadUrl, setLoadingDownloadUrl] = useState();
 
   const uploadContent = async () => {
-    const personalDetails = await instance.list({ type: 'personalDetails' });
+    setLoadingDownloadUrl(true);
 
-    const downloadUrl = await upload({ personalDetails });
+    try {
+      const personalDetails = await instance.list({ type: 'personalDetails' });
 
-    console.log({ downloadUrl });
+      const downloadUrl = await upload({ personalDetails });
+
+      setDownloadUrl(downloadUrl);
+      setLoadingDownloadUrl(false);
+    } catch {
+      setLoadingDownloadUrl(false);
+    }
   };
 
   useEffect(() => {
@@ -43,7 +52,7 @@ const Share = () => {
         </List>
       </p>
       <Controls>
-        <Button emphasized onClick={uploadContent}>
+        <Button emphasized onClick={uploadContent} disabled={downloadUrl || loadingDownloadUrl}>
           Share
         </Button>
         <Button>Scan QR Code</Button>
