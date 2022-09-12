@@ -7,6 +7,7 @@ import ListItem from '../List/ListItem';
 import Controls from '../Form/Controls';
 import Link from '../Link';
 import { upload } from './utils';
+import QRCode from '../QRCode';
 
 const Share = () => {
   const [instance, setInstance] = useState();
@@ -57,6 +58,7 @@ const Share = () => {
         </Button>
         <Button>Scan QR Code</Button>
       </Controls>
+      {downloadUrl && <QRCode data={downloadUrl} />}
     </>
   );
 };
