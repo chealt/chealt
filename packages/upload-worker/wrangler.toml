@@ -1,0 +1,20 @@
+main = "./src/index.js"
+compatibility_date = "2022-09-12"
+
+[env.dev]
+name = "upload-dev"
+r2_buckets  = [
+  { binding = "UPLOAD_BUCKET", bucket_name = "chealt-upload-dev", preview_bucket_name =  "chealt-upload-dev" }
+]
+
+[env.dev.vars]
+ALLOWED_ORIGIN = "http://localhost:8080"
+
+[env.production]
+name = "upload"
+r2_buckets  = [
+  { binding = "UPLOAD_BUCKET", bucket_name = "chealt-upload", preview_bucket_name =  "chealt-upload" }
+]
+
+[env.production.vars]
+ALLOWED_ORIGIN = "https://chealt.com"
