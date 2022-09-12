@@ -6,19 +6,17 @@ import List from '../List/List';
 import ListItem from '../List/ListItem';
 import Controls from '../Form/Controls';
 import Link from '../Link';
-import { getUploadUrl } from './utils';
+import { upload } from './utils';
 
 const Share = () => {
   const [instance, setInstance] = useState();
 
   const uploadContent = async () => {
-    const url = await getUploadUrl();
     const personalDetails = await instance.list({ type: 'personalDetails' });
 
-    await fetch(url, {
-      method: 'PUT',
-      body: JSON.stringify({ personalDetails })
-    });
+    const downloadUrl = await upload({ personalDetails });
+
+    console.log({ downloadUrl });
   };
 
   useEffect(() => {
