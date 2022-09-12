@@ -4,6 +4,21 @@ const getCommonHeaders = (allowedOrigin) => ({
   'content-type': 'application/json'
 });
 
+const convertToHex = (arrayBuffer) =>
+  Array.from(new Uint8Array(arrayBuffer))
+    .map((b) => b.toString(16).padStart(2, '0'))
+    .join('');
+
+const getContentHash = async (request) => {
+  // need to clone the request as it is being handled
+  const requestClone = await request.clone();
+  const content = await requestClone.arrayBuffer();
+
+  const hashBuffer = await crypto.subtle.digest('SHA-256', content);
+
+  return convertToHex(hashBuffer);
+};
+
 export default {
   async fetch(request, env) {
     const allowedOrigin = env.ALLOWED_ORIGIN;
@@ -13,7 +28,7 @@ export default {
     }
 
     if (request.method === 'PUT') {
-      const objectName = `${crypto.randomUUID()}/data.json`;
+      const objectName = await getContentHash(request);
 
       // eslint-disable-next-line no-console
       console.log(`${request.method} object ${objectName}`);
