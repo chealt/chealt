@@ -2631,6 +2631,7 @@ __metadata:
     preact-iso: ^2.3.0
     preact-render-to-string: ^5.2.2
     qr-code-styling: ^1.6.0-rc.1
+    qr-scanner: ^1.4.1
     wmr: ^3.7.2
     workbox-recipes: ^6.5.4
   languageName: unknown
@@ -3560,6 +3561,13 @@ __metadata:
   version: 14.14.31
   resolution: "@types/node@npm:14.14.31"
   checksum: 5b9ab3660ee63abc57affc836c0d50b2941a862c5b6c241c02762d8e1ad610f6b0d350d7426218dc401b5abc7d6294ee1b475da7c331e486d59a5608d1a0b777
+  languageName: node
+  linkType: hard
+
+"@types/offscreencanvas@npm:^2019.6.4":
+  version: 2019.7.0
+  resolution: "@types/offscreencanvas@npm:2019.7.0"
+  checksum: 018cfcd19e0c59c44d14ba61caaca7246f77fbb512839c7881654b7f2b6591dbdd5857362eccbf49f29cdc93724e71a4b37c8b6cf203388f9c04e913a53ea390
   languageName: node
   linkType: hard
 
@@ -9429,6 +9437,15 @@ __metadata:
   dependencies:
     qrcode-generator: ^1.4.3
   checksum: 778754790fe0b586ecd38fb02de777c7dd9cf844cf6e3c88f9a23ad85b122200a8567c946e3c41dba84ddd2f0016aa31ddfd1507150e1dbfea8a58323b62d944
+  languageName: node
+  linkType: hard
+
+"qr-scanner@npm:^1.4.1":
+  version: 1.4.1
+  resolution: "qr-scanner@npm:1.4.1"
+  dependencies:
+    "@types/offscreencanvas": ^2019.6.4
+  checksum: c3bab2a35153d2c64363b669dcf5cf3009c109b930d0c719da0e90efa6e62cf432b460478a264e71b6add35f53c0c9dc1e9a8fb09f75e133c0b7f03be5256bb0
   languageName: node
   linkType: hard
 
