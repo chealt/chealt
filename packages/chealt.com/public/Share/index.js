@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'preact/hooks';
+import { useEffect, useState, useRef } from 'preact/hooks';
 import database from '../IndexedDB';
 import PageTitle from '../PageTitle';
 import Button from '../Form/Button';
@@ -8,11 +8,13 @@ import Controls from '../Form/Controls';
 import Link from '../Link';
 import { upload } from './utils';
 import QRCode from '../QRCode';
+import QrScanner from 'qr-scanner';
 
 const Share = () => {
   const [instance, setInstance] = useState();
   const [downloadUrl, setDownloadUrl] = useState();
   const [loadingDownloadUrl, setLoadingDownloadUrl] = useState();
+  const ref = useRef();
 
   const uploadContent = async () => {
     setLoadingDownloadUrl(true);
@@ -27,6 +29,13 @@ const Share = () => {
     } catch {
       setLoadingDownloadUrl(false);
     }
+  };
+
+  const scanQRCode = () => {
+    const videoElement = ref.current;
+    const qrScanner = new QrScanner(videoElement, (result) => console.log('decoded qr code:', result), {});
+
+    qrScanner.start();
   };
 
   useEffect(() => {
@@ -56,9 +65,10 @@ const Share = () => {
         <Button emphasized onClick={uploadContent} disabled={downloadUrl || loadingDownloadUrl}>
           Share
         </Button>
-        <Button>Scan QR Code</Button>
+        <Button onClick={scanQRCode}>Scan QR Code</Button>
       </Controls>
       {downloadUrl && <QRCode data={downloadUrl} />}
+      <video ref={ref} />
     </>
   );
 };
