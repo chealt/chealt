@@ -1,0 +1,26 @@
+.modal {
+  position: fixed;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  background-color: var(--color-background);
+  margin: var(--gap--l);
+  border-radius: var(--gap--l);
+  border: 8px solid rgb(38 46 72 / 15%);
+  transition: all 1s ease-in-out;
+}
+
+.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.close {
+  display: block;
+  position: absolute;
+  right: var(--gap--l);
+  top: var(--gap--l);
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+}
