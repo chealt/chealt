@@ -1,25 +1,28 @@
 .modal {
+  display: none;
   position: fixed;
   inset: 0;
-  opacity: 0;
-  visibility: hidden;
   background-color: var(--color-background);
-  margin: var(--gap--l);
-  border-radius: var(--gap--l);
   border: 8px solid rgb(38 46 72 / 15%);
-  transition: all 1s ease-in-out;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (min-width: 600px) {
+  .modal {
+    border-radius: var(--gap--l);
+    margin: var(--gap--l);
+  }
 }
 
 .open {
-  opacity: 1;
-  visibility: visible;
+  display: flex;
 }
 
 .close {
-  display: block;
   position: absolute;
-  right: var(--gap--l);
-  top: var(--gap--l);
+  right: var(--gap);
+  top: var(--gap);
   font-size: 2rem;
   font-weight: bold;
   cursor: pointer;
