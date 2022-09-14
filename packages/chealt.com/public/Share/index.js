@@ -9,9 +9,13 @@ import Link from '../Link';
 import { upload } from './utils';
 import QRCode from '../QRCode';
 import QrScanner from 'qr-scanner';
+import Modal from '../Modal';
+
+import styles from './index.module.css';
 
 const Share = () => {
   const [instance, setInstance] = useState();
+  const [isModalOpen, setIsModalOpen] = useState();
   const [downloadUrl, setDownloadUrl] = useState();
   const [loadingDownloadUrl, setLoadingDownloadUrl] = useState();
   const ref = useRef();
@@ -31,12 +35,20 @@ const Share = () => {
     }
   };
 
-  const scanQRCode = () => {
+  useEffect(() => {
     const videoElement = ref.current;
-    const qrScanner = new QrScanner(videoElement, (result) => console.log('decoded qr code:', result), {});
+    let qrScanner;
 
-    qrScanner.start();
-  };
+    if (!qrScanner) {
+      qrScanner = new QrScanner(videoElement, (result) => console.log('decoded qr code:', result), {});
+    }
+
+    if (isModalOpen) {
+      qrScanner.start();
+    } else {
+      qrScanner.stop();
+    }
+  }, [isModalOpen]);
 
   useEffect(() => {
     if (!instance) {
@@ -65,10 +77,12 @@ const Share = () => {
         <Button emphasized onClick={uploadContent} disabled={downloadUrl || loadingDownloadUrl}>
           Share
         </Button>
-        <Button onClick={scanQRCode}>Scan QR Code</Button>
+        <Button onClick={() => setIsModalOpen(true)}>Scan QR Code</Button>
       </Controls>
       {downloadUrl && <QRCode data={downloadUrl} />}
-      <video ref={ref} />
+      <Modal isOpen={isModalOpen} close={() => setIsModalOpen(false)}>
+        <video class={styles.video} ref={ref} />
+      </Modal>
     </>
   );
 };
