@@ -16,6 +16,7 @@ import styles from './index.module.css';
 const Share = () => {
   const [instance, setInstance] = useState();
   const [isModalOpen, setIsModalOpen] = useState();
+  const [isQRCodeModalOpen, setIsQRCodeModalOpen] = useState();
   const [downloadUrl, setDownloadUrl] = useState();
   const [loadingDownloadUrl, setLoadingDownloadUrl] = useState();
   const ref = useRef();
@@ -29,6 +30,7 @@ const Share = () => {
       const downloadUrl = await upload({ personalDetails });
 
       setDownloadUrl(downloadUrl);
+      setIsQRCodeModalOpen(true);
       setLoadingDownloadUrl(false);
     } catch {
       setLoadingDownloadUrl(false);
@@ -46,6 +48,7 @@ const Share = () => {
           download(url);
 
           qrScanner.stop();
+          setIsModalOpen(false);
         },
         {}
       );
@@ -92,7 +95,9 @@ const Share = () => {
         </Button>
         <Button onClick={() => setIsModalOpen(true)}>Scan QR Code</Button>
       </Controls>
-      {downloadUrl && <QRCode data={downloadUrl} />}
+      <Modal isOpen={isQRCodeModalOpen} close={() => setIsQRCodeModalOpen(false)}>
+        {downloadUrl && <QRCode data={downloadUrl} />}
+      </Modal>
       <Modal isOpen={isModalOpen} close={() => setIsModalOpen(false)}>
         <video class={styles.video} ref={ref} />
       </Modal>
