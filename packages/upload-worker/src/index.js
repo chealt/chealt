@@ -1,3 +1,5 @@
+const isAppPreviewOrigin = (origin) => origin.includes('-chealt.vercel.app');
+
 const getCommonHeaders = (allowedOrigin) => ({
   'Access-Control-Allow-Origin': allowedOrigin,
   'Access-Control-Allow-Methods': 'GET, PUT',
@@ -37,10 +39,12 @@ export default {
         httpMetadata: request.headers
       });
 
+      const origin = request.headers.get('Origin');
+
       return new Response(JSON.stringify({ objectName }), {
         headers: {
           etag: object.httpEtag,
-          ...getCommonHeaders(allowedOrigin)
+          ...getCommonHeaders(isAppPreviewOrigin(origin) ? origin : allowedOrigin)
         }
       });
     }
