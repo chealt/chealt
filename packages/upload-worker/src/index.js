@@ -51,9 +51,13 @@ export default {
     if (request.method === 'GET') {
       const url = new URL(request.url);
       const objectName = url.pathname.slice(1);
-      const object = await env.MY_BUCKET.get(objectName);
+      const object = await env.UPLOAD_BUCKET.get(objectName, { range: undefined, onlyIf: request.headers });
 
-      return new Response(JSON.stringify(object), { headers: getCommonHeaders(allowedOrigin) });
+      if (object === null) {
+        return new Response(null, { status: 404, headers: getCommonHeaders(allowedOrigin) });
+      }
+
+      return new Response(JSON.stringify(object.body), { headers: getCommonHeaders(allowedOrigin) });
     }
 
     return new Response(null, { status: 400, headers: getCommonHeaders(allowedOrigin) });
