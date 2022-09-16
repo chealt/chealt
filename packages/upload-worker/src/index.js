@@ -23,7 +23,8 @@ const getContentHash = async (request) => {
 
 export default {
   async fetch(request, env) {
-    const allowedOrigin = env.ALLOWED_ORIGIN;
+    const origin = request.headers.get('Origin');
+    const allowedOrigin = isAppPreviewOrigin(origin) ? origin : env.ALLOWED_ORIGIN;
 
     if (request.method === 'OPTIONS') {
       return new Response(null, { status: 200, headers: getCommonHeaders(allowedOrigin) });
@@ -39,12 +40,10 @@ export default {
         httpMetadata: request.headers
       });
 
-      const origin = request.headers.get('Origin');
-
       return new Response(JSON.stringify({ objectName }), {
         headers: {
           etag: object.httpEtag,
-          ...getCommonHeaders(isAppPreviewOrigin(origin) ? origin : allowedOrigin)
+          ...getCommonHeaders(allowedOrigin)
         }
       });
     }
