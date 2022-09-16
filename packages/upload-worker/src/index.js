@@ -57,7 +57,10 @@ export default {
         return new Response(null, { status: 404, headers: getCommonHeaders(allowedOrigin) });
       }
 
-      return new Response(JSON.stringify(object.body), {
+      const data = await object.json();
+      const response = JSON.stringify(data);
+
+      return new Response(response, {
         headers: {
           etag: object.etag,
           ...getCommonHeaders(allowedOrigin)
