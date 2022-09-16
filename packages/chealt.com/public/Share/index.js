@@ -90,7 +90,7 @@ const Share = () => {
         </List>
       </p>
       <Controls>
-        <Button emphasized onClick={uploadContent} disabled={downloadUrl || loadingDownloadUrl}>
+        <Button emphasized onClick={uploadContent} disabled={loadingDownloadUrl}>
           Share
         </Button>
         <Button onClick={() => setIsModalOpen(true)}>Scan QR Code</Button>
