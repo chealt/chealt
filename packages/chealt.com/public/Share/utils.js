@@ -21,4 +21,14 @@ const upload = async (data) => {
   return `${getDownloadUrl()}/${objectName}`;
 };
 
-export { upload };
+const download = async (url) => {
+  const response = await fetch(url, {
+    method: 'GET'
+  });
+
+  const data = await response.json();
+
+  console.log({ data });
+};
+
+export { upload, download };

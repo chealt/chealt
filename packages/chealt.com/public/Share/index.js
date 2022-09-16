@@ -6,7 +6,7 @@ import List from '../List/List';
 import ListItem from '../List/ListItem';
 import Controls from '../Form/Controls';
 import Link from '../Link';
-import { upload } from './utils';
+import { download, upload } from './utils';
 import QRCode from '../QRCode';
 import QrScanner from 'qr-scanner';
 import Modal from '../Modal';
@@ -40,7 +40,15 @@ const Share = () => {
     let qrScanner;
 
     if (!qrScanner) {
-      qrScanner = new QrScanner(videoElement, (result) => console.log('decoded qr code:', result), {});
+      qrScanner = new QrScanner(
+        videoElement,
+        ({ data: url }) => {
+          download(url);
+
+          qrScanner.stop();
+        },
+        {}
+      );
     }
 
     if (isModalOpen) {
@@ -48,6 +56,11 @@ const Share = () => {
     } else {
       qrScanner.stop();
     }
+
+    return () => {
+      qrScanner.stop();
+      qrScanner.destroy();
+    };
   }, [isModalOpen]);
 
   useEffect(() => {
