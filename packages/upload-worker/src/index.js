@@ -57,7 +57,12 @@ export default {
         return new Response(null, { status: 404, headers: getCommonHeaders(allowedOrigin) });
       }
 
-      return new Response(JSON.stringify(object.body), { headers: getCommonHeaders(allowedOrigin) });
+      return new Response(JSON.stringify(object.body), {
+        headers: {
+          etag: object.etag,
+          ...getCommonHeaders(allowedOrigin)
+        }
+      });
     }
 
     return new Response(null, { status: 400, headers: getCommonHeaders(allowedOrigin) });
