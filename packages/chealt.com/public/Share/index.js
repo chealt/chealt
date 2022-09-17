@@ -27,8 +27,9 @@ const Share = () => {
 
     try {
       const personalDetails = await instance.list({ type: 'personalDetails' });
+      const documents = await instance.list({ type: 'documents' });
 
-      const downloadUrl = await upload({ personalDetails });
+      const downloadUrl = await upload({ personalDetails, documents });
 
       setDownloadUrl(downloadUrl);
       setIsQRCodeModalOpen(true);
