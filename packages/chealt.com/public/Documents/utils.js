@@ -1,4 +1,13 @@
-const uploadFile = (instance) => (file) => instance.saveFile({ file, type: 'documents' });
+const uploadFile = (instance) => async (file) => {
+  const blob = await file.arrayBuffer();
+  const { name, lastModified, size, type: fileType } = file;
+
+  return instance.saveFile({
+    type: 'documents',
+    key: name,
+    file: { blob, name, lastModified, size, fileType }
+  });
+};
 
 const getDocument =
   (instance) =>

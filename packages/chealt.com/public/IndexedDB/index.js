@@ -51,30 +51,22 @@ const db = async ({ database }) => {
   const put = ({ key, value, objectStore }) =>
     objectStore.put({ ...value, savedTimestamp: Date.now() }, key);
 
-  const saveFile = async ({ file, type, key }) => {
-    const blob = await file.arrayBuffer();
-    const { name, lastModified, size, type: fileType } = file;
-
-    return new Promise((resolve, reject) => {
+  const saveFile = async ({ type, key, file }) =>
+    new Promise((resolve, reject) => {
       const objectStore = instance.transaction([type], 'readwrite').objectStore(type);
 
       put({
         value: {
-          blob,
-          name,
-          lastModified,
-          size,
-          type: fileType,
+          ...file,
           savedTimestamp: Date.now()
         },
-        key: key || file.name,
+        key,
         objectStore
       });
 
       objectStore.transaction.onerror = reject;
       objectStore.transaction.oncomplete = resolve;
     });
-  };
 
   const save = async ({ type, key, value }) =>
     new Promise((resolve, reject) => {
