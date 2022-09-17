@@ -51,7 +51,10 @@ export default {
     if (request.method === 'GET') {
       const url = new URL(request.url);
       const objectName = url.pathname.slice(1);
-      const object = await env.UPLOAD_BUCKET.get(objectName, { range: undefined, onlyIf: request.headers });
+      const object = await env.UPLOAD_BUCKET.get(objectName, {
+        range: undefined,
+        onlyIf: request.headers
+      });
 
       if (object === null) {
         return new Response(null, { status: 404, headers: getCommonHeaders(allowedOrigin) });

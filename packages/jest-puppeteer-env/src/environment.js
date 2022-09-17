@@ -47,7 +47,14 @@ class PuppeteerEnvironment extends NodeEnvironment {
     super(config, context);
 
     const cleanConfig = validateConfig(config);
-    const { rootDir, performance, mockResponseDir, recordRequests, screenshotDirectory, shouldUseMocks } = cleanConfig;
+    const {
+      rootDir,
+      performance,
+      mockResponseDir,
+      recordRequests,
+      screenshotDirectory,
+      shouldUseMocks
+    } = cleanConfig;
 
     if (recordRequests || shouldUseMocks) {
       const relativeTestPath = `${context.testPath.replace(rootDir, '')}.mocks.json`;
@@ -56,11 +63,15 @@ class PuppeteerEnvironment extends NodeEnvironment {
       clearResponses();
 
       this.mocks = shouldUseMocks && getMocks(responsesPath);
-      this.globalMocks = shouldUseMocks && getMocks(getFullPath(rootDir, mockResponseDir, 'global.mocks.json'));
+      this.globalMocks =
+        shouldUseMocks && getMocks(getFullPath(rootDir, mockResponseDir, 'global.mocks.json'));
     }
 
     if (performance?.collectCoverage) {
-      const coverageFullPath = getFullPath(rootDir, path.join(performance.coverageDirectory, '/coverage.json'));
+      const coverageFullPath = getFullPath(
+        rootDir,
+        path.join(performance.coverageDirectory, '/coverage.json')
+      );
       setCoveragesPath(coverageFullPath);
       this.coverageFullPath = coverageFullPath;
     }
@@ -72,8 +83,15 @@ class PuppeteerEnvironment extends NodeEnvironment {
     }
 
     if (performance?.bundleSizes) {
-      const relativeBundleSizePath = `${context.testPath.replace(rootDir, '')}.bundleSizeViolations.json`;
-      const bundleSizeViolationsPath = getFullPath(rootDir, performance.reportDirectory, relativeBundleSizePath);
+      const relativeBundleSizePath = `${context.testPath.replace(
+        rootDir,
+        ''
+      )}.bundleSizeViolations.json`;
+      const bundleSizeViolationsPath = getFullPath(
+        rootDir,
+        performance.reportDirectory,
+        relativeBundleSizePath
+      );
       setBundleSizeViolationsPath(bundleSizeViolationsPath);
     }
 

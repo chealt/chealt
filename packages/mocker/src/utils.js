@@ -25,7 +25,9 @@ const getMocks = async ({ mocksFolderAbsPath, mockExtension }) => {
 
   logger.info(`Found mock files: [${mockFiles.join(', ')}]`);
 
-  return Promise.all(mockFiles.map((mockFilePath) => readFile(mockFilePath).then((buffer) => JSON.parse(buffer))));
+  return Promise.all(
+    mockFiles.map((mockFilePath) => readFile(mockFilePath).then((buffer) => JSON.parse(buffer)))
+  );
 };
 
 const removePort = (url) => url.replace(/:\d\d\d\d[\d]*/gu, '');
@@ -59,11 +61,21 @@ const isMatchingUrl = ({ mockUrl, url, isPortAgnostic, isHostAgnostic }) => {
 const isMatchingHeaders = ({ mockHeaders, headers }) =>
   Object.keys(mockHeaders).every((key) => mockHeaders[key] === headers?.[key]);
 
-const isMatchingRequest = ({ mock, url, headers, method, requestBody, isPortAgnostic, isHostAgnostic }) => {
+const isMatchingRequest = ({
+  mock,
+  url,
+  headers,
+  method,
+  requestBody,
+  isPortAgnostic,
+  isHostAgnostic
+}) => {
   const matchingUrl = isMatchingUrl({ mockUrl: mock.url, url, isPortAgnostic, isHostAgnostic });
   const matchingMethod = mock.method === method;
-  const matchingHeaders = !mock.requestHeaders || isMatchingHeaders({ mockHeaders: mock.requestHeaders, headers });
-  const matchingBody = !requestBody || JSON.stringify(mock.requestBody) === JSON.stringify(requestBody);
+  const matchingHeaders =
+    !mock.requestHeaders || isMatchingHeaders({ mockHeaders: mock.requestHeaders, headers });
+  const matchingBody =
+    !requestBody || JSON.stringify(mock.requestBody) === JSON.stringify(requestBody);
 
   if (matchingUrl && matchingMethod && matchingHeaders && !matchingBody) {
     logger.debug('Request body is not matching the mock');

@@ -16,7 +16,8 @@ const checkBundleSize =
       throw new Error(`URL matches multiple bundle size paths: ${matchingPatterns.join(', ')}`);
     }
 
-    const shouldCheckBundleSize = matchingPatterns.length && (isJavaScript || isStylesheet) && contentLength;
+    const shouldCheckBundleSize =
+      matchingPatterns.length && (isJavaScript || isStylesheet) && contentLength;
 
     if (shouldCheckBundleSize) {
       const maxBundleSize = matchingPatterns[0].maxSize;
