@@ -22,7 +22,8 @@ const validateConfig = ({ bucket, endpoint, apiKeyId, serviceInstanceId }) => {
   }
 };
 
-const getKey = ({ git: { org, repo, branch, hash }, file }) => `${org}/${repo}/${branch}/${hash}/${file}`;
+const getKey = ({ git: { org, repo, branch, hash }, file }) =>
+  `${org}/${repo}/${branch}/${hash}/${file}`;
 
 const uploadFiles = ({ config: { endpoint, apiKeyId, serviceInstanceId, bucket }, files, git }) => {
   const cos = new IBM.S3({
@@ -53,7 +54,11 @@ const uploadFiles = ({ config: { endpoint, apiKeyId, serviceInstanceId, bucket }
   );
 };
 
-const getCoverageSummary = async ({ config: { endpoint, apiKeyId, serviceInstanceId, bucket }, git, file }) => {
+const getCoverageSummary = async ({
+  config: { endpoint, apiKeyId, serviceInstanceId, bucket },
+  git,
+  file
+}) => {
   const cos = new IBM.S3({
     endpoint,
     apiKeyId,
