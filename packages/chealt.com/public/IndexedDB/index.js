@@ -82,7 +82,7 @@ const db = async ({ database }) => {
 
       put({
         key,
-        value: { value },
+        value: { value, savedTimestamp: Date.now() },
         objectStore
       });
 
