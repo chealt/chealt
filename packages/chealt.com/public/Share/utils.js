@@ -26,9 +26,7 @@ const download = async (url) => {
     method: 'GET'
   });
 
-  const data = await response.json();
-
-  console.log({ data });
+  return response.json();
 };
 
 export { upload, download };

@@ -12,6 +12,7 @@ import QrScanner from 'qr-scanner';
 import Modal from '../Modal';
 
 import styles from './index.module.css';
+import { savePersonalDetails } from '../PersonalDetails/utils';
 
 const Share = () => {
   const [instance, setInstance] = useState();
@@ -44,8 +45,15 @@ const Share = () => {
     if (!qrScanner) {
       qrScanner = new QrScanner(
         videoElement,
-        ({ data: url }) => {
-          download(url);
+        async ({ data: url }) => {
+          try {
+            const { personalDetails } = await download(url);
+
+            await savePersonalDetails({ instance, personalDetails });
+          } catch (error) {
+            // eslint-disable-next-line no-console
+            console.error(error);
+          }
 
           qrScanner.stop();
           setIsModalOpen(false);
@@ -83,8 +91,8 @@ const Share = () => {
           <ListItem>Click on the Share button</ListItem>
           <ListItem>Wait for the QR code to appear</ListItem>
           <ListItem>
-            Open the <Link href="https://chealt.com/share">Chealt Share page</Link> on the device you want to share your
-            data with
+            Open the <Link href="https://chealt.com/share">Chealt Share page</Link> on the device
+            you want to share your data with
           </ListItem>
           <ListItem>Click the Scan QR button</ListItem>
         </List>
