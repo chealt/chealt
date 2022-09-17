@@ -51,7 +51,13 @@ const Share = () => {
           try {
             const { personalDetails } = await download(url);
 
-            await savePersonalDetails({ instance, personalDetails });
+            await savePersonalDetails({
+              instance,
+              personalDetails: personalDetails.map((detail) => ({
+                key: detail.key,
+                value: detail.value.value // remove saved timestamp so it is recreated
+              }))
+            });
           } catch (error) {
             // eslint-disable-next-line no-console
             console.error(error);

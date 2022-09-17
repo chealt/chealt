@@ -25,15 +25,15 @@ const PersonalDetails = () => {
     event.preventDefault();
 
     const { firstName, lastName, dateOfBirth, email, sex, height, weight } = event.target;
-    const personalDetails = {
-      firstName: firstName.value,
-      lastName: lastName.value,
-      dateOfBirth: dateOfBirth.value,
-      email: email.value,
-      sex: sex.value,
-      height: height.value,
-      weight: weight.value
-    };
+    const personalDetails = [
+      { key: 'firstName', value: firstName.value },
+      { key: 'lastName', value: lastName.value },
+      { key: 'dateOfBirth', value: dateOfBirth.value },
+      { key: 'email', value: email.value },
+      { key: 'sex', value: sex.value },
+      { key: 'height', value: height.value },
+      { key: 'weight', value: weight.value }
+    ];
 
     await savePersonalDetails({ instance, personalDetails });
 
