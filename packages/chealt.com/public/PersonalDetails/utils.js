@@ -20,9 +20,7 @@ const getImperialUnitWeight = (metricWeight) => Math.floor(metricWeight / 0.454)
 
 const savePersonalDetails = ({ instance, personalDetails }) =>
   Promise.all([
-    Object.keys(personalDetails).map((key) =>
-      instance.save({ type: 'personalDetails', key, value: personalDetails[key] })
-    )
+    personalDetails.map(({ key, value }) => instance.save({ type: 'personalDetails', key, value }))
   ]);
 
 export {
