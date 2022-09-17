@@ -72,7 +72,7 @@ const Share = () => {
       qrScanner.stop();
       qrScanner.destroy();
     };
-  }, [isModalOpen]);
+  }, [isModalOpen, instance]);
 
   useEffect(() => {
     if (!instance) {

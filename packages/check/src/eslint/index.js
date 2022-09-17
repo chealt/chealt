@@ -5,7 +5,8 @@ const prettierRules = require('./rules/prettier');
 const preactConfig = {
   extends: ['preact'],
   rules: {
-    'require-jsdoc': 'off'
+    'require-jsdoc': 'off',
+    'react-hooks/exhaustive-deps': 'error'
   },
   settings: {
     'import/resolver': {
