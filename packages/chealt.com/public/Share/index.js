@@ -63,7 +63,15 @@ const Share = () => {
             }
 
             if (documents) {
-              console.log({ documents });
+              await Promise.all(
+                documents.map(({ key, value: { savedTimestamp, ...file } }) =>
+                  instance.saveFile({
+                    type: 'documents',
+                    key,
+                    file
+                  })
+                )
+              );
             }
           } catch (error) {
             // eslint-disable-next-line no-console
