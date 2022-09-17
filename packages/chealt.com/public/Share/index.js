@@ -46,6 +46,8 @@ const Share = () => {
       qrScanner = new QrScanner(
         videoElement,
         async ({ data: url }) => {
+          qrScanner.stop();
+
           try {
             const { personalDetails } = await download(url);
 
@@ -55,7 +57,6 @@ const Share = () => {
             console.error(error);
           }
 
-          qrScanner.stop();
           setIsModalOpen(false);
         },
         {}
