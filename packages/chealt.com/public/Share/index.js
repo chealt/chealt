@@ -49,15 +49,21 @@ const Share = () => {
           qrScanner.stop();
 
           try {
-            const { personalDetails } = await download(url);
+            const { personalDetails, documents } = await download(url);
 
-            await savePersonalDetails({
-              instance,
-              personalDetails: personalDetails.map((detail) => ({
-                key: detail.key,
-                value: detail.value.value // remove saved timestamp so it is recreated
-              }))
-            });
+            if (personalDetails) {
+              await savePersonalDetails({
+                instance,
+                personalDetails: personalDetails.map((detail) => ({
+                  key: detail.key,
+                  value: detail.value.value // remove saved timestamp so it is recreated
+                }))
+              });
+            }
+
+            if (documents) {
+              console.log({ documents });
+            }
           } catch (error) {
             // eslint-disable-next-line no-console
             console.error(error);
