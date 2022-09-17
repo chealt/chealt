@@ -7,7 +7,12 @@ const config = {
   ignorePatterns: ['packages/taas-ui/api/index.js'],
   overrides: [
     {
-      files: ['packages/mocker/**/*.cjs', 'packages/**/*.js', './.eslintrc.js', 'packages/**/*.mjs'],
+      files: [
+        'packages/mocker/**/*.cjs',
+        'packages/**/*.js',
+        './.eslintrc.js',
+        'packages/**/*.mjs'
+      ],
       parserOptions: {
         requireConfigFile: false
       }

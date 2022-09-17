@@ -1,5 +1,9 @@
 const indexedDB =
-  window.indexedDB || window.webkitIndexedDB || window.mozIndexedDB || window.OIndexedDB || window.msIndexedDB;
+  window.indexedDB ||
+  window.webkitIndexedDB ||
+  window.mozIndexedDB ||
+  window.OIndexedDB ||
+  window.msIndexedDB;
 const version = 5;
 
 const db = async ({ database }) => {
@@ -44,7 +48,8 @@ const db = async ({ database }) => {
       };
     });
 
-  const put = ({ key, value, objectStore }) => objectStore.put({ ...value, savedTimestamp: Date.now() }, key);
+  const put = ({ key, value, objectStore }) =>
+    objectStore.put({ ...value, savedTimestamp: Date.now() }, key);
 
   const saveFile = async ({ file, type, key }) => {
     const blob = await file.arrayBuffer();

@@ -1,3 +1,4 @@
 **/build/**/*.js
+dist
 packages/mocker/commonjs/**/*.cjs
 packages/taas-runner-lambda/examples/**/*.js

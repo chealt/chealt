@@ -44,7 +44,12 @@ const Documents = () => {
   return (
     <div class={styles.documents}>
       <PageTitle>Documents</PageTitle>
-      <FileInput multiple onChange={uploadDocuments} ondrop={uploadDocuments} inputRef={uploadDocumentInput}>
+      <FileInput
+        multiple
+        onChange={uploadDocuments}
+        ondrop={uploadDocuments}
+        inputRef={uploadDocumentInput}
+      >
         Upload documents
       </FileInput>
       <Form name="documents">
@@ -66,7 +71,11 @@ const Documents = () => {
         )}
         {showDocuments && (
           <>
-            <Controls instance={instance} setDocuments={setDocuments} selectedDocuments={selectedDocuments} />
+            <Controls
+              instance={instance}
+              setDocuments={setDocuments}
+              selectedDocuments={selectedDocuments}
+            />
             <ul>
               {documents.map((doc) => (
                 <li key={doc.key}>

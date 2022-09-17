@@ -47,8 +47,9 @@ const View = () => {
       {openedInNewTab && (
         <>
           <p>
-            The document is opened in a new tab. If you cannot see it, it is unsupported or it might have been blocked
-            by an ad blocker. Supported image extensions: JPG, JPEG, BMP, PNG, other extensions: PDF.
+            The document is opened in a new tab. If you cannot see it, it is unsupported or it might
+            have been blocked by an ad blocker. Supported image extensions: JPG, JPEG, BMP, PNG,
+            other extensions: PDF.
           </p>
         </>
       )}
