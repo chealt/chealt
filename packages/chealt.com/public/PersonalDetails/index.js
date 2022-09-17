@@ -5,7 +5,12 @@ import Input from '../Form/Input';
 import Option from '../Form/Option';
 import Select from '../Form/Select';
 import PageTitle from '../PageTitle';
-import { transformPersonalDetails, getImperialUnitWeight, getImperialUnitHeight } from './utils';
+import {
+  transformPersonalDetails,
+  getImperialUnitWeight,
+  getImperialUnitHeight,
+  savePersonalDetails
+} from './utils';
 import Button from '../Form/Button';
 
 import styles from './index.module.css';
@@ -20,18 +25,7 @@ const PersonalDetails = () => {
     event.preventDefault();
 
     const { firstName, lastName, dateOfBirth, email, sex, height, weight } = event.target;
-
-    await Promise.all([
-      instance.save({ type: 'personalDetails', key: 'firstName', value: firstName.value }),
-      instance.save({ type: 'personalDetails', key: 'lastName', value: lastName.value }),
-      instance.save({ type: 'personalDetails', key: 'dateOfBirth', value: dateOfBirth.value }),
-      instance.save({ type: 'personalDetails', key: 'email', value: email.value }),
-      instance.save({ type: 'personalDetails', key: 'sex', value: sex.value }),
-      instance.save({ type: 'personalDetails', key: 'height', value: height.value }),
-      instance.save({ type: 'personalDetails', key: 'weight', value: weight.value })
-    ]);
-
-    setPersonalDetails({
+    const personalDetails = {
       firstName: firstName.value,
       lastName: lastName.value,
       dateOfBirth: dateOfBirth.value,
@@ -39,7 +33,11 @@ const PersonalDetails = () => {
       sex: sex.value,
       height: height.value,
       weight: weight.value
-    });
+    };
+
+    await savePersonalDetails({ instance, personalDetails });
+
+    setPersonalDetails(personalDetails);
   };
 
   useEffect(() => {
