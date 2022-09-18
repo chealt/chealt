@@ -12,10 +12,13 @@ const upload = async ({ personalDetails, documents }) => {
   const url = getUploadUrl();
 
   // strip out the blob, we will upload it separately
-  const documentsMetaOnly = document ? [] : undefined;
+  const documentsMetaOnly = documents ? [] : undefined;
 
   if (documents) {
-    documents.forEach(async ({ key, value: { blob, ...rest } }) => {
+    for (const {
+      key,
+      value: { blob, ...rest }
+    } of documents) {
       // Upload file first
       await fetch(url, { method: 'PUT', body: blob, headers: { 'x-hash': rest.hash } });
 
@@ -24,7 +27,7 @@ const upload = async ({ personalDetails, documents }) => {
         key,
         value: rest
       });
-    });
+    }
   }
 
   const uploadResponse = await fetch(url, {
