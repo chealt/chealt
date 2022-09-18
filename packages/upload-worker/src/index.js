@@ -1,3 +1,5 @@
+import { getContentHash } from '@chealt/browser-utils';
+
 const isAppPreviewOrigin = (origin) => origin.includes('-chealt.vercel.app');
 
 const getCommonHeaders = (allowedOrigin) => ({
@@ -6,19 +8,12 @@ const getCommonHeaders = (allowedOrigin) => ({
   'content-type': 'application/json'
 });
 
-const convertToHex = (arrayBuffer) =>
-  Array.from(new Uint8Array(arrayBuffer))
-    .map((b) => b.toString(16).padStart(2, '0'))
-    .join('');
-
-const getContentHash = async (request) => {
+const requestToContentHash = async (request) => {
   // need to clone the request as it is being handled
   const requestClone = await request.clone();
-  const content = await requestClone.arrayBuffer();
+  const arrayBuffer = await requestClone.arrayBuffer();
 
-  const hashBuffer = await crypto.subtle.digest('SHA-256', content);
-
-  return convertToHex(hashBuffer);
+  return getContentHash({ arrayBuffer });
 };
 
 export default {
@@ -31,7 +26,7 @@ export default {
     }
 
     if (request.method === 'PUT') {
-      const objectName = await getContentHash(request);
+      const objectName = await requestToContentHash(request);
 
       // eslint-disable-next-line no-console
       console.log(`${request.method} object ${objectName}`);

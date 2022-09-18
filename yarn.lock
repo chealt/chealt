@@ -2740,6 +2740,12 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@chealt/browser-utils@0.0.1, @chealt/browser-utils@workspace:packages/browser-utils":
+  version: 0.0.0-use.local
+  resolution: "@chealt/browser-utils@workspace:packages/browser-utils"
+  languageName: unknown
+  linkType: soft
+
 "@chealt/chealt.com@workspace:packages/chealt.com":
   version: 0.0.0-use.local
   resolution: "@chealt/chealt.com@workspace:packages/chealt.com"
@@ -2835,6 +2841,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@chealt/upload-worker@workspace:packages/upload-worker"
   dependencies:
+    "@chealt/browser-utils": 0.0.1
     wrangler: ^2.1.4
   languageName: unknown
   linkType: soft
