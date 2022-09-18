@@ -41,11 +41,28 @@ const upload = async ({ personalDetails, documents }) => {
 };
 
 const download = async (url) => {
-  const response = await fetch(url, {
-    method: 'GET'
-  });
+  const { personalDetails, documents: documentsMetaOnly } = await fetch(url).then((response) =>
+    response.json()
+  );
 
-  return response.json();
+  const documents = Promise.all(
+    documentsMetaOnly.map(async (document) => {
+      const fileContent = await fetch(`${getDownloadUrl()}/${document.value.hash}`);
+
+      return {
+        ...document,
+        value: {
+          ...document.value,
+          blob: fileContent
+        }
+      };
+    })
+  );
+
+  return {
+    personalDetails,
+    documents
+  };
 };
 
 export { upload, download };
