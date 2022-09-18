@@ -17,4 +17,4 @@ r2_buckets  = [
 ]
 
 [env.production.vars]
-ALLOWED_ORIGIN = "https://chealt.com"
+ALLOWED_ORIGIN = "https://www.chealt.com"
