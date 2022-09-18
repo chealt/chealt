@@ -2750,6 +2750,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@chealt/chealt.com@workspace:packages/chealt.com"
   dependencies:
+    "@chealt/browser-utils": 0.0.1
     "@wmrjs/service-worker": ^0.3.1
     classnames: ^2.3.2
     preact: ^10.11.0
