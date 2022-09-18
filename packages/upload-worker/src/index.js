@@ -3,6 +3,11 @@ import { getContentHash } from '@chealt/browser-utils';
 const isAppPreviewOrigin = (origin) => origin.includes('-chealt.vercel.app');
 
 const hashHeader = 'x-hash';
+const setCommonHeaders = ({ headers, allowedOrigin }) => {
+  headers.set('Access-Control-Allow-Origin', allowedOrigin);
+  headers.set('Access-Control-Allow-Methods', 'GET, PUT');
+  headers.set('Access-Control-Allow-Headers', hashHeader);
+};
 const getCommonHeaders = (allowedOrigin) => ({
   'Access-Control-Allow-Origin': allowedOrigin,
   'Access-Control-Allow-Methods': 'GET, PUT',
@@ -58,14 +63,13 @@ export default {
         return new Response(null, { status: 404, headers: getCommonHeaders(allowedOrigin) });
       }
 
-      const data = await object.json();
-      const response = JSON.stringify(data);
+      const headers = new Headers();
+      object.writeHttpMetadata(headers);
+      headers.set('etag', object.httpEtag);
+      setCommonHeaders({ headers, allowedOrigin });
 
-      return new Response(response, {
-        headers: {
-          etag: object.etag,
-          ...getCommonHeaders(allowedOrigin)
-        }
+      return new Response(object.body, {
+        headers
       });
     }
 
