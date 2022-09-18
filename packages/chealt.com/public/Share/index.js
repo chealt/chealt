@@ -64,11 +64,11 @@ const Share = () => {
 
             if (documents) {
               await Promise.all(
-                documents.map(({ key, value: { savedTimestamp, ...file } }) =>
-                  instance.saveFile({
+                documents.map(({ key, value }) =>
+                  instance.save({
                     type: 'documents',
                     key,
-                    file
+                    value
                   })
                 )
               );

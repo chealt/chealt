@@ -45,15 +45,16 @@ const download = async (url) => {
     response.json()
   );
 
-  const documents = Promise.all(
-    documentsMetaOnly.map(async (document) => {
-      const fileContent = await fetch(`${getDownloadUrl()}/${document.value.hash}`);
+  const documents = await Promise.all(
+    documentsMetaOnly.map(async ({ key, value: { savedTimestamp, ...rest } }) => {
+      const fileContent = await fetch(`${getDownloadUrl()}/${rest.hash}`);
 
       return {
-        ...document,
+        key,
         value: {
-          ...document.value,
-          blob: fileContent
+          // remove saved timestamp
+          ...rest,
+          blob: await fileContent.arrayBuffer()
         }
       };
     })
