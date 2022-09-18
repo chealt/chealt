@@ -1,5 +1,9 @@
 const indexedDB =
-  window.indexedDB || window.webkitIndexedDB || window.mozIndexedDB || window.OIndexedDB || window.msIndexedDB;
+  window.indexedDB ||
+  window.webkitIndexedDB ||
+  window.mozIndexedDB ||
+  window.OIndexedDB ||
+  window.msIndexedDB;
 const version = 5;
 
 const db = async ({ database }) => {
@@ -44,32 +48,8 @@ const db = async ({ database }) => {
       };
     });
 
-  const put = ({ key, value, objectStore }) => objectStore.put({ ...value, savedTimestamp: Date.now() }, key);
-
-  const saveFile = async ({ file, type, key }) => {
-    const blob = await file.arrayBuffer();
-    const { name, lastModified, size, type: fileType } = file;
-
-    return new Promise((resolve, reject) => {
-      const objectStore = instance.transaction([type], 'readwrite').objectStore(type);
-
-      put({
-        value: {
-          blob,
-          name,
-          lastModified,
-          size,
-          type: fileType,
-          savedTimestamp: Date.now()
-        },
-        key: key || file.name,
-        objectStore
-      });
-
-      objectStore.transaction.onerror = reject;
-      objectStore.transaction.oncomplete = resolve;
-    });
-  };
+  const put = ({ key, value, objectStore }) =>
+    objectStore.put({ ...value, savedTimestamp: Date.now() }, key);
 
   const save = async ({ type, key, value }) =>
     new Promise((resolve, reject) => {
@@ -77,7 +57,7 @@ const db = async ({ database }) => {
 
       put({
         key,
-        value: { value },
+        value,
         objectStore
       });
 
@@ -138,7 +118,7 @@ const db = async ({ database }) => {
 
   await init();
 
-  return { saveFile, list, deleteItem, save, get };
+  return { list, deleteItem, save, get };
 };
 
 export default db;

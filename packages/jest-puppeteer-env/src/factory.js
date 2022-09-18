@@ -23,8 +23,10 @@ const factory = async ({ config: configParam, page, mocks, globalMocks, logger }
 
   const getMocksForUrl = ({ url, method, headers, requestBody }) => {
     const testMocks = mocks && mocks[runningTestName];
-    const testMocksForUrl = testMocks && findMocks({ mocks: testMocks, url, method, headers, requestBody });
-    const globalMocksForUrl = globalMocks && findMocks({ mocks: globalMocks, url, method, headers, requestBody });
+    const testMocksForUrl =
+      testMocks && findMocks({ mocks: testMocks, url, method, headers, requestBody });
+    const globalMocksForUrl =
+      globalMocks && findMocks({ mocks: globalMocks, url, method, headers, requestBody });
 
     return testMocksForUrl || globalMocksForUrl;
   };
@@ -70,11 +72,15 @@ const factory = async ({ config: configParam, page, mocks, globalMocks, logger }
 
   const getMatchingIgnorePattern = (url) =>
     config.requestPathIgnorePatterns &&
-    config.requestPathIgnorePatterns.find((ignorePattern) => new RegExp(ignorePattern, 'u').test(url));
+    config.requestPathIgnorePatterns.find((ignorePattern) =>
+      new RegExp(ignorePattern, 'u').test(url)
+    );
 
   const checkSwallowPatterns = (url) =>
     config.requestPathSwallowPatterns &&
-    config.requestPathSwallowPatterns.some((swallowPattern) => new RegExp(swallowPattern, 'u').test(url));
+    config.requestPathSwallowPatterns.some((swallowPattern) =>
+      new RegExp(swallowPattern, 'u').test(url)
+    );
 
   const parseRequestDetails = (request) => ({
     url: request.url(),
@@ -265,7 +271,10 @@ const factory = async ({ config: configParam, page, mocks, globalMocks, logger }
     return Promise.all(
       screenshotEvents.map((screenshotEvent, index) => {
         const imageBuffer = Buffer.from(screenshotEvent.args.snapshot, 'base64');
-        const screenshotPath = `${screenshotFullPath}/${runningTestName.replace(/\//gu, '--')}-${index}.png`;
+        const screenshotPath = `${screenshotFullPath}/${runningTestName.replace(
+          /\//gu,
+          '--'
+        )}-${index}.png`;
 
         return writeFileSafe(screenshotPath, imageBuffer);
       })

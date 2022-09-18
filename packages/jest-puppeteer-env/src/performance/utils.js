@@ -3,7 +3,9 @@ const getMetricsSummary = (metrics) => {
 
   if (metrics.entries) {
     const firstPaint = metrics.entries.find((entry) => entry.name === 'first-paint');
-    const firstContentfulPaint = metrics.entries.find((entry) => entry.name === 'first-contentful-paint');
+    const firstContentfulPaint = metrics.entries.find(
+      (entry) => entry.name === 'first-contentful-paint'
+    );
 
     if (firstPaint) {
       summary.firstPaint = firstPaint.startTime;

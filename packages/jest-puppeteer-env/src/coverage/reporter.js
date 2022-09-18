@@ -1,8 +1,11 @@
 const formatSize = (size) => `${(size / 1024 / 1024).toFixed(2)} MB`;
 const formatRawSize = (size) => new Intl.NumberFormat().format(size);
 const formatPercentage = (percentage) =>
-  new Intl.NumberFormat(undefined, { style: 'unit', unit: 'percent' }).format(percentage.toFixed(2));
-const formatSeconds = (seconds) => new Intl.NumberFormat(undefined, { style: 'unit', unit: 'second' }).format(seconds);
+  new Intl.NumberFormat(undefined, { style: 'unit', unit: 'percent' }).format(
+    percentage.toFixed(2)
+  );
+const formatSeconds = (seconds) =>
+  new Intl.NumberFormat(undefined, { style: 'unit', unit: 'second' }).format(seconds);
 
 const KBPerSec = {
   GG: 30,

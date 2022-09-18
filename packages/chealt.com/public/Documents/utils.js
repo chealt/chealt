@@ -1,4 +1,17 @@
-const uploadFile = (instance) => (file) => instance.saveFile({ file, type: 'documents' });
+import { getContentHash } from '@chealt/browser-utils';
+
+const uploadFile = (instance) => async (file) => {
+  const blob = await file.arrayBuffer();
+  const hash = await getContentHash({ arrayBuffer: blob });
+
+  const { name, lastModified, size, type } = file;
+
+  return instance.save({
+    type: 'documents',
+    key: name,
+    value: { blob, name, lastModified, size, type, hash }
+  });
+};
 
 const getDocument =
   (instance) =>

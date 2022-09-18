@@ -1,0 +1,14 @@
+{
+  "name": "@chealt/upload-url-worker",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./src/index.js",
+  "devDependencies": {
+    "wrangler": "^2.1.4"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.171.0",
+    "@aws-sdk/s3-request-presigner": "^3.173.0",
+    "cookie": "^0.5.0"
+  }
+}

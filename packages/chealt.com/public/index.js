@@ -1,4 +1,11 @@
-import { LocationProvider, Router, Route, ErrorBoundary, hydrate, prerender as ssr } from 'preact-iso';
+import {
+  LocationProvider,
+  Router,
+  Route,
+  ErrorBoundary,
+  hydrate,
+  prerender as ssr
+} from 'preact-iso';
 import Home from './pages/Home';
 import Documents from './pages/Documents';
 import PersonalDetails from './pages/PersonalDetails';

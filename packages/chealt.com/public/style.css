@@ -6,6 +6,7 @@
 	--color-brand: rgb(236, 179, 66);
 	--color-border: rgb(172, 172, 172);
 	--color-border--active: rgb(0, 0, 0);
+	--color-background: rgb(255, 255, 255);
 	--color-background-highlight: rgb(222, 222, 222);
 
 	--border-radius: 8px;
@@ -34,10 +35,6 @@ ul {
 
 ul li {
 	border-bottom: 1px solid var(--color-border);
-}
-
-ul li > * {
-	padding: var(--gap--l);
 }
 
 ul li:is(:active, :hover) {

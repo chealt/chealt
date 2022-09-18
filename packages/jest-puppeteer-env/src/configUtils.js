@@ -62,7 +62,9 @@ const getPuppeteer = (config) => {
       return require('puppeteer-firefox');
     /* eslint-enable */
     default:
-      throw new Error(`Error: "browser" config option is given an unsupported value: ${config.browser}`);
+      throw new Error(
+        `Error: "browser" config option is given an unsupported value: ${config.browser}`
+      );
   }
 };
 
@@ -130,11 +132,15 @@ const validatePerformanceConfig = (config) => {
   }
 
   if (performance.collectPerfMetrics && !performance.reportDirectory) {
-    throw new Error('When performance metrics are collected you need to provide a reportDirectory option.');
+    throw new Error(
+      'When performance metrics are collected you need to provide a reportDirectory option.'
+    );
   }
 
   if (performance.bundleSizes && !performance.reportDirectory) {
-    throw new Error('When bundle size violations are collected you need to provide a reportDirectory option.');
+    throw new Error(
+      'When bundle size violations are collected you need to provide a reportDirectory option.'
+    );
   }
 
   if (
@@ -142,9 +148,9 @@ const validatePerformanceConfig = (config) => {
     !Object.keys(networks).some((networkName) => networkName === performance.emulateNetwork)
   ) {
     throw new Error(
-      `Unknown network to emulate: '${performance.emulateNetwork}', please use one of the following: ${Object.keys(
-        networks
-      ).join(', ')}`
+      `Unknown network to emulate: '${
+        performance.emulateNetwork
+      }', please use one of the following: ${Object.keys(networks).join(', ')}`
     );
   }
 };
@@ -169,7 +175,9 @@ const validateScreenshotsConfig = (config) => {
   } = config;
 
   if (!screenshotDirectory) {
-    throw new Error('You need to provide a screenshotDirectory option so that failures can be recorded.');
+    throw new Error(
+      'You need to provide a screenshotDirectory option so that failures can be recorded.'
+    );
   }
 };
 

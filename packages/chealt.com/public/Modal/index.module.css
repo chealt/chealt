@@ -1,0 +1,29 @@
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background-color: var(--color-background);
+  border: 8px solid rgb(38 46 72 / 15%);
+  justify-content: center;
+  align-items: center;
+}
+
+@media (min-width: 600px) {
+  .modal {
+    border-radius: var(--gap--l);
+    margin: var(--gap--l);
+  }
+}
+
+.open {
+  display: flex;
+}
+
+.close {
+  position: absolute;
+  right: var(--gap);
+  top: var(--gap);
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+}
