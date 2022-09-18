@@ -51,30 +51,13 @@ const db = async ({ database }) => {
   const put = ({ key, value, objectStore }) =>
     objectStore.put({ ...value, savedTimestamp: Date.now() }, key);
 
-  const saveFile = async ({ type, key, file }) =>
-    new Promise((resolve, reject) => {
-      const objectStore = instance.transaction([type], 'readwrite').objectStore(type);
-
-      put({
-        value: {
-          ...file,
-          savedTimestamp: Date.now()
-        },
-        key,
-        objectStore
-      });
-
-      objectStore.transaction.onerror = reject;
-      objectStore.transaction.oncomplete = resolve;
-    });
-
   const save = async ({ type, key, value }) =>
     new Promise((resolve, reject) => {
       const objectStore = instance.transaction([type], 'readwrite').objectStore(type);
 
       put({
         key,
-        value: { value, savedTimestamp: Date.now() },
+        value,
         objectStore
       });
 
@@ -135,7 +118,7 @@ const db = async ({ database }) => {
 
   await init();
 
-  return { saveFile, list, deleteItem, save, get };
+  return { list, deleteItem, save, get };
 };
 
 export default db;
