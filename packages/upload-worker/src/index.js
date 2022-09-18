@@ -2,10 +2,12 @@ import { getContentHash } from '@chealt/browser-utils';
 
 const isAppPreviewOrigin = (origin) => origin.includes('-chealt.vercel.app');
 
+const hashHeader = 'x-hash';
 const getCommonHeaders = (allowedOrigin) => ({
   'Access-Control-Allow-Origin': allowedOrigin,
   'Access-Control-Allow-Methods': 'GET, PUT',
-  'content-type': 'application/json'
+  'content-type': 'application/json',
+  'Access-Control-Allow-Headers': hashHeader
 });
 
 const requestToContentHash = async (request) => {
@@ -26,7 +28,8 @@ export default {
     }
 
     if (request.method === 'PUT') {
-      const objectName = await requestToContentHash(request);
+      const hash = request.headers.get(hashHeader);
+      const objectName = hash || (await requestToContentHash(request));
 
       // eslint-disable-next-line no-console
       console.log(`${request.method} object ${objectName}`);
