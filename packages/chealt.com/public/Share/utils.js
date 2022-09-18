@@ -8,12 +8,28 @@ if (!uploadHost) {
 const getUploadUrl = () => uploadHost;
 const getDownloadUrl = () => downloadHost;
 
-const upload = async (data) => {
+const upload = async ({ personalDetails, documents }) => {
   const url = getUploadUrl();
+
+  // strip out the blob, we will upload it separately
+  const documentsMetaOnly = document ? [] : undefined;
+
+  if (documents) {
+    documents.forEach(async ({ key, value: { blob, ...rest } }) => {
+      // Upload file first
+      await fetch(url, { method: 'PUT', body: blob, headers: { 'x-hash': rest.hash } });
+
+      // Add meta data of the file to the details upload
+      documentsMetaOnly.push({
+        key,
+        value: rest
+      });
+    });
+  }
 
   const uploadResponse = await fetch(url, {
     method: 'PUT',
-    body: JSON.stringify(data)
+    body: JSON.stringify({ personalDetails, documents: documentsMetaOnly })
   });
 
   const { objectName } = await uploadResponse.json();
