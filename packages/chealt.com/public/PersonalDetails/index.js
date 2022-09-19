@@ -14,6 +14,7 @@ import {
 import Button from '../Form/Button';
 
 import styles from './index.module.css';
+import { add as addToast } from '../Toast';
 
 const PersonalDetails = () => {
   const [personalDetails, setPersonalDetails] = useState({});
@@ -35,9 +36,15 @@ const PersonalDetails = () => {
       { key: 'weight', value: weight.value }
     ];
 
-    await savePersonalDetails({ instance, personalDetails });
+    try {
+      await savePersonalDetails({ instance, personalDetails });
 
-    setPersonalDetails(personalDetails);
+      setPersonalDetails(personalDetails);
+
+      addToast({ message: 'Saved personal details' });
+    } catch {
+      addToast({ message: 'Could not save personal details' });
+    }
   };
 
   useEffect(() => {
