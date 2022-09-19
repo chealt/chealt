@@ -1,0 +1,10 @@
+.toast {
+  display: grid;
+  position: fixed;
+  inset-block-end: 0;
+  inset-inline: 0;
+  padding-block-end: var(--gap--l);
+  justify-content: center;
+  gap: var(--gap--l);
+  pointer-events: none;
+}

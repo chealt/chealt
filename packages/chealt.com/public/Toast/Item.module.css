@@ -1,0 +1,12 @@
+.item {
+  max-inline-size: min(25ch, 90vw);
+  padding-block: var(--gap);
+  padding-inline: 1ch;
+  border-radius: var(--border-radius);
+  will-change: transform;
+  animation:
+    fade-in .3s ease,
+    slide-in .3s ease,
+    fade-out .3s ease var(--animation-duration);
+  animation-fill-mode: forwards;
+}
