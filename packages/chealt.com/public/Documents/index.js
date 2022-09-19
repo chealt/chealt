@@ -11,6 +11,7 @@ import { toggleItem } from '../Helpers/array';
 import DocumentsIcon from '../Icons/Documents';
 import EmptyState from '../EmptyState';
 import Button from '../Form/Button';
+import { add as addToast } from '../Toast';
 
 const Documents = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -23,9 +24,15 @@ const Documents = () => {
   const noDocuments = !isLoading && !documents.length;
 
   const uploadDocuments = async (event) => {
-    const documents = await getDocumentUploader(instance)(event);
+    try {
+      const documents = await getDocumentUploader(instance)(event);
 
-    setDocuments(documents);
+      setDocuments(documents);
+      addToast({ message: 'Successfully uploaded document(s)' });
+    } catch {
+      addToast({ message: 'Failed to upload documents, please try again', role: 'alert' });
+    }
+
     event.target.value = null; // clear the input after saving
   };
 

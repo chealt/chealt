@@ -10,6 +10,7 @@ import { download, upload } from './utils';
 import QRCode from '../QRCode';
 import QrScanner from 'qr-scanner';
 import Modal from '../Modal';
+import { add as addToast } from '../Toast';
 
 import styles from './index.module.css';
 import { savePersonalDetails } from '../PersonalDetails/utils';
@@ -34,8 +35,10 @@ const Share = () => {
       setDownloadUrl(downloadUrl);
       setIsQRCodeModalOpen(true);
       setLoadingDownloadUrl(false);
+      addToast({ message: 'Upload successful' });
     } catch {
       setLoadingDownloadUrl(false);
+      addToast({ message: 'Upload failed', role: 'alert' });
     }
   };
 
@@ -73,9 +76,10 @@ const Share = () => {
                 )
               );
             }
+
+            addToast({ message: 'Download successful' });
           } catch (error) {
-            // eslint-disable-next-line no-console
-            console.error(error);
+            addToast({ message: 'Download failed', role: 'alert' });
           }
 
           setIsModalOpen(false);

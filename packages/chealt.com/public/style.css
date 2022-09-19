@@ -4,12 +4,15 @@
 	--gap--l: 16px;
 
 	--color-brand: rgb(236, 179, 66);
+	--color-error: rgb(236, 66, 66);
 	--color-border: rgb(172, 172, 172);
 	--color-border--active: rgb(0, 0, 0);
 	--color-background: rgb(255, 255, 255);
 	--color-background-highlight: rgb(222, 222, 222);
 
 	--border-radius: 8px;
+
+	--animation-duration: 3s;
 }
 
 html,
@@ -51,4 +54,17 @@ main {
 
 main > *:first-child {
 	margin-top: 0;
+}
+
+/* ANIMATIONS */
+@keyframes fade-in {
+  from { opacity: 0 }
+}
+
+@keyframes fade-out {
+  to { opacity: 0 }
+}
+
+@keyframes slide-in {
+  from { transform: translateY(10px) }
 }

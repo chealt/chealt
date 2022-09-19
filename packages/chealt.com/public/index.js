@@ -15,6 +15,7 @@ import Header from './Header';
 import swURL from 'sw:./sw.js'; // eslint-disable-line import/no-unresolved
 import LayoutContainer from './Layout/Container';
 import Share from './pages/Share';
+import Toast from './Toast';
 
 navigator.serviceWorker.register(swURL);
 
@@ -35,6 +36,7 @@ const App = () => (
         </ErrorBoundary>
       </LayoutContainer>
     </main>
+    <Toast />
   </LocationProvider>
 );
 
