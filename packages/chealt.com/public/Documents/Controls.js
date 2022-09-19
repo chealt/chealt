@@ -1,5 +1,6 @@
 import Button from '../Form/Button';
 import { deleteDocuments } from './utils';
+import { add as addToast } from '../Toast';
 
 import styles from './Controls.module.css';
 
@@ -11,9 +12,14 @@ const Controls = ({ instance, setDocuments, selectedDocuments }) => (
         event.preventDefault();
 
         if (selectedDocuments.length) {
-          const documents = await deleteDocuments(instance)(selectedDocuments);
+          try {
+            const documents = await deleteDocuments(instance)(selectedDocuments);
 
-          setDocuments(documents);
+            setDocuments(documents);
+            addToast({ message: 'Document(s) deleted' });
+          } catch {
+            addToast({ message: 'Failed to delete document(s)', role: 'alert' });
+          }
         }
       }}
     >
