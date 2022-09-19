@@ -17,8 +17,10 @@ const add = (toast) => {
 
 const Toast = () => (
   <section class={styles.toast}>
-    {toasts.value.map(({ message }) => (
-      <Item key={message}>{message}</Item>
+    {toasts.value.map(({ message, role }) => (
+      <Item key={message} role={role}>
+        {message}
+      </Item>
     ))}
   </section>
 );

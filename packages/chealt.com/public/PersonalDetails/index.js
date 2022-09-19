@@ -43,7 +43,7 @@ const PersonalDetails = () => {
 
       addToast({ message: 'Saved personal details' });
     } catch {
-      addToast({ message: 'Could not save personal details' });
+      addToast({ message: 'Could not save personal details', role: 'alert' });
     }
   };
 
