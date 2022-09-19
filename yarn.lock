@@ -2751,6 +2751,7 @@ __metadata:
   resolution: "@chealt/chealt.com@workspace:packages/chealt.com"
   dependencies:
     "@chealt/browser-utils": 0.0.1
+    "@preact/signals": ^1.0.4
     "@wmrjs/service-worker": ^0.3.1
     classnames: ^2.3.2
     preact: ^10.11.0
@@ -3568,6 +3569,24 @@ __metadata:
     mkdirp: ^1.0.4
     rimraf: ^3.0.2
   checksum: 1388777b507b0c592d53f41b9d182e1a8de7763bc625fc07999b8edbc22325f074e5b3ec90af79c89d6987fdb2325bc66d59f483258543c14a43661621f841b0
+  languageName: node
+  linkType: hard
+
+"@preact/signals-core@npm:^1.1.1":
+  version: 1.1.1
+  resolution: "@preact/signals-core@npm:1.1.1"
+  checksum: 053ad168c39b67a1385f13de1cb828e09172aec57bb338b7b0b3f8778ec1e6cf9baabbcf41109cafb3c531aaa91d475684165e8641c2fd336acf2a8b454f8eab
+  languageName: node
+  linkType: hard
+
+"@preact/signals@npm:^1.0.4":
+  version: 1.0.4
+  resolution: "@preact/signals@npm:1.0.4"
+  dependencies:
+    "@preact/signals-core": ^1.1.1
+  peerDependencies:
+    preact: 10.x
+  checksum: 3e463eb2aef3be376ee9fb7172afe5e5f6655e943b7792d7525aea9bd6787a85b0b1a96e7e90389b734e5e42665a350478fe6855434eda33df23f8073f13af0a
   languageName: node
   linkType: hard
 
