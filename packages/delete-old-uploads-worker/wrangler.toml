@@ -1,0 +1,11 @@
+name = "delete-old-uploads"
+
+main = "./src/index.js"
+compatibility_date = "2022-09-20"
+
+r2_buckets  = [
+  { binding = "UPLOAD_BUCKET", bucket_name = "chealt-upload", preview_bucket_name =  "chealt-upload" }
+]
+
+[triggers]
+crons = ["0 0 * * *"] # Once a day at 00:00:00

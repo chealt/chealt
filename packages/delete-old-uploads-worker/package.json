@@ -1,0 +1,9 @@
+{
+  "name": "@chealt/delete-old-uploads-worker",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./src/index.js",
+  "devDependencies": {
+    "wrangler": "^2.1.5"
+  }
+}
