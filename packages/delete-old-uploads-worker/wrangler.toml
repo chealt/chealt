@@ -8,4 +8,4 @@ r2_buckets  = [
 ]
 
 [triggers]
-crons = ["0 0 * * *"] # Once a day at 00:00:00
+crons = ["0 * * * *"] # Once a day at 00:00:00
