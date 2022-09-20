@@ -123,6 +123,11 @@ const Share = () => {
           <ListItem>Click the Scan QR button</ListItem>
         </List>
       </p>
+      <p>After generating a QR code you will have an hour to scan it.</p>
+      <p>
+        <b>PRIVACY WARNING</b>: When using the share functionality, your data temporarily (for an
+        hour) will be stored on our servers.
+      </p>
       <Controls>
         <Button emphasized onClick={uploadContent} disabled={loadingDownloadUrl}>
           Share
