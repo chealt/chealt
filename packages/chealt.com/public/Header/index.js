@@ -7,6 +7,7 @@ const Header = () => (
       <a href="/documents">Documents</a>
       <a href="/share">Share</a>
       <a href="/personal-details">Personal Details</a>
+      <a href="/vaccinations">Vaccinations</a>
     </nav>
   </header>
 );

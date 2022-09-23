@@ -15,6 +15,7 @@ import Header from './Header';
 import swURL from 'sw:./sw.js'; // eslint-disable-line import/no-unresolved
 import LayoutContainer from './Layout/Container';
 import Share from './pages/Share';
+import Vaccinations from './pages/Vaccinations';
 import Toast from './Toast';
 
 navigator.serviceWorker.register(swURL);
@@ -31,6 +32,7 @@ const App = () => (
             <Route path="/documents/view/:encodedDocumentKey" component={View} />
             <Route path="/share" component={Share} />
             <Route path="/personal-details" component={PersonalDetails} />
+            <Route path="/vaccinations" component={Vaccinations} />
             <Route default component={NotFound} />
           </Router>
         </ErrorBoundary>
