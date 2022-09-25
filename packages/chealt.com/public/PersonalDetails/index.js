@@ -12,9 +12,9 @@ import {
   savePersonalDetails
 } from './utils';
 import Button from '../Form/Button';
+import { add as addToast } from '../Toast';
 
 import styles from './index.module.css';
-import { add as addToast } from '../Toast';
 
 const PersonalDetails = () => {
   const [personalDetails, setPersonalDetails] = useState({});
