@@ -2,6 +2,7 @@
 	--gap: 8px;
 	--gap--m: 12px;
 	--gap--l: 16px;
+	--gap--xl: 32px;
 
 	--color-brand: rgb(236, 179, 66);
 	--color-error: rgb(236, 66, 66);
