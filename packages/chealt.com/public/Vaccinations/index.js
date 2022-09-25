@@ -66,11 +66,13 @@ const Vaccinations = () => {
             <Row>
               <HeadCell>Name</HeadCell>
               <HeadCell>Brand name</HeadCell>
+              <HeadCell>Date (of admin)</HeadCell>
             </Row>
             {vaccinations.map((vaccination) => (
               <Row key={vaccination.key}>
                 <Cell>{vaccination.value.name}</Cell>
                 <Cell>{vaccination.value.brandName}</Cell>
+                <Cell>{vaccination.value.dateOfAdmin}</Cell>
               </Row>
             ))}
           </Table>
