@@ -6,6 +6,12 @@ import Input from '../Form/Input';
 import Modal from '../Modal';
 import PageTitle from '../PageTitle';
 import { add as addToast } from '../Toast';
+import Table from '../Table';
+import Row from '../Table/Row';
+import Cell from '../Table/Cell';
+import HeadCell from '../Table/HeadCell';
+
+import styles from './index.module.css';
 
 const Vaccinations = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -55,12 +61,24 @@ const Vaccinations = () => {
     <>
       <PageTitle>Vaccinations</PageTitle>
       {Boolean(vaccinations.length) && (
-        <ul>
-          {vaccinations.map((vaccination) => (
-            <li key={vaccination.key}>{vaccination.value.name}</li>
-          ))}
-        </ul>
+        <div class={styles.vaccinations}>
+          <Table>
+            <Row>
+              <HeadCell>Name</HeadCell>
+              <HeadCell>Brand name</HeadCell>
+            </Row>
+            {vaccinations.map((vaccination) => (
+              <Row key={vaccination.key}>
+                <Cell>{vaccination.value.name}</Cell>
+                <Cell>{vaccination.value.brandName}</Cell>
+              </Row>
+            ))}
+          </Table>
+        </div>
       )}
+      <Button emphasized onClick={() => setIsModalOpen(true)}>
+        Add +
+      </Button>
       <Modal isOpen={isModalOpen} close={() => setIsModalOpen(false)}>
         <Form name="newVaccination" onSubmit={saveFormData}>
           <Input type="text" name="name" required="required">
@@ -87,9 +105,6 @@ const Vaccinations = () => {
           <Button emphasized>Save</Button>
         </Form>
       </Modal>
-      <Button emphasized onClick={() => setIsModalOpen(true)}>
-        Add +
-      </Button>
     </>
   );
 };
