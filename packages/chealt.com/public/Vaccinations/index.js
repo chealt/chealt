@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'preact/hooks';
+import { useCallback, useEffect, useState } from 'preact/hooks';
 import database from '../IndexedDB';
 import Button from '../Form/Button';
 import Form from '../Form/Form';
@@ -13,11 +13,20 @@ import HeadCell from '../Table/HeadCell';
 import { save } from './utils';
 
 import styles from './index.module.css';
+import Controls from './Controls';
+import { toggleItem } from '../Helpers/array';
 
 const Vaccinations = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [vaccinations, setVaccinations] = useState([]);
   const [instance, setInstance] = useState();
+  const [selectedItems, setSelectedItems] = useState([]);
+
+  const loadVaccinations = useCallback(async () => {
+    const vaccinations = await instance.list({ type: 'vaccinations' });
+
+    setVaccinations(vaccinations);
+  }, [instance]);
 
   const saveFormData = async (event) => {
     event.preventDefault();
@@ -36,9 +45,20 @@ const Vaccinations = () => {
     try {
       await save({ instance, key: crypto.randomUUID(), value: vaccination });
 
+      // clear inputs
+      name.value = null;
+      brandName.value = null;
+      dateOfAdmin.value = null;
+      batchNo.value = null;
+      site.value = null;
+      immuniser.value = null;
+      venue.value = null;
+
       setIsModalOpen(false);
 
       addToast({ message: 'Saved vaccination details' });
+
+      loadVaccinations();
     } catch {
       addToast({ message: 'Could not save vaccination details', role: 'alert' });
     }
@@ -50,21 +70,26 @@ const Vaccinations = () => {
         setInstance(await database({ database: 'chealt' }));
       })();
     } else {
-      (async () => {
-        const vaccinations = await instance.list({ type: 'vaccinations' });
-
-        setVaccinations(vaccinations);
-      })();
+      loadVaccinations();
     }
-  }, [instance, isModalOpen]);
+  }, [instance, loadVaccinations]);
 
   return (
     <>
       <PageTitle>Vaccinations</PageTitle>
+      <Controls
+        instance={instance}
+        selectedItems={selectedItems}
+        onDelete={() => {
+          setSelectedItems([]);
+          loadVaccinations();
+        }}
+      />
       {Boolean(vaccinations.length) && (
         <div class={styles.vaccinations}>
           <Table>
             <Row>
+              <HeadCell />
               <HeadCell>Name</HeadCell>
               <HeadCell>Brand name</HeadCell>
               <HeadCell>Date (of admin)</HeadCell>
@@ -75,6 +100,15 @@ const Vaccinations = () => {
             </Row>
             {vaccinations.map((vaccination) => (
               <Row key={vaccination.key}>
+                <Cell>
+                  <Input
+                    type="checkbox"
+                    value={vaccination.key}
+                    onClick={() => {
+                      setSelectedItems(toggleItem(vaccination.key, selectedItems));
+                    }}
+                  />
+                </Cell>
                 <Cell>{vaccination.value.name}</Cell>
                 <Cell>{vaccination.value.brandName}</Cell>
                 <Cell>{vaccination.value.dateOfAdmin}</Cell>
