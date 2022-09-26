@@ -100,16 +100,16 @@ const Vaccinations = () => {
           <Input type="date" name="dateOfAdmin" required="required">
             Date of admin
           </Input>
-          <Input type="text" name="batchNo" required="required">
+          <Input type="text" name="batchNo">
             Batch No.
           </Input>
-          <Input type="text" name="site" required="required">
+          <Input type="text" name="site">
             Site / Route
           </Input>
-          <Input type="text" name="immuniser" required="required">
+          <Input type="text" name="immuniser">
             Immuniser
           </Input>
-          <Input type="text" name="venue" required="required">
+          <Input type="text" name="venue">
             Venue
           </Input>
           <Button emphasized>Save</Button>
