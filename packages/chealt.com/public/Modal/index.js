@@ -7,7 +7,12 @@ const Modal = ({ isOpen, close, children }) => {
   useEffect(() => {
     if (isOpen) {
       // focus the first input
-      document.forms[0][0].focus();
+      const firstForm = document.forms[0];
+      const firstInput = firstForm && firstForm[0];
+
+      if (firstInput) {
+        firstInput.focus();
+      }
     }
   }, [isOpen]);
 
