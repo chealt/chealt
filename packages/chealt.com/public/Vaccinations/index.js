@@ -10,6 +10,7 @@ import Table from '../Table';
 import Row from '../Table/Row';
 import Cell from '../Table/Cell';
 import HeadCell from '../Table/HeadCell';
+import { save } from './utils';
 
 import styles from './index.module.css';
 
@@ -33,7 +34,7 @@ const Vaccinations = () => {
     };
 
     try {
-      await instance.save({ type: 'vaccinations', key: crypto.randomUUID(), value: vaccination });
+      await save({ instance, key: crypto.randomUUID(), value: vaccination });
 
       setIsModalOpen(false);
 
