@@ -11,9 +11,10 @@ import QRCode from '../QRCode';
 import QrScanner from 'qr-scanner';
 import Modal from '../Modal';
 import { add as addToast } from '../Toast';
+import { savePersonalDetails } from '../PersonalDetails/utils';
+import { save as saveVaccination } from '../Vaccinations/utils';
 
 import styles from './index.module.css';
-import { savePersonalDetails } from '../PersonalDetails/utils';
 
 const Share = () => {
   const [instance, setInstance] = useState();
@@ -29,8 +30,9 @@ const Share = () => {
     try {
       const personalDetails = await instance.list({ type: 'personalDetails' });
       const documents = await instance.list({ type: 'documents' });
+      const vaccinations = await instance.list({ type: 'vaccinations' });
 
-      const downloadUrl = await upload({ personalDetails, documents });
+      const downloadUrl = await upload({ personalDetails, documents, vaccinations });
 
       setDownloadUrl(downloadUrl);
       setIsQRCodeModalOpen(true);
@@ -53,7 +55,7 @@ const Share = () => {
           qrScanner.stop();
 
           try {
-            const { personalDetails, documents } = await download(url);
+            const { personalDetails, documents, vaccinations } = await download(url);
 
             if (personalDetails) {
               await savePersonalDetails({
@@ -74,6 +76,12 @@ const Share = () => {
                     value
                   })
                 )
+              );
+            }
+
+            if (vaccinations) {
+              await Promise.all(
+                vaccinations.map(({ key, value }) => saveVaccination({ instance, key, value }))
               );
             }
 
