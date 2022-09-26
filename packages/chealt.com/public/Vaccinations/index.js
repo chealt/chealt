@@ -45,6 +45,15 @@ const Vaccinations = () => {
     try {
       await save({ instance, key: crypto.randomUUID(), value: vaccination });
 
+      // clear inputs
+      name.value = null;
+      brandName.value = null;
+      dateOfAdmin.value = null;
+      batchNo.value = null;
+      site.value = null;
+      immuniser.value = null;
+      venue.value = null;
+
       setIsModalOpen(false);
 
       addToast({ message: 'Saved vaccination details' });
