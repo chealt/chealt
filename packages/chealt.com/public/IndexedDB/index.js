@@ -4,7 +4,7 @@ const indexedDB =
   window.mozIndexedDB ||
   window.OIndexedDB ||
   window.msIndexedDB;
-const version = 5;
+const version = 6;
 
 const db = async ({ database }) => {
   let instance;
@@ -37,6 +37,15 @@ const db = async ({ database }) => {
 
         if (!instance.objectStoreNames.contains('personalDetails')) {
           const objectStore = instance.createObjectStore('personalDetails');
+          promises.push(
+            new Promise((resolve) => {
+              objectStore.transaction.oncomplete = resolve;
+            })
+          );
+        }
+
+        if (!instance.objectStoreNames.contains('vaccinations')) {
+          const objectStore = instance.createObjectStore('vaccinations');
           promises.push(
             new Promise((resolve) => {
               objectStore.transaction.oncomplete = resolve;

@@ -8,7 +8,7 @@ if (!uploadHost) {
 const getUploadUrl = () => uploadHost;
 const getDownloadUrl = () => downloadHost;
 
-const upload = async ({ personalDetails, documents }) => {
+const upload = async ({ personalDetails, documents, vaccinations }) => {
   const url = getUploadUrl();
 
   // strip out the blob, we will upload it separately
@@ -32,7 +32,7 @@ const upload = async ({ personalDetails, documents }) => {
 
   const uploadResponse = await fetch(url, {
     method: 'PUT',
-    body: JSON.stringify({ personalDetails, documents: documentsMetaOnly })
+    body: JSON.stringify({ personalDetails, documents: documentsMetaOnly, vaccinations })
   });
 
   const { objectName } = await uploadResponse.json();
@@ -41,9 +41,11 @@ const upload = async ({ personalDetails, documents }) => {
 };
 
 const download = async (url) => {
-  const { personalDetails, documents: documentsMetaOnly } = await fetch(url).then((response) =>
-    response.json()
-  );
+  const {
+    personalDetails,
+    documents: documentsMetaOnly,
+    vaccinations
+  } = await fetch(url).then((response) => response.json());
 
   const documents = await Promise.all(
     documentsMetaOnly.map(async ({ key, value: { savedTimestamp, ...rest } }) => {
@@ -61,8 +63,9 @@ const download = async (url) => {
   );
 
   return {
+    documents,
     personalDetails,
-    documents
+    vaccinations
   };
 };
 
