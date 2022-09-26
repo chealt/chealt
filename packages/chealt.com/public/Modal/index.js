@@ -8,6 +8,11 @@ const Modal = ({ isOpen, close, children }) => (
       [styles.modal]: true,
       [styles.open]: Boolean(isOpen)
     })}
+    onKeyUp={(event) => {
+      if (event.key === 'Escape') {
+        close();
+      }
+    }}
   >
     <span class={styles.close} onClick={close}>
       X
