@@ -56,7 +56,7 @@ const Vaccinations = () => {
         setVaccinations(vaccinations);
       })();
     }
-  }, [instance]);
+  }, [instance, isModalOpen]);
 
   return (
     <>
