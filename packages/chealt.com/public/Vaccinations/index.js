@@ -67,12 +67,20 @@ const Vaccinations = () => {
               <HeadCell>Name</HeadCell>
               <HeadCell>Brand name</HeadCell>
               <HeadCell>Date (of admin)</HeadCell>
+              <HeadCell>Batch No.</HeadCell>
+              <HeadCell>Route / Site</HeadCell>
+              <HeadCell>Immuniser</HeadCell>
+              <HeadCell>Venue</HeadCell>
             </Row>
             {vaccinations.map((vaccination) => (
               <Row key={vaccination.key}>
                 <Cell>{vaccination.value.name}</Cell>
                 <Cell>{vaccination.value.brandName}</Cell>
                 <Cell>{vaccination.value.dateOfAdmin}</Cell>
+                <Cell>{vaccination.value.batchNo}</Cell>
+                <Cell>{vaccination.value.site}</Cell>
+                <Cell>{vaccination.value.immuniser}</Cell>
+                <Cell>{vaccination.value.venue}</Cell>
               </Row>
             ))}
           </Table>
