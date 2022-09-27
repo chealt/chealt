@@ -1,6 +1,5 @@
 import { useEffect, useState, useRef } from 'preact/hooks';
 import FileInput from '../Form/FileInput';
-import Form from '../Form/Form';
 import PageTitle from '../PageTitle';
 import Controls from './Controls';
 import Item from './Item';
@@ -59,47 +58,45 @@ const Documents = () => {
       >
         Upload documents
       </FileInput>
-      <Form name="documents">
-        {noDocuments && (
-          <EmptyState>
-            <DocumentsIcon />
-            <p>Your uploaded documents will be shown here.</p>
-            <Button
-              emphasized
-              onClick={(event) => {
-                event.preventDefault();
+      {noDocuments && (
+        <EmptyState>
+          <DocumentsIcon />
+          <p>Your uploaded documents will be shown here.</p>
+          <Button
+            emphasized
+            onClick={(event) => {
+              event.preventDefault();
 
-                uploadDocumentInput.current.click();
-              }}
-            >
-              Start uploading
-            </Button>
-          </EmptyState>
-        )}
-        {showDocuments && (
-          <>
-            <Controls
-              instance={instance}
-              setDocuments={setDocuments}
-              selectedDocuments={selectedDocuments}
-            />
-            <ul>
-              {documents.map((doc) => (
-                <li key={doc.key}>
-                  <Item
-                    onClick={() => {
-                      setSelectedDocuments(toggleItem(doc.key, selectedDocuments));
-                    }}
-                    documentKey={doc.key}
-                  >
-                    {doc.key}
-                  </Item>
-                </li>
-              ))}
-            </ul>
-          </>
-        )}
-      </Form>
+              uploadDocumentInput.current.click();
+            }}
+          >
+            Start uploading
+          </Button>
+        </EmptyState>
+      )}
+      {showDocuments && (
+        <>
+          <Controls
+            instance={instance}
+            setDocuments={setDocuments}
+            selectedDocuments={selectedDocuments}
+          />
+          <ul>
+            {documents.map((doc) => (
+              <li key={doc.key}>
+                <Item
+                  onClick={() => {
+                    setSelectedDocuments(toggleItem(doc.key, selectedDocuments));
+                  }}
+                  documentKey={doc.key}
+                >
+                  {doc.key}
+                </Item>
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
     </div>
   );
 };
