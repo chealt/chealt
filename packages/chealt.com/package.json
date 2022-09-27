@@ -22,6 +22,7 @@
   },
   "devDependencies": {
     "bundlesize": "^0.18.1",
+    "rollup-plugin-html-minifier": "^2.0.0",
     "wmr": "^3.7.2"
   }
 }
