@@ -5,7 +5,8 @@
   "scripts": {
     "start": "wmr",
     "build": "wmr build",
-    "serve": "wmr serve"
+    "serve": "wmr serve",
+    "check:bundlesize": "bundlesize"
   },
   "dependencies": {
     "@chealt/browser-utils": "0.0.1",
@@ -20,6 +21,7 @@
     "workbox-recipes": "^6.5.4"
   },
   "devDependencies": {
+    "bundlesize": "^0.18.1",
     "wmr": "^3.7.2"
   }
 }
