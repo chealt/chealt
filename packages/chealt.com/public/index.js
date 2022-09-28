@@ -1,24 +1,20 @@
-import {
-  LocationProvider,
-  Router,
-  Route,
-  ErrorBoundary,
-  hydrate,
-  prerender as ssr
-} from 'preact-iso';
-import Home from './pages/Home';
-import Documents from './pages/Documents';
-import PersonalDetails from './pages/PersonalDetails';
-import View from './pages/View';
-import NotFound from './pages/_404';
+import { LocationProvider, Router, Route, hydrate, prerender as ssr } from 'preact-iso';
+import lazy, { ErrorBoundary } from 'preact-iso/lazy';
+
 import Header from './Header';
 import swURL from 'sw:./sw.js'; // eslint-disable-line import/no-unresolved
 import LayoutContainer from './Layout/Container';
-import Share from './pages/Share';
-import Vaccinations from './pages/Vaccinations';
 import Toast from './Toast';
 
 navigator.serviceWorker.register(swURL);
+
+const Home = lazy(() => import(`./pages/Home`));
+const Documents = lazy(() => import(`./pages/Documents`));
+const PersonalDetails = lazy(() => import('./pages/PersonalDetails'));
+const View = lazy(() => import('./pages/View'));
+const NotFound = lazy(() => import('./pages/_404'));
+const Share = lazy(() => import('./pages/Share'));
+const Vaccinations = lazy(() => import('./pages/Vaccinations'));
 
 const App = () => (
   <LocationProvider>
