@@ -9,18 +9,6 @@ const mapFile = async (file) => {
   return { blob, name, lastModified, size, type, hash };
 };
 
-const getDocument =
-  (instance) =>
-  ({ documentKey: key }) =>
-    instance.get({ type: 'documents', key });
-
-const getDocuments = (instance) => async () => {
-  const objects = await instance.list({ type: 'documents' });
-  const sortedObjects = objects.sort((a, b) => b.value.savedTimestamp - a.value.savedTimestamp);
-
-  return sortedObjects;
-};
-
 const getFiles = (event) => {
   if (event.target.files?.length) {
     return Array.from(event.target.files);
@@ -42,4 +30,4 @@ const isImage = (filename) =>
   supportedImageExtensions.includes(filename.slice(filename.lastIndexOf('.') + 1).toLowerCase());
 const isPDF = (filename) => filename.slice(filename.lastIndexOf('.') + 1).toLowerCase() === 'pdf';
 
-export { getFilesFromEvent, getDocuments, getDocument, isImage, isPDF };
+export { getFilesFromEvent, isImage, isPDF };

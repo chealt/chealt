@@ -12,6 +12,8 @@ import Button from '../Form/Button';
 import { add as addToast } from '../Toast';
 import { useObjectStore } from '../IndexedDB/hooks';
 
+const bySavedTime = (a, b) => b.value.savedTimestamp - a.value.savedTimestamp;
+
 const Documents = () => {
   const [selectedItems, setSelectedItems] = useState([]);
   const uploadDocumentInput = useRef(null);
@@ -27,9 +29,6 @@ const Documents = () => {
       addToast({ message: 'Failed to delete document(s)', role: 'alert' });
     }
   }, [deleteItems, selectedItems]);
-
-  const showDocuments = Boolean(documents.length);
-  const noDocuments = !documents.length;
 
   const uploadDocuments = async (event) => {
     event.preventDefault();
@@ -48,6 +47,10 @@ const Documents = () => {
 
     event.target.value = null; // clear the input after saving
   };
+
+  const showDocuments = Boolean(documents.length);
+  const noDocuments = !documents.length;
+  const sortedDocuments = documents.sort(bySavedTime);
 
   return (
     <div class={styles.documents}>
@@ -80,7 +83,7 @@ const Documents = () => {
         <>
           <Controls onDelete={deleteEnabled && deleteSelectedItems} />
           <ul>
-            {documents.map((doc) => (
+            {sortedDocuments.map((doc) => (
               <li key={doc.key}>
                 <Item
                   onClick={() => {
