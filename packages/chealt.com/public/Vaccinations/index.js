@@ -14,6 +14,7 @@ import HeadCell from '../Table/HeadCell';
 import Controls from './Controls';
 import { toggleItem } from '../Helpers/array';
 import { useObjectStore } from '../IndexedDB/hooks';
+import Vaccine from '../Icons/Vaccine';
 
 import styles from './index.module.css';
 
@@ -116,7 +117,7 @@ const Vaccinations = () => {
         </>
       )) || (
         <EmptyState>
-          {/* <DocumentsIcon /> */}
+          <Vaccine />
           <p>Your vaccinations will be shown here.</p>
           <Button emphasized onClick={() => setIsModalOpen(true)}>
             Start adding
