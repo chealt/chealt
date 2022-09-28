@@ -19,6 +19,8 @@ runs:
       shell: bash
       if: steps.cache.outputs.cache-hit != 'true'
       run: yarn install --immutable
+      env:
+        PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: "true"
     - name: Post install
       shell: bash
       if: steps.cache.outputs.cache-hit == 'true'
