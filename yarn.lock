@@ -2835,7 +2835,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@chealt/browser-utils@0.0.1, @chealt/browser-utils@workspace:packages/browser-utils":
+"@chealt/browser-utils@0.0.2, @chealt/browser-utils@workspace:packages/browser-utils":
   version: 0.0.0-use.local
   resolution: "@chealt/browser-utils@workspace:packages/browser-utils"
   languageName: unknown
@@ -2845,7 +2845,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@chealt/chealt.com@workspace:packages/chealt.com"
   dependencies:
-    "@chealt/browser-utils": 0.0.1
+    "@chealt/browser-utils": 0.0.2
     "@preact/signals": ^1.1.1
     "@wmrjs/service-worker": ^0.3.1
     bundlesize: ^0.18.1
@@ -2948,7 +2948,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@chealt/upload-worker@workspace:packages/upload-worker"
   dependencies:
-    "@chealt/browser-utils": 0.0.1
+    "@chealt/browser-utils": 0.0.2
     wrangler: ^2.1.8
   languageName: unknown
   linkType: soft
