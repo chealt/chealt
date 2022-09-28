@@ -23,7 +23,7 @@ const Vaccinations = () => {
   const [selectedItems, setSelectedItems] = useState([]);
   const deleteEnabled = Boolean(selectedItems.length);
   const { deleteItems, items, save } = useObjectStore('vaccinations');
-  const noVaccinations = Boolean(items.length);
+  const hasVaccinations = Boolean(items.length);
 
   const deleteSelectedItems = useCallback(async () => {
     try {
@@ -74,9 +74,9 @@ const Vaccinations = () => {
   return (
     <>
       <PageTitle>Vaccinations</PageTitle>
-      <Controls onDelete={deleteEnabled && deleteSelectedItems} />
-      {(noVaccinations && (
+      {(hasVaccinations && (
         <>
+          <Controls onDelete={deleteEnabled && deleteSelectedItems} />
           <div class={styles.vaccinations}>
             <Table>
               <Row>
