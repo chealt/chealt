@@ -5,6 +5,7 @@ const indexedDB =
   window.OIndexedDB ||
   window.msIndexedDB;
 const version = 6;
+const objectStoreNames = ['documents', 'personalDetails', 'vaccinations'];
 
 const db = async ({ database }) => {
   let instance;
@@ -26,31 +27,15 @@ const db = async ({ database }) => {
 
         const promises = [];
 
-        if (!instance.objectStoreNames.contains('documents')) {
-          const objectStore = instance.createObjectStore('documents');
-          promises.push(
-            new Promise((resolve) => {
-              objectStore.transaction.oncomplete = resolve;
-            })
-          );
-        }
-
-        if (!instance.objectStoreNames.contains('personalDetails')) {
-          const objectStore = instance.createObjectStore('personalDetails');
-          promises.push(
-            new Promise((resolve) => {
-              objectStore.transaction.oncomplete = resolve;
-            })
-          );
-        }
-
-        if (!instance.objectStoreNames.contains('vaccinations')) {
-          const objectStore = instance.createObjectStore('vaccinations');
-          promises.push(
-            new Promise((resolve) => {
-              objectStore.transaction.oncomplete = resolve;
-            })
-          );
+        for (const name in objectStoreNames) {
+          if (!instance.objectStoreNames.contains(name)) {
+            const objectStore = instance.createObjectStore(name);
+            promises.push(
+              new Promise((resolve) => {
+                objectStore.transaction.oncomplete = resolve;
+              })
+            );
+          }
         }
 
         return Promise.all(promises);
@@ -130,4 +115,5 @@ const db = async ({ database }) => {
   return { list, deleteItem, save, get };
 };
 
+export { objectStoreNames };
 export default db;

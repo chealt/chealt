@@ -1,6 +1,6 @@
 import swPlugin from '@wmrjs/service-worker';
+import htmlMinifier from 'rollup-plugin-html-minifier';
 
-// Full list of options: https://wmr.dev/docs/configuration
 export default (config) => {
   config.alias = {
     react: 'preact/compat',
@@ -8,4 +8,6 @@ export default (config) => {
   };
 
   swPlugin(config);
+
+  config.plugins.push(htmlMinifier({}));
 };

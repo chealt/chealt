@@ -1,44 +1,40 @@
 import { useEffect, useState } from 'preact/hooks';
 import { useRoute } from 'preact-iso';
 
-import database from '../IndexedDB';
-import { getDocument, isImage, isPDF } from './utils';
+import { isImage, isPDF } from './utils';
+import Link from '../Link';
+import { useObjectStore } from '../IndexedDB/hooks';
 
 import styles from './View.module.css';
-import Link from '../Link';
 
 const View = () => {
   const {
     params: { encodedDocumentKey }
   } = useRoute();
   const documentKey = atob(encodedDocumentKey);
-  const [instance, setInstance] = useState();
   const [imageSource, setImageSource] = useState();
   const [openedInNewTab, setOpenedInNewTab] = useState(false);
+  const { getItem } = useObjectStore('documents');
 
   useEffect(() => {
     (async () => {
-      if (!instance) {
-        setInstance(await database({ database: 'chealt' }));
+      const { blob, name } = await getItem(documentKey);
+
+      if (isImage(name)) {
+        const objectURL = URL.createObjectURL(new Blob([blob]));
+
+        setImageSource(objectURL);
+      } else if (isPDF(name)) {
+        const objectURL = URL.createObjectURL(new Blob([blob], { type: 'application/pdf' }));
+
+        window.open(objectURL);
+        setOpenedInNewTab(true);
       } else {
-        const { blob } = await getDocument(instance)({ documentKey });
-
-        if (isImage(documentKey)) {
-          const objectURL = URL.createObjectURL(new Blob([blob]));
-
-          setImageSource(objectURL);
-        } else if (isPDF(documentKey)) {
-          const objectURL = URL.createObjectURL(new Blob([blob], { type: 'application/pdf' }));
-
-          window.open(objectURL);
-          setOpenedInNewTab(true);
-        } else {
-          // eslint-disable-next-line no-console
-          console.log('Unsupported file extension.');
-        }
+        // eslint-disable-next-line no-console
+        console.log('Unsupported file extension.');
       }
     })();
-  }, [instance, documentKey]);
+  }, [getItem, documentKey]);
 
   return (
     <div class={styles.view}>

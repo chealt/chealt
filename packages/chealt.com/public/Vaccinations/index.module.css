@@ -1,3 +1,4 @@
 .vaccinations {
   margin: var(--gap--xl) 0;
+  overflow-x: auto;
 }

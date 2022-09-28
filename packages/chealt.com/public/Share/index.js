@@ -1,5 +1,4 @@
 import { useEffect, useState, useRef } from 'preact/hooks';
-import database from '../IndexedDB';
 import PageTitle from '../PageTitle';
 import Button from '../Form/Button';
 import List from '../List/List';
@@ -11,28 +10,23 @@ import QRCode from '../QRCode';
 import QrScanner from 'qr-scanner';
 import Modal from '../Modal';
 import { add as addToast } from '../Toast';
-import { savePersonalDetails } from '../PersonalDetails/utils';
-import { save as saveVaccination } from '../Vaccinations/utils';
+import { useObjectStore } from '../IndexedDB/hooks';
 
 import styles from './index.module.css';
 
 const Share = () => {
-  const [instance, setInstance] = useState();
   const [isModalOpen, setIsModalOpen] = useState();
   const [isQRCodeModalOpen, setIsQRCodeModalOpen] = useState();
   const [downloadUrl, setDownloadUrl] = useState();
   const [loadingDownloadUrl, setLoadingDownloadUrl] = useState();
   const ref = useRef();
+  const { items, save } = useObjectStore();
 
   const uploadContent = async () => {
     setLoadingDownloadUrl(true);
 
     try {
-      const personalDetails = await instance.list({ type: 'personalDetails' });
-      const documents = await instance.list({ type: 'documents' });
-      const vaccinations = await instance.list({ type: 'vaccinations' });
-
-      const downloadUrl = await upload({ personalDetails, documents, vaccinations });
+      const downloadUrl = await upload(items);
 
       setDownloadUrl(downloadUrl);
       setIsQRCodeModalOpen(true);
@@ -55,35 +49,9 @@ const Share = () => {
           qrScanner.stop();
 
           try {
-            const { personalDetails, documents, vaccinations } = await download(url);
+            const data = await download(url);
 
-            if (personalDetails) {
-              await savePersonalDetails({
-                instance,
-                personalDetails: personalDetails.map((detail) => ({
-                  key: detail.key,
-                  value: detail.value.value // remove saved timestamp so it is recreated
-                }))
-              });
-            }
-
-            if (documents) {
-              await Promise.all(
-                documents.map(({ key, value }) =>
-                  instance.save({
-                    type: 'documents',
-                    key,
-                    value
-                  })
-                )
-              );
-            }
-
-            if (vaccinations) {
-              await Promise.all(
-                vaccinations.map(({ key, value }) => saveVaccination({ instance, key, value }))
-              );
-            }
+            await save(data);
 
             addToast({ message: 'Download successful' });
           } catch (error) {
@@ -106,15 +74,7 @@ const Share = () => {
       qrScanner.stop();
       qrScanner.destroy();
     };
-  }, [isModalOpen, instance]);
-
-  useEffect(() => {
-    if (!instance) {
-      (async () => {
-        setInstance(await database({ database: 'chealt' }));
-      })();
-    }
-  }, [instance]);
+  }, [isModalOpen, save]);
 
   return (
     <>

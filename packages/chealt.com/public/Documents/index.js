@@ -1,33 +1,45 @@
-import { useEffect, useState, useRef } from 'preact/hooks';
+import { useCallback, useState, useRef } from 'preact/hooks';
 import FileInput from '../Form/FileInput';
-import Form from '../Form/Form';
 import PageTitle from '../PageTitle';
 import Controls from './Controls';
 import Item from './Item';
-import { getDocuments, uploadDocuments as getDocumentUploader } from './utils';
-import database from '../IndexedDB';
+import { getFilesFromEvent } from './utils';
 import styles from './index.module.css';
 import { toggleItem } from '../Helpers/array';
 import DocumentsIcon from '../Icons/Documents';
 import EmptyState from '../EmptyState';
 import Button from '../Form/Button';
 import { add as addToast } from '../Toast';
+import { useObjectStore } from '../IndexedDB/hooks';
+
+const bySavedTime = (a, b) => b.value.savedTimestamp - a.value.savedTimestamp;
 
 const Documents = () => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [documents, setDocuments] = useState([]);
-  const [selectedDocuments, setSelectedDocuments] = useState([]);
-  const [instance, setInstance] = useState();
+  const [selectedItems, setSelectedItems] = useState([]);
   const uploadDocumentInput = useRef(null);
+  const deleteEnabled = Boolean(selectedItems.length);
+  const { deleteItems, items: documents, save } = useObjectStore('documents');
 
-  const showDocuments = !isLoading && Boolean(documents.length);
-  const noDocuments = !isLoading && !documents.length;
+  const deleteSelectedItems = useCallback(async () => {
+    try {
+      await deleteItems(selectedItems);
+
+      addToast({ message: 'Document(s) deleted' });
+    } catch {
+      addToast({ message: 'Failed to delete document(s)', role: 'alert' });
+    }
+  }, [deleteItems, selectedItems]);
 
   const uploadDocuments = async (event) => {
-    try {
-      const documents = await getDocumentUploader(instance)(event);
+    event.preventDefault();
 
-      setDocuments(documents);
+    try {
+      const documents = await getFilesFromEvent(event);
+
+      for (const document of documents) {
+        await save({ key: crypto.randomUUID(), value: document });
+      }
+
       addToast({ message: 'Successfully uploaded document(s)' });
     } catch {
       addToast({ message: 'Failed to upload documents, please try again', role: 'alert' });
@@ -36,17 +48,9 @@ const Documents = () => {
     event.target.value = null; // clear the input after saving
   };
 
-  useEffect(() => {
-    (async () => {
-      if (!instance) {
-        setInstance(await database({ database: 'chealt' }));
-      } else {
-        const documents = await getDocuments(instance)();
-        setDocuments(documents);
-        setIsLoading(false);
-      }
-    })();
-  }, [instance]);
+  const showDocuments = Boolean(documents.length);
+  const noDocuments = !documents.length;
+  const sortedDocuments = documents.sort(bySavedTime);
 
   return (
     <div class={styles.documents}>
@@ -59,47 +63,41 @@ const Documents = () => {
       >
         Upload documents
       </FileInput>
-      <Form name="documents">
-        {noDocuments && (
-          <EmptyState>
-            <DocumentsIcon />
-            <p>Your uploaded documents will be shown here.</p>
-            <Button
-              emphasized
-              onClick={(event) => {
-                event.preventDefault();
+      {noDocuments && (
+        <EmptyState>
+          <DocumentsIcon />
+          <p>Your uploaded documents will be shown here.</p>
+          <Button
+            emphasized
+            onClick={(event) => {
+              event.preventDefault();
 
-                uploadDocumentInput.current.click();
-              }}
-            >
-              Start uploading
-            </Button>
-          </EmptyState>
-        )}
-        {showDocuments && (
-          <>
-            <Controls
-              instance={instance}
-              setDocuments={setDocuments}
-              selectedDocuments={selectedDocuments}
-            />
-            <ul>
-              {documents.map((doc) => (
-                <li key={doc.key}>
-                  <Item
-                    onClick={() => {
-                      setSelectedDocuments(toggleItem(doc.key, selectedDocuments));
-                    }}
-                    documentKey={doc.key}
-                  >
-                    {doc.key}
-                  </Item>
-                </li>
-              ))}
-            </ul>
-          </>
-        )}
-      </Form>
+              uploadDocumentInput.current.click();
+            }}
+          >
+            Start uploading
+          </Button>
+        </EmptyState>
+      )}
+      {showDocuments && (
+        <>
+          <Controls onDelete={deleteEnabled && deleteSelectedItems} />
+          <ul>
+            {sortedDocuments.map((doc) => (
+              <li key={doc.key}>
+                <Item
+                  onClick={() => {
+                    setSelectedItems(toggleItem(doc.key, selectedItems));
+                  }}
+                  documentKey={doc.key}
+                >
+                  {doc.value.name}
+                </Item>
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
     </div>
   );
 };
