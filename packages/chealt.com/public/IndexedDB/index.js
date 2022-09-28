@@ -27,7 +27,7 @@ const db = async ({ database }) => {
 
         const promises = [];
 
-        for (const name in objectStoreNames) {
+        for (const name of objectStoreNames) {
           if (!instance.objectStoreNames.contains(name)) {
             const objectStore = instance.createObjectStore(name);
             promises.push(
