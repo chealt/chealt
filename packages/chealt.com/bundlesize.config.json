@@ -2,11 +2,31 @@
   "files": [
     {
       "path": "./dist/index.*.js",
-      "maxSize": "34.65 kB"
+      "maxSize": "28 kB"
     },
     {
-      "path": "./dist/pages/**/*.js",
-      "maxSize": "67 B"
+      "path": "./dist/chunks/Documents.*.js",
+      "maxSize": "3.2 kB"
+    },
+    {
+      "path": "./dist/chunks/PersonalDetails.*.js",
+      "maxSize": "2.9 kB"
+    },
+    {
+      "path": "./dist/chunks/Home.*.js",
+      "maxSize": "1026 b"
+    },
+    {
+      "path": "./dist/chunks/View.*.js",
+      "maxSize": "958 b"
+    },
+    {
+      "path": "./dist/chunks/Share.*.js",
+      "maxSize": "71 kB"
+    },
+    {
+      "path": "./dist/chunks/Vaccinations.*.js",
+      "maxSize": "4.2 kB"
     }
   ]
 }
