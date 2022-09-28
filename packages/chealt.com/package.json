@@ -14,7 +14,7 @@
     "@wmrjs/service-worker": "^0.3.1",
     "classnames": "^2.3.2",
     "preact": "^10.11.0",
-    "preact-iso": "^2.3.0",
+    "preact-iso": "^2.3.1",
     "preact-render-to-string": "^5.2.4",
     "qr-code-styling": "^1.6.0-rc.1",
     "qr-scanner": "^1.4.1",
@@ -23,6 +23,6 @@
   "devDependencies": {
     "bundlesize": "^0.18.1",
     "rollup-plugin-html-minifier": "^2.0.0",
-    "wmr": "^3.7.2"
+    "wmr": "^3.8.0"
   }
 }

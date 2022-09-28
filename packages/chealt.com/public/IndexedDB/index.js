@@ -4,7 +4,7 @@ const indexedDB =
   window.mozIndexedDB ||
   window.OIndexedDB ||
   window.msIndexedDB;
-const version = 6;
+const version = 7;
 const objectStoreNames = ['documents', 'personalDetails', 'vaccinations'];
 
 const db = async ({ database }) => {
@@ -27,7 +27,7 @@ const db = async ({ database }) => {
 
         const promises = [];
 
-        for (const name in objectStoreNames) {
+        for (const name of objectStoreNames) {
           if (!instance.objectStoreNames.contains(name)) {
             const objectStore = instance.createObjectStore(name);
             promises.push(
