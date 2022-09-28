@@ -1,4 +1,6 @@
 import { useCallback, useState } from 'preact/hooks';
+
+import EmptyState from '../EmptyState';
 import Button from '../Form/Button';
 import Form from '../Form/Form';
 import Input from '../Form/Input';
@@ -20,6 +22,7 @@ const Vaccinations = () => {
   const [selectedItems, setSelectedItems] = useState([]);
   const deleteEnabled = Boolean(selectedItems.length);
   const { deleteItems, items, save } = useObjectStore('vaccinations');
+  const noVaccinations = Boolean(items.length);
 
   const deleteSelectedItems = useCallback(async () => {
     try {
@@ -71,45 +74,55 @@ const Vaccinations = () => {
     <>
       <PageTitle>Vaccinations</PageTitle>
       <Controls onDelete={deleteEnabled && deleteSelectedItems} />
-      {Boolean(items.length) && (
-        <div class={styles.vaccinations}>
-          <Table>
-            <Row>
-              <HeadCell />
-              <HeadCell>Name</HeadCell>
-              <HeadCell>Brand name</HeadCell>
-              <HeadCell>Date (of admin)</HeadCell>
-              <HeadCell>Batch No.</HeadCell>
-              <HeadCell>Route / Site</HeadCell>
-              <HeadCell>Immuniser</HeadCell>
-              <HeadCell>Venue</HeadCell>
-            </Row>
-            {items.map((vaccination) => (
-              <Row key={vaccination.key}>
-                <Cell>
-                  <Input
-                    type="checkbox"
-                    value={vaccination.key}
-                    onClick={() => {
-                      setSelectedItems(toggleItem(vaccination.key, selectedItems));
-                    }}
-                  />
-                </Cell>
-                <Cell>{vaccination.value.name}</Cell>
-                <Cell>{vaccination.value.brandName}</Cell>
-                <Cell>{vaccination.value.dateOfAdmin}</Cell>
-                <Cell>{vaccination.value.batchNo}</Cell>
-                <Cell>{vaccination.value.site}</Cell>
-                <Cell>{vaccination.value.immuniser}</Cell>
-                <Cell>{vaccination.value.venue}</Cell>
+      {(noVaccinations && (
+        <>
+          <div class={styles.vaccinations}>
+            <Table>
+              <Row>
+                <HeadCell />
+                <HeadCell>Name</HeadCell>
+                <HeadCell>Brand name</HeadCell>
+                <HeadCell>Date (of admin)</HeadCell>
+                <HeadCell>Batch No.</HeadCell>
+                <HeadCell>Route / Site</HeadCell>
+                <HeadCell>Immuniser</HeadCell>
+                <HeadCell>Venue</HeadCell>
               </Row>
-            ))}
-          </Table>
-        </div>
+              {items.map((vaccination) => (
+                <Row key={vaccination.key}>
+                  <Cell>
+                    <Input
+                      type="checkbox"
+                      value={vaccination.key}
+                      onClick={() => {
+                        setSelectedItems(toggleItem(vaccination.key, selectedItems));
+                      }}
+                    />
+                  </Cell>
+                  <Cell>{vaccination.value.name}</Cell>
+                  <Cell>{vaccination.value.brandName}</Cell>
+                  <Cell>{vaccination.value.dateOfAdmin}</Cell>
+                  <Cell>{vaccination.value.batchNo}</Cell>
+                  <Cell>{vaccination.value.site}</Cell>
+                  <Cell>{vaccination.value.immuniser}</Cell>
+                  <Cell>{vaccination.value.venue}</Cell>
+                </Row>
+              ))}
+            </Table>
+          </div>
+          <Button emphasized onClick={() => setIsModalOpen(true)}>
+            Add +
+          </Button>
+        </>
+      )) || (
+        <EmptyState>
+          {/* <DocumentsIcon /> */}
+          <p>Your vaccinations will be shown here.</p>
+          <Button emphasized onClick={() => setIsModalOpen(true)}>
+            Start adding
+          </Button>
+        </EmptyState>
       )}
-      <Button emphasized onClick={() => setIsModalOpen(true)}>
-        Add +
-      </Button>
       <Modal isOpen={isModalOpen} close={() => setIsModalOpen(false)}>
         <Form name="newVaccination" onSubmit={saveFormData}>
           <Input type="text" name="name" required="required">
