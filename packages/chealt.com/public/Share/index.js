@@ -12,9 +12,9 @@ import QrScanner from 'qr-scanner';
 import Modal from '../Modal';
 import { add as addToast } from '../Toast';
 import { savePersonalDetails } from '../PersonalDetails/utils';
-import { save as saveVaccination } from '../Vaccinations/utils';
 
 import styles from './index.module.css';
+import { useObjectStore } from '../IndexedDB/hooks';
 
 const Share = () => {
   const [instance, setInstance] = useState();
@@ -23,6 +23,7 @@ const Share = () => {
   const [downloadUrl, setDownloadUrl] = useState();
   const [loadingDownloadUrl, setLoadingDownloadUrl] = useState();
   const ref = useRef();
+  const { save: saveVaccination } = useObjectStore('vaccinations');
 
   const uploadContent = async () => {
     setLoadingDownloadUrl(true);
@@ -106,7 +107,7 @@ const Share = () => {
       qrScanner.stop();
       qrScanner.destroy();
     };
-  }, [isModalOpen, instance]);
+  }, [isModalOpen, instance, saveVaccination]);
 
   useEffect(() => {
     if (!instance) {

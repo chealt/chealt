@@ -1,5 +1,4 @@
-import { useCallback, useEffect, useState } from 'preact/hooks';
-import database from '../IndexedDB';
+import { useCallback, useState } from 'preact/hooks';
 import Button from '../Form/Button';
 import Form from '../Form/Form';
 import Input from '../Form/Input';
@@ -10,23 +9,29 @@ import Table from '../Table';
 import Row from '../Table/Row';
 import Cell from '../Table/Cell';
 import HeadCell from '../Table/HeadCell';
-import { save } from './utils';
-
-import styles from './index.module.css';
 import Controls from './Controls';
 import { toggleItem } from '../Helpers/array';
+import { useObjectStore } from '../IndexedDB/hooks';
+
+import styles from './index.module.css';
 
 const Vaccinations = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [vaccinations, setVaccinations] = useState([]);
-  const [instance, setInstance] = useState();
   const [selectedItems, setSelectedItems] = useState([]);
+  const deleteEnabled = Boolean(selectedItems.length);
+  const { deleteItems, items, save } = useObjectStore('vaccinations');
 
-  const loadVaccinations = useCallback(async () => {
-    const vaccinations = await instance.list({ type: 'vaccinations' });
+  const deleteSelectedItems = useCallback(async () => {
+    try {
+      await deleteItems(selectedItems);
 
-    setVaccinations(vaccinations);
-  }, [instance]);
+      addToast({ message: 'Vaccination(s) deleted' });
+
+      setSelectedItems([]);
+    } catch {
+      addToast({ message: 'Failed to delete vaccination(s)', role: 'alert' });
+    }
+  }, [deleteItems, selectedItems]);
 
   const saveFormData = async (event) => {
     event.preventDefault();
@@ -43,7 +48,7 @@ const Vaccinations = () => {
     };
 
     try {
-      await save({ instance, key: crypto.randomUUID(), value: vaccination });
+      await save({ key: crypto.randomUUID(), value: vaccination });
 
       // clear inputs
       name.value = null;
@@ -57,35 +62,16 @@ const Vaccinations = () => {
       setIsModalOpen(false);
 
       addToast({ message: 'Saved vaccination details' });
-
-      loadVaccinations();
     } catch {
       addToast({ message: 'Could not save vaccination details', role: 'alert' });
     }
   };
 
-  useEffect(() => {
-    if (!instance) {
-      (async () => {
-        setInstance(await database({ database: 'chealt' }));
-      })();
-    } else {
-      loadVaccinations();
-    }
-  }, [instance, loadVaccinations]);
-
   return (
     <>
       <PageTitle>Vaccinations</PageTitle>
-      <Controls
-        instance={instance}
-        selectedItems={selectedItems}
-        onDelete={() => {
-          setSelectedItems([]);
-          loadVaccinations();
-        }}
-      />
-      {Boolean(vaccinations.length) && (
+      <Controls onDelete={deleteEnabled && deleteSelectedItems} />
+      {Boolean(items.length) && (
         <div class={styles.vaccinations}>
           <Table>
             <Row>
@@ -98,7 +84,7 @@ const Vaccinations = () => {
               <HeadCell>Immuniser</HeadCell>
               <HeadCell>Venue</HeadCell>
             </Row>
-            {vaccinations.map((vaccination) => (
+            {items.map((vaccination) => (
               <Row key={vaccination.key}>
                 <Cell>
                   <Input
