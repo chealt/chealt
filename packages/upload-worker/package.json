@@ -4,7 +4,7 @@
   "private": true,
   "main": "./src/index.js",
   "dependencies": {
-    "@chealt/browser-utils": "0.0.1"
+    "@chealt/browser-utils": "0.0.2"
   },
   "devDependencies": {
     "wrangler": "^2.1.8"

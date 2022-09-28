@@ -9,7 +9,7 @@
     "check:bundlesize": "bundlesize"
   },
   "dependencies": {
-    "@chealt/browser-utils": "0.0.1",
+    "@chealt/browser-utils": "0.0.2",
     "@preact/signals": "^1.1.1",
     "@wmrjs/service-worker": "^0.3.1",
     "classnames": "^2.3.2",

@@ -1,4 +1,5 @@
 import { useCallback, useState } from 'preact/hooks';
+import { localFormatDate } from '@chealt/browser-utils';
 
 import EmptyState from '../EmptyState';
 import Button from '../Form/Button';
@@ -102,7 +103,7 @@ const Vaccinations = () => {
                   </Cell>
                   <Cell>{vaccination.value.name}</Cell>
                   <Cell>{vaccination.value.brandName}</Cell>
-                  <Cell>{vaccination.value.dateOfAdmin}</Cell>
+                  <Cell>{localFormatDate(vaccination.value.dateOfAdmin)}</Cell>
                   <Cell>{vaccination.value.batchNo}</Cell>
                   <Cell>{vaccination.value.site}</Cell>
                   <Cell>{vaccination.value.immuniser}</Cell>
