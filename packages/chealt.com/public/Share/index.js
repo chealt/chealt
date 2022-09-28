@@ -20,15 +20,13 @@ const Share = () => {
   const [downloadUrl, setDownloadUrl] = useState();
   const [loadingDownloadUrl, setLoadingDownloadUrl] = useState();
   const ref = useRef();
-  const { items: documents, save: saveDocuments } = useObjectStore('documents');
-  const { items: personalDetails, save: savePersonalDetails } = useObjectStore('personalDetails');
-  const { items: vaccinations, save: saveVaccination } = useObjectStore('vaccinations');
+  const { items, save } = useObjectStore();
 
   const uploadContent = async () => {
     setLoadingDownloadUrl(true);
 
     try {
-      const downloadUrl = await upload({ personalDetails, documents, vaccinations });
+      const downloadUrl = await upload(items);
 
       setDownloadUrl(downloadUrl);
       setIsQRCodeModalOpen(true);
@@ -51,25 +49,9 @@ const Share = () => {
           qrScanner.stop();
 
           try {
-            const { personalDetails, documents, vaccinations } = await download(url);
+            const data = await download(url);
 
-            if (personalDetails) {
-              for (const detail of personalDetails) {
-                await savePersonalDetails(detail);
-              }
-            }
-
-            if (documents) {
-              for (const document of documents) {
-                await saveDocuments(document);
-              }
-            }
-
-            if (vaccinations) {
-              for (const vaccination of vaccinations) {
-                await saveVaccination(vaccination);
-              }
-            }
+            await save(data);
 
             addToast({ message: 'Download successful' });
           } catch (error) {
@@ -92,7 +74,7 @@ const Share = () => {
       qrScanner.stop();
       qrScanner.destroy();
     };
-  }, [isModalOpen, saveDocuments, saveVaccination, savePersonalDetails]);
+  }, [isModalOpen, save]);
 
   return (
     <>

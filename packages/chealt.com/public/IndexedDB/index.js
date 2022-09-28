@@ -115,4 +115,5 @@ const db = async ({ database }) => {
   return { list, deleteItem, save, get };
 };
 
+export { objectStoreNames };
 export default db;
