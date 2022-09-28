@@ -18,16 +18,4 @@ const getImperialUnitHeight = (metricHeight) => {
 
 const getImperialUnitWeight = (metricWeight) => Math.floor(metricWeight / 0.454);
 
-const savePersonalDetails = ({ instance, personalDetails }) =>
-  Promise.all([
-    personalDetails.map(({ key, value }) =>
-      instance.save({ type: 'personalDetails', key, value: { value } })
-    )
-  ]);
-
-export {
-  transformPersonalDetails,
-  getImperialUnitWeight,
-  getImperialUnitHeight,
-  savePersonalDetails
-};
+export { transformPersonalDetails, getImperialUnitWeight, getImperialUnitHeight };

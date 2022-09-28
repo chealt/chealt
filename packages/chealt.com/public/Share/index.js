@@ -1,5 +1,4 @@
 import { useEffect, useState, useRef } from 'preact/hooks';
-import database from '../IndexedDB';
 import PageTitle from '../PageTitle';
 import Button from '../Form/Button';
 import List from '../List/List';
@@ -11,28 +10,24 @@ import QRCode from '../QRCode';
 import QrScanner from 'qr-scanner';
 import Modal from '../Modal';
 import { add as addToast } from '../Toast';
-import { savePersonalDetails } from '../PersonalDetails/utils';
-
-import styles from './index.module.css';
 import { useObjectStore } from '../IndexedDB/hooks';
 
+import styles from './index.module.css';
+
 const Share = () => {
-  const [instance, setInstance] = useState();
   const [isModalOpen, setIsModalOpen] = useState();
   const [isQRCodeModalOpen, setIsQRCodeModalOpen] = useState();
   const [downloadUrl, setDownloadUrl] = useState();
   const [loadingDownloadUrl, setLoadingDownloadUrl] = useState();
   const ref = useRef();
-  const { save: saveVaccination } = useObjectStore('vaccinations');
+  const { items: documents, save: saveDocuments } = useObjectStore('documents');
+  const { items: personalDetails, save: savePersonalDetails } = useObjectStore('personalDetails');
+  const { items: vaccinations, save: saveVaccination } = useObjectStore('vaccinations');
 
   const uploadContent = async () => {
     setLoadingDownloadUrl(true);
 
     try {
-      const personalDetails = await instance.list({ type: 'personalDetails' });
-      const documents = await instance.list({ type: 'documents' });
-      const vaccinations = await instance.list({ type: 'vaccinations' });
-
       const downloadUrl = await upload({ personalDetails, documents, vaccinations });
 
       setDownloadUrl(downloadUrl);
@@ -59,31 +54,21 @@ const Share = () => {
             const { personalDetails, documents, vaccinations } = await download(url);
 
             if (personalDetails) {
-              await savePersonalDetails({
-                instance,
-                personalDetails: personalDetails.map((detail) => ({
-                  key: detail.key,
-                  value: detail.value.value // remove saved timestamp so it is recreated
-                }))
-              });
+              for (const detail of personalDetails) {
+                await savePersonalDetails(detail);
+              }
             }
 
             if (documents) {
-              await Promise.all(
-                documents.map(({ key, value }) =>
-                  instance.save({
-                    type: 'documents',
-                    key,
-                    value
-                  })
-                )
-              );
+              for (const document of documents) {
+                await saveDocuments(document);
+              }
             }
 
             if (vaccinations) {
-              await Promise.all(
-                vaccinations.map(({ key, value }) => saveVaccination({ instance, key, value }))
-              );
+              for (const vaccination of vaccinations) {
+                await saveVaccination(vaccination);
+              }
             }
 
             addToast({ message: 'Download successful' });
@@ -107,15 +92,7 @@ const Share = () => {
       qrScanner.stop();
       qrScanner.destroy();
     };
-  }, [isModalOpen, instance, saveVaccination]);
-
-  useEffect(() => {
-    if (!instance) {
-      (async () => {
-        setInstance(await database({ database: 'chealt' }));
-      })();
-    }
-  }, [instance]);
+  }, [isModalOpen, saveDocuments, saveVaccination, savePersonalDetails]);
 
   return (
     <>
