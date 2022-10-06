@@ -1,10 +1,10 @@
-import classNames from 'classnames';
+import classnames from 'classnames';
 
 import styles from './Input.module.css';
 
 const Input = ({ children, ...inputProps }) => (
   <label
-    class={classNames({
+    class={classnames({
       [styles.label]: true,
       [styles.inline]: inputProps.type === 'checkbox'
     })}

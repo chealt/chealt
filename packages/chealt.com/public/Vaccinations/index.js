@@ -126,7 +126,7 @@ const Vaccinations = () => {
         </EmptyState>
       )}
       <Modal isOpen={isModalOpen} close={() => setIsModalOpen(false)}>
-        <Form name="newVaccination" onSubmit={saveFormData}>
+        <Form name="newVaccination" onSubmit={saveFormData} classNames={styles.newVaccination}>
           <Input type="text" name="name" required="required">
             Name
           </Input>

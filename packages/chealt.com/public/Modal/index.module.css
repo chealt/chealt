@@ -5,8 +5,8 @@
   background-color: var(--color-background);
   border: 8px solid rgb(38 46 72 / 15%);
   justify-content: center;
-  align-items: center;
   padding: var(--gap--xl);
+  overflow-y: auto;
 }
 
 @media (min-width: 600px) {
@@ -17,7 +17,7 @@
 }
 
 .open {
-  display: flex;
+  display: block;
 }
 
 .close {
