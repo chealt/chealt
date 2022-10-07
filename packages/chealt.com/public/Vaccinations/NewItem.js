@@ -2,10 +2,12 @@ import Button from '../Form/Button';
 import Form from '../Form/Form';
 import Input from '../Form/Input';
 import { add as addToast } from '../Toast';
+import vaccinations from './vaccinations.json';
 
 import styles from './NewItem.module.css';
 
 const NewItem = ({ save, onDone }) => {
+  const localVaccinations = vaccinations[navigator.language || 'en-US']?.items;
   const saveFormData = async (event) => {
     event.preventDefault();
 
@@ -42,8 +44,15 @@ const NewItem = ({ save, onDone }) => {
 
   return (
     <Form name="newVaccination" onSubmit={saveFormData} classNames={styles.newVaccination}>
-      <Input type="text" name="name" required="required">
+      <Input type="text" name="name" required="required" list="name">
         Name
+        {localVaccinations && (
+          <datalist id="name">
+            {localVaccinations.map(({ name }) => (
+              <option key={name} value={name} />
+            ))}
+          </datalist>
+        )}
       </Input>
       <Input type="text" name="brandName" required="required">
         Brand Name
