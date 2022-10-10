@@ -3,7 +3,6 @@ import { localFormatDate } from '@chealt/browser-utils';
 
 import EmptyState from '../EmptyState';
 import Button from '../Form/Button';
-import Form from '../Form/Form';
 import Input from '../Form/Input';
 import Modal from '../Modal';
 import PageTitle from '../PageTitle';
@@ -16,6 +15,7 @@ import Controls from './Controls';
 import { toggleItem } from '../Helpers/array';
 import { useObjectStore } from '../IndexedDB/hooks';
 import Vaccine from '../Icons/Vaccine';
+import NewItem from './NewItem';
 
 import styles from './index.module.css';
 
@@ -23,7 +23,7 @@ const Vaccinations = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedItems, setSelectedItems] = useState([]);
   const deleteEnabled = Boolean(selectedItems.length);
-  const { deleteItems, items, save } = useObjectStore('vaccinations');
+  const { deleteItems, save, items } = useObjectStore('vaccinations');
   const hasVaccinations = Boolean(items.length);
 
   const deleteSelectedItems = useCallback(async () => {
@@ -37,40 +37,6 @@ const Vaccinations = () => {
       addToast({ message: 'Failed to delete vaccination(s)', role: 'alert' });
     }
   }, [deleteItems, selectedItems]);
-
-  const saveFormData = async (event) => {
-    event.preventDefault();
-
-    const { name, brandName, dateOfAdmin, batchNo, site, immuniser, venue } = event.target;
-    const vaccination = {
-      name: name.value,
-      brandName: brandName.value,
-      dateOfAdmin: dateOfAdmin.value,
-      batchNo: batchNo.value,
-      site: site.value,
-      immuniser: immuniser.value,
-      venue: venue.value
-    };
-
-    try {
-      await save({ key: crypto.randomUUID(), value: vaccination });
-
-      // clear inputs
-      name.value = null;
-      brandName.value = null;
-      dateOfAdmin.value = null;
-      batchNo.value = null;
-      site.value = null;
-      immuniser.value = null;
-      venue.value = null;
-
-      setIsModalOpen(false);
-
-      addToast({ message: 'Saved vaccination details' });
-    } catch {
-      addToast({ message: 'Could not save vaccination details', role: 'alert' });
-    }
-  };
 
   return (
     <>
@@ -126,30 +92,7 @@ const Vaccinations = () => {
         </EmptyState>
       )}
       <Modal isOpen={isModalOpen} close={() => setIsModalOpen(false)}>
-        <Form name="newVaccination" onSubmit={saveFormData} classNames={styles.newVaccination}>
-          <Input type="text" name="name" required="required">
-            Name
-          </Input>
-          <Input type="text" name="brandName" required="required">
-            Brand Name
-          </Input>
-          <Input type="date" name="dateOfAdmin" required="required">
-            Date of admin
-          </Input>
-          <Input type="text" name="batchNo">
-            Batch No.
-          </Input>
-          <Input type="text" name="site">
-            Site / Route
-          </Input>
-          <Input type="text" name="immuniser">
-            Immuniser
-          </Input>
-          <Input type="text" name="venue">
-            Venue
-          </Input>
-          <Button emphasized>Save</Button>
-        </Form>
+        <NewItem save={save} onDone={() => setIsModalOpen(false)} />
       </Modal>
     </>
   );

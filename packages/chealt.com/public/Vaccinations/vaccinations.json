@@ -1,0 +1,104 @@
+{
+  "en-US": {
+    "items": [
+      {
+        "name": "6-in-1 vaccine",
+        "conditions": [
+          {
+            "name": "diphtheria"
+          },
+          {
+            "name": "hepatitis B"
+          },
+          {
+            "name": "Hib (Haemophilus influenzae type b)"
+          },
+          {
+            "name": "polio"
+          },
+          {
+            "name": "tetanus"
+          },
+          {
+            "name": "whooping cough (pertussis)"
+          }
+        ]
+      },
+      {
+        "name": "Rotavirus vaccine",
+        "conditions": [
+          {
+            "name": "rotavirus"
+          }
+        ]
+      },
+      {
+        "name": "MenB",
+        "conditions": [
+          {
+            "name": "meningococcal group B bacteria"
+          }
+        ]
+      },
+      {
+        "name": "Pneumococcal (PCV) vaccine",
+        "conditions": [
+          {
+            "name": "pneumococcal infection"
+          }
+        ]
+      }
+    ]
+  },
+  "en-GB": {
+    "items": [
+      {
+        "name": "6-in-1 vaccine",
+        "conditions": [
+          {
+            "name": "diphtheria"
+          },
+          {
+            "name": "hepatitis B"
+          },
+          {
+            "name": "Hib (Haemophilus influenzae type b)"
+          },
+          {
+            "name": "polio"
+          },
+          {
+            "name": "tetanus"
+          },
+          {
+            "name": "whooping cough (pertussis)"
+          }
+        ]
+      },
+      {
+        "name": "Rotavirus vaccine",
+        "conditions": [
+          {
+            "name": "rotavirus"
+          }
+        ]
+      },
+      {
+        "name": "MenB",
+        "conditions": [
+          {
+            "name": "meningococcal group B bacteria"
+          }
+        ]
+      },
+      {
+        "name": "Pneumococcal (PCV) vaccine",
+        "conditions": [
+          {
+            "name": "pneumococcal infection"
+          }
+        ]
+      }
+    ]
+  }
+}
