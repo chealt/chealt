@@ -29,7 +29,7 @@
     "node": ">=14"
   },
   "dependencies": {
-    "express": "^4.18.1",
+    "express": "^4.18.2",
     "glob": "^8.0.3",
     "winston": "^3.8.2"
   },
