@@ -9,7 +9,10 @@ const Input = ({ children, ...inputProps }) => (
       [styles.inline]: inputProps.type === 'checkbox'
     })}
   >
-    <div class={styles.text}>{children}</div>
+    <div class={styles.text}>
+      {children}
+      {inputProps.required && '*'}
+    </div>
     <input class={styles.input} {...inputProps} />
   </label>
 );
