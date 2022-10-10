@@ -26,7 +26,7 @@
     },
     {
       "path": "./dist/chunks/Vaccinations.*.js",
-      "maxSize": "1.63 kB"
+      "maxSize": "1.95 kB"
     }
   ]
 }
