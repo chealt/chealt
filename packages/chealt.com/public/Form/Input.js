@@ -2,7 +2,7 @@ import classnames from 'classnames';
 
 import styles from './Input.module.css';
 
-const Input = ({ children, ...inputProps }) => (
+const Input = ({ children, showRequired = true, ...inputProps }) => (
   <label
     class={classnames({
       [styles.label]: true,
@@ -11,7 +11,7 @@ const Input = ({ children, ...inputProps }) => (
   >
     <div class={styles.text}>
       {children}
-      {inputProps.required && '*'}
+      {inputProps.required && showRequired && ' (required)'}
     </div>
     <input class={styles.input} {...inputProps} />
   </label>
