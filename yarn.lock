@@ -5021,10 +5021,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"caniuse-lite@npm:^1.0.30001418":
-  version: 1.0.30001418
-  resolution: "caniuse-lite@npm:1.0.30001418"
-  checksum: 03380a9ba50b1abd0081e76bfdf331bfb2c28f2277ce5eead5b83960c4db9f1fbbd84a536efa6f8f1fe2c038bc01129d6c42d17f8323fe99a016a5da3829c4bc
+"caniuse-lite@npm:^1.0.30001419":
+  version: 1.0.30001419
+  resolution: "caniuse-lite@npm:1.0.30001419"
+  checksum: 7a4dc2794a6773574b5aebcd1c9c0d56159654821714152d8a0b04e261e1522bfd3d86589b8406ce81c7bf5b706118b73b2cb85d577ae433e303dd48ac9ff65f
   languageName: node
   linkType: hard
 
@@ -5092,7 +5092,7 @@ __metadata:
     babel-plugin-transform-require-extensions: ^2.0.1
     browserslist: ^4.21.4
     bundlesize: ^0.18.1
-    caniuse-lite: ^1.0.30001418
+    caniuse-lite: ^1.0.30001419
     eslint: ^8.25.0
     eslint-config-preact: ^1.3.0
     eslint-config-prettier: ^8.5.0
