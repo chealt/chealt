@@ -17,12 +17,13 @@ const NewItem = ({ save, onDone }) => {
 
     const { name, brandName, dateOfAdmin, batchNo, site, immuniser, venue } = event.target;
     const vaccination = {
-      name: name.value,
-      brandName: brandName.value,
-      dateOfAdmin: dateOfAdmin.value,
       batchNo: batchNo.value,
-      site: site.value,
+      brandName: brandName.value,
+      conditions: conditions.split(','),
+      dateOfAdmin: dateOfAdmin.value,
       immuniser: immuniser.value,
+      name: name.value,
+      site: site.value,
       venue: venue.value
     };
 
