@@ -73,6 +73,22 @@
   background: none;
 }
 
+/* TAG CONTAINER */
+.tagContainer {
+  display: flex;
+}
+
+.tagContainer .input {
+  border-right-width: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.tagContainer .button {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
 .label {
   display: flex;
   flex-direction: column;

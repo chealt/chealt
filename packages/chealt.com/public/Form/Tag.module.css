@@ -1,0 +1,22 @@
+.tagsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap);
+}
+
+.tag {
+  white-space: nowrap;
+  background-color: var(--color-brand--light);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.tagText,
+.deleteIcon {
+  padding: var(--gap);
+}
+
+.deleteIcon {
+  font-weight: bold;
+}

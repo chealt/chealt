@@ -1,24 +1,29 @@
+import { useState } from 'preact/hooks';
+
 import Button from '../Form/Button';
 import Form from '../Form/Form';
 import Input from '../Form/Input';
 import { add as addToast } from '../Toast';
-import vaccinations from './vaccinations.json';
+import { getConditions, getLocalVaccinations } from './utils';
 
 import styles from './NewItem.module.css';
 
 const NewItem = ({ save, onDone }) => {
-  const localVaccinations = vaccinations[navigator.language || 'en-US']?.items;
+  const [conditions, setConditions] = useState();
+  const locale = navigator.language || 'en-US';
+  const localVaccinations = getLocalVaccinations(locale);
   const saveFormData = async (event) => {
     event.preventDefault();
 
     const { name, brandName, dateOfAdmin, batchNo, site, immuniser, venue } = event.target;
     const vaccination = {
-      name: name.value,
-      brandName: brandName.value,
-      dateOfAdmin: dateOfAdmin.value,
       batchNo: batchNo.value,
-      site: site.value,
+      brandName: brandName.value,
+      conditions: conditions.split(','),
+      dateOfAdmin: dateOfAdmin.value,
       immuniser: immuniser.value,
+      name: name.value,
+      site: site.value,
       venue: venue.value
     };
 
@@ -33,6 +38,7 @@ const NewItem = ({ save, onDone }) => {
       site.value = null;
       immuniser.value = null;
       venue.value = null;
+      setConditions(null);
 
       addToast({ message: 'Saved vaccination details' });
 
@@ -44,7 +50,16 @@ const NewItem = ({ save, onDone }) => {
 
   return (
     <Form name="newVaccination" onSubmit={saveFormData} classNames={styles.newVaccination}>
-      <Input type="text" name="name" required="required" list="name">
+      <Input
+        type="text"
+        name="name"
+        required="required"
+        list="name"
+        onChange={(event) => {
+          const vaccinationName = event.target.value;
+          setConditions(getConditions({ vaccinationName, locale }));
+        }}
+      >
         Name
         {localVaccinations && (
           <datalist id="name">
@@ -60,6 +75,24 @@ const NewItem = ({ save, onDone }) => {
       <Input type="date" name="dateOfAdmin" required="required">
         Date of admin
       </Input>
+      <Input
+        type="tag"
+        name="conditions"
+        value={conditions}
+        deleteItem={(value) => {
+          setConditions(
+            conditions
+              .split(',')
+              .filter((condition) => condition !== value)
+              .join(',')
+          );
+        }}
+        addItem={(value) => {
+          setConditions(conditions ? `${conditions},${value}` : value);
+        }}
+      >
+        Conditions
+      </Input>
       <Input type="text" name="batchNo">
         Batch No.
       </Input>
@@ -72,7 +105,9 @@ const NewItem = ({ save, onDone }) => {
       <Input type="text" name="venue">
         Venue
       </Input>
-      <Button emphasized>Save</Button>
+      <Button emphasized type="submit">
+        Save
+      </Button>
     </Form>
   );
 };
