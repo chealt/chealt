@@ -2,7 +2,7 @@ import classnames from 'classnames';
 
 import styles from './Input.module.css';
 
-const Button = ({ children, emphasized, ghost, className, ...rest }) => (
+const Button = ({ children, emphasized, ghost, className, type, ...rest }) => (
   <button
     class={classnames({
       [styles.button]: true,
@@ -10,6 +10,7 @@ const Button = ({ children, emphasized, ghost, className, ...rest }) => (
       [styles.ghost]: Boolean(ghost),
       [className]: Boolean(className)
     })}
+    type={type || 'button'}
     {...rest}
   >
     {children}

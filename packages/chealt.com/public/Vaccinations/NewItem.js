@@ -105,7 +105,9 @@ const NewItem = ({ save, onDone }) => {
       <Input type="text" name="venue">
         Venue
       </Input>
-      <Button emphasized>Save</Button>
+      <Button emphasized type="submit">
+        Save
+      </Button>
     </Form>
   );
 };
