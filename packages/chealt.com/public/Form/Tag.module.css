@@ -12,11 +12,11 @@
   align-items: center;
 }
 
-.tagText {
-  border-right: 1px solid currentColor;
-}
-
 .tagText,
 .deleteIcon {
   padding: var(--gap);
+}
+
+.deleteIcon {
+  font-weight: bold;
 }

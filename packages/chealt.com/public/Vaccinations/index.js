@@ -4,6 +4,7 @@ import { localFormatDate } from '@chealt/browser-utils';
 import EmptyState from '../EmptyState';
 import Button from '../Form/Button';
 import Input from '../Form/Input';
+import Tag from '../Form/Tag';
 import Modal from '../Modal';
 import PageTitle from '../PageTitle';
 import { add as addToast } from '../Toast';
@@ -51,6 +52,7 @@ const Vaccinations = () => {
                 <HeadCell>Name</HeadCell>
                 <HeadCell>Brand name</HeadCell>
                 <HeadCell>Date (of admin)</HeadCell>
+                <HeadCell>Conditions</HeadCell>
                 <HeadCell>Batch No.</HeadCell>
                 <HeadCell>Route / Site</HeadCell>
                 <HeadCell>Immuniser</HeadCell>
@@ -70,6 +72,9 @@ const Vaccinations = () => {
                   <Cell>{vaccination.value.name}</Cell>
                   <Cell>{vaccination.value.brandName}</Cell>
                   <Cell>{localFormatDate(vaccination.value.dateOfAdmin)}</Cell>
+                  <Cell>
+                    <Tag value={vaccination.value.conditions.join(',')} />
+                  </Cell>
                   <Cell>{vaccination.value.batchNo}</Cell>
                   <Cell>{vaccination.value.site}</Cell>
                   <Cell>{vaccination.value.immuniser}</Cell>
