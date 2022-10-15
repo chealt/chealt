@@ -4,9 +4,9 @@ import Button from '../Form/Button';
 import Form from '../Form/Form';
 import Input from '../Form/Input';
 import { add as addToast } from '../Toast';
+import { getConditions, getLocalVaccinations } from './utils';
 
 import styles from './NewItem.module.css';
-import { getConditions, getLocalVaccinations } from './utils';
 
 const NewItem = ({ save, onDone }) => {
   const [conditions, setConditions] = useState();
