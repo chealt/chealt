@@ -1,0 +1,12 @@
+.tagsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap);
+}
+
+.tag {
+  white-space: nowrap;
+  padding: calc(var(--gap--m) * 0.5);
+  background-color: var(--color-brand--light);
+  border-radius: 5px;
+}

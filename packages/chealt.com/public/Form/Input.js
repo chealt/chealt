@@ -1,4 +1,5 @@
 import classnames from 'classnames';
+import Tag from './Tag';
 
 import styles from './Input.module.css';
 
@@ -13,7 +14,11 @@ const Input = ({ children, showRequired = true, ...inputProps }) => (
       {children}
       {inputProps.required && showRequired && ' (required)'}
     </div>
-    <input class={styles.input} {...inputProps} />
+    {inputProps.type === 'tag' ? (
+      <Tag {...inputProps} />
+    ) : (
+      <input class={styles.input} {...inputProps} />
+    )}
   </label>
 );
 
