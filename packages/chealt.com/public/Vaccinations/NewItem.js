@@ -73,7 +73,22 @@ const NewItem = ({ save, onDone }) => {
       <Input type="date" name="dateOfAdmin" required="required">
         Date of admin
       </Input>
-      <Input type="tag" name="conditions" value={conditions}>
+      <Input
+        type="tag"
+        name="conditions"
+        value={conditions}
+        deleteItem={(value) => {
+          setConditions(
+            conditions
+              .split(',')
+              .filter((condition) => condition !== value)
+              .join(',')
+          );
+        }}
+        addItem={(value) => {
+          setConditions(conditions ? `${conditions},${value}` : value);
+        }}
+      >
         Conditions
       </Input>
       <Input type="text" name="batchNo">
