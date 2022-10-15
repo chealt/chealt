@@ -1,9 +1,10 @@
+import { useRef } from 'preact/hooks';
 import classnames from 'classnames';
+
 import Tag from './Tag';
+import Button from './Button';
 
 import styles from './Input.module.css';
-import Button from './Button';
-import { useRef } from 'preact/hooks';
 
 const Input = ({ children, showRequired = true, type, value, ...inputProps }) => {
   const tagInput = useRef(null);
@@ -21,7 +22,7 @@ const Input = ({ children, showRequired = true, type, value, ...inputProps }) =>
           {inputProps.required && showRequired && ' (required)'}
         </div>
         {type === 'tag' ? (
-          <>
+          <div class={styles.tagContainer}>
             <input class={styles.input} type="text" {...inputProps} ref={tagInput} />
             <Button
               onClick={(event) => {
@@ -35,7 +36,7 @@ const Input = ({ children, showRequired = true, type, value, ...inputProps }) =>
             >
               add
             </Button>
-          </>
+          </div>
         ) : (
           <input class={styles.input} type={type} value={value} {...inputProps} />
         )}
