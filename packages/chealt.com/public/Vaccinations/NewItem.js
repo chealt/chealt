@@ -38,6 +38,7 @@ const NewItem = ({ save, onDone }) => {
       site.value = null;
       immuniser.value = null;
       venue.value = null;
+      setConditions(null);
 
       addToast({ message: 'Saved vaccination details' });
 
