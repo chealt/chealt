@@ -5,6 +5,9 @@ import Header from './Header';
 import swURL from 'sw:./sw.js'; // eslint-disable-line import/no-unresolved
 import LayoutContainer from './Layout/Container';
 import Toast from './Toast';
+import { useObjectStore } from './IndexedDB/hooks';
+import { useEffect, useState } from 'preact/hooks';
+import { initProfiles } from './Profile/utils';
 
 navigator.serviceWorker.register(swURL);
 
@@ -17,28 +20,51 @@ const Vaccinations = lazy(() => import('./pages/Vaccinations'));
 const Profile = lazy(() => import('./pages/Profile'));
 const NotFound = lazy(() => import('./pages/_404'));
 
-const App = () => (
-  <LocationProvider>
-    <Header />
-    <main>
-      <LayoutContainer largeLimit>
-        <ErrorBoundary>
-          <Router>
-            <Route path="/" component={Home} />
-            <Route path="/documents" component={Documents} />
-            <Route path="/documents/view/:encodedDocumentKey" component={View} />
-            <Route path="/share" component={Share} />
-            <Route path="/personal-details" component={PersonalDetails} />
-            <Route path="/vaccinations" component={Vaccinations} />
-            <Route path="/profile" component={Profile} />
-            <Route default component={NotFound} />
-          </Router>
-        </ErrorBoundary>
-      </LayoutContainer>
-    </main>
-    <Toast />
-  </LocationProvider>
-);
+const App = () => {
+  const [isProfileInitialized, setIsProfilesInitialized] = useState(false);
+  const { instance } = useObjectStore('profiles');
+
+  useEffect(() => {
+    (async () => {
+      if (instance) {
+        try {
+          await initProfiles({ instance });
+
+          setIsProfilesInitialized(true);
+        } catch {
+          setIsProfilesInitialized(true);
+        }
+      }
+    })();
+  }, [instance]);
+
+  if (!isProfileInitialized) {
+    return null;
+  }
+
+  return (
+    <LocationProvider>
+      <Header />
+      <main>
+        <LayoutContainer largeLimit>
+          <ErrorBoundary>
+            <Router>
+              <Route path="/" component={Home} />
+              <Route path="/documents" component={Documents} />
+              <Route path="/documents/view/:encodedDocumentKey" component={View} />
+              <Route path="/share" component={Share} />
+              <Route path="/personal-details" component={PersonalDetails} />
+              <Route path="/vaccinations" component={Vaccinations} />
+              <Route path="/profile" component={Profile} />
+              <Route default component={NotFound} />
+            </Router>
+          </ErrorBoundary>
+        </LayoutContainer>
+      </main>
+      <Toast />
+    </LocationProvider>
+  );
+};
 
 hydrate(<App />);
 
