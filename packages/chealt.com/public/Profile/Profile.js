@@ -42,6 +42,15 @@ const Profile = () => {
     }
   };
 
+  const selectProfile = async (key) => {
+    for (const profile of profiles) {
+      await save({
+        key: profile.key,
+        value: { ...profile.value, isSelected: profile.key === key }
+      });
+    }
+  };
+
   return (
     <>
       <PageTitle>Profile</PageTitle>
@@ -52,12 +61,17 @@ const Profile = () => {
         </p>
         {Boolean(profiles) && (
           <List>
-            {profiles.map(({ key, value: { name } }) => (
+            {profiles.map(({ key, value: { name, isSelected } }) => (
               <ListItem key={key} className={styles.profileItem}>
                 <span>{name}</span>
-                <Button ghost onClick={() => confirmAndDelete(key)}>
-                  X
-                </Button>
+                {!isSelected && (
+                  <>
+                    <Button onClick={() => selectProfile(key)}>select</Button>
+                    <Button ghost onClick={() => confirmAndDelete(key)}>
+                      X
+                    </Button>
+                  </>
+                )}
               </ListItem>
             ))}
           </List>
