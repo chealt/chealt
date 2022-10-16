@@ -4,8 +4,8 @@ const indexedDB =
   window.mozIndexedDB ||
   window.OIndexedDB ||
   window.msIndexedDB;
-const version = 7;
-const objectStoreNames = ['documents', 'personalDetails', 'vaccinations'];
+const version = 9;
+const objectStoreNames = ['documents', 'personalDetails', 'vaccinations', 'profiles'];
 
 const db = async ({ database }) => {
   let instance;
