@@ -1,7 +1,12 @@
 .profileItem {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-end;
+  gap: var(--gap);
+}
+
+.name {
+  align-self: center;
 }
 
 .profileItem > *:first-child {

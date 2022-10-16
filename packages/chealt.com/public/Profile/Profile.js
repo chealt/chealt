@@ -9,8 +9,10 @@ import ListItem from '../List/ListItem';
 import PageTitle from '../PageTitle';
 
 import styles from './Profile.module.css';
+import { useState } from 'preact/hooks';
 
 const Profile = () => {
+  const [profileToRenameKey, setProfileToRenameKey] = useState();
   const { items: profiles, save, deleteItems: deleteProfile } = useObjectStore('profiles');
 
   const createProfile = async (event) => {
@@ -63,15 +65,22 @@ const Profile = () => {
           <List>
             {profiles.map(({ key, value: { name, isSelected } }) => (
               <ListItem key={key} className={styles.profileItem}>
-                <span>{name}</span>
-                {!isSelected && (
+                {profileToRenameKey === key ? (
                   <>
-                    <Button onClick={() => selectProfile(key)}>select</Button>
-                    <Button ghost onClick={() => confirmAndDelete(key)}>
-                      X
-                    </Button>
+                    <Input name={name} required="required" value={name}>
+                      Name
+                    </Input>
                   </>
+                ) : (
+                  <span class={styles.name}>{name}</span>
                 )}
+                <Button onClick={() => setProfileToRenameKey(key)}>rename</Button>
+                <Button disabled={isSelected} onClick={() => selectProfile(key)}>
+                  select
+                </Button>
+                <Button disabled={isSelected} ghost onClick={() => confirmAndDelete(key)}>
+                  X
+                </Button>
               </ListItem>
             ))}
           </List>
