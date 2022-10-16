@@ -69,7 +69,7 @@ const NewItem = ({ save, onDone }) => {
           </datalist>
         )}
       </Input>
-      <Input type="text" name="brandName" required="required">
+      <Input type="text" name="brandName">
         Brand Name
       </Input>
       <Input type="date" name="dateOfAdmin" required="required">
