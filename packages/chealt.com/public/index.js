@@ -10,11 +10,12 @@ navigator.serviceWorker.register(swURL);
 
 const Home = lazy(() => import(`./pages/Home`));
 const Documents = lazy(() => import(`./pages/Documents`));
-const PersonalDetails = lazy(() => import('./pages/PersonalDetails'));
 const View = lazy(() => import('./pages/View'));
-const NotFound = lazy(() => import('./pages/_404'));
+const PersonalDetails = lazy(() => import('./pages/PersonalDetails'));
 const Share = lazy(() => import('./pages/Share'));
 const Vaccinations = lazy(() => import('./pages/Vaccinations'));
+const Profile = lazy(() => import('./pages/Profile'));
+const NotFound = lazy(() => import('./pages/_404'));
 
 const App = () => (
   <LocationProvider>
@@ -29,6 +30,7 @@ const App = () => (
             <Route path="/share" component={Share} />
             <Route path="/personal-details" component={PersonalDetails} />
             <Route path="/vaccinations" component={Vaccinations} />
+            <Route path="/profile" component={Profile} />
             <Route default component={NotFound} />
           </Router>
         </ErrorBoundary>
