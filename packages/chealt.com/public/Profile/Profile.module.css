@@ -1,0 +1,9 @@
+.profileItem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.profileItem > *:first-child {
+  flex-grow: 1;
+}

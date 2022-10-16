@@ -2,10 +2,11 @@ import classnames from 'classnames';
 
 import styles from './ListItem.module.css';
 
-const ListItem = ({ children }) => (
+const ListItem = ({ className, children }) => (
   <li
     class={classnames({
-      [styles.listItem]: true
+      [styles.listItem]: true,
+      [className]: Boolean(className)
     })}
   >
     {children}
