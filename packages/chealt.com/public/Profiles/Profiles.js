@@ -1,5 +1,4 @@
 import { useCallback, useRef, useState } from 'preact/hooks';
-import { add as addToast } from '../Toast';
 import Button from '../Form/Button';
 import Form from '../Form/Form';
 import Input from '../Form/Input';
@@ -8,6 +7,7 @@ import Container from '../Layout/Container';
 import List from '../List/List';
 import ListItem from '../List/ListItem';
 import PageTitle from '../PageTitle';
+import CreateProfileForm from './CreateProfileForm';
 
 import styles from './Profiles.module.css';
 
@@ -15,28 +15,6 @@ const Profiles = () => {
   const [profileToRenameKey, setProfileToRenameKey] = useState();
   const { items: profiles, save, deleteItems: deleteProfile } = useObjectStore('profiles');
   const formRef = useRef();
-
-  const createProfile = async (event) => {
-    event.preventDefault();
-
-    const { name } = event.target;
-    const id = crypto.randomUUID();
-    const profile = {
-      name: name.value,
-      id
-    };
-
-    try {
-      await save({ key: id, value: profile });
-
-      // clear inputs
-      name.value = null;
-
-      addToast({ message: 'Created profile' });
-    } catch {
-      addToast({ message: 'Could not create profile', role: 'alert' });
-    }
-  };
 
   const confirmAndDelete = (key) => {
     // eslint-disable-next-line no-alert
@@ -134,15 +112,7 @@ const Profiles = () => {
             </List>
           </Form>
         )}
-        <Form name="createProfile" onSubmit={createProfile}>
-          <h2>Add new profile</h2>
-          <Input name="name" required="required" showRequired={false}>
-            Name
-          </Input>
-          <Button emphasized type="submit">
-            Add Profile
-          </Button>
-        </Form>
+        <CreateProfileForm save={save} />
       </Container>
     </>
   );
