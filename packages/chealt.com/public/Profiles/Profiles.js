@@ -135,6 +135,7 @@ const Profiles = () => {
           </Form>
         )}
         <Form name="createProfile" onSubmit={createProfile}>
+          <h2>Add new profile</h2>
           <Input name="name" required="required" showRequired={false}>
             Name
           </Input>
