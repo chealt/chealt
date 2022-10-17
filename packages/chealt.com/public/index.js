@@ -7,7 +7,7 @@ import LayoutContainer from './Layout/Container';
 import Toast from './Toast';
 import { useObjectStore } from './IndexedDB/hooks';
 import { useEffect, useState } from 'preact/hooks';
-import { initProfiles } from './Profile/utils';
+import { initProfiles } from './Profiles/utils';
 
 navigator.serviceWorker.register(swURL);
 
@@ -17,7 +17,7 @@ const View = lazy(() => import('./pages/View'));
 const PersonalDetails = lazy(() => import('./pages/PersonalDetails'));
 const Share = lazy(() => import('./pages/Share'));
 const Vaccinations = lazy(() => import('./pages/Vaccinations'));
-const Profile = lazy(() => import('./pages/Profile'));
+const Profiles = lazy(() => import('./pages/Profiles'));
 const NotFound = lazy(() => import('./pages/_404'));
 
 const App = () => {
@@ -55,7 +55,7 @@ const App = () => {
               <Route path="/share" component={Share} />
               <Route path="/personal-details" component={PersonalDetails} />
               <Route path="/vaccinations" component={Vaccinations} />
-              <Route path="/profile" component={Profile} />
+              <Route path="/profiles" component={Profiles} />
               <Route default component={NotFound} />
             </Router>
           </ErrorBoundary>
