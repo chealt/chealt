@@ -30,7 +30,7 @@
     },
     {
       "path": "./dist/chunks/Profiles.*.js",
-      "maxSize": "120 b"
+      "maxSize": "1 kB"
     }
   ]
 }
