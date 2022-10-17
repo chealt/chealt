@@ -29,7 +29,7 @@
       "maxSize": "2.16 kB"
     },
     {
-      "path": "./dist/chunks/Profile.*.js",
+      "path": "./dist/chunks/Profiles.*.js",
       "maxSize": "120 b"
     }
   ]
