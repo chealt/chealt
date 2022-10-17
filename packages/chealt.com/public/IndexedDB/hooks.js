@@ -66,6 +66,7 @@ const useObjectStore = (name) => {
   }, [instance, loadItems]);
 
   return {
+    instance,
     deleteItems,
     getItem,
     items,

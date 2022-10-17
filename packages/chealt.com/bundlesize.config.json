@@ -2,7 +2,7 @@
   "files": [
     {
       "path": "./dist/index.*.js",
-      "maxSize": "10.1 kB"
+      "maxSize": "10.90 kB"
     },
     {
       "path": "./dist/chunks/Documents.*.js",
@@ -29,8 +29,8 @@
       "maxSize": "2.16 kB"
     },
     {
-      "path": "./dist/chunks/Profile.*.js",
-      "maxSize": "120 b"
+      "path": "./dist/chunks/Profiles.*.js",
+      "maxSize": "1 kB"
     }
   ]
 }
