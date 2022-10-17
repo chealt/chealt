@@ -6,7 +6,14 @@ import Button from './Button';
 
 import styles from './Input.module.css';
 
-const Input = ({ children, showRequired = true, type, value, ...inputProps }) => {
+const Input = ({
+  children,
+  showRequired = true,
+  hideLabel = false,
+  type,
+  value,
+  ...inputProps
+}) => {
   const tagInput = useRef(null);
 
   return (
@@ -17,7 +24,12 @@ const Input = ({ children, showRequired = true, type, value, ...inputProps }) =>
           [styles.inline]: inputProps.type === 'checkbox'
         })}
       >
-        <div class={styles.text}>
+        <div
+          class={classnames({
+            [styles.text]: true,
+            [styles.visuallyHidden]: hideLabel
+          })}
+        >
           {children}
           {inputProps.required && showRequired && ' (required)'}
         </div>
