@@ -5,9 +5,7 @@ import Header from './Header';
 import swURL from 'sw:./sw.js'; // eslint-disable-line import/no-unresolved
 import LayoutContainer from './Layout/Container';
 import Toast from './Toast';
-import { useObjectStore } from './IndexedDB/hooks';
-import { useEffect, useState } from 'preact/hooks';
-import { initProfiles } from './Profiles/utils';
+import ProfileProvider from './Profiles/Provider';
 
 navigator.serviceWorker.register(swURL);
 
@@ -20,30 +18,9 @@ const Vaccinations = lazy(() => import('./pages/Vaccinations'));
 const Profiles = lazy(() => import('./pages/Profiles'));
 const NotFound = lazy(() => import('./pages/_404'));
 
-const App = () => {
-  const [isProfileInitialized, setIsProfilesInitialized] = useState(false);
-  const { instance } = useObjectStore('profiles');
-
-  useEffect(() => {
-    (async () => {
-      if (instance) {
-        try {
-          await initProfiles({ instance });
-
-          setIsProfilesInitialized(true);
-        } catch {
-          setIsProfilesInitialized(true);
-        }
-      }
-    })();
-  }, [instance]);
-
-  if (!isProfileInitialized) {
-    return null;
-  }
-
-  return (
-    <ErrorBoundary>
+const App = () => (
+  <ErrorBoundary>
+    <ProfileProvider>
       <LocationProvider>
         <Header />
         <main>
@@ -62,9 +39,9 @@ const App = () => {
         </main>
         <Toast />
       </LocationProvider>
-    </ErrorBoundary>
-  );
-};
+    </ProfileProvider>
+  </ErrorBoundary>
+);
 
 hydrate(<App />);
 
