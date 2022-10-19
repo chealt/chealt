@@ -43,11 +43,11 @@ const App = () => {
   }
 
   return (
-    <LocationProvider>
-      <Header />
-      <main>
-        <LayoutContainer largeLimit>
-          <ErrorBoundary>
+    <ErrorBoundary>
+      <LocationProvider>
+        <Header />
+        <main>
+          <LayoutContainer largeLimit>
             <Router>
               <Route path="/" component={Home} />
               <Route path="/documents" component={Documents} />
@@ -58,11 +58,11 @@ const App = () => {
               <Route path="/profiles" component={Profiles} />
               <Route default component={NotFound} />
             </Router>
-          </ErrorBoundary>
-        </LayoutContainer>
-      </main>
-      <Toast />
-    </LocationProvider>
+          </LayoutContainer>
+        </main>
+        <Toast />
+      </LocationProvider>
+    </ErrorBoundary>
   );
 };
 
