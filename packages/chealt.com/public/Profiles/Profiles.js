@@ -7,7 +7,7 @@ import Container from '../Layout/Container';
 import List from '../List/List';
 import ListItem from '../List/ListItem';
 import PageTitle from '../PageTitle';
-import CreateProfileForm from './CreateProfileForm';
+import ProfileForm from './ProfileForm';
 
 import styles from './Profiles.module.css';
 
@@ -56,7 +56,7 @@ const Profiles = () => {
           Add +
         </Button>
         <Modal isOpen={isModalOpen} close={() => setIsModalOpen(false)}>
-          <CreateProfileForm save={save} onDone={() => setIsModalOpen(false)} />
+          <ProfileForm save={save} onDone={() => setIsModalOpen(false)} />
         </Modal>
       </Container>
     </>
