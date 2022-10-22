@@ -1,9 +1,12 @@
-const createDefaultProfile = ({ instance }) =>
+const createDefaultProfile = ({ instance }) => {
+  const id = crypto.randomUUID();
+
   instance.save({
     type: 'profiles',
-    key: crypto.randomUUID(),
-    value: { name: 'default', isSelected: true }
+    key: id,
+    value: { id, name: 'default', isSelected: true }
   });
+};
 
 const initProfiles = async ({ instance }) => {
   const profiles = await instance.list({ type: 'profiles' });
