@@ -39,6 +39,11 @@ const Profiles = () => {
     setIsModalOpen(true);
   };
 
+  const closeAndResetModal = () => {
+    setIsModalOpen(false);
+    setProfileToEdit({});
+  };
+
   return (
     <>
       <PageTitle>Profiles</PageTitle>
@@ -64,15 +69,8 @@ const Profiles = () => {
         <Button emphasized onClick={() => setIsModalOpen(true)}>
           Add +
         </Button>
-        <Modal isOpen={isModalOpen} close={() => setIsModalOpen(false)}>
-          <ProfileForm
-            save={save}
-            onDone={() => {
-              setIsModalOpen(false);
-              setProfileToEdit({});
-            }}
-            {...profileToEdit}
-          />
+        <Modal isOpen={isModalOpen} close={closeAndResetModal}>
+          <ProfileForm save={save} onDone={closeAndResetModal} {...profileToEdit} />
         </Modal>
       </Container>
     </>
