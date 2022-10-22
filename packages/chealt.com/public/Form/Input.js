@@ -1,8 +1,8 @@
-import { useRef } from 'preact/hooks';
 import classnames from 'classnames';
+import { useRef } from 'preact/hooks';
 
-import Tag from './Tag';
 import Button from './Button';
+import Tag from './Tag';
 
 import styles from './Input.module.css';
 

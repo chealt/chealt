@@ -1,9 +1,9 @@
-import path from 'path';
 import glob from 'glob';
-import fs from 'fs';
-import { promisify } from 'util';
 
 import logger from './logger.js';
+import fs from 'fs';
+import path from 'path';
+import { promisify } from 'util';
 
 const readFile = promisify(fs.readFile);
 

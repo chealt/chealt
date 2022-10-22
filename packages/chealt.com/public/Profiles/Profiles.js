@@ -1,11 +1,11 @@
 import { useState } from 'preact/hooks';
 
-import Modal from '../Modal';
 import Button from '../Form/Button';
 import { useObjectStore } from '../IndexedDB/hooks';
 import Container from '../Layout/Container';
 import List from '../List/List';
 import ListItem from '../List/ListItem';
+import Modal from '../Modal';
 import PageTitle from '../PageTitle';
 import ProfileForm from './ProfileForm';
 
