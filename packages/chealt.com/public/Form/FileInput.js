@@ -1,7 +1,7 @@
 import classnames from 'classnames';
 
-import inputStyles from './Input.module.css';
 import styles from './FileInput.module.css';
+import inputStyles from './Input.module.css';
 
 const FileInput = ({ children, ondrop, inputRef, ...rest }) => (
   <label class={styles.fileInput} ondrop={ondrop} ondragover={(e) => e.preventDefault()}>

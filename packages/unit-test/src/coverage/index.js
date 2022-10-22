@@ -1,4 +1,3 @@
-import { promisify } from 'util';
 import globAsync from 'glob';
 
 import {
@@ -6,6 +5,7 @@ import {
   uploadFiles as uploadIBMFiles,
   getCoverageSummary as getIBMCoverageSummary
 } from './IBM/index.js';
+import { promisify } from 'util';
 
 const glob = promisify(globAsync);
 

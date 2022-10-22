@@ -1,5 +1,5 @@
-const javascriptRules = require('./rules/javascript');
 const importRules = require('./rules/import');
+const javascriptRules = require('./rules/javascript');
 const prettierRules = require('./rules/prettier');
 
 const preactConfig = {

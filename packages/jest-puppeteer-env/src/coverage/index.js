@@ -1,5 +1,5 @@
-const { filterByUrl, removeCoverageText, calculateCoverageDetails } = require('./utils');
 const { getDetailsReport } = require('./reporter');
+const { filterByUrl, removeCoverageText, calculateCoverageDetails } = require('./utils');
 
 const startCollecting = (page) =>
   Promise.all([page.coverage.startJSCoverage(), page.coverage.startCSSCoverage()]);

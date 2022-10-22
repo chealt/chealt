@@ -1,4 +1,10 @@
-**/build/**/*.js
+.cache
+.yarn
+build
+commonjs
 dist
-packages/mocker/commonjs/**/*.cjs
-packages/taas-runner-lambda/examples/**/*.js
+node_modules
+packages/jest-puppeteer-env-example/accessibility
+packages/jest-puppeteer-env-example/coverage
+packages/jest-puppeteer-env-example/performance
+packages/jest-puppeteer-env-example/screenshots

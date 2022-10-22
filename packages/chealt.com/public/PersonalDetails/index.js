@@ -1,14 +1,14 @@
 import { useState } from 'preact/hooks';
 
+import Button from '../Form/Button';
 import Form from '../Form/Form';
 import Input from '../Form/Input';
 import Option from '../Form/Option';
 import Select from '../Form/Select';
-import PageTitle from '../PageTitle';
-import { transformPersonalDetails, getImperialUnitWeight, getImperialUnitHeight } from './utils';
-import Button from '../Form/Button';
-import { add as addToast } from '../Toast';
 import { useObjectStore } from '../IndexedDB/hooks';
+import PageTitle from '../PageTitle';
+import { add as addToast } from '../Toast';
+import { transformPersonalDetails, getImperialUnitWeight, getImperialUnitHeight } from './utils';
 
 import styles from './index.module.css';
 

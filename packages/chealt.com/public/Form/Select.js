@@ -1,4 +1,5 @@
 import ArrowDown from '../Icons/ArrowDown';
+
 import styles from './Input.module.css';
 
 const Select = ({ children, label, ...selectProps }) => (

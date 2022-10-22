@@ -1,16 +1,17 @@
 import { useEffect, useState, useRef } from 'preact/hooks';
-import PageTitle from '../PageTitle';
+import QrScanner from 'qr-scanner';
+
 import Button from '../Form/Button';
+import Controls from '../Form/Controls';
+import { useObjectStore } from '../IndexedDB/hooks';
+import Link from '../Link';
 import List from '../List/List';
 import ListItem from '../List/ListItem';
-import Controls from '../Form/Controls';
-import Link from '../Link';
-import { download, upload } from './utils';
-import QRCode from '../QRCode';
-import QrScanner from 'qr-scanner';
 import Modal from '../Modal';
+import PageTitle from '../PageTitle';
+import QRCode from '../QRCode';
 import { add as addToast } from '../Toast';
-import { useObjectStore } from '../IndexedDB/hooks';
+import { download, upload } from './utils';
 
 import styles from './index.module.css';
 

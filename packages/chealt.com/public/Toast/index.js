@@ -1,7 +1,8 @@
 import { signal } from '@preact/signals';
 
-import styles from './index.module.css';
 import Item from './Item';
+
+import styles from './index.module.css';
 
 const toasts = signal([]);
 
