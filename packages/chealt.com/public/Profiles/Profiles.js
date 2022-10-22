@@ -39,21 +39,19 @@ const Profiles = () => {
           You can add multiple profiles to your device here. This way you can manage multiple users'
           data on a single device.
         </p>
-        {Boolean(profiles) && (
-          <List>
-            {profiles.map(({ key, value: { name, isSelected } }) => (
-              <ListItem key={key} className={styles.profileItem}>
-                <span class={styles.name}>{name}</span>
-                <Button disabled={isSelected} onClick={() => selectProfile(key)}>
-                  Select
-                </Button>
-                <Button disabled={isSelected} ghost onClick={() => confirmAndDelete(key)}>
-                  X
-                </Button>
-              </ListItem>
-            ))}
-          </List>
-        )}
+        <List>
+          {profiles.map(({ key, value: { name, isSelected } }) => (
+            <ListItem key={key} className={styles.profileItem}>
+              <span class={styles.name}>{name}</span>
+              <Button disabled={isSelected} onClick={() => selectProfile(key)}>
+                Select
+              </Button>
+              <Button disabled={isSelected} ghost onClick={() => confirmAndDelete(key)}>
+                X
+              </Button>
+            </ListItem>
+          ))}
+        </List>
         <Button emphasized onClick={() => setIsModalOpen(true)}>
           Add +
         </Button>
