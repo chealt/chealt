@@ -13,6 +13,7 @@ import styles from './Profiles.module.css';
 
 const Profiles = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [profileToEdit, setProfileToEdit] = useState({});
   const { items: profiles, save, deleteItems: deleteProfile } = useObjectStore('profiles');
 
   const confirmAndDelete = (key) => {
@@ -31,6 +32,13 @@ const Profiles = () => {
     }
   };
 
+  const editProfile = (key) => {
+    const profile = profiles.find((profile) => key === profile.key);
+
+    setProfileToEdit(profile.value);
+    setIsModalOpen(true);
+  };
+
   return (
     <>
       <PageTitle>Profiles</PageTitle>
@@ -43,6 +51,7 @@ const Profiles = () => {
           {profiles.map(({ key, value: { name, isSelected } }) => (
             <ListItem key={key} className={styles.profileItem}>
               <span class={styles.name}>{name}</span>
+              <Button onClick={() => editProfile(key)}>Edit</Button>
               <Button disabled={isSelected} onClick={() => selectProfile(key)}>
                 Select
               </Button>
@@ -56,7 +65,14 @@ const Profiles = () => {
           Add +
         </Button>
         <Modal isOpen={isModalOpen} close={() => setIsModalOpen(false)}>
-          <ProfileForm save={save} onDone={() => setIsModalOpen(false)} />
+          <ProfileForm
+            save={save}
+            onDone={() => {
+              setIsModalOpen(false);
+              setProfileToEdit({});
+            }}
+            {...profileToEdit}
+          />
         </Modal>
       </Container>
     </>

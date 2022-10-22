@@ -3,41 +3,40 @@ import Button from '../Form/Button';
 import Form from '../Form/Form';
 import Input from '../Form/Input';
 
-const CreateProfileForm = ({ save, onDone }) => {
-  const createProfile = async (event) => {
+const ProfileForm = ({ save, onDone, id, name, isSelected }) => {
+  const saveProfile = async (event) => {
     event.preventDefault();
 
-    const { name } = event.target;
-    const id = crypto.randomUUID();
     const profile = {
-      name: name.value,
-      id
+      name: event.target.name.value,
+      id: id || crypto.randomUUID(),
+      isSelected: Boolean(isSelected)
     };
 
     try {
-      await save({ key: id, value: profile });
+      await save({ key: profile.id, value: profile });
 
       // clear inputs
-      name.value = null;
+      event.target.name.value = null;
 
-      addToast({ message: 'Created profile' });
+      addToast({ message: 'Profile saved' });
 
       onDone();
     } catch {
-      addToast({ message: 'Could not create profile', role: 'alert' });
+      addToast({ message: 'Could not save profile', role: 'alert' });
     }
   };
 
   return (
-    <Form name="createProfile" onSubmit={createProfile}>
-      <Input name="name" required="required" showRequired={false}>
+    <Form name="profileDetails" onSubmit={saveProfile}>
+      <Input name="name" value={name || ''} required="required" showRequired={false}>
         Name
       </Input>
       <Button emphasized type="submit">
-        Add Profile
+        Save
       </Button>
     </Form>
   );
 };
 
-export default CreateProfileForm;
+export default ProfileForm;
