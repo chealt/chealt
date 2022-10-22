@@ -3,7 +3,7 @@ import Button from '../Form/Button';
 import Form from '../Form/Form';
 import Input from '../Form/Input';
 
-const CreateProfileForm = ({ save }) => {
+const CreateProfileForm = ({ save, onDone }) => {
   const createProfile = async (event) => {
     event.preventDefault();
 
@@ -21,6 +21,8 @@ const CreateProfileForm = ({ save }) => {
       name.value = null;
 
       addToast({ message: 'Created profile' });
+
+      onDone();
     } catch {
       addToast({ message: 'Could not create profile', role: 'alert' });
     }
@@ -28,7 +30,6 @@ const CreateProfileForm = ({ save }) => {
 
   return (
     <Form name="createProfile" onSubmit={createProfile}>
-      <h2>Add new profile</h2>
       <Input name="name" required="required" showRequired={false}>
         Name
       </Input>

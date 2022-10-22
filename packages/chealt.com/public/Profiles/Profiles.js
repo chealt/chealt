@@ -1,4 +1,6 @@
 import { useCallback, useRef, useState } from 'preact/hooks';
+
+import Modal from '../Modal';
 import Button from '../Form/Button';
 import Form from '../Form/Form';
 import Input from '../Form/Input';
@@ -12,6 +14,7 @@ import CreateProfileForm from './CreateProfileForm';
 import styles from './Profiles.module.css';
 
 const Profiles = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [profileToRenameKey, setProfileToRenameKey] = useState();
   const { items: profiles, save, deleteItems: deleteProfile } = useObjectStore('profiles');
   const formRef = useRef();
@@ -112,7 +115,12 @@ const Profiles = () => {
             </List>
           </Form>
         )}
-        <CreateProfileForm save={save} />
+        <Button emphasized onClick={() => setIsModalOpen(true)}>
+          Add +
+        </Button>
+        <Modal isOpen={isModalOpen} close={() => setIsModalOpen(false)}>
+          <CreateProfileForm save={save} onDone={() => setIsModalOpen(false)} />
+        </Modal>
       </Container>
     </>
   );
