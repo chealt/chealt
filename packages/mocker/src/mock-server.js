@@ -2,8 +2,8 @@ import express from 'express';
 
 import { defaultConfig, validate } from './config.js';
 import logger from './logger.js';
-import { getFolderAbsPath, getMocks } from './utils.js';
 import mockMiddleware from './mockMiddleware.js';
+import { getFolderAbsPath, getMocks } from './utils.js';
 
 const mockServer = async () => {
   const config = {

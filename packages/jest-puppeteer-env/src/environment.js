@@ -1,6 +1,9 @@
-const path = require('path');
+const chalk = require('chalk');
 const NodeEnvironment = require('jest-environment-node');
 
+const accessibilityUtils = require('./accessibility');
+const { readConfig, getPuppeteer, validateConfig } = require('./configUtils');
+const { filterEmptyResponses, getMocks, getFullPath, hasResponses } = require('./envUtils');
 const factory = require('./factory');
 const { getLogger, logLevels } = require('./logger');
 const {
@@ -25,10 +28,7 @@ const {
   isTestsEndEvent,
   getTestID
 } = require('./testEventUtils');
-const { filterEmptyResponses, getMocks, getFullPath, hasResponses } = require('./envUtils');
-const chalk = require('chalk');
-const { readConfig, getPuppeteer, validateConfig } = require('./configUtils');
-const accessibilityUtils = require('./accessibility');
+const path = require('path');
 
 const handleError = (error) => {
   process.emit('uncaughtException', error);

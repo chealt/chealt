@@ -22,7 +22,7 @@
     },
     {
       "path": "./dist/chunks/Share.*.js",
-      "maxSize": "20.29 kB"
+      "maxSize": "20.33 kB"
     },
     {
       "path": "./dist/chunks/Vaccinations.*.js",

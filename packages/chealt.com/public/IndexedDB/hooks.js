@@ -1,4 +1,5 @@
 import { useCallback, useState, useEffect } from 'preact/hooks';
+
 import database, { objectStoreNames } from './index';
 
 const useObjectStore = (name) => {

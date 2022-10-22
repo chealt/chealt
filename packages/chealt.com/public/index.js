@@ -1,11 +1,11 @@
 import { LocationProvider, Router, Route, hydrate, prerender as ssr } from 'preact-iso';
 import lazy, { ErrorBoundary } from 'preact-iso/lazy';
+import swURL from 'sw:./sw.js'; // eslint-disable-line import/no-unresolved
 
 import Header from './Header';
-import swURL from 'sw:./sw.js'; // eslint-disable-line import/no-unresolved
 import LayoutContainer from './Layout/Container';
-import Toast from './Toast';
 import ProfileProvider from './Profiles/Provider';
+import Toast from './Toast';
 
 navigator.serviceWorker.register(swURL);
 

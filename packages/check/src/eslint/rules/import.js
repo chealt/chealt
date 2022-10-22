@@ -9,7 +9,24 @@ const config = {
   'import/no-extraneous-dependencies': ['error'],
   'import/no-named-as-default-member': ['error'],
   'import/no-named-as-default': ['error'],
-  'import/no-unresolved': ['error', { commonjs: true, ignore: ['unpkg'] }]
+  'import/no-unresolved': ['error', { commonjs: true, ignore: ['unpkg'] }],
+  'import/order': [
+    'error',
+    {
+      alphabetize: {
+        order: 'asc'
+      },
+      'newlines-between': 'always',
+      groups: ['external', 'internal'],
+      pathGroups: [
+        {
+          pattern: '{.,..}/**/*.css',
+          group: 'index',
+          position: 'after'
+        }
+      ]
+    }
+  ]
 };
 
 module.exports = config;

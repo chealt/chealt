@@ -1,16 +1,18 @@
 import { useCallback, useState, useRef } from 'preact/hooks';
+
+import EmptyState from '../EmptyState';
+import Button from '../Form/Button';
 import FileInput from '../Form/FileInput';
+import { toggleItem } from '../Helpers/array';
+import DocumentsIcon from '../Icons/Documents';
+import { useObjectStore } from '../IndexedDB/hooks';
 import PageTitle from '../PageTitle';
+import { add as addToast } from '../Toast';
 import Controls from './Controls';
 import Item from './Item';
 import { getFilesFromEvent } from './utils';
+
 import styles from './index.module.css';
-import { toggleItem } from '../Helpers/array';
-import DocumentsIcon from '../Icons/Documents';
-import EmptyState from '../EmptyState';
-import Button from '../Form/Button';
-import { add as addToast } from '../Toast';
-import { useObjectStore } from '../IndexedDB/hooks';
 
 const bySavedTime = (a, b) => b.value.savedTimestamp - a.value.savedTimestamp;
 

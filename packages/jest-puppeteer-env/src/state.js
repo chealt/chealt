@@ -1,5 +1,5 @@
-const { writeFileSafe } = require('./fileUtils');
 const coverageUtils = require('./coverage/utils');
+const { writeFileSafe } = require('./fileUtils');
 
 let allResponses = {};
 let allCodeCoverages = {};

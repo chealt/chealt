@@ -1,21 +1,21 @@
-import { useCallback, useState } from 'preact/hooks';
 import { localFormatDate } from '@chealt/browser-utils';
+import { useCallback, useState } from 'preact/hooks';
 
 import EmptyState from '../EmptyState';
 import Button from '../Form/Button';
 import Input from '../Form/Input';
 import Tag from '../Form/Tag';
+import { toggleItem } from '../Helpers/array';
+import Vaccine from '../Icons/Vaccine';
+import { useObjectStore } from '../IndexedDB/hooks';
 import Modal from '../Modal';
 import PageTitle from '../PageTitle';
-import { add as addToast } from '../Toast';
 import Table from '../Table';
-import Row from '../Table/Row';
 import Cell from '../Table/Cell';
 import HeadCell from '../Table/HeadCell';
+import Row from '../Table/Row';
+import { add as addToast } from '../Toast';
 import Controls from './Controls';
-import { toggleItem } from '../Helpers/array';
-import { useObjectStore } from '../IndexedDB/hooks';
-import Vaccine from '../Icons/Vaccine';
 import NewItem from './NewItem';
 
 import styles from './index.module.css';

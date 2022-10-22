@@ -1,6 +1,7 @@
+import IBM from 'ibm-cos-sdk';
+
 import fs from 'fs';
 import { promisify } from 'util';
-import IBM from 'ibm-cos-sdk';
 
 const readFile = promisify(fs.readFile);
 

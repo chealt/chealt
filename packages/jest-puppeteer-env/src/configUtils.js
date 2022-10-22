@@ -1,9 +1,10 @@
+const cwd = require('cwd');
+const merge = require('merge-deep');
+
+const { networks } = require('./performance/utils');
 const fs = require('fs');
 const path = require('path');
 const { promisify } = require('util');
-const cwd = require('cwd');
-const merge = require('merge-deep');
-const { networks } = require('./performance/utils');
 
 const exists = promisify(fs.exists);
 
