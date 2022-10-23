@@ -1,7 +1,9 @@
+import { createContext } from 'preact';
 import { LocationProvider, Router, Route, hydrate, prerender as ssr } from 'preact-iso';
 import lazy, { ErrorBoundary } from 'preact-iso/lazy';
 import swURL from 'sw:./sw.js'; // eslint-disable-line import/no-unresolved
 
+import { createAppState } from './App/utils';
 import Header from './Header';
 import LayoutContainer from './Layout/Container';
 import ProfileProvider from './Profiles/Provider';
@@ -18,28 +20,32 @@ const Vaccinations = lazy(() => import('./pages/Vaccinations'));
 const Profiles = lazy(() => import('./pages/Profiles'));
 const NotFound = lazy(() => import('./pages/_404'));
 
+const AppState = createContext();
+
 const App = () => (
   <ErrorBoundary>
-    <ProfileProvider>
-      <LocationProvider>
-        <Header />
-        <main>
-          <LayoutContainer largeLimit>
-            <Router>
-              <Route path="/" component={Home} />
-              <Route path="/documents" component={Documents} />
-              <Route path="/documents/view/:encodedDocumentKey" component={View} />
-              <Route path="/share" component={Share} />
-              <Route path="/personal-details" component={PersonalDetails} />
-              <Route path="/vaccinations" component={Vaccinations} />
-              <Route path="/profiles" component={Profiles} />
-              <Route default component={NotFound} />
-            </Router>
-          </LayoutContainer>
-        </main>
-        <Toast />
-      </LocationProvider>
-    </ProfileProvider>
+    <AppState.Provider value={createAppState()}>
+      <ProfileProvider>
+        <LocationProvider>
+          <Header />
+          <main>
+            <LayoutContainer largeLimit>
+              <Router>
+                <Route path="/" component={Home} />
+                <Route path="/documents" component={Documents} />
+                <Route path="/documents/view/:encodedDocumentKey" component={View} />
+                <Route path="/share" component={Share} />
+                <Route path="/personal-details" component={PersonalDetails} />
+                <Route path="/vaccinations" component={Vaccinations} />
+                <Route path="/profiles" component={Profiles} />
+                <Route default component={NotFound} />
+              </Router>
+            </LayoutContainer>
+          </main>
+          <Toast />
+        </LocationProvider>
+      </ProfileProvider>
+    </AppState.Provider>
   </ErrorBoundary>
 );
 
