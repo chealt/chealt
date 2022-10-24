@@ -1,56 +1,12 @@
-import { createContext } from 'preact';
-import { LocationProvider, Router, Route, hydrate, prerender as ssr } from 'preact-iso';
-import lazy, { ErrorBoundary } from 'preact-iso/lazy';
+import { hydrate, prerender as ssr } from 'preact-iso';
 import swURL from 'sw:./sw.js'; // eslint-disable-line import/no-unresolved
 
-import { createAppState } from './App/utils';
-import Header from './Header';
-import LayoutContainer from './Layout/Container';
-import ProfileProvider from './Profiles/Provider';
-import Toast from './Toast';
+import App from './App/App';
 
 navigator.serviceWorker.register(swURL);
-
-const Home = lazy(() => import(`./pages/Home`));
-const Documents = lazy(() => import(`./pages/Documents`));
-const View = lazy(() => import('./pages/View'));
-const PersonalDetails = lazy(() => import('./pages/PersonalDetails'));
-const Share = lazy(() => import('./pages/Share'));
-const Vaccinations = lazy(() => import('./pages/Vaccinations'));
-const Profiles = lazy(() => import('./pages/Profiles'));
-const NotFound = lazy(() => import('./pages/_404'));
-
-const AppState = createContext();
-
-const App = () => (
-  <ErrorBoundary>
-    <AppState.Provider value={createAppState()}>
-      <ProfileProvider>
-        <LocationProvider>
-          <Header />
-          <main>
-            <LayoutContainer largeLimit>
-              <Router>
-                <Route path="/" component={Home} />
-                <Route path="/documents" component={Documents} />
-                <Route path="/documents/view/:encodedDocumentKey" component={View} />
-                <Route path="/share" component={Share} />
-                <Route path="/personal-details" component={PersonalDetails} />
-                <Route path="/vaccinations" component={Vaccinations} />
-                <Route path="/profiles" component={Profiles} />
-                <Route default component={NotFound} />
-              </Router>
-            </LayoutContainer>
-          </main>
-          <Toast />
-        </LocationProvider>
-      </ProfileProvider>
-    </AppState.Provider>
-  </ErrorBoundary>
-);
 
 hydrate(<App />);
 
 const prerender = async (data) => await ssr(<App {...data} />);
 
-export { prerender, App };
+export { prerender };
