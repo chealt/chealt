@@ -1,5 +1,6 @@
-import { useState } from 'preact/hooks';
+import { useContext, useState } from 'preact/hooks';
 
+import { AppState } from '../App/state';
 import Button from '../Form/Button';
 import Form from '../Form/Form';
 import Input from '../Form/Input';
@@ -13,6 +14,9 @@ import { transformPersonalDetails, getImperialUnitWeight, getImperialUnitHeight 
 import styles from './index.module.css';
 
 const PersonalDetails = () => {
+  const {
+    profiles: { selectedProfileId }
+  } = useContext(AppState);
   const { items, save } = useObjectStore('personalDetails');
   const [input, setInput] = useState({});
   const saved = transformPersonalDetails(items);
@@ -38,7 +42,10 @@ const PersonalDetails = () => {
 
     try {
       for (const key of Object.keys(personalDetails)) {
-        await save({ key, value: { value: personalDetails[key] } });
+        await save({
+          key,
+          value: { value: personalDetails[key], profileId: selectedProfileId.value }
+        });
       }
 
       addToast({ message: 'Saved personal details' });

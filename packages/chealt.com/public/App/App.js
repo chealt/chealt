@@ -1,4 +1,3 @@
-import { createContext } from 'preact';
 import { LocationProvider, Router, Route } from 'preact-iso';
 import lazy, { ErrorBoundary } from 'preact-iso/lazy';
 
@@ -6,7 +5,7 @@ import Header from '../Header';
 import LayoutContainer from '../Layout/Container';
 import ProfileProvider from '../Profiles/Provider';
 import Toast from '../Toast';
-import { createAppState } from './utils';
+import { createAppState, AppState } from './state';
 
 const Home = lazy(() => import(`../pages/Home`));
 const Documents = lazy(() => import(`../pages/Documents`));
@@ -16,8 +15,6 @@ const Share = lazy(() => import('../pages/Share'));
 const Vaccinations = lazy(() => import('../pages/Vaccinations'));
 const Profiles = lazy(() => import('../pages/Profiles'));
 const NotFound = lazy(() => import('../pages/_404'));
-
-const AppState = createContext();
 
 const App = () => (
   <ErrorBoundary>
@@ -46,5 +43,4 @@ const App = () => (
   </ErrorBoundary>
 );
 
-export { AppState };
 export default App;
