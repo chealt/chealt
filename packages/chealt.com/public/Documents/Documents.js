@@ -42,7 +42,10 @@ const Documents = () => {
       const documents = await getFilesFromEvent(event);
 
       for (const document of documents) {
-        await save({ key: crypto.randomUUID(), value: document });
+        await save({
+          key: crypto.randomUUID(),
+          value: { ...document, profileId: selectedProfileId.value }
+        });
       }
 
       addToast({ message: 'Successfully uploaded document(s)' });
