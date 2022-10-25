@@ -1,6 +1,7 @@
 import { localFormatDate } from '@chealt/browser-utils';
-import { useCallback, useState } from 'preact/hooks';
+import { useCallback, useContext, useState } from 'preact/hooks';
 
+import { AppState } from '../App/state';
 import EmptyState from '../EmptyState/EmptyState';
 import Button from '../Form/Button';
 import Input from '../Form/Input';
@@ -17,15 +18,20 @@ import Table from '../Table/Table';
 import { add as addToast } from '../Toast/Toast';
 import Controls from './Controls';
 import NewItem from './NewItem';
+import { findItems } from './utils';
 
 import styles from './Vaccinations.module.css';
 
 const Vaccinations = () => {
+  const {
+    profiles: { selectedProfileId }
+  } = useContext(AppState);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedItems, setSelectedItems] = useState([]);
   const deleteEnabled = Boolean(selectedItems.length);
   const { deleteItems, save, items } = useObjectStore('vaccinations');
-  const hasVaccinations = Boolean(items.length);
+  const profileItems = findItems(items, selectedProfileId.value);
+  const hasVaccinations = Boolean(profileItems.length);
 
   const deleteSelectedItems = useCallback(async () => {
     try {
@@ -58,7 +64,7 @@ const Vaccinations = () => {
                 <HeadCell>Immuniser</HeadCell>
                 <HeadCell>Venue</HeadCell>
               </Row>
-              {items.map((vaccination) => (
+              {profileItems.map((vaccination) => (
                 <Row key={vaccination.key}>
                   <Cell>
                     <Input
