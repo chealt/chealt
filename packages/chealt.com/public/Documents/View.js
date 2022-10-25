@@ -2,7 +2,7 @@ import { useRoute } from 'preact-iso';
 import { useEffect, useState } from 'preact/hooks';
 
 import { useObjectStore } from '../IndexedDB/hooks';
-import Link from '../Link';
+import Link from '../Link/Link';
 import { isImage, isPDF } from './utils';
 
 import styles from './View.module.css';

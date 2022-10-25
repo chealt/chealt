@@ -1,10 +1,10 @@
 import { LocationProvider, Router, Route } from 'preact-iso';
 import lazy, { ErrorBoundary } from 'preact-iso/lazy';
 
-import Header from '../Header';
+import Header from '../Header/Header';
 import LayoutContainer from '../Layout/Container';
 import ProfileProvider from '../Profiles/Provider';
-import Toast from '../Toast';
+import Toast from '../Toast/Toast';
 import { createAppState, AppState } from './state';
 
 const Home = lazy(() => import(`../pages/Home`));

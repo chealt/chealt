@@ -1,7 +1,7 @@
 import Button from '../Form/Button';
 import Form from '../Form/Form';
 import Input from '../Form/Input';
-import { add as addToast } from '../Toast';
+import { add as addToast } from '../Toast/Toast';
 
 const ProfileForm = ({ save, onDone, id, name, isSelected }) => {
   const saveProfile = async (event) => {

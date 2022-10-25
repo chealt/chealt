@@ -7,11 +7,11 @@ import Input from '../Form/Input';
 import Option from '../Form/Option';
 import Select from '../Form/Select';
 import { useObjectStore } from '../IndexedDB/hooks';
-import PageTitle from '../PageTitle';
-import { add as addToast } from '../Toast';
+import PageTitle from '../PageTitle/PageTitle';
+import { add as addToast } from '../Toast/Toast';
 import { findPersonalDetails, getImperialUnitWeight, getImperialUnitHeight } from './utils';
 
-import styles from './index.module.css';
+import styles from './PersonalDetails.module.css';
 
 const PersonalDetails = () => {
   const {

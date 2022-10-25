@@ -1,6 +1,6 @@
 import { useCallback, useState, useEffect } from 'preact/hooks';
 
-import database, { objectStoreNames } from './index';
+import database, { objectStoreNames } from './IndexedDB';
 
 const useObjectStore = (name) => {
   const [instance, setInstance] = useState();

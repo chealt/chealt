@@ -1,7 +1,7 @@
 import classnames from 'classnames';
 import { useEffect } from 'preact/hooks';
 
-import styles from './index.module.css';
+import styles from './Modal.module.css';
 
 const Modal = ({ isOpen, close, children }) => {
   useEffect(() => {
