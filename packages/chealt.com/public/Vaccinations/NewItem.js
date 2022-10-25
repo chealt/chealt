@@ -1,5 +1,6 @@
-import { useState } from 'preact/hooks';
+import { useContext, useState } from 'preact/hooks';
 
+import { AppState } from '../App/state';
 import Button from '../Form/Button';
 import Form from '../Form/Form';
 import Input from '../Form/Input';
@@ -9,6 +10,9 @@ import { getConditions, getLocalVaccinations } from './utils';
 import styles from './NewItem.module.css';
 
 const NewItem = ({ save, onDone }) => {
+  const {
+    profiles: { selectedProfileId }
+  } = useContext(AppState);
   const [conditions, setConditions] = useState();
   const locale = navigator.language || 'en-US';
   const localVaccinations = getLocalVaccinations(locale);
@@ -24,7 +28,8 @@ const NewItem = ({ save, onDone }) => {
       immuniser: immuniser.value,
       name: name.value,
       site: site.value,
-      venue: venue.value
+      venue: venue.value,
+      profileId: selectedProfileId.value
     };
 
     try {
