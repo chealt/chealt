@@ -6,7 +6,7 @@ const useObjectStore = (name) => {
   const [instance, setInstance] = useState();
   const [items, setItems] = useState([]);
 
-  const getItem = useCallback((key) => instance.get({ type: name, key }), [instance, name]);
+  const getItem = useCallback((key) => instance?.get({ type: name, key }), [instance, name]);
 
   const loadItems = useCallback(async () => {
     let items;
