@@ -9,7 +9,7 @@ import Select from '../Form/Select';
 import { useObjectStore } from '../IndexedDB/hooks';
 import PageTitle from '../PageTitle';
 import { add as addToast } from '../Toast';
-import { transformPersonalDetails, getImperialUnitWeight, getImperialUnitHeight } from './utils';
+import { findPersonalDetails, getImperialUnitWeight, getImperialUnitHeight } from './utils';
 
 import styles from './index.module.css';
 
@@ -19,7 +19,7 @@ const PersonalDetails = () => {
   } = useContext(AppState);
   const { items, save } = useObjectStore('personalDetails');
   const [input, setInput] = useState({});
-  const saved = transformPersonalDetails(items);
+  const saved = findPersonalDetails(items, selectedProfileId);
   const personalDetails = {
     firstName: input.firstName || saved.firstName,
     lastName: input.lastName || saved.lastName,
@@ -41,12 +41,10 @@ const PersonalDetails = () => {
     event.preventDefault();
 
     try {
-      for (const key of Object.keys(personalDetails)) {
-        await save({
-          key,
-          value: { value: personalDetails[key], profileId: selectedProfileId.value }
-        });
-      }
+      await save({
+        key: selectedProfileId.value,
+        value: personalDetails
+      });
 
       addToast({ message: 'Saved personal details' });
     } catch {

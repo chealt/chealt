@@ -1,11 +1,6 @@
-const transformPersonalDetails = (personalDetails) =>
-  personalDetails.reduce(
-    (mappedDetails, { key, value: { value } }) => ({
-      ...mappedDetails,
-      [key]: value
-    }),
-    {}
-  );
+const findPersonalDetails = (personalDetails, selectedProfileId) =>
+  personalDetails.length &&
+  personalDetails.find((item) => item.key === selectedProfileId.value).value;
 
 const getImperialUnitHeight = (metricHeight) => {
   const feet = metricHeight / 30.48;
@@ -18,4 +13,4 @@ const getImperialUnitHeight = (metricHeight) => {
 
 const getImperialUnitWeight = (metricWeight) => Math.floor(metricWeight / 0.454);
 
-export { transformPersonalDetails, getImperialUnitWeight, getImperialUnitHeight };
+export { findPersonalDetails, getImperialUnitWeight, getImperialUnitHeight };
