@@ -33,4 +33,6 @@ const isPDF = (filename) => filename.slice(filename.lastIndexOf('.') + 1).toLowe
 const findItems = (items, profileId) =>
   (items.length && items.filter(({ value }) => value.profileId === profileId)) || [];
 
-export { getFilesFromEvent, findItems, isImage, isPDF };
+const bySavedTime = (a, b) => b.value.savedTimestamp - a.value.savedTimestamp;
+
+export { bySavedTime, getFilesFromEvent, findItems, isImage, isPDF };

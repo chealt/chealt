@@ -11,11 +11,9 @@ import PageTitle from '../PageTitle/PageTitle';
 import { add as addToast } from '../Toast/Toast';
 import Controls from './Controls';
 import Item from './Item';
-import { findItems, getFilesFromEvent } from './utils';
+import { bySavedTime, findItems, getFilesFromEvent } from './utils';
 
 import styles from './Documents.module.css';
-
-const bySavedTime = (a, b) => b.value.savedTimestamp - a.value.savedTimestamp;
 
 const Documents = () => {
   const {
