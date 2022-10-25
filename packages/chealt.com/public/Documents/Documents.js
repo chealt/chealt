@@ -1,5 +1,6 @@
-import { useCallback, useState, useRef } from 'preact/hooks';
+import { useCallback, useState, useRef, useContext } from 'preact/hooks';
 
+import { AppState } from '../App/state';
 import EmptyState from '../EmptyState/EmptyState';
 import Button from '../Form/Button';
 import FileInput from '../Form/FileInput';
@@ -10,17 +11,21 @@ import PageTitle from '../PageTitle/PageTitle';
 import { add as addToast } from '../Toast/Toast';
 import Controls from './Controls';
 import Item from './Item';
-import { getFilesFromEvent } from './utils';
+import { findItems, getFilesFromEvent } from './utils';
 
 import styles from './Documents.module.css';
 
 const bySavedTime = (a, b) => b.value.savedTimestamp - a.value.savedTimestamp;
 
 const Documents = () => {
+  const {
+    profiles: { selectedProfileId }
+  } = useContext(AppState);
   const [selectedItems, setSelectedItems] = useState([]);
   const uploadDocumentInput = useRef(null);
   const deleteEnabled = Boolean(selectedItems.length);
-  const { deleteItems, items: documents, save } = useObjectStore('documents');
+  const { deleteItems, items, save } = useObjectStore('documents');
+  const documents = findItems(items, selectedProfileId.value);
 
   const deleteSelectedItems = useCallback(async () => {
     try {

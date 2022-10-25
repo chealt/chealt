@@ -30,4 +30,7 @@ const isImage = (filename) =>
   supportedImageExtensions.includes(filename.slice(filename.lastIndexOf('.') + 1).toLowerCase());
 const isPDF = (filename) => filename.slice(filename.lastIndexOf('.') + 1).toLowerCase() === 'pdf';
 
-export { getFilesFromEvent, isImage, isPDF };
+const findItems = (items, profileId) =>
+  (items.length && items.filter(({ value }) => value.profileId === profileId)) || [];
+
+export { getFilesFromEvent, findItems, isImage, isPDF };
