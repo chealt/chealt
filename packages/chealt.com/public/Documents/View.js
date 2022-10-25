@@ -2,7 +2,7 @@ import { useRoute } from 'preact-iso';
 import { useEffect, useState } from 'preact/hooks';
 
 import { useObjectStore } from '../IndexedDB/hooks';
-import Link from '../Link';
+import Link from '../Link/Link';
 import { isImage, isPDF } from './utils';
 
 import styles from './View.module.css';
@@ -18,20 +18,26 @@ const View = () => {
 
   useEffect(() => {
     (async () => {
-      const { blob, name } = await getItem(documentKey);
+      const item = await getItem(documentKey);
 
-      if (isImage(name)) {
-        const objectURL = URL.createObjectURL(new Blob([blob]));
+      // Check if getItem returns anything
+      // If the instance is not yet initialized this will be falsy
+      if (item) {
+        const { blob, name } = item;
 
-        setImageSource(objectURL);
-      } else if (isPDF(name)) {
-        const objectURL = URL.createObjectURL(new Blob([blob], { type: 'application/pdf' }));
+        if (isImage(name)) {
+          const objectURL = URL.createObjectURL(new Blob([blob]));
 
-        window.open(objectURL);
-        setOpenedInNewTab(true);
-      } else {
-        // eslint-disable-next-line no-console
-        console.log('Unsupported file extension.');
+          setImageSource(objectURL);
+        } else if (isPDF(name)) {
+          const objectURL = URL.createObjectURL(new Blob([blob], { type: 'application/pdf' }));
+
+          window.open(objectURL);
+          setOpenedInNewTab(true);
+        } else {
+          // eslint-disable-next-line no-console
+          console.log('Unsupported file extension.');
+        }
       }
     })();
   }, [getItem, documentKey]);

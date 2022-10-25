@@ -2,7 +2,7 @@ import { signal } from '@preact/signals';
 
 import Item from './Item';
 
-import styles from './index.module.css';
+import styles from './Toast.module.css';
 
 const toasts = signal([]);
 

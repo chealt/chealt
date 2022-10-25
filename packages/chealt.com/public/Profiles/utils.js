@@ -1,3 +1,5 @@
+import { setSelectedProfileId } from './signals';
+
 const createDefaultProfile = ({ instance }) => {
   const id = crypto.randomUUID();
 
@@ -6,13 +8,21 @@ const createDefaultProfile = ({ instance }) => {
     key: id,
     value: { id, name: 'default', isSelected: true }
   });
+
+  return id;
 };
 
 const initProfiles = async ({ instance }) => {
   const profiles = await instance.list({ type: 'profiles' });
 
   if (!profiles?.length) {
-    await createDefaultProfile({ instance });
+    const profileId = await createDefaultProfile({ instance });
+
+    setSelectedProfileId(profileId);
+  } else {
+    const selectedProfileId = profiles.find(({ value: { isSelected } }) => isSelected).value.id;
+
+    setSelectedProfileId(selectedProfileId);
   }
 };
 

@@ -42,8 +42,9 @@ const upload = async ({ personalDetails, documents, vaccinations }) => {
 
 const download = async (url) => {
   const {
-    personalDetails,
     documents: documentsMetaOnly,
+    personalDetails,
+    profiles,
     vaccinations
   } = await fetch(url).then((response) => response.json());
 
@@ -65,6 +66,7 @@ const download = async (url) => {
   return {
     documents,
     personalDetails,
+    profiles,
     vaccinations
   };
 };

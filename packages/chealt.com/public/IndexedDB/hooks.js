@@ -1,12 +1,12 @@
 import { useCallback, useState, useEffect } from 'preact/hooks';
 
-import database, { objectStoreNames } from './index';
+import database, { objectStoreNames } from './IndexedDB';
 
 const useObjectStore = (name) => {
   const [instance, setInstance] = useState();
   const [items, setItems] = useState([]);
 
-  const getItem = useCallback((key) => instance.get({ type: name, key }), [instance, name]);
+  const getItem = useCallback((key) => instance?.get({ type: name, key }), [instance, name]);
 
   const loadItems = useCallback(async () => {
     let items;

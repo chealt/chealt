@@ -5,9 +5,10 @@ import { useObjectStore } from '../IndexedDB/hooks';
 import Container from '../Layout/Container';
 import List from '../List/List';
 import ListItem from '../List/ListItem';
-import Modal from '../Modal';
-import PageTitle from '../PageTitle';
+import Modal from '../Modal/Modal';
+import PageTitle from '../PageTitle/PageTitle';
 import ProfileForm from './ProfileForm';
+import { setSelectedProfileId } from './signals';
 
 import styles from './Profiles.module.css';
 
@@ -30,6 +31,8 @@ const Profiles = () => {
         value: { ...profile.value, isSelected: profile.key === key }
       });
     }
+
+    setSelectedProfileId(key);
   };
 
   const editProfile = (key) => {

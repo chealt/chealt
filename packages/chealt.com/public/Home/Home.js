@@ -1,5 +1,5 @@
-import Link from '../Link';
-import PageTitle from '../PageTitle';
+import Link from '../Link/Link';
+import PageTitle from '../PageTitle/PageTitle';
 
 const Home = () => (
   <>

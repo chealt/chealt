@@ -1,1 +1,1 @@
-export { default } from '../Vaccinations';
+export { default } from '../Vaccinations/Vaccinations';

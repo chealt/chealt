@@ -13,4 +13,7 @@ const getConditions = ({ vaccinationName, locale }) => {
   return undefined;
 };
 
-export { getConditions, getLocalVaccinations };
+const findItems = (items, profileId) =>
+  (items.length && items.filter(({ value }) => value.profileId === profileId)) || [];
+
+export { getConditions, getLocalVaccinations, findItems };

@@ -1,21 +1,25 @@
-import { useState } from 'preact/hooks';
+import { useContext, useState } from 'preact/hooks';
 
+import { AppState } from '../App/state';
 import Button from '../Form/Button';
 import Form from '../Form/Form';
 import Input from '../Form/Input';
 import Option from '../Form/Option';
 import Select from '../Form/Select';
 import { useObjectStore } from '../IndexedDB/hooks';
-import PageTitle from '../PageTitle';
-import { add as addToast } from '../Toast';
-import { transformPersonalDetails, getImperialUnitWeight, getImperialUnitHeight } from './utils';
+import PageTitle from '../PageTitle/PageTitle';
+import { add as addToast } from '../Toast/Toast';
+import { findPersonalDetails, getImperialUnitWeight, getImperialUnitHeight } from './utils';
 
-import styles from './index.module.css';
+import styles from './PersonalDetails.module.css';
 
 const PersonalDetails = () => {
+  const {
+    profiles: { selectedProfileId }
+  } = useContext(AppState);
   const { items, save } = useObjectStore('personalDetails');
   const [input, setInput] = useState({});
-  const saved = transformPersonalDetails(items);
+  const saved = findPersonalDetails(items, selectedProfileId);
   const personalDetails = {
     firstName: input.firstName || saved.firstName,
     lastName: input.lastName || saved.lastName,
@@ -37,9 +41,10 @@ const PersonalDetails = () => {
     event.preventDefault();
 
     try {
-      for (const key of Object.keys(personalDetails)) {
-        await save({ key, value: { value: personalDetails[key] } });
-      }
+      await save({
+        key: selectedProfileId.value,
+        value: personalDetails
+      });
 
       addToast({ message: 'Saved personal details' });
     } catch {

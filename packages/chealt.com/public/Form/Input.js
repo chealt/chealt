@@ -21,7 +21,7 @@ const Input = ({
       <label
         class={classnames({
           [styles.label]: true,
-          [styles.inline]: inputProps.type === 'checkbox'
+          [styles.inline]: type === 'checkbox'
         })}
       >
         <div

@@ -4,13 +4,13 @@ import QrScanner from 'qr-scanner';
 import Button from '../Form/Button';
 import Controls from '../Form/Controls';
 import { useObjectStore } from '../IndexedDB/hooks';
-import Link from '../Link';
+import Link from '../Link/Link';
 import List from '../List/List';
 import ListItem from '../List/ListItem';
-import Modal from '../Modal';
-import PageTitle from '../PageTitle';
-import QRCode from '../QRCode';
-import { add as addToast } from '../Toast';
+import Modal from '../Modal/Modal';
+import PageTitle from '../PageTitle/PageTitle';
+import QRCode from '../QRCode/QRCode';
+import { add as addToast } from '../Toast/Toast';
 import { download, upload } from './utils';
 
 import styles from './index.module.css';

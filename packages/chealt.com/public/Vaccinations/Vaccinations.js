@@ -1,31 +1,37 @@
 import { localFormatDate } from '@chealt/browser-utils';
-import { useCallback, useState } from 'preact/hooks';
+import { useCallback, useContext, useState } from 'preact/hooks';
 
-import EmptyState from '../EmptyState';
+import { AppState } from '../App/state';
+import EmptyState from '../EmptyState/EmptyState';
 import Button from '../Form/Button';
 import Input from '../Form/Input';
 import Tag from '../Form/Tag';
 import { toggleItem } from '../Helpers/array';
 import Vaccine from '../Icons/Vaccine';
 import { useObjectStore } from '../IndexedDB/hooks';
-import Modal from '../Modal';
-import PageTitle from '../PageTitle';
-import Table from '../Table';
+import Modal from '../Modal/Modal';
+import PageTitle from '../PageTitle/PageTitle';
 import Cell from '../Table/Cell';
 import HeadCell from '../Table/HeadCell';
 import Row from '../Table/Row';
-import { add as addToast } from '../Toast';
+import Table from '../Table/Table';
+import { add as addToast } from '../Toast/Toast';
 import Controls from './Controls';
 import NewItem from './NewItem';
+import { findItems } from './utils';
 
-import styles from './index.module.css';
+import styles from './Vaccinations.module.css';
 
 const Vaccinations = () => {
+  const {
+    profiles: { selectedProfileId }
+  } = useContext(AppState);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedItems, setSelectedItems] = useState([]);
   const deleteEnabled = Boolean(selectedItems.length);
   const { deleteItems, save, items } = useObjectStore('vaccinations');
-  const hasVaccinations = Boolean(items.length);
+  const profileItems = findItems(items, selectedProfileId.value);
+  const hasVaccinations = Boolean(profileItems.length);
 
   const deleteSelectedItems = useCallback(async () => {
     try {
@@ -58,7 +64,7 @@ const Vaccinations = () => {
                 <HeadCell>Immuniser</HeadCell>
                 <HeadCell>Venue</HeadCell>
               </Row>
-              {items.map((vaccination) => (
+              {profileItems.map((vaccination) => (
                 <Row key={vaccination.key}>
                   <Cell>
                     <Input

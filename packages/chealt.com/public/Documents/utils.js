@@ -30,4 +30,9 @@ const isImage = (filename) =>
   supportedImageExtensions.includes(filename.slice(filename.lastIndexOf('.') + 1).toLowerCase());
 const isPDF = (filename) => filename.slice(filename.lastIndexOf('.') + 1).toLowerCase() === 'pdf';
 
-export { getFilesFromEvent, isImage, isPDF };
+const findItems = (items, profileId) =>
+  (items.length && items.filter(({ value }) => value.profileId === profileId)) || [];
+
+const bySavedTime = (a, b) => b.value.savedTimestamp - a.value.savedTimestamp;
+
+export { bySavedTime, getFilesFromEvent, findItems, isImage, isPDF };
