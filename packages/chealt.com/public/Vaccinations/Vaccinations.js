@@ -18,7 +18,7 @@ import { add as addToast } from '../Toast/Toast';
 import Controls from './Controls';
 import NewItem from './NewItem';
 
-import styles from './index.module.css';
+import styles from './Vaccinations.module.css';
 
 const Vaccinations = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
