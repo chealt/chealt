@@ -6,6 +6,7 @@ import Form from '../Form/Form';
 import Input from '../Form/Input';
 import Option from '../Form/Option';
 import Select from '../Form/Select';
+import { getFormData } from '../Form/utils';
 import { useObjectStore } from '../IndexedDB/hooks';
 import PageTitle from '../PageTitle/PageTitle';
 import { add as addToast } from '../Toast/Toast';
@@ -25,11 +26,8 @@ const PersonalDetails = () => {
     ...input
   };
 
-  const saveInput = (event) => {
-    setInput({
-      ...input,
-      [event.target.name]: event.target.value
-    });
+  const saveInput = ({ target: { form } }) => {
+    setInput(getFormData(form));
   };
 
   const saveFormData = async (event) => {
@@ -57,38 +55,33 @@ const PersonalDetails = () => {
   return (
     <>
       <PageTitle>Personal Details</PageTitle>
-      <Form name="personalDetails" onSubmit={saveFormData}>
-        <Input type="text" name="firstName" value={personalDetails.firstName} onInput={saveInput}>
+      <Form name="personalDetails" onSubmit={saveFormData} onInput={saveInput}>
+        <Input type="text" name="firstName" value={personalDetails.firstName}>
           First Name
         </Input>
-        <Input type="text" name="lastName" value={personalDetails.lastName} onInput={saveInput}>
+        <Input type="text" name="lastName" value={personalDetails.lastName}>
           Last Name
         </Input>
-        <Input
-          type="date"
-          name="dateOfBirth"
-          value={personalDetails.dateOfBirth}
-          onInput={saveInput}
-        >
+        <Input type="date" name="dateOfBirth" value={personalDetails.dateOfBirth}>
           Date of Birth
         </Input>
-        <Input type="email" name="email" value={personalDetails.email} onInput={saveInput}>
+        <Input type="email" name="email" value={personalDetails.email}>
           Email
         </Input>
-        <Select name="sex" label="Sex" value={personalDetails.sex} onInput={saveInput}>
+        <Select name="sex" label="Sex" value={personalDetails.sex}>
           <Option value="" />
           <Option value="male">Male</Option>
           <Option value="female">Female</Option>
           <Option value="other">Other</Option>
         </Select>
         <div class={styles.multiUnit}>
-          <Input type="number" name="height" value={personalDetails.height} onInput={saveInput}>
+          <Input type="number" name="height" value={personalDetails.height}>
             Height
           </Input>
           <div class={styles.imperialUnit}>{imperialUnitHeight}</div>
         </div>
         <div class={styles.multiUnit}>
-          <Input type="number" name="weight" value={personalDetails.weight} onInput={saveInput}>
+          <Input type="number" name="weight" value={personalDetails.weight}>
             Weight
           </Input>
           <div class={styles.imperialUnit}>{imperialUnitWeight}</div>
