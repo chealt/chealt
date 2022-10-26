@@ -76,6 +76,7 @@ const PersonalDetails = () => {
           Email
         </Input>
         <Select name="sex" label="Sex" value={personalDetails.sex} onInput={saveInput}>
+          <Option value="" />
           <Option value="male">Male</Option>
           <Option value="female">Female</Option>
           <Option value="other">Other</Option>
