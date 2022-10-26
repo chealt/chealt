@@ -21,13 +21,8 @@ const PersonalDetails = () => {
   const [input, setInput] = useState({});
   const saved = findPersonalDetails(items, selectedProfileId);
   const personalDetails = {
-    firstName: input.firstName || saved.firstName,
-    lastName: input.lastName || saved.lastName,
-    dateOfBirth: input.dateOfBirth || saved.dateOfBirth,
-    email: input.email || saved.email,
-    sex: input.sex || saved.sex,
-    height: input.height || saved.height,
-    weight: input.weight || saved.weight
+    ...saved,
+    ...input
   };
 
   const saveInput = (event) => {
