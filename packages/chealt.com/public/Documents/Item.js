@@ -43,12 +43,19 @@ const Item = ({
         <Input
           type="tag"
           name="documentTags"
+          list="tags"
           addItem={addTag}
           value={tagsValue}
           deleteItem={deleteTag}
           hideLabel
         >
           New tag
+          <datalist id="tags">
+            <option value="Blood test" />
+            <option value="Test" />
+            <option value="Vaccinations" />
+            <option value="X-ray" />
+          </datalist>
         </Input>
       )}
     </div>
