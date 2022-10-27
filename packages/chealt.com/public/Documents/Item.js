@@ -7,7 +7,7 @@ import Launch from '../Icons/Launch';
 
 import styles from './Item.module.css';
 
-const Item = ({ documentKey, children, tags, ...inputProps }) => {
+const Item = ({ documentKey, children, tags, openTagEditor, ...inputProps }) => {
   const { route } = useLocation();
 
   return (
@@ -18,11 +18,10 @@ const Item = ({ documentKey, children, tags, ...inputProps }) => {
         </Input>
         <Tag value={tags || [].join(',')} />
       </div>
+      <Button onClick={openTagEditor}>Tags</Button>
       <Button
         ghost
-        onClick={(event) => {
-          event.preventDefault();
-
+        onClick={() => {
           route(`/documents/view/${btoa(documentKey)}`);
         }}
       >

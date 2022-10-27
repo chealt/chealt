@@ -56,6 +56,10 @@ const Documents = () => {
     event.target.value = null; // clear the input after saving
   };
 
+  const openTagEditor = () => {
+    console.log('asd');
+  };
+
   const showDocuments = Boolean(documents.length);
   const noDocuments = !documents.length;
   const sortedDocuments = documents.sort(bySavedTime);
@@ -99,6 +103,7 @@ const Documents = () => {
                   }}
                   documentKey={doc.key}
                   tags={doc.value.tags}
+                  openTagEditor={() => openTagEditor(doc.key)}
                 >
                   {doc.value.name}
                 </Item>
