@@ -98,6 +98,7 @@ const Documents = () => {
                     setSelectedItems(toggleItem(doc.key, selectedItems));
                   }}
                   documentKey={doc.key}
+                  tags={doc.value.tags}
                 >
                   {doc.value.name}
                 </Item>

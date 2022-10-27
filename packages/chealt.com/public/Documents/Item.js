@@ -2,11 +2,12 @@ import { useLocation } from 'preact-iso';
 
 import Button from '../Form/Button';
 import Input from '../Form/Input';
+import Tag from '../Form/Tag';
 import Launch from '../Icons/Launch';
 
 import styles from './Item.module.css';
 
-const Item = ({ documentKey, children, ...inputProps }) => {
+const Item = ({ documentKey, children, tags, ...inputProps }) => {
   const { route } = useLocation();
 
   return (
@@ -15,6 +16,7 @@ const Item = ({ documentKey, children, ...inputProps }) => {
         <Input type="checkbox" value={documentKey} {...inputProps}>
           {children}
         </Input>
+        <Tag value={tags || [].join(',')} />
       </div>
       <Button
         ghost
