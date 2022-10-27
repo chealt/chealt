@@ -2,30 +2,62 @@ import { useLocation } from 'preact-iso';
 
 import Button from '../Form/Button';
 import Input from '../Form/Input';
+import Tag from '../Form/Tag';
 import Launch from '../Icons/Launch';
 
 import styles from './Item.module.css';
 
-const Item = ({ documentKey, children, ...inputProps }) => {
+const Item = ({
+  addTag,
+  children,
+  deleteTag,
+  documentKey,
+  isTagEditorOpen,
+  openTagEditor,
+  tags,
+  ...inputProps
+}) => {
   const { route } = useLocation();
+  const tagsValue = (tags || []).join(',');
 
   return (
     <div class={styles.item}>
-      <div class={styles.content}>
-        <Input type="checkbox" value={documentKey} {...inputProps}>
-          {children}
-        </Input>
+      <div class={styles.container}>
+        <div class={styles.content}>
+          <Input type="checkbox" value={documentKey} {...inputProps}>
+            {children}
+          </Input>
+          {!isTagEditorOpen && <Tag value={tagsValue} />}
+        </div>
+        <Button onClick={openTagEditor}>Tags</Button>
+        <Button
+          ghost
+          onClick={() => {
+            route(`/documents/view/${btoa(documentKey)}`);
+          }}
+        >
+          <Launch />
+        </Button>
       </div>
-      <Button
-        ghost
-        onClick={(event) => {
-          event.preventDefault();
-
-          route(`/documents/view/${btoa(documentKey)}`);
-        }}
-      >
-        <Launch />
-      </Button>
+      {isTagEditorOpen && (
+        <Input
+          type="tag"
+          name="documentTags"
+          list="tags"
+          addItem={addTag}
+          value={tagsValue}
+          deleteItem={deleteTag}
+          hideLabel
+        >
+          New tag
+          <datalist id="tags">
+            <option value="Blood test" />
+            <option value="Test" />
+            <option value="Vaccinations" />
+            <option value="X-ray" />
+          </datalist>
+        </Input>
+      )}
     </div>
   );
 };
