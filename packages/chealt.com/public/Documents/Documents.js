@@ -20,6 +20,7 @@ const Documents = () => {
     profiles: { selectedProfileId }
   } = useContext(AppState);
   const [selectedItems, setSelectedItems] = useState([]);
+  const [openTagsDocumentKey, setOpenTagsDocumentKey] = useState();
   const uploadDocumentInput = useRef(null);
   const deleteEnabled = Boolean(selectedItems.length);
   const { deleteItems, items, save } = useObjectStore('documents');
@@ -56,8 +57,31 @@ const Documents = () => {
     event.target.value = null; // clear the input after saving
   };
 
-  const openTagEditor = () => {
-    console.log('asd');
+  const toggleTagEditor = (documentKey) => {
+    if (openTagsDocumentKey === documentKey) {
+      setOpenTagsDocumentKey();
+    } else {
+      setOpenTagsDocumentKey(documentKey);
+    }
+  };
+
+  const addTag = (documentKey) => (value) => {
+    const document = documents.find(({ key }) => key === documentKey);
+
+    save({
+      key: documentKey,
+      value: { ...document.value, tags: [...(document.value.tags || []), value] }
+    });
+  };
+
+  const deleteTag = (documentKey) => (value) => {
+    const document = documents.find(({ key }) => key === documentKey);
+    const tags = document.value.tags.filter((tag) => tag !== value);
+
+    save({
+      key: documentKey,
+      value: { ...document.value, tags }
+    });
   };
 
   const showDocuments = Boolean(documents.length);
@@ -103,7 +127,10 @@ const Documents = () => {
                   }}
                   documentKey={doc.key}
                   tags={doc.value.tags}
-                  openTagEditor={() => openTagEditor(doc.key)}
+                  openTagEditor={() => toggleTagEditor(doc.key)}
+                  isTagEditorOpen={openTagsDocumentKey === doc.key}
+                  addTag={addTag(doc.key)}
+                  deleteTag={deleteTag(doc.key)}
                 >
                   {doc.value.name}
                 </Item>

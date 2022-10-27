@@ -16,6 +16,15 @@ const Input = ({
 }) => {
   const tagInput = useRef(null);
 
+  const addTag = (event) => {
+    event.preventDefault();
+
+    if (tagInput.current.value) {
+      inputProps.addItem(tagInput.current.value);
+      tagInput.current.value = '';
+    }
+  };
+
   return (
     <>
       <label
@@ -35,19 +44,18 @@ const Input = ({
         </div>
         {type === 'tag' ? (
           <div class={styles.tagContainer}>
-            <input class={styles.input} type="text" {...inputProps} ref={tagInput} />
-            <Button
-              onClick={(event) => {
-                event.preventDefault();
-
-                if (tagInput.current.value) {
-                  inputProps.addItem(tagInput.current.value);
-                  tagInput.current.value = '';
+            <input
+              class={styles.input}
+              type="text"
+              {...inputProps}
+              ref={tagInput}
+              onKeyPress={(event) => {
+                if (event.key === 'Enter') {
+                  addTag(event);
                 }
               }}
-            >
-              add
-            </Button>
+            />
+            <Button onClick={addTag}>add</Button>
           </div>
         ) : (
           <input class={styles.input} type={type} value={value} {...inputProps} />
