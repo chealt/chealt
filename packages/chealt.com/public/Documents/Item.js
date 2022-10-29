@@ -7,6 +7,8 @@ import Launch from '../Icons/Launch';
 
 import styles from './Item.module.css';
 
+const tagSuggestions = ['Blood test', 'Check-up', 'Medical test', 'Vaccinations', 'X-ray'];
+
 const Item = ({
   addTag,
   children,
@@ -51,10 +53,9 @@ const Item = ({
         >
           New tag
           <datalist id="tags">
-            <option value="Blood test" />
-            <option value="Test" />
-            <option value="Vaccinations" />
-            <option value="X-ray" />
+            {tagSuggestions.map((tag) => (
+              <option key={tag} value={tag} />
+            ))}
           </datalist>
         </Input>
       )}
