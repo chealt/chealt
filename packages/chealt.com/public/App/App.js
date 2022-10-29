@@ -12,7 +12,7 @@ const Documents = lazy(() => import(`../pages/Documents`));
 const View = lazy(() => import('../pages/View'));
 const PersonalDetails = lazy(() => import('../pages/PersonalDetails'));
 const Share = lazy(() => import('../pages/Share'));
-const BloodTests = lazy(() => import('../pages/BloodTests'));
+const CheckUps = lazy(() => import('../pages/CheckUps'));
 const Vaccinations = lazy(() => import('../pages/Vaccinations'));
 const Profiles = lazy(() => import('../pages/Profiles'));
 const NotFound = lazy(() => import('../pages/_404'));
@@ -31,7 +31,7 @@ const App = () => (
                 <Route path="/documents/view/:encodedDocumentKey" component={View} />
                 <Route path="/share" component={Share} />
                 <Route path="/personal-details" component={PersonalDetails} />
-                <Route path="/blood-tests" component={BloodTests} />
+                <Route path="/check-ups" component={CheckUps} />
                 <Route path="/vaccinations" component={Vaccinations} />
                 <Route path="/profiles" component={Profiles} />
                 <Route default component={NotFound} />

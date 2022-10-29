@@ -11,11 +11,11 @@ import { findDetails } from './utils';
 
 const bloodTypes = ['A', 'AB', 'B', 'O'];
 
-const BloodTests = () => {
+const CheckUps = () => {
   const {
     profiles: { selectedProfileId }
   } = useContext(AppState);
-  const { save, items } = useObjectStore('blood');
+  const { save, items } = useObjectStore('bloodType');
   const profileBloodDetails = findDetails(items, selectedProfileId.value);
 
   const saveBloodType = async (event) => {
@@ -31,7 +31,7 @@ const BloodTests = () => {
 
   return (
     <>
-      <PageTitle>Blood Tests</PageTitle>
+      <PageTitle>Check-ups & Medical Tests</PageTitle>
       <Form name="bloodType" onSubmit={saveBloodType}>
         <Select name="bloodType" label="Blood type">
           {bloodTypes.map((type) => (
@@ -52,4 +52,4 @@ const BloodTests = () => {
   );
 };
 
-export default BloodTests;
+export default CheckUps;
