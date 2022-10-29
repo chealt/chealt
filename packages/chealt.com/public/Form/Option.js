@@ -1,3 +1,3 @@
-const Option = ({ children, optionProps }) => <option {...optionProps}>{children}</option>;
+const Option = ({ children, ...optionProps }) => <option {...optionProps}>{children}</option>;
 
 export default Option;
