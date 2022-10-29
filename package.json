@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/chealt/chealt#chealt",
   "devDependencies": {
-    "@aws-sdk/signature-v4-crt": "^3.197.0",
+    "@aws-sdk/signature-v4-crt": "^3.198.0",
     "@babel/cli": "^7.19.3",
     "@babel/core": "^7.19.6",
     "@babel/eslint-parser": "^7.19.1",
