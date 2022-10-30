@@ -7,7 +7,8 @@ import Launch from '../Icons/Launch';
 
 import styles from './Item.module.css';
 
-const tagSuggestions = ['Blood test', 'Check-up', 'Medical test', 'Vaccinations', 'X-ray'];
+const checkUpTags = ['Blood test', 'Check-up', 'Medical test', 'X-ray'];
+const tagSuggestions = [...checkUpTags, 'Vaccinations'];
 
 const Item = ({
   addTag,
@@ -63,4 +64,5 @@ const Item = ({
   );
 };
 
+export { checkUpTags };
 export default Item;
