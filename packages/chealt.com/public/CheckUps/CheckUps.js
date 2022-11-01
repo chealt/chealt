@@ -24,9 +24,6 @@ const CheckUps = () => {
   return (
     <>
       <PageTitle>Check-ups & Medical Tests</PageTitle>
-      <section>
-        <BloodType />
-      </section>
       {checkUps && (
         <section>
           <List isSimple={false}>
@@ -46,6 +43,9 @@ const CheckUps = () => {
           </List>
         </section>
       )}
+      <section>
+        <BloodType />
+      </section>
     </>
   );
 };
