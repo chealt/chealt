@@ -18,7 +18,7 @@
     "jest-dev-server": "^6.1.1",
     "jest-environment-node": "^29.2.2",
     "merge-deep": "^3.0.3",
-    "puppeteer": "^19.2.0"
+    "puppeteer": "^19.2.2"
   },
   "publishConfig": {
     "access": "public",
