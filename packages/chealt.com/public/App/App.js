@@ -28,7 +28,7 @@ const App = () => (
               <Router>
                 <Route path="/" component={Home} />
                 <Route path="/documents" component={Documents} />
-                <Route path="/documents/view/:encodedDocumentKey" component={View} />
+                <Route path="/documents/view/:encodedDocumentKey/:refererPage" component={View} />
                 <Route path="/share" component={Share} />
                 <Route path="/personal-details" component={PersonalDetails} />
                 <Route path="/check-ups" component={CheckUps} />

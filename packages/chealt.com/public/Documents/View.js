@@ -9,7 +9,7 @@ import styles from './View.module.css';
 
 const View = () => {
   const {
-    params: { encodedDocumentKey }
+    params: { encodedDocumentKey, refererPage }
   } = useRoute();
   const documentKey = atob(encodedDocumentKey);
   const [imageSource, setImageSource] = useState();
@@ -18,25 +18,27 @@ const View = () => {
 
   useEffect(() => {
     (async () => {
-      const item = await getItem(documentKey);
+      if (documentKey) {
+        const item = await getItem(documentKey);
 
-      // Check if getItem returns anything
-      // If the instance is not yet initialized this will be falsy
-      if (item) {
-        const { blob, name } = item;
+        // Check if getItem returns anything
+        // If the instance is not yet initialized this will be falsy
+        if (item) {
+          const { blob, name } = item;
 
-        if (isImage(name)) {
-          const objectURL = URL.createObjectURL(new Blob([blob]));
+          if (isImage(name)) {
+            const objectURL = URL.createObjectURL(new Blob([blob]));
 
-          setImageSource(objectURL);
-        } else if (isPDF(name)) {
-          const objectURL = URL.createObjectURL(new Blob([blob], { type: 'application/pdf' }));
+            setImageSource(objectURL);
+          } else if (isPDF(name)) {
+            const objectURL = URL.createObjectURL(new Blob([blob], { type: 'application/pdf' }));
 
-          window.open(objectURL);
-          setOpenedInNewTab(true);
-        } else {
-          // eslint-disable-next-line no-console
-          console.log('Unsupported file extension.');
+            window.open(objectURL);
+            setOpenedInNewTab(true);
+          } else {
+            // eslint-disable-next-line no-console
+            console.log('Unsupported file extension.');
+          }
         }
       }
     })();
@@ -44,7 +46,7 @@ const View = () => {
 
   return (
     <div class={styles.view}>
-      <Link href="/documents">Back to Documents</Link>
+      <Link href={`/${refererPage}`}>Back</Link>
       {imageSource && <img src={imageSource} class={styles.image} />}
       {openedInNewTab && (
         <>
