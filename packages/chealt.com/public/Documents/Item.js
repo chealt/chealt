@@ -1,13 +1,12 @@
-import { useLocation } from 'preact-iso';
-
 import Button from '../Form/Button';
 import Input from '../Form/Input';
 import Tag from '../Form/Tag';
-import Launch from '../Icons/Launch';
+import ViewButton from './ViewButton';
 
 import styles from './Item.module.css';
 
-const tagSuggestions = ['Blood test', 'Check-up', 'Medical test', 'Vaccinations', 'X-ray'];
+const checkUpTags = ['Blood test', 'Check-up', 'Medical test', 'X-ray'];
+const tagSuggestions = [...checkUpTags, 'Vaccinations'];
 
 const Item = ({
   addTag,
@@ -19,7 +18,6 @@ const Item = ({
   tags,
   ...inputProps
 }) => {
-  const { route } = useLocation();
   const tagsValue = (tags || []).join(',');
 
   return (
@@ -32,14 +30,7 @@ const Item = ({
           {!isTagEditorOpen && <Tag value={tagsValue} />}
         </div>
         <Button onClick={openTagEditor}>Tags</Button>
-        <Button
-          ghost
-          onClick={() => {
-            route(`/documents/view/${btoa(documentKey)}`);
-          }}
-        >
-          <Launch />
-        </Button>
+        <ViewButton documentKey={documentKey} refererPage="documents" />
       </div>
       {isTagEditorOpen && (
         <Input
@@ -63,4 +54,5 @@ const Item = ({
   );
 };
 
+export { checkUpTags };
 export default Item;

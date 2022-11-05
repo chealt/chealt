@@ -7,6 +7,8 @@ import FileInput from '../Form/FileInput';
 import { toggleItem } from '../Helpers/array';
 import DocumentsIcon from '../Icons/Documents';
 import { useObjectStore } from '../IndexedDB/hooks';
+import List from '../List/List';
+import ListItem from '../List/ListItem';
 import PageTitle from '../PageTitle/PageTitle';
 import { add as addToast } from '../Toast/Toast';
 import Controls from './Controls';
@@ -91,36 +93,40 @@ const Documents = () => {
   return (
     <div class={styles.documents}>
       <PageTitle>Documents</PageTitle>
-      <FileInput
-        multiple
-        onChange={uploadDocuments}
-        ondrop={uploadDocuments}
-        inputRef={uploadDocumentInput}
-      >
-        Upload documents
-      </FileInput>
+      <section>
+        <FileInput
+          multiple
+          onChange={uploadDocuments}
+          ondrop={uploadDocuments}
+          inputRef={uploadDocumentInput}
+        >
+          Upload documents
+        </FileInput>
+      </section>
       {noDocuments && (
-        <EmptyState>
-          <DocumentsIcon />
-          <p>Your uploaded documents will be shown here.</p>
-          <Button
-            emphasized
-            onClick={(event) => {
-              event.preventDefault();
+        <section>
+          <EmptyState>
+            <DocumentsIcon />
+            <p>Your uploaded documents will be shown here.</p>
+            <Button
+              emphasized
+              onClick={(event) => {
+                event.preventDefault();
 
-              uploadDocumentInput.current.click();
-            }}
-          >
-            Start uploading
-          </Button>
-        </EmptyState>
+                uploadDocumentInput.current.click();
+              }}
+            >
+              Start uploading
+            </Button>
+          </EmptyState>
+        </section>
       )}
       {showDocuments && (
-        <>
+        <section>
           <Controls onDelete={deleteEnabled && deleteSelectedItems} />
-          <ul>
+          <List isSimple={false}>
             {sortedDocuments.map((doc) => (
-              <li key={doc.key}>
+              <ListItem key={doc.key}>
                 <Item
                   onClick={() => {
                     setSelectedItems(toggleItem(doc.key, selectedItems));
@@ -134,10 +140,10 @@ const Documents = () => {
                 >
                   {doc.value.name}
                 </Item>
-              </li>
+              </ListItem>
             ))}
-          </ul>
-        </>
+          </List>
+        </section>
       )}
     </div>
   );

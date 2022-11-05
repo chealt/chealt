@@ -1,0 +1,9 @@
+.checkUp {
+  display: flex;
+  gap: var(--gap);
+  align-items: center;
+}
+
+.name {
+  flex-grow: 1;
+}
