@@ -16,6 +16,7 @@ const NewItem = ({ save, onDone }) => {
   const [conditions, setConditions] = useState();
   const locale = navigator.language || 'en-US';
   const localVaccinations = getLocalVaccinations(locale);
+
   const saveFormData = async (event) => {
     event.preventDefault();
 

@@ -14,7 +14,7 @@ const BloodType = () => {
   const {
     profiles: { selectedProfileId }
   } = useContext(AppState);
-  const { save, items } = useObjectStore('bloodType');
+  const { save, isLoading, items } = useObjectStore('bloodType');
   const profileBloodDetails = findDetails(items, selectedProfileId.value);
 
   const saveBloodType = async (event) => {
@@ -28,7 +28,7 @@ const BloodType = () => {
     await save({ key, value: { bloodType, profileId: selectedProfileId.value } });
   };
 
-  return (
+  return isLoading ? null : (
     <Form name="bloodType" onSubmit={saveBloodType}>
       <Select name="bloodType" label="Blood type">
         {bloodTypes.map((type) => (

@@ -25,7 +25,7 @@ const Documents = () => {
   const [openTagsDocumentKey, setOpenTagsDocumentKey] = useState();
   const uploadDocumentInput = useRef(null);
   const deleteEnabled = Boolean(selectedItems.length);
-  const { deleteItems, items, save } = useObjectStore('documents');
+  const { deleteItems, isLoading, items, save } = useObjectStore('documents');
   const documents = findItems(items, selectedProfileId.value);
 
   const deleteSelectedItems = useCallback(async () => {
@@ -90,7 +90,7 @@ const Documents = () => {
   const noDocuments = !documents.length;
   const sortedDocuments = documents.sort(bySavedTime);
 
-  return (
+  return isLoading ? null : (
     <div class={styles.documents}>
       <PageTitle>Documents</PageTitle>
       <section>
