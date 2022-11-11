@@ -1,0 +1,11 @@
+{
+  "pages": {
+    "home": "home",
+    "documents": "documents",
+    "share": "share",
+    "personalDetails": "personal details",
+    "checkUps": "check-ups",
+    "vaccinations": "vaccinations",
+    "profiles": "profiles"
+  }
+}
