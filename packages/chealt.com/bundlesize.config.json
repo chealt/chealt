@@ -2,7 +2,7 @@
   "files": [
     {
       "path": "./dist/index.*.js",
-      "maxSize": "11.2 kB"
+      "maxSize": "31 kB"
     },
     {
       "path": "./dist/chunks/CheckUps.*.js",
@@ -14,7 +14,7 @@
     },
     {
       "path": "./dist/chunks/Home.*.js",
-      "maxSize": "611 b"
+      "maxSize": "2.6 kB"
     },
     {
       "path": "./dist/chunks/PersonalDetails.*.js",
@@ -30,7 +30,7 @@
     },
     {
       "path": "./dist/chunks/Vaccinations.*.js",
-      "maxSize": "2.24 kB"
+      "maxSize": "2.25 kB"
     },
     {
       "path": "./dist/chunks/View.*.js",

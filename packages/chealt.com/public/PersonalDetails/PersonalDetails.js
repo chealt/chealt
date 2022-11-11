@@ -18,7 +18,7 @@ const PersonalDetails = () => {
   const {
     profiles: { selectedProfileId }
   } = useContext(AppState);
-  const { items, save } = useObjectStore('personalDetails');
+  const { items, isLoading, save } = useObjectStore('personalDetails');
   const [input, setInput] = useState({});
   const saved = findPersonalDetails(items, selectedProfileId);
   const personalDetails = {
@@ -52,7 +52,7 @@ const PersonalDetails = () => {
     ? `${getImperialUnitWeight(personalDetails.weight)} lb`
     : '- lb';
 
-  return (
+  return isLoading ? null : (
     <>
       <PageTitle>Personal Details</PageTitle>
       <Form name="personalDetails" onSubmit={saveFormData} onInput={saveInput}>

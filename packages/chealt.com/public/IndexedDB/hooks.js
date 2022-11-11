@@ -5,6 +5,7 @@ import database, { objectStoreNames } from './IndexedDB';
 const useObjectStore = (name) => {
   const [instance, setInstance] = useState();
   const [items, setItems] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const getItem = useCallback((key) => instance?.get({ type: name, key }), [instance, name]);
 
@@ -22,6 +23,7 @@ const useObjectStore = (name) => {
     }
 
     setItems(items);
+    setIsLoading(false);
   }, [instance, name]);
 
   const save = useCallback(
@@ -67,9 +69,10 @@ const useObjectStore = (name) => {
   }, [instance, loadItems]);
 
   return {
-    instance,
     deleteItems,
     getItem,
+    instance,
+    isLoading,
     items,
     save
   };

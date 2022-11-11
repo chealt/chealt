@@ -15,10 +15,10 @@ const CheckUps = () => {
   const {
     profiles: { selectedProfileId }
   } = useContext(AppState);
-  const { items: documents } = useObjectStore('documents');
+  const { items: documents, isLoading } = useObjectStore('documents');
   const checkUps = documents?.filter(byProfileId(selectedProfileId.value))?.filter(withCheckUpTag);
 
-  return (
+  return isLoading ? null : (
     <>
       <PageTitle>Check-ups & Medical Tests</PageTitle>
       {checkUps && (

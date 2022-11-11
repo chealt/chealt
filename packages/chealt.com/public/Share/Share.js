@@ -13,7 +13,7 @@ import QRCode from '../QRCode/QRCode';
 import { add as addToast } from '../Toast/Toast';
 import { download, upload } from './utils';
 
-import styles from './index.module.css';
+import styles from './Share.module.css';
 
 const Share = () => {
   const [isModalOpen, setIsModalOpen] = useState();
@@ -21,7 +21,7 @@ const Share = () => {
   const [downloadUrl, setDownloadUrl] = useState();
   const [loadingDownloadUrl, setLoadingDownloadUrl] = useState();
   const ref = useRef();
-  const { items, save } = useObjectStore();
+  const { items, isLoading, save } = useObjectStore();
 
   const uploadContent = async () => {
     setLoadingDownloadUrl(true);
@@ -77,7 +77,7 @@ const Share = () => {
     };
   }, [isModalOpen, save]);
 
-  return (
+  return isLoading ? null : (
     <>
       <PageTitle>Share</PageTitle>
       <p>

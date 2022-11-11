@@ -15,7 +15,12 @@ import styles from './Profiles.module.css';
 const Profiles = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [profileToEdit, setProfileToEdit] = useState({});
-  const { items: profiles, save, deleteItems: deleteProfile } = useObjectStore('profiles');
+  const {
+    items: profiles,
+    isLoading,
+    save,
+    deleteItems: deleteProfile
+  } = useObjectStore('profiles');
 
   const confirmAndDelete = (key) => {
     // eslint-disable-next-line no-alert
@@ -47,7 +52,7 @@ const Profiles = () => {
     setProfileToEdit({});
   };
 
-  return (
+  return isLoading ? null : (
     <>
       <PageTitle>Profiles</PageTitle>
       <Container>

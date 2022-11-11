@@ -29,7 +29,7 @@ const Vaccinations = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedItems, setSelectedItems] = useState([]);
   const deleteEnabled = Boolean(selectedItems.length);
-  const { deleteItems, save, items } = useObjectStore('vaccinations');
+  const { deleteItems, save, isLoading, items } = useObjectStore('vaccinations');
   const profileItems = findItems(items, selectedProfileId.value);
   const hasVaccinations = Boolean(profileItems.length);
 
@@ -45,7 +45,7 @@ const Vaccinations = () => {
     }
   }, [deleteItems, selectedItems]);
 
-  return (
+  return isLoading ? null : (
     <>
       <PageTitle>Vaccinations</PageTitle>
       {(hasVaccinations && (
