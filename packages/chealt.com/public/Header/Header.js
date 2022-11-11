@@ -8,13 +8,13 @@ const Header = () => {
   return (
     <header class={styles.header}>
       <nav>
-        <a href="/">{t('pages.home')}</a>
-        <a href="/documents">{t('pages.documents')}</a>
-        <a href="/share">{t('pages.share')}</a>
-        <a href="/personal-details">{t('pages.personalDetails')}</a>
-        <a href="/check-ups">{t('pages.checkUps')}</a>
-        <a href="/vaccinations">{t('pages.vaccinations')}</a>
-        <a href="/profiles">{t('pages.profiles')}</a>
+        <a href="/">{t('pages.home.nav')}</a>
+        <a href="/documents">{t('pages.documents.nav')}</a>
+        <a href="/share">{t('pages.share.nav')}</a>
+        <a href="/personal-details">{t('pages.personalDetails.nav')}</a>
+        <a href="/check-ups">{t('pages.checkUps.nav')}</a>
+        <a href="/vaccinations">{t('pages.vaccinations.nav')}</a>
+        <a href="/profiles">{t('pages.profiles.nav')}</a>
       </nav>
     </header>
   );
