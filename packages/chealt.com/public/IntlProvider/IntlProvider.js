@@ -2,7 +2,8 @@ import { use } from 'i18next';
 import { initReactI18next } from 'preact-i18next';
 import { useEffect, useState } from 'preact/hooks';
 
-import en from '../translation/en.json';
+import enUS from '../translation/en.json';
+import hu from '../translation/hu.json';
 
 const IntlProvider = ({ children }) => {
   const [isInitialized, setInitialized] = useState(false);
@@ -12,11 +13,14 @@ const IntlProvider = ({ children }) => {
       use(initReactI18next) // passes i18n down to react-i18next
         .init({
           resources: {
-            en: {
-              translation: en
+            'en-US': {
+              translation: enUS
+            },
+            hu: {
+              translation: hu
             }
           },
-          fallbackLng: 'en',
+          fallbackLng: 'en-US',
           interpolation: {
             escapeValue: false
           }
