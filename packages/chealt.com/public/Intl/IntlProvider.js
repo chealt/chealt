@@ -1,7 +1,8 @@
 import { use } from 'i18next';
-import { initReactI18next } from 'preact-i18next';
-import { useEffect, useState } from 'preact/hooks';
+import { initReactI18next, useTranslation } from 'preact-i18next';
+import { useContext, useEffect, useState } from 'preact/hooks';
 
+import { AppState } from '../App/state';
 import da from '../translation/da.json';
 import enGB from '../translation/en-GB.json';
 import enUS from '../translation/en-US.json';
@@ -9,6 +10,10 @@ import hu from '../translation/hu.json';
 import po from '../translation/po.json';
 
 const IntlProvider = ({ children }) => {
+  const {
+    intl: { selectedLanguage }
+  } = useContext(AppState);
+  const { i18n } = useTranslation();
   const [isInitialized, setInitialized] = useState(false);
 
   useEffect(() => {
@@ -40,6 +45,12 @@ const IntlProvider = ({ children }) => {
         .then(() => setInitialized(true));
     }
   }, [isInitialized]);
+
+  useEffect(() => {
+    if (selectedLanguage.value && i18n.isInitialized) {
+      i18n.changeLanguage(selectedLanguage.value);
+    }
+  }, [selectedLanguage.value, i18n]);
 
   return isInitialized ? children : null;
 };
