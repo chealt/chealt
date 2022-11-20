@@ -1,0 +1,36 @@
+{
+  "pages": {
+    "home": {
+      "nav": "home",
+      "title": "Chealt.com",
+      "mainTitle": "What",
+      "mainDescription": "This application helps you stay healthy and happy. Look around, you might see something useful.",
+      "privacyTitle": "Privacy",
+      "privacyDescription": "All the data you enter into the application is stored on your device. There are no cookies, third-party integrations, or anything like that. If there is a feature that requires you to send some data somewhere, we will always ask for your permission and let you know about the consequences.",
+      "improvementsTitle": "Improvements",
+      "improvementsDescription": "If you have an idea how to make this app even more useful, let us know <1>here</2> by creating a <3>GitHub issue</4>."
+    },
+    "documents": {
+      "nav": "documents"
+    },
+    "share": {
+      "nav": "share"
+    },
+    "personalDetails": {
+      "nav": "personal details"
+    },
+    "checkUps": {
+      "nav": "check-ups"
+    },
+    "vaccinations": {
+      "nav": "vaccinations"
+    },
+    "profiles": {
+      "nav": "profiles"
+    },
+    "notFound": {
+      "title": "Could not find the page you were looking for.",
+      "message": "Sorry :("
+    }
+  }
+}
