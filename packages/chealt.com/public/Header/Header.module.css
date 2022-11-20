@@ -10,6 +10,7 @@
   background-color: var(--color-brand);
   box-shadow: 0 8px 0 rgb(38 46 72 / 15%);
   padding: var(--gap);
+  gap: var(--gap--l);
 }
 
 .header nav {
