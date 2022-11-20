@@ -2,7 +2,7 @@ import { LocationProvider, Router, Route } from 'preact-iso';
 import lazy, { ErrorBoundary } from 'preact-iso/lazy';
 
 import Header from '../Header/Header';
-import IntlProvider from '../IntlProvider/IntlProvider';
+import IntlProvider from '../Intl/IntlProvider';
 import LayoutContainer from '../Layout/Container';
 import ProfileProvider from '../Profiles/Provider';
 import Toast from '../Toast/Toast';
