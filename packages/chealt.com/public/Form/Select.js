@@ -1,10 +1,19 @@
+import classNames from 'classnames';
+
 import ArrowDown from '../Icons/ArrowDown';
 
 import styles from './Input.module.css';
 
-const Select = ({ children, label, ...selectProps }) => (
+const Select = ({ children, label, hideLabel, ...selectProps }) => (
   <label class={styles.label}>
-    <div class={styles.text}>{label}</div>
+    <div
+      class={classNames({
+        [styles.text]: true,
+        [styles.visuallyHidden]: hideLabel
+      })}
+    >
+      {label}
+    </div>
     <div class={styles.selectWrapper}>
       <select class={styles.select} {...selectProps}>
         {children}
