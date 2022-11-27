@@ -13,14 +13,11 @@
   gap: var(--gap--l);
 }
 
-.header > * {
-  flex-grow: 1;
-}
-
 .header nav {
   display: flex;
   gap: var(--gap--l);
   flex-wrap: nowrap;
+  flex-grow: 1;
 }
 
 .header nav a {
