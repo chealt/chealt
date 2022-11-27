@@ -1,5 +1,5 @@
 import { use } from 'i18next';
-import { initReactI18next, useTranslation } from 'preact-i18next';
+import { initReactI18next } from 'preact-i18next';
 import { useContext, useEffect, useState } from 'preact/hooks';
 
 import { AppState } from '../App/state';
@@ -15,12 +15,10 @@ const defaultLanguage = 'en-US';
 
 const IntlProvider = ({ children }) => {
   const {
-    intl: { selectedLanguage },
     profiles: { selectedProfileId }
   } = useContext(AppState);
-  const { i18n } = useTranslation();
   const [isInitialized, setInitialized] = useState(false);
-  const { items: settings, isLoading, save } = useObjectStore('settings');
+  const { items: settings, isLoading } = useObjectStore('settings');
   const savedLanguage =
     !isLoading &&
     selectedProfileId.value &&
@@ -62,18 +60,6 @@ const IntlProvider = ({ children }) => {
         });
     }
   }, [isInitialized, savedLanguage]);
-
-  useEffect(() => {
-    if (selectedLanguage.value && i18n.isInitialized) {
-      i18n.changeLanguage(selectedLanguage.value);
-
-      // Save selected language to the database for the selected profile ID
-      save({
-        key: 'selectedLanguage',
-        value: { profileId: selectedProfileId.value, language: selectedLanguage.value }
-      });
-    }
-  }, [selectedLanguage.value, i18n, save, selectedProfileId.value]);
 
   return isInitialized ? children : null;
 };
