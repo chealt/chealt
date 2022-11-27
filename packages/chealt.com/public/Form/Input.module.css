@@ -22,6 +22,10 @@
   width: 100%;
 }
 
+.select.inline {
+  width: auto;
+}
+
 .input:not(:disabled),
 .select:not(:disabled),
 .button:not(:disabled),
@@ -128,15 +132,19 @@
 }
 
 .selectWrapper {
-  position: relative;  
+  position: relative;
 }
 
 .selectWrapper .icon {
   position: absolute;
-  right: 1rem;
+  right: 1em;
   top: 0;
   height: 100%;
   pointer-events: none;
+}
+
+.selectWrapper .select {
+  padding-inline-end: 2em; /* padding including the icon */
 }
 
 .visuallyHidden {

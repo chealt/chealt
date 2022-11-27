@@ -2,7 +2,7 @@ import { LocationProvider, Router, Route } from 'preact-iso';
 import lazy, { ErrorBoundary } from 'preact-iso/lazy';
 
 import Header from '../Header/Header';
-import IntlProvider from '../IntlProvider/IntlProvider';
+import IntlProvider from '../Intl/IntlProvider';
 import LayoutContainer from '../Layout/Container';
 import ProfileProvider from '../Profiles/Provider';
 import Toast from '../Toast/Toast';
@@ -21,8 +21,8 @@ const NotFound = lazy(() => import('../pages/_404'));
 const App = () => (
   <ErrorBoundary>
     <AppState.Provider value={createAppState()}>
-      <IntlProvider>
-        <ProfileProvider>
+      <ProfileProvider>
+        <IntlProvider>
           <LocationProvider>
             <Header />
             <main>
@@ -42,8 +42,8 @@ const App = () => (
             </main>
             <Toast />
           </LocationProvider>
-        </ProfileProvider>
-      </IntlProvider>
+        </IntlProvider>
+      </ProfileProvider>
     </AppState.Provider>
   </ErrorBoundary>
 );

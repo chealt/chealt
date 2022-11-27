@@ -4,11 +4,11 @@
   "private": true,
   "main": "./src/index.js",
   "devDependencies": {
-    "wrangler": "^2.4.2"
+    "wrangler": "^2.4.4"
   },
   "dependencies": {
-    "@aws-sdk/client-s3": "^3.213.0",
-    "@aws-sdk/s3-request-presigner": "^3.213.0",
+    "@aws-sdk/client-s3": "^3.216.0",
+    "@aws-sdk/s3-request-presigner": "^3.216.0",
     "cookie": "^0.5.0"
   }
 }
