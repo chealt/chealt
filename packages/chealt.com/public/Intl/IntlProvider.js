@@ -37,7 +37,7 @@ const IntlProvider = ({ children }) => {
               translation: da
             }
           },
-          fallbackLng: 'en-US',
+          fallbackLng: navigator.language || 'en-US',
           interpolation: {
             escapeValue: false
           }
