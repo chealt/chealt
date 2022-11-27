@@ -79,9 +79,11 @@
   padding-inline-end: 2em; /* padding including the icon */
 }
 
-.input:is(:hover, :focus):not(:disabled, [type="file"]),
+/* Disable complex :not notation as it breaks the WMR build */
+/* stylelint-disable selector-not-notation */
+.input:is(:hover, :focus):not(:disabled):not([type="file"]),
 .select:is(:hover, :focus):not(:disabled),
-.button:is(:hover, :focus):not(.ghost,:disabled),
+.button:is(:hover, :focus):not(.ghost, :disabled),
 .input[type="file"]:is(:hover, :focus):not(:disabled)::file-selector-button {
   border: 2px solid var(--color-border--active);
 }
