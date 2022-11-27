@@ -21,8 +21,8 @@ const NotFound = lazy(() => import('../pages/_404'));
 const App = () => (
   <ErrorBoundary>
     <AppState.Provider value={createAppState()}>
-      <IntlProvider>
-        <ProfileProvider>
+      <ProfileProvider>
+        <IntlProvider>
           <LocationProvider>
             <Header />
             <main>
@@ -42,8 +42,8 @@ const App = () => (
             </main>
             <Toast />
           </LocationProvider>
-        </ProfileProvider>
-      </IntlProvider>
+        </IntlProvider>
+      </ProfileProvider>
     </AppState.Provider>
   </ErrorBoundary>
 );

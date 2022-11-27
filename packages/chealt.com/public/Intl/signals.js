@@ -1,6 +1,6 @@
 import { signal } from '@preact/signals';
 
-const selectedLanguage = signal(navigator.language || 'en-US');
+const selectedLanguage = signal();
 
 const state = {
   selectedLanguage
