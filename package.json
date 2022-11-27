@@ -7,7 +7,7 @@
   },
   "scripts": {
     "check": "yarn lint:eslint && yarn lint:styles",
-    "lint:eslint": "eslint .",
+    "lint:scripts": "eslint .",
     "lint:styles": "stylelint '**/*.css' --cache",
     "test": "yarn workspace @chealt/jest-puppeteer-env-example run test",
     "test:unit": "yarn workspace @chealt/mocker run test:unit && yarn workspace @chealt/unit-test run test:unit",
