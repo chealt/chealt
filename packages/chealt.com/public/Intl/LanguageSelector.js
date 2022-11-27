@@ -4,15 +4,29 @@ import { useContext } from 'preact/hooks';
 import { AppState } from '../App/state';
 import Option from '../Form/Option';
 import Select from '../Form/Select';
+import { useObjectStore } from '../IndexedDB/hooks';
 import { setSelectedLanguage } from './signals';
 
 const sortByProp = (toSortBy) => (a, b) => a[toSortBy].localeCompare(b[toSortBy]);
 
 const LanguageSelector = () => {
   const {
-    intl: { selectedLanguage }
+    intl: { selectedLanguage },
+    profiles: { selectedProfileId }
   } = useContext(AppState);
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const { save } = useObjectStore('settings');
+
+  const changeLanguage = (language) => {
+    setSelectedLanguage(language);
+    i18n.changeLanguage(language);
+
+    // Save selected language to the database for the selected profile ID
+    save({
+      key: 'selectedLanguage',
+      value: { profileId: selectedProfileId.value, language }
+    });
+  };
 
   const options = [
     { value: 'en-GB', label: t('languages.en-GB') },
@@ -23,7 +37,7 @@ const LanguageSelector = () => {
   ];
 
   return (
-    <Select hideLabel inline onChange={({ target: { value } }) => setSelectedLanguage(value)}>
+    <Select hideLabel inline onChange={({ target: { value } }) => changeLanguage(value)}>
       {options.sort(sortByProp('label')).map(({ value, label }) => (
         <Option key={value} value={value} selected={value === selectedLanguage.value}>
           {label}
