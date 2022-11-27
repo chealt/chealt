@@ -31,3 +31,6 @@ packages/mocker/commonjs
 
 # Svelte
 .svelte-kit
+
+# Stylelint
+.stylelintcache

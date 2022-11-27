@@ -8,3 +8,4 @@ packages/jest-puppeteer-env-example/accessibility
 packages/jest-puppeteer-env-example/coverage
 packages/jest-puppeteer-env-example/performance
 packages/jest-puppeteer-env-example/screenshots
+!.stylelintrc.js

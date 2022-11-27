@@ -11,7 +11,8 @@ const config = {
         'packages/mocker/**/*.cjs',
         'packages/**/*.js',
         './.eslintrc.js',
-        'packages/**/*.mjs'
+        'packages/**/*.mjs',
+        '.stylelintrc.js'
       ],
       parserOptions: {
         requireConfigFile: false

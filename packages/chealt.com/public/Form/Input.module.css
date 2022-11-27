@@ -1,3 +1,8 @@
+.select,
+.input {
+  width: 100%;
+}
+
 .input:not([type="file"]),
 .select,
 .button,
@@ -12,32 +17,12 @@
 .input[type="file"]::file-selector-button,
 .select {
   appearance: none;
-  -webkit-appearance: none;
   background: none;
   line-height: inherit;
 }
 
-.select,
-.input {
-  width: 100%;
-}
-
 .select.inline {
   width: auto;
-}
-
-.input:not(:disabled),
-.select:not(:disabled),
-.button:not(:disabled),
-.input[type="file"]:not(:disabled)::file-selector-button {
-  color: inherit;
-}
-
-.input:is(:hover, :focus):not(:disabled):not([type="file"]),
-.select:is(:hover, :focus):not(:disabled),
-.button:is(:hover, :focus):not(.ghost,:disabled),
-.input[type="file"]:is(:hover, :focus):not(:disabled)::file-selector-button {
-  border: 2px solid var(--color-border--active);
 }
 
 .input[type="file"],
@@ -45,14 +30,8 @@
   cursor: pointer;
 }
 
-/*
-  Fix for Date input height problems on iOS
-  https://linear.app/chealt/issue/CHE-28/fix-date-selector-on-ios
-*/
-.input[type="date"] {
-  height: 3rem;
-  min-height: 3rem;
-  line-height: 1rem;
+.button:disabled {
+  background: none;
 }
 
 .button:not(:disabled) {
@@ -61,20 +40,11 @@
   max-width: 200px;
 }
 
-.button.ghost {
-  border-color: transparent;
-}
-
-.button.ghost:is(:hover, :focus):not(:disabled) {
-  background-color: var(--color-background-highlight);
-}
-
-.button.emphasized:not(:disabled) {
-  background-color: var(--color-brand);
-}
-
-.button:disabled {
-  background: none;
+.input:not(:disabled),
+.select:not(:disabled),
+.button:not(:disabled),
+.input[type="file"]:not(:disabled)::file-selector-button {
+  color: inherit;
 }
 
 /* TAG CONTAINER */
@@ -91,6 +61,53 @@
 .tagContainer .button {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
+}
+
+.selectWrapper {
+  position: relative;
+}
+
+.selectWrapper .icon {
+  position: absolute;
+  right: 1em;
+  top: 0;
+  height: 100%;
+  pointer-events: none;
+}
+
+.selectWrapper .select {
+  padding-inline-end: 2em; /* padding including the icon */
+}
+
+/* Disable complex :not notation as it breaks the WMR build */
+/* stylelint-disable selector-not-notation */
+.input:is(:hover, :focus):not(:disabled):not([type="file"]),
+.select:is(:hover, :focus):not(:disabled),
+.button:is(:hover, :focus):not(.ghost, :disabled),
+.input[type="file"]:is(:hover, :focus):not(:disabled)::file-selector-button {
+  border: 2px solid var(--color-border--active);
+}
+
+/*
+  Fix for Date input height problems on iOS
+  https://linear.app/chealt/issue/CHE-28/fix-date-selector-on-ios
+*/
+.input[type="date"] {
+  height: 3rem;
+  min-height: 3rem;
+  line-height: 1rem;
+}
+
+.button.ghost {
+  border-color: transparent;
+}
+
+.button.ghost:is(:hover, :focus):not(:disabled) {
+  background-color: var(--color-background-highlight);
+}
+
+.button.emphasized:not(:disabled) {
+  background-color: var(--color-brand);
 }
 
 .label {
@@ -120,31 +137,14 @@
 
 .input[type="checkbox"] {
   inline-size: var(--gap--l);
-  block-size: var(--gap--l); 
+  block-size: var(--gap--l);
   outline-offset: 5px;
-  accent-color: var(--color-brand);  
-  position: relative; 
+  accent-color: var(--color-brand);
+  position: relative;
   transform-style: preserve-3d;
   margin: 0;
   cursor: pointer;
   appearance: auto;
-  -webkit-appearance: auto;
-}
-
-.selectWrapper {
-  position: relative;
-}
-
-.selectWrapper .icon {
-  position: absolute;
-  right: 1em;
-  top: 0;
-  height: 100%;
-  pointer-events: none;
-}
-
-.selectWrapper .select {
-  padding-inline-end: 2em; /* padding including the icon */
 }
 
 .visuallyHidden {

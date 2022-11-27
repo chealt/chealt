@@ -4,9 +4,9 @@
   border-radius: var(--border-radius);
   will-change: transform;
   animation:
-    fade-in .3s ease,
-    slide-in .3s ease,
-    fade-out .3s ease var(--animation-duration);
+    fade-in 0.3s ease,
+    slide-in 0.3s ease,
+    fade-out 0.3s ease var(--animation-duration);
   animation-fill-mode: forwards;
   background-color: var(--color-border);
 }
