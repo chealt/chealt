@@ -14,5 +14,6 @@
   "html.format.enable": false,
   "cSpell.words": [
     "pageerror"
-  ]
+  ],
+  "stylelint.packageManager": "yarn"
 }
