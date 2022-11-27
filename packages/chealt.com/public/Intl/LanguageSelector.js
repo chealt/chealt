@@ -23,7 +23,7 @@ const LanguageSelector = () => {
   ];
 
   return (
-    <Select hideLabel onChange={({ target: { value } }) => setSelectedLanguage(value)}>
+    <Select hideLabel inline onChange={({ target: { value } }) => setSelectedLanguage(value)}>
       {options.sort(sortByProp('label')).map(({ value, label }) => (
         <Option key={value} value={value} selected={value === selectedLanguage.value}>
           {label}
