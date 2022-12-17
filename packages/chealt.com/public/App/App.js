@@ -37,9 +37,13 @@ const App = () => {
               <main class={classNames({ [styles.loading]: isLoading })}>
                 <LayoutContainer largeLimit>
                   <Router
-                    onLoadStart={() =>
-                      (isInitialRender ? (isInitialRender = false) : setIsLoading(true))
-                    }
+                    onLoadStart={() => {
+                      if (isInitialRender) {
+                        isInitialRender = false;
+                      } else {
+                        setIsLoading(true);
+                      }
+                    }}
                     onRouteChange={() => setIsLoading(false)}
                   >
                     <Route path="/" component={Home} />
