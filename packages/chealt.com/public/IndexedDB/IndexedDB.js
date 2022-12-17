@@ -1,9 +1,11 @@
 const indexedDB =
-  window.indexedDB ||
-  window.webkitIndexedDB ||
-  window.mozIndexedDB ||
-  window.OIndexedDB ||
-  window.msIndexedDB;
+  // SSR
+  typeof window !== 'undefined' &&
+  (window.indexedDB ||
+    window.webkitIndexedDB ||
+    window.mozIndexedDB ||
+    window.OIndexedDB ||
+    window.msIndexedDB);
 const version = 13;
 const objectStoreNames = [
   'bloodType',
