@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "start": "wmr",
-    "build": "wmr build --prerender",
+    "build": "wmr build",
     "serve": "wmr serve",
     "check:bundlesize": "bundlesize"
   },
