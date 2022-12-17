@@ -1,5 +1,5 @@
 const indexedDB =
-  window &&
+  typeof window !== 'undefined' &&
   (window.indexedDB ||
     window.webkitIndexedDB ||
     window.mozIndexedDB ||
