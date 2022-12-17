@@ -1,4 +1,5 @@
 const indexedDB =
+  // SSR
   typeof window !== 'undefined' &&
   (window.indexedDB ||
     window.webkitIndexedDB ||
