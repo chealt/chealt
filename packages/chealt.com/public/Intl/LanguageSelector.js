@@ -1,11 +1,11 @@
-import { useTranslation } from 'preact-i18next';
 import { useContext } from 'preact/hooks';
+import { useTranslation } from 'preact-i18next';
 
+import { setSelectedLanguage } from './signals';
 import { AppState } from '../App/state';
 import Option from '../Form/Option';
 import Select from '../Form/Select';
 import { useObjectStore } from '../IndexedDB/hooks';
-import { setSelectedLanguage } from './signals';
 
 const sortByProp = (toSortBy) => (a, b) => a[toSortBy].localeCompare(b[toSortBy]);
 

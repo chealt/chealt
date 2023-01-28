@@ -1,13 +1,13 @@
 import { useContext } from 'preact/hooks';
 
+import BloodType from './BloodType';
+import { byProfileId, withCheckUpTag } from './utils';
 import { AppState } from '../App/state';
 import ViewButton from '../Documents/ViewButton';
 import { useObjectStore } from '../IndexedDB/hooks';
 import List from '../List/List';
 import ListItem from '../List/ListItem';
 import PageTitle from '../PageTitle/PageTitle';
-import BloodType from './BloodType';
-import { byProfileId, withCheckUpTag } from './utils';
 
 import styles from './CheckUps.module.css';
 

@@ -1,7 +1,8 @@
 import { use } from 'i18next';
-import { initReactI18next } from 'preact-i18next';
 import { useContext, useEffect, useState } from 'preact/hooks';
+import { initReactI18next } from 'preact-i18next';
 
+import { setSelectedLanguage } from './signals';
 import { AppState } from '../App/state';
 import { useObjectStore } from '../IndexedDB/hooks';
 import da from '../translation/da.json';
@@ -9,7 +10,6 @@ import enGB from '../translation/en-GB.json';
 import enUS from '../translation/en-US.json';
 import hu from '../translation/hu.json';
 import po from '../translation/po.json';
-import { setSelectedLanguage } from './signals';
 
 const defaultLanguage = 'en-US';
 

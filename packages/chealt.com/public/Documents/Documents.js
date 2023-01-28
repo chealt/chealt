@@ -1,5 +1,8 @@
 import { useCallback, useState, useRef, useContext } from 'preact/hooks';
 
+import Controls from './Controls';
+import Item from './Item';
+import { bySavedTime, findItems, getFilesFromEvent } from './utils';
 import { AppState } from '../App/state';
 import EmptyState from '../EmptyState/EmptyState';
 import Button from '../Form/Button';
@@ -11,9 +14,6 @@ import List from '../List/List';
 import ListItem from '../List/ListItem';
 import PageTitle from '../PageTitle/PageTitle';
 import { add as addToast } from '../Toast/Toast';
-import Controls from './Controls';
-import Item from './Item';
-import { bySavedTime, findItems, getFilesFromEvent } from './utils';
 
 import styles from './Documents.module.css';
 

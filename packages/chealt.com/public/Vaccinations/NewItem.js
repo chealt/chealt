@@ -1,11 +1,11 @@
 import { useContext, useState } from 'preact/hooks';
 
+import { getConditions, getLocalVaccinations } from './utils';
 import { AppState } from '../App/state';
 import Button from '../Form/Button';
 import Form from '../Form/Form';
 import Input from '../Form/Input';
 import { add as addToast } from '../Toast/Toast';
-import { getConditions, getLocalVaccinations } from './utils';
 
 import styles from './NewItem.module.css';
 
