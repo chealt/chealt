@@ -1,7 +1,7 @@
+import ViewButton from './ViewButton';
 import Button from '../Form/Button';
 import Input from '../Form/Input';
 import Tag from '../Form/Tag';
-import ViewButton from './ViewButton';
 
 import styles from './Item.module.css';
 

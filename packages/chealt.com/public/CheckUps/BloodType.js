@@ -1,12 +1,12 @@
 import { useContext } from 'preact/hooks';
 
+import { findDetails } from './utils';
 import { AppState } from '../App/state';
 import Button from '../Form/Button';
 import Form from '../Form/Form';
 import Option from '../Form/Option';
 import Select from '../Form/Select';
 import { useObjectStore } from '../IndexedDB/hooks';
-import { findDetails } from './utils';
 
 const bloodTypes = ['A', 'AB', 'B', 'O'];
 

@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from 'preact/hooks';
 import QrScanner from 'qr-scanner';
 
+import { download, upload } from './utils';
 import Button from '../Form/Button';
 import Controls from '../Form/Controls';
 import { useObjectStore } from '../IndexedDB/hooks';
@@ -11,7 +12,6 @@ import Modal from '../Modal/Modal';
 import PageTitle from '../PageTitle/PageTitle';
 import QRCode from '../QRCode/QRCode';
 import { add as addToast } from '../Toast/Toast';
-import { download, upload } from './utils';
 
 import styles from './Share.module.css';
 

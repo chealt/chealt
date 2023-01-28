@@ -21,7 +21,7 @@
     "node": ">=18"
   },
   "dependencies": {
-    "glob": "^8.0.3",
+    "glob": "^8.1.0",
     "ibm-cos-sdk": "^1.12.2"
   }
 }

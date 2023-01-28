@@ -1,14 +1,14 @@
 import classNames from 'classnames';
+import { useState } from 'preact/hooks';
 import { LocationProvider, Router, Route } from 'preact-iso';
 import lazy, { ErrorBoundary } from 'preact-iso/lazy';
-import { useState } from 'preact/hooks';
 
+import { createAppState, AppState } from './state';
 import Header from '../Header/Header';
 import IntlProvider from '../Intl/IntlProvider';
 import LayoutContainer from '../Layout/Container';
 import ProfileProvider from '../Profiles/Provider';
 import Toast from '../Toast/Toast';
-import { createAppState, AppState } from './state';
 
 import styles from './App.module.css';
 

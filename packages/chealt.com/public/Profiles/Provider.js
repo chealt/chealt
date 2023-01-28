@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'preact/hooks';
 
-import { useObjectStore } from '../IndexedDB/hooks';
 import { initProfiles } from './utils';
+import { useObjectStore } from '../IndexedDB/hooks';
 
 const Provider = ({ children }) => {
   const [isProfileInitialized, setIsProfilesInitialized] = useState(false);

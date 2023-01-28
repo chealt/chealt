@@ -1,5 +1,6 @@
 import { useContext, useState } from 'preact/hooks';
 
+import { findPersonalDetails, getImperialUnitWeight, getImperialUnitHeight } from './utils';
 import { AppState } from '../App/state';
 import Button from '../Form/Button';
 import Form from '../Form/Form';
@@ -10,7 +11,6 @@ import { getFormData } from '../Form/utils';
 import { useObjectStore } from '../IndexedDB/hooks';
 import PageTitle from '../PageTitle/PageTitle';
 import { add as addToast } from '../Toast/Toast';
-import { findPersonalDetails, getImperialUnitWeight, getImperialUnitHeight } from './utils';
 
 import styles from './PersonalDetails.module.css';
 

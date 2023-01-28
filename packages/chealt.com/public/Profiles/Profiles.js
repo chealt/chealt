@@ -1,5 +1,7 @@
 import { useState } from 'preact/hooks';
 
+import ProfileForm from './ProfileForm';
+import { setSelectedProfileId } from './signals';
 import Button from '../Form/Button';
 import { useObjectStore } from '../IndexedDB/hooks';
 import Container from '../Layout/Container';
@@ -7,8 +9,6 @@ import List from '../List/List';
 import ListItem from '../List/ListItem';
 import Modal from '../Modal/Modal';
 import PageTitle from '../PageTitle/PageTitle';
-import ProfileForm from './ProfileForm';
-import { setSelectedProfileId } from './signals';
 
 import styles from './Profiles.module.css';
 
