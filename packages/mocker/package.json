@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "express": "^4.18.2",
-    "glob": "^8.0.3",
+    "glob": "^8.1.0",
     "winston": "^3.8.2"
   },
   "devDependencies": {
