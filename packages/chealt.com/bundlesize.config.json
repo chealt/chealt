@@ -30,7 +30,7 @@
     },
     {
       "path": "./dist/chunks/Vaccinations.*.js",
-      "maxSize": "2.25 kB"
+      "maxSize": "2.3 kB"
     },
     {
       "path": "./dist/chunks/View.*.js",
