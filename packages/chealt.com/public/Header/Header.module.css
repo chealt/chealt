@@ -20,6 +20,10 @@
   flex-grow: 1;
 }
 
+.header select {
+  border-color: var(--color-border--branded);
+}
+
 .header nav a {
   white-space: nowrap;
   color: inherit;

@@ -8,6 +8,7 @@
   --color-error: rgb(236 66 66);
   --color-border: rgb(172 172 172);
   --color-border--active: rgb(0 0 0);
+  --color-border--branded: rgb(255 255 255);
   --color-background: rgb(255 255 255);
   --color-background-highlight: rgb(222 222 222);
   --border-radius: 8px;
