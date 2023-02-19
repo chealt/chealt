@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from 'preact/hooks';
 import QrScanner from 'qr-scanner';
 
 import { download, upload } from './utils';
+import Authentication from '../Authentication/Authentication';
 import Button from '../Form/Button';
 import Controls from '../Form/Controls';
 import { useObjectStore } from '../IndexedDB/hooks';
@@ -80,7 +81,7 @@ const Share = () => {
   }, [isModalOpen, save]);
 
   return isLoading ? null : (
-    <>
+    <Authentication>
       <PageTitle>Share</PageTitle>
       <p>
         To Share your data with another device, follow these steps
@@ -111,7 +112,7 @@ const Share = () => {
       <Modal isOpen={isModalOpen} close={() => setIsModalOpen(false)}>
         <video class={styles.video} ref={ref} />
       </Modal>
-    </>
+    </Authentication>
   );
 };
 
