@@ -43,7 +43,7 @@ const Share = () => {
     const videoElement = ref.current;
     let qrScanner;
 
-    if (!qrScanner) {
+    if (!qrScanner && isModalOpen) {
       qrScanner = new QrScanner(
         videoElement,
         async ({ data: url }) => {
@@ -63,17 +63,19 @@ const Share = () => {
         },
         {}
       );
+
+      qrScanner.start();
     }
 
-    if (isModalOpen) {
-      qrScanner.start();
-    } else {
+    if (qrScanner && !isModalOpen) {
       qrScanner.stop();
     }
 
     return () => {
-      qrScanner.stop();
-      qrScanner.destroy();
+      if (qrScanner) {
+        qrScanner.stop();
+        qrScanner.destroy();
+      }
     };
   }, [isModalOpen, save]);
 
