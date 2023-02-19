@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from 'preact/hooks';
 import QrScanner from 'qr-scanner';
 
 import { download, upload } from './utils';
+import Authentication from '../Authentication/Authentication';
 import Button from '../Form/Button';
 import Controls from '../Form/Controls';
 import { useObjectStore } from '../IndexedDB/hooks';
@@ -43,7 +44,7 @@ const Share = () => {
     const videoElement = ref.current;
     let qrScanner;
 
-    if (!qrScanner) {
+    if (!qrScanner && isModalOpen) {
       qrScanner = new QrScanner(
         videoElement,
         async ({ data: url }) => {
@@ -63,22 +64,24 @@ const Share = () => {
         },
         {}
       );
+
+      qrScanner.start();
     }
 
-    if (isModalOpen) {
-      qrScanner.start();
-    } else {
+    if (qrScanner && !isModalOpen) {
       qrScanner.stop();
     }
 
     return () => {
-      qrScanner.stop();
-      qrScanner.destroy();
+      if (qrScanner) {
+        qrScanner.stop();
+        qrScanner.destroy();
+      }
     };
   }, [isModalOpen, save]);
 
   return isLoading ? null : (
-    <>
+    <Authentication>
       <PageTitle>Share</PageTitle>
       <p>
         To Share your data with another device, follow these steps
@@ -109,7 +112,7 @@ const Share = () => {
       <Modal isOpen={isModalOpen} close={() => setIsModalOpen(false)}>
         <video class={styles.video} ref={ref} />
       </Modal>
-    </>
+    </Authentication>
   );
 };
 
