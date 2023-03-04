@@ -1,0 +1,9 @@
+main = "./src/index.js"
+compatibility_date = "2022-09-12"
+
+[env.dev]
+name = "authn-challenge-dev"
+
+[env.production]
+name = "authn-challenge"
+

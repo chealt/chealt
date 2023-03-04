@@ -1,0 +1,9 @@
+{
+  "name": "@chealt/authn-challenge-worker",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./src/index.js",
+  "devDependencies": {
+    "wrangler": "^2.12.0"
+  }
+}
