@@ -1,4 +1,4 @@
-import glob from 'glob';
+import { glob } from 'glob';
 
 import logger from './logger.js';
 import fs from 'fs';
