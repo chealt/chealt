@@ -9,16 +9,16 @@ on:
 jobs:
   lint:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        type: [scripts, styles]
     steps:
       - uses: actions/checkout@v2
       - uses: ./.github/actions/install
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - name: Lint Styles
-        run: yarn run lint:styles
-        env:
-          CI: true
-      - name: Lint Scripts
-        run: yarn run lint:scripts
+      - name: Lint ${{ matrix.type }}
+        run: yarn run lint:${{ matrix.type }}
         env:
           CI: true
