@@ -4,8 +4,10 @@ import { AppState } from '../App/state';
 import { useObjectStore } from '../IndexedDB/hooks';
 import { findPersonalDetails } from '../PersonalDetails/utils';
 
-const getOptions = ({ name, id }) => ({
-  challenge: crypto.getRandomValues(new Uint8Array(1)),
+const authnChallengeHost = import.meta.env.AUTHN_CHALLENGE_HOST;
+
+const getOptions = ({ name, id, randomString }) => ({
+  challenge: Uint8Array.from(randomString, (c) => c.charCodeAt(0)),
   rp: {
     name: 'Chealt',
     id: location.host.replace(/:[0-9]*/gu, '')
@@ -38,10 +40,17 @@ const useSecure = () => {
   useEffect(() => {
     if (!isLoading && encryptData) {
       (async () => {
+        const { challenge } = await fetch(authnChallengeHost, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ uuid: selectedProfileId.value })
+        }).then((r) => r.json());
+
         await navigator.credentials.create({
           publicKey: getOptions({
             name,
-            id: selectedProfileId
+            id: selectedProfileId,
+            randomString: challenge
           })
         });
 
