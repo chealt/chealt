@@ -1,0 +1,12 @@
+{
+  "name": "@chealt/authn-credential-validator-worker",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./src/index.js",
+  "devDependencies": {
+    "wrangler": "^2.12.0"
+  },
+  "dependencies": {
+    "@simplewebauthn/server": "^7.0.1"
+  }
+}

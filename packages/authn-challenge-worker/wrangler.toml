@@ -1,6 +1,9 @@
 main = "./src/index.js"
 compatibility_date = "2022-09-12"
 
+[dev]
+port = 8787
+
 [env.dev]
 name = "authn-challenge-dev"
 kv_namespaces = [
