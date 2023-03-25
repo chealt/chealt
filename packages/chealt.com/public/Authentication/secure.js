@@ -40,7 +40,7 @@ const useSecure = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(!encryptData);
 
   useEffect(() => {
-    if (!isLoading && encryptData) {
+    if (!isLoading && !encryptData) {
       (async () => {
         try {
           const userId = selectedProfileId.value;
