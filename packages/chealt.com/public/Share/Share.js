@@ -5,7 +5,9 @@ import { download, upload } from './utils';
 import { AppState } from '../App/state';
 import Button from '../Form/Button';
 import Controls from '../Form/Controls';
+import Form from '../Form/Form';
 import Input from '../Form/Input';
+import { getFormData } from '../Form/utils';
 import { useObjectStore } from '../IndexedDB/hooks';
 import Link from '../Link/Link';
 import List from '../List/List';
@@ -28,17 +30,32 @@ const Share = () => {
   const ref = useRef();
   const { items, isLoading, save } = useObjectStore();
   const { items: settings, isLoadingSettings, save: saveSettings } = useObjectStore('settings');
-  const savedEncryptData = settings
-    ?.filter(({ value: { profileId } }) => profileId === selectedProfileId.value)
-    ?.find(({ key }) => key === 'encryptData')?.value.encryptData;
-  const [inputEncryptData, setEncryptData] = useState(savedEncryptData || false);
-  const encryptData = savedEncryptData || inputEncryptData;
+  const savedSettings = settings?.filter(
+    ({ value: { profileId } }) => profileId === selectedProfileId.value
+  );
+  const [inputEncryptData, setEncryptData] = useState(false);
+  const encryptData =
+    savedSettings?.find(({ key }) => key === 'encryptData')?.value.encryptData || inputEncryptData;
+  const [isPasswordModalOpen, setIsPasswordModalOpen] = useState();
+  const password = savedSettings?.find(({ key }) => key === 'password')?.value.password || '';
+
+  const savePassword = (event) => {
+    event.preventDefault();
+
+    const data = getFormData(event.target);
+
+    setIsPasswordModalOpen(false);
+    saveSettings({
+      key: 'password',
+      value: { profileId: selectedProfileId.value, password: data.password }
+    });
+  };
 
   const uploadContent = async () => {
     setLoadingDownloadUrl(true);
 
     try {
-      const downloadUrl = await upload(items);
+      const downloadUrl = await upload(items, { encryptData, password });
 
       setDownloadUrl(downloadUrl);
       setIsQRCodeModalOpen(true);
@@ -125,7 +142,24 @@ const Share = () => {
         >
           Encrypt data
         </Input>
-        <Button emphasized onClick={uploadContent} disabled={loadingDownloadUrl}>
+        <Button disabled={!encryptData} onClick={() => setIsPasswordModalOpen(true)}>
+          Set password
+        </Button>
+        <Modal isOpen={isPasswordModalOpen} close={() => setIsPasswordModalOpen(false)}>
+          <Form name="password" onSubmit={savePassword}>
+            <Input type="password" name="password" value={password}>
+              Password
+            </Input>
+            <Button type="submit" emphasized>
+              Save password
+            </Button>
+          </Form>
+        </Modal>
+        <Button
+          emphasized
+          onClick={uploadContent}
+          disabled={loadingDownloadUrl || (encryptData && !password)}
+        >
           Share
         </Button>
         <Button onClick={() => setIsModalOpen(true)}>Scan QR Code</Button>

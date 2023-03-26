@@ -1,3 +1,5 @@
+import { encrypt } from '../Crypto/utils';
+
 const uploadHost = import.meta.env.UPLOAD_HOST;
 const downloadHost = import.meta.env.UPLOAD_HOST;
 
@@ -8,7 +10,10 @@ if (!uploadHost) {
 const getUploadUrl = () => uploadHost;
 const getDownloadUrl = () => downloadHost;
 
-const upload = async ({ personalDetails, documents, vaccinations }) => {
+const upload = async (
+  { personalDetails, documents, vaccinations },
+  { encryptData, password } = {}
+) => {
   const url = getUploadUrl();
 
   // strip out the blob, we will upload it separately
@@ -30,9 +35,12 @@ const upload = async ({ personalDetails, documents, vaccinations }) => {
     }
   }
 
+  const data = JSON.stringify({ personalDetails, documents: documentsMetaOnly, vaccinations });
+  const encryptedData = encryptData ? await encrypt({ secretData: data, password }) : undefined;
+
   const uploadResponse = await fetch(url, {
     method: 'PUT',
-    body: JSON.stringify({ personalDetails, documents: documentsMetaOnly, vaccinations })
+    body: encryptData ? encryptedData : data
   });
 
   const { objectName } = await uploadResponse.json();
