@@ -1,10 +1,11 @@
-import { useEffect, useState, useRef } from 'preact/hooks';
+import { useEffect, useState, useRef, useContext } from 'preact/hooks';
 import QrScanner from 'qr-scanner';
 
 import { download, upload } from './utils';
-import Authentication from '../Authentication/Authentication';
+import { AppState } from '../App/state';
 import Button from '../Form/Button';
 import Controls from '../Form/Controls';
+import Input from '../Form/Input';
 import { useObjectStore } from '../IndexedDB/hooks';
 import Link from '../Link/Link';
 import List from '../List/List';
@@ -17,12 +18,21 @@ import { add as addToast } from '../Toast/Toast';
 import styles from './Share.module.css';
 
 const Share = () => {
+  const {
+    profiles: { selectedProfileId }
+  } = useContext(AppState);
   const [isModalOpen, setIsModalOpen] = useState();
   const [isQRCodeModalOpen, setIsQRCodeModalOpen] = useState();
   const [downloadUrl, setDownloadUrl] = useState();
   const [loadingDownloadUrl, setLoadingDownloadUrl] = useState();
   const ref = useRef();
   const { items, isLoading, save } = useObjectStore();
+  const { items: settings, isLoadingSettings, save: saveSettings } = useObjectStore('settings');
+  const savedEncryptData = settings
+    ?.filter(({ value: { profileId } }) => profileId === selectedProfileId.value)
+    ?.find(({ key }) => key === 'encryptData')?.value.encryptData;
+  const [inputEncryptData, setEncryptData] = useState(savedEncryptData || false);
+  const encryptData = savedEncryptData || inputEncryptData;
 
   const uploadContent = async () => {
     setLoadingDownloadUrl(true);
@@ -80,8 +90,8 @@ const Share = () => {
     };
   }, [isModalOpen, save]);
 
-  return isLoading ? null : (
-    <Authentication>
+  return isLoading || isLoadingSettings ? null : (
+    <>
       <PageTitle>Share</PageTitle>
       <p>
         To Share your data with another device, follow these steps
@@ -101,6 +111,20 @@ const Share = () => {
         hour) will be stored on our servers.
       </p>
       <Controls>
+        <Input
+          type="checkbox"
+          name="encryptData"
+          checked={encryptData}
+          onChange={(event) => {
+            setEncryptData(event.target.checked);
+            saveSettings({
+              key: 'encryptData',
+              value: { profileId: selectedProfileId.value, encryptData: event.target.checked }
+            });
+          }}
+        >
+          Encrypt data
+        </Input>
         <Button emphasized onClick={uploadContent} disabled={loadingDownloadUrl}>
           Share
         </Button>
@@ -112,7 +136,7 @@ const Share = () => {
       <Modal isOpen={isModalOpen} close={() => setIsModalOpen(false)}>
         <video class={styles.video} ref={ref} />
       </Modal>
-    </Authentication>
+    </>
   );
 };
 
