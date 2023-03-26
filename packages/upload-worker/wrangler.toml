@@ -1,6 +1,9 @@
 main = "./src/index.js"
 compatibility_date = "2022-09-12"
 
+[dev]
+port = 8789
+
 [env.dev]
 name = "upload-dev"
 r2_buckets  = [
