@@ -4,10 +4,11 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "start": "concurrently -n frontend,credential-validator,authn-challenge -c red,green,yellow 'yarn start:frontend' 'yarn start:backend:credential-validator' 'yarn start:backend:authn-challenge'",
+    "start": "concurrently -n frontend,credential-validator,authn-challenge,upload -c red,green,yellow,cyan 'yarn start:frontend' 'yarn start:backend:credential-validator' 'yarn start:backend:authn-challenge' 'yarn start:backend:upload'",
     "start:frontend": "wmr",
     "start:backend:authn-challenge": "yarn workspace @chealt/authn-challenge-worker run wrangler dev --env dev",
     "start:backend:credential-validator": "yarn workspace @chealt/authn-credential-validator-worker run wrangler dev --env dev",
+    "start:backend:upload": "yarn workspace @chealt/upload-worker run wrangler dev --env dev",
     "build": "wmr build",
     "serve": "wmr serve",
     "check:bundlesize": "bundlesize"
