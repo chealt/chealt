@@ -147,7 +147,7 @@ const Share = () => {
         </Button>
         <Modal isOpen={isPasswordModalOpen} close={() => setIsPasswordModalOpen(false)}>
           <Form name="password" onSubmit={savePassword}>
-            <Input type="password" name="password" value={password}>
+            <Input type="password" name="password" autocomplete="password" value={password}>
               Password
             </Input>
             <Button type="submit" emphasized>
@@ -164,10 +164,10 @@ const Share = () => {
         </Button>
         <Button onClick={() => setIsModalOpen(true)}>Scan QR Code</Button>
       </Controls>
-      <Modal isOpen={isQRCodeModalOpen} close={() => setIsQRCodeModalOpen(false)}>
+      <Modal isOpen={isQRCodeModalOpen} close={() => setIsQRCodeModalOpen(false)} isCentered>
         {downloadUrl && <QRCode data={downloadUrl} />}
       </Modal>
-      <Modal isOpen={isModalOpen} close={() => setIsModalOpen(false)}>
+      <Modal isOpen={isModalOpen} close={() => setIsModalOpen(false)} isCentered>
         <video class={styles.video} ref={ref} />
       </Modal>
     </>
