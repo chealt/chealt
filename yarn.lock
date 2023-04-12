@@ -3106,7 +3106,7 @@ __metadata:
     preact-iso: ^2.3.1
     preact-render-to-string: ^6.0.2
     qr-code-styling: ^1.6.0-rc.1
-    qr-scanner: ^1.4.2
+    qr-scanner: 1.4.0
     rollup-plugin-html-minifier: ^2.0.0
     wmr: ^3.8.0
     workbox-recipes: ^6.5.4
@@ -11322,12 +11322,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"qr-scanner@npm:^1.4.2":
-  version: 1.4.2
-  resolution: "qr-scanner@npm:1.4.2"
+"qr-scanner@npm:1.4.0":
+  version: 1.4.0
+  resolution: "qr-scanner@npm:1.4.0"
   dependencies:
     "@types/offscreencanvas": ^2019.6.4
-  checksum: 554855c1d61cc9f502162d43d76d0cd03d6df77b0ecbfcae2c0f936c31cbd1ac45e673857b91628dde1d3f5156eca6651c4973187fa061ae9ec7ec07a95f7738
+  checksum: a6b8e12da6b74fae9ccb41699a4f911cac367bbe9912ec87ff450751c1bb80bf7274500d871dc9d997fbb7a97a4574f4e44d47dafc0725133098cc88079817ec
   languageName: node
   linkType: hard
 
