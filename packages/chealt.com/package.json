@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "start": "concurrently -n frontend,credential-validator,authn-challenge,upload -c red,green,yellow,cyan 'yarn start:frontend' 'yarn start:backend:credential-validator' 'yarn start:backend:authn-challenge' 'yarn start:backend:upload'",
+    "start": "concurrently -n frontend,upload -c red,cyan 'yarn start:frontend' 'yarn start:backend:upload'",
     "start:frontend": "wmr",
     "start:backend:authn-challenge": "yarn workspace @chealt/authn-challenge-worker run wrangler dev --env dev",
     "start:backend:credential-validator": "yarn workspace @chealt/authn-credential-validator-worker run wrangler dev --env dev",
