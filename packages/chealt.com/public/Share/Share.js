@@ -80,7 +80,7 @@ const Share = () => {
           qrScanner.stop();
 
           try {
-            const data = await download(url);
+            const data = await download(url, { encryptData, password });
 
             await sanitizeLoadedProfiles({ profiles, loadedProfiles: data.profiles, saveProfile });
 
