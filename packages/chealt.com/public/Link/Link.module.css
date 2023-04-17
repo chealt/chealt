@@ -3,14 +3,27 @@
   border: 2px solid var(--color-border);
   border-radius: var(--border-radius);
   font: inherit;
+  text-transform: capitalize;
+  text-decoration: none;
+  color: inherit;
 }
 
-.button:is(:hover, :focus):not(:disabled) {
-  background-color: var(--color-background-highlight);
+.button:disabled {
+  background: none;
+}
+
+.button:not(:disabled) {
+  cursor: pointer;
+  background: none;
+  max-width: 200px;
 }
 
 .button.ghost {
   border-color: transparent;
+}
+
+.button.ghost:is(:hover, :focus):not(:disabled) {
+  background-color: var(--color-background-highlight);
 }
 
 .button:is(:hover, :focus):not(.ghost, :disabled) {
