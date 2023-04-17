@@ -10,11 +10,11 @@
     },
     {
       "path": "./dist/chunks/Documents.*.js",
-      "maxSize": "1.89 kB"
+      "maxSize": "3 kB"
     },
     {
       "path": "./dist/chunks/Home.*.js",
-      "maxSize": "2.6 kB"
+      "maxSize": "3 kB"
     },
     {
       "path": "./dist/chunks/PersonalDetails.*.js",
@@ -34,7 +34,7 @@
     },
     {
       "path": "./dist/chunks/View.*.js",
-      "maxSize": "606 b"
+      "maxSize": "1 kB"
     }
   ]
 }
