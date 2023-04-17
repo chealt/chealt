@@ -1,15 +1,26 @@
 import { useEffect, useState, useRef } from 'preact/hooks';
 import QRCodeStyling from 'qr-code-styling';
 
+const QRCodeOptions = {
+  width: 300,
+  height: 300,
+  type: 'svg'
+};
+
 const QRCode = ({ data }) => {
-  const [options] = useState({
-    width: 300,
-    height: 300,
-    type: 'svg',
+  const [options, setOptions] = useState({
+    ...QRCodeOptions,
     data
   });
   const [qrCode] = useState(new QRCodeStyling(options));
   const ref = useRef(null);
+
+  useEffect(() => {
+    setOptions({
+      ...QRCodeOptions,
+      data
+    });
+  }, [data]);
 
   useEffect(() => {
     if (ref.current) {
