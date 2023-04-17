@@ -1,4 +1,3 @@
-import classNames from 'classnames';
 import { useState } from 'preact/hooks';
 import { LocationProvider, Router, Route } from 'preact-iso';
 import lazy, { ErrorBoundary } from 'preact-iso/lazy';
@@ -7,10 +6,9 @@ import { createAppState, AppState } from './state';
 import Header from '../Header/Header';
 import IntlProvider from '../Intl/IntlProvider';
 import LayoutContainer from '../Layout/Container';
+import LoadingIndicator from '../LoadingIndicator/LoadingIndicator';
 import ProfileProvider from '../Profiles/Provider';
 import Toast from '../Toast/Toast';
-
-import styles from './App.module.css';
 
 const Home = lazy(() => import(`../pages/Home`));
 const Documents = lazy(() => import(`../pages/Documents`));
@@ -34,8 +32,9 @@ const App = () => {
           <IntlProvider>
             <LocationProvider>
               <Header />
-              <main class={classNames({ [styles.loading]: isLoading })}>
+              <main>
                 <LayoutContainer largeLimit>
+                  {isLoading && <LoadingIndicator />}
                   <Router
                     onLoadStart={() => {
                       if (isInitialRender) {
