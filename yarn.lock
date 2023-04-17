@@ -136,14 +136,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-sdk/client-s3@npm:^3.310.0":
-  version: 3.310.0
-  resolution: "@aws-sdk/client-s3@npm:3.310.0"
+"@aws-sdk/client-s3@npm:^3.312.0":
+  version: 3.312.0
+  resolution: "@aws-sdk/client-s3@npm:3.312.0"
   dependencies:
     "@aws-crypto/sha1-browser": 3.0.0
     "@aws-crypto/sha256-browser": 3.0.0
     "@aws-crypto/sha256-js": 3.0.0
-    "@aws-sdk/client-sts": 3.310.0
+    "@aws-sdk/client-sts": 3.312.0
     "@aws-sdk/config-resolver": 3.310.0
     "@aws-sdk/credential-provider-node": 3.310.0
     "@aws-sdk/eventstream-serde-browser": 3.310.0
@@ -194,7 +194,7 @@ __metadata:
     "@aws-sdk/xml-builder": 3.310.0
     fast-xml-parser: 4.1.2
     tslib: ^2.5.0
-  checksum: b39ef86ca43b6e1a19322c6b227797092c7becc3d084dd27a83e076ca2adeee750eea0a701fc2cb40c5434f5484fbeb8a0802fb908c04c9aa0d7866fead54ae5
+  checksum: 20764e30d10a0280961ba45491f6b26f7ca27e430da348fa4ce257b75fe1b67d5dbf0f4e3109c9db33c8c3269ba1f62d4a2d53a45977e1271dbc189bfcc1d4ef
   languageName: node
   linkType: hard
 
@@ -278,9 +278,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-sdk/client-sts@npm:3.310.0":
-  version: 3.310.0
-  resolution: "@aws-sdk/client-sts@npm:3.310.0"
+"@aws-sdk/client-sts@npm:3.312.0":
+  version: 3.312.0
+  resolution: "@aws-sdk/client-sts@npm:3.312.0"
   dependencies:
     "@aws-crypto/sha256-browser": 3.0.0
     "@aws-crypto/sha256-js": 3.0.0
@@ -318,7 +318,7 @@ __metadata:
     "@aws-sdk/util-utf8": 3.310.0
     fast-xml-parser: 4.1.2
     tslib: ^2.5.0
-  checksum: 45097c36e79e9fe7844321331e37181e4a448209cd5263ddb4d162da24a68dd8655a335f373ff1b121beba43b333937bec14727bc984543923f9b817f5ff7fa0
+  checksum: ad0b444605cbb53caf7ef2c637a79923adeca133d8fc74ee45208828bc8546ae69a2738ce77f6aae376c53d41e2f59ec7703d4a3c364066cacef06427a746e8c
   languageName: node
   linkType: hard
 
@@ -826,9 +826,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-sdk/s3-request-presigner@npm:^3.310.0":
-  version: 3.310.0
-  resolution: "@aws-sdk/s3-request-presigner@npm:3.310.0"
+"@aws-sdk/s3-request-presigner@npm:^3.312.0":
+  version: 3.312.0
+  resolution: "@aws-sdk/s3-request-presigner@npm:3.312.0"
   dependencies:
     "@aws-sdk/middleware-endpoint": 3.310.0
     "@aws-sdk/protocol-http": 3.310.0
@@ -837,7 +837,7 @@ __metadata:
     "@aws-sdk/types": 3.310.0
     "@aws-sdk/util-format-url": 3.310.0
     tslib: ^2.5.0
-  checksum: ef3c6161848e826c45eb845ba1a81ddbbe218cb4f6e155372304532afd23107f6c0961b2099b633aa66d56d05b775578a8e0f3bd6c641b48137ef89891703614
+  checksum: 85baa0658cf22ce2d3d24cf15e9131025b93ba5666793b8b436b2fd24a6d12289144afe9c0f8dce2d6f0041eaca4b3968e12cf8f01c8c2184235fdbfa2d7bedb
   languageName: node
   linkType: hard
 
@@ -3070,7 +3070,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@chealt/authn-challenge-worker@workspace:packages/authn-challenge-worker"
   dependencies:
-    wrangler: ^2.15.0
+    wrangler: ^2.15.1
   languageName: unknown
   linkType: soft
 
@@ -3079,7 +3079,7 @@ __metadata:
   resolution: "@chealt/authn-credential-validator-worker@workspace:packages/authn-credential-validator-worker"
   dependencies:
     "@simplewebauthn/server": ^7.2.0
-    wrangler: ^2.15.0
+    wrangler: ^2.15.1
   languageName: unknown
   linkType: soft
 
@@ -3133,7 +3133,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@chealt/delete-old-uploads-worker@workspace:packages/delete-old-uploads-worker"
   dependencies:
-    wrangler: ^2.15.0
+    wrangler: ^2.15.1
   languageName: unknown
   linkType: soft
 
@@ -3142,7 +3142,7 @@ __metadata:
   resolution: "@chealt/jest-puppeteer-env-example@workspace:packages/jest-puppeteer-env-example"
   dependencies:
     "@chealt/jest-puppeteer-env": ^5.2.0
-    puppeteer: ^19.8.5
+    puppeteer: ^19.9.0
   peerDependencies:
     jest: ^29.5.0
   languageName: unknown
@@ -3161,7 +3161,7 @@ __metadata:
     jest-dev-server: ^8.0.5
     jest-environment-node: ^29.5.0
     merge-deep: ^3.0.3
-    puppeteer: ^19.8.5
+    puppeteer: ^19.9.0
   languageName: unknown
   linkType: soft
 
@@ -3170,7 +3170,7 @@ __metadata:
   resolution: "@chealt/mocker@workspace:packages/mocker"
   dependencies:
     express: ^4.18.2
-    glob: ^10.0.0
+    glob: ^10.1.0
     nodemon: ^2.0.22
     winston: ^3.8.2
   languageName: unknown
@@ -3180,10 +3180,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@chealt/upload-url-worker@workspace:packages/upload-url-worker"
   dependencies:
-    "@aws-sdk/client-s3": ^3.310.0
-    "@aws-sdk/s3-request-presigner": ^3.310.0
+    "@aws-sdk/client-s3": ^3.312.0
+    "@aws-sdk/s3-request-presigner": ^3.312.0
     cookie: ^0.5.0
-    wrangler: ^2.15.0
+    wrangler: ^2.15.1
   languageName: unknown
   linkType: soft
 
@@ -3192,7 +3192,7 @@ __metadata:
   resolution: "@chealt/upload-worker@workspace:packages/upload-worker"
   dependencies:
     "@chealt/browser-utils": 0.0.2
-    wrangler: ^2.15.0
+    wrangler: ^2.15.1
   languageName: unknown
   linkType: soft
 
@@ -3228,13 +3228,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@csstools/media-query-list-parser@npm:^2.0.1":
-  version: 2.0.1
-  resolution: "@csstools/media-query-list-parser@npm:2.0.1"
+"@csstools/media-query-list-parser@npm:^2.0.2":
+  version: 2.0.4
+  resolution: "@csstools/media-query-list-parser@npm:2.0.4"
   peerDependencies:
-    "@csstools/css-parser-algorithms": ^2.0.0
-    "@csstools/css-tokenizer": ^2.0.0
-  checksum: f30b2a9e1aa3c2d8e98d3ac79463ab514ba4c4577c4cc6120a69d9f4562e521766adb62fc44ffee2226a967bdcfcf86a46bdaf625d21af8f21caa99553994d60
+    "@csstools/css-parser-algorithms": ^2.1.1
+    "@csstools/css-tokenizer": ^2.1.1
+  checksum: 059b1e9bb78fc55888d5c51b55ae6a3aa89b7fde14d846a659bc2bc7f01b5a85d4baf02d36b59a44e5157a5a8eb283b24918d567eda34667e5776befbf122983
   languageName: node
   linkType: hard
 
@@ -4244,9 +4244,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@puppeteer/browsers@npm:0.4.0":
-  version: 0.4.0
-  resolution: "@puppeteer/browsers@npm:0.4.0"
+"@puppeteer/browsers@npm:0.4.1":
+  version: 0.4.1
+  resolution: "@puppeteer/browsers@npm:0.4.1"
   dependencies:
     debug: 4.3.4
     extract-zip: 2.0.1
@@ -4263,7 +4263,7 @@ __metadata:
       optional: true
   bin:
     browsers: lib/cjs/main-cli.js
-  checksum: d21fce3daa739f156a2539cc1893adad7572c4253ff5a9e3785745c614ff30306b69f327c4e21c50c96cffbaa4d858037e4e72fb291065bc83caf0997f186a05
+  checksum: bd72815d0aaac66651ef775e2816703daaaceef0d94b39b5a6baf3d9f9c2242866f3e0691e9aae6409cdffd1d96f3e7e00bddb8f0c0b5b2b427e9298bcc3c8a2
   languageName: node
   linkType: hard
 
@@ -5634,10 +5634,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"caniuse-lite@npm:^1.0.30001478":
-  version: 1.0.30001478
-  resolution: "caniuse-lite@npm:1.0.30001478"
-  checksum: 27a370dcb32a6a35e186307aabc570da1cd0fccc849913665e7df6822a87286de99509b163304e0586c23c539a991717fb68ed84b85bbd21b2cb86475ae5ffb2
+"caniuse-lite@npm:^1.0.30001480":
+  version: 1.0.30001480
+  resolution: "caniuse-lite@npm:1.0.30001480"
+  checksum: c0b40f02f45ee99c73f732a3118028b2ab1544962d473d84f2afcb898a5e3099bd4c45f316ebc466fb1dbda904e86b72695578ca531a0bfa9d6337e7aad1ee2a
   languageName: node
   linkType: hard
 
@@ -5748,7 +5748,7 @@ __metadata:
     babel-plugin-transform-require-extensions: ^2.0.1
     browserslist: ^4.21.5
     bundlesize: ^0.18.1
-    caniuse-lite: ^1.0.30001478
+    caniuse-lite: ^1.0.30001480
     eslint: ^8.38.0
     eslint-config-preact: ^1.3.0
     eslint-config-prettier: ^8.8.0
@@ -5760,9 +5760,9 @@ __metadata:
     preact-iso: ^2.3.1
     preact-render-to-string: ^6.0.2
     prettier: ^2.8.7
-    puppeteer: ^19.8.5
-    stylelint: ^15.4.0
-    stylelint-config-standard: ^32.0.0
+    puppeteer: ^19.9.0
+    stylelint: ^15.5.0
+    stylelint-config-standard: ^33.0.0
     typescript: ^5.0.4
     wmr: ^3.8.0
     yarn-upgrade-all: ^0.7.2
@@ -7875,15 +7875,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"glob@npm:^10.0.0":
-  version: 10.0.0
-  resolution: "glob@npm:10.0.0"
+"glob@npm:^10.1.0":
+  version: 10.1.0
+  resolution: "glob@npm:10.1.0"
   dependencies:
     fs.realpath: ^1.0.0
     minimatch: ^9.0.0
     minipass: ^5.0.0
-    path-scurry: ^1.6.4
-  checksum: 3852a6b847106c431d87fb3e8cccb6cfc4449de3ab5d0216c44d4e2da2616df220058050d16811c42f0c2148ad8981da828227ae5c5ab798091ef27c903429f6
+    path-scurry: ^1.7.0
+  checksum: 93021661bfcd474dcf2866f1ce1defb2a8b323fcdfaa32197040bd15235960115fd41347222eaf704050869c2922cf7c021404b77544cec77399899b0401f663
   languageName: node
   linkType: hard
 
@@ -8177,10 +8177,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"html-tags@npm:^3.2.0":
-  version: 3.2.0
-  resolution: "html-tags@npm:3.2.0"
-  checksum: a0c9e96ac26c84adad9cc66d15d6711a17f60acda8d987218f1d4cbaacd52864939b230e635cce5a1179f3ddab2a12b9231355617dfbae7945fcfec5e96d2041
+"html-tags@npm:^3.3.1":
+  version: 3.3.1
+  resolution: "html-tags@npm:3.3.1"
+  checksum: b4ef1d5a76b678e43cce46e3783d563607b1d550cab30b4f511211564574770aa8c658a400b100e588bc60b8234e59b35ff72c7851cc28f3b5403b13a2c6cbce
   languageName: node
   linkType: hard
 
@@ -10894,13 +10894,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"path-scurry@npm:^1.6.4":
-  version: 1.6.4
-  resolution: "path-scurry@npm:1.6.4"
+"path-scurry@npm:^1.7.0":
+  version: 1.7.0
+  resolution: "path-scurry@npm:1.7.0"
   dependencies:
     lru-cache: ^9.0.0
     minipass: ^5.0.0
-  checksum: bd5262b51dc35b0d6f0b1d4fa4445789839982bd649904f18fe43717ecc3021d2313a80768b56cd0428f5ca50d740a6c609e747cd6a053efaa802e07eb5b7b18
+  checksum: 4e86df0fa6848cef1ba672d4a332b8dbd0297c42d5123bcc419d714c34b25ee6775b0d2e66dd5e698a38e9bcd808f8fc47333e3a3357307cada98e16bfae8b98
   languageName: node
   linkType: hard
 
@@ -11252,11 +11252,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"puppeteer-core@npm:19.8.5":
-  version: 19.8.5
-  resolution: "puppeteer-core@npm:19.8.5"
+"puppeteer-core@npm:19.9.0":
+  version: 19.9.0
+  resolution: "puppeteer-core@npm:19.9.0"
   dependencies:
-    "@puppeteer/browsers": 0.4.0
+    "@puppeteer/browsers": 0.4.1
     chromium-bidi: 0.4.6
     cross-fetch: 3.1.5
     debug: 4.3.4
@@ -11272,21 +11272,21 @@ __metadata:
   peerDependenciesMeta:
     typescript:
       optional: true
-  checksum: 6bad7a7279403be6b6799876e2ebafb3713d965ec4befe78207b19e05c4a06ff296b90f7f04007f32a80a41a1bf96930a86524cba27915f0b76112261d30833f
+  checksum: 4e76523c91856f9d4977183cb19e9917fa38103f235872e8fabfa904c8842561c5a62a15e6c07d4d90a6c65683cc4e045d2c0e9c6c466cb1091b9a8fba71b124
   languageName: node
   linkType: hard
 
-"puppeteer@npm:^19.8.5":
-  version: 19.8.5
-  resolution: "puppeteer@npm:19.8.5"
+"puppeteer@npm:^19.9.0":
+  version: 19.9.0
+  resolution: "puppeteer@npm:19.9.0"
   dependencies:
-    "@puppeteer/browsers": 0.4.0
+    "@puppeteer/browsers": 0.4.1
     cosmiconfig: 8.1.3
     https-proxy-agent: 5.0.1
     progress: 2.0.3
     proxy-from-env: 1.1.0
-    puppeteer-core: 19.8.5
-  checksum: 3e83eff1ab650e50f708b38beadac51ba68be9a5f1b4c6227996e92d87873b99e8cc20304e72a68acd1501bdbfa222f81db0d0b20c37196a9b73523e1fcf987b
+    puppeteer-core: 19.9.0
+  checksum: 68821490a7be8fde13c668f95081df6657278182d3fdd47a4c99474a3e5d08a17ba4ca3cd5ee74ae45218c47d756e44b2641b071a3c83b60b4feae9387247af5
   languageName: node
   linkType: hard
 
@@ -12614,33 +12614,33 @@ __metadata:
   languageName: node
   linkType: hard
 
-"stylelint-config-recommended@npm:^11.0.0":
-  version: 11.0.0
-  resolution: "stylelint-config-recommended@npm:11.0.0"
+"stylelint-config-recommended@npm:^12.0.0":
+  version: 12.0.0
+  resolution: "stylelint-config-recommended@npm:12.0.0"
   peerDependencies:
-    stylelint: ^15.3.0
-  checksum: f6bed5995235d61a2b4bcae086fab925df3b824c77ef585f9f0f9b891b1409c0aa8ae49e8f53d6a2f851be8f7928a7d95e2b17ee876f248ce88f718a3892bf6f
+    stylelint: ^15.5.0
+  checksum: d1de0fa2673c8aa4e50259eb7320cc17e7d09d13a176afea943b3227befcaaaf4e78b546ec076ace1e031ff526c81ea5dc6efa98dd7dc77c582b7352a128d37c
   languageName: node
   linkType: hard
 
-"stylelint-config-standard@npm:^32.0.0":
-  version: 32.0.0
-  resolution: "stylelint-config-standard@npm:32.0.0"
+"stylelint-config-standard@npm:^33.0.0":
+  version: 33.0.0
+  resolution: "stylelint-config-standard@npm:33.0.0"
   dependencies:
-    stylelint-config-recommended: ^11.0.0
+    stylelint-config-recommended: ^12.0.0
   peerDependencies:
-    stylelint: ^15.4.0
-  checksum: 05f7481f93e0fd3d2e69ba6ef3b3b8347c2340fcc6732e3f4289cc1067ae74e87f6474b4385b8936a0ff062cc3dd08c5cc50e27d96994c6176a69d055a75537a
+    stylelint: ^15.5.0
+  checksum: c901e52901f6eb72285a869b04ed55eddfb94b794d2599eee4cc9d56365c874c2276563d26848d29c3665ca7de361bf8abb9f6f7d80073f16013afff60938bad
   languageName: node
   linkType: hard
 
-"stylelint@npm:^15.4.0":
-  version: 15.4.0
-  resolution: "stylelint@npm:15.4.0"
+"stylelint@npm:^15.5.0":
+  version: 15.5.0
+  resolution: "stylelint@npm:15.5.0"
   dependencies:
     "@csstools/css-parser-algorithms": ^2.1.0
     "@csstools/css-tokenizer": ^2.1.0
-    "@csstools/media-query-list-parser": ^2.0.1
+    "@csstools/media-query-list-parser": ^2.0.2
     "@csstools/selector-specificity": ^2.2.0
     balanced-match: ^2.0.0
     colord: ^2.9.3
@@ -12654,7 +12654,7 @@ __metadata:
     global-modules: ^2.0.0
     globby: ^11.1.0
     globjoin: ^0.1.4
-    html-tags: ^3.2.0
+    html-tags: ^3.3.1
     ignore: ^5.2.4
     import-lazy: ^4.0.0
     imurmurhash: ^0.1.4
@@ -12682,7 +12682,7 @@ __metadata:
     write-file-atomic: ^5.0.0
   bin:
     stylelint: bin/stylelint.js
-  checksum: f56a75ffb8ee016690b78b2d401626134317526682ce818d686096db5d33472bf5d3b2941f5b5b3f9711061e5ad123a335a6f482316a567c4c75deba6929702a
+  checksum: 330d8cceac28d0b795ffed87bca893e290a498d242cc2cfc9747e983c710db5ebb7ea22028dcbe363095cec01d51909e53572e405b7b2aadbf735738c63ee7f7
   languageName: node
   linkType: hard
 
@@ -13551,9 +13551,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"wrangler@npm:^2.15.0":
-  version: 2.15.0
-  resolution: "wrangler@npm:2.15.0"
+"wrangler@npm:^2.15.1":
+  version: 2.15.1
+  resolution: "wrangler@npm:2.15.1"
   dependencies:
     "@cloudflare/kv-asset-handler": ^0.2.0
     "@esbuild-plugins/node-globals-polyfill": ^0.1.1
@@ -13577,7 +13577,7 @@ __metadata:
   bin:
     wrangler: bin/wrangler.js
     wrangler2: bin/wrangler.js
-  checksum: 6c7e3cfa5e519ad66de7613347a0645568e0ce816512195029d8663b7ad8c4ac8ea959e4d7a28d37dd270e271ec79d5d61e487d827c03ff9533ebd3e3bd011a2
+  checksum: c4e49cf609c2d72dc4ffd41584ea39eaebe91464a8fe81c8d082b3701c90e6565ecd76db685f8670149d58bcde52bd7f440ad0be4ecb3b40d4aedf014b6cccd4
   languageName: node
   linkType: hard
 
