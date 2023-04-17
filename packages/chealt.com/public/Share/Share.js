@@ -158,16 +158,6 @@ const Share = () => {
             <Button disabled={!encryptData} onClick={() => setIsPasswordModalOpen(true)}>
               Set password
             </Button>
-            <Modal isOpen={isPasswordModalOpen} close={() => setIsPasswordModalOpen(false)}>
-              <Form name="password" onSubmit={savePassword}>
-                <Input type="password" name="password" autocomplete="password" value={password}>
-                  Password
-                </Input>
-                <Button type="submit" emphasized>
-                  Save password
-                </Button>
-              </Form>
-            </Modal>
             <Button
               emphasized
               onClick={uploadContent}
@@ -177,6 +167,16 @@ const Share = () => {
             </Button>
             <Button onClick={() => setIsModalOpen(true)}>Scan QR Code</Button>
           </Controls>
+          <Modal isOpen={isPasswordModalOpen} close={() => setIsPasswordModalOpen(false)}>
+            <Form name="password" onSubmit={savePassword}>
+              <Input type="password" name="password" autocomplete="password" value={password}>
+                Password
+              </Input>
+              <Button type="submit" emphasized>
+                Save password
+              </Button>
+            </Form>
+          </Modal>
           <Modal isOpen={isQRCodeModalOpen} close={() => setIsQRCodeModalOpen(false)} isCentered>
             {downloadUrl && <QRCode data={downloadUrl} />}
           </Modal>
