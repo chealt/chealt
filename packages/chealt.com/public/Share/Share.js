@@ -1,7 +1,8 @@
 import { useEffect, useState, useRef, useContext } from 'preact/hooks';
+import { useTranslation } from 'preact-i18next';
 import QrScanner from 'qr-scanner';
 
-import { download, upload } from './utils';
+import { download, downloadAllUrl, upload } from './utils';
 import { AppState } from '../App/state';
 import Button from '../Form/Button';
 import Controls from '../Form/Controls';
@@ -21,6 +22,7 @@ import { add as addToast } from '../Toast/Toast';
 import styles from './Share.module.css';
 
 const Share = () => {
+  const { t } = useTranslation();
   const {
     profiles: { selectedProfileId }
   } = useContext(AppState);
@@ -166,6 +168,14 @@ const Share = () => {
               Share
             </Button>
             <Button onClick={() => setIsModalOpen(true)}>Scan QR Code</Button>
+            <Link
+              href={downloadAllUrl({ data: items })}
+              download="chealt.json"
+              target="_blank"
+              buttonStyled
+            >
+              {t('pages.share.download')}
+            </Link>
           </Controls>
           <Modal isOpen={isPasswordModalOpen} close={() => setIsPasswordModalOpen(false)}>
             <Form name="password" onSubmit={savePassword}>
