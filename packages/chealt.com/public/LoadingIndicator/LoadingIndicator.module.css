@@ -36,16 +36,6 @@
   stroke-dashoffset: 52.5276;
 }
 
-@keyframes rotate {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
 @keyframes init-stroke {
   0% {
     stroke-dashoffset: 276.4608;
