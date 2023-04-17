@@ -1,0 +1,18 @@
+.button {
+  padding: var(--gap--m);
+  border: 2px solid var(--color-border);
+  border-radius: var(--border-radius);
+  font: inherit;
+}
+
+.button:is(:hover, :focus):not(:disabled) {
+  background-color: var(--color-background-highlight);
+}
+
+.button.ghost {
+  border-color: transparent;
+}
+
+.button:is(:hover, :focus):not(.ghost, :disabled) {
+  border: 2px solid var(--color-border--active);
+}
