@@ -44,9 +44,11 @@ const Item = ({
         >
           New tag
           <datalist id="tags">
-            {tagSuggestions.map((tag) => (
-              <option key={tag} value={tag} />
-            ))}
+            {tagSuggestions
+              .filter((suggestion) => !tags?.includes(suggestion))
+              .map((tag) => (
+                <option key={tag} value={tag} />
+              ))}
           </datalist>
         </Input>
       )}
