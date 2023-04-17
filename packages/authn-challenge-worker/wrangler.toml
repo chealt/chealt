@@ -1,0 +1,23 @@
+main = "./src/index.js"
+compatibility_date = "2022-09-12"
+
+[dev]
+port = 8787
+
+[env.dev]
+name = "authn-challenge-dev"
+kv_namespaces = [
+  { binding = "AUTHN_CHALLENGES", id = "6cc482aa514c42c390c522036a63263f", preview_id = "8d2a02f429a24173ada954c9ebd27ba7" }
+]
+
+[env.dev.vars]
+ALLOWED_ORIGIN = "http://localhost:8080"
+
+[env.production]
+name = "authn-challenge"
+kv_namespaces = [
+  { binding = "AUTHN_CHALLENGES", id = "6cc482aa514c42c390c522036a63263f", preview_id = "8d2a02f429a24173ada954c9ebd27ba7" }
+]
+
+[env.production.vars]
+ALLOWED_ORIGIN = "https://chealt.com"

@@ -9,7 +9,7 @@
   overflow-y: auto;
 }
 
-@media (min-width: 600px) {
+@media (width >= 600px) {
   .modal {
     border-radius: var(--gap--l);
     margin: var(--gap--l);
@@ -18,6 +18,12 @@
 
 .open {
   display: block;
+}
+
+.open.centered {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .close {

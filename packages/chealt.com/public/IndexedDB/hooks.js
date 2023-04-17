@@ -34,10 +34,12 @@ const useObjectStore = (name) => {
         await instance.save({ type: name, key, value });
       } else {
         for (const name of objectStoreNames) {
-          for (const item of props[name]) {
-            const { key, value } = item;
+          if (props[name]) {
+            for (const item of props[name]) {
+              const { key, value } = item;
 
-            await instance.save({ type: name, key, value });
+              await instance.save({ type: name, key, value });
+            }
           }
         }
       }

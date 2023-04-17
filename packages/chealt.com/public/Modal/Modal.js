@@ -3,7 +3,7 @@ import { useEffect } from 'preact/hooks';
 
 import styles from './Modal.module.css';
 
-const Modal = ({ isOpen, close, children }) => {
+const Modal = ({ isOpen, close, isCentered, children }) => {
   useEffect(() => {
     if (isOpen) {
       // focus the first input
@@ -20,7 +20,8 @@ const Modal = ({ isOpen, close, children }) => {
     <div
       class={classnames({
         [styles.modal]: true,
-        [styles.open]: Boolean(isOpen)
+        [styles.open]: Boolean(isOpen),
+        [styles.centered]: Boolean(isCentered)
       })}
       onKeyUp={(event) => {
         if (event.key === 'Escape') {

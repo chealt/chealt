@@ -6,7 +6,7 @@
     },
     {
       "path": "./dist/chunks/CheckUps.*.js",
-      "maxSize": "1 kB"
+      "maxSize": "2 kB"
     },
     {
       "path": "./dist/chunks/Documents.*.js",
@@ -26,7 +26,7 @@
     },
     {
       "path": "./dist/chunks/Share.*.js",
-      "maxSize": "21 kB"
+      "maxSize": "22 kB"
     },
     {
       "path": "./dist/chunks/Vaccinations.*.js",

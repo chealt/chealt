@@ -1,10 +1,13 @@
-import { useEffect, useState, useRef } from 'preact/hooks';
+import { useEffect, useState, useRef, useContext } from 'preact/hooks';
 import QrScanner from 'qr-scanner';
 
 import { download, upload } from './utils';
-import Authentication from '../Authentication/Authentication';
+import { AppState } from '../App/state';
 import Button from '../Form/Button';
 import Controls from '../Form/Controls';
+import Form from '../Form/Form';
+import Input from '../Form/Input';
+import { getFormData } from '../Form/utils';
 import { useObjectStore } from '../IndexedDB/hooks';
 import Link from '../Link/Link';
 import List from '../List/List';
@@ -17,18 +20,42 @@ import { add as addToast } from '../Toast/Toast';
 import styles from './Share.module.css';
 
 const Share = () => {
+  const {
+    profiles: { selectedProfileId }
+  } = useContext(AppState);
   const [isModalOpen, setIsModalOpen] = useState();
   const [isQRCodeModalOpen, setIsQRCodeModalOpen] = useState();
   const [downloadUrl, setDownloadUrl] = useState();
   const [loadingDownloadUrl, setLoadingDownloadUrl] = useState();
   const ref = useRef();
   const { items, isLoading, save } = useObjectStore();
+  const { items: settings, isLoadingSettings, save: saveSettings } = useObjectStore('settings');
+  const savedSettings = settings?.filter(
+    ({ value: { profileId } }) => profileId === selectedProfileId.value
+  );
+  const [inputEncryptData, setEncryptData] = useState(false);
+  const encryptData =
+    savedSettings?.find(({ key }) => key === 'encryptData')?.value.encryptData || inputEncryptData;
+  const [isPasswordModalOpen, setIsPasswordModalOpen] = useState();
+  const password = savedSettings?.find(({ key }) => key === 'password')?.value.password || '';
+
+  const savePassword = (event) => {
+    event.preventDefault();
+
+    const data = getFormData(event.target);
+
+    setIsPasswordModalOpen(false);
+    saveSettings({
+      key: 'password',
+      value: { profileId: selectedProfileId.value, password: data.password }
+    });
+  };
 
   const uploadContent = async () => {
     setLoadingDownloadUrl(true);
 
     try {
-      const downloadUrl = await upload(items);
+      const downloadUrl = await upload(items, { encryptData, password });
 
       setDownloadUrl(downloadUrl);
       setIsQRCodeModalOpen(true);
@@ -80,8 +107,8 @@ const Share = () => {
     };
   }, [isModalOpen, save]);
 
-  return isLoading ? null : (
-    <Authentication>
+  return isLoading || isLoadingSettings ? null : (
+    <>
       <PageTitle>Share</PageTitle>
       <p>
         To Share your data with another device, follow these steps
@@ -101,18 +128,49 @@ const Share = () => {
         hour) will be stored on our servers.
       </p>
       <Controls>
-        <Button emphasized onClick={uploadContent} disabled={loadingDownloadUrl}>
+        <Input
+          type="checkbox"
+          name="encryptData"
+          checked={encryptData}
+          onChange={(event) => {
+            setEncryptData(event.target.checked);
+            saveSettings({
+              key: 'encryptData',
+              value: { profileId: selectedProfileId.value, encryptData: event.target.checked }
+            });
+          }}
+        >
+          Encrypt data
+        </Input>
+        <Button disabled={!encryptData} onClick={() => setIsPasswordModalOpen(true)}>
+          Set password
+        </Button>
+        <Modal isOpen={isPasswordModalOpen} close={() => setIsPasswordModalOpen(false)}>
+          <Form name="password" onSubmit={savePassword}>
+            <Input type="password" name="password" autocomplete="password" value={password}>
+              Password
+            </Input>
+            <Button type="submit" emphasized>
+              Save password
+            </Button>
+          </Form>
+        </Modal>
+        <Button
+          emphasized
+          onClick={uploadContent}
+          disabled={loadingDownloadUrl || (encryptData && !password)}
+        >
           Share
         </Button>
         <Button onClick={() => setIsModalOpen(true)}>Scan QR Code</Button>
       </Controls>
-      <Modal isOpen={isQRCodeModalOpen} close={() => setIsQRCodeModalOpen(false)}>
+      <Modal isOpen={isQRCodeModalOpen} close={() => setIsQRCodeModalOpen(false)} isCentered>
         {downloadUrl && <QRCode data={downloadUrl} />}
       </Modal>
-      <Modal isOpen={isModalOpen} close={() => setIsModalOpen(false)}>
+      <Modal isOpen={isModalOpen} close={() => setIsModalOpen(false)} isCentered>
         <video class={styles.video} ref={ref} />
       </Modal>
-    </Authentication>
+    </>
   );
 };
 

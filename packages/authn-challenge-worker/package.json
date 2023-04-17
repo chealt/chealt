@@ -1,5 +1,5 @@
 {
-  "name": "@chealt/delete-old-uploads-worker",
+  "name": "@chealt/authn-challenge-worker",
   "version": "0.0.0",
   "private": true,
   "main": "./src/index.js",

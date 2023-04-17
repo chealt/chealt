@@ -1,17 +1,21 @@
+import { startRegistration } from '@simplewebauthn/browser';
 import { useContext, useEffect, useState } from 'preact/hooks';
 
 import { AppState } from '../App/state';
 import { useObjectStore } from '../IndexedDB/hooks';
 import { findPersonalDetails } from '../PersonalDetails/utils';
 
-const getOptions = ({ name, id }) => ({
-  challenge: crypto.getRandomValues(new Uint8Array(1)),
+const authnChallengeHost = import.meta.env.AUTHN_CHALLENGE_HOST;
+const authnCredentialValidationHost = import.meta.env.AUTHN_CREDENTIAL_VALIDATION_HOST;
+
+const getOptions = ({ name, id, challenge }) => ({
+  challenge,
   rp: {
     name: 'Chealt',
     id: location.host.replace(/:[0-9]*/gu, '')
   },
   user: {
-    id: Uint8Array.from(id, (c) => c.charCodeAt(0)),
+    id,
     name,
     displayName: name
   },
@@ -36,14 +40,39 @@ const useSecure = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(!encryptData);
 
   useEffect(() => {
-    if (!isLoading && encryptData) {
+    if (!isLoading && !encryptData) {
       (async () => {
-        await navigator.credentials.create({
-          publicKey: getOptions({
+        try {
+          const userId = selectedProfileId.value;
+
+          const { challenge } = await fetch(authnChallengeHost, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ uuid: userId })
+          }).then((r) => r.json());
+
+          const credentialOptions = getOptions({
             name,
-            id: selectedProfileId
-          })
-        });
+            id: userId,
+            challenge
+          });
+
+          const credential = await startRegistration(credentialOptions);
+
+          await fetch(authnCredentialValidationHost, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              uuid: userId,
+              rpId: credentialOptions.rp.id,
+              credential
+            })
+          });
+        } catch (error) {
+          // TODO: trace errors
+          // eslint-disable-next-line no-console
+          console.error(error);
+        }
 
         setIsAuthenticated(true);
       })();

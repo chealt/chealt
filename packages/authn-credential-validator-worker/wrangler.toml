@@ -1,0 +1,25 @@
+main = "./src/index.js"
+compatibility_date = "2022-09-12"
+
+[dev]
+port = 8788
+
+[env.dev]
+name = "authn-credential-validator-dev"
+kv_namespaces = [
+  { binding = "AUTHN_CHALLENGES", id = "6cc482aa514c42c390c522036a63263f", preview_id = "8d2a02f429a24173ada954c9ebd27ba7" },
+  { binding = "AUTHN_CREDENTIALS", id = "00faf77e8aa146f295f9eaf712bcb544", preview_id = "daa66ca4c77d46c2b3c4574fc55aad82" }
+]
+
+[env.dev.vars]
+ALLOWED_ORIGIN = "http://localhost:8080"
+
+[env.production]
+name = "authn-credential-validator"
+kv_namespaces = [
+  { binding = "AUTHN_CHALLENGES", id = "6cc482aa514c42c390c522036a63263f", preview_id = "8d2a02f429a24173ada954c9ebd27ba7" },
+  { binding = "AUTHN_CREDENTIALS", id = "00faf77e8aa146f295f9eaf712bcb544", preview_id = "daa66ca4c77d46c2b3c4574fc55aad82" }
+]
+
+[env.production.vars]
+ALLOWED_ORIGIN = "https://chealt.com"
