@@ -1,5 +1,5 @@
 import classnames from 'classnames';
-import { useRef } from 'preact/hooks';
+import { useRef, useState } from 'preact/hooks';
 
 import Button from './Button';
 import Tag from './Tag';
@@ -14,6 +14,7 @@ const Input = ({
   value,
   ...inputProps
 }) => {
+  const [typeOverride, setTypeOverride] = useState();
   const tagInput = useRef(null);
 
   const addTag = (event) => {
@@ -23,6 +24,14 @@ const Input = ({
       inputProps.addItem(tagInput.current.value);
       tagInput.current.value = '';
     }
+  };
+
+  const showPassword = () => {
+    setTypeOverride('text');
+
+    setTimeout(() => {
+      setTypeOverride();
+    }, 10 * 1000); // 10 seconds
   };
 
   return (
@@ -42,24 +51,42 @@ const Input = ({
           {children}
           {inputProps.required && showRequired && ' (required)'}
         </div>
-        {type === 'tag' ? (
-          <div class={styles.tagContainer}>
-            <input
-              class={styles.input}
-              type="text"
-              {...inputProps}
-              ref={tagInput}
-              onKeyPress={(event) => {
-                if (event.key === 'Enter') {
-                  addTag(event);
-                }
-              }}
-            />
-            <Button onClick={addTag}>add</Button>
-          </div>
-        ) : (
-          <input class={styles.input} type={type} value={value} {...inputProps} />
-        )}
+        <div
+          class={classnames({
+            [styles.inputWithButton]: type === 'tag' || type === 'password'
+          })}
+        >
+          {type === 'tag' ? (
+            <>
+              <input
+                class={styles.input}
+                type="text"
+                {...inputProps}
+                ref={tagInput}
+                onKeyPress={(event) => {
+                  if (event.key === 'Enter') {
+                    addTag(event);
+                  }
+                }}
+              />
+              <Button onClick={addTag}>add</Button>
+            </>
+          ) : (
+            <>
+              <input
+                class={styles.input}
+                type={typeOverride || type}
+                value={value}
+                {...inputProps}
+              />
+              {type === 'password' && (
+                <Button onClick={showPassword} disabled={typeOverride}>
+                  show
+                </Button>
+              )}
+            </>
+          )}
+        </div>
       </label>
       {type === 'tag' && <Tag value={value} deleteItem={inputProps.deleteItem} />}
     </>

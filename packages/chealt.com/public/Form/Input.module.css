@@ -47,18 +47,17 @@
   color: inherit;
 }
 
-/* TAG CONTAINER */
-.tagContainer {
+.inputWithButton {
   display: flex;
 }
 
-.tagContainer .input {
+.inputWithButton .input {
   border-right-width: 0;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
 
-.tagContainer .button {
+.inputWithButton .button {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
