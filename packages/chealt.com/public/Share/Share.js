@@ -31,7 +31,11 @@ const Share = () => {
   const ref = useRef();
   const { items, isLoading, save } = useObjectStore();
   const { items: profiles, save: saveProfile } = useObjectStore('profiles');
-  const { items: settings, isLoadingSettings, save: saveSettings } = useObjectStore('settings');
+  const {
+    items: settings,
+    isLoading: isLoadingSettings,
+    save: saveSettings
+  } = useObjectStore('settings');
   const savedSettings = settings?.filter(
     ({ value: { profileId } }) => profileId === selectedProfileId.value
   );
