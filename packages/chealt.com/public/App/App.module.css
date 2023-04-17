@@ -1,8 +1,0 @@
-main {
-  opacity: 1;
-  transition: opacity ease-in 1s;
-}
-
-.loading {
-  opacity: 0.3;
-}

@@ -13,6 +13,7 @@ import { useObjectStore } from '../IndexedDB/hooks';
 import Link from '../Link/Link';
 import List from '../List/List';
 import ListItem from '../List/ListItem';
+import LoadingIndicator from '../LoadingIndicator/LoadingIndicator';
 import Modal from '../Modal/Modal';
 import PageTitle from '../PageTitle/PageTitle';
 import { sanitizeLoadedProfiles } from '../Profiles/utils';
@@ -122,79 +123,79 @@ const Share = () => {
 
   return (
     <>
-      {!isLoading ? (
-        <>
-          <PageTitle>Share</PageTitle>
-          <p>
-            To Share your data with another device, follow these steps
-            <List>
-              <ListItem>Click on the Share button</ListItem>
-              <ListItem>Wait for the QR code to appear</ListItem>
-              <ListItem>
-                Open the <Link href="https://chealt.com/share">Chealt Share page</Link> on the
-                device you want to share your data with
-              </ListItem>
-              <ListItem>Click the Scan QR button</ListItem>
-            </List>
-          </p>
-          <p>After generating a QR code you will have an hour to scan it.</p>
-          <p>
-            <b>PRIVACY WARNING</b>: When using the share functionality, your data temporarily (for
-            an hour) will be stored on our servers.
-          </p>
-          <Controls>
-            <Input
-              type="checkbox"
-              name="encryptData"
-              checked={encryptData}
-              onChange={(event) => {
-                setEncryptData(event.target.checked);
-                saveSettings({
-                  key: 'encryptData',
-                  value: { profileId: selectedProfileId.value, encryptData: event.target.checked }
-                });
-              }}
-            >
-              Encrypt data
-            </Input>
-            <Button disabled={!encryptData} onClick={() => setIsPasswordModalOpen(true)}>
-              Set password
-            </Button>
-            <Button
-              emphasized
-              onClick={uploadContent}
-              disabled={loadingDownloadUrl || (encryptData && !password)}
-            >
-              Share
-            </Button>
-            <Button onClick={() => setIsModalOpen(true)}>Scan QR Code</Button>
-            <Link
-              href={downloadAllUrl({ data: items })}
-              download="chealt.json"
-              target="_blank"
-              buttonStyled
-            >
-              {t('pages.share.download')}
-            </Link>
-          </Controls>
-          <Modal isOpen={isPasswordModalOpen} close={() => setIsPasswordModalOpen(false)}>
-            <Form name="password" onSubmit={savePassword}>
-              <Input type="password" name="password" autocomplete="password" value={password}>
-                Password
-              </Input>
-              <Button type="submit" emphasized>
-                Save password
-              </Button>
-            </Form>
-          </Modal>
-          <Modal isOpen={isQRCodeModalOpen} close={() => setIsQRCodeModalOpen(false)} isCentered>
-            {downloadUrl && <QRCode data={downloadUrl} />}
-          </Modal>
-          <Modal isOpen={isModalOpen} close={() => setIsModalOpen(false)} isCentered>
-            <video class={styles.video} ref={ref} />
-          </Modal>
-        </>
-      ) : null}
+      <PageTitle>Share</PageTitle>
+      <p>
+        To Share your data with another device, follow these steps
+        <List>
+          <ListItem>Click on the Share button</ListItem>
+          <ListItem>Wait for the QR code to appear</ListItem>
+          <ListItem>
+            Open the <Link href="https://chealt.com/share">Chealt Share page</Link> on the device
+            you want to share your data with
+          </ListItem>
+          <ListItem>Click the Scan QR button</ListItem>
+        </List>
+      </p>
+      <p>After generating a QR code you will have an hour to scan it.</p>
+      <p>
+        <b>PRIVACY WARNING</b>: When using the share functionality, your data temporarily (for an
+        hour) will be stored on our servers.
+      </p>
+      {isLoading ? (
+        <LoadingIndicator />
+      ) : (
+        <Controls>
+          <Input
+            type="checkbox"
+            name="encryptData"
+            checked={encryptData}
+            onChange={(event) => {
+              setEncryptData(event.target.checked);
+              saveSettings({
+                key: 'encryptData',
+                value: { profileId: selectedProfileId.value, encryptData: event.target.checked }
+              });
+            }}
+          >
+            Encrypt data
+          </Input>
+          <Button disabled={!encryptData} onClick={() => setIsPasswordModalOpen(true)}>
+            Set password
+          </Button>
+          <Button
+            emphasized
+            onClick={uploadContent}
+            disabled={loadingDownloadUrl || (encryptData && !password)}
+          >
+            Share
+          </Button>
+          <Button onClick={() => setIsModalOpen(true)}>Scan QR Code</Button>
+          <Link
+            href={downloadAllUrl({ data: items })}
+            download="chealt.json"
+            target="_blank"
+            buttonStyled
+          >
+            {t('pages.share.download')}
+          </Link>
+        </Controls>
+      )}
+      <Modal isOpen={isPasswordModalOpen} close={() => setIsPasswordModalOpen(false)}>
+        <Form name="password" onSubmit={savePassword}>
+          <Input type="password" name="password" autocomplete="password" value={password}>
+            Password
+          </Input>
+          <Button type="submit" emphasized>
+            Save password
+          </Button>
+        </Form>
+      </Modal>
+      <Modal isOpen={isQRCodeModalOpen} close={() => setIsQRCodeModalOpen(false)} isCentered>
+        {downloadUrl && <QRCode data={downloadUrl} />}
+      </Modal>
+      <Modal isOpen={isModalOpen} close={() => setIsModalOpen(false)} isCentered>
+        <video class={styles.video} ref={ref} />
+      </Modal>
     </>
   );
 };

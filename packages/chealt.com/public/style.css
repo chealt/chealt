@@ -11,6 +11,7 @@
   --color-border--branded: rgb(255 255 255);
   --color-background: rgb(255 255 255);
   --color-background-highlight: rgb(222 222 222);
+  --color-loading: rgb(172 172 172);
   --border-radius: 8px;
   --animation-duration: 3s;
 }
@@ -70,4 +71,14 @@ section {
 
 @keyframes slide-in {
   from { transform: translateY(10px); }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
