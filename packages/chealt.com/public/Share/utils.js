@@ -11,7 +11,7 @@ const getUploadUrl = () => uploadHost;
 const getDownloadUrl = () => downloadHost;
 
 const upload = async (
-  { personalDetails, documents, vaccinations },
+  { documents, personalDetails, profiles, vaccinations },
   { encryptData, password } = {}
 ) => {
   const url = getUploadUrl();
@@ -41,7 +41,12 @@ const upload = async (
     }
   }
 
-  const data = JSON.stringify({ personalDetails, documents: documentsMetaOnly, vaccinations });
+  const data = JSON.stringify({
+    personalDetails,
+    profiles,
+    documents: documentsMetaOnly,
+    vaccinations
+  });
   const encryptedData = encryptData ? await encrypt({ secretData: data, password }) : undefined;
 
   const uploadResponse = await fetch(url, {
