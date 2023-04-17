@@ -1,11 +1,11 @@
 import ViewButton from './ViewButton';
+import checkUpTags from '../CheckUps/tags.json';
 import Button from '../Form/Button';
 import Input from '../Form/Input';
 import Tag from '../Form/Tag';
 
 import styles from './Item.module.css';
 
-const checkUpTags = ['Blood test', 'Check-up', 'Medical test', 'X-ray'];
 const tagSuggestions = [...checkUpTags, 'Vaccinations'];
 
 const Item = ({
