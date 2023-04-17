@@ -1,4 +1,4 @@
-import { encrypt } from '../Crypto/utils';
+import { decrypt, encrypt } from '../Crypto/utils';
 
 const uploadHost = import.meta.env.UPLOAD_HOST;
 const downloadHost = import.meta.env.UPLOAD_HOST;
@@ -24,8 +24,14 @@ const upload = async (
       key,
       value: { blob, ...rest }
     } of documents) {
+      const body = encryptData ? await encrypt({ secretData: blob, password, isFile: true }) : blob;
+
       // Upload file first
-      await fetch(url, { method: 'PUT', body: blob, headers: { 'x-hash': rest.hash } });
+      await fetch(url, {
+        method: 'PUT',
+        body,
+        headers: { 'x-hash': rest.hash }
+      });
 
       // Add meta data of the file to the details upload
       documentsMetaOnly.push({
@@ -48,24 +54,30 @@ const upload = async (
   return `${getDownloadUrl()}/${objectName}`;
 };
 
-const download = async (url) => {
+const download = async (url, { encryptData, password } = {}) => {
+  const response = await fetch(url);
+  const data = encryptData ? await response.text() : await response.json();
+
   const {
     documents: documentsMetaOnly,
     personalDetails,
     profiles,
     vaccinations
-  } = await fetch(url).then((response) => response.json());
+  } = encryptData ? JSON.parse(await decrypt({ encryptedData: data, password })) : data;
 
   const documents = await Promise.all(
     documentsMetaOnly.map(async ({ key, value: { savedTimestamp, ...rest } }) => {
       const fileContent = await fetch(`${getDownloadUrl()}/${rest.hash}`);
+      const blob = encryptData
+        ? await decrypt({ encryptedData: await fileContent.arrayBuffer(), password, isFile: true })
+        : await fileContent.arrayBuffer();
 
       return {
         key,
         value: {
           // remove saved timestamp
           ...rest,
-          blob: await fileContent.arrayBuffer()
+          blob
         }
       };
     })

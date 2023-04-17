@@ -1,14 +1,16 @@
 const bufferToBase64 = (buffer) =>
   btoa(new Uint8Array(buffer).reduce((data, byte) => data + String.fromCharCode(byte), ''));
 
+const bufferToBlob = (buffer) => new Blob([new Uint8Array(buffer)]);
+
 const base64ToBuffer = (base64String) =>
   Uint8Array.from(atob(base64String), (c) => c.charCodeAt(null));
 
-const enc = new TextEncoder();
-const dec = new TextDecoder();
+const textEncoder = new TextEncoder();
+const textDecoder = new TextDecoder();
 
 const getPasswordKey = (password) =>
-  crypto.subtle.importKey('raw', enc.encode(password), 'PBKDF2', false, ['deriveKey']);
+  crypto.subtle.importKey('raw', textEncoder.encode(password), 'PBKDF2', false, ['deriveKey']);
 
 const deriveKey = ({ passwordKey, salt, keyUsage }) =>
   crypto.subtle.deriveKey(
@@ -24,7 +26,7 @@ const deriveKey = ({ passwordKey, salt, keyUsage }) =>
     keyUsage
   );
 
-const encrypt = async ({ secretData, password }) => {
+const encrypt = async ({ secretData, password, isFile = false }) => {
   const salt = crypto.getRandomValues(new Uint8Array(16));
   const iv = crypto.getRandomValues(new Uint8Array(12));
   const passwordKey = await getPasswordKey(password);
@@ -35,7 +37,7 @@ const encrypt = async ({ secretData, password }) => {
       iv
     },
     aesKey,
-    enc.encode(secretData)
+    isFile ? secretData : textEncoder.encode(secretData)
   );
 
   const encryptedContentArr = new Uint8Array(encryptedContent);
@@ -43,18 +45,18 @@ const encrypt = async ({ secretData, password }) => {
   buff.set(salt, 0);
   buff.set(iv, salt.byteLength);
   buff.set(encryptedContentArr, salt.byteLength + iv.byteLength);
-  const base64Buff = bufferToBase64(buff);
 
-  return base64Buff;
+  return isFile ? bufferToBlob(buff) : bufferToBase64(buff);
 };
 
-const decrypt = async ({ encryptedData, password }) => {
-  const encryptedDataBuff = base64ToBuffer(encryptedData);
+const decrypt = async ({ encryptedData, password, isFile = false }) => {
+  const encryptedDataBuff = isFile ? encryptedData : base64ToBuffer(encryptedData);
   const salt = encryptedDataBuff.slice(0, 16);
   const iv = encryptedDataBuff.slice(16, 16 + 12);
   const data = encryptedDataBuff.slice(16 + 12);
   const passwordKey = await getPasswordKey(password);
   const aesKey = await deriveKey({ passwordKey, salt, keyUsage: ['decrypt'] });
+
   const decryptedContent = await crypto.subtle.decrypt(
     {
       name: 'AES-GCM',
@@ -64,7 +66,7 @@ const decrypt = async ({ encryptedData, password }) => {
     data
   );
 
-  return dec.decode(decryptedContent);
+  return isFile ? decryptedContent : textDecoder.decode(decryptedContent);
 };
 
 export { encrypt, decrypt };
