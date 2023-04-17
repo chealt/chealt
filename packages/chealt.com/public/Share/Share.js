@@ -14,6 +14,7 @@ import List from '../List/List';
 import ListItem from '../List/ListItem';
 import Modal from '../Modal/Modal';
 import PageTitle from '../PageTitle/PageTitle';
+import { sanitizeLoadedProfiles } from '../Profiles/utils';
 import QRCode from '../QRCode/QRCode';
 import { add as addToast } from '../Toast/Toast';
 
@@ -29,6 +30,7 @@ const Share = () => {
   const [loadingDownloadUrl, setLoadingDownloadUrl] = useState();
   const ref = useRef();
   const { items, isLoading, save } = useObjectStore();
+  const { items: profiles, save: saveProfile } = useObjectStore('profiles');
   const { items: settings, isLoadingSettings, save: saveSettings } = useObjectStore('settings');
   const savedSettings = settings?.filter(
     ({ value: { profileId } }) => profileId === selectedProfileId.value
@@ -80,6 +82,8 @@ const Share = () => {
           try {
             const data = await download(url);
 
+            await sanitizeLoadedProfiles({ profiles, loadedProfiles: data.profiles, saveProfile });
+
             await save(data);
 
             addToast({ message: 'Download successful' });
@@ -105,7 +109,8 @@ const Share = () => {
         qrScanner.destroy();
       }
     };
-  }, [isModalOpen, save]);
+    // profiles is missing from the deps because loading the profiles updates the current ones
+  }, [isModalOpen, save, saveProfile]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return isLoading || isLoadingSettings ? null : (
     <>
