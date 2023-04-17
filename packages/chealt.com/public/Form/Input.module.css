@@ -3,6 +3,10 @@
   width: 100%;
 }
 
+.button {
+  text-transform: capitalize;
+}
+
 .input:not([type="file"]),
 .select,
 .button,
