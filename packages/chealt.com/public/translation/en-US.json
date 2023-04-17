@@ -14,7 +14,8 @@
       "nav": "documents"
     },
     "share": {
-      "nav": "share"
+      "nav": "share",
+      "download": "download"
     },
     "personalDetails": {
       "nav": "personal details"

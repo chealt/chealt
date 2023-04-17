@@ -1,4 +1,5 @@
 import { decrypt, encrypt } from '../Crypto/utils';
+import { objectStoreNames } from '../IndexedDB/IndexedDB';
 
 const uploadHost = import.meta.env.UPLOAD_HOST;
 const downloadHost = import.meta.env.UPLOAD_HOST;
@@ -99,4 +100,36 @@ const download = async (url, { encryptData, password } = {}) => {
   };
 };
 
-export { upload, download };
+const downloadAllUrl = ({ data }) => {
+  const decoder = new TextDecoder();
+  const serializedData = {};
+
+  for (const name of objectStoreNames) {
+    if (data[name]) {
+      serializedData[name] = [];
+
+      for (const item of data[name]) {
+        const { key, value } = item;
+
+        if (name === 'documents') {
+          serializedData[name].push({
+            key,
+            value: {
+              ...value,
+              blob: undefined,
+              serializedBlob: decoder.decode(new Uint8Array(value.blob))
+            }
+          });
+        } else {
+          serializedData[name].push({ key, value });
+        }
+      }
+    }
+  }
+
+  return URL.createObjectURL(new Blob([JSON.stringify(serializedData)]), {
+    type: 'application/json'
+  });
+};
+
+export { upload, download, downloadAllUrl };

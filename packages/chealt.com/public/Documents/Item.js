@@ -1,3 +1,4 @@
+import DownloadButton from './DownloadButton';
 import ViewButton from './ViewButton';
 import checkUpTags from '../CheckUps/tags.json';
 import Button from '../Form/Button';
@@ -31,6 +32,7 @@ const Item = ({
         </div>
         <Button onClick={openTagEditor}>Tags</Button>
         <ViewButton documentKey={documentKey} refererPage="documents" />
+        <DownloadButton documentKey={documentKey} />
       </div>
       {isTagEditorOpen && (
         <Input
@@ -44,9 +46,11 @@ const Item = ({
         >
           New tag
           <datalist id="tags">
-            {tagSuggestions.map((tag) => (
-              <option key={tag} value={tag} />
-            ))}
+            {tagSuggestions
+              .filter((suggestion) => !tags?.includes(suggestion))
+              .map((tag) => (
+                <option key={tag} value={tag} />
+              ))}
           </datalist>
         </Input>
       )}
