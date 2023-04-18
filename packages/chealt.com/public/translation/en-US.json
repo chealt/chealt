@@ -34,6 +34,10 @@
       "message": "Sorry :("
     }
   },
+  "common": {
+    "delete": "delete",
+    "filter": "filter"
+  },
   "languages": {
     "da": "Danish",
     "en-GB": "English (UK)",

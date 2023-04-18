@@ -12,6 +12,7 @@ const Input = ({
   hideLabel = false,
   type,
   value,
+  icon,
   ...inputProps
 }) => {
   const [typeOverride, setTypeOverride] = useState();
@@ -53,13 +54,16 @@ const Input = ({
         </div>
         <div
           class={classnames({
+            [styles.container]: true,
             [styles.inputWithButton]: type === 'tag' || type === 'password'
           })}
         >
           {type === 'tag' ? (
             <>
               <input
-                class={styles.input}
+                class={classnames({
+                  [styles.input]: true
+                })}
                 type="text"
                 {...inputProps}
                 ref={tagInput}
@@ -74,11 +78,15 @@ const Input = ({
           ) : (
             <>
               <input
-                class={styles.input}
+                class={classnames({
+                  [styles.input]: true,
+                  [styles.inputWithIcon]: Boolean(icon)
+                })}
                 type={typeOverride || type}
                 value={value}
                 {...inputProps}
               />
+              {icon && icon}
               {type === 'password' && (
                 <Button onClick={showPassword} disabled={typeOverride}>
                   show

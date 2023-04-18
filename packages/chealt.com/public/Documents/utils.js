@@ -35,4 +35,13 @@ const findItems = (items, profileId) =>
 
 const bySavedTime = (a, b) => b.value.savedTimestamp - a.value.savedTimestamp;
 
-export { bySavedTime, getFilesFromEvent, findItems, isImage, isPDF };
+const byNameOrTag = (filter) => {
+  const filterRegExp = filter && new RegExp(filter.toLowerCase(), 'igu');
+
+  return ({ value: { name, tags } }) =>
+    !filter ||
+    name.toLowerCase().match(filterRegExp) ||
+    tags?.some((tag) => tag.toLowerCase().match(filterRegExp));
+};
+
+export { bySavedTime, getFilesFromEvent, findItems, isImage, isPDF, byNameOrTag };
