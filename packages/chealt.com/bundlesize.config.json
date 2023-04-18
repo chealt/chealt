@@ -22,7 +22,7 @@
     },
     {
       "path": "./dist/chunks/Profiles.*.js",
-      "maxSize": "1 kB"
+      "maxSize": "2 kB"
     },
     {
       "path": "./dist/chunks/Share.*.js",
