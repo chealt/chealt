@@ -7,6 +7,7 @@ import { useObjectStore } from '../IndexedDB/hooks';
 import Container from '../Layout/Container';
 import List from '../List/List';
 import ListItem from '../List/ListItem';
+import LoadingIndicator from '../LoadingIndicator/LoadingIndicator';
 import Modal from '../Modal/Modal';
 import PageTitle from '../PageTitle/PageTitle';
 
@@ -52,7 +53,7 @@ const Profiles = () => {
     setProfileToEdit({});
   };
 
-  return isLoading ? null : (
+  return (
     <>
       <PageTitle>Profiles</PageTitle>
       <Container>
@@ -60,20 +61,22 @@ const Profiles = () => {
           You can add multiple profiles to your device here. This way you can manage multiple users'
           data on a single device.
         </p>
-        <List>
-          {profiles.map(({ key, value: { name, isSelected } }) => (
-            <ListItem key={key} className={styles.profileItem}>
-              <span class={styles.name}>{name}</span>
-              <Button onClick={() => editProfile(key)}>Edit</Button>
-              <Button disabled={isSelected} onClick={() => selectProfile(key)}>
-                Select
-              </Button>
-              <Button disabled={isSelected} ghost onClick={() => confirmAndDelete(key)}>
-                X
-              </Button>
-            </ListItem>
-          ))}
-        </List>
+        {(!isLoading && (
+          <List>
+            {profiles.map(({ key, value: { name, isSelected } }) => (
+              <ListItem key={key} className={styles.profileItem}>
+                <span class={styles.name}>{name}</span>
+                <Button onClick={() => editProfile(key)}>Edit</Button>
+                <Button disabled={isSelected} onClick={() => selectProfile(key)}>
+                  Select
+                </Button>
+                <Button disabled={isSelected} ghost onClick={() => confirmAndDelete(key)}>
+                  X
+                </Button>
+              </ListItem>
+            ))}
+          </List>
+        )) || <LoadingIndicator />}
         <Button emphasized onClick={() => setIsModalOpen(true)}>
           Add +
         </Button>
