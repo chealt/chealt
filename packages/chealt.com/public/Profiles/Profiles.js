@@ -1,7 +1,9 @@
+import classNames from 'classnames';
 import { useState } from 'preact/hooks';
 
 import ProfileForm from './ProfileForm';
 import { setSelectedProfileId } from './signals';
+import ProfilePicture from '../Avatar/Component';
 import Button from '../Form/Button';
 import { useObjectStore } from '../IndexedDB/hooks';
 import Container from '../Layout/Container';
@@ -63,16 +65,25 @@ const Profiles = () => {
         </p>
         {(!isLoading && (
           <List>
-            {profiles.map(({ key, value: { name, isSelected } }) => (
-              <ListItem key={key} className={styles.profileItem}>
+            {profiles.map(({ key, value: { name, isSelected, profilePicture } }) => (
+              <ListItem
+                key={key}
+                className={classNames({
+                  [styles.profileItem]: true,
+                  [styles.selected]: isSelected
+                })}
+              >
+                <ProfilePicture blob={profilePicture?.blob} name={name} />
                 <span class={styles.name}>{name}</span>
-                <Button onClick={() => editProfile(key)}>Edit</Button>
-                <Button disabled={isSelected} onClick={() => selectProfile(key)}>
-                  Select
-                </Button>
-                <Button disabled={isSelected} ghost onClick={() => confirmAndDelete(key)}>
-                  X
-                </Button>
+                <div class={styles.controls}>
+                  <Button onClick={() => editProfile(key)}>Edit</Button>
+                  <Button disabled={isSelected} onClick={() => selectProfile(key)}>
+                    Select
+                  </Button>
+                  <Button disabled={isSelected} ghost onClick={() => confirmAndDelete(key)}>
+                    X
+                  </Button>
+                </div>
               </ListItem>
             ))}
           </List>

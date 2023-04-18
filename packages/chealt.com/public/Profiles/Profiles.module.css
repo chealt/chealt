@@ -1,14 +1,21 @@
 .profileItem {
   display: flex;
-  flex-direction: row;
-  align-items: flex-end;
+  flex-flow: row wrap;
+  align-items: center;
   gap: var(--gap);
 }
 
 .name {
   align-self: center;
+  flex-grow: 1;
 }
 
-.profileItem > *:first-child {
-  flex-grow: 1;
+.profileItem.selected .name {
+  font-weight: bolder;
+}
+
+.controls {
+  display: flex;
+  gap: var(--gap);
+  flex-wrap: wrap;
 }
