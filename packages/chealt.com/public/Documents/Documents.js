@@ -21,6 +21,7 @@ const Documents = () => {
   const {
     profiles: { selectedProfileId }
   } = useContext(AppState);
+  const [filter, setFilter] = useState('');
   const [selectedItems, setSelectedItems] = useState([]);
   const [openTagsDocumentKey, setOpenTagsDocumentKey] = useState();
   const uploadDocumentInput = useRef(null);
@@ -123,7 +124,11 @@ const Documents = () => {
       )}
       {showDocuments && (
         <section>
-          <Controls onDelete={deleteEnabled && deleteSelectedItems} />
+          <Controls
+            filter={filter}
+            setFilter={setFilter}
+            onDelete={deleteEnabled && deleteSelectedItems}
+          />
           <List isSimple={false}>
             {sortedDocuments.map((doc) => (
               <ListItem key={doc.key}>
