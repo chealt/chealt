@@ -2,7 +2,7 @@ import { useCallback, useState, useRef, useContext } from 'preact/hooks';
 
 import Controls from './Controls';
 import Item from './Item';
-import { bySavedTime, findItems, getFilesFromEvent } from './utils';
+import { byNameOrTag, bySavedTime, findItems, getFilesFromEvent } from './utils';
 import { AppState } from '../App/state';
 import EmptyState from '../EmptyState/EmptyState';
 import Button from '../Form/Button';
@@ -89,7 +89,7 @@ const Documents = () => {
 
   const showDocuments = Boolean(documents.length);
   const noDocuments = !documents.length;
-  const sortedDocuments = documents.sort(bySavedTime);
+  const filteredDocuments = documents.sort(bySavedTime).filter(byNameOrTag(filter));
 
   return isLoading ? null : (
     <div class={styles.documents}>
@@ -129,25 +129,27 @@ const Documents = () => {
             setFilter={setFilter}
             onDelete={deleteEnabled && deleteSelectedItems}
           />
-          <List isSimple={false}>
-            {sortedDocuments.map((doc) => (
-              <ListItem key={doc.key}>
-                <Item
-                  onClick={() => {
-                    setSelectedItems(toggleItem(doc.key, selectedItems));
-                  }}
-                  documentKey={doc.key}
-                  tags={doc.value.tags}
-                  openTagEditor={() => toggleTagEditor(doc.key)}
-                  isTagEditorOpen={openTagsDocumentKey === doc.key}
-                  addTag={addTag(doc.key)}
-                  deleteTag={deleteTag(doc.key)}
-                >
-                  {doc.value.name}
-                </Item>
-              </ListItem>
-            ))}
-          </List>
+          {(filteredDocuments.length && (
+            <List isSimple={false}>
+              {filteredDocuments.map((doc) => (
+                <ListItem key={doc.key}>
+                  <Item
+                    onClick={() => {
+                      setSelectedItems(toggleItem(doc.key, selectedItems));
+                    }}
+                    documentKey={doc.key}
+                    tags={doc.value.tags}
+                    openTagEditor={() => toggleTagEditor(doc.key)}
+                    isTagEditorOpen={openTagsDocumentKey === doc.key}
+                    addTag={addTag(doc.key)}
+                    deleteTag={deleteTag(doc.key)}
+                  >
+                    {doc.value.name}
+                  </Item>
+                </ListItem>
+              ))}
+            </List>
+          )) || <p>No matching documents. Clear filters or try a different term.</p>}
         </section>
       )}
     </div>
