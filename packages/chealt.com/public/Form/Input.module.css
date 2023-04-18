@@ -52,6 +52,10 @@
   color: inherit;
 }
 
+.input.inputWithIcon {
+  padding-right: 40px;
+}
+
 .inputWithButton {
   display: flex;
 }
@@ -160,4 +164,17 @@
   padding: 0;
   position: absolute;
   width: 1px;
+}
+
+.container {
+  position: relative;
+}
+
+/* INPUT WITH AN ICON */
+.input + svg {
+  position: absolute;
+  height: calc(100% - 20px);
+  top: 10px;
+  right: 10px;
+  opacity: 0.4;
 }
