@@ -1,7 +1,6 @@
 import { useTranslation } from 'preact-i18next';
 
 import Avatar from '../Avatar/Avatar';
-import LanguageSelector from '../Intl/LanguageSelector';
 
 import styles from './Header.module.css';
 
@@ -20,7 +19,6 @@ const Header = () => {
         <a href="/profiles">{t('pages.profiles.nav')}</a>
       </nav>
       <Avatar />
-      <LanguageSelector />
     </header>
   );
 };

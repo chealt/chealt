@@ -11,21 +11,17 @@ import enUS from '../translation/en-US.json';
 import hu from '../translation/hu.json';
 import po from '../translation/po.json';
 
-const defaultLanguage = 'en-US';
+export const defaultLanguage = 'en-US';
 
 const IntlProvider = ({ children }) => {
   const {
     profiles: { selectedProfileId }
   } = useContext(AppState);
   const [isInitialized, setInitialized] = useState(false);
-  const { items: settings, isLoading } = useObjectStore('settings');
-  const savedLanguage =
-    !isLoading &&
-    selectedProfileId.value &&
-    (settings
-      ?.filter(({ value: { profileId } }) => profileId === selectedProfileId.value)
-      ?.find(({ key }) => key === 'selectedLanguage')?.value.language ||
-      defaultLanguage);
+  const { items: profiles, isLoading } = useObjectStore('profiles');
+  const selectedProfile =
+    !isLoading && profiles?.find(({ value: { id } }) => id === selectedProfileId.value);
+  const savedLanguage = !isLoading && selectedProfileId.value && selectedProfile?.value.language;
 
   useEffect(() => {
     if (!isInitialized && savedLanguage) {

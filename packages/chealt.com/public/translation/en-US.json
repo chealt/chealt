@@ -36,7 +36,8 @@
   },
   "common": {
     "delete": "delete",
-    "filter": "filter"
+    "filter": "filter",
+    "language": "language"
   },
   "languages": {
     "da": "Danish",
