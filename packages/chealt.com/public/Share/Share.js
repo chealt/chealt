@@ -170,14 +170,14 @@ const Share = () => {
             Share
           </Button>
           <Button onClick={() => setIsModalOpen(true)}>Scan QR Code</Button>
-          <Link
+          <Button
             href={downloadAllUrl({ data: items })}
             download="chealt.json"
             target="_blank"
-            buttonStyled
+            isLink
           >
             {t('pages.share.download')}
-          </Link>
+          </Button>
         </Controls>
       )}
       <Modal isOpen={isPasswordModalOpen} close={() => setIsPasswordModalOpen(false)}>

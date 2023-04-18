@@ -1,6 +1,6 @@
 const findPersonalDetails = (personalDetails, selectedProfileId) =>
   personalDetails.length &&
-  personalDetails.find((item) => item.key === selectedProfileId.value).value;
+  personalDetails.find((item) => item.key === selectedProfileId.value)?.value;
 
 const getImperialUnitHeight = (metricHeight) => {
   const feet = metricHeight / 30.48;
