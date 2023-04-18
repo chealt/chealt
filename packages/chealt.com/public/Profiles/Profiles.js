@@ -10,7 +10,6 @@ import Container from '../Layout/Container';
 import List from '../List/List';
 import ListItem from '../List/ListItem';
 import LoadingIndicator from '../LoadingIndicator/LoadingIndicator';
-import Modal from '../Modal/Modal';
 import PageTitle from '../PageTitle/PageTitle';
 
 import styles from './Profiles.module.css';
@@ -22,6 +21,7 @@ const Profiles = () => {
     items: profiles,
     isLoading,
     save,
+    refresh,
     deleteItems: deleteProfile
   } = useObjectStore('profiles');
 
@@ -48,11 +48,6 @@ const Profiles = () => {
 
     setProfileToEdit(profile.value);
     setIsModalOpen(true);
-  };
-
-  const closeAndResetModal = () => {
-    setIsModalOpen(false);
-    setProfileToEdit({});
   };
 
   return (
@@ -91,9 +86,13 @@ const Profiles = () => {
         <Button emphasized onClick={() => setIsModalOpen(true)}>
           Add +
         </Button>
-        <Modal isOpen={isModalOpen} close={closeAndResetModal}>
-          <ProfileForm save={save} onDone={closeAndResetModal} {...profileToEdit} />
-        </Modal>
+        <ProfileForm
+          isOpen={isModalOpen}
+          setIsOpen={setIsModalOpen}
+          refresh={refresh}
+          save={save}
+          {...profileToEdit}
+        />
       </Container>
     </>
   );

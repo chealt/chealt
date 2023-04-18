@@ -5,27 +5,22 @@ import { setSelectedLanguage } from './signals';
 import { AppState } from '../App/state';
 import Option from '../Form/Option';
 import Select from '../Form/Select';
-import { useObjectStore } from '../IndexedDB/hooks';
 
 const sortByProp = (toSortBy) => (a, b) => a[toSortBy].localeCompare(b[toSortBy]);
 
-const LanguageSelector = () => {
+const LanguageSelector = ({ language: languageProp, onChange, profileId }) => {
   const {
-    intl: { selectedLanguage },
     profiles: { selectedProfileId }
   } = useContext(AppState);
   const { t, i18n } = useTranslation();
-  const { save } = useObjectStore('settings');
 
   const changeLanguage = (language) => {
-    setSelectedLanguage(language);
-    i18n.changeLanguage(language);
+    if (profileId === selectedProfileId.value) {
+      setSelectedLanguage(language);
+      i18n.changeLanguage(language);
+    }
 
-    // Save selected language to the database for the selected profile ID
-    save({
-      key: 'selectedLanguage',
-      value: { profileId: selectedProfileId.value, language }
-    });
+    onChange(language);
   };
 
   const options = [
@@ -37,9 +32,12 @@ const LanguageSelector = () => {
   ];
 
   return (
-    <Select hideLabel inline onChange={({ target: { value } }) => changeLanguage(value)}>
+    <Select
+      label={t('common.language')}
+      onChange={({ target: { value } }) => changeLanguage(value)}
+    >
       {options.sort(sortByProp('label')).map(({ value, label }) => (
-        <Option key={value} value={value} selected={value === selectedLanguage.value}>
+        <Option key={value} value={value} selected={value === languageProp}>
           {label}
         </Option>
       ))}

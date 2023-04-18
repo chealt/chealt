@@ -9,6 +9,7 @@
   overflow: hidden;
   position: relative;
   aspect-ratio: 1/1;
+  font-family: monospace;
 }
 
 .image {

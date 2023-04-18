@@ -26,6 +26,8 @@ const useObjectStore = (name) => {
     setIsLoading(false);
   }, [instance, name]);
 
+  const refresh = loadItems;
+
   const save = useCallback(
     async (props) => {
       if (name) {
@@ -76,6 +78,7 @@ const useObjectStore = (name) => {
     instance,
     isLoading,
     items,
+    refresh,
     save
   };
 };
