@@ -24,7 +24,7 @@ const IntlProvider = ({ children }) => {
   const savedLanguage = !isLoading && selectedProfileId.value && selectedProfile?.value.language;
 
   useEffect(() => {
-    if (!isInitialized && savedLanguage) {
+    if (!isInitialized && !isLoading) {
       use(initReactI18next) // passes i18n down to react-i18next
         .init({
           resources: {
@@ -48,7 +48,7 @@ const IntlProvider = ({ children }) => {
           interpolation: {
             escapeValue: false
           },
-          lng: savedLanguage
+          lng: savedLanguage || defaultLanguage
         })
         .then(() => {
           setInitialized(true);
