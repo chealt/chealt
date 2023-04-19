@@ -1,6 +1,6 @@
 import { useTranslation } from 'preact-i18next';
 
-import Avatar from '../Avatar/Avatar';
+import ProfilePictureMenu from '../ProfilePicture/ProfilePictureMenu';
 
 import styles from './Header.module.css';
 
@@ -18,7 +18,7 @@ const Header = () => {
         <a href="/vaccinations">{t('pages.vaccinations.nav')}</a>
         <a href="/profiles">{t('pages.profiles.nav')}</a>
       </nav>
-      <Avatar />
+      <ProfilePictureMenu />
     </header>
   );
 };

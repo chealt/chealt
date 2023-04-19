@@ -1,12 +1,12 @@
 import { useContext } from 'preact/hooks';
 
-import Component from './Component';
+import ProfilePicture from './ProfilePicture';
 import { AppState } from '../App/state';
 import { useObjectStore } from '../IndexedDB/hooks';
 import LoadingIndicator from '../LoadingIndicator/LoadingIndicator';
 import { findPersonalDetails } from '../PersonalDetails/utils';
 
-const Avatar = () => {
+const ProfilePictureMenu = () => {
   const {
     profiles: { selectedProfileId }
   } = useContext(AppState);
@@ -25,11 +25,11 @@ const Avatar = () => {
   }
 
   return (
-    <Component
+    <ProfilePicture
       blob={selectedProfile.profilePicture?.blob}
       name={selectedPersonalDetails?.firstName || selectedProfile.name}
     />
   );
 };
 
-export default Avatar;
+export default ProfilePictureMenu;
