@@ -55,7 +55,7 @@ const IntlProvider = ({ children }) => {
           setSelectedLanguage(savedLanguage);
         });
     }
-  }, [isInitialized, savedLanguage]);
+  }, [isInitialized, isLoading, savedLanguage]);
 
   return isInitialized ? children : null;
 };
