@@ -3117,6 +3117,8 @@ __metadata:
 "@chealt/check@workspace:*, @chealt/check@workspace:packages/check":
   version: 0.0.0-use.local
   resolution: "@chealt/check@workspace:packages/check"
+  dependencies:
+    eslint-plugin-preact-i18n: ^1.1.0
   peerDependencies:
     "@babel/eslint-parser": ^7.21.3
     "@babel/preset-react": ^7.18.6
@@ -7123,6 +7125,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"eslint-plugin-preact-i18n@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "eslint-plugin-preact-i18n@npm:1.1.0"
+  dependencies:
+    minimatch: 3.0.4
+  peerDependencies:
+    eslint: ^4.0.0 || ^5.0.0
+  checksum: 5fd5d707d7219d7e545d7ba8178c966ebbb6a4e33cbffbdc7b8930eff6df1c5f8bdd6db3864340c5a6e75c7438836b9d476f268391fcc1c40f9111c451077716
+  languageName: node
+  linkType: hard
+
 "eslint-plugin-prettier@npm:^4.2.1":
   version: 4.2.1
   resolution: "eslint-plugin-prettier@npm:4.2.1"
@@ -10388,6 +10401,15 @@ __metadata:
   bin:
     miniflare: bootstrap.js
   checksum: 04af58399ce123a58141b5b6513acf3e49afd2e0f12052a00a3d4f0c6755e4de6b378f292fb14f2a505fbe85f6b716f63ea6c62e302cce15758daf7caa67c21e
+  languageName: node
+  linkType: hard
+
+"minimatch@npm:3.0.4":
+  version: 3.0.4
+  resolution: "minimatch@npm:3.0.4"
+  dependencies:
+    brace-expansion: ^1.1.7
+  checksum: 66ac295f8a7b59788000ea3749938b0970344c841750abd96694f80269b926ebcafad3deeb3f1da2522978b119e6ae3a5869b63b13a7859a456b3408bd18a078
   languageName: node
   linkType: hard
 

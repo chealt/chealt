@@ -18,5 +18,8 @@
     "access": "public",
     "registry": "https://registry.npmjs.org"
   },
-  "sideEffects": false
+  "sideEffects": false,
+  "devDependencies": {
+    "eslint-plugin-preact-i18n": "^1.1.0"
+  }
 }

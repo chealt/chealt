@@ -1,5 +1,6 @@
 const importRules = require('./rules/import');
 const javascriptRules = require('./rules/javascript');
+const preactRules = require('./rules/preact');
 const prettierRules = require('./rules/prettier');
 
 const preactConfig = {
@@ -35,6 +36,7 @@ const baseConfig = {
   rules: {
     ...javascriptRules,
     ...importRules,
+    ...preactRules,
     ...prettierRules
   },
   parserOptions: {
@@ -42,7 +44,7 @@ const baseConfig = {
     sourceType: 'module'
   },
   extends: ['prettier'],
-  plugins: ['import', 'prettier']
+  plugins: ['import', 'prettier', 'preact-i18n']
 };
 
 module.exports = {
