@@ -1,10 +1,9 @@
 const importRules = require('./rules/import');
 const javascriptRules = require('./rules/javascript');
-const preactRules = require('./rules/preact');
 const prettierRules = require('./rules/prettier');
 
 const preactConfig = {
-  extends: ['preact'],
+  extends: ['preact', 'plugin:i18next/recommended'],
   rules: {
     'require-jsdoc': 'off',
     'react-hooks/exhaustive-deps': 'error'
@@ -36,7 +35,6 @@ const baseConfig = {
   rules: {
     ...javascriptRules,
     ...importRules,
-    ...preactRules,
     ...prettierRules
   },
   parserOptions: {
@@ -44,7 +42,7 @@ const baseConfig = {
     sourceType: 'module'
   },
   extends: ['prettier'],
-  plugins: ['import', 'prettier', 'preact-i18n']
+  plugins: ['import', 'prettier', 'i18next']
 };
 
 module.exports = {
