@@ -1,6 +1,0 @@
-{
-  "globalSetup": "@chealt/jest-puppeteer-env/setup",
-  "globalTeardown": "@chealt/jest-puppeteer-env/teardown",
-  "testEnvironment": "@chealt/jest-puppeteer-env",
-  "setupFilesAfterEnv": ["expect-puppeteer"]
-}
