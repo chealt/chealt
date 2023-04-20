@@ -4,6 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "i18n:extract": "i18next-scanner --config ./i18n-next.config.cjs",
     "start": "concurrently -n frontend,upload -c red,cyan 'yarn start:frontend' 'yarn start:backend:upload'",
     "start:frontend": "wmr",
     "start:backend:authn-challenge": "yarn workspace @chealt/authn-challenge-worker run wrangler dev --env dev",
@@ -31,6 +32,7 @@
   "devDependencies": {
     "bundlesize": "^0.18.1",
     "concurrently": "^8.0.1",
+    "i18next-scanner": "^4.2.0",
     "rollup-plugin-html-minifier": "^2.0.0",
     "wmr": "^3.8.0"
   }

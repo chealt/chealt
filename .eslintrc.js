@@ -4,11 +4,11 @@ const {
 
 const config = {
   ...baseConfig,
-  ignorePatterns: ['packages/taas-ui/api/index.js'],
   overrides: [
     {
       files: [
         'packages/mocker/**/*.cjs',
+        'packages/**/*.cjs',
         'packages/**/*.js',
         './.eslintrc.js',
         'packages/**/*.mjs',
