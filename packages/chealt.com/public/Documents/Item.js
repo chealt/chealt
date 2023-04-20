@@ -1,3 +1,5 @@
+import { useTranslation } from 'preact-i18next';
+
 import DownloadButton from './DownloadButton';
 import ViewButton from './ViewButton';
 import checkUpTags from '../CheckUps/tags.json';
@@ -6,8 +8,6 @@ import Input from '../Form/Input';
 import Tag from '../Form/Tag';
 
 import styles from './Item.module.css';
-
-const tagSuggestions = [...checkUpTags, 'Vaccinations'];
 
 const Item = ({
   addTag,
@@ -19,6 +19,9 @@ const Item = ({
   tags,
   ...inputProps
 }) => {
+  const { t } = useTranslation();
+  const checkUpTagLabels = checkUpTags.map((tag) => t(`pages.checkUps.tags.${tag}`));
+  const tagSuggestions = [...checkUpTagLabels, t('common.vaccinations')];
   const tagsValue = (tags || []).join(',');
 
   return (
@@ -30,7 +33,7 @@ const Item = ({
           </Input>
           {!isTagEditorOpen && <Tag value={tagsValue} />}
         </div>
-        <Button onClick={openTagEditor}>Tags</Button>
+        <Button onClick={openTagEditor}>{t('common.tags')}</Button>
         <ViewButton documentKey={documentKey} refererPage="documents" />
         <DownloadButton documentKey={documentKey} />
       </div>
@@ -58,5 +61,4 @@ const Item = ({
   );
 };
 
-export { checkUpTags };
 export default Item;

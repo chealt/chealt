@@ -1,4 +1,5 @@
 import { useContext } from 'preact/hooks';
+import { Trans, useTranslation } from 'preact-i18next';
 
 import BloodType from './BloodType';
 import { byProfileId, withCheckUpTag } from './utils';
@@ -15,16 +16,21 @@ import PageTitle from '../PageTitle/PageTitle';
 import styles from './CheckUps.module.css';
 
 const CheckUps = () => {
+  const { t } = useTranslation();
   const {
     profiles: { selectedProfileId }
   } = useContext(AppState);
   const { items: documents, isLoading } = useObjectStore('documents');
-  const checkUps = documents?.filter(byProfileId(selectedProfileId.value))?.filter(withCheckUpTag);
+  const checkUpTagLabels = checkUpTags.map((tag) => t(`pages.checkUps.tags.${tag}`));
+  const checkUps = documents
+    ?.filter(byProfileId(selectedProfileId.value))
+    ?.filter(withCheckUpTag(checkUpTagLabels));
   const hasCheckUps = Boolean(checkUps.length);
+  const checkUpTagsText = checkUpTagLabels.join(', ');
 
   return isLoading ? null : (
     <>
-      <PageTitle>Check-ups & Medical Tests</PageTitle>
+      <PageTitle>{t('pages.checkUps.title')}</PageTitle>
       <section>
         <BloodType />
       </section>
@@ -43,8 +49,10 @@ const CheckUps = () => {
         <EmptyState>
           <CheckUpsIcon />
           <p>
-            Your Check-ups and medical tests will be shown here. Just tag your document with one of
-            the following: {checkUpTags.join(', ')}.
+            <Trans i18nKey="pages.checkUps.tagInstructions" tags={checkUpTagsText}>
+              Your Check-ups and medical tests will be shown here. Just tag your document with one
+              of the following: <span>{{ tags: checkUpTagsText }}</span>.
+            </Trans>
           </p>
         </EmptyState>
       )}

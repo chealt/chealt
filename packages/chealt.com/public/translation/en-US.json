@@ -21,7 +21,15 @@
       "nav": "personal details"
     },
     "checkUps": {
-      "nav": "check-ups"
+      "nav": "check-ups",
+      "title": "Check-ups & Medical Tests",
+      "tags": {
+        "bloodTest": "Blood test",
+        "checkUp": "Check-up",
+        "medicalTest": "Medical test",
+        "xRay": "X-ray"
+      },
+      "tagInstructions": "Your Check-ups and medical tests will be shown here. Just tag your document with one of the following: <1>{{tags}}</1>."
     },
     "vaccinations": {
       "nav": "vaccinations"
@@ -35,9 +43,13 @@
     }
   },
   "common": {
+    "bloodType": "blood type",
     "delete": "delete",
     "filter": "filter",
-    "language": "language"
+    "language": "language",
+    "save": "save",
+    "tags": "tags",
+    "vaccinations": "vaccinations"
   },
   "languages": {
     "da": "Danish",

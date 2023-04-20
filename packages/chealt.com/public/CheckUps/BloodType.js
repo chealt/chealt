@@ -1,4 +1,5 @@
 import { useContext } from 'preact/hooks';
+import { useTranslation } from 'preact-i18next';
 
 import { findDetails } from './utils';
 import { AppState } from '../App/state';
@@ -11,6 +12,7 @@ import { useObjectStore } from '../IndexedDB/hooks';
 const bloodTypes = ['A', 'AB', 'B', 'O'];
 
 const BloodType = () => {
+  const { t } = useTranslation();
   const {
     profiles: { selectedProfileId }
   } = useContext(AppState);
@@ -30,7 +32,7 @@ const BloodType = () => {
 
   return isLoading ? null : (
     <Form name="bloodType" onSubmit={saveBloodType}>
-      <Select name="bloodType" label="Blood type">
+      <Select name="bloodType" label={t('common.bloodType')}>
         {bloodTypes.map((type) => (
           <Option key={type} value={type} selected={profileBloodDetails.value?.bloodType === type}>
             {type}
@@ -38,7 +40,7 @@ const BloodType = () => {
         ))}
       </Select>
       <Button type="submit" emphasized>
-        Save
+        {t('common.save')}
       </Button>
     </Form>
   );
