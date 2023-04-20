@@ -22,10 +22,21 @@
     },
     "share": {
       "nav": "share",
-      "download": "download"
+      "download": "download",
+      "instructions": {
+        "title": "To Share your data with another device, follow these steps",
+        "step1": "Click on the Share button",
+        "step2": "Wait for the QR code to appear",
+        "step3": "Open the <1>Chealt Share page</1> on the device you want to share your data with",
+        "step4": "Click the Scan QR button",
+        "after": "After generating a QR code you will have an hour to scan it.",
+        "privacyWarning": "<1>PRIVACY WARNING</1>: When using the share functionality, your data temporarily (for an hour) will be stored on our servers."
+      },
+      "title": ""
     },
     "personalDetails": {
-      "nav": "personal details"
+      "nav": "personal details",
+      "title": ""
     },
     "checkUps": {
       "nav": "check-ups",
@@ -39,10 +50,22 @@
       "tagInstructions": "Your Check-ups and medical tests will be shown here. Just tag your document with one of the following: <1>{{tags}}</1>."
     },
     "vaccinations": {
-      "nav": "vaccinations"
+      "nav": "vaccinations",
+      "name": "",
+      "brandName": "",
+      "dateOfAdmin": "",
+      "batchNo": "",
+      "site": "",
+      "immuniser": "",
+      "venue": "",
+      "title": "",
+      "conditions": "",
+      "emptyVaccinations": ""
     },
     "profiles": {
-      "nav": "profiles"
+      "nav": "profiles",
+      "instructions": "You can add multiple profiles to your device here. This way you can manage multiple users' data on a single device.",
+      "title": ""
     },
     "notFound": {
       "title": "Could not find the page you were looking for.",
@@ -57,7 +80,33 @@
     "language": "language",
     "save": "save",
     "tags": "tags",
-    "vaccinations": "vaccinations"
+    "vaccinations": "vaccinations",
+    "add": "",
+    "show": "",
+    "loading": "",
+    "firstName": "",
+    "lastName": "",
+    "dateOfBirth": "",
+    "email": "",
+    "gender": {
+      "male": "",
+      "female": "",
+      "other": ""
+    },
+    "height": "",
+    "weight": "",
+    "name": "",
+    "profilePicture": "",
+    "edit": "",
+    "select": "",
+    "encryptData": "",
+    "setPassword": "",
+    "share": "",
+    "scanQRCode": "",
+    "password": "",
+    "savePassword": "",
+    "medicalConditions": "",
+    "startAdding": ""
   },
   "languages": {
     "da": "Danish",

@@ -1,5 +1,6 @@
 import { localFormatDate } from '@chealt/browser-utils';
 import { useCallback, useContext, useState } from 'preact/hooks';
+import { useTranslation } from 'preact-i18next';
 
 import Controls from './Controls';
 import NewItem from './NewItem';
@@ -23,6 +24,7 @@ import { add as addToast } from '../Toast/Toast';
 import styles from './Vaccinations.module.css';
 
 const Vaccinations = () => {
+  const { t } = useTranslation();
   const {
     profiles: { selectedProfileId }
   } = useContext(AppState);
@@ -47,7 +49,7 @@ const Vaccinations = () => {
 
   return isLoading ? null : (
     <>
-      <PageTitle>Vaccinations</PageTitle>
+      <PageTitle>{t('pages.vaccinations.title')}</PageTitle>
       {(hasVaccinations && (
         <>
           <Controls onDelete={deleteEnabled && deleteSelectedItems} />
@@ -55,14 +57,14 @@ const Vaccinations = () => {
             <Table>
               <Row>
                 <HeadCell />
-                <HeadCell>Name</HeadCell>
-                <HeadCell>Brand name</HeadCell>
-                <HeadCell>Date (of admin)</HeadCell>
-                <HeadCell>Conditions</HeadCell>
-                <HeadCell>Batch No.</HeadCell>
-                <HeadCell>Route / Site</HeadCell>
-                <HeadCell>Immuniser</HeadCell>
-                <HeadCell>Venue</HeadCell>
+                <HeadCell>{t('pages.vaccinations.name')}</HeadCell>
+                <HeadCell>{t('pages.vaccinations.brandName')}</HeadCell>
+                <HeadCell>{t('pages.vaccinations.dateOfAdmin')}</HeadCell>
+                <HeadCell>{t('pages.vaccinations.conditions')}</HeadCell>
+                <HeadCell>{t('pages.vaccinations.batchNo')}</HeadCell>
+                <HeadCell>{t('pages.vaccinations.site')}</HeadCell>
+                <HeadCell>{t('pages.vaccinations.immuniser')}</HeadCell>
+                <HeadCell>{t('pages.vaccinations.venue')}</HeadCell>
               </Row>
               {profileItems.map((vaccination) => (
                 <Row key={vaccination.key}>
@@ -90,15 +92,15 @@ const Vaccinations = () => {
             </Table>
           </div>
           <Button emphasized onClick={() => setIsModalOpen(true)}>
-            Add +
+            {t('common.add')}
           </Button>
         </>
       )) || (
         <EmptyState>
           <Vaccine />
-          <p>Your vaccinations will be shown here.</p>
+          <p>{t('pages.vaccinations.emptyVaccinations')}</p>
           <Button emphasized onClick={() => setIsModalOpen(true)}>
-            Start adding
+            {t('common.startAdding')}
           </Button>
         </EmptyState>
       )}

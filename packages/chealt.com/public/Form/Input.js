@@ -1,5 +1,6 @@
 import classnames from 'classnames';
 import { useRef, useState } from 'preact/hooks';
+import { useTranslation } from 'preact-i18next';
 
 import Button from './Button';
 import Tag from './Tag';
@@ -15,6 +16,7 @@ const Input = ({
   icon,
   ...inputProps
 }) => {
+  const { t } = useTranslation();
   const [typeOverride, setTypeOverride] = useState();
   const tagInput = useRef(null);
 
@@ -73,7 +75,7 @@ const Input = ({
                   }
                 }}
               />
-              <Button onClick={addTag}>add</Button>
+              <Button onClick={addTag}>{t('common.add')}</Button>
             </>
           ) : (
             <>
@@ -89,7 +91,7 @@ const Input = ({
               {icon && icon}
               {type === 'password' && (
                 <Button onClick={showPassword} disabled={typeOverride}>
-                  show
+                  {t('common.show')}
                 </Button>
               )}
             </>

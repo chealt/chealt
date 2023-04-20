@@ -1,5 +1,6 @@
 import classNames from 'classnames';
 import { useContext, useState } from 'preact/hooks';
+import { useTranslation } from 'preact-i18next';
 
 import ProfileForm from './ProfileForm';
 import { setSelectedProfileId } from './signals';
@@ -16,6 +17,7 @@ import ProfilePicture from '../ProfilePicture/ProfilePicture';
 import styles from './Profiles.module.css';
 
 const Profiles = () => {
+  const { t } = useTranslation();
   const {
     profiles: { selectedProfileId }
   } = useContext(AppState);
@@ -56,12 +58,9 @@ const Profiles = () => {
 
   return (
     <>
-      <PageTitle>Profiles</PageTitle>
+      <PageTitle>{t('pages.profiles.title')}</PageTitle>
       <Container>
-        <p>
-          You can add multiple profiles to your device here. This way you can manage multiple users'
-          data on a single device.
-        </p>
+        <p>{t('pages.profiles.instructions')}</p>
         {(!isLoading && (
           <List>
             {profiles.map(({ key, value: { name, profilePicture } }) => (
@@ -75,12 +74,12 @@ const Profiles = () => {
                 <ProfilePicture blob={profilePicture?.blob} name={name} />
                 <span class={styles.name}>{name}</span>
                 <div class={styles.controls}>
-                  <Button onClick={() => editProfile(key)}>Edit</Button>
+                  <Button onClick={() => editProfile(key)}>{t('common.edit')}</Button>
                   <Button
                     disabled={selectedProfileId.value === key}
                     onClick={() => selectProfile(key)}
                   >
-                    Select
+                    {t('common.select')}
                   </Button>
                   <Button
                     disabled={selectedProfileId.value === key}
@@ -95,7 +94,7 @@ const Profiles = () => {
           </List>
         )) || <LoadingIndicator />}
         <Button emphasized onClick={() => setIsModalOpen(true)}>
-          Add +
+          {t('common.add')}
         </Button>
         <ProfileForm
           isOpen={isModalOpen}

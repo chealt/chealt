@@ -1,4 +1,5 @@
 import { useContext, useState } from 'preact/hooks';
+import { useTranslation } from 'preact-i18next';
 
 import { getConditions, getLocalVaccinations } from './utils';
 import { AppState } from '../App/state';
@@ -10,6 +11,7 @@ import { add as addToast } from '../Toast/Toast';
 import styles from './NewItem.module.css';
 
 const NewItem = ({ save, onDone }) => {
+  const { t } = useTranslation();
   const {
     profiles: { selectedProfileId }
   } = useContext(AppState);
@@ -66,7 +68,7 @@ const NewItem = ({ save, onDone }) => {
           setConditions(getConditions({ vaccinationName, locale }));
         }}
       >
-        Name
+        {t('pages.vaccinations.name')}
         {localVaccinations && (
           <datalist id="name">
             {localVaccinations.map(({ name }) => (
@@ -76,10 +78,10 @@ const NewItem = ({ save, onDone }) => {
         )}
       </Input>
       <Input type="text" name="brandName">
-        Brand Name
+        {t('pages.vaccinations.brandName')}
       </Input>
       <Input type="date" name="dateOfAdmin" required="required">
-        Date of admin
+        {t('pages.vaccinations.dateOfAdmin')}
       </Input>
       <Input
         type="tag"
@@ -97,22 +99,22 @@ const NewItem = ({ save, onDone }) => {
           setConditions(conditions ? `${conditions},${value}` : value);
         }}
       >
-        Conditions
+        {t('common.medicalConditions')}
       </Input>
       <Input type="text" name="batchNo">
-        Batch No.
+        {t('pages.vaccinations.batchNo')}
       </Input>
       <Input type="text" name="site">
-        Site / Route
+        {t('pages.vaccinations.site')}
       </Input>
       <Input type="text" name="immuniser">
-        Immuniser
+        {t('pages.vaccinations.immuniser')}
       </Input>
       <Input type="text" name="venue">
-        Venue
+        {t('pages.vaccinations.venue')}
       </Input>
       <Button emphasized type="submit">
-        Save
+        {t('common.save')}
       </Button>
     </Form>
   );

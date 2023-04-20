@@ -1,4 +1,5 @@
 import { useState } from 'preact/hooks';
+import { useTranslation } from 'preact-i18next';
 
 import { getFilesFromEvent } from '../Documents/utils';
 import Button from '../Form/Button';
@@ -20,6 +21,7 @@ const ProfileForm = ({
   profilePicture,
   isOpen
 }) => {
+  const { t } = useTranslation();
   const [selectedName, setSelectedName] = useState(name);
   const [selectedProfilePicture, setSelectedProfilePicture] = useState();
   const [selectedLanguage, setSelectedLanguage] = useState(language);
@@ -80,7 +82,7 @@ const ProfileForm = ({
           showRequired={false}
           onChange={({ target: { value } }) => setSelectedName(value)}
         >
-          Name
+          {t('common.name')}
         </Input>
         <Input
           name="profilePicture"
@@ -89,7 +91,7 @@ const ProfileForm = ({
           onChange={setProfilePicture}
           ondrop={setProfilePicture}
         >
-          Profile picture
+          {t('common.profilePicture')}
         </Input>
         <LanguageSelector
           onChange={setSelectedLanguage}
@@ -97,7 +99,7 @@ const ProfileForm = ({
           profileId={id}
         />
         <Button emphasized type="submit">
-          Save
+          {t('common.save')}
         </Button>
       </Form>
     </Modal>
