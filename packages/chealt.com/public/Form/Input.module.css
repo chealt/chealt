@@ -119,7 +119,7 @@
 }
 
 .button.contentOnly,
-.button.contentOnly:is(:hover, :focus) {
+.button.contentOnly:is(:hover, :focus, :active) {
   border: 0 none;
   padding: 0;
 }

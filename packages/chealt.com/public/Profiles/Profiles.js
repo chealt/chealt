@@ -1,8 +1,9 @@
 import classNames from 'classnames';
-import { useState } from 'preact/hooks';
+import { useContext, useState } from 'preact/hooks';
 
 import ProfileForm from './ProfileForm';
 import { setSelectedProfileId } from './signals';
+import { AppState } from '../App/state';
 import Button from '../Form/Button';
 import { useObjectStore } from '../IndexedDB/hooks';
 import Container from '../Layout/Container';
@@ -15,6 +16,9 @@ import ProfilePicture from '../ProfilePicture/ProfilePicture';
 import styles from './Profiles.module.css';
 
 const Profiles = () => {
+  const {
+    profiles: { selectedProfileId }
+  } = useContext(AppState);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [profileToEdit, setProfileToEdit] = useState({});
   const {
@@ -60,22 +64,29 @@ const Profiles = () => {
         </p>
         {(!isLoading && (
           <List>
-            {profiles.map(({ key, value: { name, isSelected, profilePicture } }) => (
+            {profiles.map(({ key, value: { name, profilePicture } }) => (
               <ListItem
                 key={key}
                 className={classNames({
                   [styles.profileItem]: true,
-                  [styles.selected]: isSelected
+                  [styles.selected]: selectedProfileId.value === key
                 })}
               >
                 <ProfilePicture blob={profilePicture?.blob} name={name} />
                 <span class={styles.name}>{name}</span>
                 <div class={styles.controls}>
                   <Button onClick={() => editProfile(key)}>Edit</Button>
-                  <Button disabled={isSelected} onClick={() => selectProfile(key)}>
+                  <Button
+                    disabled={selectedProfileId.value === key}
+                    onClick={() => selectProfile(key)}
+                  >
                     Select
                   </Button>
-                  <Button disabled={isSelected} ghost onClick={() => confirmAndDelete(key)}>
+                  <Button
+                    disabled={selectedProfileId.value === key}
+                    ghost
+                    onClick={() => confirmAndDelete(key)}
+                  >
                     X
                   </Button>
                 </div>
