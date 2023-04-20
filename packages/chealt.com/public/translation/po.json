@@ -11,26 +11,104 @@
       "improvementsDescription": "If you have an idea how to make this app even more useful, let us know <1>here</2> by creating a <3>GitHub issue</4>."
     },
     "documents": {
-      "nav": "documents"
+      "nav": "documents",
+      "title": "",
+      "upload": "",
+      "empty": "",
+      "startUploading": "",
+      "noMatches": "",
+      "addTag": "",
+      "openInNewTab": ""
     },
     "share": {
-      "nav": "share"
+      "nav": "share",
+      "download": "",
+      "title": "",
+      "instructions": {
+        "title": "",
+        "step1": "",
+        "step2": "",
+        "step4": "",
+        "after": ""
+      }
     },
     "personalDetails": {
-      "nav": "personal details"
+      "nav": "personal details",
+      "title": ""
     },
     "checkUps": {
-      "nav": "check-ups"
+      "nav": "check-ups",
+      "title": "",
+      "tagInstructions": "Your Check-ups and medical tests will be shown here. Just tag your document with one of the following: <1>{{tags}}</1>."
     },
     "vaccinations": {
-      "nav": "vaccinations"
+      "nav": "vaccinations",
+      "name": "",
+      "brandName": "",
+      "dateOfAdmin": "",
+      "batchNo": "",
+      "site": "",
+      "immuniser": "",
+      "venue": "",
+      "title": "",
+      "conditions": "",
+      "emptyVaccinations": ""
     },
     "profiles": {
-      "nav": "profiles"
+      "nav": "profiles",
+      "title": "",
+      "instructions": ""
     },
     "notFound": {
       "title": "Could not find the page you were looking for.",
       "message": "Sorry :("
     }
+  },
+  "common": {
+    "bloodType": "",
+    "save": "",
+    "filter": "",
+    "delete": "",
+    "vaccinations": "",
+    "tags": "",
+    "back": "",
+    "language": "",
+    "add": "",
+    "show": "",
+    "loading": "",
+    "firstName": "",
+    "lastName": "",
+    "dateOfBirth": "",
+    "email": "",
+    "gender": {
+      "male": "",
+      "female": "",
+      "other": ""
+    },
+    "height": "",
+    "weight": "",
+    "name": "",
+    "profilePicture": "",
+    "edit": "",
+    "select": "",
+    "encryptData": "",
+    "setPassword": "",
+    "share": "",
+    "scanQRCode": "",
+    "password": "",
+    "savePassword": "",
+    "medicalConditions": "",
+    "startAdding": ""
+  },
+  "languages": {
+    "en-GB": "",
+    "en-US": "",
+    "hu": "",
+    "po": "",
+    "da": ""
+  },
+  "notFound": {
+    "title": "",
+    "message": ""
   }
 }

@@ -3,7 +3,7 @@ const javascriptRules = require('./rules/javascript');
 const prettierRules = require('./rules/prettier');
 
 const preactConfig = {
-  extends: ['preact'],
+  extends: ['preact', 'plugin:i18next/recommended'],
   rules: {
     'require-jsdoc': 'off',
     'react-hooks/exhaustive-deps': 'error'
@@ -42,7 +42,7 @@ const baseConfig = {
     sourceType: 'module'
   },
   extends: ['prettier'],
-  plugins: ['import', 'prettier']
+  plugins: ['import', 'prettier', 'i18next']
 };
 
 module.exports = {

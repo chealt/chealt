@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef, useContext } from 'preact/hooks';
-import { useTranslation } from 'preact-i18next';
+import { Trans, useTranslation } from 'preact-i18next';
 import QrScanner from 'qr-scanner';
 
 import { download, downloadAllUrl, upload } from './utils';
@@ -123,23 +123,27 @@ const Share = () => {
 
   return (
     <>
-      <PageTitle>Share</PageTitle>
+      <PageTitle>{t('pages.share.title')}</PageTitle>
       <p>
-        To Share your data with another device, follow these steps
+        {t('pages.share.instructions.title')}
         <List>
-          <ListItem>Click on the Share button</ListItem>
-          <ListItem>Wait for the QR code to appear</ListItem>
+          <ListItem>{t('pages.share.instructions.step1')}</ListItem>
+          <ListItem>{t('pages.share.instructions.step2')}</ListItem>
           <ListItem>
-            Open the <Link href="https://chealt.com/share">Chealt Share page</Link> on the device
-            you want to share your data with
+            <Trans key="pages.share.instructions.step3">
+              Open the <Link href="https://chealt.com/share">Chealt Share page</Link> on the device
+              you want to share your data with
+            </Trans>
           </ListItem>
-          <ListItem>Click the Scan QR button</ListItem>
+          <ListItem>{t('pages.share.instructions.step4')}</ListItem>
         </List>
       </p>
-      <p>After generating a QR code you will have an hour to scan it.</p>
+      <p>{t('pages.share.instructions.after')}</p>
       <p>
-        <b>PRIVACY WARNING</b>: When using the share functionality, your data temporarily (for an
-        hour) will be stored on our servers.
+        <Trans key="pages.share.instructions.privacyWarning">
+          <b>PRIVACY WARNING</b>: When using the share functionality, your data temporarily (for an
+          hour) will be stored on our servers.
+        </Trans>
       </p>
       {isLoading ? (
         <LoadingIndicator />
@@ -157,19 +161,19 @@ const Share = () => {
               });
             }}
           >
-            Encrypt data
+            {t('common.encryptData')}
           </Input>
           <Button disabled={!encryptData} onClick={() => setIsPasswordModalOpen(true)}>
-            Set password
+            {t('common.setPassword')}
           </Button>
           <Button
             emphasized
             onClick={uploadContent}
             disabled={loadingDownloadUrl || (encryptData && !password)}
           >
-            Share
+            {t('common.share')}
           </Button>
-          <Button onClick={() => setIsModalOpen(true)}>Scan QR Code</Button>
+          <Button onClick={() => setIsModalOpen(true)}>{t('common.scanQRCode')}</Button>
           <Button
             href={downloadAllUrl({ data: items })}
             download="chealt.json"
@@ -183,10 +187,10 @@ const Share = () => {
       <Modal isOpen={isPasswordModalOpen} close={() => setIsPasswordModalOpen(false)}>
         <Form name="password" onSubmit={savePassword}>
           <Input type="password" name="password" autocomplete="password" value={password}>
-            Password
+            {t('common.password')}
           </Input>
           <Button type="submit" emphasized>
-            Save password
+            {t('common.savePassword')}
           </Button>
         </Form>
       </Modal>

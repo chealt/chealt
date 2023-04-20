@@ -25,7 +25,7 @@ const getFiles = (event) => {
 
 const getFilesFromEvent = (event) => Promise.all(getFiles(event).map(mapFile));
 
-const supportedImageExtensions = ['jpg', 'jpeg', 'bmp', 'png', 'gif'];
+const supportedImageExtensions = ['jpg', 'jpeg', 'bmp', 'png', 'gif', 'webp'];
 const isImage = (filename) =>
   supportedImageExtensions.includes(filename.slice(filename.lastIndexOf('.') + 1).toLowerCase());
 const isPDF = (filename) => filename.slice(filename.lastIndexOf('.') + 1).toLowerCase() === 'pdf';

@@ -1,4 +1,5 @@
 import { useContext, useState } from 'preact/hooks';
+import { useTranslation } from 'preact-i18next';
 
 import { findPersonalDetails, getImperialUnitWeight, getImperialUnitHeight } from './utils';
 import { AppState } from '../App/state';
@@ -15,6 +16,7 @@ import { add as addToast } from '../Toast/Toast';
 import styles from './PersonalDetails.module.css';
 
 const PersonalDetails = () => {
+  const { t } = useTranslation();
   const {
     profiles: { selectedProfileId }
   } = useContext(AppState);
@@ -54,40 +56,40 @@ const PersonalDetails = () => {
 
   return isLoading ? null : (
     <>
-      <PageTitle>Personal Details</PageTitle>
+      <PageTitle>{t('pages.personalDetails.title')}</PageTitle>
       <Form name="personalDetails" onSubmit={saveFormData} onInput={saveInput}>
         <Input type="text" name="firstName" value={personalDetails.firstName}>
-          First Name
+          {t('common.firstName')}
         </Input>
         <Input type="text" name="lastName" value={personalDetails.lastName}>
-          Last Name
+          {t('common.lastName')}
         </Input>
         <Input type="date" name="dateOfBirth" value={personalDetails.dateOfBirth}>
-          Date of Birth
+          {t('common.dateOfBirth')}
         </Input>
         <Input type="email" name="email" value={personalDetails.email}>
-          Email
+          {t('common.email')}
         </Input>
         <Select name="sex" label="Sex" value={personalDetails.sex}>
           <Option value="" />
-          <Option value="male">Male</Option>
-          <Option value="female">Female</Option>
-          <Option value="other">Other</Option>
+          <Option value="male">{t('common.gender.male')}</Option>
+          <Option value="female">{t('common.gender.female')}</Option>
+          <Option value="other">{t('common.gender.other')}</Option>
         </Select>
         <div class={styles.multiUnit}>
           <Input type="number" name="height" value={personalDetails.height}>
-            Height
+            {t('common.height')}
           </Input>
           <div class={styles.imperialUnit}>{imperialUnitHeight}</div>
         </div>
         <div class={styles.multiUnit}>
           <Input type="number" name="weight" value={personalDetails.weight}>
-            Weight
+            {t('common.weight')}
           </Input>
           <div class={styles.imperialUnit}>{imperialUnitWeight}</div>
         </div>
         <Button emphasized type="submit">
-          Save
+          {t('common.save')}
         </Button>
       </Form>
     </>

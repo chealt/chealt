@@ -11,23 +11,61 @@
       "improvementsDescription": "If you have an idea how to make this app even more useful, let us know <1>here</2> by creating a <3>GitHub issue</4>."
     },
     "documents": {
-      "nav": "documents"
+      "nav": "documents",
+      "title": "documents",
+      "upload": "Upload documents",
+      "empty": "Your uploaded documents will be shown here.",
+      "startUploading": "Start uploading",
+      "noMatches": "No matching documents. Clear filters or try a different term.",
+      "addTag": "New tag",
+      "openInNewTab": "The document is opened in a new tab. If you cannot see it, it is unsupported or it might have been blocked by an ad blocker. Supported image extensions: JPG, JPEG, BMP, PNG, other extensions: PDF."
     },
     "share": {
       "nav": "share",
-      "download": "download"
+      "download": "download",
+      "instructions": {
+        "title": "To Share your data with another device, follow these steps",
+        "step1": "Click on the Share button",
+        "step2": "Wait for the QR code to appear",
+        "step3": "Open the <1>Chealt Share page</1> on the device you want to share your data with",
+        "step4": "Click the Scan QR button",
+        "after": "After generating a QR code you will have an hour to scan it.",
+        "privacyWarning": "<1>PRIVACY WARNING</1>: When using the share functionality, your data temporarily (for an hour) will be stored on our servers."
+      },
+      "title": "share"
     },
     "personalDetails": {
-      "nav": "personal details"
+      "nav": "personal details",
+      "title": "personal details"
     },
     "checkUps": {
-      "nav": "check-ups"
+      "nav": "check-ups",
+      "title": "Check-ups & Medical Tests",
+      "tags": {
+        "bloodTest": "Blood test",
+        "checkUp": "Check-up",
+        "medicalTest": "Medical test",
+        "xRay": "X-ray"
+      },
+      "tagInstructions": "Your Check-ups and medical tests will be shown here. Just tag your document with one of the following: <1>{{tags}}</1>."
     },
     "vaccinations": {
-      "nav": "vaccinations"
+      "nav": "vaccinations",
+      "name": "name",
+      "brandName": "brand name",
+      "dateOfAdmin": "date of admin",
+      "batchNo": "batch no",
+      "site": "route / site",
+      "immuniser": "immuniser",
+      "venue": "venue",
+      "title": "vaccinations",
+      "conditions": "conditions",
+      "emptyVaccinations": "Your vaccinations will be shown here."
     },
     "profiles": {
-      "nav": "profiles"
+      "nav": "profiles",
+      "instructions": "You can add multiple profiles to your device here. This way you can manage multiple users' data on a single device.",
+      "title": "Profiles"
     },
     "notFound": {
       "title": "Could not find the page you were looking for.",
@@ -35,9 +73,40 @@
     }
   },
   "common": {
+    "back": "back",
+    "bloodType": "blood type",
     "delete": "delete",
     "filter": "filter",
-    "language": "language"
+    "language": "language",
+    "save": "save",
+    "tags": "tags",
+    "vaccinations": "vaccinations",
+    "add": "add",
+    "show": "show",
+    "loading": "loading",
+    "firstName": "first name",
+    "lastName": "last name",
+    "dateOfBirth": "date of birth",
+    "email": "email",
+    "gender": {
+      "male": "male",
+      "female": "female",
+      "other": "other"
+    },
+    "height": "height",
+    "weight": "weight",
+    "name": "name",
+    "profilePicture": "profile picture",
+    "edit": "edit",
+    "select": "select",
+    "encryptData": "encrypt data",
+    "setPassword": "set password",
+    "share": "share",
+    "scanQRCode": "scan QR code",
+    "password": "password",
+    "savePassword": "save password",
+    "medicalConditions": "conditions",
+    "startAdding": "start adding"
   },
   "languages": {
     "da": "Danish",
@@ -45,5 +114,9 @@
     "en-US": "English (US)",
     "hu": "Hungarian",
     "po": "Polish"
+  },
+  "notFound": {
+    "title": "",
+    "message": ""
   }
 }

@@ -48,7 +48,8 @@ const IntlProvider = ({ children }) => {
           interpolation: {
             escapeValue: false
           },
-          lng: savedLanguage || defaultLanguage
+          lng: savedLanguage || defaultLanguage,
+          returnEmptyString: false
         })
         .then(() => {
           setInitialized(true);
