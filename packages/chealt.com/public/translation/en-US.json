@@ -32,11 +32,11 @@
         "after": "After generating a QR code you will have an hour to scan it.",
         "privacyWarning": "<1>PRIVACY WARNING</1>: When using the share functionality, your data temporarily (for an hour) will be stored on our servers."
       },
-      "title": ""
+      "title": "share"
     },
     "personalDetails": {
       "nav": "personal details",
-      "title": ""
+      "title": "personal details"
     },
     "checkUps": {
       "nav": "check-ups",
@@ -51,21 +51,21 @@
     },
     "vaccinations": {
       "nav": "vaccinations",
-      "name": "",
-      "brandName": "",
-      "dateOfAdmin": "",
-      "batchNo": "",
-      "site": "",
-      "immuniser": "",
-      "venue": "",
-      "title": "",
-      "conditions": "",
-      "emptyVaccinations": ""
+      "name": "name",
+      "brandName": "brand name",
+      "dateOfAdmin": "date of admin",
+      "batchNo": "batch no",
+      "site": "route / site",
+      "immuniser": "immuniser",
+      "venue": "venue",
+      "title": "vaccinations",
+      "conditions": "conditions",
+      "emptyVaccinations": "Your vaccinations will be shown here."
     },
     "profiles": {
       "nav": "profiles",
       "instructions": "You can add multiple profiles to your device here. This way you can manage multiple users' data on a single device.",
-      "title": ""
+      "title": "Profiles"
     },
     "notFound": {
       "title": "Could not find the page you were looking for.",
@@ -81,32 +81,32 @@
     "save": "save",
     "tags": "tags",
     "vaccinations": "vaccinations",
-    "add": "",
-    "show": "",
-    "loading": "",
-    "firstName": "",
-    "lastName": "",
-    "dateOfBirth": "",
-    "email": "",
+    "add": "add",
+    "show": "show",
+    "loading": "loading",
+    "firstName": "first name",
+    "lastName": "last name",
+    "dateOfBirth": "date of birth",
+    "email": "email",
     "gender": {
-      "male": "",
-      "female": "",
-      "other": ""
+      "male": "male",
+      "female": "female",
+      "other": "other"
     },
-    "height": "",
-    "weight": "",
-    "name": "",
-    "profilePicture": "",
-    "edit": "",
-    "select": "",
-    "encryptData": "",
-    "setPassword": "",
-    "share": "",
-    "scanQRCode": "",
-    "password": "",
-    "savePassword": "",
-    "medicalConditions": "",
-    "startAdding": ""
+    "height": "height",
+    "weight": "weight",
+    "name": "name",
+    "profilePicture": "profile picture",
+    "edit": "edit",
+    "select": "select",
+    "encryptData": "encrypt data",
+    "setPassword": "set password",
+    "share": "share",
+    "scanQRCode": "scan QR code",
+    "password": "password",
+    "savePassword": "save password",
+    "medicalConditions": "conditions",
+    "startAdding": "start adding"
   },
   "languages": {
     "da": "Danish",
