@@ -65,5 +65,9 @@
     "en-US": "English (US)",
     "hu": "Hungarian",
     "po": "Polish"
+  },
+  "notFound": {
+    "title": "",
+    "message": ""
   }
 }
