@@ -1,4 +1,5 @@
 import { useCallback, useState, useRef, useContext } from 'preact/hooks';
+import { useTranslation } from 'preact-i18next';
 
 import Controls from './Controls';
 import Item from './Item';
@@ -18,6 +19,7 @@ import { add as addToast } from '../Toast/Toast';
 import styles from './Documents.module.css';
 
 const Documents = () => {
+  const { t } = useTranslation();
   const {
     profiles: { selectedProfileId }
   } = useContext(AppState);
@@ -93,7 +95,7 @@ const Documents = () => {
 
   return isLoading ? null : (
     <div class={styles.documents}>
-      <PageTitle>Documents</PageTitle>
+      <PageTitle>{t('pages.documents.title')}</PageTitle>
       <section>
         <FileInput
           multiple
@@ -101,14 +103,14 @@ const Documents = () => {
           ondrop={uploadDocuments}
           inputRef={uploadDocumentInput}
         >
-          Upload documents
+          {t('pages.documents.upload')}
         </FileInput>
       </section>
       {noDocuments && (
         <section>
           <EmptyState>
             <DocumentsIcon />
-            <p>Your uploaded documents will be shown here.</p>
+            <p>{t('pages.documents.empty')}</p>
             <Button
               emphasized
               onClick={(event) => {
@@ -117,7 +119,7 @@ const Documents = () => {
                 uploadDocumentInput.current.click();
               }}
             >
-              Start uploading
+              {t('pages.documents.startUploading')}
             </Button>
           </EmptyState>
         </section>
@@ -149,7 +151,7 @@ const Documents = () => {
                 </ListItem>
               ))}
             </List>
-          )) || <p>No matching documents. Clear filters or try a different term.</p>}
+          )) || <p>{t('pages.documents.noMatches')}</p>}
         </section>
       )}
     </div>

@@ -11,7 +11,14 @@
       "improvementsDescription": "If you have an idea how to make this app even more useful, let us know <1>here</2> by creating a <3>GitHub issue</4>."
     },
     "documents": {
-      "nav": "documents"
+      "nav": "documents",
+      "title": "documents",
+      "upload": "Upload documents",
+      "empty": "Your uploaded documents will be shown here.",
+      "startUploading": "Start uploading",
+      "noMatches": "No matching documents. Clear filters or try a different term.",
+      "addTag": "New tag",
+      "openInNewTab": "The document is opened in a new tab. If you cannot see it, it is unsupported or it might have been blocked by an ad blocker. Supported image extensions: JPG, JPEG, BMP, PNG, other extensions: PDF."
     },
     "share": {
       "nav": "share",
@@ -43,6 +50,7 @@
     }
   },
   "common": {
+    "back": "back",
     "bloodType": "blood type",
     "delete": "delete",
     "filter": "filter",

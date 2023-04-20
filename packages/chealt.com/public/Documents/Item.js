@@ -47,7 +47,7 @@ const Item = ({
           deleteItem={deleteTag}
           hideLabel
         >
-          New tag
+          {t('pages.documents.addTag')}
           <datalist id="tags">
             {tagSuggestions
               .filter((suggestion) => !tags?.includes(suggestion))

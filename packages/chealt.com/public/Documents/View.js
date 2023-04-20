@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'preact/hooks';
+import { useTranslation } from 'preact-i18next';
 import { useRoute } from 'preact-iso';
 
 import { isImage, isPDF } from './utils';
@@ -8,6 +9,7 @@ import Link from '../Link/Link';
 import styles from './View.module.css';
 
 const View = () => {
+  const { t } = useTranslation();
   const {
     params: { encodedDocumentKey, refererPage }
   } = useRoute();
@@ -46,17 +48,9 @@ const View = () => {
 
   return (
     <div class={styles.view}>
-      <Link href={`/${refererPage}`}>Back</Link>
+      <Link href={`/${refererPage}`}>{t('common.back')}</Link>
       {imageSource && <img src={imageSource} class={styles.image} />}
-      {openedInNewTab && (
-        <>
-          <p>
-            The document is opened in a new tab. If you cannot see it, it is unsupported or it might
-            have been blocked by an ad blocker. Supported image extensions: JPG, JPEG, BMP, PNG,
-            other extensions: PDF.
-          </p>
-        </>
-      )}
+      {openedInNewTab && <p>{t('pages.documents.openInNewTab')}</p>}
     </div>
   );
 };
