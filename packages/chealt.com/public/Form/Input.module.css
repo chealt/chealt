@@ -118,6 +118,12 @@
   background-color: var(--color-brand);
 }
 
+.button.contentOnly,
+.button.contentOnly:is(:hover, :focus, :active) {
+  border: 0 none;
+  padding: 0;
+}
+
 .label {
   display: flex;
   flex-direction: column;

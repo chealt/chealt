@@ -1,0 +1,30 @@
+.container {
+  position: relative;
+}
+
+.menu {
+  position: absolute;
+  top: calc(100% + var(--gap));
+  right: 0;
+  background-color: var(--color-background);
+  border: 1px solid var(--color-border);
+  box-shadow: grey 2px 2px 2px 0;
+  border-radius: 4px;
+}
+
+.menu li {
+  padding: var(--gap);
+  border-bottom: 0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.menu li:hover {
+  background-color: var(--color-background-highlight);
+}
+
+.item {
+  display: flex;
+  gap: var(--gap);
+  align-items: center;
+}
