@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'preact/hooks';
 
 import { isPDF } from './utils';
+import Button from '../Form/Button';
 import Download from '../Icons/Download';
 import { useObjectStore } from '../IndexedDB/hooks';
-import Link from '../Link/Link';
 
 const DownloadButton = ({ documentKey }) => {
   const [document, setDocument] = useState();
@@ -29,9 +29,9 @@ const DownloadButton = ({ documentKey }) => {
   return (
     <>
       {document?.blobUrl && (
-        <Link href={document.blobUrl} download={document.name} target="_blank" buttonStyled ghost>
+        <Button href={document.blobUrl} download={document.name} target="_blank" contentOnly>
           <Download />
-        </Link>
+        </Button>
       )}
     </>
   );
