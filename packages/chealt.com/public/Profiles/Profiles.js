@@ -56,6 +56,11 @@ const Profiles = () => {
     setIsModalOpen(true);
   };
 
+  const addProfile = () => {
+    setProfileToEdit({});
+    setIsModalOpen(true);
+  };
+
   return (
     <>
       <PageTitle>{t('pages.profiles.title')}</PageTitle>
@@ -93,7 +98,7 @@ const Profiles = () => {
             ))}
           </List>
         )) || <LoadingIndicator />}
-        <Button emphasized onClick={() => setIsModalOpen(true)}>
+        <Button emphasized onClick={addProfile}>
           {t('common.add')}
         </Button>
         <ProfileForm
