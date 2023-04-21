@@ -92,6 +92,10 @@
   border-radius: 0;
 }
 
-.nav > *:is(:hover, :focus, :active)  {
+.nav > *:is(:hover, :focus, :active) {
   background-color: var(--color-background-highlight);
+}
+
+.nav > .active {
+  background-color: var(--color-brand);
 }

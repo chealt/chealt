@@ -75,7 +75,14 @@ const Header = () => {
             <Close />
           </Button>
           {navItems.map(({ href, label }) => (
-            <a key={href} href={href} onClick={closeMenu}>
+            <a
+              key={href}
+              href={href}
+              onClick={closeMenu}
+              class={classnames({
+                [styles.active]: location.pathname === href
+              })}
+            >
               {label}
             </a>
           ))}
