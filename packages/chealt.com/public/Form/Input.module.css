@@ -146,7 +146,7 @@
 
 .label.inline .text {
   order: 2;
-  text-transform: none;
+  text-transform: capitalize;
 }
 
 .input[type="checkbox"] {
