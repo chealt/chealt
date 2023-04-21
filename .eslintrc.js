@@ -1,17 +1,18 @@
 const {
-  eslintConfig: { baseConfig, preactConfig }
+  eslintConfig: { baseConfig, preactConfig, playwrightConfig }
 } = require('@chealt/check');
 
 const config = {
   ...baseConfig,
+  // Make sure that Jest rules don't apply to Playwright tests
   overrides: [
     {
       files: [
-        'packages/mocker/**/*.cjs',
         'packages/**/*.cjs',
         'packages/**/*.js',
         './.eslintrc.js',
         'packages/**/*.mjs',
+        './playwright.config.js',
         '.stylelintrc.js'
       ],
       parserOptions: {
@@ -21,6 +22,10 @@ const config = {
     {
       files: ['packages/chealt.com/**/*.js'],
       ...preactConfig
+    },
+    {
+      files: ['**/*.ui-spec.js'],
+      ...playwrightConfig
     }
   ]
 };

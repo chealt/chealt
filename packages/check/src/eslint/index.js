@@ -44,7 +44,20 @@ const baseConfig = {
   plugins: ['import', 'prettier', 'i18next']
 };
 
+const playwrightConfig = {
+  extends: ['plugin:playwright/playwright-test'],
+  rules: {
+    ...javascriptRules,
+    ...prettierRules,
+    ...importRules,
+    'jest/no-done-callback': 'off',
+    'playwright/require-top-level-describe': ['error']
+  },
+  plugins: ['playwright', 'import', 'prettier']
+};
+
 module.exports = {
   baseConfig,
-  preactConfig
+  preactConfig,
+  playwrightConfig
 };
