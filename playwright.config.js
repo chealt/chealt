@@ -1,5 +1,7 @@
 const { defineConfig, devices } = require('@playwright/test');
 
+const { url } = require('./packages/chealt.com/config.cjs');
+
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
@@ -10,6 +12,7 @@ const { defineConfig, devices } = require('@playwright/test');
  * @see https://playwright.dev/docs/test-configuration
  */
 module.exports = defineConfig({
+  baseUrl: url,
   testDir: './packages/chealt.com/public',
   testMatch: /.*\.ui-spec\.js/u,
   /* Run tests in files in parallel */
@@ -45,10 +48,5 @@ module.exports = defineConfig({
       name: 'Mobile Safari',
       use: { ...devices['iPhone 12'] }
     }
-  ],
-  webServer: {
-    command: 'yarn workspace @chealt/chealt.com start:frontend',
-    url: 'http://127.0.0.1:8080',
-    reuseExistingServer: !process.env.CI
-  }
+  ]
 });

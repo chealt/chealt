@@ -1,6 +1,6 @@
 import { test, expect } from '@chealt/playwright-utils';
 
-const url = 'http://localhost:8080';
+import { url } from '../../config.cjs';
 
 test.describe('Home', () => {
   test('loads the Home Page', async ({ page, screen }) => {
