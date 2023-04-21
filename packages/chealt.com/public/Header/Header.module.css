@@ -6,15 +6,14 @@
   height: var(--header-height);
   display: flex;
   align-items: center;
-  background-color: var(--color-background--alt);
-  box-shadow: 0 4px 4px var(--color-box-shadow);
   padding: var(--gap);
   gap: var(--gap--l);
-  transition: background-color var(--animation-duration--s) ease-in;
+  transition: all var(--animation-duration--s) ease-in;
 }
 
 .header:hover {
   background-color: var(--color-brand);
+  box-shadow: 0 4px 4px var(--color-box-shadow);
 }
 
 .header .profileContainer {
@@ -40,7 +39,7 @@
 
 .menu {
   display: flex;
-  width: 80%;
+  width: 60%;
   max-width: 400px;
   height: auto;
   padding: 0;
@@ -65,6 +64,14 @@
   width: 100%;
   max-width: none;
   text-align: left;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.menu .chealt {
+  flex-grow: 1;
 }
 
 .nav { 

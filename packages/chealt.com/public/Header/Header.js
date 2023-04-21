@@ -3,6 +3,7 @@ import { useRef, useState } from 'preact/hooks';
 import { useTranslation } from 'preact-i18next';
 
 import Button from '../Form/Button';
+import Close from '../Icons/Close';
 import Menu from '../Icons/Menu';
 import ProfilePictureMenu from '../ProfilePicture/ProfilePictureMenu';
 
@@ -54,6 +55,7 @@ const Header = () => {
         </div>
       </header>
       <div
+        onClick={closeMenu}
         class={classnames({
           [styles.backdrop]: true,
           [styles.open]: isMenuOpen
@@ -62,14 +64,14 @@ const Header = () => {
       <dialog
         ref={dialogRef}
         onKeyUp={handleKey}
-        onBlur={closeMenu}
         class={classnames({
           [styles.menu]: true
         })}
       >
         <nav class={styles.nav}>
           <Button ghost className={styles.closeMenuContainer} onClick={closeMenu}>
-            <Menu />
+            <span class={styles.chealt}>{t('common.chealt')}</span>
+            <Close />
           </Button>
           {navItems.map(({ href, label }) => (
             <a key={href} href={href} onClick={closeMenu}>
