@@ -1,6 +1,6 @@
 import { test, expect } from '@chealt/playwright-utils';
 
-import { url } from '../../config.cjs';
+import { url } from '../../config.js';
 
 test.describe('Home', () => {
   test('loads the Home Page', async ({ page, screen }) => {
