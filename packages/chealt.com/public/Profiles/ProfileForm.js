@@ -24,7 +24,7 @@ const ProfileForm = ({
   const { t } = useTranslation();
   const [selectedName, setSelectedName] = useState(name);
   const [selectedProfilePicture, setSelectedProfilePicture] = useState();
-  const [selectedLanguage, setSelectedLanguage] = useState(language);
+  const [selectedLanguage, setSelectedLanguage] = useState(language || defaultLanguage);
 
   const close = () => {
     setSelectedProfilePicture();
@@ -40,7 +40,7 @@ const ProfileForm = ({
       name: event.target.name.value,
       id: id || crypto.randomUUID(),
       profilePicture: selectedProfilePicture || profilePicture,
-      language: selectedLanguage,
+      language: event.target.language.value,
       isSelected: Boolean(isSelected)
     };
 
