@@ -23,6 +23,21 @@
   justify-content: flex-end;
 }
 
+.backdrop {
+  background-color: black;
+  position: fixed;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  user-select: none;
+  transition: all var(--animation-duration--s) ease-in;
+}
+
+.backdrop.open {
+  visibility: visible;
+  opacity: .3;
+}
+
 .menu {
   display: flex;
   width: 80%;

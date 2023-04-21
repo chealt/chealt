@@ -1,5 +1,5 @@
 import classnames from 'classnames';
-import { useRef } from 'preact/hooks';
+import { useRef, useState } from 'preact/hooks';
 import { useTranslation } from 'preact-i18next';
 
 import Button from '../Form/Button';
@@ -10,6 +10,7 @@ import styles from './Header.module.css';
 
 const Header = () => {
   const { t } = useTranslation();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const dialogRef = useRef();
   const navItems = [
     { href: '/', label: t('pages.home.nav') },
@@ -25,16 +26,20 @@ const Header = () => {
 
     if (dialog.open) {
       dialog.close();
+      setIsMenuOpen(false);
     } else {
       dialog.show();
+      setIsMenuOpen(true);
     }
   };
   const closeMenu = () => {
     dialogRef.current.close();
+    setIsMenuOpen(false);
   };
   const handleKey = (event) => {
     if (event.key === 'Escape') {
       closeMenu();
+      setIsMenuOpen(false);
     }
   };
 
@@ -48,8 +53,13 @@ const Header = () => {
           <ProfilePictureMenu />
         </div>
       </header>
+      <div
+        class={classnames({
+          [styles.backdrop]: true,
+          [styles.open]: isMenuOpen
+        })}
+      />
       <dialog
-        id="navigationMenu"
         ref={dialogRef}
         onKeyUp={handleKey}
         onBlur={closeMenu}
