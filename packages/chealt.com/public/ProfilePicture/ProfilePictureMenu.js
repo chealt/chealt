@@ -15,7 +15,12 @@ const ProfilePictureMenu = () => {
     profiles: { selectedProfileId }
   } = useContext(AppState);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { items: profiles, save, isLoading: isLoadingProfiles } = useObjectStore('profiles');
+  const {
+    items: profiles,
+    save,
+    refresh: refreshProfiles,
+    isLoading: isLoadingProfiles
+  } = useObjectStore('profiles');
   const selectedProfile = profiles.find(
     (profile) => profile.value.id === selectedProfileId.value
   )?.value;
@@ -26,6 +31,8 @@ const ProfilePictureMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
   const changeProfile = (profileId) => async () => {
+    const profiles = await refreshProfiles();
+
     for (const profile of profiles) {
       await save({
         key: profile.key,

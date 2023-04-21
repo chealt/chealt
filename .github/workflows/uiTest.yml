@@ -1,0 +1,43 @@
+name: UI Tests
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+jobs:
+  test:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Install dependencies
+        run: yarn
+      - name: Get Playwright version
+        id: playwright_version
+        shell: bash
+        run: |
+          version=$(yarn info @playwright/test --json | jq -r '.children.Version')
+          echo "version=$version" >> $GITHUB_OUTPUT
+      - uses: actions/cache@v3
+        name: Cache Playwright
+        id: cache
+        with:
+          path: |
+            ~/.cache/ms-playwright
+          key: ${{ runner.os }}-playwright-chromium-${{ steps.playwright_version.outputs.version }}
+          restore-keys: |
+            ${{ runner.os }}-playwright-chromium-
+      - name: Install Playwright Browsers
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: yarn playwright install --with-deps chromium
+      - name: Run Playwright tests
+        run: yarn playwright test --project chromium
+      - uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 30

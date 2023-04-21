@@ -9,4 +9,3 @@ Chealt is a collection of dev tools to make web engineers' life a little bit eas
 ## Packages
 
 - [@chealt/check](/packages/check/README.md): Yet another opinionated ESLint config.
-- [@chealt/jest-puppeteer-env](/packages/jest-puppeteer-env/README.md): A Jest environment to run tests using Puppeteer.

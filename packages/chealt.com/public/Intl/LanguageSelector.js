@@ -33,6 +33,7 @@ const LanguageSelector = ({ language: languageProp, onChange, profileId }) => {
 
   return (
     <Select
+      name="language"
       label={t('common.language')}
       onChange={({ target: { value } }) => changeLanguage(value)}
     >
