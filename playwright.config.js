@@ -47,7 +47,7 @@ module.exports = defineConfig({
     }
   ],
   webServer: {
-    command: 'yarn start',
+    command: 'yarn workspace @chealt/chealt.com start:frontend',
     url: 'http://127.0.0.1:8080',
     reuseExistingServer: !process.env.CI
   }

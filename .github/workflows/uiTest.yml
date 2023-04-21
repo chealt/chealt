@@ -22,7 +22,7 @@ jobs:
           version=$(yarn info @playwright/test --json | jq -r '.children.Version')
           echo "version=$version" >> $GITHUB_OUTPUT
       - uses: actions/cache@v3
-        name: Restore cache
+        name: Cache Playwright
         id: cache
         with:
           path: |
