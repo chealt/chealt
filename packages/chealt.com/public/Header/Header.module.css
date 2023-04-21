@@ -6,28 +6,67 @@
   height: var(--header-height);
   display: flex;
   align-items: center;
-  background-color: var(--color-brand);
-  box-shadow: 0 8px 0 rgb(38 46 72 / 15%);
+  background-color: var(--color-background--alt);
+  box-shadow: 0 4px 4px var(--color-box-shadow);
   padding: var(--gap);
   gap: var(--gap--l);
+  transition: background-color var(--animation-duration--s) ease-in;
 }
 
-.header nav {
+.header:hover {
+  background-color: var(--color-brand);
+}
+
+.header .profileContainer {
   display: flex;
-  gap: var(--gap--l);
-  flex-wrap: nowrap;
   flex-grow: 1;
-  overflow-x: scroll;
+  justify-content: flex-end;
 }
 
-.header select {
-  border-color: var(--color-border--branded);
+.menu {
+  display: flex;
+  width: 80%;
+  max-width: 600px;
+  height: auto;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  transform: translateX(-110%);
+  background-color: var(--color-background--alt);
+  box-shadow: 4px 0 4px var(--color-box-shadow);
+  transition: transform var(--animation-duration--s) ease-in;
+  z-index: var(--z-index--xxl);
 }
 
-.header nav a {
+.menu[open] {
+  display: flex;
+  transform: translateX(0);
+}
+
+.menu .closeMenuContainer {
+  width: 100%;
+  max-width: none;
+  text-align: left;
+}
+
+.nav { 
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.nav > * {
   white-space: nowrap;
   color: inherit;
   text-decoration: none;
-  padding: var(--gap);
+  padding: var(--gap--l);
   text-transform: capitalize;
+  border-radius: 0;
+}
+
+.nav > *:is(:hover, :focus, :active)  {
+  background-color: var(--color-background-highlight);
 }

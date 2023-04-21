@@ -10,11 +10,19 @@
   --color-border--active: rgb(0 0 0);
   --color-border--branded: rgb(255 255 255);
   --color-background: rgb(255 255 255);
+  --color-background--alt: rgb(245 245 245);
   --color-background-highlight: rgb(222 222 222);
   --color-loading: rgb(172 172 172);
+  --color-box-shadow: rgb(38 46 72 / 15%);
   --border-radius: 8px;
   --border-width: 2px;
   --animation-duration: 3s;
+  --animation-duration--s: .4s;
+  --z-index--s: 10;
+  --z-index--m: 20;
+  --z-index--l: 30;
+  --z-index--xl: 40;
+  --z-index--xxl: 100;
 }
 
 html,

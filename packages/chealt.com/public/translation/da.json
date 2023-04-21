@@ -98,7 +98,9 @@
     "password": "",
     "savePassword": "",
     "medicalConditions": "",
-    "startAdding": ""
+    "startAdding": "",
+    "menu": "",
+    "closeMenu": ""
   },
   "languages": {
     "en-GB": "",
