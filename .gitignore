@@ -26,3 +26,6 @@ size-plugin.json
 
 # Stylelint
 .stylelintcache
+/test-results/
+/playwright-report/
+/playwright/.cache/

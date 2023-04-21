@@ -19,5 +19,8 @@
     "access": "public",
     "registry": "https://registry.npmjs.org"
   },
-  "sideEffects": false
+  "sideEffects": false,
+  "dependencies": {
+    "eslint-plugin-playwright": "^0.12.0"
+  }
 }

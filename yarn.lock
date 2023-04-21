@@ -1242,7 +1242,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/code-frame@npm:^7.21.4":
+"@babel/code-frame@npm:^7.10.4, @babel/code-frame@npm:^7.21.4":
   version: 7.21.4
   resolution: "@babel/code-frame@npm:7.21.4"
   dependencies:
@@ -2848,6 +2848,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/runtime-corejs3@npm:^7.10.2":
+  version: 7.21.0
+  resolution: "@babel/runtime-corejs3@npm:7.21.0"
+  dependencies:
+    core-js-pure: ^3.25.1
+    regenerator-runtime: ^0.13.11
+  checksum: a47927671672b1e1644771458f804e03802303eeffcafd55f85cb121d3d3ca33032cc2fe68e086e3de6923049343d0aa599fc3eb3ad5749e30646e2a2ef6f11d
+  languageName: node
+  linkType: hard
+
+"@babel/runtime@npm:^7.10.2, @babel/runtime@npm:^7.12.5":
+  version: 7.21.0
+  resolution: "@babel/runtime@npm:7.21.0"
+  dependencies:
+    regenerator-runtime: ^0.13.11
+  checksum: 7b33e25bfa9e0e1b9e8828bb61b2d32bdd46b41b07ba7cb43319ad08efc6fda8eb89445193e67d6541814627df0ca59122c0ea795e412b99c5183a0540d338ab
+  languageName: node
+  linkType: hard
+
 "@babel/runtime@npm:^7.20.6":
   version: 7.20.6
   resolution: "@babel/runtime@npm:7.20.6"
@@ -3083,6 +3102,8 @@ __metadata:
   resolution: "@chealt/chealt.com@workspace:packages/chealt.com"
   dependencies:
     "@chealt/browser-utils": 0.0.2
+    "@chealt/playwright-utils": "workspace:*"
+    "@playwright/test": ^1.32.3
     "@preact/signals": ^1.1.3
     "@simplewebauthn/browser": ^7.2.0
     "@wmrjs/service-worker": ^0.3.1
@@ -3106,6 +3127,8 @@ __metadata:
 "@chealt/check@workspace:*, @chealt/check@workspace:packages/check":
   version: 0.0.0-use.local
   resolution: "@chealt/check@workspace:packages/check"
+  dependencies:
+    eslint-plugin-playwright: ^0.12.0
   peerDependencies:
     "@babel/eslint-parser": ^7.21.3
     "@babel/preset-react": ^7.18.6
@@ -3125,6 +3148,15 @@ __metadata:
   resolution: "@chealt/delete-old-uploads-worker@workspace:packages/delete-old-uploads-worker"
   dependencies:
     wrangler: ^2.16.0
+  languageName: unknown
+  linkType: soft
+
+"@chealt/playwright-utils@workspace:*, @chealt/playwright-utils@workspace:packages/playwright-utils":
+  version: 0.0.0-use.local
+  resolution: "@chealt/playwright-utils@workspace:packages/playwright-utils"
+  dependencies:
+    "@playwright-testing-library/test": ^4.5.0
+    "@playwright/test": ^1.32.3
   languageName: unknown
   linkType: soft
 
@@ -3707,6 +3739,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@jest/types@npm:^26.6.2":
+  version: 26.6.2
+  resolution: "@jest/types@npm:26.6.2"
+  dependencies:
+    "@types/istanbul-lib-coverage": ^2.0.0
+    "@types/istanbul-reports": ^3.0.0
+    "@types/node": "*"
+    "@types/yargs": ^15.0.0
+    chalk: ^4.0.0
+  checksum: a0bd3d2f22f26ddb23f41fddf6e6a30bf4fab2ce79ec1cb6ce6fdfaf90a72e00f4c71da91ec61e13db3b10c41de22cf49d07c57ff2b59171d64b29f909c1d8d6
+  languageName: node
+  linkType: hard
+
 "@jest/types@npm:^29.5.0":
   version: 29.5.0
   resolution: "@jest/types@npm:29.5.0"
@@ -4144,6 +4189,40 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@playwright-testing-library/test@npm:^4.5.0":
+  version: 4.5.0
+  resolution: "@playwright-testing-library/test@npm:4.5.0"
+  dependencies:
+    "@testing-library/dom": ^7.31.2
+    wait-for-expect: ^3.0.2
+  peerDependencies:
+    "@playwright/test": ^1.12.0
+    playwright: ^1.12.0
+  peerDependenciesMeta:
+    "@playwright/test":
+      optional: true
+    playwright:
+      optional: true
+  checksum: 52a2f557e1596264c8ab361e0c58308e229b8e213597cda01a8d7621f6b793462a0bce022ef5e3c4baf36489ae3a9d1cd8625e96b79e108eba529c9a2184ff1d
+  languageName: node
+  linkType: hard
+
+"@playwright/test@npm:^1.32.3":
+  version: 1.32.3
+  resolution: "@playwright/test@npm:1.32.3"
+  dependencies:
+    "@types/node": "*"
+    fsevents: 2.3.2
+    playwright-core: 1.32.3
+  dependenciesMeta:
+    fsevents:
+      optional: true
+  bin:
+    playwright: cli.js
+  checksum: f248e5851d04183954ec6f3a5f2c8e3b0ea0085a83e0e695068c5c2eb6acd4dddb16829a429829a4eb9fe0a4518f6a5594890cf9bf4259255c9e07a5964be625
+  languageName: node
+  linkType: hard
+
 "@preact/signals-core@npm:^1.2.3":
   version: 1.2.3
   resolution: "@preact/signals-core@npm:1.2.3"
@@ -4267,10 +4346,33 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@testing-library/dom@npm:^7.31.2":
+  version: 7.31.2
+  resolution: "@testing-library/dom@npm:7.31.2"
+  dependencies:
+    "@babel/code-frame": ^7.10.4
+    "@babel/runtime": ^7.12.5
+    "@types/aria-query": ^4.2.0
+    aria-query: ^4.2.2
+    chalk: ^4.1.0
+    dom-accessibility-api: ^0.5.6
+    lz-string: ^1.4.4
+    pretty-format: ^26.6.2
+  checksum: 54fbedd1ecdfe1d47be2e592b98d18b2ab9d7e731f57231caf9b152593fe7329fe5ebe219e0e5d1e0df5b1ab803121cb8acd8b73bd1fb292bfdc2c55663eb01d
+  languageName: node
+  linkType: hard
+
 "@tootallnate/once@npm:2":
   version: 2.0.0
   resolution: "@tootallnate/once@npm:2.0.0"
   checksum: ad87447820dd3f24825d2d947ebc03072b20a42bfc96cbafec16bff8bbda6c1a81fcb0be56d5b21968560c5359a0af4038a68ba150c3e1694fe4c109a063bed8
+  languageName: node
+  linkType: hard
+
+"@types/aria-query@npm:^4.2.0":
+  version: 4.2.2
+  resolution: "@types/aria-query@npm:4.2.2"
+  checksum: 6f2ce11d91e2d665f3873258db19da752d91d85d3679eb5efcdf9c711d14492287e1e4eb52613b28e60375841a9e428594e745b68436c963d8bad4bf72188df3
   languageName: node
   linkType: hard
 
@@ -4494,6 +4596,15 @@ __metadata:
   version: 20.2.0
   resolution: "@types/yargs-parser@npm:20.2.0"
   checksum: 54cf3f8d2c7db47e200e8c96e05b3b33ee554e78d29f3db55f04ca4b86dc6b8ff6b1349f5772268ce2d365cde0a0f4fdd92bf5933c2be2c1ea3f19f0b4599e1f
+  languageName: node
+  linkType: hard
+
+"@types/yargs@npm:^15.0.0":
+  version: 15.0.15
+  resolution: "@types/yargs@npm:15.0.15"
+  dependencies:
+    "@types/yargs-parser": "*"
+  checksum: 3420f6bcc508a895ef91858f8e6de975c710e4498cf6ed293f1174d3f1ad56edb4ab8481219bf6190f64a3d4115fab1d13ab3edc90acd54fba7983144040e446
   languageName: node
   linkType: hard
 
@@ -4773,7 +4884,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ansi-regex@npm:^5.0.1":
+"ansi-regex@npm:^5.0.0, ansi-regex@npm:^5.0.1":
   version: 5.0.1
   resolution: "ansi-regex@npm:5.0.1"
   checksum: 2aa4bb54caf2d622f1afdad09441695af2a83aa3fe8b8afa581d205e57ed4261c183c4d3877cee25794443fde5876417d859c108078ab788d6af7e4fe52eb66b
@@ -4888,6 +4999,16 @@ __metadata:
   version: 2.0.1
   resolution: "argparse@npm:2.0.1"
   checksum: 83644b56493e89a254bae05702abf3a1101b4fa4d0ca31df1c9985275a5a5bd47b3c27b7fa0b71098d41114d8ca000e6ed90cad764b306f8a503665e4d517ced
+  languageName: node
+  linkType: hard
+
+"aria-query@npm:^4.2.2":
+  version: 4.2.2
+  resolution: "aria-query@npm:4.2.2"
+  dependencies:
+    "@babel/runtime": ^7.10.2
+    "@babel/runtime-corejs3": ^7.10.2
+  checksum: 38401a9a400f26f3dcc24b84997461a16b32869a9893d323602bed8da40a8bcc0243b8d2880e942249a1496cea7a7de769e93d21c0baa439f01e1ee936fed665
   languageName: node
   linkType: hard
 
@@ -5653,6 +5774,8 @@ __metadata:
     "@babel/preset-env": ^7.21.4
     "@babel/preset-react": ^7.18.6
     "@chealt/check": "workspace:*"
+    "@playwright-testing-library/test": ^4.5.0
+    "@playwright/test": ^1.32.3
     babel-jest: ^29.5.0
     babel-plugin-transform-require-extensions: ^2.0.1
     browserslist: ^4.21.5
@@ -6079,6 +6202,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"core-js-pure@npm:^3.25.1":
+  version: 3.30.1
+  resolution: "core-js-pure@npm:3.30.1"
+  checksum: ea64c72cd68ddde43eddb250033af784cc00251195faaee665163e7d6a69df964c9eba9e931f3adf4cc1e1be0fabc1b59aa54de1c847811583c09bf1737911f9
+  languageName: node
+  linkType: hard
+
 "core-js@npm:^3.16.2":
   version: 3.21.1
   resolution: "core-js@npm:3.21.1"
@@ -6344,6 +6474,13 @@ __metadata:
   dependencies:
     esutils: ^2.0.2
   checksum: fd7673ca77fe26cd5cba38d816bc72d641f500f1f9b25b83e8ce28827fe2da7ad583a8da26ab6af85f834138cf8dae9f69b0cd6ab925f52ddab1754db44d99ce
+  languageName: node
+  linkType: hard
+
+"dom-accessibility-api@npm:^0.5.6":
+  version: 0.5.16
+  resolution: "dom-accessibility-api@npm:0.5.16"
+  checksum: 005eb283caef57fc1adec4d5df4dd49189b628f2f575af45decb210e04d634459e3f1ee64f18b41e2dcf200c844bc1d9279d80807e686a30d69a4756151ad248
   languageName: node
   linkType: hard
 
@@ -6785,6 +6922,19 @@ __metadata:
     jest:
       optional: true
   checksum: fc6da96131f4cbf33d15ef911ec8e600ccd71deb97d73c0ca340427cef7b01ff41a797e2e7d1e351abf97321a46ed0c0acff5ee8eeedac94961dd6dad1f718a9
+  languageName: node
+  linkType: hard
+
+"eslint-plugin-playwright@npm:^0.12.0":
+  version: 0.12.0
+  resolution: "eslint-plugin-playwright@npm:0.12.0"
+  peerDependencies:
+    eslint: ">=7"
+    eslint-plugin-jest: ">=24"
+  peerDependenciesMeta:
+    eslint-plugin-jest:
+      optional: true
+  checksum: f7a6f28ea6ad8c3ba81a37bc7cf1d50a762365719f0f87888c8a6b3220be6baac4fb63bf9590227f28beb6d5bc748afe730ce68040be6846c329e41994debdd5
   languageName: node
   linkType: hard
 
@@ -7376,7 +7526,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fsevents@npm:^2.1.3, fsevents@npm:^2.3.2, fsevents@npm:~2.3.2":
+"fsevents@npm:2.3.2, fsevents@npm:^2.1.3, fsevents@npm:^2.3.2, fsevents@npm:~2.3.2":
   version: 2.3.2
   resolution: "fsevents@npm:2.3.2"
   dependencies:
@@ -7386,7 +7536,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fsevents@patch:fsevents@^2.1.3#~builtin<compat/fsevents>, fsevents@patch:fsevents@^2.3.2#~builtin<compat/fsevents>, fsevents@patch:fsevents@~2.3.2#~builtin<compat/fsevents>":
+"fsevents@patch:fsevents@2.3.2#~builtin<compat/fsevents>, fsevents@patch:fsevents@^2.1.3#~builtin<compat/fsevents>, fsevents@patch:fsevents@^2.3.2#~builtin<compat/fsevents>, fsevents@patch:fsevents@~2.3.2#~builtin<compat/fsevents>":
   version: 2.3.2
   resolution: "fsevents@patch:fsevents@npm%3A2.3.2#~builtin<compat/fsevents>::version=2.3.2&hash=18f3a7"
   dependencies:
@@ -9360,6 +9510,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lz-string@npm:^1.4.4":
+  version: 1.5.0
+  resolution: "lz-string@npm:1.5.0"
+  bin:
+    lz-string: bin/bin.js
+  checksum: 1ee98b4580246fd90dd54da6e346fb1caefcf05f677c686d9af237a157fdea3fd7c83a4bc58f858cd5b10a34d27afe0fdcbd0505a47e0590726a873dc8b8f65d
+  languageName: node
+  linkType: hard
+
 "magic-string@npm:^0.25.3":
   version: 0.25.9
   resolution: "magic-string@npm:0.25.9"
@@ -10509,6 +10668,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"playwright-core@npm:1.32.3":
+  version: 1.32.3
+  resolution: "playwright-core@npm:1.32.3"
+  bin:
+    playwright: cli.js
+  checksum: 7ea091c41a7d1bb97b445bc541a85b123ffcf167bcc00fb7e13e9079f06c92f59fd27caf9d1c1d7e0054f2b5765d1a16d198833c2be7266cebb9dbb916cd90f4
+  languageName: node
+  linkType: hard
+
 "postcss-media-query-parser@npm:^0.2.3":
   version: 0.2.3
   resolution: "postcss-media-query-parser@npm:0.2.3"
@@ -10648,6 +10816,18 @@ __metadata:
   bin:
     prettier: bin-prettier.js
   checksum: fdc8f2616f099f5f0d685907f4449a70595a0fc1d081a88919604375989e0d5e9168d6121d8cc6861f21990b31665828e00472544d785d5940ea08a17660c3a6
+  languageName: node
+  linkType: hard
+
+"pretty-format@npm:^26.6.2":
+  version: 26.6.2
+  resolution: "pretty-format@npm:26.6.2"
+  dependencies:
+    "@jest/types": ^26.6.2
+    ansi-regex: ^5.0.0
+    ansi-styles: ^4.0.0
+    react-is: ^17.0.1
+  checksum: e3b808404d7e1519f0df1aa1f25cee0054ab475775c6b2b8c5568ff23194a92d54bf93274139b6f584ca70fd773be4eaa754b0e03f12bb0a8d1426b07f079976
   languageName: node
   linkType: hard
 
@@ -10900,6 +11080,13 @@ __metadata:
   version: 16.13.1
   resolution: "react-is@npm:16.13.1"
   checksum: f7a19ac3496de32ca9ae12aa030f00f14a3d45374f1ceca0af707c831b2a6098ef0d6bdae51bd437b0a306d7f01d4677fcc8de7c0d331eb47ad0f46130e53c5f
+  languageName: node
+  linkType: hard
+
+"react-is@npm:^17.0.1":
+  version: 17.0.2
+  resolution: "react-is@npm:17.0.2"
+  checksum: 9d6d111d8990dc98bc5402c1266a808b0459b5d54830bbea24c12d908b536df7883f268a7868cfaedde3dd9d4e0d574db456f84d2e6df9c4526f99bb4b5344d8
   languageName: node
   linkType: hard
 
@@ -12865,6 +13052,13 @@ __metadata:
   version: 2.0.1
   resolution: "void-elements@npm:2.0.1"
   checksum: 700c07ba9cfa2dff88bb23974b3173118f9ad8107143db9e5d753552be15cf93380954d4e7f7d7bc80e7306c35c3a7fb83ab0ce4d4dcc18abf90ca8b31452126
+  languageName: node
+  linkType: hard
+
+"wait-for-expect@npm:^3.0.2":
+  version: 3.0.2
+  resolution: "wait-for-expect@npm:3.0.2"
+  checksum: 2ec1ebd78023fa10bdcf53d78bbd65feea68fdfa0de0b00f3a72f3df089118b91517839ff3926e5ef6cfd1ede65085326d85b0378d4db62c266cc9c859c2de56
   languageName: node
   linkType: hard
 

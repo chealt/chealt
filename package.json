@@ -7,9 +7,11 @@
   },
   "scripts": {
     "check": "yarn lint:eslint && yarn lint:styles",
+    "start": "yarn workspace @chealt/chealt.com start",
     "lint:scripts": "eslint .",
     "lint:styles": "stylelint '**/*.css' --cache",
     "postinstall": "yarn constraints",
+    "test:ui": "yarn playwright test"
   },
   "workspaces": {
     "packages": [
@@ -31,6 +33,8 @@
     "@babel/preset-env": "^7.21.4",
     "@babel/preset-react": "^7.18.6",
     "@chealt/check": "workspace:*",
+    "@playwright-testing-library/test": "^4.5.0",
+    "@playwright/test": "^1.32.3",
     "babel-jest": "^29.5.0",
     "babel-plugin-transform-require-extensions": "^2.0.1",
     "browserslist": "^4.21.5",
