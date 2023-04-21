@@ -24,6 +24,8 @@ const useObjectStore = (name) => {
 
     setItems(items);
     setIsLoading(false);
+
+    return items;
   }, [instance, name]);
 
   const refresh = loadItems;

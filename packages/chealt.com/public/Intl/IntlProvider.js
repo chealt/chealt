@@ -1,6 +1,6 @@
 import { use } from 'i18next';
 import { useContext, useEffect, useState } from 'preact/hooks';
-import { initReactI18next } from 'preact-i18next';
+import { initReactI18next, useTranslation } from 'preact-i18next';
 
 import { setSelectedLanguage } from './signals';
 import { AppState } from '../App/state';
@@ -14,6 +14,7 @@ import po from '../translation/po.json';
 export const defaultLanguage = 'en-US';
 
 const IntlProvider = ({ children }) => {
+  const { i18n } = useTranslation();
   const {
     profiles: { selectedProfileId }
   } = useContext(AppState);
@@ -55,8 +56,10 @@ const IntlProvider = ({ children }) => {
           setInitialized(true);
           setSelectedLanguage(savedLanguage);
         });
+    } else if (isInitialized) {
+      i18n.changeLanguage(savedLanguage);
     }
-  }, [isInitialized, isLoading, savedLanguage]);
+  }, [isInitialized, isLoading, savedLanguage, i18n]);
 
   return isInitialized ? children : null;
 };
