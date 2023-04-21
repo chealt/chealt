@@ -54,6 +54,7 @@ const ProfilePictureMenu = () => {
     <div className={styles.container}>
       <Button onClick={toggleMenu} contentOnly>
         <ProfilePicture
+          highlighted
           blob={selectedProfile.profilePicture?.blob}
           name={selectedPersonalDetails?.firstName || selectedProfile.name}
         />

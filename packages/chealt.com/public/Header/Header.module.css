@@ -9,6 +9,7 @@
   padding: var(--gap);
   gap: var(--gap--l);
   transition: all var(--animation-duration--s) ease-in;
+  z-index: var(--z-index--s);
 }
 
 .header:hover {
@@ -68,6 +69,7 @@
   flex-direction: row;
   align-items: center;
   border-bottom: 1px solid var(--color-border);
+  gap: var(--gap);
 }
 
 .menu .chealt {

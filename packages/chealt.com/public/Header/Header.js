@@ -70,6 +70,7 @@ const Header = () => {
       >
         <nav class={styles.nav}>
           <Button ghost className={styles.closeMenuContainer} onClick={closeMenu}>
+            <img class={styles.logo} src="/favicon.png" alt={t('common.chealt')} />
             <span class={styles.chealt}>{t('common.chealt')}</span>
             <Close />
           </Button>
