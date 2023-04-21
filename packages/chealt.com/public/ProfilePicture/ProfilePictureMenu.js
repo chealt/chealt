@@ -43,6 +43,11 @@ const ProfilePictureMenu = () => {
     setSelectedProfileId(profileId);
     setIsMenuOpen(false);
   };
+  const handleKey = (event) => {
+    if (event.key === 'Escape') {
+      setIsMenuOpen(false);
+    }
+  };
 
   const isLoading = isLoadingPersonalDetails || isLoadingProfiles;
 
@@ -51,7 +56,7 @@ const ProfilePictureMenu = () => {
   }
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} onKeyUp={handleKey}>
       <Button onClick={toggleMenu} contentOnly>
         <ProfilePicture
           highlighted
@@ -65,7 +70,7 @@ const ProfilePictureMenu = () => {
             .filter((profile) => profile.key !== selectedProfileId.value)
             .map(({ key, value: { name, profilePicture } }) => (
               <li key={key}>
-                <Button onClick={changeProfile(key)} contentOnly className={styles.item}>
+                <Button onClick={changeProfile(key)} className={styles.item}>
                   <span>{name}</span>
                   <ProfilePicture
                     blob={profilePicture?.blob}
