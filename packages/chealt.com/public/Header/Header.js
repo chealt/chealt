@@ -32,6 +32,11 @@ const Header = () => {
   const closeMenu = () => {
     dialogRef.current.close();
   };
+  const handleKey = (event) => {
+    if (event.key === 'Escape') {
+      closeMenu();
+    }
+  };
 
   return (
     <>
@@ -46,6 +51,8 @@ const Header = () => {
       <dialog
         id="navigationMenu"
         ref={dialogRef}
+        onKeyUp={handleKey}
+        onBlur={closeMenu}
         class={classnames({
           [styles.menu]: true
         })}
