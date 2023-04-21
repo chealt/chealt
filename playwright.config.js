@@ -1,7 +1,5 @@
 const { defineConfig, devices } = require('@playwright/test');
 
-const { url } = require('./packages/chealt.com/config.cjs');
-
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
@@ -12,7 +10,6 @@ const { url } = require('./packages/chealt.com/config.cjs');
  * @see https://playwright.dev/docs/test-configuration
  */
 module.exports = defineConfig({
-  baseUrl: url,
   testDir: './packages/chealt.com/public',
   testMatch: /.*\.ui-spec\.js/u,
   /* Run tests in files in parallel */
