@@ -28,8 +28,7 @@ const baseConfig = {
     es6: true
   },
   globals: {
-    page: true,
-    jestPuppeteer: true
+    page: true
   },
   parser: '@babel/eslint-parser',
   rules: {
