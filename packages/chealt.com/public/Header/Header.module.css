@@ -26,6 +26,7 @@
 .backdrop {
   background-color: black;
   position: fixed;
+  z-index: var(--z-index--s);
   inset: 0;
   opacity: 0;
   visibility: hidden;
