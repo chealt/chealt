@@ -13,5 +13,4 @@ runs:
       shell: bash
       env:
         NODE_ENV: development
-        YARN_ENABLE_NETWORK: "false"
       run: yarn install --immutable --immutable-cache
