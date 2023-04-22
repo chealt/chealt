@@ -2,6 +2,7 @@ import { useContext, useState } from 'preact/hooks';
 
 import ProfilePicture from './ProfilePicture';
 import { AppState } from '../App/state';
+import Dialog from '../Dialog/Dialog';
 import Button from '../Form/Button';
 import { useObjectStore } from '../IndexedDB/hooks';
 import LoadingIndicator from '../LoadingIndicator/LoadingIndicator';
@@ -43,11 +44,6 @@ const ProfilePictureMenu = () => {
     setSelectedProfileId(profileId);
     setIsMenuOpen(false);
   };
-  const handleKey = (event) => {
-    if (event.key === 'Escape') {
-      setIsMenuOpen(false);
-    }
-  };
 
   const isLoading = isLoadingPersonalDetails || isLoadingProfiles;
 
@@ -56,7 +52,7 @@ const ProfilePictureMenu = () => {
   }
 
   return (
-    <div className={styles.container} onKeyUp={handleKey}>
+    <div className={styles.container}>
       <Button onClick={toggleMenu} contentOnly rounded>
         <ProfilePicture
           highlighted
@@ -64,23 +60,33 @@ const ProfilePictureMenu = () => {
           name={selectedPersonalDetails?.firstName || selectedProfile.name}
         />
       </Button>
-      {isMenuOpen && profiles.length > 1 && (
-        <ul class={styles.menu}>
-          {profiles
-            .filter((profile) => profile.key !== selectedProfileId.value)
-            .map(({ key, value: { name, profilePicture } }) => (
-              <li key={key}>
-                <Button onClick={changeProfile(key)} className={styles.item}>
-                  <span>{name}</span>
-                  <ProfilePicture
-                    blob={profilePicture?.blob}
-                    name={findPersonalDetails(personalDetails, key)?.firstName || name}
-                  />
-                </Button>
-              </li>
-            ))}
-        </ul>
-      )}
+      <Dialog
+        isOpen={isMenuOpen}
+        onClose={() => setIsMenuOpen(false)}
+        dialogClassName={styles.menu}
+        transparentBackdrop
+      >
+        {({ isOpen }) =>
+          isOpen &&
+          profiles.length > 1 && (
+            <ul>
+              {profiles
+                .filter((profile) => profile.key !== selectedProfileId.value)
+                .map(({ key, value: { name, profilePicture } }) => (
+                  <li key={key}>
+                    <Button onClick={changeProfile(key)} className={styles.item}>
+                      <span>{name}</span>
+                      <ProfilePicture
+                        blob={profilePicture?.blob}
+                        name={findPersonalDetails(personalDetails, key)?.firstName || name}
+                      />
+                    </Button>
+                  </li>
+                ))}
+            </ul>
+          )
+        }
+      </Dialog>
     </div>
   );
 };
