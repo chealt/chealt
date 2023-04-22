@@ -12,7 +12,7 @@
     "start:backend:upload": "yarn workspace @chealt/upload-worker run wrangler dev --env dev",
     "build": "wmr build",
     "serve": "wmr serve",
-    "check:bundlesize": "bundlesize"
+    "check:bundlesize": "yarn dlx bundlesize"
   },
   "dependencies": {
     "@chealt/browser-utils": "0.0.2",
@@ -33,7 +33,6 @@
   "devDependencies": {
     "@axe-core/playwright": "^4.6.1",
     "@playwright/test": "^1.32.3",
-    "bundlesize": "^0.18.1",
     "concurrently": "^8.0.1",
     "i18next-scanner": "^4.2.0",
     "rollup-plugin-html-minifier": "^2.0.0",
