@@ -106,7 +106,10 @@
     "password": "password",
     "savePassword": "save password",
     "medicalConditions": "conditions",
-    "startAdding": "start adding"
+    "startAdding": "start adding",
+    "menu": "menu",
+    "closeMenu": "close menu",
+    "chealt": "Chealt"
   },
   "languages": {
     "da": "Danish",

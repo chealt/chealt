@@ -50,7 +50,6 @@
     "preact": "^10.13.2",
     "preact-iso": "^2.3.1",
     "prettier": "^2.8.7",
-    "puppeteer": "^19.9.1",
     "stylelint": "^15.5.0",
     "stylelint-config-standard": "^33.0.0",
     "typescript": "^5.0.4",

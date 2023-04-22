@@ -6,25 +6,34 @@
   position: absolute;
   top: calc(100% + var(--gap));
   right: 0;
-  background-color: var(--color-background);
-  border: 1px solid var(--color-border);
-  box-shadow: grey 2px 2px 2px 0;
-  border-radius: 4px;
+  background-color: var(--color-background--alt);
+  box-shadow: 0 4px 32px 0 rgb(0 0 0 / 10%);
+  border-radius: var(--border-radius--m);
 }
 
 .menu li {
-  padding: var(--gap);
-  border-bottom: 0;
+  border-bottom: 1px solid var(--color-border--light);
   display: flex;
-  justify-content: flex-end;
+}
+
+.menu li:last-child {
+  border-bottom-width: 0;
 }
 
 .menu li:hover {
   background-color: var(--color-background-highlight);
 }
 
-.item {
+.menu .item {
+  padding: var(--gap--l) var(--gap--xl);
   display: flex;
   gap: var(--gap);
+  width: 100%;
   align-items: center;
+  justify-content: flex-end;
+  border: var(--border-width) solid transparent; /* same as focus but transparent */
+}
+
+.menu .item:is(:active, :focus, :hover) {
+  border-radius: 0;
 }

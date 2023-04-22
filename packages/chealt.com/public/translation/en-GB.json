@@ -98,7 +98,10 @@
     "password": "",
     "savePassword": "",
     "medicalConditions": "",
-    "startAdding": ""
+    "startAdding": "",
+    "menu": "",
+    "closeMenu": "",
+    "chealt": ""
   },
   "languages": {
     "en-GB": "",

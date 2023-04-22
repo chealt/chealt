@@ -1,3 +1,4 @@
+import 'preact/debug';
 import { hydrate, prerender as ssr } from 'preact-iso';
 import swURL from 'sw:./sw.js'; // eslint-disable-line import/no-unresolved
 

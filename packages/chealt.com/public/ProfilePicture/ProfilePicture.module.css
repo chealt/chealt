@@ -12,6 +12,10 @@
   font-family: monospace;
 }
 
+.container.highlighted {
+  border-color: var(--color-brand);
+}
+
 .image {
   position: absolute;
   top: 0;
