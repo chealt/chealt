@@ -11,6 +11,8 @@ const Button = ({
   type,
   contentOnly,
   rounded,
+  label,
+  hideLabel,
   ...rest
 }) => {
   const Tag = isLink ? 'a' : 'button';
@@ -25,6 +27,7 @@ const Button = ({
         [styles.rounded]: Boolean(rounded),
         [className]: Boolean(className)
       })}
+      aria-label={contentOnly || hideLabel ? label : undefined}
       type={type || 'button'}
       {...rest}
     >

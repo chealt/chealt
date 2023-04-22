@@ -8,7 +8,8 @@
       "privacyTitle": "Privacy",
       "privacyDescription": "All the data you enter into the application is stored on your device. There are no cookies, third-party integrations, or anything like that. If there is a feature that requires you to send some data somewhere, we will always ask for your permission and let you know about the consequences.",
       "improvementsTitle": "Improvements",
-      "improvementsDescription": "If you have an idea how to make this app even more useful, let us know <1>here</2> by creating a <3>GitHub issue</4>."
+      "improvementsDescription": "If you have an idea how to make this app even more useful, let us know <1>here</2> by creating a <3>GitHub issue</4>.",
+      "changeProfile": ""
     },
     "documents": {
       "nav": "documents",
@@ -101,7 +102,8 @@
     "startAdding": "",
     "menu": "",
     "closeMenu": "",
-    "chealt": ""
+    "chealt": "",
+    "icon": ""
   },
   "languages": {
     "en-GB": "",
@@ -113,5 +115,6 @@
   "notFound": {
     "title": "",
     "message": ""
-  }
+  },
+  "change profile": ""
 }

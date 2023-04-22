@@ -31,6 +31,7 @@
     "workbox-recipes": "^6.5.4"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.6.1",
     "@playwright/test": "^1.32.3",
     "bundlesize": "^0.18.1",
     "concurrently": "^8.0.1",

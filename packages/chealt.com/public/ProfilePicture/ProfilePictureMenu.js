@@ -1,4 +1,5 @@
 import { useContext, useState } from 'preact/hooks';
+import { useTranslation } from 'preact-i18next';
 
 import ProfilePicture from './ProfilePicture';
 import { AppState } from '../App/state';
@@ -12,6 +13,7 @@ import { setSelectedProfileId } from '../Profiles/signals';
 import styles from './ProfilePictureMenu.module.css';
 
 const ProfilePictureMenu = () => {
+  const { t } = useTranslation();
   const {
     profiles: { selectedProfileId }
   } = useContext(AppState);
@@ -53,7 +55,7 @@ const ProfilePictureMenu = () => {
 
   return (
     <div className={styles.container}>
-      <Button onClick={toggleMenu} contentOnly rounded>
+      <Button label={t('pages.home.changeProfile')} onClick={toggleMenu} contentOnly rounded>
         <ProfilePicture
           highlighted
           blob={selectedProfile.profilePicture?.blob}

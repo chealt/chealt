@@ -41,7 +41,7 @@ const Header = () => {
         {({ close }) => (
           <nav class={styles.nav}>
             <Button ghost className={styles.closeMenuContainer} onClick={close}>
-              <img class={styles.logo} src="/favicon.png" alt={t('common.chealt')} />
+              <img class={styles.logo} src="/favicon.png" alt={t('common.icon')} />
               <span class={styles.chealt}>{t('common.chealt')}</span>
               <Close />
             </Button>
