@@ -33,7 +33,7 @@ const Profiles = () => {
 
   const confirmAndDelete = (key) => {
     // eslint-disable-next-line no-alert
-    if (window.confirm('Are you sure you would like to delete this profile?')) {
+    if (window.confirm(t('pages.profiles.confirmDelete'))) {
       deleteProfile([key]);
     }
   };

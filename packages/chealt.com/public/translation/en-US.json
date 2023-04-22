@@ -19,7 +19,8 @@
       "startUploading": "Start uploading",
       "noMatches": "No matching documents. Clear filters or try a different term.",
       "addTag": "New tag",
-      "openInNewTab": "The document is opened in a new tab. If you cannot see it, it is unsupported or it might have been blocked by an ad blocker. Supported image extensions: JPG, JPEG, BMP, PNG, other extensions: PDF."
+      "openInNewTab": "The document is opened in a new tab. If you cannot see it, it is unsupported or it might have been blocked by an ad blocker. Supported image extensions: JPG, JPEG, BMP, PNG, other extensions: PDF.",
+      "confirmDelete": "Do you really want to delete the document(s)?"
     },
     "share": {
       "nav": "share",
@@ -66,7 +67,8 @@
     "profiles": {
       "nav": "profiles",
       "instructions": "You can add multiple profiles to your device here. This way you can manage multiple users' data on a single device.",
-      "title": "Profiles"
+      "title": "Profiles",
+      "confirmDelete": "Are you sure you would like to delete this profile?"
     },
     "notFound": {
       "title": "Could not find the page you were looking for.",

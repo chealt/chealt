@@ -32,6 +32,11 @@ const Documents = () => {
   const documents = findItems(items, selectedProfileId.value);
 
   const deleteSelectedItems = useCallback(async () => {
+    // eslint-disable-next-line no-alert
+    if (!window.confirm(t('pages.documents.confirmDelete'))) {
+      return;
+    }
+
     try {
       await deleteItems(selectedItems);
 
@@ -39,7 +44,7 @@ const Documents = () => {
     } catch {
       addToast({ message: 'Failed to delete document(s)', role: 'alert' });
     }
-  }, [deleteItems, selectedItems]);
+  }, [deleteItems, selectedItems, t]);
 
   const uploadDocuments = async (event) => {
     event.preventDefault();
