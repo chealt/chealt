@@ -3,7 +3,13 @@ import { useEffect, useRef, useState } from 'preact/hooks';
 
 import styles from './Dialog.module.css';
 
-const Dialog = ({ children, dialogClassName, isOpen: isOpenProp, onClose }) => {
+const Dialog = ({
+  children,
+  dialogClassName,
+  isOpen: isOpenProp,
+  onClose,
+  transparentBackdrop
+}) => {
   const [isOpen, setIsOpen] = useState(false);
   const dialogRef = useRef();
   const toggle = () => {
@@ -26,6 +32,7 @@ const Dialog = ({ children, dialogClassName, isOpen: isOpenProp, onClose }) => {
   const handleKey = (event) => {
     if (event.key === 'Escape') {
       setIsOpen(false);
+      onClose();
     }
   };
 
@@ -39,7 +46,8 @@ const Dialog = ({ children, dialogClassName, isOpen: isOpenProp, onClose }) => {
         onClick={close}
         class={classnames({
           [styles.backdrop]: true,
-          [styles.open]: isOpen
+          [styles.open]: isOpen,
+          [styles.transparent]: transparentBackdrop
         })}
       />
       <dialog ref={dialogRef} onKeyUp={handleKey} class={dialogClassName} open={isOpen}>
