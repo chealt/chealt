@@ -41,6 +41,7 @@ body {
   margin: 0;
   background-color: var(--color-background);
   color: var(--color-text);
+  outline-color: var(--color-brand);
 }
 
 input {
