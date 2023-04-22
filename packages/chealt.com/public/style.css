@@ -11,6 +11,10 @@
   --color-border--active: rgb(0 0 0);
   --color-border--branded: rgb(255 255 255);
   --color-background: rgb(255 255 255);
+  --color-text: rgb(0 0 0);
+  --color-text--brand: rgb(255 255 255);
+  --color-text--disabled: rgb(172 172 172);
+  --color-link: rgb(6 95 212);
   --color-background--alt: rgb(245 245 245);
   --color-background-highlight: rgb(222 222 222);
   --color-loading: rgb(172 172 172);
@@ -34,6 +38,8 @@ body {
   font-size: 16px;
   padding: 0;
   margin: 0;
+  background-color: var(--color-background);
+  color: var(--color-text);
 }
 
 input {
@@ -71,6 +77,14 @@ section {
   margin: var(--gap--xl) 0;
 }
 
+svg {
+  fill: var(--color-text);
+}
+
+a {
+  color: var(--color-link);
+}
+
 /* ANIMATIONS */
 @keyframes fade-in {
   from { opacity: 0; }
@@ -91,5 +105,18 @@ section {
 
   100% {
     transform: rotate(360deg);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: rgb(26 26 26);
+    --color-text: rgb(241 241 241);
+    --color-link: rgb(62 166 255);
+    --color-text--brand: rgb(40 40 40);
+    --color-text--disabled: rgb(87 87 87);
+    --color-background--alt: rgb(40 40 40);
+    --color-background-highlight: rgb(129 129 129);
+    --color-box-shadow: rgb(0 0 0 / 10%);
   }
 }

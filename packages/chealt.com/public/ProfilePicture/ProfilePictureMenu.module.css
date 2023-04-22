@@ -6,7 +6,7 @@
   position: absolute;
   top: calc(100% + var(--gap));
   right: 0;
-  background-color: var(--color-background);
+  background-color: var(--color-background--alt);
   box-shadow: 0 4px 32px 0 rgb(0 0 0 / 10%);
   border-radius: var(--border-radius--m);
 }

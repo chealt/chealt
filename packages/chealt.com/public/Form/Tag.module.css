@@ -7,6 +7,7 @@
 .tag {
   white-space: nowrap;
   background-color: var(--color-brand--light);
+  color: var(--color-text--brand);
   border-radius: 5px;
   display: flex;
   align-items: center;

@@ -37,6 +37,7 @@
 
 .button:disabled {
   background: none;
+  color: var(--color-text--disabled);
 }
 
 .button:not(:disabled) {
@@ -49,7 +50,7 @@
 .select:not(:disabled),
 .button:not(:disabled),
 .input[type="file"]:not(:disabled)::file-selector-button {
-  color: inherit;
+  color: var(--color-text);
 }
 
 .input.inputWithIcon {

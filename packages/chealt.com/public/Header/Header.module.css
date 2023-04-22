@@ -85,7 +85,7 @@
 
 .nav > * {
   white-space: nowrap;
-  color: inherit;
+  color: var(--color-text);
   text-decoration: none;
   padding: var(--gap--l);
   text-transform: capitalize;
