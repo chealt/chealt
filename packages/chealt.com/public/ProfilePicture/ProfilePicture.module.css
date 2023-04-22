@@ -3,6 +3,7 @@
   height: 100%;
   text-transform: uppercase;
   background-color: var(--color-border);
+  color: var(--color-text--dark);
   padding: var(--gap--m);
   border-radius: 50%;
   border: var(--border-width) solid var(--color-border--branded);
