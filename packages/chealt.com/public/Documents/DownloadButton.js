@@ -29,7 +29,7 @@ const DownloadButton = ({ documentKey }) => {
   return (
     <>
       {document?.blobUrl && (
-        <Button href={document.blobUrl} download={document.name} target="_blank" contentOnly>
+        <Button href={document.blobUrl} download={document.name} target="_blank" ghost>
           <Download />
         </Button>
       )}

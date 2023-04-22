@@ -51,6 +51,7 @@
 .button:not(:disabled),
 .input[type="file"]:not(:disabled)::file-selector-button {
   color: var(--color-text);
+  background-color: var(--color-background--alt);
 }
 
 .input.inputWithIcon {
@@ -94,7 +95,7 @@
 .select:is(:hover, :focus):not(:disabled),
 .button:is(:hover, :focus):not(.ghost, :disabled),
 .input[type="file"]:is(:hover, :focus):not(:disabled)::file-selector-button {
-  border: var(--border-width) solid var(--color-border--active);
+  border: var(--border-width) solid var(--color-brand);
 }
 
 /*
@@ -109,6 +110,11 @@
 
 .button.ghost {
   border-color: transparent;
+  background-color: transparent;
+}
+
+.button.rounded {
+  border-radius: 50%;
 }
 
 .button.ghost:is(:hover, :focus):not(:disabled) {

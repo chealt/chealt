@@ -13,6 +13,7 @@
   --color-background: rgb(255 255 255);
   --color-text: rgb(0 0 0);
   --color-text--brand: rgb(255 255 255);
+  --color-text--dark: rgb(40 40 40);
   --color-text--disabled: rgb(172 172 172);
   --color-link: rgb(6 95 212);
   --color-background--alt: rgb(245 245 245);
@@ -63,6 +64,7 @@ ul li:is(:active, :hover) {
 
 * {
   box-sizing: border-box;
+  outline-color: var(--color-brand);
 }
 
 main {
@@ -118,5 +120,6 @@ a {
     --color-background--alt: rgb(40 40 40);
     --color-background-highlight: rgb(129 129 129);
     --color-box-shadow: rgb(0 0 0 / 10%);
+    --color-border--active: rgb(255 255 255);
   }
 }
