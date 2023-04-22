@@ -1,3 +1,4 @@
+import AxeBuilder from '@axe-core/playwright';
 import { test, expect } from '@chealt/playwright-utils';
 
 import { url } from '../../config.js';
@@ -12,5 +13,9 @@ test.describe('Home', () => {
         name: 'Chealt.com'
       })
     ).toBeVisible();
+
+    const accessibilityScanResults = await new AxeBuilder.default({ page }).analyze(); // eslint-disable-line new-cap
+
+    expect(accessibilityScanResults.violations).toEqual([]);
   });
 });
