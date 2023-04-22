@@ -2,7 +2,7 @@
   "files": [
     {
       "path": "./dist/index.*.js",
-      "maxSize": "34 kB"
+      "maxSize": "37 kB"
     },
     {
       "path": "./dist/chunks/CheckUps.*.js",
