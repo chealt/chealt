@@ -120,5 +120,6 @@ a {
     --color-background--alt: rgb(40 40 40);
     --color-background-highlight: rgb(129 129 129);
     --color-box-shadow: rgb(0 0 0 / 10%);
+    --color-border--active: rgb(255 255 255);
   }
 }
