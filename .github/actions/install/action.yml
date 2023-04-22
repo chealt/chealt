@@ -9,8 +9,11 @@ runs:
       with:
         node-version: "18"
         cache: "yarn"
-    - name: Install Dependencies
+    - name: Validate cache
       shell: bash
       env:
-        NODE_ENV: development
-      run: yarn install --immutable --immutable-cache
+        # Use PnP and disable postinstall scripts as this just needs to
+        # populate the cache for the other jobs
+        YARN_NODE_LINKER: pnp
+        YARN_ENABLE_SCRIPTS: "false"
+      run: yarn --immutable
