@@ -57,7 +57,7 @@ const ProfilePictureMenu = () => {
 
   return (
     <div className={styles.container} onKeyUp={handleKey}>
-      <Button onClick={toggleMenu} contentOnly>
+      <Button onClick={toggleMenu} contentOnly rounded>
         <ProfilePicture
           highlighted
           blob={selectedProfile.profilePicture?.blob}

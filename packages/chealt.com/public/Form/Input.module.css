@@ -51,6 +51,7 @@
 .button:not(:disabled),
 .input[type="file"]:not(:disabled)::file-selector-button {
   color: var(--color-text);
+  background-color: var(--color-background--alt);
 }
 
 .input.inputWithIcon {
@@ -109,6 +110,11 @@
 
 .button.ghost {
   border-color: transparent;
+  background-color: transparent;
+}
+
+.button.rounded {
+  border-radius: 50%;
 }
 
 .button.ghost:is(:hover, :focus):not(:disabled) {

@@ -10,6 +10,7 @@ const Button = ({
   className,
   type,
   contentOnly,
+  rounded,
   ...rest
 }) => {
   const Tag = isLink ? 'a' : 'button';
@@ -21,6 +22,7 @@ const Button = ({
         [styles.contentOnly]: contentOnly,
         [styles.emphasized]: Boolean(emphasized),
         [styles.ghost]: Boolean(ghost),
+        [styles.rounded]: Boolean(rounded),
         [className]: Boolean(className)
       })}
       type={type || 'button'}
