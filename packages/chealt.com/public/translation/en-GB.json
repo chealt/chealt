@@ -19,7 +19,8 @@
       "startUploading": "",
       "noMatches": "",
       "addTag": "",
-      "openInNewTab": ""
+      "openInNewTab": "",
+      "confirmDelete": ""
     },
     "share": {
       "nav": "share",

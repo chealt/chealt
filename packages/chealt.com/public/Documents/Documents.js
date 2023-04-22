@@ -32,6 +32,10 @@ const Documents = () => {
   const documents = findItems(items, selectedProfileId.value);
 
   const deleteSelectedItems = useCallback(async () => {
+    if (!window.confirm(t('pages.documents.confirmDelete'))) {
+      return
+    }
+
     try {
       await deleteItems(selectedItems);
 
