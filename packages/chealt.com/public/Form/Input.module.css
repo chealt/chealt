@@ -113,6 +113,10 @@
   background-color: transparent;
 }
 
+.button.dark {
+  color: var(--colo-text--dark);
+}
+
 .button.rounded {
   border-radius: 50%;
 }
@@ -195,6 +199,6 @@
 
 @media (prefers-color-scheme: dark) {
   ::-webkit-calendar-picker-indicator {
-    filter: invert(1);
+    filter: invert(1) !important;
   }
 }

@@ -11,6 +11,7 @@ const Tag = ({ value, deleteItem }) => (
             <span class={styles.tagText}>{item}</span>
             {deleteItem && (
               <Button
+                dark
                 ghost
                 className={styles.deleteIcon}
                 onClick={() => {
