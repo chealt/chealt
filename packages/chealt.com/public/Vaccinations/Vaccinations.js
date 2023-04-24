@@ -53,70 +53,64 @@ const Vaccinations = () => {
       {(hasVaccinations && (
         <>
           <Controls onDelete={deleteEnabled && deleteSelectedItems} />
-          <TileList>
-            {/* <HeadCell>{t('pages.vaccinations.name')}</HeadCell>
-                <HeadCell>{t('pages.vaccinations.brandName')}</HeadCell>
-                <HeadCell>{t('pages.vaccinations.dateOfAdmin')}</HeadCell>
-                <HeadCell>{t('pages.vaccinations.conditions')}</HeadCell>
-                <HeadCell>{t('pages.vaccinations.batchNo')}</HeadCell>
-                <HeadCell>{t('pages.vaccinations.site')}</HeadCell>
-                <HeadCell>{t('pages.vaccinations.immuniser')}</HeadCell>
-                <HeadCell>{t('pages.vaccinations.venue')}</HeadCell> */}
-            {profileItems.map((vaccination) => (
-              <Tile key={vaccination.key}>
-                <TileSubtitle>{localFormatDate(vaccination.value.dateOfAdmin)}</TileSubtitle>
-                <TileTitle>{vaccination.value.name}</TileTitle>
-                <div class={styles.details}>
-                  <div>
-                    <div class={styles.label}>{`${t('pages.vaccinations.conditions')}:`}</div>
-                    <Tag value={vaccination.value.conditions.join(',')} />
+          {profileItems?.length && (
+            <TileList>
+              {profileItems.map((vaccination) => (
+                <Tile key={vaccination.key}>
+                  <TileSubtitle>{localFormatDate(vaccination.value.dateOfAdmin)}</TileSubtitle>
+                  <TileTitle>{vaccination.value.name}</TileTitle>
+                  <div class={styles.details}>
+                    <div>
+                      <div class={styles.label}>{`${t('pages.vaccinations.conditions')}:`}</div>
+                      <Tag value={vaccination.value.conditions.join(',')} />
+                    </div>
+                    {vaccination.value.brandName && (
+                      <div>
+                        <div class={styles.label}>{`${t('pages.vaccinations.brandName')}:`}</div>
+                        {vaccination.value.brandName}
+                      </div>
+                    )}
+                    {vaccination.value.batchNo && (
+                      <div>
+                        <div class={styles.label}>{`${t('pages.vaccinations.batchNo')}:`}</div>
+                        {vaccination.value.batchNo}
+                      </div>
+                    )}
+                    {vaccination.value.site && (
+                      <div>
+                        <div class={styles.label}>{`${t('pages.vaccinations.site')}:`}</div>
+                        {vaccination.value.site}
+                      </div>
+                    )}
+                    {vaccination.value.immuniser && (
+                      <div>
+                        <div class={styles.label}>{`${t('pages.vaccinations.immuniser')}:`}</div>
+                        {vaccination.value.immuniser}
+                      </div>
+                    )}
+                    {vaccination.value.venue && (
+                      <div>
+                        <div class={styles.label}>{`${t('pages.vaccinations.venue')}:`}</div>
+                        {vaccination.value.venue}
+                      </div>
+                    )}
+                    <div>
+                      {' '}
+                      <Input
+                        type="checkbox"
+                        value={vaccination.key}
+                        onClick={() => {
+                          setSelectedItems(toggleItem(vaccination.key, selectedItems));
+                        }}
+                      >
+                        {t('common.select')}
+                      </Input>
+                    </div>
                   </div>
-                  {vaccination.value.brandName && (
-                    <div>
-                      <div class={styles.label}>{`${t('pages.vaccinations.brandName')}:`}</div>
-                      {vaccination.value.brandName}
-                    </div>
-                  )}
-                  {vaccination.value.batchNo && (
-                    <div>
-                      <div class={styles.label}>{`${t('pages.vaccinations.batchNo')}:`}</div>
-                      {vaccination.value.batchNo}
-                    </div>
-                  )}
-                  {vaccination.value.site && (
-                    <div>
-                      <div class={styles.label}>{`${t('pages.vaccinations.site')}:`}</div>
-                      {vaccination.value.site}
-                    </div>
-                  )}
-                  {vaccination.value.immuniser && (
-                    <div>
-                      <div class={styles.label}>{`${t('pages.vaccinations.immuniser')}:`}</div>
-                      {vaccination.value.immuniser}
-                    </div>
-                  )}
-                  {vaccination.value.venue && (
-                    <div>
-                      <div class={styles.label}>{`${t('pages.vaccinations.venue')}:`}</div>
-                      {vaccination.value.venue}
-                    </div>
-                  )}
-                  <div>
-                    {' '}
-                    <Input
-                      type="checkbox"
-                      value={vaccination.key}
-                      onClick={() => {
-                        setSelectedItems(toggleItem(vaccination.key, selectedItems));
-                      }}
-                    >
-                      {t('common.select')}
-                    </Input>
-                  </div>
-                </div>
-              </Tile>
-            ))}
-          </TileList>
+                </Tile>
+              ))}
+            </TileList>
+          )}
           <Button emphasized onClick={() => setIsModalOpen(true)}>
             {t('common.add')}
           </Button>
