@@ -16,15 +16,22 @@
   --color-text--dark: rgb(40 40 40);
   --color-text--disabled: rgb(172 172 172);
   --color-link: rgb(6 95 212);
-  --color-background--alt: rgb(245 245 245);
+  --color-background--alt: rgb(230 230 230);
   --color-background-highlight: rgb(222 222 222);
   --color-loading: rgb(172 172 172);
-  --color-box-shadow: rgb(38 46 72 / 15%);
+  --color-box-shadow: rgb(38 46 72 / 30%);
   --border-radius: 8px;
   --border-radius--m: 12px;
   --border-width: 2px;
   --animation-duration: 3s;
   --animation-duration--s: .4s;
+  --font-size-xs: 0.6rem;
+  --font-size-s: 0.8rem;
+  --font-size: 16px;
+  --font-size--m: 1.2rem;
+  --font-size--l: 1.4rem;
+  --font-size--xl: 1.6rem;
+  --font-size--xxl: 2rem;
   --z-index--s: 10;
   --z-index--m: 20;
   --z-index--l: 30;
@@ -36,7 +43,7 @@ html,
 body {
   min-height: 100%;
   font-family: system-ui, sans-serif;
-  font-size: 16px;
+  font-size: var(--font-size);
   padding: 0;
   margin: 0;
   background-color: var(--color-background);
@@ -87,6 +94,10 @@ a {
   color: var(--color-link);
 }
 
+h1, h2, h3, h4, h5, p {
+  margin: 0;
+}
+
 /* ANIMATIONS */
 @keyframes fade-in {
   from { opacity: 0; }
@@ -117,9 +128,9 @@ a {
     --color-link: rgb(62 166 255);
     --color-text--brand: rgb(40 40 40);
     --color-text--disabled: rgb(87 87 87);
-    --color-background--alt: rgb(40 40 40);
+    --color-background--alt: rgb(60 60 60);
     --color-background-highlight: rgb(129 129 129);
-    --color-box-shadow: rgb(0 0 0 / 10%);
+    --color-box-shadow: rgb(0 0 0 / 30%);
     --color-border--active: rgb(255 255 255);
   }
 }

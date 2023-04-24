@@ -1,4 +1,6 @@
 .container {
+  display: grid;
+  gap: var(--gap--l);
   margin: 0 auto;
 }
 

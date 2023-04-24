@@ -1,4 +1,10 @@
-.vaccinations {
-  margin: var(--gap--xl) 0;
-  overflow-x: auto;
+.details {
+  display: grid;
+  gap: var(--gap--l);
+}
+
+.label {
+  margin-bottom: var(--gap);
+  font-weight: bold;
+  text-transform: uppercase;
 }
