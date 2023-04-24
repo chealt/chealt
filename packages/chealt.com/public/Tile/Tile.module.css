@@ -2,6 +2,6 @@
   display: grid;
   gap: var(--gap);
   padding: var(--gap--l);
-  border: var(--border-width) solid var(--color-border);
+  background-color: var(--color-background--alt);
   border-radius: var(--border-radius);
 }
