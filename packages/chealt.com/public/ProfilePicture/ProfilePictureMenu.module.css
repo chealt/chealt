@@ -7,7 +7,7 @@
   top: calc(100% + var(--gap));
   inset-inline-start: auto;
   background-color: var(--color-background--alt);
-  box-shadow: 0 4px 32px 0 rgb(0 0 0 / 10%);
+  box-shadow: 0 4px 32px 0 var(--color-box-shadow);
   border-radius: var(--border-radius--m);
 }
 
