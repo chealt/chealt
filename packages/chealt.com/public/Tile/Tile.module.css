@@ -1,0 +1,7 @@
+.tile {
+  display: grid;
+  gap: var(--gap);
+  padding: var(--gap--l);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--border-radius);
+}
