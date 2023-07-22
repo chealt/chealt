@@ -1,4 +1,4 @@
-import { useState } from 'preact/hooks';
+import { useEffect, useState } from 'preact/hooks';
 import { useTranslation } from 'preact-i18next';
 
 import { getFilesFromEvent } from '../Documents/utils';
@@ -25,6 +25,10 @@ const ProfileForm = ({
   const [selectedName, setSelectedName] = useState(name);
   const [selectedProfilePicture, setSelectedProfilePicture] = useState();
   const [selectedLanguage, setSelectedLanguage] = useState(language || defaultLanguage);
+
+  useEffect(() => {
+    setSelectedName(name);
+  }, [name]);
 
   const close = () => {
     setSelectedProfilePicture();
@@ -77,7 +81,7 @@ const ProfileForm = ({
       <Form name="profileDetails" onSubmit={saveProfile}>
         <Input
           name="name"
-          value={selectedName || name || ''}
+          value={selectedName || ''}
           required="required"
           showRequired={false}
           onChange={({ target: { value } }) => setSelectedName(value)}
