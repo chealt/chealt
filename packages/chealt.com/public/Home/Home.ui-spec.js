@@ -1,4 +1,4 @@
-import AxeBuilder from '@axe-core/playwright';
+import { AxeBuilder } from '@axe-core/playwright';
 import { test, expect } from '@chealt/playwright-utils';
 
 import { url } from '../../config.js';
@@ -14,7 +14,7 @@ test.describe('Home', () => {
       })
     ).toBeVisible();
 
-    const accessibilityScanResults = await new AxeBuilder.default({ page }).analyze(); // eslint-disable-line new-cap
+    const accessibilityScanResults = await new AxeBuilder({ page }).analyze(); // eslint-disable-line new-cap
 
     expect(accessibilityScanResults.violations).toEqual([]);
   });
