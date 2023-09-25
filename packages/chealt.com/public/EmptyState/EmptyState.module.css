@@ -4,6 +4,7 @@
   align-items: center;
   font-size: 1.4rem;
   padding: var(--gap--l);
+  gap: var(--gap--l);
 }
 
 .emptyState svg {
