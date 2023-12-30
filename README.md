@@ -1,6 +1,7 @@
-![Checks](https://github.com/chealt/chealt/workflows/Checks/badge.svg)
-![Outdated dependencies](https://github.com/chealt/chealt/workflows/Outdated%20dependencies/badge.svg)
-![Install](https://github.com/chealt/chealt/workflows/Install/badge.svg)
+![Build](https://github.com/chealt/chealt/workflows/Build/badge.svg)
+![Lint](https://github.com/chealt/chealt/workflows/Lint/badge.svg)
+![Check dependencies](https://github.com/chealt/chealt/workflows/Check%20dependencies/badge.svg)
+![UI Tests](https://github.com/chealt/chealt/workflows/UI%20Tests/badge.svg)
 
 # Chealt
 
