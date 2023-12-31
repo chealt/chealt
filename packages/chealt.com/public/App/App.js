@@ -1,6 +1,5 @@
 import { useState } from 'preact/hooks';
-import { LocationProvider, Router, Route } from 'preact-iso';
-import lazy, { ErrorBoundary } from 'preact-iso/lazy';
+import { LocationProvider, Router, Route, ErrorBoundary, lazy } from 'preact-iso';
 
 import { createAppState, AppState } from './state';
 import Header from '../Header/Header';
