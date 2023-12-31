@@ -59,11 +59,16 @@
     "profiles": {
       "nav": "profiles",
       "title": "",
-      "instructions": ""
+      "instructions": "",
+      "confirmDelete": ""
     },
     "notFound": {
       "title": "Could not find the page you were looking for.",
       "message": "Sorry :("
+    },
+    "familyHistory": {
+      "title": "",
+      "nav": ""
     }
   },
   "common": {
