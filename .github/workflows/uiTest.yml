@@ -5,7 +5,7 @@ on:
   pull_request:
     branches: main
 env:
-  SHA: ${{ github.event_name === 'pull_request' ? github.event.pull_request.head.sha : github.GITHUB_SHA }}
+  SHA: ${{ github.sha }}
 jobs:
   test:
     timeout-minutes: 60
