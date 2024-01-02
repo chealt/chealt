@@ -64,6 +64,10 @@
       "conditions": "conditions",
       "emptyVaccinations": "Your vaccinations will be shown here."
     },
+    "familyHistory": {
+      "nav": "family history",
+      "title": "family history"
+    },
     "profiles": {
       "nav": "profiles",
       "instructions": "You can add multiple profiles to your device here. This way you can manage multiple users' data on a single device.",

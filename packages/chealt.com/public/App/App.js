@@ -17,6 +17,7 @@ const Share = lazy(() => import('../pages/Share'));
 const CheckUps = lazy(() => import('../pages/CheckUps'));
 const Vaccinations = lazy(() => import('../pages/Vaccinations'));
 const Profiles = lazy(() => import('../pages/Profiles'));
+const FamilyHistory = lazy(() => import(`../pages/FamilyHistory`));
 const NotFound = lazy(() => import('../pages/_404'));
 
 let isInitialRender = true;
@@ -55,6 +56,7 @@ const App = () => {
                     <Route path="/check-ups" component={CheckUps} />
                     <Route path="/vaccinations" component={Vaccinations} />
                     <Route path="/profiles" component={Profiles} />
+                    <Route path="/family-history" component={FamilyHistory} />
                     <Route default component={NotFound} />
                   </Router>
                 </LayoutContainer>

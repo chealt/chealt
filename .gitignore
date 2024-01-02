@@ -29,3 +29,6 @@ size-plugin.json
 /test-results/
 /playwright-report/
 /playwright/.cache/
+
+# Wrangler
+.wrangler
