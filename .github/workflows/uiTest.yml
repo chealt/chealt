@@ -54,4 +54,4 @@ jobs:
       - name: Upload files to AWS
         if: always()
         run: |
-          aws s3 sync playwright-report/ s3://chealt-playwright-reports/${{ github.GITHUB_SHA || github.event.pull_request.head.sha }}  --acl public-read
+          aws s3 sync playwright-report/ s3://chealt-playwright-reports/${{ github.GITHUB_SHA || github.event.pull_request.head.sha }}
