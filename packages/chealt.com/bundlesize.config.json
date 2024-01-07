@@ -14,7 +14,7 @@
     },
     {
       "path": "./dist/chunks/FamilyHistory.*.js",
-      "maxSize": "4 kB"
+      "maxSize": "2 kB"
     },
     {
       "path": "./dist/chunks/Home.*.js",
