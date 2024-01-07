@@ -62,11 +62,20 @@
       "venue": "venue",
       "title": "vaccinations",
       "conditions": "conditions",
-      "emptyVaccinations": "Your vaccinations will be shown here."
+      "emptyVaccinations": "Your vaccinations will be shown here.",
+      "saveSuccess": "Saved vaccination details.",
+      "saveFailure": "Could not save vaccination details.",
+      "deleteSuccess": "Vaccination(s) deleted",
+      "deleteFailure": "Failed to delete vaccination(s)"
     },
     "familyHistory": {
       "nav": "family history",
-      "title": "family history"
+      "title": "family history",
+      "emptyFamilyHistory": "Your family history will be shown here.",
+      "saveSuccess": "Saved family history.",
+      "saveFailure": "Could not save family history.",
+      "deleteSuccess": "Family history item(s) deleted.",
+      "deleteFailure": "Failed to delete family history item(s)."
     },
     "profiles": {
       "nav": "profiles",

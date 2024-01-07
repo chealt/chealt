@@ -3,7 +3,7 @@ import { useTranslation } from 'preact-i18next';
 
 import Controls from './Controls';
 import Item from './Item';
-import { byNameOrTag, bySavedTime, findItems, getFilesFromEvent } from './utils';
+import { byNameOrTag, bySavedTime, getFilesFromEvent } from './utils';
 import { AppState } from '../App/state';
 import EmptyState from '../EmptyState/EmptyState';
 import Button from '../Form/Button';
@@ -11,6 +11,7 @@ import FileInput from '../Form/FileInput';
 import { toggleItem } from '../Helpers/array';
 import DocumentsIcon from '../Icons/Documents';
 import { useObjectStore } from '../IndexedDB/hooks';
+import { findItems } from '../IndexedDB/utils';
 import List from '../List/List';
 import ListItem from '../List/ListItem';
 import PageTitle from '../PageTitle/PageTitle';

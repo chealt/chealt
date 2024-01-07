@@ -4,7 +4,6 @@ import { useTranslation } from 'preact-i18next';
 
 import Controls from './Controls';
 import NewItem from './NewItem';
-import { findItems } from './utils';
 import { AppState } from '../App/state';
 import EmptyState from '../EmptyState/EmptyState';
 import Button from '../Form/Button';
@@ -13,6 +12,7 @@ import Tag from '../Form/Tag';
 import { toggleItem } from '../Helpers/array';
 import Vaccine from '../Icons/Vaccine';
 import { useObjectStore } from '../IndexedDB/hooks';
+import { findItems } from '../IndexedDB/utils';
 import Modal from '../Modal/Modal';
 import PageTitle from '../PageTitle/PageTitle';
 import TileSubtitle from '../Tile/Subtitle';
@@ -39,13 +39,13 @@ const Vaccinations = () => {
     try {
       await deleteItems(selectedItems);
 
-      addToast({ message: 'Vaccination(s) deleted' });
+      addToast({ message: t('pages.vaccinations.deleteSuccess') });
 
       setSelectedItems([]);
     } catch {
-      addToast({ message: 'Failed to delete vaccination(s)', role: 'alert' });
+      addToast({ message: t('pages.vaccinations.deleteFailure'), role: 'alert' });
     }
-  }, [deleteItems, selectedItems]);
+  }, [deleteItems, selectedItems, t]);
 
   return isLoading ? null : (
     <>

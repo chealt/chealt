@@ -6,6 +6,7 @@ const Form = ({ children, ...formProps }) => (
   <form
     class={classnames({
       [styles.form]: true,
+      [styles.centered]: formProps.centered,
       [formProps.classNames]: Boolean(formProps.classNames)
     })}
     {...formProps}

@@ -54,7 +54,11 @@
       "venue": "",
       "title": "",
       "conditions": "",
-      "emptyVaccinations": ""
+      "emptyVaccinations": "",
+      "saveSuccess": "",
+      "saveFailure": "",
+      "deleteSuccess": "",
+      "deleteFailure": ""
     },
     "profiles": {
       "nav": "profiles",
@@ -68,7 +72,12 @@
     },
     "familyHistory": {
       "title": "",
-      "nav": ""
+      "nav": "",
+      "emptyFamilyHistory": "",
+      "saveSuccess": "",
+      "saveFailure": "",
+      "deleteSuccess": "",
+      "deleteFailure": ""
     }
   },
   "common": {
