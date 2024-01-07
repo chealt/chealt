@@ -51,7 +51,7 @@ const NewItem = ({ save, onDone }) => {
       <Input type="text" name="lastName">
         {t('common.lastName')}
       </Input>
-      <Input type="date" name="dateOfBirth" required="required">
+      <Input type="date" name="dateOfBirth">
         {t('common.dateOfBirth')}
       </Input>
       <Input
