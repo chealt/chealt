@@ -8,8 +8,6 @@ import Form from '../Form/Form';
 import Input from '../Form/Input';
 import { add as addToast } from '../Toast/Toast';
 
-import styles from './NewItem.module.css';
-
 const NewItem = ({ save, onDone }) => {
   const { t } = useTranslation();
   const {
@@ -48,16 +46,16 @@ const NewItem = ({ save, onDone }) => {
       venue.value = null;
       setConditions(null);
 
-      addToast({ message: 'Saved vaccination details' });
+      addToast({ message: t('pages.vaccinations.saveSuccess') });
 
       onDone();
     } catch {
-      addToast({ message: 'Could not save vaccination details', role: 'alert' });
+      addToast({ message: t('pages.vaccinations.saveFailure'), role: 'alert' });
     }
   };
 
   return (
-    <Form name="newVaccination" onSubmit={saveFormData} classNames={styles.newVaccination}>
+    <Form name="newVaccination" onSubmit={saveFormData} centered>
       <Input
         type="text"
         name="name"

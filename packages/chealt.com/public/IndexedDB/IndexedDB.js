@@ -6,10 +6,11 @@ const indexedDB =
     window.mozIndexedDB ||
     window.OIndexedDB ||
     window.msIndexedDB);
-const version = 13;
+const version = 14;
 const objectStoreNames = [
   'bloodType',
   'documents',
+  'familyHistory',
   'personalDetails',
   'profiles',
   'settings',

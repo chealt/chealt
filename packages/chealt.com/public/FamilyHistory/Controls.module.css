@@ -1,0 +1,8 @@
+.controls {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.controls > * {
+  width: auto;
+}
