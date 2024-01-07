@@ -77,7 +77,8 @@
       "saveSuccess": "",
       "saveFailure": "",
       "deleteSuccess": "",
-      "deleteFailure": ""
+      "deleteFailure": "",
+      "conditions": ""
     }
   },
   "common": {

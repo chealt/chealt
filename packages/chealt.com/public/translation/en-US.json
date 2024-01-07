@@ -72,6 +72,7 @@
       "nav": "family history",
       "title": "family history",
       "emptyFamilyHistory": "Your family history will be shown here.",
+      "conditions": "conditions",
       "saveSuccess": "Saved family history.",
       "saveFailure": "Could not save family history.",
       "deleteSuccess": "Family history item(s) deleted.",

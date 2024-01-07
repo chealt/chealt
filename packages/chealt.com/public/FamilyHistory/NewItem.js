@@ -1,4 +1,4 @@
-import { useContext } from 'preact/hooks';
+import { useContext, useState } from 'preact/hooks';
 import { useTranslation } from 'preact-i18next';
 
 import { AppState } from '../App/state';
@@ -12,6 +12,7 @@ const NewItem = ({ save, onDone }) => {
   const {
     profiles: { selectedProfileId }
   } = useContext(AppState);
+  const [conditions, setConditions] = useState();
 
   const saveFormData = async (event) => {
     event.preventDefault();
@@ -21,6 +22,7 @@ const NewItem = ({ save, onDone }) => {
       firstName: firstName.value,
       lastName: lastName.value,
       dateOfBirth: dateOfBirth.value,
+      conditions: conditions.split(','),
       profileId: selectedProfileId.value
     };
 
@@ -31,6 +33,7 @@ const NewItem = ({ save, onDone }) => {
       firstName.value = null;
       lastName.value = null;
       dateOfBirth.value = null;
+      setConditions(null);
 
       addToast({ message: t('pages.familyHistory.saveSuccess') });
 
@@ -50,6 +53,24 @@ const NewItem = ({ save, onDone }) => {
       </Input>
       <Input type="date" name="dateOfBirth" required="required">
         {t('common.dateOfBirth')}
+      </Input>
+      <Input
+        type="tag"
+        name="conditions"
+        value={conditions}
+        deleteItem={(value) => {
+          setConditions(
+            conditions
+              .split(',')
+              .filter((condition) => condition !== value)
+              .join(',')
+          );
+        }}
+        addItem={(value) => {
+          setConditions(conditions ? `${conditions},${value}` : value);
+        }}
+      >
+        {t('common.medicalConditions')}
       </Input>
       <Button emphasized type="submit">
         {t('common.save')}

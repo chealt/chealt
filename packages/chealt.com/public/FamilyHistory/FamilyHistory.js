@@ -8,6 +8,7 @@ import { AppState } from '../App/state';
 import EmptyState from '../EmptyState/EmptyState';
 import Button from '../Form/Button';
 import Input from '../Form/Input';
+import Tag from '../Form/Tag';
 import { toggleItem } from '../Helpers/array';
 import History from '../Icons/History';
 import { useObjectStore } from '../IndexedDB/hooks';
@@ -19,6 +20,8 @@ import Tile from '../Tile/Tile';
 import TileList from '../Tile/TileList';
 import TileTitle from '../Tile/Title';
 import { add as addToast } from '../Toast/Toast';
+
+import styles from './FamilyHistory.module.css';
 
 const FamilyHistory = () => {
   const { t } = useTranslation();
@@ -61,6 +64,10 @@ const FamilyHistory = () => {
                 <Tile key={familyHistory.key}>
                   <TileTitle>{`${familyHistory.value.firstName} ${familyHistory.value.lastName}`}</TileTitle>
                   <TileSubtitle>{localFormatDate(familyHistory.value.dateOfBirth)}</TileSubtitle>
+                  <div>
+                    <div class={styles.label}>{`${t('pages.familyHistory.conditions')}:`}</div>
+                    <Tag value={familyHistory.value.conditions.join(',')} />
+                  </div>
                   <div>
                     {' '}
                     <Input
