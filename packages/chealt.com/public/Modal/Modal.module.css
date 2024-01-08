@@ -5,7 +5,7 @@
   background-color: var(--color-background);
   border: 8px solid rgb(38 46 72 / 15%);
   justify-content: center;
-  padding: var(--gap--xl);
+  padding: var(--gap--xxl) var(--gap--xl);
   overflow-y: auto;
   z-index: var(--z-index--xl);
 }
@@ -29,8 +29,10 @@
 
 .close {
   position: absolute;
-  right: var(--gap);
-  top: var(--gap);
+  
+  /* leave space for the border of the button */
+  right: 2px;
+  top: 2px;
   font-size: 2rem;
   font-weight: bold;
   cursor: pointer;
