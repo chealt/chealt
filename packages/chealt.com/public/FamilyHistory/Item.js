@@ -1,4 +1,4 @@
-import { useContext, useState } from 'preact/hooks';
+import { useContext, useState, useEffect } from 'preact/hooks';
 import { useTranslation } from 'preact-i18next';
 
 import { AppState } from '../App/state';
@@ -7,12 +7,15 @@ import Form from '../Form/Form';
 import Input from '../Form/Input';
 import { add as addToast } from '../Toast/Toast';
 
-const NewItem = ({ save, onDone }) => {
+const Item = ({ save, onDone, ...rest }) => {
   const { t } = useTranslation();
   const {
     profiles: { selectedProfileId }
   } = useContext(AppState);
   const [conditions, setConditions] = useState();
+  const [firstName, setFirstName] = useState();
+  const [lastName, setLastName] = useState();
+  const [dateOfBirth, setDateOfBirth] = useState();
 
   const saveFormData = async (event) => {
     event.preventDefault();
@@ -27,12 +30,12 @@ const NewItem = ({ save, onDone }) => {
     };
 
     try {
-      await save({ key: crypto.randomUUID(), value: familyHistory });
+      await save({ key: rest?.id || crypto.randomUUID(), value: familyHistory });
 
       // clear inputs
-      firstName.value = null;
-      lastName.value = null;
-      dateOfBirth.value = null;
+      setFirstName(null);
+      setLastName(null);
+      setDateOfBirth(null);
       setConditions(null);
 
       addToast({ message: t('pages.familyHistory.saveSuccess') });
@@ -43,15 +46,54 @@ const NewItem = ({ save, onDone }) => {
     }
   };
 
+  useEffect(() => {
+    if (rest?.value?.conditions) {
+      setConditions(rest.value.conditions.join(','));
+    }
+  }, [rest?.value?.conditions]);
+
+  useEffect(() => {
+    if (rest?.value?.firstName) {
+      setFirstName(rest?.value?.firstName);
+    }
+  }, [rest?.value?.firstName]);
+
+  useEffect(() => {
+    if (rest?.value?.lastName) {
+      setLastName(rest?.value?.lastName);
+    }
+  }, [rest?.value?.lastName]);
+
+  useEffect(() => {
+    if (rest?.value?.dateOfBirth) {
+      setDateOfBirth(rest?.value?.dateOfBirth);
+    }
+  }, [rest?.value?.dateOfBirth]);
+
   return (
     <Form name="newFamilyHistory" onSubmit={saveFormData} centered>
-      <Input type="text" name="firstName">
+      <Input
+        type="text"
+        name="firstName"
+        value={firstName}
+        onChange={({ target: { value } }) => setFirstName(value)}
+      >
         {t('common.firstName')}
       </Input>
-      <Input type="text" name="lastName">
+      <Input
+        type="text"
+        name="lastName"
+        value={lastName}
+        onChange={({ target: { value } }) => setLastName(value)}
+      >
         {t('common.lastName')}
       </Input>
-      <Input type="date" name="dateOfBirth">
+      <Input
+        type="date"
+        name="dateOfBirth"
+        value={dateOfBirth}
+        onChange={({ target: { value } }) => setDateOfBirth(value)}
+      >
         {t('common.dateOfBirth')}
       </Input>
       <Input
@@ -79,4 +121,4 @@ const NewItem = ({ save, onDone }) => {
   );
 };
 
-export default NewItem;
+export default Item;
