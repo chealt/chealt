@@ -1,5 +1,6 @@
 import { useContext, useState } from 'preact/hooks';
 import { useTranslation } from 'preact-i18next';
+import { useLocation } from 'preact-iso';
 
 import ProfilePicture from './ProfilePicture';
 import { AppState } from '../App/state';
@@ -17,6 +18,7 @@ const ProfilePictureMenu = () => {
   const {
     profiles: { selectedProfileId }
   } = useContext(AppState);
+  const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const {
     items: profiles,
@@ -24,11 +26,13 @@ const ProfilePictureMenu = () => {
     refresh: refreshProfiles,
     isLoading: isLoadingProfiles
   } = useObjectStore('profiles');
+  const { items: personalDetails, isLoading: isLoadingPersonalDetails } =
+    useObjectStore('personalDetails');
+  const hasSingleProfile = profiles.length === 1;
+
   const selectedProfile = profiles.find(
     (profile) => profile.value.id === selectedProfileId.value
   )?.value;
-  const { items: personalDetails, isLoading: isLoadingPersonalDetails } =
-    useObjectStore('personalDetails');
   const selectedPersonalDetails = findPersonalDetails(personalDetails, selectedProfileId);
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -46,6 +50,7 @@ const ProfilePictureMenu = () => {
     setSelectedProfileId(profileId);
     setIsMenuOpen(false);
   };
+  const navigateToProfiles = () => location.route('/profiles');
 
   const isLoading = isLoadingPersonalDetails || isLoadingProfiles;
 
@@ -55,7 +60,14 @@ const ProfilePictureMenu = () => {
 
   return (
     <div className={styles.container}>
-      <Button label={t('pages.home.changeProfile')} onClick={toggleMenu} contentOnly rounded>
+      <Button
+        label={
+          hasSingleProfile ? t('pages.home.navigateToProfiles') : t('pages.home.changeProfile')
+        }
+        onClick={hasSingleProfile ? navigateToProfiles : toggleMenu}
+        contentOnly
+        rounded
+      >
         <ProfilePicture
           highlighted
           blob={selectedProfile.profilePicture?.blob}
