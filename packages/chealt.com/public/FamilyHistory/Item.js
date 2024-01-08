@@ -71,49 +71,58 @@ const Item = ({ save, onDone, ...rest }) => {
   }, [rest?.value?.dateOfBirth]);
 
   return (
-    <Form name="newFamilyHistory" onSubmit={saveFormData} centered>
-      <Input
-        type="text"
-        name="firstName"
-        value={firstName}
-        onChange={({ target: { value } }) => setFirstName(value)}
-      >
-        {t('common.firstName')}
-      </Input>
-      <Input
-        type="text"
-        name="lastName"
-        value={lastName}
-        onChange={({ target: { value } }) => setLastName(value)}
-      >
-        {t('common.lastName')}
-      </Input>
-      <Input
-        type="date"
-        name="dateOfBirth"
-        value={dateOfBirth}
-        onChange={({ target: { value } }) => setDateOfBirth(value)}
-      >
-        {t('common.dateOfBirth')}
-      </Input>
-      <Input
-        type="tag"
-        name="conditions"
-        value={conditions}
-        deleteItem={(value) => {
-          setConditions(
-            conditions
-              .split(',')
-              .filter((condition) => condition !== value)
-              .join(',')
-          );
-        }}
-        addItem={(value) => {
-          setConditions(conditions ? `${conditions},${value}` : value);
-        }}
-      >
-        {t('common.medicalConditions')}
-      </Input>
+    <Form
+      name={rest?.id ? 'editFamilyHistory' : 'newFamilyHistory'}
+      onSubmit={saveFormData}
+      centered
+    >
+      <fieldset>
+        <legend>
+          {rest?.id ? t('pages.familyHistory.editTitle') : t('pages.familyHistory.newTitle')}
+        </legend>
+        <Input
+          type="text"
+          name="firstName"
+          value={firstName}
+          onChange={({ target: { value } }) => setFirstName(value)}
+        >
+          {t('common.firstName')}
+        </Input>
+        <Input
+          type="text"
+          name="lastName"
+          value={lastName}
+          onChange={({ target: { value } }) => setLastName(value)}
+        >
+          {t('common.lastName')}
+        </Input>
+        <Input
+          type="date"
+          name="dateOfBirth"
+          value={dateOfBirth}
+          onChange={({ target: { value } }) => setDateOfBirth(value)}
+        >
+          {t('common.dateOfBirth')}
+        </Input>
+        <Input
+          type="tag"
+          name="conditions"
+          value={conditions}
+          deleteItem={(value) => {
+            setConditions(
+              conditions
+                .split(',')
+                .filter((condition) => condition !== value)
+                .join(',')
+            );
+          }}
+          addItem={(value) => {
+            setConditions(conditions ? `${conditions},${value}` : value);
+          }}
+        >
+          {t('common.medicalConditions')}
+        </Input>
+      </fieldset>
       <Button emphasized type="submit">
         {t('common.save')}
       </Button>

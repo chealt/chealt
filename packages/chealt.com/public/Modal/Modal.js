@@ -1,6 +1,8 @@
 import classnames from 'classnames';
 import { useEffect } from 'preact/hooks';
 
+import Button from '../Form/Button';
+
 import styles from './Modal.module.css';
 
 const Modal = ({ isOpen, close, isCentered, children }) => {
@@ -8,7 +10,8 @@ const Modal = ({ isOpen, close, isCentered, children }) => {
     if (isOpen) {
       // focus the first input
       const firstForm = document.forms[0];
-      const firstInput = firstForm && firstForm[0];
+      const firstInput =
+        firstForm && firstForm[0].type === 'fieldset' ? firstForm[1] : firstForm[0];
 
       if (firstInput) {
         firstInput.focus();
@@ -29,9 +32,9 @@ const Modal = ({ isOpen, close, isCentered, children }) => {
         }
       }}
     >
-      <span class={styles.close} onClick={close}>
+      <Button ghost className={styles.close} onClick={close}>
         X
-      </span>
+      </Button>
       {children}
     </div>
   );
