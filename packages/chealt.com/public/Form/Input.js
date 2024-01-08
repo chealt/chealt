@@ -85,7 +85,7 @@ const Input = ({
                   [styles.inputWithIcon]: Boolean(icon)
                 })}
                 type={typeOverride || type}
-                value={value}
+                value={value || ''}
                 {...inputProps}
               />
               {icon && icon}

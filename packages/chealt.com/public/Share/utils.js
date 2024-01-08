@@ -12,7 +12,7 @@ const getUploadUrl = () => uploadHost;
 const getDownloadUrl = () => downloadHost;
 
 const upload = async (
-  { bloodType, documents, personalDetails, profiles, vaccinations },
+  { bloodType, documents, personalDetails, profiles, vaccinations, familyHistory },
   { encryptData, password } = {}
 ) => {
   const url = getUploadUrl();
@@ -47,6 +47,7 @@ const upload = async (
     personalDetails,
     profiles,
     documents: documentsMetaOnly,
+    familyHistory,
     vaccinations
   });
   const encryptedData = encryptData ? await encrypt({ secretData: data, password }) : undefined;
@@ -70,6 +71,7 @@ const download = async (url, { encryptData, password } = {}) => {
     documents: documentsMetaOnly,
     personalDetails,
     profiles,
+    familyHistory,
     vaccinations
   } = encryptData ? JSON.parse(await decrypt({ encryptedData: data, password })) : data;
 
@@ -94,6 +96,7 @@ const download = async (url, { encryptData, password } = {}) => {
   return {
     bloodType,
     documents,
+    familyHistory,
     personalDetails,
     profiles,
     vaccinations

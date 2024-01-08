@@ -3,7 +3,7 @@ import { useCallback, useContext, useState } from 'preact/hooks';
 import { useTranslation } from 'preact-i18next';
 
 import Controls from './Controls';
-import NewItem from './NewItem';
+import Item from './Item';
 import { AppState } from '../App/state';
 import EmptyState from '../EmptyState/EmptyState';
 import Button from '../Form/Button';
@@ -31,10 +31,18 @@ const FamilyHistory = () => {
   const { save, isLoading, items, deleteItems } = useObjectStore('familyHistory');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedItems, setSelectedItems] = useState([]);
+  const [itemToEdit, setItemToEdit] = useState();
 
   const deleteEnabled = Boolean(selectedItems.length);
   const profileItems = findItems(items, selectedProfileId.value);
   const hasItems = Boolean(profileItems.length);
+
+  const editItem = (key) => {
+    const item = profileItems.find((item) => key === item.key);
+
+    setItemToEdit(item);
+    setIsModalOpen(true);
+  };
 
   const deleteSelectedItems = useCallback(async () => {
     try {
@@ -46,6 +54,8 @@ const FamilyHistory = () => {
     } catch {
       addToast({ message: t('pages.familyHistory.deleteFailure'), role: 'alert' });
     }
+
+    setItemToEdit(null);
   }, [deleteItems, selectedItems, t]);
 
   if (isLoading) {
@@ -80,11 +90,20 @@ const FamilyHistory = () => {
                       {t('common.select')}
                     </Input>
                   </div>
+                  <div class={styles.controls}>
+                    <Button onClick={() => editItem(familyHistory.key)}>{t('common.edit')}</Button>
+                  </div>
                 </Tile>
               ))}
             </TileList>
           )}
-          <Button emphasized onClick={() => setIsModalOpen(true)}>
+          <Button
+            emphasized
+            onClick={() => {
+              setIsModalOpen(true);
+              setItemToEdit(null);
+            }}
+          >
             {t('common.add')}
           </Button>
         </>
@@ -98,7 +117,12 @@ const FamilyHistory = () => {
         </EmptyState>
       )}
       <Modal isOpen={isModalOpen} close={() => setIsModalOpen(false)}>
-        <NewItem save={save} onDone={() => setIsModalOpen(false)} />
+        <Item
+          save={save}
+          onDone={() => setIsModalOpen(false)}
+          id={itemToEdit?.key}
+          {...itemToEdit}
+        />
       </Modal>
     </>
   );

@@ -73,6 +73,8 @@
       "title": "family history",
       "emptyFamilyHistory": "Your family history will be shown here.",
       "conditions": "conditions",
+      "newTitle": "Add Family History",
+      "editTitle": "Edit Family History",
       "saveSuccess": "Saved family history.",
       "saveFailure": "Could not save family history.",
       "deleteSuccess": "Family history item(s) deleted.",

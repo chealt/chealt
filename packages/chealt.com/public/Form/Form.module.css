@@ -1,4 +1,15 @@
-.form {
+fieldset {
+  padding: 0;
+  border: 0 none;
+}
+
+legend {
+  font-size: 2rem;
+  margin-bottom: var(--gap--l);
+}
+
+.form,
+.form fieldset {
   display: flex;
   flex-direction: column;
   gap: var(--gap--l);
