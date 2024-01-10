@@ -2268,7 +2268,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@chealt/browser-utils@npm:0.0.2, @chealt/browser-utils@workspace:packages/browser-utils":
+"@chealt/browser-utils@npm:0.0.2":
+  version: 0.0.2
+  resolution: "@chealt/browser-utils@npm:0.0.2"
+  checksum: db83a4ce8f9ffe35e7faf81d875685d46d0b81d165081fe32a066055f901ca64c8246bad20363bbecdafc7fea65304900a30eaa2358cce36e8d8d31f078fe897
+  languageName: node
+  linkType: hard
+
+"@chealt/browser-utils@npm:^0.0.5, @chealt/browser-utils@workspace:packages/browser-utils":
   version: 0.0.0-use.local
   resolution: "@chealt/browser-utils@workspace:packages/browser-utils"
   languageName: unknown
@@ -2279,7 +2286,7 @@ __metadata:
   resolution: "@chealt/chealt.com@workspace:packages/chealt.com"
   dependencies:
     "@axe-core/playwright": "npm:^4.8.2"
-    "@chealt/browser-utils": "npm:0.0.2"
+    "@chealt/browser-utils": "npm:^0.0.5"
     "@chealt/playwright-utils": "workspace:*"
     "@playwright/test": "npm:^1.40.1"
     "@preact/signals": "npm:^1.2.2"

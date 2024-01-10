@@ -142,6 +142,9 @@
   "change profile": "",
   "fitbit": {
     "signIn": "",
-    "iconAlt": ""
+    "iconAlt": "",
+    "authUrlError": "",
+    "authTokenError": "",
+    "signedIn": ""
   }
 }

@@ -13,6 +13,7 @@
   "files.insertFinalNewline": true,
   "html.format.enable": false,
   "cSpell.words": [
+    "heartrate",
     "pageerror"
   ],
   "stylelint.packageManager": "yarn",

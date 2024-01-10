@@ -14,6 +14,7 @@ const Button = ({
   label,
   hideLabel,
   dark,
+  wide = false,
   ...rest
 }) => {
   const Tag = isLink ? 'a' : 'button';
@@ -27,6 +28,7 @@ const Button = ({
         [styles.emphasized]: Boolean(emphasized),
         [styles.ghost]: Boolean(ghost),
         [styles.rounded]: Boolean(rounded),
+        [styles.wide]: Boolean(wide),
         [className]: Boolean(className)
       })}
       aria-label={contentOnly || hideLabel ? label : undefined}
