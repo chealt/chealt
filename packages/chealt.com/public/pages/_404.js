@@ -7,8 +7,8 @@ const NotFound = () => {
 
   return (
     <>
-      <PageTitle>{t('notFound.title')}</PageTitle>
-      <p>{t('notFound.message')}</p>
+      <PageTitle>{t('pages.notFound.title')}</PageTitle>
+      <p>{t('pages.notFound.message')}</p>
     </>
   );
 };
