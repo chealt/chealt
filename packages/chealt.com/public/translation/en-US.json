@@ -142,5 +142,9 @@
   "notFound": {
     "title": "",
     "message": ""
+  },
+  "fitbit": {
+    "signIn": "Sign in with Fitbit",
+    "iconAlt": "Fitbit"
   }
 }
