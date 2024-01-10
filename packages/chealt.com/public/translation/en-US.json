@@ -90,6 +90,10 @@
     "notFound": {
       "title": "Could not find the page you were looking for.",
       "message": "Sorry :("
+    },
+    "integrations": {
+      "nav": "integrations",
+      "title": "integrations"
     }
   },
   "common": {

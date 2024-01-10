@@ -6,6 +6,8 @@
 .button {
   text-transform: capitalize;
   text-decoration: none;
+  display: flex;
+  align-items: center;
 }
 
 .input:not([type="file"]),
