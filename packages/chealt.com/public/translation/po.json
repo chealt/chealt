@@ -85,7 +85,8 @@
     },
     "integrations": {
       "nav": "",
-      "title": ""
+      "title": "",
+      "fitbit": ""
     }
   },
   "common": {
@@ -126,7 +127,8 @@
     "menu": "",
     "closeMenu": "",
     "chealt": "",
-    "icon": ""
+    "icon": "",
+    "signOut": ""
   },
   "languages": {
     "en-GB": "",

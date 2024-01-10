@@ -93,10 +93,12 @@
     },
     "integrations": {
       "nav": "integrations",
-      "title": "integrations"
+      "title": "integrations",
+      "fitbit": "Fitbit"
     }
   },
   "common": {
+    "avatar": "avatar",
     "back": "back",
     "bloodType": "blood type",
     "delete": "delete",
@@ -134,7 +136,8 @@
     "menu": "menu",
     "closeMenu": "close menu",
     "chealt": "Chealt",
-    "icon": "icon"
+    "icon": "icon",
+    "signOut": "sign out"
   },
   "languages": {
     "da": "Danish",

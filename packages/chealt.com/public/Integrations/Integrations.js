@@ -1,7 +1,9 @@
 import { useTranslation } from 'preact-i18next';
 
-import FitbitAuthButton from '../Fitbit/FitbitAuthButton';
+import FitbitProfile from '../Fitbit/FitbitProfile';
 import PageTitle from '../PageTitle/PageTitle';
+
+import * as styles from './Integrations.module.css';
 
 const Integrations = () => {
   const { t } = useTranslation();
@@ -9,7 +11,10 @@ const Integrations = () => {
   return (
     <>
       <PageTitle>{t('pages.integrations.title')}</PageTitle>
-      <FitbitAuthButton />
+      <section class={styles.section}>
+        <h2>{t('pages.integrations.fitbit')}</h2>
+        <FitbitProfile />
+      </section>
     </>
   );
 };
