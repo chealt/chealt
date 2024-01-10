@@ -43,6 +43,7 @@ const FitbitAuthButton = () => {
           storeVerifier(verifier);
           setAuthUrl(getAuthUrl(challenge));
         } catch (error) {
+          // eslint-disable-next-line no-console
           console.error(error);
 
           addToast({ message: t('fitbit.authUrlError'), role: 'alert' });
@@ -72,6 +73,7 @@ const FitbitAuthButton = () => {
             userId: response.user_id
           });
         } catch (error) {
+          // eslint-disable-next-line no-console
           console.error(error);
 
           setAuthError(true);
