@@ -68,7 +68,8 @@ const FitbitAuthButton = () => {
           storeTokens({
             accessToken: response.access_token,
             refreshToken: response.refresh_token,
-            scope: response.scope
+            scope: response.scope,
+            userId: response.user_id
           });
         } catch (error) {
           console.error(error);
