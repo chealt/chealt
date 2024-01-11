@@ -84,7 +84,7 @@ main > *:first-child {
 }
 
 section {
-  margin: var(--gap--xl) 0;
+  margin: var(--gap--l) 0;
 }
 
 svg {
