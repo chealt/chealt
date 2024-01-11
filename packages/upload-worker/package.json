@@ -7,6 +7,6 @@
     "@chealt/browser-utils": "^0.0.5"
   },
   "devDependencies": {
-    "wrangler": "^3.22.3"
+    "wrangler": "^3.22.4"
   }
 }
