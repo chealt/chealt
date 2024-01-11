@@ -13,6 +13,10 @@
       "maxSize": "3 kB"
     },
     {
+      "path": "./dist/chunks/Integrations.*.js",
+      "maxSize": "4 kB"
+    },
+    {
       "path": "./dist/chunks/FamilyHistory.*.js",
       "maxSize": "2 kB"
     },

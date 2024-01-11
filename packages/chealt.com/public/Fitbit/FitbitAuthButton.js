@@ -35,13 +35,13 @@ const FitbitAuthButton = () => {
   }, [location.query?.code, verifier, location]);
 
   useEffect(() => {
-    if (!authUrl && !verifier && !location.query?.code && !tokens && !isAuthenticated) {
+    if (!authUrl && !location.query?.code && !tokens && !isAuthenticated) {
       (async () => {
         try {
-          const { verifier, challenge } = await getOAuthChallenge();
+          const oauth = await getOAuthChallenge();
 
-          storeVerifier(verifier);
-          setAuthUrl(getAuthUrl(challenge));
+          storeVerifier(oauth.verifier);
+          setAuthUrl(getAuthUrl(oauth.challenge));
         } catch (error) {
           // eslint-disable-next-line no-console
           console.error(error);
@@ -62,7 +62,10 @@ const FitbitAuthButton = () => {
           const authTokenResponse = await getAuthTokens({ code, verifier });
           const response = await authTokenResponse.json();
 
-          if (response.errors) {
+          if (
+            response.errors ||
+            (response.scope !== 'profile' && !response.scope.includes('profile'))
+          ) {
             throw new Error(response.errors.map(({ message }) => message).join(', '));
           }
 
