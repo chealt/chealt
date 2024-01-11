@@ -1,0 +1,6 @@
+.userName {
+  display: flex;
+  height: 32px;
+  gap: var(--gap);
+  align-items: center;
+}

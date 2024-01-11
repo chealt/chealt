@@ -14,6 +14,7 @@ const ProfilePicture = ({ blob, src, name, highlighted }) => (
         class={styles.image}
         src={src ? src : URL.createObjectURL(new Blob([blob]))}
         alt={name}
+        referrerpolicy="no-referrer"
       />
     )}
     {name?.slice(0, 2) || 'An'}
