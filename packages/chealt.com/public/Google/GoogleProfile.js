@@ -13,7 +13,7 @@ import * as styles from './GoogleProfile.module.css';
 const GoogleProfile = () => {
   const { t } = useTranslation();
   const [user, setUser] = useState();
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [, setIsAuthenticated] = useState(false);
   const location = useLocation();
   const [profileError, setProfileError] = useState();
 
@@ -51,7 +51,11 @@ const GoogleProfile = () => {
     }
   }, [tokens, user, profileError]);
 
-  if (tokens && hashParams?.access_token && !user && !profileError) {
+  if (!tokens && hashParams?.access_token && !user && !profileError) {
+    return <LoadingIndicator />;
+  }
+
+  if (!user && tokens) {
     return <LoadingIndicator />;
   }
 
