@@ -2268,13 +2268,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@chealt/browser-utils@npm:0.0.2":
-  version: 0.0.2
-  resolution: "@chealt/browser-utils@npm:0.0.2"
-  checksum: db83a4ce8f9ffe35e7faf81d875685d46d0b81d165081fe32a066055f901ca64c8246bad20363bbecdafc7fea65304900a30eaa2358cce36e8d8d31f078fe897
-  languageName: node
-  linkType: hard
-
 "@chealt/browser-utils@npm:^0.0.5, @chealt/browser-utils@workspace:packages/browser-utils":
   version: 0.0.0-use.local
   resolution: "@chealt/browser-utils@workspace:packages/browser-utils"
@@ -2360,7 +2353,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@chealt/upload-worker@workspace:packages/upload-worker"
   dependencies:
-    "@chealt/browser-utils": "npm:0.0.2"
+    "@chealt/browser-utils": "npm:^0.0.5"
     wrangler: "npm:^3.22.3"
   languageName: unknown
   linkType: soft

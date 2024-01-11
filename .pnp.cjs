@@ -3745,13 +3745,6 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@chealt/browser-utils", [\
-      ["npm:0.0.2", {\
-        "packageLocation": "./.yarn/cache/@chealt-browser-utils-npm-0.0.2-1198cae794-db83a4ce8f.zip/node_modules/@chealt/browser-utils/",\
-        "packageDependencies": [\
-          ["@chealt/browser-utils", "npm:0.0.2"]\
-        ],\
-        "linkType": "HARD"\
-      }],\
       ["workspace:packages/browser-utils", {\
         "packageLocation": "./packages/browser-utils/",\
         "packageDependencies": [\
@@ -3890,7 +3883,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./packages/upload-worker/",\
         "packageDependencies": [\
           ["@chealt/upload-worker", "workspace:packages/upload-worker"],\
-          ["@chealt/browser-utils", "npm:0.0.2"],\
+          ["@chealt/browser-utils", "workspace:packages/browser-utils"],\
           ["wrangler", "npm:3.22.3"]\
         ],\
         "linkType": "SOFT"\
