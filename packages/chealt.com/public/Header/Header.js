@@ -20,6 +20,7 @@ const Header = () => {
     { href: '/personal-details', label: t('pages.personalDetails.nav') },
     { href: '/check-ups', label: t('pages.checkUps.nav') },
     { href: '/vaccinations', label: t('pages.vaccinations.nav') },
+    { href: '/integrations', label: t('pages.integrations.nav') },
     { href: '/family-history', label: t('pages.familyHistory.nav') },
     { href: '/profiles', label: t('pages.profiles.nav') }
   ];

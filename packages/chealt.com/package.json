@@ -15,7 +15,7 @@
     "check:bundlesize": "yarn dlx bundlesize"
   },
   "dependencies": {
-    "@chealt/browser-utils": "0.0.2",
+    "@chealt/browser-utils": "^0.0.5",
     "@chealt/playwright-utils": "workspace:*",
     "@preact/signals": "^1.2.2",
     "@simplewebauthn/browser": "^8.3.4",

@@ -1,7 +1,7 @@
 {
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true,
-    "source.fixAll.stylelint": true
+    "source.fixAll.eslint": "explicit",
+    "source.fixAll.stylelint": "explicit"
   },
   "eslint.enable": true,
   "eslint.format.enable": true,
@@ -13,6 +13,7 @@
   "files.insertFinalNewline": true,
   "html.format.enable": false,
   "cSpell.words": [
+    "heartrate",
     "pageerror"
   ],
   "stylelint.packageManager": "yarn",

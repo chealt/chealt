@@ -16,6 +16,7 @@ const PersonalDetails = lazy(() => import('../pages/PersonalDetails'));
 const Share = lazy(() => import('../pages/Share'));
 const CheckUps = lazy(() => import('../pages/CheckUps'));
 const Vaccinations = lazy(() => import('../pages/Vaccinations'));
+const Integrations = lazy(() => import('../pages/Integrations'));
 const Profiles = lazy(() => import('../pages/Profiles'));
 const FamilyHistory = lazy(() => import(`../pages/FamilyHistory`));
 const NotFound = lazy(() => import('../pages/_404'));
@@ -54,6 +55,7 @@ const App = () => {
                     <Route path="/share" component={Share} />
                     <Route path="/personal-details" component={PersonalDetails} />
                     <Route path="/check-ups" component={CheckUps} />
+                    <Route path="/integrations" component={Integrations} />
                     <Route path="/vaccinations" component={Vaccinations} />
                     <Route path="/profiles" component={Profiles} />
                     <Route path="/family-history" component={FamilyHistory} />

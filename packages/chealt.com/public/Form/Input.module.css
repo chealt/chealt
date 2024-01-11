@@ -6,6 +6,9 @@
 .button {
   text-transform: capitalize;
   text-decoration: none;
+  display: flex;
+  align-items: center;
+  max-width: 200px;
 }
 
 .input:not([type="file"]),
@@ -43,7 +46,6 @@
 .button:not(:disabled) {
   cursor: pointer;
   background: none;
-  max-width: 200px;
 }
 
 .input:not(:disabled),
@@ -111,6 +113,10 @@
 .button.ghost {
   border-color: transparent;
   background-color: transparent;
+}
+
+.button.wide {
+  max-width: 400px;
 }
 
 .button.dark {
