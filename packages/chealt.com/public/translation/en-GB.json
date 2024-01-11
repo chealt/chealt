@@ -86,7 +86,8 @@
     "integrations": {
       "nav": "",
       "title": "",
-      "fitbit": ""
+      "fitbit": "",
+      "google": ""
     }
   },
   "common": {
@@ -147,6 +148,11 @@
     "iconAlt": "",
     "authUrlError": "",
     "authTokenError": "",
+    "signedIn": ""
+  },
+  "google": {
+    "authUrlError": "",
+    "signIn": "",
     "signedIn": ""
   }
 }

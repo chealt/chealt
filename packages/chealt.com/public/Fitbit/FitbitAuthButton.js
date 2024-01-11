@@ -100,8 +100,9 @@ const FitbitAuthButton = () => {
         className={styles.container}
         href={!tokens ? authUrl : undefined}
         isLink={!tokens}
+        wide
       >
-        {location.query?.code && !tokens && !authError && <LoadingIndicator size="small" wide />}
+        {location.query?.code && !tokens && !authError && <LoadingIndicator size="small" />}
         <img class={styles.logo} src="/Fitbit/Fitbit_app_icon.png" alt={t('fitbit.iconAlt')} />
         {!tokens ? t('fitbit.signIn') : t('fitbit.signedIn')}
       </Button>
