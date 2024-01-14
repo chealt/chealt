@@ -137,7 +137,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@aws-crypto/crc32", "npm:3.0.0"],\
           ["@aws-crypto/util", "npm:3.0.0"],\
-          ["@aws-sdk/types", "npm:3.485.0"],\
+          ["@aws-sdk/types", "npm:3.489.0"],\
           ["tslib", "npm:1.14.1"]\
         ],\
         "linkType": "HARD"\
@@ -149,7 +149,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@aws-crypto/crc32c", "npm:3.0.0"],\
           ["@aws-crypto/util", "npm:3.0.0"],\
-          ["@aws-sdk/types", "npm:3.485.0"],\
+          ["@aws-sdk/types", "npm:3.489.0"],\
           ["tslib", "npm:1.14.1"]\
         ],\
         "linkType": "HARD"\
@@ -173,7 +173,7 @@ const RAW_RUNTIME_STATE =
           ["@aws-crypto/ie11-detection", "npm:3.0.0"],\
           ["@aws-crypto/supports-web-crypto", "npm:3.0.0"],\
           ["@aws-crypto/util", "npm:3.0.0"],\
-          ["@aws-sdk/types", "npm:3.485.0"],\
+          ["@aws-sdk/types", "npm:3.489.0"],\
           ["@aws-sdk/util-locate-window", "npm:3.55.0"],\
           ["@aws-sdk/util-utf8-browser", "npm:3.170.0"],\
           ["tslib", "npm:1.14.1"]\
@@ -190,7 +190,7 @@ const RAW_RUNTIME_STATE =
           ["@aws-crypto/sha256-js", "npm:3.0.0"],\
           ["@aws-crypto/supports-web-crypto", "npm:3.0.0"],\
           ["@aws-crypto/util", "npm:3.0.0"],\
-          ["@aws-sdk/types", "npm:3.485.0"],\
+          ["@aws-sdk/types", "npm:3.489.0"],\
           ["@aws-sdk/util-locate-window", "npm:3.55.0"],\
           ["@aws-sdk/util-utf8-browser", "npm:3.170.0"],\
           ["tslib", "npm:1.14.1"]\
@@ -204,7 +204,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@aws-crypto/sha256-js", "npm:3.0.0"],\
           ["@aws-crypto/util", "npm:3.0.0"],\
-          ["@aws-sdk/types", "npm:3.485.0"],\
+          ["@aws-sdk/types", "npm:3.489.0"],\
           ["tslib", "npm:1.14.1"]\
         ],\
         "linkType": "HARD"\
@@ -225,7 +225,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/cache/@aws-crypto-util-npm-3.0.0-6c4b38c78e-92c835b83d.zip/node_modules/@aws-crypto/util/",\
         "packageDependencies": [\
           ["@aws-crypto/util", "npm:3.0.0"],\
-          ["@aws-sdk/types", "npm:3.485.0"],\
+          ["@aws-sdk/types", "npm:3.489.0"],\
           ["@aws-sdk/util-utf8-browser", "npm:3.170.0"],\
           ["tslib", "npm:1.14.1"]\
         ],\
@@ -772,15 +772,6 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@aws-sdk/types", [\
-      ["npm:3.485.0", {\
-        "packageLocation": "./.yarn/cache/@aws-sdk-types-npm-3.485.0-6aa8cab069-588aae4b49.zip/node_modules/@aws-sdk/types/",\
-        "packageDependencies": [\
-          ["@aws-sdk/types", "npm:3.485.0"],\
-          ["@smithy/types", "npm:2.8.0"],\
-          ["tslib", "npm:2.6.2"]\
-        ],\
-        "linkType": "HARD"\
-      }],\
       ["npm:3.489.0", {\
         "packageLocation": "./.yarn/cache/@aws-sdk-types-npm-3.489.0-f0f748fbaa-48778dad14.zip/node_modules/@aws-sdk/types/",\
         "packageDependencies": [\

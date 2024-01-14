@@ -628,23 +628,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-sdk/types@npm:3.489.0":
+"@aws-sdk/types@npm:3.489.0, @aws-sdk/types@npm:^3.222.0":
   version: 3.489.0
   resolution: "@aws-sdk/types@npm:3.489.0"
   dependencies:
     "@smithy/types": "npm:^2.8.0"
     tslib: "npm:^2.5.0"
   checksum: 48778dad14f6966e974b14b9d421372846c0242e2aa47f76a8161b22f5d9430bf530b88163d913a8acad48480199fc99a012df3689e94a317c1dc875f4a353ed
-  languageName: node
-  linkType: hard
-
-"@aws-sdk/types@npm:^3.222.0":
-  version: 3.485.0
-  resolution: "@aws-sdk/types@npm:3.485.0"
-  dependencies:
-    "@smithy/types": "npm:^2.8.0"
-    tslib: "npm:^2.5.0"
-  checksum: 588aae4b494d7914475280bcecb579690170ca2a1c8b6d9c64ed05819dfd79de225eaa64a455f3d168f57b365eca743a363c27be464aa3ac59a2f2199d125ae5
   languageName: node
   linkType: hard
 
