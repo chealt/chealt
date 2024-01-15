@@ -15,6 +15,7 @@ const Button = ({
   hideLabel,
   dark,
   wide = false,
+  inline = false,
   ...rest
 }) => {
   const Tag = isLink ? 'a' : 'button';
@@ -27,6 +28,7 @@ const Button = ({
         [styles.dark]: Boolean(dark),
         [styles.emphasized]: Boolean(emphasized),
         [styles.ghost]: Boolean(ghost),
+        [styles.inline]: Boolean(inline),
         [styles.rounded]: Boolean(rounded),
         [styles.wide]: Boolean(wide),
         [className]: Boolean(className)
