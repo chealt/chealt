@@ -12,7 +12,7 @@ const Item = ({ save, onDone, ...rest }) => {
   const {
     profiles: { selectedProfileId }
   } = useContext(AppState);
-  const [conditions, setConditions] = useState(rest.value.conditions?.join(',') || '');
+  const [conditions, setConditions] = useState(rest?.value?.conditions?.join(',') || '');
   const [firstName, setFirstName] = useState(rest?.value?.firstName);
   const [lastName, setLastName] = useState(rest?.value?.lastName);
   const [dateOfBirth, setDateOfBirth] = useState(rest?.value?.dateOfBirth);
