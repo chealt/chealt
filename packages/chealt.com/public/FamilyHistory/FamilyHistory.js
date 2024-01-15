@@ -116,14 +116,16 @@ const FamilyHistory = () => {
           </Button>
         </EmptyState>
       )}
-      <Modal isOpen={isModalOpen} close={() => setIsModalOpen(false)}>
-        <Item
-          save={save}
-          onDone={() => setIsModalOpen(false)}
-          id={itemToEdit?.key}
-          {...itemToEdit}
-        />
-      </Modal>
+      {isModalOpen && (
+        <Modal isOpen={isModalOpen} close={() => setIsModalOpen(false)}>
+          <Item
+            save={save}
+            onDone={() => setIsModalOpen(false)}
+            id={itemToEdit?.key}
+            {...itemToEdit}
+          />
+        </Modal>
+      )}
     </>
   );
 };
