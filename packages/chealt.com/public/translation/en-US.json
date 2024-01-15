@@ -10,7 +10,10 @@
       "improvementsTitle": "Improvements",
       "improvementsDescription": "If you have an idea how to make this app even more useful, let us know <1>here</2> by creating a <3>GitHub issue</4>.",
       "changeProfile": "change profile",
-      "navigateToProfiles": "go to profiles page"
+      "navigateToProfiles": "go to profiles page",
+      "familyHistory": {
+        "description": "Record your family's medical history to help doctors have a sense of potential hereditary issues you might have."
+      }
     },
     "documents": {
       "nav": "documents",

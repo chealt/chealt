@@ -10,7 +10,10 @@
       "improvementsTitle": "Improvements",
       "improvementsDescription": "If you have an idea how to make this app even more useful, let us know <1>here</2> by creating a <3>GitHub issue</4>.",
       "changeProfile": "",
-      "navigateToProfiles": ""
+      "navigateToProfiles": "",
+      "familyHistory": {
+        "description": ""
+      }
     },
     "documents": {
       "nav": "documents",
