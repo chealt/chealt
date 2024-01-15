@@ -25,7 +25,7 @@ const Item = ({ save, onDone, ...rest }) => {
       firstName: firstName.value,
       lastName: lastName.value,
       dateOfBirth: dateOfBirth.value,
-      conditions: conditions.split(','),
+      conditions: conditions ? conditions.split(',') : [],
       profileId: selectedProfileId.value
     };
 
