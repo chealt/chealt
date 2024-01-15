@@ -1,4 +1,4 @@
-import { useContext, useState, useEffect } from 'preact/hooks';
+import { useContext, useState } from 'preact/hooks';
 import { useTranslation } from 'preact-i18next';
 
 import { AppState } from '../App/state';
@@ -12,10 +12,10 @@ const Item = ({ save, onDone, ...rest }) => {
   const {
     profiles: { selectedProfileId }
   } = useContext(AppState);
-  const [conditions, setConditions] = useState();
-  const [firstName, setFirstName] = useState();
-  const [lastName, setLastName] = useState();
-  const [dateOfBirth, setDateOfBirth] = useState();
+  const [conditions, setConditions] = useState(rest.value.conditions?.join(',') || '');
+  const [firstName, setFirstName] = useState(rest?.value?.firstName);
+  const [lastName, setLastName] = useState(rest?.value?.lastName);
+  const [dateOfBirth, setDateOfBirth] = useState(rest?.value?.dateOfBirth);
 
   const saveFormData = async (event) => {
     event.preventDefault();
@@ -45,30 +45,6 @@ const Item = ({ save, onDone, ...rest }) => {
       addToast({ message: t('pages.familyHistory.saveFailure'), role: 'alert' });
     }
   };
-
-  useEffect(() => {
-    if (rest?.value?.conditions) {
-      setConditions(rest.value.conditions.join(','));
-    }
-  }, [rest?.value?.conditions]);
-
-  useEffect(() => {
-    if (rest?.value?.firstName) {
-      setFirstName(rest?.value?.firstName);
-    }
-  }, [rest?.value?.firstName]);
-
-  useEffect(() => {
-    if (rest?.value?.lastName) {
-      setLastName(rest?.value?.lastName);
-    }
-  }, [rest?.value?.lastName]);
-
-  useEffect(() => {
-    if (rest?.value?.dateOfBirth) {
-      setDateOfBirth(rest?.value?.dateOfBirth);
-    }
-  }, [rest?.value?.dateOfBirth]);
 
   return (
     <Form
