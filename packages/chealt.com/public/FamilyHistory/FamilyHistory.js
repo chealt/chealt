@@ -1,6 +1,7 @@
 import { localFormatDate } from '@chealt/browser-utils';
 import { useCallback, useContext, useState } from 'preact/hooks';
 import { useTranslation } from 'preact-i18next';
+import { useRoute, useLocation } from 'preact-iso';
 
 import Controls from './Controls';
 import Item from './Item';
@@ -25,11 +26,13 @@ import styles from './FamilyHistory.module.css';
 
 const FamilyHistory = () => {
   const { t } = useTranslation();
+  const { route } = useLocation();
+  const { action } = useRoute();
   const {
     profiles: { selectedProfileId }
   } = useContext(AppState);
   const { save, isLoading, items, deleteItems } = useObjectStore('familyHistory');
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(action === 'new');
   const [selectedItems, setSelectedItems] = useState([]);
   const [itemToEdit, setItemToEdit] = useState();
 
@@ -100,8 +103,9 @@ const FamilyHistory = () => {
           <Button
             emphasized
             onClick={() => {
-              setIsModalOpen(true);
               setItemToEdit(null);
+
+              route('/family-history/new');
             }}
           >
             {t('common.add')}
@@ -111,16 +115,31 @@ const FamilyHistory = () => {
         <EmptyState>
           <History />
           <p>{t('pages.familyHistory.emptyFamilyHistory')}</p>
-          <Button emphasized onClick={() => setIsModalOpen(true)}>
+          <Button emphasized onClick={() => route('/family-history/new')}>
             {t('common.startAdding')}
           </Button>
         </EmptyState>
       )}
       {isModalOpen && (
-        <Modal isOpen={isModalOpen} close={() => setIsModalOpen(false)}>
+        <Modal
+          isOpen={isModalOpen}
+          close={() => {
+            setIsModalOpen(false);
+
+            if (action === 'new') {
+              route('/family-history');
+            }
+          }}
+        >
           <Item
             save={save}
-            onDone={() => setIsModalOpen(false)}
+            onDone={() => {
+              setIsModalOpen(false);
+
+              if (action === 'new') {
+                route('/family-history');
+              }
+            }}
             id={itemToEdit?.key}
             {...itemToEdit}
           />

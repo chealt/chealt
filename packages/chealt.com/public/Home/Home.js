@@ -18,7 +18,7 @@ const Home = () => {
         <Tile>
           <TileTitle capitalize>{t('pages.familyHistory.title')}</TileTitle>
           <p>{t('pages.home.familyHistory.description')}</p>
-          <Button isLink href={'/family-history#new'}>
+          <Button isLink href={'/family-history/new'}>
             {t('common.add')}
           </Button>
         </Tile>
