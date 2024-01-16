@@ -13,6 +13,9 @@
       "navigateToProfiles": "",
       "familyHistory": {
         "description": ""
+      },
+      "vaccinations": {
+        "description": ""
       }
     },
     "documents": {

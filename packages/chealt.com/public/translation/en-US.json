@@ -13,6 +13,9 @@
       "navigateToProfiles": "go to profiles page",
       "familyHistory": {
         "description": "Record your family's medical history to help doctors have a sense of potential hereditary issues you might have."
+      },
+      "vaccinations": {
+        "description": "Record your vaccinations for easy access when you need it."
       }
     },
     "documents": {

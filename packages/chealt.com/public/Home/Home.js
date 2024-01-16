@@ -22,6 +22,13 @@ const Home = () => {
             {t('common.add')}
           </Button>
         </Tile>
+        <Tile>
+          <TileTitle capitalize>{t('pages.vaccinations.title')}</TileTitle>
+          <p>{t('pages.home.vaccinations.description')}</p>
+          <Button isLink href={'/vaccinations/new'}>
+            {t('common.add')}
+          </Button>
+        </Tile>
       </TileList>
       <h2>{t('pages.home.privacyTitle')}</h2>
       <p>{t('pages.home.privacyDescription')}</p>
