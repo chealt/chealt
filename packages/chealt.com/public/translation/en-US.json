@@ -15,7 +15,10 @@
         "description": "Record your family's medical history to help doctors have a sense of potential hereditary issues you might have."
       },
       "vaccinations": {
-        "description": "Record your vaccinations for easy access when you need it."
+        "description": "Record your vaccinations for easy access when you need them."
+      },
+      "documents": {
+        "description": "Upload you medical documents for easy access when you need them."
       }
     },
     "documents": {

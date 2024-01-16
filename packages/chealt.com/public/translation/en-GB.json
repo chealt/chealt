@@ -16,6 +16,9 @@
       },
       "vaccinations": {
         "description": ""
+      },
+      "documents": {
+        "description": ""
       }
     },
     "documents": {
