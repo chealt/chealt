@@ -13,7 +13,7 @@
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-prettier": "^5.1.3",
     "eslint-plugin-react": "^7.33.2",
-    "prettier": "^3.1.1"
+    "prettier": "^3.2.2"
   },
   "publishConfig": {
     "access": "public",
@@ -21,7 +21,7 @@
   },
   "sideEffects": false,
   "dependencies": {
-    "eslint-plugin-jest": "^27.6.2",
+    "eslint-plugin-jest": "^27.6.3",
     "eslint-plugin-playwright": "^0.21.0"
   }
 }
