@@ -21,6 +21,8 @@ const Home = () => {
   } = useContext(AppState);
   const { isLoadingFamilyHistory, items } = useObjectStore('familyHistory');
   const familyHistoryItems = findItems(items, selectedProfileId.value);
+  const hasFamilyHistoryItems = !isLoadingFamilyHistory && familyHistoryItems.length;
+  const noFamilyHistoryItems = !isLoadingFamilyHistory && !familyHistoryItems.length;
 
   return (
     <>
@@ -31,7 +33,7 @@ const Home = () => {
         <Tile>
           <TileTitle capitalize>{t('pages.familyHistory.title')}</TileTitle>
           {isLoadingFamilyHistory && <LoadingIndicator />}
-          {!isLoadingFamilyHistory && !familyHistoryItems.length && (
+          {noFamilyHistoryItems && (
             <>
               <p>{t('pages.home.familyHistory.description')}</p>
               <Button isLink href={'/family-history/new'}>
@@ -39,7 +41,7 @@ const Home = () => {
               </Button>
             </>
           )}
-          {!isLoadingFamilyHistory && familyHistoryItems.length && (
+          {hasFamilyHistoryItems && (
             <div class={styles.tileContent}>
               <ul>
                 {familyHistoryItems.map(({ key, value: { firstName, lastName } }) => (
