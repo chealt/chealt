@@ -14,8 +14,11 @@ const HomeSection = ({ contentClassName, linkClassName }) => {
   const {
     profiles: { selectedProfileId }
   } = useContext(AppState);
-  const { isLoadingVaccinations, items } = useObjectStore('vaccinations');
-  const vaccinationsItems = findItems(items, selectedProfileId.value);
+  const { isLoadingVaccinations, items } = useObjectStore('vaccinations', {
+    sortBy: 'savedTimestamp',
+    sortOrder: 'DESC'
+  });
+  const vaccinationsItems = findItems(items, selectedProfileId.value).slice(0, 5);
   const hasVaccinationsItems = !isLoadingVaccinations && vaccinationsItems.length > 0;
   const noVaccinationsItems = !isLoadingVaccinations && vaccinationsItems.length === 0;
 

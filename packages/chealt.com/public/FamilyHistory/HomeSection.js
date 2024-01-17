@@ -13,8 +13,11 @@ const HomeSection = ({ contentClassName, linkClassName }) => {
   const {
     profiles: { selectedProfileId }
   } = useContext(AppState);
-  const { isLoadingFamilyHistory, items } = useObjectStore('familyHistory');
-  const familyHistoryItems = findItems(items, selectedProfileId.value);
+  const { isLoadingFamilyHistory, items } = useObjectStore('familyHistory', {
+    sortBy: 'savedTimestamp',
+    sortOrder: 'DESC'
+  });
+  const familyHistoryItems = findItems(items, selectedProfileId.value).slice(0, 5);
   const hasFamilyHistoryItems = !isLoadingFamilyHistory && familyHistoryItems.length > 0;
   const noFamilyHistoryItems = !isLoadingFamilyHistory && familyHistoryItems.length === 0;
 

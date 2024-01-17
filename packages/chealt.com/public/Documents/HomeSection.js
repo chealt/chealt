@@ -13,8 +13,11 @@ const HomeSection = ({ contentClassName, linkClassName }) => {
   const {
     profiles: { selectedProfileId }
   } = useContext(AppState);
-  const { isLoadingDocuments, items } = useObjectStore('documents');
-  const documentsItems = findItems(items, selectedProfileId.value);
+  const { isLoadingDocuments, items } = useObjectStore('documents', {
+    sortBy: 'savedTimestamp',
+    sortOrder: 'DESC'
+  });
+  const documentsItems = findItems(items, selectedProfileId.value).slice(0, 5);
   const hasDocumentsItems = !isLoadingDocuments && documentsItems.length > 0;
   const noDocumentsItems = !isLoadingDocuments && documentsItems.length === 0;
 
