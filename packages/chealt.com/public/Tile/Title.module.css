@@ -2,3 +2,7 @@
   font-size: 2rem;
   margin-bottom: var(--gap--l);
 }
+
+.title.capitalize {
+  text-transform: capitalize;
+}

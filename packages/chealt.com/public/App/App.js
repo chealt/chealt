@@ -57,8 +57,10 @@ const App = () => {
                     <Route path="/check-ups" component={CheckUps} />
                     <Route path="/integrations" component={Integrations} />
                     <Route path="/vaccinations" component={Vaccinations} />
+                    <Route path="/vaccinations/:action" component={Vaccinations} />
                     <Route path="/profiles" component={Profiles} />
                     <Route path="/family-history" component={FamilyHistory} />
+                    <Route path="/family-history/:action" component={FamilyHistory} />
                     <Route default component={NotFound} />
                   </Router>
                 </LayoutContainer>

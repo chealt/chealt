@@ -1,0 +1,20 @@
+.tileContent {
+  display: flex;
+  flex-direction: row;
+  gap: var(--gap--l);
+}
+
+.tileContent ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap--l);
+  flex-grow: 1;
+}
+
+.tileContent li {
+  border: none;
+}
+
+.tileContent .link {
+  align-self: flex-end;
+}
