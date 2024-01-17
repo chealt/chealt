@@ -2,7 +2,7 @@ import { useCallback, useState, useEffect } from 'preact/hooks';
 
 import database, { objectStoreNames } from './IndexedDB';
 
-const useObjectStore = (name) => {
+const useObjectStore = (name, { sortBy, sortOrder } = {}) => {
   const [instance, setInstance] = useState();
   const [items, setItems] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -13,7 +13,7 @@ const useObjectStore = (name) => {
     let items;
 
     if (name) {
-      items = await instance.list({ type: name });
+      items = await instance.list({ type: name, sortBy, sortOrder });
     } else {
       items = {};
 
@@ -26,7 +26,7 @@ const useObjectStore = (name) => {
     setIsLoading(false);
 
     return items;
-  }, [instance, name]);
+  }, [instance, name, sortBy, sortOrder]);
 
   const refresh = loadItems;
 

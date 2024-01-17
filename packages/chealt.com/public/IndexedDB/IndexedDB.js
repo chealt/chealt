@@ -6,7 +6,7 @@ const indexedDB =
     window.mozIndexedDB ||
     window.OIndexedDB ||
     window.msIndexedDB);
-const version = 14;
+const version = 17;
 const objectStoreNames = [
   'bloodType',
   'documents',
@@ -16,6 +16,11 @@ const objectStoreNames = [
   'settings',
   'vaccinations'
 ];
+const indexes = {
+  familyHistory: ['savedTimestamp'],
+  documents: ['savedTimestamp'],
+  vaccinations: ['savedTimestamp']
+};
 
 const db = async ({ database }) => {
   let instance;
@@ -40,6 +45,13 @@ const db = async ({ database }) => {
         for (const name of objectStoreNames) {
           if (!instance.objectStoreNames.contains(name)) {
             const objectStore = instance.createObjectStore(name);
+
+            if (indexes[name]) {
+              for (const index of indexes[name]) {
+                objectStore.createIndex(index, index);
+              }
+            }
+
             promises.push(
               new Promise((resolve) => {
                 objectStore.transaction.oncomplete = resolve;
@@ -69,7 +81,7 @@ const db = async ({ database }) => {
       objectStore.transaction.oncomplete = resolve;
     });
 
-  const list = async ({ type }) => {
+  const list = async ({ type, sortBy, sortOrder }) => {
     if (!instance) {
       throw new Error('Database not initialized!');
     }
@@ -78,7 +90,9 @@ const db = async ({ database }) => {
 
     return new Promise((resolve, reject) => {
       const objectStore = instance.transaction(type).objectStore(type);
-      const openedCursor = objectStore.openCursor();
+      const openedCursor = sortBy
+        ? objectStore.index(sortBy).openCursor(null, sortOrder === 'DESC' ? 'prev' : 'next')
+        : objectStore.openCursor();
 
       openedCursor.onerror = reject;
 
