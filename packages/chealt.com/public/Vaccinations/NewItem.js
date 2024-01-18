@@ -13,7 +13,6 @@ const NewItem = ({ save, onDone }) => {
   const {
     profiles: { selectedProfileId }
   } = useContext(AppState);
-  const [name, setName] = useState();
   const [conditions, setConditions] = useState();
   const locale = navigator.language || 'en-US';
   const localVaccinations = getLocalVaccinations(locale);
@@ -25,7 +24,7 @@ const NewItem = ({ save, onDone }) => {
     const vaccination = {
       batchNo: batchNo.value,
       brandName: brandName.value,
-      conditions: conditions.split(','),
+      conditions: conditions?.split(',') || [],
       dateOfAdmin: dateOfAdmin.value,
       immuniser: immuniser.value,
       name: name.value,
@@ -62,11 +61,10 @@ const NewItem = ({ save, onDone }) => {
         name="name"
         required="required"
         list="name"
-        value={name}
         onChange={(event) => {
           const vaccinationName = event.target.value;
+
           setConditions(getConditions({ vaccinationName, locale }));
-          setName(vaccinationName);
         }}
       >
         {t('pages.vaccinations.name')}
