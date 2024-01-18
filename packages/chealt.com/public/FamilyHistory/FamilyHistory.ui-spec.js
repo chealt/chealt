@@ -48,7 +48,7 @@ test.describe('Family History', () => {
 
     // Save success
     await expect(screen.queryByText('Saved family history.')).toBeVisible();
-    await expect(screen.getByText('my first name my last name')).toBeVisible();
+    await expect(screen.queryByText('my first name my last name')).toBeVisible();
     await expect(screen.getByText('1/2/1980')).toBeVisible();
     await expect(screen.getByText('condition 1')).toBeVisible();
     await expect(screen.getByText('condition 2')).toBeVisible();
