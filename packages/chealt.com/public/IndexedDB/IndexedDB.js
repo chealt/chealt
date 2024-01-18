@@ -6,7 +6,7 @@ const indexedDB =
     window.mozIndexedDB ||
     window.OIndexedDB ||
     window.msIndexedDB);
-const version = 17;
+const version = 21;
 const objectStoreNames = [
   'bloodType',
   'documents',
@@ -39,6 +39,7 @@ const db = async ({ database }) => {
 
       request.onupgradeneeded = (event) => {
         instance = event.target.result;
+        const transaction = event.target.transaction;
 
         const promises = [];
 
@@ -57,6 +58,15 @@ const db = async ({ database }) => {
                 objectStore.transaction.oncomplete = resolve;
               })
             );
+          } else if (indexes[name]) {
+            // create indexes if they don't exist
+            for (const index of indexes[name]) {
+              const objectStore = transaction.objectStore(name);
+
+              if (!objectStore.indexNames.contains(index)) {
+                objectStore.createIndex(index, index);
+              }
+            }
           }
         }
 
