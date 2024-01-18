@@ -60,6 +60,7 @@ jobs:
         run: |
           aws s3 sync playwright-report/ s3://chealt-playwright-reports/${{ env.SHA }}
       - name: Report test report upload status
+        if: always()
         run: |
           curl -L \
             -X POST \

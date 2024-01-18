@@ -15,7 +15,7 @@
     "check:bundlesize": "yarn dlx bundlesize"
   },
   "dependencies": {
-    "@chealt/browser-utils": "^0.0.5",
+    "@chealt/browser-utils": "^0.0.6",
     "@chealt/playwright-utils": "workspace:*",
     "@preact/signals": "^1.2.2",
     "@simplewebauthn/browser": "^8.3.4",
@@ -31,8 +31,8 @@
     "workbox-recipes": "^7.0.0"
   },
   "devDependencies": {
-    "@axe-core/playwright": "^4.8.2",
-    "@playwright/test": "^1.40.1",
+    "@axe-core/playwright": "^4.8.3",
+    "@playwright/test": "^1.41.0",
     "concurrently": "^8.2.2",
     "i18next-scanner": "^4.4.0",
     "rollup-plugin-html-minifier": "^2.0.0",

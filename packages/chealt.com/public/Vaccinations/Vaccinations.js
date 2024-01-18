@@ -1,6 +1,7 @@
 import { localFormatDate } from '@chealt/browser-utils';
 import { useCallback, useContext, useState } from 'preact/hooks';
 import { useTranslation } from 'preact-i18next';
+import { useRoute, useLocation } from 'preact-iso';
 
 import Controls from './Controls';
 import NewItem from './NewItem';
@@ -25,10 +26,12 @@ import styles from './Vaccinations.module.css';
 
 const Vaccinations = () => {
   const { t } = useTranslation();
+  const { route } = useLocation();
+  const { action } = useRoute();
   const {
     profiles: { selectedProfileId }
   } = useContext(AppState);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(action === 'new');
   const [selectedItems, setSelectedItems] = useState([]);
   const deleteEnabled = Boolean(selectedItems.length);
   const { deleteItems, save, isLoading, items } = useObjectStore('vaccinations');
@@ -111,7 +114,12 @@ const Vaccinations = () => {
               ))}
             </TileList>
           )}
-          <Button emphasized onClick={() => setIsModalOpen(true)}>
+          <Button
+            emphasized
+            onClick={() => {
+              route('/vaccinations/new');
+            }}
+          >
             {t('common.add')}
           </Button>
         </>
@@ -119,13 +127,31 @@ const Vaccinations = () => {
         <EmptyState>
           <Vaccine />
           <p>{t('pages.vaccinations.emptyVaccinations')}</p>
-          <Button emphasized onClick={() => setIsModalOpen(true)}>
+          <Button emphasized onClick={() => route('/vaccinations/new')}>
             {t('common.startAdding')}
           </Button>
         </EmptyState>
       )}
-      <Modal isOpen={isModalOpen} close={() => setIsModalOpen(false)}>
-        <NewItem save={save} onDone={() => setIsModalOpen(false)} />
+      <Modal
+        isOpen={isModalOpen}
+        close={() => {
+          setIsModalOpen(false);
+
+          if (action === 'new') {
+            route('/vaccinations');
+          }
+        }}
+      >
+        <NewItem
+          save={save}
+          onDone={() => {
+            setIsModalOpen(false);
+
+            if (action === 'new') {
+              route('/vaccinations');
+            }
+          }}
+        />
       </Modal>
     </>
   );

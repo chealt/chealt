@@ -1,3 +1,9 @@
-const localFormatDate = (dateString) => new Intl.DateTimeFormat().format(new Date(dateString));
+const localFormatDate = (dateString) => {
+  if (!dateString) {
+    return '';
+  }
+
+  return new Intl.DateTimeFormat().format(new Date(dateString));
+};
 
 export { localFormatDate };

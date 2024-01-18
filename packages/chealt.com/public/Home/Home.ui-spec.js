@@ -10,7 +10,7 @@ test.describe('Home', () => {
     await expect(
       screen.queryByRole('heading', {
         level: 1,
-        name: 'Chealt.com'
+        name: 'Chealt'
       })
     ).toBeVisible();
 

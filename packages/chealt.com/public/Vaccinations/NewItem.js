@@ -24,7 +24,7 @@ const NewItem = ({ save, onDone }) => {
     const vaccination = {
       batchNo: batchNo.value,
       brandName: brandName.value,
-      conditions: conditions.split(','),
+      conditions: conditions?.split(',') || [],
       dateOfAdmin: dateOfAdmin.value,
       immuniser: immuniser.value,
       name: name.value,
@@ -63,6 +63,7 @@ const NewItem = ({ save, onDone }) => {
         list="name"
         onChange={(event) => {
           const vaccinationName = event.target.value;
+
           setConditions(getConditions({ vaccinationName, locale }));
         }}
       >

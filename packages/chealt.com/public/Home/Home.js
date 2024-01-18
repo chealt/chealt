@@ -1,7 +1,14 @@
-import { Trans, useTranslation } from 'preact-i18next';
+import { useTranslation } from 'preact-i18next';
 
-import Link from '../Link/Link';
+import DocumentsHomeSection from '../Documents/HomeSection';
+import FamilyHistoryHomeSection from '../FamilyHistory/HomeSection';
 import PageTitle from '../PageTitle/PageTitle';
+import Tile from '../Tile/Tile';
+import TileList from '../Tile/TileList';
+import TileTitle from '../Tile/Title';
+import VaccinationsHomeSection from '../Vaccinations/HomeSection';
+
+import * as styles from './Home.module.css';
 
 const Home = () => {
   const { t } = useTranslation();
@@ -11,30 +18,28 @@ const Home = () => {
       <PageTitle>{t('pages.home.title')}</PageTitle>
       <h2>{t('pages.home.mainTitle')}</h2>
       <p>{t('pages.home.mainDescription')}</p>
+      <TileList>
+        <Tile>
+          <TileTitle capitalize>{t('pages.familyHistory.title')}</TileTitle>
+          <FamilyHistoryHomeSection
+            contentClassName={styles.tileContent}
+            linkClassName={styles.link}
+          />
+        </Tile>
+        <Tile>
+          <TileTitle capitalize>{t('pages.vaccinations.title')}</TileTitle>
+          <VaccinationsHomeSection
+            contentClassName={styles.tileContent}
+            linkClassName={styles.link}
+          />
+        </Tile>
+        <Tile>
+          <TileTitle capitalize>{t('pages.documents.title')}</TileTitle>
+          <DocumentsHomeSection contentClassName={styles.tileContent} linkClassName={styles.link} />
+        </Tile>
+      </TileList>
       <h2>{t('pages.home.privacyTitle')}</h2>
       <p>{t('pages.home.privacyDescription')}</p>
-      <h2>{t('pages.home.improvementsTitle')}</h2>
-      <p>
-        <Trans i18nKey="pages.home.improvementsDescription">
-          If you have an idea how to make this app even more useful, let us know
-          <Link
-            target="_blank"
-            href="https://github.com/chealt/chealt/issues/new?assignees=atikenny&labels=component:chealt.com&template=feature_request.md&title="
-            rel="noreferrer"
-          >
-            here
-          </Link>
-          by creating a
-          <Link
-            target="_blank"
-            href="https://docs.github.com/en/issues/tracking-your-work-with-issues/about-issues"
-            rel="noreferrer"
-          >
-            GitHub issue
-          </Link>
-          .
-        </Trans>
-      </p>
     </>
   );
 };

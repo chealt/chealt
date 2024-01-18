@@ -1,5 +1,16 @@
+import classnames from 'classnames';
+
 import styles from './Title.module.css';
 
-const Title = ({ children }) => <div class={styles.title}>{children}</div>;
+const Title = ({ capitalize, children }) => (
+  <div
+    class={classnames({
+      [styles.title]: true,
+      [styles.capitalize]: capitalize
+    })}
+  >
+    {children}
+  </div>
+);
 
 export default Title;

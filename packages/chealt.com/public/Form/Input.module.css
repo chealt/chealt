@@ -8,7 +8,17 @@
   text-decoration: none;
   display: flex;
   align-items: center;
-  max-width: 200px;
+  justify-content: center;
+}
+
+@media (width >= 600px) {
+  .button {
+    max-width: 200px;
+  }
+
+  .button.wide {
+    max-width: 300px;
+  }
 }
 
 .input:not([type="file"]),
@@ -115,10 +125,6 @@
   background-color: transparent;
 }
 
-.button.wide {
-  max-width: 300px;
-}
-
 .button.dark {
   color: var(--colo-text--dark);
 }
@@ -139,6 +145,10 @@
 .button.contentOnly:is(:hover, :focus, :active) {
   border: 0 none;
   padding: 0;
+}
+
+.button.inline {
+  display: inline;
 }
 
 .label {
