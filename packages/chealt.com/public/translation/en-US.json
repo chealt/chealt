@@ -44,7 +44,8 @@
         "after": "After generating a QR code you will have an hour to scan it.",
         "privacyWarning": "<1>PRIVACY WARNING</1>: When using the share functionality, your data temporarily (for an hour) will be stored on our servers."
       },
-      "title": "share"
+      "title": "share",
+      "googleDrive": "Google Drive"
     },
     "personalDetails": {
       "nav": "personal details",

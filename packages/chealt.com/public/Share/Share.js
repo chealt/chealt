@@ -9,6 +9,7 @@ import Controls from '../Form/Controls';
 import Form from '../Form/Form';
 import Input from '../Form/Input';
 import { getFormData } from '../Form/utils';
+import GoogleAuthButton from '../Google/GoogleAuthButton';
 import { useObjectStore } from '../IndexedDB/hooks';
 import Link from '../Link/Link';
 import List from '../List/List';
@@ -182,6 +183,7 @@ const Share = () => {
           >
             {t('pages.share.download')}
           </Button>
+          <GoogleAuthButton scopes={['drive.appdata']} />
         </Controls>
       )}
       <Modal isOpen={isPasswordModalOpen} close={() => setIsPasswordModalOpen(false)}>

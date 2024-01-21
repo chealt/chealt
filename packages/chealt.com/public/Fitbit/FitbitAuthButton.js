@@ -96,7 +96,6 @@ const FitbitAuthButton = () => {
   return (
     <>
       <Button
-        ghost
         className={styles.container}
         href={!tokens ? authUrl : undefined}
         isLink={!tokens}

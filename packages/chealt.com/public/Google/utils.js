@@ -3,8 +3,15 @@ const clientId = import.meta.env.GOOGLE_CLIENT_ID;
 const redirectUri = import.meta.env.GOOGLE_REDIRECT_URI;
 const profileAPIUrl = import.meta.env.GOOGLE_PROFILE_API_URL;
 
-const getAuthUrl = () =>
-  `${authUrl}?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=token&scope=https://www.googleapis.com/auth/fitness.location.read%20https://www.googleapis.com/auth/fitness.sleep.read%20https://www.googleapis.com/auth/userinfo.profile`;
+const scopeUrl = 'https://www.googleapis.com/auth';
+
+const getAuthUrl = ({ scopes } = {}) =>
+  `${authUrl}?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=token&scope=${(
+    scopes || []
+  )
+    .concat('userinfo.profile') // always add this scope for user information
+    .map((scope) => `${scopeUrl}/${scope}`)
+    .join('%20')}`;
 
 const tokensKey = 'GOOGLE_TOKENS';
 const storeTokens = (tokens) => {
@@ -43,4 +50,18 @@ const getProfile = async ({ accessToken }) =>
     }
   });
 
-export { getAuthUrl, storeTokens, retrieveTokens, clearTokens, parseUrlHash, getProfile };
+const allScopesAllowed = (scopes) => {
+  const tokens = retrieveTokens();
+
+  return !scopes.some((scope) => !tokens.scope.includes(`${scopeUrl}/${scope}`));
+};
+
+export {
+  getAuthUrl,
+  storeTokens,
+  retrieveTokens,
+  clearTokens,
+  parseUrlHash,
+  getProfile,
+  allScopesAllowed
+};
