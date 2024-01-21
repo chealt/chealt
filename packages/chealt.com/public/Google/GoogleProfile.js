@@ -41,6 +41,14 @@ const GoogleProfile = () => {
 
         try {
           const response = await getProfile(tokens);
+
+          if (response.status === 401) {
+            clearTokens();
+            setProfileError(response.text);
+
+            return;
+          }
+
           const responseJSON = await response.json();
 
           setUser(responseJSON);
