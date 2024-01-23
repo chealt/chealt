@@ -103,7 +103,7 @@ const download = async (url, { encryptData, password } = {}) => {
   };
 };
 
-const downloadAllUrl = ({ data }) => {
+const serializeAllData = (data) => {
   const decoder = new TextDecoder();
   const serializedData = {};
 
@@ -130,9 +130,15 @@ const downloadAllUrl = ({ data }) => {
     }
   }
 
+  return serializedData;
+};
+
+const downloadAllUrl = ({ data }) => {
+  const serializedData = serializeAllData(data);
+
   return URL.createObjectURL(new Blob([JSON.stringify(serializedData)]), {
     type: 'application/json'
   });
 };
 
-export { upload, download, downloadAllUrl };
+export { upload, download, downloadAllUrl, serializeAllData };

@@ -2,6 +2,7 @@ const authUrl = import.meta.env.GOOGLE_AUTH_URL;
 const clientId = import.meta.env.GOOGLE_CLIENT_ID;
 const redirectUri = import.meta.env.GOOGLE_REDIRECT_URI;
 const profileAPIUrl = import.meta.env.GOOGLE_PROFILE_API_URL;
+const driveAPIUrl = import.meta.env.GOOGLE_DRIVE_API_URL;
 
 const scopeUrl = 'https://www.googleapis.com/auth';
 
@@ -53,8 +54,22 @@ const getProfile = async ({ accessToken }) =>
 const allScopesAllowed = (scopes) => {
   const tokens = retrieveTokens();
 
+  if (!tokens?.scope) {
+    return false;
+  }
+
   return !scopes.some((scope) => !tokens.scope.includes(`${scopeUrl}/${scope}`));
 };
+
+const uploadDriveData = async ({ accessToken, data }) =>
+  fetch(`${driveAPIUrl}/files?uploadType=media`, {
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+      'Content-Type': 'application/json'
+    },
+    method: 'POST',
+    body: new Blob([JSON.stringify(data)])
+  });
 
 export {
   getAuthUrl,
@@ -63,5 +78,6 @@ export {
   clearTokens,
   parseUrlHash,
   getProfile,
-  allScopesAllowed
+  allScopesAllowed,
+  uploadDriveData
 };

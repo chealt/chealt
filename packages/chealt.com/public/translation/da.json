@@ -43,7 +43,8 @@
         "step4": "",
         "after": ""
       },
-      "googleDrive": ""
+      "googleDrive": "",
+      "uploadToGoogleDrive": ""
     },
     "personalDetails": {
       "nav": "personal details",

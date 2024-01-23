@@ -45,7 +45,8 @@
         "privacyWarning": "<1>PRIVACY WARNING</1>: When using the share functionality, your data temporarily (for an hour) will be stored on our servers."
       },
       "title": "share",
-      "googleDrive": "Google Drive"
+      "googleDrive": "Google Drive",
+      "uploadToGoogleDrive": "Upload to Google Drive"
     },
     "personalDetails": {
       "nav": "personal details",
