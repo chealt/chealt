@@ -14,7 +14,9 @@ import { AppState } from '../App/state';
 import Button from '../Form/Button';
 import { useObjectStore } from '../IndexedDB/hooks';
 import LoadingIndicator from '../LoadingIndicator/LoadingIndicator';
-import { serializeAllData } from '../Share/utils';
+import { sanitizeLoadedProfiles } from '../Profiles/utils';
+import { deserializeAllData, serializeAllData } from '../Share/utils';
+import { add as addToast } from '../Toast/Toast';
 
 import * as styles from './GoogleDrive.module.css';
 
@@ -27,8 +29,9 @@ const GoogleDrive = () => {
   const {
     profiles: { selectedProfileId }
   } = useContext(AppState);
+  const { items: allData, save } = useObjectStore();
   const { isLoading, items, save: saveSettings } = useObjectStore('settings');
-  const { items: allData } = useObjectStore();
+  const { items: profiles, save: saveProfile } = useObjectStore('profiles');
   const savedSettings = items?.filter(
     ({ value: { profileId } }) => profileId === selectedProfileId.value
   );
@@ -93,7 +96,19 @@ const GoogleDrive = () => {
     }
   };
 
-  const overwriteWithGoogleDrive = () => {};
+  const overwriteWithGoogleDrive = async () => {
+    const data = deserializeAllData(driveData);
+
+    try {
+      await sanitizeLoadedProfiles({ profiles, loadedProfiles: data.profiles, saveProfile });
+
+      await save(data);
+
+      addToast({ message: 'Overwrite successful' });
+    } catch {
+      addToast({ message: 'Overwrite failed', role: 'alert' });
+    }
+  };
 
   if (isLoading) {
     return <LoadingIndicator />;

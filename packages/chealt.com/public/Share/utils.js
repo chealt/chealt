@@ -133,6 +133,36 @@ const serializeAllData = (data) => {
   return serializedData;
 };
 
+const deserializeAllData = (data) => {
+  const encoder = new TextEncoder();
+  const deserializedData = {};
+
+  for (const name of objectStoreNames) {
+    if (data[name]) {
+      deserializedData[name] = [];
+
+      for (const item of data[name]) {
+        const { key, value } = item;
+
+        if (name === 'documents') {
+          deserializedData[name].push({
+            key,
+            value: {
+              ...value,
+              serializedBlob: undefined,
+              blob: encoder.encode(value.serializedBlob).buffer
+            }
+          });
+        } else {
+          deserializedData[name].push({ key, value });
+        }
+      }
+    }
+  }
+
+  return deserializedData;
+};
+
 const downloadAllUrl = ({ data }) => {
   const serializedData = serializeAllData(data);
 
@@ -141,4 +171,4 @@ const downloadAllUrl = ({ data }) => {
   });
 };
 
-export { upload, download, downloadAllUrl, serializeAllData };
+export { upload, download, downloadAllUrl, serializeAllData, deserializeAllData };
