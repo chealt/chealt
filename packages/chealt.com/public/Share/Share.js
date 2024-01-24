@@ -70,10 +70,10 @@ const Share = () => {
       setDownloadUrl(downloadUrl);
       setIsQRCodeModalOpen(true);
       setLoadingDownloadUrl(false);
-      addToast({ message: 'Upload successful' });
+      addToast({ message: t('pages.share.uploadSuccess') });
     } catch {
       setLoadingDownloadUrl(false);
-      addToast({ message: 'Upload failed', role: 'alert' });
+      addToast({ message: t('pages.share.uploadFailure'), role: 'alert' });
     }
   };
 
@@ -94,9 +94,9 @@ const Share = () => {
 
             await save(data);
 
-            addToast({ message: 'Download successful' });
+            addToast({ message: t('pages.share.downloadSuccess') });
           } catch (error) {
-            addToast({ message: 'Download failed', role: 'alert' });
+            addToast({ message: t('pages.share.downloadFailure'), role: 'alert' });
           }
 
           setIsModalOpen(false);

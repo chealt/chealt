@@ -91,7 +91,10 @@ const GoogleDrive = () => {
         key: 'googleDrive',
         value: { profileId: selectedProfileId.value, fileId: id }
       });
+
+      addToast({ message: t('pages.share.uploadSuccess') });
     } catch {
+      addToast({ message: t('pages.share.uploadFailure'), role: 'alert' });
       setDriveError('upload fail');
     }
   };
@@ -104,9 +107,9 @@ const GoogleDrive = () => {
 
       await save(data);
 
-      addToast({ message: 'Overwrite successful' });
+      addToast({ message: t('pages.share.overwriteSuccess') });
     } catch {
-      addToast({ message: 'Overwrite failed', role: 'alert' });
+      addToast({ message: t('pages.share.overwriteFailure'), role: 'alert' });
     }
   };
 

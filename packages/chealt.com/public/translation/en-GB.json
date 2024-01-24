@@ -45,7 +45,13 @@
       },
       "googleDrive": "Google Drive",
       "uploadToGoogleDrive": "",
-      "overwriteFromGoogleDrive": ""
+      "overwriteFromGoogleDrive": "",
+      "uploadSuccess": "",
+      "uploadFailure": "",
+      "overwriteSuccess": "",
+      "overwriteFailure": "",
+      "downloadSuccess": "",
+      "downloadFailure": ""
     },
     "personalDetails": {
       "nav": "personal details",

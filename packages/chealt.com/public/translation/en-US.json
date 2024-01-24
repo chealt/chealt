@@ -47,7 +47,13 @@
       "title": "share",
       "googleDrive": "Google Drive",
       "uploadToGoogleDrive": "Upload to Google Drive",
-      "overwriteFromGoogleDrive": "Overwrite from Google Drive"
+      "overwriteFromGoogleDrive": "Overwrite from Google Drive",
+      "downloadSuccess": "Download successful",
+      "downloadFailure": "Download failed",
+      "uploadSuccess": "Upload successful",
+      "uploadFailure": "Upload failed",
+      "overwriteSuccess": "Overwrite successful",
+      "overwriteFailure": "Overwrite failed"
     },
     "personalDetails": {
       "nav": "personal details",
