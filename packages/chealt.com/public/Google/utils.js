@@ -67,7 +67,6 @@ const fileName = 'chealt.json';
 const createMultipartBody = ({ data, fileId }) => {
   // https://developers.google.com/drive/v3/web/multipart-upload defines the structure
   const metaData = {
-    id: fileId,
     name: fileName,
     description: 'Chealt App backup data',
     mimeType: 'application/json',
@@ -85,7 +84,7 @@ const createMultipartBody = ({ data, fileId }) => {
 };
 
 const uploadDriveData = async ({ accessToken, data, fileId }) =>
-  fetch(`${driveUploadAPIUrl}/files?uploadType=multipart`, {
+  fetch(`${driveUploadAPIUrl}/files${fileId ? `/${fileId}` : ''}?uploadType=multipart`, {
     headers: {
       Authorization: `Bearer ${accessToken}`,
       'Content-Type': `multipart/related; boundary=${boundaryString}`,
