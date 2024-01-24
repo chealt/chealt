@@ -99,12 +99,18 @@ const getFile = ({ accessToken, fileId }) => {
   const params = `q=${encodeURIComponent(`name = '${fileName}' and 'appDataFolder' in parents`)}&spaces=appDataFolder`;
 
   return fetch(`${driveAPIUrl}/files${fileId ? `/${fileId}` : `?${params}`}`, {
-    method: 'GET',
     headers: {
       Authorization: `Bearer ${accessToken}`
     }
   });
 };
+
+const downloadFile = ({ accessToken, fileId }) =>
+  fetch(`${driveAPIUrl}/files/${fileId}?alt=media`, {
+    headers: {
+      Authorization: `Bearer ${accessToken}`
+    }
+  });
 
 const hasScopeAccess = (scopeToCheck, tokens) =>
   tokens?.scope.some((scope) => scope === `${scopeUrl}/${scopeToCheck}`);
@@ -119,5 +125,6 @@ export {
   allScopesAllowed,
   uploadDriveData,
   hasScopeAccess,
-  getFile
+  getFile,
+  downloadFile
 };

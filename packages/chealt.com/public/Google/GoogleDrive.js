@@ -2,12 +2,21 @@ import { useState, useEffect, useContext } from 'preact/hooks';
 import { useTranslation } from 'preact-i18next';
 
 import GoogleAuthButton from './GoogleAuthButton';
-import { clearTokens, getFile, hasScopeAccess, retrieveTokens, uploadDriveData } from './utils';
+import {
+  clearTokens,
+  downloadFile,
+  getFile,
+  hasScopeAccess,
+  retrieveTokens,
+  uploadDriveData
+} from './utils';
 import { AppState } from '../App/state';
 import Button from '../Form/Button';
 import { useObjectStore } from '../IndexedDB/hooks';
 import LoadingIndicator from '../LoadingIndicator/LoadingIndicator';
 import { serializeAllData } from '../Share/utils';
+
+import * as styles from './GoogleDrive.module.css';
 
 const driveGoogleAuthScope = 'drive.appdata';
 
@@ -44,14 +53,19 @@ const GoogleDrive = () => {
           const data = await response.json();
           const file = fileId ? data : data.files[0];
 
-          console.log(file);
-          // setDriveData(await response.json());
+          const downloadResponse = await downloadFile({
+            accessToken: tokens.accessToken,
+            fileId: file.id
+          });
+          const fileData = await downloadResponse.json();
+
+          setDriveData(fileData);
         } catch {
           setDriveError('fail');
         }
       })();
     }
-  }, [tokens, driveData]);
+  }, [tokens, driveData, fileId]);
 
   const uploadToGoogleDrive = async () => {
     try {
@@ -79,17 +93,28 @@ const GoogleDrive = () => {
     }
   };
 
+  const overwriteWithGoogleDrive = () => {};
+
   if (isLoading) {
     return <LoadingIndicator />;
   }
 
   return (
-    <>
+    <div class={styles.container}>
       {hasDriveAccess && (
-        <Button onClick={uploadToGoogleDrive}>{t('pages.share.uploadToGoogleDrive')}</Button>
+        <>
+          <Button onClick={uploadToGoogleDrive} wide>
+            {t('pages.share.uploadToGoogleDrive')}
+          </Button>
+          {driveData && (
+            <Button onClick={overwriteWithGoogleDrive} wide>
+              {t('pages.share.overwriteFromGoogleDrive')}
+            </Button>
+          )}
+        </>
       )}
       {!hasDriveAccess && <GoogleAuthButton scopes={['drive.appdata']} />}
-    </>
+    </div>
   );
 };
 

@@ -149,42 +149,45 @@ const Share = () => {
       {isLoading ? (
         <LoadingIndicator />
       ) : (
-        <Controls>
-          <Input
-            type="checkbox"
-            name="encryptData"
-            checked={encryptData}
-            onChange={(event) => {
-              setEncryptData(event.target.checked);
-              saveSettings({
-                key: 'encryptData',
-                value: { profileId: selectedProfileId.value, encryptData: event.target.checked }
-              });
-            }}
-          >
-            {t('common.encryptData')}
-          </Input>
-          <Button disabled={!encryptData} onClick={() => setIsPasswordModalOpen(true)}>
-            {t('common.setPassword')}
-          </Button>
-          <Button
-            emphasized
-            onClick={uploadContent}
-            disabled={loadingDownloadUrl || (encryptData && !password)}
-          >
-            {t('common.share')}
-          </Button>
-          <Button onClick={() => setIsModalOpen(true)}>{t('common.scanQRCode')}</Button>
-          <Button
-            href={downloadAllUrl({ data: items })}
-            download="chealt.json"
-            target="_blank"
-            isLink
-          >
-            {t('pages.share.download')}
-          </Button>
+        <>
+          <Controls>
+            <Input
+              type="checkbox"
+              name="encryptData"
+              checked={encryptData}
+              onChange={(event) => {
+                setEncryptData(event.target.checked);
+                saveSettings({
+                  key: 'encryptData',
+                  value: { profileId: selectedProfileId.value, encryptData: event.target.checked }
+                });
+              }}
+            >
+              {t('common.encryptData')}
+            </Input>
+            <Button disabled={!encryptData} onClick={() => setIsPasswordModalOpen(true)}>
+              {t('common.setPassword')}
+            </Button>
+            <Button
+              emphasized
+              onClick={uploadContent}
+              disabled={loadingDownloadUrl || (encryptData && !password)}
+            >
+              {t('common.share')}
+            </Button>
+            <Button onClick={() => setIsModalOpen(true)}>{t('common.scanQRCode')}</Button>
+            <Button
+              href={downloadAllUrl({ data: items })}
+              download="chealt.json"
+              target="_blank"
+              isLink
+            >
+              {t('pages.share.download')}
+            </Button>
+          </Controls>
+          <h3>{t('pages.share.googleDrive')}</h3>
           <GoogleDrive />
-        </Controls>
+        </>
       )}
       <Modal isOpen={isPasswordModalOpen} close={() => setIsPasswordModalOpen(false)}>
         <Form name="password" onSubmit={savePassword}>

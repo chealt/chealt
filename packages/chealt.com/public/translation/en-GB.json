@@ -44,7 +44,8 @@
         "after": ""
       },
       "googleDrive": "Google Drive",
-      "uploadToGoogleDrive": ""
+      "uploadToGoogleDrive": "",
+      "overwriteFromGoogleDrive": ""
     },
     "personalDetails": {
       "nav": "personal details",
