@@ -3,6 +3,7 @@ const clientId = import.meta.env.GOOGLE_CLIENT_ID;
 const redirectUri = import.meta.env.GOOGLE_REDIRECT_URI;
 const profileAPIUrl = import.meta.env.GOOGLE_PROFILE_API_URL;
 const driveAPIUrl = import.meta.env.GOOGLE_DRIVE_API_URL;
+const driveUploadAPIUrl = import.meta.env.GOOGLE_DRIVE_UPLOAD_API_URL;
 
 const scopeUrl = 'https://www.googleapis.com/auth';
 
@@ -61,15 +62,52 @@ const allScopesAllowed = (scopes) => {
   return !scopes.some((scope) => !tokens.scope.includes(`${scopeUrl}/${scope}`));
 };
 
-const uploadDriveData = async ({ accessToken, data }) =>
-  fetch(`${driveAPIUrl}/files?uploadType=media`, {
+const boundaryString = 'chealt';
+const fileName = 'chealt.json';
+const createMultipartBody = ({ data, fileId }) => {
+  // https://developers.google.com/drive/v3/web/multipart-upload defines the structure
+  const metaData = {
+    id: fileId,
+    name: fileName,
+    description: 'Chealt App backup data',
+    mimeType: 'application/json',
+    fields: 'id',
+    parents: !fileId ? ['appDataFolder'] : undefined
+  };
+
+  // request body
+  const multipartBody =
+    `\r\n--${boundaryString}\r\nContent-Type: application/json; charset=UTF-8\r\n\r\n${JSON.stringify(metaData)}\r\n--${boundaryString}\r\nContent-Type: application/json\r\n\r\n` +
+    `${JSON.stringify(data)}\r\n` +
+    `--${boundaryString}--`;
+
+  return multipartBody;
+};
+
+const uploadDriveData = async ({ accessToken, data, fileId }) =>
+  fetch(`${driveUploadAPIUrl}/files?uploadType=multipart`, {
     headers: {
       Authorization: `Bearer ${accessToken}`,
-      'Content-Type': 'application/json'
+      'Content-Type': `multipart/related; boundary=${boundaryString}`,
+      'Content-Length': JSON.stringify(data).length
     },
-    method: 'POST',
-    body: new Blob([JSON.stringify(data)])
+    method: fileId ? 'PATCH' : 'POST',
+    body: createMultipartBody({ data, fileId })
   });
+
+const getFile = ({ accessToken, fileId }) => {
+  const params = `q=${encodeURIComponent(`name = '${fileName}' and 'appDataFolder' in parents`)}&spaces=appDataFolder`;
+
+  return fetch(`${driveAPIUrl}/files${fileId ? `/${fileId}` : `?${params}`}`, {
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer ${accessToken}`
+    }
+  });
+};
+
+const hasScopeAccess = (scopeToCheck, tokens) =>
+  tokens?.scope.some((scope) => scope === `${scopeUrl}/${scopeToCheck}`);
 
 export {
   getAuthUrl,
@@ -79,5 +117,7 @@ export {
   parseUrlHash,
   getProfile,
   allScopesAllowed,
-  uploadDriveData
+  uploadDriveData,
+  hasScopeAccess,
+  getFile
 };
