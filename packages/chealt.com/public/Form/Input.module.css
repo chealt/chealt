@@ -168,12 +168,18 @@
 }
 
 .text {
-  text-transform: uppercase;
   font-weight: 600;
+}
+
+.input:not([type="checkbox"]) .text {
+  text-transform: uppercase;
 }
 
 .label.inline .text {
   order: 2;
+}
+
+.input:not([type="checkbox"]) .label.inline .text {
   text-transform: capitalize;
 }
 
