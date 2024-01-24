@@ -85,6 +85,10 @@ const GoogleDrive = () => {
         return;
       }
 
+      if (!response.ok) {
+        throw new Error('Upload failed');
+      }
+
       const { id } = await response.json();
 
       saveSettings({
