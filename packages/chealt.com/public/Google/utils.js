@@ -63,11 +63,11 @@ const allScopesAllowed = (scopes) => {
 };
 
 const boundaryString = 'chealt';
-const fileName = 'chealt.json';
+const metaFileName = 'chealt.json';
 const createMultipartBody = ({ data, fileId }) => {
   // https://developers.google.com/drive/v3/web/multipart-upload defines the structure
   const metaData = {
-    name: fileName,
+    name: metaFileName,
     description: 'Chealt App backup data',
     mimeType: 'application/json',
     fields: 'id',
@@ -83,7 +83,7 @@ const createMultipartBody = ({ data, fileId }) => {
   return multipartBody;
 };
 
-const uploadDriveData = async ({ accessToken, data, fileId }) =>
+const uploadDriveMetaData = async ({ accessToken, data, fileId }) =>
   fetch(`${driveUploadAPIUrl}/files${fileId ? `/${fileId}` : ''}?uploadType=multipart`, {
     headers: {
       Authorization: `Bearer ${accessToken}`,
@@ -94,8 +94,8 @@ const uploadDriveData = async ({ accessToken, data, fileId }) =>
     body: createMultipartBody({ data, fileId })
   });
 
-const getFile = ({ accessToken, fileId }) => {
-  const params = `q=${encodeURIComponent(`name = '${fileName}' and 'appDataFolder' in parents`)}&spaces=appDataFolder`;
+const getFile = ({ accessToken, fileId, fileName }) => {
+  const params = `q=${encodeURIComponent(`name = '${fileName || metaFileName}' and 'appDataFolder' in parents`)}&spaces=appDataFolder`;
 
   return fetch(`${driveAPIUrl}/files${fileId ? `/${fileId}` : `?${params}`}`, {
     headers: {
@@ -122,7 +122,7 @@ export {
   parseUrlHash,
   getProfile,
   allScopesAllowed,
-  uploadDriveData,
+  uploadDriveMetaData,
   hasScopeAccess,
   getFile,
   downloadFile

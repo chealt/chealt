@@ -8,7 +8,7 @@ import {
   getFile,
   hasScopeAccess,
   retrieveTokens,
-  uploadDriveData
+  uploadDriveMetaData
 } from './utils';
 import { AppState } from '../App/state';
 import Button from '../Form/Button';
@@ -72,7 +72,7 @@ const GoogleDrive = () => {
 
   const uploadToGoogleDrive = async () => {
     try {
-      const response = await uploadDriveData({
+      const response = await uploadDriveMetaData({
         accessToken: tokens.accessToken,
         data: serializeAllData(allData),
         fileId
