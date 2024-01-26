@@ -44,7 +44,7 @@ const GoogleProfile = () => {
 
           if (response.status === 401) {
             clearTokens();
-            setProfileError(response.text);
+            setProfileError(await response.text());
 
             return;
           }
