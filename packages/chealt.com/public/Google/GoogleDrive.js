@@ -15,7 +15,7 @@ import Button from '../Form/Button';
 import { useObjectStore } from '../IndexedDB/hooks';
 import LoadingIndicator from '../LoadingIndicator/LoadingIndicator';
 import { sanitizeLoadedProfiles } from '../Profiles/utils';
-import { deserializeAllData, serializeAllData } from '../Share/utils';
+import { serializeAllData } from '../Share/utils';
 import { add as addToast } from '../Toast/Toast';
 
 import * as styles from './GoogleDrive.module.css';
@@ -104,12 +104,10 @@ const GoogleDrive = () => {
   };
 
   const overwriteWithGoogleDrive = async () => {
-    const data = deserializeAllData(driveData);
-
     try {
-      await sanitizeLoadedProfiles({ profiles, loadedProfiles: data.profiles, saveProfile });
+      await sanitizeLoadedProfiles({ profiles, loadedProfiles: driveData.profiles, saveProfile });
 
-      await save(data);
+      await save(driveData);
 
       addToast({ message: t('pages.share.overwriteSuccess') });
     } catch {
