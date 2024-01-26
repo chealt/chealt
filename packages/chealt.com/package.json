@@ -18,10 +18,10 @@
     "@chealt/browser-utils": "^0.0.6",
     "@chealt/playwright-utils": "workspace:*",
     "@preact/signals": "^1.2.2",
-    "@simplewebauthn/browser": "^9.0.0",
+    "@simplewebauthn/browser": "^9.0.1",
     "@wmrjs/service-worker": "^0.3.1",
     "classnames": "^2.5.1",
-    "i18next": "^23.7.18",
+    "i18next": "^23.7.19",
     "preact": "^10.19.3",
     "preact-i18next": "^11.8.5",
     "preact-iso": "^2.3.2",
@@ -31,7 +31,7 @@
     "workbox-recipes": "^7.0.0"
   },
   "devDependencies": {
-    "@axe-core/playwright": "^4.8.3",
+    "@axe-core/playwright": "^4.8.4",
     "@playwright/test": "^1.41.1",
     "concurrently": "^8.2.2",
     "i18next-scanner": "^4.4.0",
