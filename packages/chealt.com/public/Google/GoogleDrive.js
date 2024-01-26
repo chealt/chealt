@@ -80,7 +80,7 @@ const GoogleDrive = () => {
 
       if (response.status === 401) {
         clearTokens();
-        setDriveError(response.text);
+        setDriveError(await response.text());
 
         return;
       }
