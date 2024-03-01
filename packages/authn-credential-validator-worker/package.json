@@ -4,9 +4,9 @@
   "private": true,
   "main": "./src/index.js",
   "devDependencies": {
-    "wrangler": "^3.26.0"
+    "wrangler": "^3.28.2"
   },
   "dependencies": {
-    "@simplewebauthn/server": "^9.0.1"
+    "@simplewebauthn/server": "^9.0.2"
   }
 }
