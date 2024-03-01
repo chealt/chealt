@@ -8,14 +8,13 @@ import {
   getFile,
   hasScopeAccess,
   retrieveTokens,
-  uploadDriveMetaData
+  uploadDriveData
 } from './utils';
 import { AppState } from '../App/state';
 import Button from '../Form/Button';
 import { useObjectStore } from '../IndexedDB/hooks';
 import LoadingIndicator from '../LoadingIndicator/LoadingIndicator';
 import { sanitizeLoadedProfiles } from '../Profiles/utils';
-import { serializeAllData } from '../Share/utils';
 import { add as addToast } from '../Toast/Toast';
 
 import * as styles from './GoogleDrive.module.css';
@@ -36,6 +35,8 @@ const GoogleDrive = () => {
     ({ value: { profileId } }) => profileId === selectedProfileId.value
   );
   const fileId = savedSettings?.find(({ key }) => key === 'googleDrive')?.value.fileId;
+  const encryptData = savedSettings?.find(({ key }) => key === 'encryptData')?.value.encryptData;
+  const password = savedSettings?.find(({ key }) => key === 'password')?.value.password || '';
 
   const tokens = retrieveTokens();
   const hasDriveAccess = hasScopeAccess(driveGoogleAuthScope, tokens);
@@ -72,10 +73,12 @@ const GoogleDrive = () => {
 
   const uploadToGoogleDrive = async () => {
     try {
-      const response = await uploadDriveMetaData({
+      const response = await uploadDriveData({
         accessToken: tokens.accessToken,
-        data: serializeAllData(allData),
-        fileId
+        data: allData,
+        fileId,
+        encryptData,
+        password
       });
 
       if (response.status === 401) {
@@ -97,7 +100,9 @@ const GoogleDrive = () => {
       });
 
       addToast({ message: t('pages.share.uploadSuccess') });
-    } catch {
+    } catch (error) {
+      console.error(error);
+
       addToast({ message: t('pages.share.uploadFailure'), role: 'alert' });
       setDriveError('upload fail');
     }
