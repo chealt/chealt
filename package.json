@@ -3,11 +3,12 @@
   "name": "chealt",
   "version": "0.0.0",
   "engines": {
-    "node": ">=18"
+    "node": ">=20"
   },
   "scripts": {
     "check": "yarn lint:eslint && yarn lint:styles",
     "start": "yarn workspace @chealt/chealt.com start",
+    "build": "yarn workspace @chealt/chealt.com build",
     "lint:scripts": "eslint .",
     "lint:styles": "stylelint '**/*.css' --cache",
     "postinstall": "yarn constraints",
