@@ -4,16 +4,16 @@
   "license": "MIT",
   "main": "src/index.js",
   "peerDependencies": {
-    "@babel/eslint-parser": "^7.23.10",
-    "@babel/preset-react": "^7.23.3",
-    "eslint": "^8.56.0",
-    "eslint-config-preact": "^1.3.0",
+    "@babel/eslint-parser": "^7.24.7",
+    "@babel/preset-react": "^7.24.7",
+    "eslint": "^8.57.0",
+    "eslint-config-preact": "^1.4.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-i18next": "^6.0.3",
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-prettier": "^5.1.3",
-    "eslint-plugin-react": "^7.33.2",
-    "prettier": "^3.2.5"
+    "eslint-plugin-react": "^7.34.2",
+    "prettier": "^3.3.1"
   },
   "publishConfig": {
     "access": "public",
@@ -21,7 +21,7 @@
   },
   "sideEffects": false,
   "dependencies": {
-    "eslint-plugin-jest": "^27.8.0",
-    "eslint-plugin-playwright": "^1.0.1"
+    "eslint-plugin-jest": "^28.6.0",
+    "eslint-plugin-playwright": "^1.6.2"
   }
 }

@@ -115,7 +115,14 @@ const FamilyHistory = () => {
         <EmptyState>
           <History />
           <p>{t('pages.familyHistory.emptyFamilyHistory')}</p>
-          <Button emphasized onClick={() => route('/family-history/new')}>
+          <Button
+            emphasized
+            onClick={() => {
+              setIsModalOpen(true);
+
+              route('/family-history/new');
+            }}
+          >
             {t('common.startAdding')}
           </Button>
         </EmptyState>
