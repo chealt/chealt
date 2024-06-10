@@ -2332,7 +2332,7 @@ __metadata:
   peerDependencies:
     "@babel/eslint-parser": ^7.24.7
     "@babel/preset-react": ^7.24.7
-    eslint: ^8.56.0
+    eslint: ^8.57.0
     eslint-config-preact: ^1.4.0
     eslint-config-prettier: ^9.1.0
     eslint-plugin-i18next: ^6.0.3
@@ -5116,7 +5116,7 @@ __metadata:
     babel-jest: "npm:^29.7.0"
     babel-plugin-transform-require-extensions: "npm:^2.0.1"
     browserslist: "npm:^4.23.1"
-    eslint: "npm:^8.56.0"
+    eslint: "npm:^8.57.0"
     eslint-config-preact: "npm:^1.4.0"
     eslint-config-prettier: "npm:^9.1.0"
     eslint-plugin-compat: "npm:^5.0.0"
@@ -6339,7 +6339,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^8.56.0":
+"eslint@npm:^8.57.0":
   version: 8.57.0
   resolution: "eslint@npm:8.57.0"
   dependencies:
