@@ -64,5 +64,5 @@
   "dependencies": {
     "preact-render-to-string": "^6.3.1"
   },
-  "packageManager": "yarn@4.0.2"
+  "packageManager": "yarn@4.2.2"
 }
