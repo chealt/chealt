@@ -6,7 +6,7 @@
     "node": ">=20"
   },
   "scripts": {
-    "check": "yarn lint:eslint && yarn lint:styles",
+    "check": "yarn lint:scripts && yarn lint:styles",
     "start": "yarn workspace @chealt/chealt.com start",
     "build": "yarn workspace @chealt/chealt.com build",
     "lint:scripts": "eslint .",
@@ -41,7 +41,7 @@
     "babel-jest": "^29.7.0",
     "babel-plugin-transform-require-extensions": "^2.0.1",
     "browserslist": "^4.23.1",
-    "eslint": "^9.4.0",
+    "eslint": "^8.56.0",
     "eslint-config-preact": "^1.4.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-compat": "^5.0.0",
