@@ -3,11 +3,11 @@ const findDetails = (items, profileId) =>
 
 const byProfileId =
   (selectedProfileId) =>
-  ({ value: { profileId } }) =>
-    profileId === selectedProfileId;
+    ({ value: { profileId } }) =>
+      profileId === selectedProfileId;
 const withCheckUpTag =
   (checkUpTags) =>
-  ({ value: { tags } }) =>
-    tags && checkUpTags.some((tag) => tags.includes(tag));
+    ({ value: { tags } }) =>
+      tags && checkUpTags.some((tag) => tags.includes(tag));
 
 export { findDetails, byProfileId, withCheckUpTag };
