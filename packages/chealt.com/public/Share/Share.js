@@ -2,7 +2,7 @@ import { useEffect, useState, useRef, useContext } from 'preact/hooks';
 import { Trans, useTranslation } from 'preact-i18next';
 import QrScanner from 'qr-scanner';
 
-import { download, downloadAllUrl, upload } from './utils';
+import { download, downloadAllUrl, triggerDocumentsDownload, upload } from './utils';
 import { AppState } from '../App/state';
 import Button from '../Form/Button';
 import Controls from '../Form/Controls';
@@ -179,6 +179,7 @@ const Share = () => {
             download="chealt.json"
             target="_blank"
             isLink
+            onClick={() => triggerDocumentsDownload({ documents: items.documents })}
           >
             {t('pages.share.download')}
           </Button>
