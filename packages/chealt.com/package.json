@@ -33,6 +33,7 @@
   "devDependencies": {
     "@axe-core/playwright": "^4.9.1",
     "@playwright/test": "^1.44.1",
+    "@preact/preset-vite": "^2.8.2",
     "concurrently": "^8.2.2",
     "i18next-scanner": "^4.4.0",
     "rollup-plugin-html-minifier": "^2.0.0",
