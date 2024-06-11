@@ -25,7 +25,9 @@ const config = {
     },
     {
       files: ['packages/chealt.com/vite.config.js'],
-      'import/no-extraneous-dependencies': ['error', { devDependencies: true }]
+      rules: {
+        'import/no-extraneous-dependencies': ['error', { devDependencies: true }]
+      }
     },
     {
       files: ['**/*.ui-spec.js'],
