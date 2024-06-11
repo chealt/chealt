@@ -1,4 +1,5 @@
 import { decrypt, encrypt } from '../Crypto/utils';
+import { isPDF } from '../Documents/utils';
 import { objectStoreNames } from '../IndexedDB/IndexedDB';
 
 const uploadHost = import.meta.env.UPLOAD_HOST;
@@ -103,8 +104,38 @@ const download = async (url, { encryptData, password } = {}) => {
   };
 };
 
+const triggerDocumentDownload = ({ blob, filename }) => {
+  const url = isPDF(filename)
+    ? URL.createObjectURL(new Blob([blob]), { type: 'application/pdf' })
+    : URL.createObjectURL(new Blob([blob]));
+  const a = document.createElement('a');
+
+  a.href = url;
+  a.download = filename;
+
+  // Remove potential memory leaks
+  const remove = () => {
+    setTimeout(() => {
+      URL.revokeObjectURL(url);
+      removeEventListener('click', remove);
+    }, 200);
+  };
+
+  a.addEventListener('click', remove, false);
+
+  // trigger download
+  a.click();
+};
+
+const triggerDocumentsDownload = ({ documents }) => {
+  for (const {
+    value: { blob, name }
+  } of documents) {
+    triggerDocumentDownload({ blob, filename: name });
+  }
+};
+
 const downloadAllUrl = ({ data }) => {
-  const decoder = new TextDecoder();
   const serializedData = {};
 
   for (const name of objectStoreNames) {
@@ -119,8 +150,7 @@ const downloadAllUrl = ({ data }) => {
             key,
             value: {
               ...value,
-              blob: undefined,
-              serializedBlob: decoder.decode(new Uint8Array(value.blob))
+              blob: undefined
             }
           });
         } else {
@@ -135,4 +165,4 @@ const downloadAllUrl = ({ data }) => {
   });
 };
 
-export { upload, download, downloadAllUrl };
+export { upload, download, downloadAllUrl, triggerDocumentsDownload };
