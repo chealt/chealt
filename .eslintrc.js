@@ -24,6 +24,10 @@ const config = {
       ...preactConfig
     },
     {
+      files: ['packages/chealt.com/vite.config.js'],
+      'import/no-extraneous-dependencies': ['error', { devDependencies: true }]
+    },
+    {
       files: ['**/*.ui-spec.js'],
       ...playwrightConfig
     }

@@ -6,12 +6,12 @@
   "scripts": {
     "i18n:extract": "i18next-scanner --config ./i18n-next.config.cjs",
     "start": "concurrently -n frontend,upload -c red,cyan 'yarn start:frontend' 'yarn start:backend:upload'",
-    "start:frontend": "wmr",
+    "start:frontend": "vite",
     "start:backend:authn-challenge": "yarn workspace @chealt/authn-challenge-worker run wrangler dev --env dev",
     "start:backend:credential-validator": "yarn workspace @chealt/authn-credential-validator-worker run wrangler dev --env dev",
     "start:backend:upload": "yarn workspace @chealt/upload-worker run wrangler dev --env dev",
-    "build": "wmr build",
-    "serve": "wmr serve",
+    "build": "vite build",
+    "serve": "vite preview",
     "check:bundlesize": "yarn dlx bundlesize"
   },
   "dependencies": {
@@ -19,7 +19,6 @@
     "@chealt/playwright-utils": "workspace:*",
     "@preact/signals": "^1.2.3",
     "@simplewebauthn/browser": "^10.0.0",
-    "@wmrjs/service-worker": "^0.3.1",
     "classnames": "^2.5.1",
     "i18next": "^23.11.5",
     "preact": "^10.22.0",
@@ -32,11 +31,13 @@
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.9.1",
+    "@babel/core": "^7.24.7",
     "@playwright/test": "^1.44.1",
     "@preact/preset-vite": "^2.8.2",
+    "@types/babel__core": "^7.20.5",
     "concurrently": "^8.2.2",
     "i18next-scanner": "^4.4.0",
-    "rollup-plugin-html-minifier": "^2.0.0",
-    "wmr": "^3.8.0"
+    "playwright-core": "^1.44.1",
+    "vite": "^5.2.13"
   }
 }
