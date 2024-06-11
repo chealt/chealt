@@ -5287,6 +5287,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/__virtual__/@preact-preset-vite-virtual-6169fc599f/0/cache/@preact-preset-vite-npm-2.8.2-2123038b83-a54b14afbd.zip/node_modules/@preact/preset-vite/",\
         "packageDependencies": [\
           ["@preact/preset-vite", "virtual:924e42be4cacc59c755e1b8fbac336122ef9aaf191abce8473ec3b80ecf6a8b4be6143cfffd63c5ec74dd262e609e04e96e0036fd7b9d5557baff791c42ecf89#npm:2.8.2"],\
+          ["@babel/code-frame", "npm:7.24.7"],\
           ["@babel/core", "npm:7.24.7"],\
           ["@babel/plugin-transform-react-jsx", "virtual:6169fc599f2dd670b4a4b101f06b2f07167eb455d602c966cd8b18c31c50331add60202bde64b0bff007e719fb855d387cd861d7a35d4820be2c2e815b0858f1#npm:7.24.7"],\
           ["@babel/plugin-transform-react-jsx-development", "virtual:6169fc599f2dd670b4a4b101f06b2f07167eb455d602c966cd8b18c31c50331add60202bde64b0bff007e719fb855d387cd861d7a35d4820be2c2e815b0858f1#npm:7.24.7"],\
