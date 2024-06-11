@@ -6,7 +6,7 @@ import App from './App/App';
 
 // SSR
 // if (typeof navigator !== 'undefined') {
-  // navigator.serviceWorker.register(swURL);
+// navigator.serviceWorker.register(swURL);
 // }
 
 hydrate(<App />);
