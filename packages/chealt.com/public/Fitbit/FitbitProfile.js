@@ -25,7 +25,12 @@ const FitbitProfile = () => {
           const response = await getProfile(tokens);
           const responseJSON = await response.json();
 
-          setUser(responseJSON.user);
+          if (response.ok) {
+            setUser(responseJSON.user);
+          } else if (responseJSON?.errors?.some((error) => error.errorType === 'expired_token')) {
+            clearTokens();
+            setUser(undefined);
+          }
         } catch {
           setProfileError('fail');
         }
