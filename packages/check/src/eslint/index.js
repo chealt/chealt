@@ -1,6 +1,5 @@
 const importRules = require('./rules/import');
 const javascriptRules = require('./rules/javascript');
-const prettierRules = require('./rules/prettier');
 
 const preactConfig = {
   extends: ['preact', 'plugin:i18next/recommended'],
@@ -33,27 +32,24 @@ const baseConfig = {
   parser: '@babel/eslint-parser',
   rules: {
     ...javascriptRules,
-    ...importRules,
-    ...prettierRules
+    ...importRules
   },
   parserOptions: {
     ecmaVersion: 8,
     sourceType: 'module'
   },
-  extends: ['prettier'],
-  plugins: ['import', 'prettier', 'i18next']
+  plugins: ['import', 'i18next']
 };
 
 const playwrightConfig = {
   extends: ['plugin:playwright/playwright-test'],
   rules: {
     ...javascriptRules,
-    ...prettierRules,
     ...importRules,
     'jest/no-done-callback': 'off',
     'playwright/require-top-level-describe': ['error']
   },
-  plugins: ['playwright', 'import', 'prettier']
+  plugins: ['playwright', 'import']
 };
 
 module.exports = {
