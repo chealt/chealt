@@ -25,7 +25,7 @@
     "preact": "^10.22.0",
     "preact-i18next": "^11.8.5",
     "preact-iso": "^2.6.3",
-    "preact-render-to-string": "^6.5.4",
+    "preact-render-to-string": "^6.5.5",
     "qr-code-styling": "^1.6.0-rc.1",
     "qr-scanner": "1.4.2",
     "workbox-recipes": "^7.1.0"
@@ -34,7 +34,7 @@
     "@axe-core/playwright": "^4.9.1",
     "@playwright/test": "^1.44.1",
     "concurrently": "^8.2.2",
-    "i18next-scanner": "^4.4.0",
+    "i18next-scanner": "^4.5.0",
     "rollup-plugin-html-minifier": "^2.0.0",
     "wmr": "^3.8.0"
   }
