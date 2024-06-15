@@ -26,7 +26,7 @@
   },
   "homepage": "https://github.com/chealt/chealt#chealt",
   "devDependencies": {
-    "@aws-sdk/signature-v4-crt": "^3.587.0",
+    "@aws-sdk/signature-v4-crt": "^3.598.0",
     "@babel/cli": "^7.24.7",
     "@babel/core": "^7.24.7",
     "@babel/eslint-parser": "^7.24.7",
@@ -60,7 +60,7 @@
     "yarn-upgrade-all": "^0.7.2"
   },
   "dependencies": {
-    "preact-render-to-string": "^6.5.4"
+    "preact-render-to-string": "^6.5.5"
   },
   "packageManager": "yarn@4.3.0"
 }
