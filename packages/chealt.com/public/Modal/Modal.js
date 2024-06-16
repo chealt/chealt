@@ -11,7 +11,7 @@ const Modal = ({ isOpen, close, isCentered, children }) => {
       // focus the first input
       const firstForm = document.forms[0];
       const firstInput =
-        firstForm && firstForm[0].type === 'fieldset' ? firstForm[1] : firstForm[0];
+        firstForm && (firstForm[0].type === 'fieldset' ? firstForm[1] : firstForm[0]);
 
       if (firstInput) {
         firstInput.focus();
