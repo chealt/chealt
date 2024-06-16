@@ -48,6 +48,7 @@ const App = () => {
                   >
                     <Route path="/" component={Home} />
                     <Route path="/documents" component={Documents} />
+                    <Route path="/documents/edit/:documentKey" component={Documents} />
                     <Route
                       path="/documents/view/:encodedDocumentKey/:refererPage"
                       component={View}
