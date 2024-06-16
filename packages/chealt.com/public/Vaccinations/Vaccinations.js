@@ -117,6 +117,8 @@ const Vaccinations = () => {
           <Button
             emphasized
             onClick={() => {
+              setIsModalOpen(true);
+
               route('/vaccinations/new');
             }}
           >
@@ -127,7 +129,11 @@ const Vaccinations = () => {
         <EmptyState>
           <Vaccine />
           <p>{t('pages.vaccinations.emptyVaccinations')}</p>
-          <Button emphasized onClick={() => route('/vaccinations/new')}>
+          <Button emphasized onClick={() => {
+            setIsModalOpen(true);
+
+            route('/vaccinations/new');
+          }}>
             {t('common.startAdding')}
           </Button>
         </EmptyState>
