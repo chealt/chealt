@@ -1,6 +1,7 @@
 import { useTranslation } from 'preact-i18next';
 
 import DownloadButton from './DownloadButton';
+import EditButton from './EditButton';
 import ViewButton from './ViewButton';
 import checkUpTags from '../CheckUps/tags.json';
 import Button from '../Form/Button';
@@ -34,6 +35,7 @@ const Item = ({
           {!isTagEditorOpen && <Tag value={tagsValue} />}
         </div>
         <Button onClick={openTagEditor}>{t('common.tags')}</Button>
+        <EditButton documentKey={documentKey}>{t('common.edit')}</EditButton>
         <ViewButton documentKey={documentKey} refererPage="documents" />
         <DownloadButton documentKey={documentKey} />
       </div>
