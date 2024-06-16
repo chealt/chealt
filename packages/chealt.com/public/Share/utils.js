@@ -56,7 +56,7 @@ const upload = async (
       await fetch(url, {
         method: 'PUT',
         body,
-        headers: { 'x-hash': rest.hash }
+        headers: { 'x-hash': restProfilePicture.hash }
       });
 
       // Add meta data of the file to the details upload
