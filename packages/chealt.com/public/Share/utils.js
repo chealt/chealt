@@ -48,7 +48,7 @@ const upload = async (
   if (profiles) {
     for (const {
       key,
-      value: { blob, ...rest }
+      value: { profilePicture: { blob, ...restProfilePicture }, ...rest }
     } of profiles) {
       const body = encryptData ? await encrypt({ secretData: blob, password, isFile: true }) : blob;
 
@@ -62,7 +62,10 @@ const upload = async (
       // Add meta data of the file to the details upload
       profilesMetaOnly.push({
         key,
-        value: rest
+        value: {
+          ...rest,
+          profilePicture: restProfilePicture
+        }
       });
     }
   }
@@ -119,8 +122,8 @@ const download = async (url, { encryptData, password } = {}) => {
   );
 
   const profiles = await Promise.all(
-    profilesMetaOnly.map(async ({ key, value: { savedTimestamp, ...rest } }) => {
-      const fileContent = await fetch(`${getDownloadUrl()}/${rest.hash}`);
+    profilesMetaOnly.map(async ({ key, value: { savedTimestamp, profilePicture, ...rest } }) => {
+      const fileContent = await fetch(`${getDownloadUrl()}/${profilePicture.hash}`);
       const blob = encryptData
         ? await decrypt({ encryptedData: await fileContent.arrayBuffer(), password, isFile: true })
         : await fileContent.arrayBuffer();
@@ -130,7 +133,10 @@ const download = async (url, { encryptData, password } = {}) => {
         value: {
           // remove saved timestamp
           ...rest,
-          blob
+          profilePicture: {
+            blob,
+            ...profilePicture
+          }
         }
       };
     })
