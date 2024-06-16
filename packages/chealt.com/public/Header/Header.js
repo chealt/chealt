@@ -28,7 +28,7 @@ const Header = () => {
   return (
     <>
       <header class={styles.header}>
-        <Button ghost hideLabel label={t('common.menu')} onClick={() => setIsMenuOpen(true)}>
+        <Button hideLabel label={t('common.menu')} onClick={() => setIsMenuOpen(true)}>
           <Menu />
         </Button>
         <div class={styles.profileContainer}>
