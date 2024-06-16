@@ -70,8 +70,8 @@ const ProfilePictureMenu = () => {
       >
         <ProfilePicture
           highlighted
-          blob={selectedProfile.profilePicture?.blob}
-          name={selectedPersonalDetails?.firstName || selectedProfile.name}
+          blob={selectedProfile?.profilePicture?.blob}
+          name={selectedPersonalDetails?.firstName || selectedProfile?.name}
         />
       </Button>
       <Dialog
