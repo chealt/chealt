@@ -12,6 +12,7 @@ if (!uploadHost) {
 const getUploadUrl = () => uploadHost;
 const getDownloadUrl = () => downloadHost;
 
+/* eslint-disable-next-line complexity */
 const upload = async (
   { bloodType, documents, personalDetails, profiles, vaccinations, familyHistory },
   { encryptData, password } = {}
@@ -20,6 +21,7 @@ const upload = async (
 
   // strip out the blob, we will upload it separately
   const documentsMetaOnly = documents ? [] : undefined;
+  const profilesMetaOnly = profiles ? [] : undefined;
 
   if (documents) {
     for (const {
@@ -43,10 +45,32 @@ const upload = async (
     }
   }
 
+  if (profiles) {
+    for (const {
+      key,
+      value: { blob, ...rest }
+    } of profiles) {
+      const body = encryptData ? await encrypt({ secretData: blob, password, isFile: true }) : blob;
+
+      // Upload file first
+      await fetch(url, {
+        method: 'PUT',
+        body,
+        headers: { 'x-hash': rest.hash }
+      });
+
+      // Add meta data of the file to the details upload
+      profilesMetaOnly.push({
+        key,
+        value: rest
+      });
+    }
+  }
+
   const data = JSON.stringify({
     bloodType,
     personalDetails,
-    profiles,
+    profiles: profilesMetaOnly,
     documents: documentsMetaOnly,
     familyHistory,
     vaccinations
@@ -71,13 +95,31 @@ const download = async (url, { encryptData, password } = {}) => {
     bloodType,
     documents: documentsMetaOnly,
     personalDetails,
-    profiles,
+    profiles: profilesMetaOnly,
     familyHistory,
     vaccinations
   } = encryptData ? JSON.parse(await decrypt({ encryptedData: data, password })) : data;
 
   const documents = await Promise.all(
     documentsMetaOnly.map(async ({ key, value: { savedTimestamp, ...rest } }) => {
+      const fileContent = await fetch(`${getDownloadUrl()}/${rest.hash}`);
+      const blob = encryptData
+        ? await decrypt({ encryptedData: await fileContent.arrayBuffer(), password, isFile: true })
+        : await fileContent.arrayBuffer();
+
+      return {
+        key,
+        value: {
+          // remove saved timestamp
+          ...rest,
+          blob
+        }
+      };
+    })
+  );
+
+  const profiles = await Promise.all(
+    profilesMetaOnly.map(async ({ key, value: { savedTimestamp, ...rest } }) => {
       const fileContent = await fetch(`${getDownloadUrl()}/${rest.hash}`);
       const blob = encryptData
         ? await decrypt({ encryptedData: await fileContent.arrayBuffer(), password, isFile: true })
