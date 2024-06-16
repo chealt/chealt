@@ -12,6 +12,7 @@ if (!uploadHost) {
 const getUploadUrl = () => uploadHost;
 const getDownloadUrl = () => downloadHost;
 
+/* eslint-disable-next-line complexity */
 const upload = async (
   { bloodType, documents, personalDetails, profiles, vaccinations, familyHistory },
   { encryptData, password } = {}
