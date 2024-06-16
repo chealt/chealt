@@ -30,7 +30,10 @@
       "noMatches": "",
       "addTag": "",
       "openInNewTab": "",
-      "confirmDelete": ""
+      "confirmDelete": "",
+      "saveSuccess": "",
+      "saveFailure": "",
+      "name": ""
     },
     "share": {
       "nav": "share",

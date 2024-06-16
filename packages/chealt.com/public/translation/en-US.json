@@ -24,13 +24,16 @@
     "documents": {
       "nav": "documents",
       "title": "documents",
+      "name": "name",
       "upload": "Upload documents",
       "empty": "Your uploaded documents will be shown here.",
       "startUploading": "Start uploading",
       "noMatches": "No matching documents. Clear filters or try a different term.",
       "addTag": "New tag",
       "openInNewTab": "The document is opened in a new tab. If you cannot see it, it is unsupported or it might have been blocked by an ad blocker. Supported image extensions: JPG, JPEG, BMP, PNG, other extensions: PDF.",
-      "confirmDelete": "Do you really want to delete the document(s)?"
+      "confirmDelete": "Do you really want to delete the document(s)?",
+      "saveSuccess": "Saved document details.",
+      "saveFailure": "Could not save document details."
     },
     "share": {
       "nav": "share",
