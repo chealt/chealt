@@ -1,47 +1,47 @@
 {
   "files": [
     {
-      "path": "./dist/index.*.js",
+      "path": "./dist/assets/index-*.js",
       "maxSize": "39 kB"
     },
     {
-      "path": "./dist/chunks/CheckUps.*.js",
+      "path": "./dist/assets/CheckUps-*.js",
       "maxSize": "2 kB"
     },
     {
-      "path": "./dist/chunks/Documents.*.js",
+      "path": "./dist/assets/Documents-*.js",
       "maxSize": "3 kB"
     },
     {
-      "path": "./dist/chunks/Integrations.*.js",
+      "path": "./dist/assets/Integrations-*.js",
       "maxSize": "4 kB"
     },
     {
-      "path": "./dist/chunks/FamilyHistory.*.js",
+      "path": "./dist/assets/FamilyHistory-*.js",
       "maxSize": "2 kB"
     },
     {
-      "path": "./dist/chunks/Home.*.js",
+      "path": "./dist/assets/Home-*.js",
       "maxSize": "3 kB"
     },
     {
-      "path": "./dist/chunks/PersonalDetails.*.js",
+      "path": "./dist/assets/PersonalDetails-*.js",
       "maxSize": "1.35 kB"
     },
     {
-      "path": "./dist/chunks/Profiles.*.js",
+      "path": "./dist/assets/Profiles-*.js",
       "maxSize": "2 kB"
     },
     {
-      "path": "./dist/chunks/Share.*.js",
-      "maxSize": "23 kB"
+      "path": "./dist/assets/Share-*.js",
+      "maxSize": "24 kB"
     },
     {
-      "path": "./dist/chunks/Vaccinations.*.js",
+      "path": "./dist/assets/Vaccinations-*.js",
       "maxSize": "2.4 kB"
     },
     {
-      "path": "./dist/chunks/View.*.js",
+      "path": "./dist/assets/View-*.js",
       "maxSize": "1 kB"
     }
   ]

@@ -1,7 +1,7 @@
 const { defineConfig, devices } = require('@playwright/test');
 
 module.exports = defineConfig({
-  testDir: './packages/chealt.com/public',
+  testDir: './packages/chealt.com/src',
   testMatch: /.*\.ui-spec\.js/u,
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
