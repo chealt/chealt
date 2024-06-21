@@ -70,7 +70,10 @@ const Share = () => {
       setIsQRCodeModalOpen(true);
       setLoadingDownloadUrl(false);
       addToast({ message: 'Upload successful' });
-    } catch {
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.error(error);
+
       setLoadingDownloadUrl(false);
       addToast({ message: 'Upload failed', role: 'alert' });
     }

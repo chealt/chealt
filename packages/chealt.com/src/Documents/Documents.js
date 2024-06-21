@@ -146,11 +146,13 @@ const Documents = () => {
                       setSelectedItems(toggleItem(doc.key, selectedItems));
                     }}
                     documentKey={doc.key}
+                    document={doc.value}
                     tags={doc.value.tags}
                     openTagEditor={() => toggleTagEditor(doc.key)}
                     isTagEditorOpen={openTagsDocumentKey === doc.key}
                     addTag={addTag(doc.key)}
                     deleteTag={deleteTag(doc.key)}
+                    save={save}
                   >
                     {doc.value.name}
                   </Item>
