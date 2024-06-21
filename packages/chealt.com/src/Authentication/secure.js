@@ -5,8 +5,8 @@ import { AppState } from '../App/state';
 import { useObjectStore } from '../IndexedDB/hooks';
 import { findPersonalDetails } from '../PersonalDetails/utils';
 
-const authnChallengeHost = import.meta.env.AUTHN_CHALLENGE_HOST;
-const authnCredentialValidationHost = import.meta.env.AUTHN_CREDENTIAL_VALIDATION_HOST;
+const authnChallengeHost = import.meta.env.VITE_AUTHN_CHALLENGE_HOST;
+const authnCredentialValidationHost = import.meta.env.VITE_AUTHN_CREDENTIAL_VALIDATION_HOST;
 
 const getOptions = ({ name, id, challenge }) => ({
   challenge,

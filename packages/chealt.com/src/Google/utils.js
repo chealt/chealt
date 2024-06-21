@@ -1,7 +1,7 @@
-const authUrl = import.meta.env.GOOGLE_AUTH_URL;
-const clientId = import.meta.env.GOOGLE_CLIENT_ID;
-const redirectUri = import.meta.env.GOOGLE_REDIRECT_URI;
-const profileAPIUrl = import.meta.env.GOOGLE_PROFILE_API_URL;
+const authUrl = import.meta.env.VITE_GOOGLE_AUTH_URL;
+const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
+const redirectUri = import.meta.env.VITE_GOOGLE_REDIRECT_URI;
+const profileAPIUrl = import.meta.env.VITE_GOOGLE_PROFILE_API_URL;
 
 const getAuthUrl = () =>
   `${authUrl}?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=token&scope=https://www.googleapis.com/auth/fitness.location.read%20https://www.googleapis.com/auth/fitness.sleep.read%20https://www.googleapis.com/auth/userinfo.profile`;

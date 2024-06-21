@@ -2,8 +2,8 @@ import { decrypt, encrypt } from '../Crypto/utils';
 import { isPDF } from '../Documents/utils';
 import { objectStoreNames } from '../IndexedDB/IndexedDB';
 
-const uploadHost = import.meta.env.UPLOAD_HOST;
-const downloadHost = import.meta.env.UPLOAD_HOST;
+const uploadHost = import.meta.env.VITE_UPLOAD_HOST;
+const downloadHost = import.meta.env.VITE_UPLOAD_HOST;
 
 if (!uploadHost) {
   throw Error('Must define an upload host');
@@ -48,25 +48,37 @@ const upload = async (
   if (profiles) {
     for (const {
       key,
-      value: { profilePicture: { blob, ...restProfilePicture }, ...rest }
+      value: { profilePicture, ...rest }
     } of profiles) {
-      const body = encryptData ? await encrypt({ secretData: blob, password, isFile: true }) : blob;
+      if (profilePicture) {
+        const { blob, ...restProfilePicture } = profilePicture;
 
-      // Upload file first
-      await fetch(url, {
-        method: 'PUT',
-        body,
-        headers: { 'x-hash': restProfilePicture.hash }
-      });
+        const body = encryptData ? await encrypt({ secretData: blob, password, isFile: true }) : blob;
 
-      // Add meta data of the file to the details upload
-      profilesMetaOnly.push({
-        key,
-        value: {
-          ...rest,
-          profilePicture: restProfilePicture
-        }
-      });
+        // Upload file first
+        await fetch(url, {
+          method: 'PUT',
+          body,
+          headers: { 'x-hash': restProfilePicture.hash }
+        });
+
+        // Add meta data of the file to the details upload
+        profilesMetaOnly.push({
+          key,
+          value: {
+            ...rest,
+            profilePicture: restProfilePicture
+          }
+        });
+      } else {
+        profilesMetaOnly.push({
+          key,
+          value: {
+            ...rest,
+            profilePicture
+          }
+        })
+      }
     }
   }
 

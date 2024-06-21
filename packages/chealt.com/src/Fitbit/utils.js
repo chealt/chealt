@@ -1,8 +1,8 @@
-const authTokenUrl = import.meta.env.FITBIT_AUTH_TOKEN_URL;
-const authUrl = import.meta.env.FITBIT_AUTH_URL;
-const clientId = import.meta.env.FITBIT_CLIENT_ID;
-const redirectUri = import.meta.env.FITBIT_REDIRECT_URI;
-const apiUrl = import.meta.env.FITBIT_API_URL;
+const authTokenUrl = import.meta.env.VITE_FITBIT_AUTH_TOKEN_URL;
+const authUrl = import.meta.env.VITE_FITBIT_AUTH_URL;
+const clientId = import.meta.env.VITE_FITBIT_CLIENT_ID;
+const redirectUri = import.meta.env.VITE_FITBIT_REDIRECT_URI;
+const apiUrl = import.meta.env.VITE_FITBIT_API_URL;
 
 const getAuthUrl = (challenge) =>
   `${authUrl}?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=code&code_challenge=${challenge}&code_challenge_method=S256&scope=activity%20heartrate%20location%20nutrition%20oxygen_saturation%20profile%20respiratory_rate%20settings%20sleep%20social%20temperature%20weight`;
