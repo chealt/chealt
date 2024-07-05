@@ -3898,7 +3898,7 @@ const RAW_RUNTIME_STATE =
           ["@chealt/browser-utils", "workspace:packages/browser-utils"],\
           ["@chealt/playwright-utils", "workspace:packages/playwright-utils"],\
           ["@playwright/test", "npm:1.45.1"],\
-          ["@preact/preset-vite", "virtual:924e42be4cacc59c755e1b8fbac336122ef9aaf191abce8473ec3b80ecf6a8b4be6143cfffd63c5ec74dd262e609e04e96e0036fd7b9d5557baff791c42ecf89#npm:2.8.3"],\
+          ["@preact/preset-vite", "virtual:924e42be4cacc59c755e1b8fbac336122ef9aaf191abce8473ec3b80ecf6a8b4be6143cfffd63c5ec74dd262e609e04e96e0036fd7b9d5557baff791c42ecf89#npm:2.8.2"],\
           ["@preact/signals", "virtual:924e42be4cacc59c755e1b8fbac336122ef9aaf191abce8473ec3b80ecf6a8b4be6143cfffd63c5ec74dd262e609e04e96e0036fd7b9d5557baff791c42ecf89#npm:1.2.3"],\
           ["@simplewebauthn/browser", "npm:10.0.0"],\
           ["@types/babel__core", "npm:7.20.5"],\
@@ -5288,22 +5288,22 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@preact/preset-vite", [\
-      ["npm:2.8.3", {\
-        "packageLocation": "./.yarn/cache/@preact-preset-vite-npm-2.8.3-ad221bc03c-4bb7ae3d81.zip/node_modules/@preact/preset-vite/",\
+      ["npm:2.8.2", {\
+        "packageLocation": "./.yarn/cache/@preact-preset-vite-npm-2.8.2-2123038b83-a54b14afbd.zip/node_modules/@preact/preset-vite/",\
         "packageDependencies": [\
-          ["@preact/preset-vite", "npm:2.8.3"]\
+          ["@preact/preset-vite", "npm:2.8.2"]\
         ],\
         "linkType": "SOFT"\
       }],\
-      ["virtual:924e42be4cacc59c755e1b8fbac336122ef9aaf191abce8473ec3b80ecf6a8b4be6143cfffd63c5ec74dd262e609e04e96e0036fd7b9d5557baff791c42ecf89#npm:2.8.3", {\
-        "packageLocation": "./.yarn/__virtual__/@preact-preset-vite-virtual-9647b7766d/0/cache/@preact-preset-vite-npm-2.8.3-ad221bc03c-4bb7ae3d81.zip/node_modules/@preact/preset-vite/",\
+      ["virtual:924e42be4cacc59c755e1b8fbac336122ef9aaf191abce8473ec3b80ecf6a8b4be6143cfffd63c5ec74dd262e609e04e96e0036fd7b9d5557baff791c42ecf89#npm:2.8.2", {\
+        "packageLocation": "./.yarn/__virtual__/@preact-preset-vite-virtual-6169fc599f/0/cache/@preact-preset-vite-npm-2.8.2-2123038b83-a54b14afbd.zip/node_modules/@preact/preset-vite/",\
         "packageDependencies": [\
-          ["@preact/preset-vite", "virtual:924e42be4cacc59c755e1b8fbac336122ef9aaf191abce8473ec3b80ecf6a8b4be6143cfffd63c5ec74dd262e609e04e96e0036fd7b9d5557baff791c42ecf89#npm:2.8.3"],\
+          ["@preact/preset-vite", "virtual:924e42be4cacc59c755e1b8fbac336122ef9aaf191abce8473ec3b80ecf6a8b4be6143cfffd63c5ec74dd262e609e04e96e0036fd7b9d5557baff791c42ecf89#npm:2.8.2"],\
           ["@babel/code-frame", "npm:7.24.7"],\
           ["@babel/core", "npm:7.24.7"],\
           ["@babel/plugin-transform-react-jsx", "virtual:924e42be4cacc59c755e1b8fbac336122ef9aaf191abce8473ec3b80ecf6a8b4be6143cfffd63c5ec74dd262e609e04e96e0036fd7b9d5557baff791c42ecf89#npm:7.24.7"],\
           ["@babel/plugin-transform-react-jsx-development", "virtual:924e42be4cacc59c755e1b8fbac336122ef9aaf191abce8473ec3b80ecf6a8b4be6143cfffd63c5ec74dd262e609e04e96e0036fd7b9d5557baff791c42ecf89#npm:7.24.7"],\
-          ["@prefresh/vite", "virtual:9647b7766d978810035368df24ff7983df3bb6b8be9c19d325ef494b38f04f0e8eea651c53592e0a015178d8f2548d76a95df20ca4f6d80d048c36c8802218c7#npm:2.4.5"],\
+          ["@prefresh/vite", "virtual:6169fc599f2dd670b4a4b101f06b2f07167eb455d602c966cd8b18c31c50331add60202bde64b0bff007e719fb855d387cd861d7a35d4820be2c2e815b0858f1#npm:2.4.5"],\
           ["@rollup/pluginutils", "npm:4.2.1"],\
           ["@types/babel__core", "npm:7.20.5"],\
           ["@types/vite", null],\
@@ -5375,10 +5375,10 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "SOFT"\
       }],\
-      ["virtual:1492e11d7cc64c7751b16e177f9b9bf67cd477341d06f8cf04161891589f43bbebb003a50e1793dd20b05b65a60e87062ff742d5dc9a315d12af9262a0684e56#npm:1.5.2", {\
-        "packageLocation": "./.yarn/__virtual__/@prefresh-core-virtual-0bc9f37bda/0/cache/@prefresh-core-npm-1.5.2-2a021cdfa1-5cbd0b1f34.zip/node_modules/@prefresh/core/",\
+      ["virtual:f4b9fcd2323b4760debd3dc07e86fc822f8efde972ddb471d4cb1d896d88a3d3b6bd7beac41ff653cb550962ac651e1c3da85506ce28a1f23b165ae645ba2014#npm:1.5.2", {\
+        "packageLocation": "./.yarn/__virtual__/@prefresh-core-virtual-2f51457fd5/0/cache/@prefresh-core-npm-1.5.2-2a021cdfa1-5cbd0b1f34.zip/node_modules/@prefresh/core/",\
         "packageDependencies": [\
-          ["@prefresh/core", "virtual:1492e11d7cc64c7751b16e177f9b9bf67cd477341d06f8cf04161891589f43bbebb003a50e1793dd20b05b65a60e87062ff742d5dc9a315d12af9262a0684e56#npm:1.5.2"],\
+          ["@prefresh/core", "virtual:f4b9fcd2323b4760debd3dc07e86fc822f8efde972ddb471d4cb1d896d88a3d3b6bd7beac41ff653cb550962ac651e1c3da85506ce28a1f23b165ae645ba2014#npm:1.5.2"],\
           ["@types/preact", null],\
           ["preact", null]\
         ],\
@@ -5406,13 +5406,13 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "SOFT"\
       }],\
-      ["virtual:9647b7766d978810035368df24ff7983df3bb6b8be9c19d325ef494b38f04f0e8eea651c53592e0a015178d8f2548d76a95df20ca4f6d80d048c36c8802218c7#npm:2.4.5", {\
-        "packageLocation": "./.yarn/__virtual__/@prefresh-vite-virtual-1492e11d7c/0/cache/@prefresh-vite-npm-2.4.5-d64be9290c-14b2dda875.zip/node_modules/@prefresh/vite/",\
+      ["virtual:6169fc599f2dd670b4a4b101f06b2f07167eb455d602c966cd8b18c31c50331add60202bde64b0bff007e719fb855d387cd861d7a35d4820be2c2e815b0858f1#npm:2.4.5", {\
+        "packageLocation": "./.yarn/__virtual__/@prefresh-vite-virtual-f4b9fcd232/0/cache/@prefresh-vite-npm-2.4.5-d64be9290c-14b2dda875.zip/node_modules/@prefresh/vite/",\
         "packageDependencies": [\
-          ["@prefresh/vite", "virtual:9647b7766d978810035368df24ff7983df3bb6b8be9c19d325ef494b38f04f0e8eea651c53592e0a015178d8f2548d76a95df20ca4f6d80d048c36c8802218c7#npm:2.4.5"],\
+          ["@prefresh/vite", "virtual:6169fc599f2dd670b4a4b101f06b2f07167eb455d602c966cd8b18c31c50331add60202bde64b0bff007e719fb855d387cd861d7a35d4820be2c2e815b0858f1#npm:2.4.5"],\
           ["@babel/core", "npm:7.24.7"],\
           ["@prefresh/babel-plugin", "npm:0.5.1"],\
-          ["@prefresh/core", "virtual:1492e11d7cc64c7751b16e177f9b9bf67cd477341d06f8cf04161891589f43bbebb003a50e1793dd20b05b65a60e87062ff742d5dc9a315d12af9262a0684e56#npm:1.5.2"],\
+          ["@prefresh/core", "virtual:f4b9fcd2323b4760debd3dc07e86fc822f8efde972ddb471d4cb1d896d88a3d3b6bd7beac41ff653cb550962ac651e1c3da85506ce28a1f23b165ae645ba2014#npm:1.5.2"],\
           ["@prefresh/utils", "npm:1.2.0"],\
           ["@rollup/pluginutils", "npm:4.2.1"],\
           ["@types/preact", null],\

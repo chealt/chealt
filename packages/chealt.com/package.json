@@ -35,7 +35,7 @@
     "@babel/plugin-transform-react-jsx": "^7.24.7",
     "@babel/plugin-transform-react-jsx-development": "^7.24.7",
     "@playwright/test": "^1.45.1",
-    "@preact/preset-vite": "^2.8.3",
+    "@preact/preset-vite": "2.8.2",
     "@types/babel__core": "^7.20.5",
     "babel-plugin-transform-hook-names": "^1.0.2",
     "concurrently": "^8.2.2",
