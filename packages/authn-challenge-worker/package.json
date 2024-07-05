@@ -4,6 +4,6 @@
   "private": true,
   "main": "./src/index.js",
   "devDependencies": {
-    "wrangler": "^3.61.0"
+    "wrangler": "^3.63.1"
   }
 }
