@@ -54,8 +54,8 @@ const db = async ({ database }) => {
             }
 
             promises.push(
-              new Promise((resolve) => {
-                objectStore.transaction.oncomplete = resolve;
+              new Promise((r) => {
+                objectStore.transaction.oncomplete = r;
               })
             );
           } else if (indexes[name]) {

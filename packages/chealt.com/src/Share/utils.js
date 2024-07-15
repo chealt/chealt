@@ -77,7 +77,7 @@ const upload = async (
             ...rest,
             profilePicture
           }
-        })
+        });
       }
     }
   }
@@ -116,7 +116,7 @@ const download = async (url, { encryptData, password } = {}) => {
   } = encryptData ? JSON.parse(await decrypt({ encryptedData: data, password })) : data;
 
   const documents = await Promise.all(
-    documentsMetaOnly.map(async ({ key, value: { savedTimestamp, ...rest } }) => {
+    documentsMetaOnly.map(async ({ key, value: { savedTimestamp, ...rest } }) => { // eslint-disable-line no-unused-vars
       const fileContent = await fetch(`${getDownloadUrl()}/${rest.hash}`);
       const blob = encryptData
         ? await decrypt({ encryptedData: await fileContent.arrayBuffer(), password, isFile: true })
@@ -134,7 +134,7 @@ const download = async (url, { encryptData, password } = {}) => {
   );
 
   const profiles = await Promise.all(
-    profilesMetaOnly.map(async ({ key, value: { savedTimestamp, profilePicture, ...rest } }) => {
+    profilesMetaOnly.map(async ({ key, value: { savedTimestamp, profilePicture, ...rest } }) => { // eslint-disable-line no-unused-vars
       const fileContent = await fetch(`${getDownloadUrl()}/${profilePicture.hash}`);
       const blob = encryptData
         ? await decrypt({ encryptedData: await fileContent.arrayBuffer(), password, isFile: true })
