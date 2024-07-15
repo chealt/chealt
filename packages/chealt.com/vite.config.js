@@ -4,7 +4,15 @@ import { VitePWA } from 'vite-plugin-pwa';
 
 export default defineConfig({
   plugins: [
-    preact(),
+    preact({
+      prerender: {
+        enabled: true,
+        renderTarget: "#app",
+        additionalPrerenderRoutes: ["/404"],
+        previewMiddlewareEnabled: true,
+        previewMiddlewareFallback: "/404"
+      }
+    }),
     // eslint-disable-next-line new-cap
     VitePWA({
       injectRegister: 'auto',
