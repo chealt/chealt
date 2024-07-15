@@ -20,7 +20,7 @@ const config = {
       }
     },
     {
-      files: ['packages/chealt.com/**/*.js'],
+      files: ['packages/chealt.com/**/*.jsx'],
       ...preactConfig
     },
     {

@@ -7,15 +7,14 @@ export default defineConfig({
     preact({
       prerender: {
         enabled: true,
-        renderTarget: "#app",
-        additionalPrerenderRoutes: ["/404"],
+        renderTarget: '#app',
+        additionalPrerenderRoutes: ['/404'],
         previewMiddlewareEnabled: true,
-        previewMiddlewareFallback: "/404"
+        previewMiddlewareFallback: '/404'
       }
     }),
     // eslint-disable-next-line new-cap
     VitePWA({
-      injectRegister: 'auto',
       manifest: {
         name: 'Chealt',
         short_name: 'Chealt', // eslint-disable-line camelcase
@@ -24,17 +23,8 @@ export default defineConfig({
       },
       devOptions: {
         enabled: true
-      }
+      },
+      suppressWarnings: true
     })
-  ],
-  esbuild: {
-    loader: 'jsx'
-  },
-  optimizeDeps: {
-    esbuildOptions: {
-      loader: {
-        '.js': 'jsx'
-      }
-    }
-  }
+  ]
 });
