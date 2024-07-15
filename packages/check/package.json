@@ -4,13 +4,13 @@
   "license": "MIT",
   "main": "src/index.js",
   "peerDependencies": {
-    "@babel/eslint-parser": "^7.24.7",
+    "@babel/eslint-parser": "^7.24.8",
     "@babel/preset-react": "^7.24.7",
     "eslint": "^8.57.0",
     "eslint-config-preact": "^1.4.0",
-    "eslint-plugin-i18next": "^6.0.3",
+    "eslint-plugin-i18next": "^6.0.9",
     "eslint-plugin-import": "^2.29.1",
-    "eslint-plugin-react": "^7.34.3"
+    "eslint-plugin-react": "^7.34.4"
   },
   "publishConfig": {
     "access": "public",
