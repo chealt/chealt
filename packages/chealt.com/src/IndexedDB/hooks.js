@@ -10,19 +10,19 @@ const useObjectStore = (name, { sortBy, sortOrder } = {}) => {
   const getItem = useCallback((key) => instance?.get({ type: name, key }), [instance, name]);
 
   const loadItems = useCallback(async () => {
-    let items;
+    let localItems;
 
     if (name) {
-      items = await instance.list({ type: name, sortBy, sortOrder });
+      localItems = await instance.list({ type: name, sortBy, sortOrder });
     } else {
-      items = {};
+      localItems = {};
 
-      for (const name of objectStoreNames) {
-        items[name] = await instance.list({ type: name });
+      for (const objectStoreName of objectStoreNames) {
+        localItems[objectStoreName] = await instance.list({ type: objectStoreName });
       }
     }
 
-    setItems(items);
+    setItems(localItems);
     setIsLoading(false);
 
     return items;
@@ -37,12 +37,12 @@ const useObjectStore = (name, { sortBy, sortOrder } = {}) => {
 
         await instance.save({ type: name, key, value });
       } else {
-        for (const name of objectStoreNames) {
-          if (props[name]) {
-            for (const item of props[name]) {
+        for (const objectStoreName of objectStoreNames) {
+          if (props[objectStoreName]) {
+            for (const item of props[objectStoreName]) {
               const { key, value } = item;
 
-              await instance.save({ type: name, key, value });
+              await instance.save({ type: objectStoreName, key, value });
             }
           }
         }
@@ -55,8 +55,8 @@ const useObjectStore = (name, { sortBy, sortOrder } = {}) => {
   );
 
   const deleteItems = useCallback(
-    async (items) => {
-      await Promise.all(items.map((key) => instance.deleteItem({ type: name, key })));
+    async (itemsToDelete) => {
+      await Promise.all(itemsToDelete.map((key) => instance.deleteItem({ type: name, key })));
 
       // refresh items after delete
       return loadItems();
