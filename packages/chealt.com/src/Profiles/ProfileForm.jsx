@@ -56,8 +56,6 @@ const ProfileForm = ({
 
       refresh();
 
-      // clear inputs
-      event.target.name.value = null;
       event.target.profilePicture.value = null; // clear the profile picture input after saving
 
       addToast({ message: 'Profile saved' });
