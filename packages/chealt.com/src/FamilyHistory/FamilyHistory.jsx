@@ -41,7 +41,7 @@ const FamilyHistory = () => {
   const hasItems = Boolean(profileItems.length);
 
   const editItem = (key) => {
-    const item = profileItems.find((item) => key === item.key);
+    const item = profileItems.find((i) => key === i.key);
 
     setItemToEdit(item);
     setIsModalOpen(true);
