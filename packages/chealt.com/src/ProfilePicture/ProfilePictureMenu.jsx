@@ -38,9 +38,9 @@ const ProfilePictureMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
   const changeProfile = (profileId) => async () => {
-    const profiles = await refreshProfiles();
+    const mewProfiles = await refreshProfiles();
 
-    for (const profile of profiles) {
+    for (const profile of mewProfiles) {
       await save({
         key: profile.key,
         value: { ...profile.value, isSelected: profile.key === profileId }

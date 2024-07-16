@@ -38,7 +38,7 @@ const Item = ({
   const saveFormData = async (event) => {
     event.preventDefault();
 
-    const { name, blob, ...rest } = document;
+    const { name, blob, ...rest } = document; // eslint-disable-line no-unused-vars
 
     try {
       await save({
@@ -60,7 +60,7 @@ const Item = ({
 
       addToast({ message: t('pages.documents.saveFailure'), role: 'alert' });
     }
-  }
+  };
 
   useEffect(() => {
     if (route.documentKey) {
