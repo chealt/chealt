@@ -9,8 +9,8 @@ import LoadingIndicator from '../LoadingIndicator/LoadingIndicator';
 import ProfileProvider from '../Profiles/Provider';
 import Toast from '../Toast/Toast';
 
-const Home = lazy(() => import(`../pages/Home`));
-const Documents = lazy(() => import(`../pages/Documents`));
+const Home = lazy(() => import('../pages/Home'));
+const Documents = lazy(() => import('../pages/Documents'));
 const View = lazy(() => import('../pages/View'));
 const PersonalDetails = lazy(() => import('../pages/PersonalDetails'));
 const Share = lazy(() => import('../pages/Share'));
@@ -18,7 +18,7 @@ const CheckUps = lazy(() => import('../pages/CheckUps'));
 const Vaccinations = lazy(() => import('../pages/Vaccinations'));
 const Integrations = lazy(() => import('../pages/Integrations'));
 const Profiles = lazy(() => import('../pages/Profiles'));
-const FamilyHistory = lazy(() => import(`../pages/FamilyHistory`));
+const FamilyHistory = lazy(() => import('../pages/FamilyHistory'));
 const NotFound = lazy(() => import('../pages/_404'));
 
 let isInitialRender = true;

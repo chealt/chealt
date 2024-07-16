@@ -1,7 +1,8 @@
 import { use } from 'i18next';
-import { useContext, useEffect, useState } from 'preact/hooks';
+import { useContext, useEffect } from 'preact/hooks';
 import { initReactI18next, useTranslation } from 'preact-i18next';
 
+import { defaultLanguage } from './defaults';
 import { setSelectedLanguage } from './signals';
 import { AppState } from '../App/state';
 import { useObjectStore } from '../IndexedDB/hooks';
@@ -11,57 +12,49 @@ import enUS from '../translation/en-US.json';
 import hu from '../translation/hu.json';
 import po from '../translation/po.json';
 
-export const defaultLanguage = 'en-US';
+use(initReactI18next).init({
+  resources: {
+    'en-GB': {
+      translation: enGB
+    },
+    'en-US': {
+      translation: enUS
+    },
+    hu: {
+      translation: hu
+    },
+    po: {
+      translation: po
+    },
+    da: {
+      translation: da
+    }
+  },
+  fallbackLng: defaultLanguage,
+  interpolation: {
+    escapeValue: false
+  },
+  returnEmptyString: false
+});
 
 const IntlProvider = ({ children }) => {
-  const { i18n } = useTranslation();
+  const translation = useTranslation();
   const {
     profiles: { selectedProfileId }
   } = useContext(AppState);
-  const [isInitialized, setInitialized] = useState(false);
   const { items: profiles, isLoading } = useObjectStore('profiles');
   const selectedProfile =
     !isLoading && profiles?.find(({ value: { id } }) => id === selectedProfileId.value);
-  const savedLanguage = !isLoading && selectedProfileId.value && selectedProfile?.value.language;
+  const savedLanguage = !isLoading && selectedProfileId.value && (selectedProfile?.value.language || defaultLanguage);
 
   useEffect(() => {
-    if (!isInitialized && !isLoading) {
-      use(initReactI18next) // passes i18n down to react-i18next
-        .init({
-          resources: {
-            'en-GB': {
-              translation: enGB
-            },
-            'en-US': {
-              translation: enUS
-            },
-            hu: {
-              translation: hu
-            },
-            po: {
-              translation: po
-            },
-            da: {
-              translation: da
-            }
-          },
-          fallbackLng: 'en-US',
-          interpolation: {
-            escapeValue: false
-          },
-          lng: savedLanguage || defaultLanguage,
-          returnEmptyString: false
-        })
-        .then(() => {
-          setInitialized(true);
-          setSelectedLanguage(savedLanguage);
-        });
-    } else if (isInitialized) {
-      i18n.changeLanguage(savedLanguage);
+    if (savedLanguage) {
+      translation.i18n.changeLanguage(savedLanguage);
+      setSelectedLanguage(savedLanguage);
     }
-  }, [isInitialized, isLoading, savedLanguage, i18n]);
+  }, [savedLanguage, translation.i18n]);
 
-  return isInitialized ? children : null;
+  return children;
 };
 
 export default IntlProvider;

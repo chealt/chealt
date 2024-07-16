@@ -49,7 +49,7 @@ const PersonalDetails = () => {
 
   const imperialUnitHeight = personalDetails.height
     ? getImperialUnitHeight(personalDetails.height)
-    : `- " - '`;
+    : '- " - \'';
   const imperialUnitWeight = personalDetails.weight
     ? `${getImperialUnitWeight(personalDetails.weight)} lb`
     : '- lb';

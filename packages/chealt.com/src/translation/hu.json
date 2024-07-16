@@ -74,8 +74,8 @@
       "deleteFailure": ""
     },
     "profiles": {
-      "nav": "profiles",
-      "title": "",
+      "nav": "profilok",
+      "title": "profilok",
       "instructions": "",
       "confirmDelete": ""
     },

@@ -21,7 +21,8 @@ const config = {
     },
     {
       files: ['packages/chealt.com/**/*.jsx'],
-      ...preactConfig
+      ...preactConfig,
+      ...baseConfig
     },
     {
       files: ['packages/chealt.com/vite.config.js'],

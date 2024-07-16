@@ -1,4 +1,5 @@
 import { setSelectedProfileId } from './signals';
+import { defaultLanguage } from '../Intl/defaults';
 
 const createDefaultProfile = ({ instance }) => {
   const id = crypto.randomUUID();
@@ -6,7 +7,7 @@ const createDefaultProfile = ({ instance }) => {
   instance.save({
     type: 'profiles',
     key: id,
-    value: { id, name: 'default', isSelected: true }
+    value: { id, name: 'default', isSelected: true, language: defaultLanguage }
   });
 
   return id;

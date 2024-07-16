@@ -50,7 +50,7 @@ const Profiles = () => {
   };
 
   const editProfile = (key) => {
-    const profile = profiles.find((profile) => key === profile.key);
+    const profile = profiles.find((p) => key === p.key);
 
     setProfileToEdit(profile.value);
     setIsModalOpen(true);

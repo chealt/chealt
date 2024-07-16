@@ -2,6 +2,8 @@
 .yarn
 build
 commonjs
+dev-dist
 dist
 node_modules
 !.stylelintrc.js
+vite.config.js.timestamp*

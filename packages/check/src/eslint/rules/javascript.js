@@ -193,6 +193,7 @@ const config = {
   'no-useless-return': 'error',
   'no-whitespace-before-property': 'error',
   'no-var': 'error',
+  'object-curly-spacing': ['error', 'always'],
   'object-curly-newline': ['error', { consistent: true, multiline: true }],
   'object-property-newline': ['error', { allowAllPropertiesOnSameLine: true }],
   'object-shorthand': 'error',
@@ -214,6 +215,11 @@ const config = {
   'semi-spacing': ['error', { before: false, after: true }],
   'semi-style': 'error',
   'space-before-blocks': 'error',
+  'space-before-function-paren': ['error', {
+    anonymous: 'never',
+    named: 'never',
+    asyncArrow: 'always'
+  }],
   'space-unary-ops': ['error', { words: true, nonwords: false }],
   'spaced-comment': ['error', 'always', { exceptions: ['-'] }],
   strict: ['error', 'global'],

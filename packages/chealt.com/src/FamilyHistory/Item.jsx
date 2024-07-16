@@ -20,11 +20,11 @@ const Item = ({ save, onDone, ...rest }) => {
   const saveFormData = async (event) => {
     event.preventDefault();
 
-    const { firstName, lastName, dateOfBirth } = event.target;
+    const { firstName: firstNameInput, lastName: lastNameInput, dateOfBirth: dateOfBirthInput } = event.target;
     const familyHistory = {
-      firstName: firstName.value,
-      lastName: lastName.value,
-      dateOfBirth: dateOfBirth.value,
+      firstName: firstNameInput.value,
+      lastName: lastNameInput.value,
+      dateOfBirth: dateOfBirthInput.value,
       conditions: conditions ? conditions.split(',') : [],
       profileId: selectedProfileId.value
     };

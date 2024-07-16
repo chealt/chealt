@@ -5,7 +5,6 @@ import { getFilesFromEvent } from '../Documents/utils';
 import Button from '../Form/Button';
 import Form from '../Form/Form';
 import Input from '../Form/Input';
-import { defaultLanguage } from '../Intl/IntlProvider';
 import LanguageSelector from '../Intl/LanguageSelector';
 import Modal from '../Modal/Modal';
 import { add as addToast } from '../Toast/Toast';
@@ -24,11 +23,15 @@ const ProfileForm = ({
   const { t } = useTranslation();
   const [selectedName, setSelectedName] = useState(name);
   const [selectedProfilePicture, setSelectedProfilePicture] = useState();
-  const [selectedLanguage, setSelectedLanguage] = useState(language || defaultLanguage);
+  const [selectedLanguage, setSelectedLanguage] = useState(language);
 
   useEffect(() => {
     setSelectedName(name);
   }, [name]);
+
+  useEffect(() => {
+    setSelectedLanguage(language);
+  }, [language]);
 
   const close = () => {
     setSelectedProfilePicture();
@@ -53,12 +56,9 @@ const ProfileForm = ({
 
       refresh();
 
-      // clear inputs
-      event.target.name.value = null;
+      event.target.profilePicture.value = null; // clear the profile picture input after saving
 
       addToast({ message: 'Profile saved' });
-
-      event.target.profilePicture.value = null; // clear the profile picture input after saving
 
       close();
     } catch {
@@ -99,7 +99,7 @@ const ProfileForm = ({
         </Input>
         <LanguageSelector
           onChange={setSelectedLanguage}
-          language={selectedLanguage || language || defaultLanguage}
+          language={selectedLanguage || language}
           profileId={id}
         />
         <Button emphasized type="submit">

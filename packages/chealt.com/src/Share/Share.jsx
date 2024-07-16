@@ -64,9 +64,9 @@ const Share = () => {
     setLoadingDownloadUrl(true);
 
     try {
-      const downloadUrl = await upload(items, { encryptData, password });
+      const newDownloadUrl = await upload(items, { encryptData, password });
 
-      setDownloadUrl(downloadUrl);
+      setDownloadUrl(newDownloadUrl);
       setIsQRCodeModalOpen(true);
       setLoadingDownloadUrl(false);
       addToast({ message: 'Upload successful' });

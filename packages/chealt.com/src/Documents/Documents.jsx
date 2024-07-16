@@ -51,9 +51,9 @@ const Documents = () => {
     event.preventDefault();
 
     try {
-      const documents = await getFilesFromEvent(event);
+      const newDocuments = await getFilesFromEvent(event);
 
-      for (const document of documents) {
+      for (const document of newDocuments) {
         await save({
           key: crypto.randomUUID(),
           value: { ...document, profileId: selectedProfileId.value }
