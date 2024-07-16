@@ -31,6 +31,10 @@ const GoogleAuthButton = () => {
     }
   }, [t, authUrl, tokens]);
 
+  if (!authUrl && !tokens) {
+    return <LoadingIndicator />;
+  }
+
   return (
     <>
       <Button
@@ -43,7 +47,6 @@ const GoogleAuthButton = () => {
         isLink={!tokens}
         wide
       >
-        {!tokens && !authUrl && <LoadingIndicator size="small" />}
         <Google className={styles.logo} />
         {!tokens ? t('google.signIn') : t('google.signedIn')}
       </Button>
