@@ -5,6 +5,7 @@ import { useTranslation } from 'preact-i18next';
 import { getAuthUrl, retrieveTokens } from './utils';
 import Button from '../Form/Button';
 import Google from '../Icons/Google';
+import LoadingIndicator from '../LoadingIndicator/LoadingIndicator';
 import { add as addToast } from '../Toast/Toast';
 
 import * as styles from './GoogleAuthButton.module.css';
@@ -42,6 +43,7 @@ const GoogleAuthButton = () => {
         isLink={!tokens}
         wide
       >
+        {!tokens && !authUrl && <LoadingIndicator size="small" />}
         <Google className={styles.logo} />
         {!tokens ? t('google.signIn') : t('google.signedIn')}
       </Button>
