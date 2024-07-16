@@ -1,24 +1,25 @@
 import { useState } from 'preact/hooks';
-import { LocationProvider, Router, Route, ErrorBoundary } from 'preact-iso';
+import { LocationProvider, Router, Route, ErrorBoundary, lazy } from 'preact-iso';
 
 import { createAppState, AppState } from './state';
-import CheckUps from '../CheckUps/CheckUps';
-import Documents from '../Documents/Documents';
-import ViewDocument from '../Documents/View';
-import FamilyHistory from '../FamilyHistory/FamilyHistory';
 import Header from '../Header/Header';
-import Home from '../Home/Home';
-import Integrations from '../Integrations/Integrations';
 import IntlProvider from '../Intl/IntlProvider';
 import LayoutContainer from '../Layout/Container';
 import LoadingIndicator from '../LoadingIndicator/LoadingIndicator';
-import NotFound from '../NotFound/NotFound';
-import PersonalDetails from '../PersonalDetails/PersonalDetails';
-import Profiles from '../Profiles/Profiles';
 import ProfileProvider from '../Profiles/Provider';
-import Share from '../Share/Share';
 import Toast from '../Toast/Toast';
-import Vaccinations from '../Vaccinations/Vaccinations';
+
+const Home = lazy(() => import('../pages/Home'));
+const Documents = lazy(() => import('../pages/Documents'));
+const View = lazy(() => import('../pages/View'));
+const PersonalDetails = lazy(() => import('../pages/PersonalDetails'));
+const Share = lazy(() => import('../pages/Share'));
+const CheckUps = lazy(() => import('../pages/CheckUps'));
+const Vaccinations = lazy(() => import('../pages/Vaccinations'));
+const Integrations = lazy(() => import('../pages/Integrations'));
+const Profiles = lazy(() => import('../pages/Profiles'));
+const FamilyHistory = lazy(() => import('../pages/FamilyHistory'));
+const NotFound = lazy(() => import('../pages/_404'));
 
 let isInitialRender = true;
 
@@ -50,7 +51,7 @@ const App = () => {
                     <Route path="/documents/edit/:documentKey" component={Documents} />
                     <Route
                       path="/documents/view/:encodedDocumentKey/:refererPage"
-                      component={ViewDocument}
+                      component={View}
                     />
                     <Route path="/share" component={Share} />
                     <Route path="/personal-details" component={PersonalDetails} />
