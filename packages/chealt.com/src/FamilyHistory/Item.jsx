@@ -20,7 +20,7 @@ const Item = ({ save, onDone, ...rest }) => {
   const saveFormData = async (event) => {
     event.preventDefault();
 
-    const { firstNameInput, lastNameInput, dateOfBirthInput } = event.target;
+    const { firstName: firstNameInput, lastName: lastNameInput, dateOfBirth: dateOfBirthInput } = event.target;
     const familyHistory = {
       firstName: firstNameInput.value,
       lastName: lastNameInput.value,
