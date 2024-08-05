@@ -4,13 +4,13 @@
   "license": "MIT",
   "main": "src/index.js",
   "peerDependencies": {
-    "@babel/eslint-parser": "^7.24.8",
+    "@babel/eslint-parser": "^7.25.1",
     "@babel/preset-react": "^7.24.7",
     "eslint": "^8.57.0",
     "eslint-config-preact": "^1.4.0",
     "eslint-plugin-i18next": "^6.0.9",
     "eslint-plugin-import": "^2.29.1",
-    "eslint-plugin-react": "^7.34.4"
+    "eslint-plugin-react": "^7.35.0"
   },
   "publishConfig": {
     "access": "public",
@@ -18,7 +18,7 @@
   },
   "sideEffects": false,
   "dependencies": {
-    "eslint-plugin-jest": "^28.6.0",
+    "eslint-plugin-jest": "^28.7.0",
     "eslint-plugin-playwright": "^1.6.2"
   },
   "devDependencies": {
