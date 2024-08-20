@@ -18,7 +18,7 @@
   },
   "sideEffects": false,
   "dependencies": {
-    "eslint-plugin-jest": "^28.7.0",
+    "eslint-plugin-jest": "^28.8.0",
     "eslint-plugin-playwright": "^1.6.2"
   },
   "devDependencies": {
