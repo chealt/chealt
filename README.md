@@ -1,5 +1,8 @@
 # chealt starter
 
+[![Lint](https://github.com/chealt/chealt/actions/workflows/lint.yml/badge.svg)](https://github.com/chealt/chealt/actions/workflows/lint.yml)
+[![Format](https://github.com/chealt/chealt/actions/workflows/format.yml/badge.svg)](https://github.com/chealt/chealt/actions/workflows/format.yml)
+
 Local-first monorepo using Yarn workspaces, Astro + Vite + Web Components, and Cloudflare Workers with Turso sync.
 
 ## Stack
