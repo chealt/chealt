@@ -1,15 +1,19 @@
 import { createClient } from '@libsql/client';
 import { z } from 'zod';
 
-const entrySchema = z.object({
+const activitySchema = z.object({
   id: z.string(),
-  title: z.string(),
+  source: z.string(),
+  type: z.string(),
+  startAt: z.string(),
+  endAt: z.string().nullable().optional(),
+  metrics: z.record(z.any()).optional(),
   updatedAt: z.string(),
   dirty: z.boolean().optional(),
 });
 
 const payloadSchema = z.object({
-  entries: z.array(entrySchema),
+  activities: z.array(activitySchema),
 });
 
 function json(data, init) {
@@ -26,12 +30,19 @@ async function ensureSchema(env) {
   });
 
   await db.execute(`
-    CREATE TABLE IF NOT EXISTS entries (
+    CREATE TABLE IF NOT EXISTS activities (
       id TEXT PRIMARY KEY,
-      title TEXT NOT NULL,
+      source TEXT NOT NULL,
+      type TEXT NOT NULL,
+      start_at TEXT NOT NULL,
+      end_at TEXT,
+      metrics_json TEXT NOT NULL,
       updated_at TEXT NOT NULL
     )
   `);
+
+  await db.execute('CREATE INDEX IF NOT EXISTS idx_activities_start_at ON activities (start_at)');
+  await db.execute('CREATE INDEX IF NOT EXISTS idx_activities_type ON activities (type)');
 }
 
 export default {
@@ -71,18 +82,30 @@ export default {
     });
 
     const ackedIds = [];
-    for (const entry of parsed.data.entries) {
+    for (const activity of parsed.data.activities) {
       await db.execute({
         sql: `
-          INSERT INTO entries (id, title, updated_at)
-          VALUES (?, ?, ?)
+          INSERT INTO activities (id, source, type, start_at, end_at, metrics_json, updated_at)
+          VALUES (?, ?, ?, ?, ?, ?, ?)
           ON CONFLICT(id) DO UPDATE SET
-            title = excluded.title,
+            source = excluded.source,
+            type = excluded.type,
+            start_at = excluded.start_at,
+            end_at = excluded.end_at,
+            metrics_json = excluded.metrics_json,
             updated_at = excluded.updated_at
         `,
-        args: [entry.id, entry.title, entry.updatedAt],
+        args: [
+          activity.id,
+          activity.source,
+          activity.type,
+          activity.startAt,
+          activity.endAt ?? null,
+          JSON.stringify(activity.metrics ?? {}),
+          activity.updatedAt,
+        ],
       });
-      ackedIds.push(entry.id);
+      ackedIds.push(activity.id);
     }
 
     return json({ ackedIds });

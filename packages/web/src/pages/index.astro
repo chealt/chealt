@@ -1,5 +1,9 @@
 ---
 import '../styles/global.css';
+import RunActivity from '../components/activities/RunActivity.astro';
+import WalkActivity from '../components/activities/WalkActivity.astro';
+import SleepActivity from '../components/activities/SleepActivity.astro';
+import HeartRateActivity from '../components/activities/HeartRateActivity.astro';
 ---
 
 <html lang="en">
@@ -9,11 +13,35 @@ import '../styles/global.css';
     <title>chealt local-first starter</title>
   </head>
   <body>
-    <main>
-      <h1>chealt</h1>
-      <p>Astro static frontend with Web Components and IndexedDB-first sync.</p>
-      <local-first-app></local-first-app>
-    </main>
+    <div class="page-shell">
+      <aside class="global-sidenav is-collapsed">
+        <button id="nav-toggle" class="nav-toggle" type="button" aria-label="Toggle navigation">☰</button>
+        <h3 class="nav-copy">Activity pages</h3>
+        <nav id="activity-pages" class="tabs activity-nav" aria-label="Activity pages">
+          <button type="button" class="tab nav-item is-active" data-page="all" aria-current="page" aria-label="Dashboard">
+            <svg class="tab-icon icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12L12 4l9 8M5 10v10h14V10"></path></svg><span class="tab-text">Dashboard</span>
+          </button>
+          <button type="button" class="tab nav-item" data-page="run" aria-current="false" aria-label="Runs">
+            <svg class="tab-icon icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 5a2 2 0 1 0 0.001 0zM7 21l3-6 3 2 2 4M9 10l3 2 3-1 3 2"></path></svg><span class="tab-text">Runs</span>
+          </button>
+          <button type="button" class="tab nav-item" data-page="walk" aria-current="false" aria-label="Walks">
+            <svg class="tab-icon icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5a2 2 0 1 0 0.001 0zM10 21l1-5-2-3m5 8-1-6 2-3"></path></svg><span class="tab-text">Walks</span>
+          </button>
+          <button type="button" class="tab nav-item" data-page="sleep" aria-current="false" aria-label="Sleep">
+            <svg class="tab-icon icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h8l-8 10h8M14 9h6l-6 8h6"></path></svg><span class="tab-text">Sleep</span>
+          </button>
+        </nav>
+      </aside>
+      <main>
+        <local-first-app></local-first-app>
+        <section class="activity-astro-grid">
+          <RunActivity />
+          <WalkActivity />
+          <SleepActivity />
+          <HeartRateActivity />
+        </section>
+      </main>
+    </div>
     <script>
       import '../components/local-first-app.js';
     </script>

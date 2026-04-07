@@ -1,10 +1,10 @@
-import { listDirtyEntries, markClean } from './db';
+import { listDirtyActivities, markActivitiesSynced } from './db';
 
 const apiUrl = import.meta.env.PUBLIC_SYNC_API_URL ?? 'http://127.0.0.1:8787';
 const apiKey = import.meta.env.PUBLIC_SYNC_API_KEY ?? '';
 
-export async function syncDirtyEntries() {
-  const dirty = await listDirtyEntries();
+export async function syncActivities() {
+  const dirty = await listDirtyActivities();
   if (dirty.length === 0) return 0;
 
   const response = await fetch(`${apiUrl}/api/sync`, {
@@ -13,7 +13,7 @@ export async function syncDirtyEntries() {
       'content-type': 'application/json',
       'x-sync-key': apiKey,
     },
-    body: JSON.stringify({ entries: dirty }),
+    body: JSON.stringify({ activities: dirty }),
   });
 
   if (!response.ok) {
@@ -21,6 +21,6 @@ export async function syncDirtyEntries() {
   }
 
   const data = await response.json();
-  await markClean(data.ackedIds);
+  await markActivitiesSynced(data.ackedIds);
   return data.ackedIds.length;
 }

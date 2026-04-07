@@ -10,11 +10,16 @@
     "lint": "oxlint .",
     "lint:fix": "oxlint . --fix",
     "format": "oxfmt --check .",
-    "format:fix": "oxfmt ."
+    "format:fix": "oxfmt .",
+    "test:e2e": "playwright test"
   },
   "devDependencies": {
+    "@axe-core/playwright": "latest",
+    "@playwright/test": "latest",
+    "jszip": "latest",
     "oxfmt": "latest",
-    "oxlint": "latest"
+    "oxlint": "latest",
+    "playwright-core": "latest"
   },
   "packageManager": "yarn@4.10.3"
 }

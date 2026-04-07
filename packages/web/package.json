@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "astro": "latest",
+    "jszip": "latest",
     "zod": "latest"
   },
   "devDependencies": {

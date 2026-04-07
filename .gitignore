@@ -11,3 +11,6 @@ node_modules
 .wrangler
 .astro
 dist
+example-data
+playwright-report
+test-results
