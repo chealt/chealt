@@ -1,9 +1,0 @@
-.controls {
-  display: flex;
-  justify-content: flex-end;
-  gap: var(--gap);
-}
-
-.controls > * {
-  width: auto;
-}

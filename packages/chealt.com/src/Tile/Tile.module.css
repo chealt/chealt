@@ -1,8 +1,0 @@
-.tile {
-  display: grid;
-  gap: var(--gap);
-  padding: var(--gap--l);
-  background-color: var(--color-background--alt);
-  border-radius: var(--border-radius);
-  border: none; /* remove li styles */
-}

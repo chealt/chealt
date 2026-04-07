@@ -1,8 +1,0 @@
-.section {
-  padding: var(--gap--l);
-  display: flex;
-  flex-direction: column;
-  gap: var(--gap--l);
-  background-color: var(--color-background--alt);
-  border-radius: var(--border-radius);
-}

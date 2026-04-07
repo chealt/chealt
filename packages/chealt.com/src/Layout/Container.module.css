@@ -1,9 +1,0 @@
-.container {
-  display: grid;
-  gap: var(--gap--l);
-  margin: 0 auto;
-}
-
-.container.largeLimit {
-  max-width: 900px;
-}

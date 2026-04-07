@@ -1,9 +1,0 @@
-.image {
-  width: 100%;
-}
-
-.view {
-  display: flex;
-  flex-direction: column;
-  gap: var(--gap--l);
-}

@@ -1,34 +1,13 @@
 node_modules
-
-# Mac
-.DS_Store
-
-# Yarn
 .yarn/*
-!.yarn/cache
-!.yarn/patches
-!.yarn/plugins
 !.yarn/releases
+!.yarn/plugins
 !.yarn/sdks
-!.yarn/versions
-
-# IDE stuff
-.idea
-.editorconfig
-.project
-
-# Build
-build
-size-plugin.json
-
-# Stylelint
-.stylelintcache
-/test-results/
-/playwright-report/
-/playwright/.cache/
-
-# Vite
-dev-dist
-
-# Wrangler
+.pnp.*
+.DS_Store
+.env
+.env.*
+!.env.example
 .wrangler
+.astro
+dist
